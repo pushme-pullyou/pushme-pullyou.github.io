@@ -1,6 +1,6 @@
 <span style=display:none; >[You are now in GitHub source code view. Click here to view README file in GitHub Pages view]
-( https://pushme-pullyou.github.io/gubgub/#README.md "View file as a web page." ) </span>
-<input type=button onclick=window.location.href='https://github.com/pushme-pullyou/gubgub/';
+( https://pushme-pullyou.github.io/gubgub/r2/index.html#../README.md "View file as a web page." ) </span>
+<input type=button onclick=window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/gubgub';
 value='You are now in a GitHub Pages view. Click here to view README file in GitHub source code view.' >
 
 [Pushme-Pullyou]( https://pushme-pullyou.github.io/ ) &raquo;
@@ -13,22 +13,22 @@ _<small>
     helped by the <a href="https://developer.github.com/v3/" target="_blank" >GitHub API</a> and client-side cookbook JavaScript.
 </small>_
 
-<img  style=display:none; src="https://pushme-pullyou.github.io/gubgub/gubgub-r1.jpg" width=800 >
+<img  style=display:none; src="https://pushme-pullyou.github.io/gubgub/r1/gubgub-r1.jpg" width=800 >
 
 <!--
 
 <iframe id=ifr src=https://pushme-pullyou.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
-_Jaanga GubGub R1_
+Pushme-Pullyou GubGub R1_
 
 ***
 -->
 
 
-Full screen: [Jaanga GubGub R2]( https://pushme-pullyou.github.io/gubgub/r2/ )
+Full screen: [Pushme-Pullyou GubGub R2]( https://pushme-pullyou.github.io/gubgub/r2/ )
 --------------------------------------------------------------------------------
 
 
-Full screen: [Jaanga GubGub R1]( https://pushme-pullyou.github.io/gubgub/r1.html )
+Full screen: [Pushme-Pullyou GubGub R1]( https://pushme-pullyou.github.io/gubgub/r1.html )
 --------------------------------------------------------------------------------
 
 
