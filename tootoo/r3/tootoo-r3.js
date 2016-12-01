@@ -1,15 +1,15 @@
 // Copyright © 2016 Jaanga authors. MIT license.
 
-	var TRE = { release: 'r3' };
+	var TOO = { release: 'r3' };
 
 	var b = '<br>';
 	var editor;
 
 	function requestAPIContents() {
 
-		var xhr, response, paths, path, treeNode, newNode, keys;
+//		var xhr, response, paths, path, TOOeNode, newNode, keys;
 
-		requestFile( TRE.url, callback );
+		requestFile( TOO.url, callback );
 
 		function callback( xhr ) {
 
@@ -23,47 +23,47 @@
 
 				if ( path.startsWith( '.' ) ) { continue; }
 
-				if ( TRE.folder !== '' && !path.includes( TRE.folder ) ) { continue; }
+				if ( TOO.folder !== '' && !path.includes( TOO.folder ) ) { continue; }
 
 				paths.push( path );
 
 			}
 
-			if ( TRE.folder === '' ) {
+			if ( TOO.folder === '' ) {
 
-				TRE.data = { 'children' : {} };
-				obj = TRE.data.children;
+				TOO.data = { 'children' : {} };
+				obj = TOO.data.children;
 
 			} else {
 
-				TRE.data = {};
-				obj = TRE.data
+				TOO.data = {};
+				obj = TOO.data
 
 			}
 
 /*
 			for ( var i = 0 ; i < paths.length; i++ ) {
 
-				buildTree( paths[ i ].split( '/' ), TRE.data.children );
+				buildTOOe( paths[ i ].split( '/' ), TOO.data.children );
 
 			}
 */
 
-			paths = paths.map( function( path ) { return buildTree( path.split( '/' ), obj ) } );
+			paths = paths.map( function( path ) { return buildTOOe( path.split( '/' ), obj ) } );
 
 //debugger;
 
-			function buildTree( parts, treeNode ) {
+			function buildTOOe( parts, TOOeNode ) {
 
 				if ( parts.length === 0 ) { return; }
 
-				keys = Object.keys( treeNode );
+				keys = Object.keys( TOOeNode );
 
 				for ( var i = 0 ; i < keys.length; i++ ) {
 
-					if ( parts[ 0 ] === treeNode[ keys[ i ] ].text ) {
+					if ( parts[ 0 ] === TOOeNode[ keys[ i ] ].text ) {
 
-						buildTree( parts.splice( 1, parts.length ), treeNode[ keys[ i ] ].children );
+						buildTOOe( parts.splice( 1, parts.length ), TOOeNode[ keys[ i ] ].children );
 
 						return;
 					}
@@ -72,15 +72,15 @@
 
 				newNode = { 'text' : parts[ 0 ], 'children' : {} };
 
-				treeNode[ newNode.text ] = newNode;
+				TOOeNode[ newNode.text ] = newNode;
 
-				buildTree( parts.splice( 1, parts.length ), newNode.children );
+				buildTOOe( parts.splice( 1, parts.length ), newNode.children );
 
 			}
 
 			menuInfo.innerHTML = '<p> Number of items found: ' + paths.length + b +
 			
-				'<a href="https://github.com/' + TRE.user + '/' + TRE.repo + '" target="_blank"> View repository on GitHub </a>' +
+				'<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '" target="_blank"> View repository on GitHub </a>' +
 			'</p>';
 
 			setMenu();
@@ -97,7 +97,7 @@
 
 		folders = path ? path.split( '/' ) : [] ;
 
-		obj = TRE.folder ? TRE.data[ TRE.folder ] : TRE.data;
+		obj = TOO.folder ? TOO.data[ TOO.folder ] : TOO.data;
 
 // very curious things going on here, but it works...
 
@@ -129,7 +129,7 @@
 
 		}
 
-		TRE.menu.innerHTML = foldersText + filesText;
+		TOO.menu.innerHTML = foldersText + filesText;
 
 		setBreadcrumbs( path );
 
@@ -142,7 +142,7 @@
 
 		var name, txt, folders, str;
 
-		name = TRE.folder ? TRE.folder : TRE.repo;
+		name = TOO.folder ? TOO.folder : TOO.repo;
 
 		txt = '<h2><a href=JavaScript:setMenu(); >' + name + '</a> &raquo; </h2>';
 		folders = path ?  path.split( '/' ) : [] ;
@@ -156,7 +156,7 @@
 
 		}
 
-		TRE.breadcrumbs.innerHTML = txt;
+		TOO.breadcrumbs.innerHTML = txt;
 
 	}
 
@@ -175,7 +175,7 @@
 
 			file =  filesText.slice( start, start + 10 );
 
-			getFileHTML( TRE.urlGHPages + p + file );
+			getFileHTML( TOO.urlGHPages + p + file );
 
 		} else if ( txt.includes( 'readme.md' ) ) {
 
@@ -183,7 +183,7 @@
 
 			file =  filesText.slice( start, start + 9 );
 
-			getFileMD( TRE.urlGHPages + p + file );
+			getFileMD( TOO.urlGHPages + p + file );
 
 		} else {
 
@@ -202,19 +202,19 @@
 
 		if ( p.endsWith( '.md' ) ){
 
-			getFileMD( TRE.urlGHPages + encodeURI( path ) );
+			getFileMD( TOO.urlGHPages + encodeURI( path ) );
 
 		} else if ( p.endsWith( '.html' ) || p.endsWith( '.htm' ) ) {
 
-			getFileHTML( TRE.urlGHPages + encodeURI( path ) );
+			getFileHTML( TOO.urlGHPages + encodeURI( path ) );
 
 		} else if ( p.endsWith( '.gif' ) || p.endsWith( '.ico' ) || p.endsWith( '.jpg' ) || p.endsWith( '.png' ) ||  p.endsWith( '.svg' ) ) {
 
-			getFileImage( TRE.urlGHPages + encodeURI( path ) );
+			getFileImage( TOO.urlGHPages + encodeURI( path ) );
 
 		} else {
 
-			getFileCode( TRE.urlGHPages + encodeURI( path ) );
+			getFileCode( TOO.urlGHPages + encodeURI( path ) );
 
 		}
 
@@ -325,7 +325,7 @@
 
 		if ( xhr.target.readyState === 4  ) {
 
-			var lastMod = xhr.target.getResponseHeader ( "Last-Modified" );
+			var lastMod = xhr.target.geTOOsponseHeader ( "Last-Modified" );
 
 			contentsHeader.innerHTML =
 				'URL: ' + xhr.target.responseURL.link( xhr.target.responseURL ) + b +

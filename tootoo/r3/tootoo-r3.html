@@ -152,7 +152,7 @@
 	};
 */
 
-	var TRE = TRE || {};
+	var TOO = TOO || {};
 
 
 	init();
@@ -288,23 +288,23 @@
 
 	function setUser( user ){
 
-		TRE = users[ user ];
+		TOO = users[ user ];
 
-		TRE.url = 'https://api.github.com/repos/' + TRE.user + '/' + TRE.repo + '/git/trees/' + TRE.branch + '?recursive=1';
+		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
 
-		if ( TRE.rawgit ) {
+		if ( TOO.rawgit ) {
 
-			TRE.urlGHPages = 'https://rawgit.com/' + TRE.user + '/' + TRE.repo + '/' + TRE.branch + '/' + TRE.folder + ( TRE.folder ? '/' : '' );
+			TOO.urlGHPages = 'https://rawgit.com/' + TOO.user + '/' + TOO.repo + '/' + TOO.branch + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
 
 		} else {
 
-			TRE.urlGHPages = 'https://' + TRE.user + '.github.io/' + TRE.repo + '/' + TRE.folder + ( TRE.folder ? '/' : '' );
+			TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
 
 		}
 
-		TRE.breadcrumbs = menuBreadcrumbs;
-		TRE.menu = menuItems;
-		TRE.contents = contents;
+		TOO.breadcrumbs = menuBreadcrumbs;
+		TOO.menu = menuItems;
+		TOO.contents = contents;
 
 		requestAPIContents();
 
