@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>GubGub R1</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Search and explore GitHub users and see what they have been up to in full detail.' >
+<meta name=keywords content='Jaanga,Theo Armour,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-09-17' >
+</head>
+<body>
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
+
+<script src=./0-cor-core/core-r1.js ></script>
+<script src=./1-api-authentication/api-authentication-r1.js ></script>
+<script src=./2-sel-select/sel-select-r1.js ></script>
+<script src=./dat-data/dat-data-r1.js ></script>
+<script src=./user-events-big/user-events-big-r1.js ></script>
+<script src=./eus-events-user/eus-events-user-r1.js ></script>
+<script src=./usr-users/users-r1.js ></script>
+
+<!--
+<script src=https://jaanga.github.io/cookbook-html/templates/github-api-user-explorer2/0-cor-core/core-r1.js ></script>
+<script src=https://jaanga.github.io/cookbook-html/templates/github-api-user-explorer2/1-api-api-key/api-key-r1.js ></script>
+<script src=https://jaanga.github.io/cookbook-html/templates/github-api-user-explorer2/2-ser-search/search-r1.js ></script>
+<script src=https://jaanga.github.io/cookbook-html/templates/github-api-user-explorer2/dat-data/data-r1.js ></script>
+<script src=https://jaanga.github.io/cookbook-html/templates/github-api-user-explorer2/user-events-big/user-events-big-r1.js ></script>
+<script src=https://jaanga.github.io/cookbook-html/templates/github-api-user-explorer2/eus-events-user/events-user-r1.js ></script>
+<script src=https://jaanga.github.io/cookbook-html/templates/github-api-user-explorer2/usr-users/users-r1.js ></script>
+-->
+<script>
+
+	COR.defaultFile = 'core-r1.html';
+
+	DAT.currentTopic = 'stats';
+
+	init();
+
+	function init() {
+
+		COR.initThreeColumns();
+
+		COR.menu.innerHTML =
+
+			COR.getMenuDetailsHeader() +
+
+			API.getMenuDetailsAPIAccessToken() +
+
+			SEL.getMenuDetailsSelectGroup() +
+
+			SEL.getMenuDetailsSelectUser() +
+
+			DAT.getMenuDetailsUserData() +
+
+			COR.getMenuDetailsAbout() +
+
+			COR.getMenuFooter() +
+
+		b;
+
+//		selGroup.value = 'listTheo';
+
+		SEL.setUserDetails();
+
+		API.getRateLimits();
+
+		window.addEventListener( 'hashchange', COR.onHashChange, false );
+
+		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
+
+	}
+
+
+// gets called by SEL.setUserDetails...
+
+	SEL.getUserDetails = function( user ) {
+
+		location.hash = user;
+
+//		if ( DAT.getUserData ) {
+
+		DAT.getUserData( user );
+
+		switch( DAT.currentTopic ) {
+
+			case 'events':
+				DAT.getEvents ( user, 0, COR.contents )
+				break;
+			case 'gists':
+				DAT.getGists ( user )
+				break;
+			case 'orgs':
+				DAT.getOrgs( user )
+				break;
+			case 'repos':
+				DAT.getRepos( user )
+				break;
+			case 'stats':
+//					EUS.buildStatsReport( user )
+				break;
+			default:
+				DAT.getRepos( user )
+
+			}
+
+//		DAT.getRepos( user );
+
+//		}
+
+
+//		if ( EUS.requestGitHubAPIUserEvents ) {
+
+//			EUS.target = updates;
+			EUS.requestGitHubAPIUserEvents( user );
+
+//		}
+
+		window.scrollTo( 0, 0 );
+		COR.updates.scrollTop = 0;
+
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>GubGub Ladybug R1.1</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Search and explore GitHub users and see what they have been up to in full detail.' >
+<meta name=keywords content='Jaanga,Theo Armour,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-10-26' >
+<link rel='shortcut icon' href=favicon.ico type='image/x-icon'/ >
+</head>
+<body>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
+
+<script src=./0-cor-core/core-r1.js ></script>
+<script src=./1-api-authentication/api-authentication-r1.js ></script>
+<script src=./2-sel-select/sel-select-r1.js ></script>
+<script src=./dat-data/dat-data-r1.js ></script>
+<script src=./user-events-big/user-events-big-r1.js ></script>
+<script src=./eus-events-user/eus-events-user-r1.js ></script>
+<script src=./usr-users/users-r1.js ></script>
+<!--
+<script src=https://jaanga.github.io/gubgub/0-cor-core/core-r1.js ></script>
+<script src=https://jaanga.github.io/gubgub/1-api-authentication/api-authentication-r1.js ></script>
+<script src=https://jaanga.github.io/gubgub/2-sel-select/sel-select-r1.js ></script>
+<script src=https://jaanga.github.io/gubgub/dat-data/dat-data-r1.js ></script>
+<script src=https://jaanga.github.io/gubgub/user-events-big/user-events-big-r1.js ></script>
+<script src=https://jaanga.github.io/gubgub/eus-events-user/eus-events-user-r1.js ></script>
+<script src=https://jaanga.github.io/gubgub/usr-users/users-r1.js ></script>
+-->
+<script>
+
+var USR = USR || {};
+
+var oneWeekAgo = new Date();
+oneWeekAgo.setDate( oneWeekAgo.getDate() - 7 );
+var oneWeekAgo$ = oneWeekAgo.toJSON().slice( 0, 10 );
+
+USR.peepsFavorites =
+
+/*
+	'<optgroup label="" >' +
+		'<option></option>' +
+		'<option></option>' +
+		'<option></option>' +
+		'<option></option>' +
+		'<option></option>' +
+		'<option></option>' +
+	'</optgroup>' +
+*/
+
+		'<option> ladybug-analysis-tools </option>' +
+	'<optgroup label="Ladybug" >' +
+		'<option selected > MostaphaRoudsari </option>' +
+		'<option> chriswmackey </option>' +
+		'<option> sariths </option>' +
+		'<option> yiyuan1840 </option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Butterfly Contributors & Members" >' +
+		'<option> mostaphaRoudsari </option>' +
+		'<option> stefan-buildSCI </option>' +
+		'<option> TheodoreGalanos </option>' +
+
+		'<option> antonszilasi </option>' +
+		'<option> czrwinner </option>' +
+		'<option> iononhoproblemi </option>' +
+		'<option> ManuelMuehlbauer </option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Honeybee" >' +
+		'<option> MostaphaRoudsari </option>' +
+		'<option> sariths </option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Ladybug Dynamo" >' +
+		'<option> MostaphaRoudsari </option>' +
+		'<option> birdland007s </option>' +
+		'<option> samuto </option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Ladybug Web" >' +
+		'<option> MostaphaRoudsari </option>' +
+		'<option> theo-armour </option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Sun Calculations" >' +
+		'<option>mourner</option>' +
+		'<option>mbostock</option>' +
+	'</optgroup>' +
+
+
+'';
+
+
+// at least one item must be selected
+
+USR.groupOptions =
+
+	'<option value="listFavorites" >Ladybug list of favs</option>' +
+/*
+	'<optgroup label="" >' +
+		'<option value="+stars:>0" >User w/ repo w/ word "" & stars > 0</option>' +
+		'<option value="+stars:>0" >User w/ repo w/ word "" & stars > 0</option>' +
+		'<option value="+stars:>0" >User w/ repo w/ word "" & stars > 0</option>' +
+		'<option value="+stars:>0" >User w/ repo w/ word "" & stars > 0</option>' +
+	'</optgroup>' +
+*/
+
+	'<optgroup label="Ladybug" >' +
+		'<option value="ladybug+stars:>0" >User w/ repo w/ word "ladybug" & stars > 0</option>' +
+		'<option value="honeybee+stars:>0" >User w/ repo w/ word "honeybee" & stars > 0</option>' +
+		'<option value="dynamo+stars:>0" >User w/ repo w/ word "dynamo" & stars > 0</option>' +
+		'<option value="butterfly+stars:>0" >User w/ repo w/ word "butterfly" & stars > 0</option>' +
+		'<option value="radiance+stars:>0" >User w/ repo w/ word "radiance" & stars > 0</option>' +
+		'<option value="openfoam:>0" >User w/ repo w/ word "OpenFoam" & stars > 0</option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Grasshopper3D" >' +
+		'<option value="grasshopper+stars:>0" >User w/ repo w/ word "grasshopper" & stars > 0</option>' +
+		'<option value="mcneel" >User w/ repo w/ word "mcneel" & stars > 0</option>' +
+		'<option value="rhino+stars:>1" >User w/ repo w/ word "rhino" & stars > 1</option>' +
+		'<option value="openstudio+stars:>0" >User w/ repo w/ word "OpenStudio" & stars > 0</option>' +
+	'</optgroup>' +
+
+
+	'<optgroup label="Popular" >' +
+		'<option selected value="stars:>20000" >Users/repos & stars > 20,000</option>' +
+		'<option value="JavaScript+stars:>3000" >Users/repos with word \'JavaScript\' & stars > 3000</option>' +
+		'<option value="Python+stars:>3000" >Users/repos with word \'Python\' & stars > 3000</option>' +
+		'<option value="created:>' + oneWeekAgo$ + '" >Users/repos newer than ' + oneWeekAgo$ + '</option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Pertaining to Three.js & 3D" >' +
+		'<option value="three+stars:>300" >Users with word \'three\' & stars > 300</option>' +
+		'<option value="3D+stars:>1000" >Users with word \'3D\' & stars > 1000</option>' +
+		'<option value="stl+stars:>50" >Users with word \'stl\' & stars > 50</option>' +
+	'</optgroup>' +
+
+
+'';
+
+
+	COR.readMeText = 'This is the default version of <a href=https://jaanga.github.io/gubgub/ >GubGub</a>.';
+
+	init();
+
+	function init() {
+
+		COR.initThreeColumns();
+
+//		COR.css.innerHTML += '.DATbuttonLeft { display: none; }'; // uncomment to hide left column User Data buttons
+
+		COR.menu.innerHTML =
+
+			COR.getMenuDetailsHeader() +
+
+			API.getMenuDetailsAPIAccessToken() +
+
+			SEL.getMenuDetailsSelectGroup() +
+
+			SEL.getMenuDetailsSelectUser() +
+
+			DAT.getMenuDetailsUserData() +
+
+			COR.getMenuDetailsAbout() +
+
+			COR.getMenuFooter() +
+
+		b;
+
+
+		window.addEventListener( 'hashchange', COR.onHashChange, false );
+
+		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); return; }
+
+		if ( location.hash.match( 'token=' ) ) { API.onEventAPIKeyUpdate(); }
+
+		SELselGroup.value = 'listFavorites'; // uncomment to have selected user appear as default
+
+		SEL.setUserDetails();
+
+		API.getRateLimits();
+
+	}
+
+// gets called by SEL.setUserDetails...
+
+	SEL.getUserDetails = function( user ) {
+
+		console.clear();
+
+		location.hash = user.toLowerCase();
+
+		document.title = user + ' ~ ' + COR.documentTitle;
+
+		DAT.getUserData( user ); // left column update
+
+		EUS.requestGitHubAPIUserEvents( user ); // middle and right columns update
+
+		window.scrollTo( 0, 0 );
+		COR.updates.scrollTop = 0;
+
+	};
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>User Data R1</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Obtains elevation data via the Google Maps API Elevation service..
+' >
+<meta name=keywords content='Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-10-29' >
+</head>
+<body>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
+<script src=../0-cor-core/core-r1.js ></script>
+<script src=../1-api-authentication/api-authentication-r1.js ></script>
+<script src=../dat-data/dat-data-r1.js ></script>
+<script>
+
+	var user = 'torvalds';
+	var user = 'jaanga';
+	var user ='jquery';
+//	var user = 'sagemath';
+//	var user = 'mrdoob';
+//	var user = 'ladybug-analysis-tools';
+//	var user = 'torvalds';
+//	var user = 'paulmasson';
+	var user = 'theo-armour';
+	var user = 'Theo-Armour';
+
+	init();
+
+	function init() {
+
+		COR.taglineHeader += '+ a user data howdy!' + b;
+
+		COR.initThreeColumns();
+
+		COR.menu.innerHTML =
+
+			COR.getMenuDetailsHeader() +
+
+//			SEL.getMenuDetailsSelectGroup() +
+//			SEL.getMenuDetailsSelectUser() +
+
+			DAT.getMenuDetailsUserData() +
+
+			COR.getMenuDetailsAbout() +
+
+			COR.getMenuFooter() +
+
+		'';
+
+		DAT.getUserData( user );
+
+	}
+
+</script>
+</body>
+</html>

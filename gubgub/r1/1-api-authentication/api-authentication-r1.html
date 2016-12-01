@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>API Authentication Access Token R1</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='GitHub API
+' >
+<meta name=keywords content='Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-10-29' >
+</head>
+<body>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
+<script src=../0-cor-core/core-r1.js ></script>
+<script src=../1-api-authentication/api-authentication-r1.js ></script>
+<script>
+// Copyright © 2016 Jaanga authors. MIT License
+
+// https://developer.github.com/v3/#authentication
+
+
+	init();
+
+	function init() {
+
+		COR.taglineHeader += '+ an API token howdy!' + b;
+
+		COR.initThreeColumns();
+
+		COR.menu.innerHTML =
+
+			COR.getMenuDetailsHeader() +
+
+			API.getMenuDetailsAPIAccessToken() +
+
+			COR.getMenuDetailsTemplate() +
+
+//			API.getMenuDetailsAPIRates() +
+
+//			COR.getMenuDetailsObjectProperties() +
+
+			COR.getMenuDetailsAbout() +
+
+			COR.getMenuFooter() +
+
+		b;
+
+		APIapiAcessToken.setAttribute( 'open', 'open' );
+
+		APIapiRates.setAttribute( 'open', 'open' );
+
+		CORdetailsTemplate.setAttribute( 'open', 'open' );
+
+//		window.addEventListener( 'hashchange', COR.onHashChange, false );
+
+//		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
+
+		if ( location.hash.match( 'token=' ) ) { API.onEventAPIKeyUpdate(); }
+
+
+		API.getRateLimits();
+
+		CORdivContents.innerHTML = 'API token: ' + ( API.token || 'not provided' );
+
+console.log( 'API.token', ( API.token || 'not provided' ) );
+
+	}
+
+
+</script>
+</body>
+</html>
