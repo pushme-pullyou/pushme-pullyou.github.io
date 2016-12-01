@@ -7,7 +7,7 @@
 
 	function requestAPIContents() {
 
-//		var xhr, response, paths, path, TOOeNode, newNode, keys;
+		var xhr, response, paths, path, TOOeNode, newNode, keys;
 
 		requestFile( TOO.url, callback );
 
@@ -169,7 +169,7 @@
 
 		txt = filesText.toLowerCase();
 
-		if ( txt.includes( 'index.html' ) ) {
+		if ( txt.includes( 'index.html' ) && TOO.noIndex !== 'true' ) {
 
 			start = txt.indexOf( 'index.html' );
 
