@@ -247,6 +247,8 @@
 			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) + 
 			' style="border:0px solid red"; >' +
 		'<iframe>';
+//
+		ifr.onload
 
 		menuFileData.innerHTML =
 			'URL: ' + url.slice( 8 ).link( url ) + b +
