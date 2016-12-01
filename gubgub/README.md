@@ -1,11 +1,11 @@
 <span style=display:none; >[You are now in GitHub source code view. Click here to view README file in GitHub Pages view]
-( https://jaanga.github.io/gubgub/#README.md "View file as a web page." ) </span>
-<input type=button onclick=window.location.href='https://github.com/jaanga/gubgub/';
+( https://pushme-pullyou.github.io/gubgub/#README.md "View file as a web page." ) </span>
+<input type=button onclick=window.location.href='https://github.com/pushme-pullyou/gubgub/';
 value='You are now in a GitHub Pages view. Click here to view README file in GitHub source code view.' >
 
-[Jaanga]( https://jaanga.github.io ) &raquo;
+[Pushme-Pullyou]( https://pushme-pullyou.github.io/ ) &raquo;
 
-[GubGub Read Me]( https://jaanga.github.io/gubgub/index.html#README.md )
+[GubGub Read Me]( https://pushme-pullyou.github.io/gubgub/index.html#README.md )
 ================================================================================
 
 _<small>
@@ -13,22 +13,22 @@ _<small>
     helped by the <a href="https://developer.github.com/v3/" target="_blank" >GitHub API</a> and client-side cookbook JavaScript.
 </small>_
 
-<img  style=display:none; src="https://jaanga.github.io/gubgub/gubgub-r1.jpg" width=800 >
+<img  style=display:none; src="https://pushme-pullyou.github.io/gubgub/gubgub-r1.jpg" width=800 >
 
 <!--
 
-<iframe id=ifr src=https://jaanga.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
+<iframe id=ifr src=https://pushme-pullyou.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
 _Jaanga GubGub R1_
 
 ***
 -->
 
 
-<span style=display:none; >Full screen: [Jaanga GubGub R2]( https://jaanga.github.io/gubgub/r2/ )</span>
+Full screen: [Jaanga GubGub R2]( https://pushme-pullyou.github.io/gubgub/r2/ )
 --------------------------------------------------------------------------------
 
 
-<span style=display:none; >Full screen: [Jaanga GubGub R1]( https://jaanga.github.io/gubgub/r1.html )</span>
+Full screen: [Jaanga GubGub R1]( https://pushme-pullyou.github.io/gubgub/r1.html )
 --------------------------------------------------------------------------------
 
 
@@ -268,7 +268,7 @@ Scripts
 
 _The following describes the usage of each script_
 
-### [COR / 0-cor-core-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/0-cor-core )
+### [COR / 0-cor-core-r1.js ]( https://github.com/pushme-pullyou/gubgub/tree/gh-pages/0-cor-core )
 
 COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
 
@@ -277,7 +277,7 @@ COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnd
 * Adds style sheet data
 * Include AJAX and location.hash onchange event handling utilities used by the other scripts
 
-### [API / api-authentication-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/1-api-authentication )
+### [API / api-authentication-r1.js ]( https://github.com/pushme-pullyou/gubgub/tree/gh-pages/1-api-authentication )
 
 API Call: [https://api.github.com/rate_limit]( https://api.github.com/rate_limit )
 
@@ -290,7 +290,7 @@ API Call: [https://api.github.com/rate_limit]( https://api.github.com/rate_limit
     * Time when clock will return to zero
 
 
-### [Namespace SEL / Source code: sel-select.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/2-sel-select )
+### [Namespace SEL / Source code: sel-select.js ]( https://github.com/pushme-pullyou/gubgub/tree/gh-pages/2-sel-select )
 
 * Much of your interaction with GitHub will occur here
 * Located in the top of left menu
@@ -328,7 +328,7 @@ Investigations
 * Enter a user name of your choice
 
 
-### [DAT/ dat-data-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/dat-data )
+### [DAT/ dat-data-r1.js ]( https://github.com/pushme-pullyou/gubgub/tree/gh-pages/dat-data )
 
 API Calls:
 * [https://api.github.com/users/mrdoob]( https://api.github.com/users/mrdoob )
@@ -339,14 +339,14 @@ API Calls:
 	* Links to appropriate GitHub page for the data
 
 
-### [EUS / eus-events-user-r1.js / user-events-big-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/eus-events-user )
+### [EUS / eus-events-user-r1.js / user-events-big-r1.js ]( https://github.com/pushme-pullyou/gubgub/tree/gh-pages/eus-events-user )
 
 * Three ways of viewing user/organization events
     * As a tight vertical list ~ see right column: COR.updates
     * By repository and type ~ See COR.center ~ default when you load a new user
     * By date with details ~ see COR.center ~ click 'events' button in left menu or 'show events by date in detail' button in right menu
 
-### [USR/ users-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/usr-users )
+### [USR/ users-r1.js ]( https://github.com/pushme-pullyou/gubgub/tree/gh-pages/usr-users )
 
 * Default data used by SEL
 * Items used to create options for SELselGroup
@@ -361,7 +361,7 @@ Editing the Code
 --------------------------------------------------------------------------------
 
 <iframe src='https://jaanga.github.io/cookbook-html/examples/libraries/ace-editor/ace-view-r1.html#
-	https://jaanga.github.io/cookbook-html/templates/github-api-user-explorer2/github-api-user-explorer2-r1.html' width=100% height=600 ></iframe>
+	https://pushme-pullyou.github.io/gubgub/r2.guggub-r2.html' width=100% height=600 ></iframe>
 
 <input type=button onclick=window.location.href='https://github.com/jaanga/jaanga.github.io/blob/master/cookbook-html/templates/github-api-user-explorer2/github-api-user-explorer2-r1.html';
 value='Source code listing' >

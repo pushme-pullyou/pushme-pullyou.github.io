@@ -1,14 +1,15 @@
 <span style=display:none; >[You are now in GitHub source code view - click this link to view Read Me file as a web page]
-( https://jaanga.github.io/tootoo/index.html#readme.md "View file as a web page." ) </span>
-<input type=button onclick=window.location.href='https://github.com/jaanga/jaanga.github.io/tree/master/tootoo/'; value='You are now in GitHub web page view - Click this button to view Read Me file as source code' >
+( https://pushme-pullyou.github.io/tootoo/index.html#readme.md "View file as a web page." ) </span>
+<input type=button onclick=window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/'; value='You are now in GitHub web page view - Click this button to view Read Me file as source code' >
 
-[Jaanga]( https://jaanga.github.io ) &raquo;
+[Pushme-Pullyou]( https://pushme-pullyou.github.io ) &raquo;
 
-[Jaanga TooToo Read Me]( https://jaanga.github.io/tootoo/ )
+[TooToo Read Me]( https://pushme-pullyou.github.io/tootoo/ )
 ===
 
-## [tootoo-r2]( https://jaanga.github.io/tootoo/r2/tootoo-r2.html )
-## [tootoo-r1]( https://jaanga.github.io/tootoo/tootoo-r1.html )
+## [tootoo-r3]( https://pushme-pullyou.github.io/tootoo/r3/tootoo-r3.html )
+## [tootoo-r2]( https://pushme-pullyou.github.io/tootoo/r2/tootoo-r2.html )
+## [tootoo-r1]( https://pushme-pullyou.github.io/tootoo/tootoo-r1.html )
 
 ## Concept
 
@@ -50,15 +51,13 @@ Nonetheless it would be nice to have more including features such as the followi
 * Click on title to reload
 
 
-
 ## Issues
-
-
 
 
 
 ## Goals / To Do
 
+* 2016-12-01 ~ Overlay or plugin to display issues in right column
 * 2016-11-30 ~ Go to next file using cursor keys
 * 2016-11-30 ~ Material Design version
 * 2016-11-30 ~ Better handling of current file data
@@ -76,6 +75,12 @@ Nonetheless it would be nice to have more including features such as the followi
 
 
 ## Change Log
+
+### 2016-12-01 ~ R3
+
+* Moves to Pushme-Pullyou organization
+
+
 
 ### 2016-11-30 ~ R2
 
