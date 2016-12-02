@@ -93,7 +93,7 @@
 	function setMenu( path ) {
 
 		var folders, obj, keys;
-		var foldersText, filesText;
+//		var foldersText, filesText;
 
 		folders = path ? path.split( '/' ) : [] ;
 
@@ -109,7 +109,8 @@
 
 		keys = Object.keys( obj.children );
 		foldersText = '';
-		filesText = '';
+		filesText = '<small> Use tag and shift-tab to browse files quickly </small>' + b;
+		count = 0;
 
 		p = path ? path + '/': '';
 
@@ -123,9 +124,14 @@
 
 			} else {
 
-				filesText += '<a href=JavaScript:getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); >' + key + '</a>'+ b;
+				filesText += '<a id=file' + ( count++ ) + ' href=JavaScript:getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); ' +
+				' onfocus=getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); >' +
+					key + 
+				'</a>'+ b;
 
 			}
+
+			
 
 		}
 
@@ -134,6 +140,8 @@
 		setBreadcrumbs( path );
 
 		setDefaultContents( path, filesText );
+
+		file1.focus();
 
 	}
 
@@ -199,7 +207,6 @@
 // https://mozilla.github.io/pdf.js/
 
 	function getFileSetContents( url ){
-
 
 		var u = url.toLowerCase();
 
@@ -269,6 +276,7 @@
 		menuFileData.innerHTML =
 			'URL: ' + url.slice( 8 ).link( url ) + b +
 		b;
+
 	}
 
 
