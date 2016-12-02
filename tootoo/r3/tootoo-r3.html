@@ -123,7 +123,7 @@
 		folder : ''
 	};
 
-	users.sagemathCell = {
+	users.sagemathSage = {
 		user : 'sagemath',
 		repo : 'sage',
 		branch : 'develop',
@@ -197,9 +197,9 @@
 				'<div id=menu >' +
 
 				'<h2>' +
-					'<a href=http://jaanga.github.io title="Jaanga - your 3D happy place" > &#x2766 </a><br>' +
+					'<a href=http://pushme-pullyou.github.io/ title="Pushme-Pullyou - your coming and going happy place" > &#x2766 </a><br>' +
 					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
-					' ~ <a href=JavaScript:getFileMD("https://jaanga.github.io/jaanga.github.io/tootoo/README.md"); onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
+					' ~ <a href="https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 				'</h2>' +
 
 				'<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>' +
@@ -275,6 +275,14 @@
 		getSelectUserOptions();
 
 		setUser( 'pushmePullyou' );
+
+		if ( location.hash ) {
+
+console.log( '23', location.hash );
+
+			getFileSetContents( location.hash.slice( 1 ) );
+	
+		}
 
 	}
 

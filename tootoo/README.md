@@ -11,6 +11,14 @@
 ## [tootoo-r2]( https://pushme-pullyou.github.io/tootoo/r2/tootoo-r2.html )
 ## [tootoo-r1]( https://pushme-pullyou.github.io/tootoo/tootoo-r1.html )
 
+## Instances
+
+Variations adapted for various GitHub repositories
+
+[tootoo-r3-theo-armour.html]( http://pushme-pullyou.github.io/tootoo/r3/tootoo-r3-theo-armour.html )
+[tootoo-r3-leader-photos.html]( http://pushme-pullyou.github.io/tootoo/r3/tootoo-r3-leader-photos.html )
+
+
 ## Concept
 
 The GitHub web site allows you to do many things.
@@ -64,7 +72,10 @@ Nonetheless it would be nice to have more including features such as the followi
 * 2016-11-11 ~ Display HTML as source or in an iframe
 
 
+
 ## Users
+
+
 
 [Leader Photos]( https://leaderphotos.github.io/tootoo/r2/tootoo-r2-leader-photos.html )
 * Has custom gallery page feature

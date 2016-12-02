@@ -123,7 +123,7 @@
 
 			} else {
 
-				filesText += '<a href=JavaScript:getFileSetContents("' + TOO.urlGHPages + encodeURI( key ) + '"); >' + key + '</a>'+ b;
+				filesText += '<a href=JavaScript:getFileSetContents("' + p + encodeURI( key ) + '"); >' + key + '</a>'+ b;
 
 			}
 
@@ -198,26 +198,25 @@
 // formats to consider adding: PDF
 // https://mozilla.github.io/pdf.js/
 
-	function getFileSetContents( url ){
+	function getFileSetContents( path ){
 
+		var p = path.toLowerCase();
 
-		var u = url.toLowerCase();
+		if ( p.endsWith( '.md' ) ){
 
-		if ( u.endsWith( '.md' ) ){
+			getFileMD( TOO.urlGHPages + encodeURI( path ) );
 
-			getFileMD( url );
+		} else if ( p.endsWith( '.html' ) || p.endsWith( '.htm' ) ) {
 
-		} else if ( u.endsWith( '.html' ) || u.endsWith( '.htm' ) ) {
+			getFileHTML( TOO.urlGHPages + encodeURI( path ) );
 
-			getFileHTML( url );
+		} else if ( p.endsWith( '.gif' ) || p.endsWith( '.ico' ) || p.endsWith( '.jpg' ) || p.endsWith( '.png' ) ||  p.endsWith( '.svg' ) ) {
 
-		} else if ( u.endsWith( '.gif' ) || u.endsWith( '.ico' ) || u.endsWith( '.jpg' ) || u.endsWith( '.png' ) ||  u.endsWith( '.svg' ) ) {
-
-			getFileImage( url );
+			getFileImage( TOO.urlGHPages + encodeURI( path ) );
 
 		} else {
 
-			getFileCode( url );
+			getFileCode( TOO.urlGHPages + encodeURI( path ) );
 
 		}
 
