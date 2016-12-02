@@ -15,6 +15,7 @@
 // Add USR defaults to COR?
 
 // https://github.com/showdownjs/showdown ~ check for updates
+
 	COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
 
 	COR.documentTitle = document.title;
@@ -46,7 +47,7 @@
 		var menuDetailsHeader =
 
 			'<h3>' +
-				'<a href=http://jaanga.github.io/ title="Jaanga - your 3D happy place" > &#x2766 Jaanga </a> &raquo; ' +
+				'<a href=http://pushme-pullyou.github.io/ title="Jaanga - your GitHub coming and going happy place" > &#x2766 Pushme-Pullyou </a> &raquo; ' +
 			'</h3>' +
 			'<h2>' +
 				'<a href="" title="Click here to refresh this page" >' + document.title + '</a> ~ ' +
@@ -76,15 +77,15 @@
 				'<summary><h3>About</h3></summary>' +
 
 				'<p>' +
-					'Copyright &copy; 2016 <a href=https://github.com/orgs/jaanga/people target="_blank">Jaanga authors</a>' + b +
-					'<jaanga.github.io/license.md >MIT license</a>' +
+					'Copyright &copy; 2016 <a href=https://github.com/orgs/pushme-pullyou/people target="_blank">Jaanga authors</a>' + b +
+					'<pushme-pullyou.github.io/license.md >MIT license</a>' +
 				'</p>' +
 
 				'<p>Thank you <a href=https://developer.github.com/v3/ > GitHub API </a><p>' +
 
 				'<p>Click the \'i in a circle\' info icon for more <a href=index.html#README.md >help</a></p>' +
 
-				'<p>Kindly report any issues at <a href="https://github.com/jaanga/gubgub/issues" target="_blank">jaanga/gubgub/issues</a></p>' +
+				'<p>Kindly report any issues at <a href="https://github.com/pushme-pullyou/gubgub/issues" target="_blank">pushme-pullyou/gubgub/issues</a></p>' +
 
 			'</details>' +
 

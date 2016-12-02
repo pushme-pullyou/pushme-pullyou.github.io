@@ -16,7 +16,9 @@
 <script src=../../core/r1/0-api-authentication/api-authentication.js ></script>
 
 <script src=../../core/r1/1-sel-select/sel-select.js ></script>
+<!--
 <script src=../../core/r1/0-usr-users/usr-users.js ></script>
+-->
 
 <script src=../../core/r1/1-dat-data/dat-data.js ></script>
 
@@ -25,23 +27,107 @@
 <script src=../../core/r1/2-eus-events-user/eus-events-user.js ></script>
 
 <!--
-<script src=https://jaanga.github.io/gubgub/r2/0-cor-core/cor-core.js ></script>
-<script src=https://jaanga.github.io/gubgub/r2/0-mn3-menu-three/mn3-menu-three.js ></script>
-<script src=https://jaanga.github.io/gubgub/r2/0-api-authentication/api-authentication.js ></script>
+<script src=https://pushme-pullyou.github.io/core/r1/0-cor-core/cor-core.js ></script>
+<script src=https://pushme-pullyou.github.io/core/r1/0-mn3-menu-three/mn3-menu-three.js ></script>
+<script src=https://pushme-pullyou.github.io/core/r1/0-api-authentication/api-authentication.js ></script>
 
-<script src=https://jaanga.github.io/gubgub/r2/1-sel-select/sel-select.js ></script>
-<script src=https://jaanga.github.io/gubgub/r2/0-usr-users/usr-users.js ></script>
+<script src=https://pushme-pullyou.github.io/core/r1/1-sel-select/sel-select.js ></script>
+<script src=https://pushme-pullyou.github.io/core/r1/0-usr-users/usr-users.js ></script>
 
-<script src=https://jaanga.github.io/gubgub/r2/1-dat-data/dat-data.js ></script>
+<script src=https://pushme-pullyou.github.io/core/r1/1-dat-data/dat-data.js ></script>
 
-<script src=https://jaanga.github.io/gubgub/r2/2-res-results/res-results.js ></script>
-<script src=https://jaanga.github.io/gubgub/r2/2-res-results/res-results-events.js  ></script>
-<script src=https://jaanga.github.io/gubgub/r2/2-eus-events-user/eus-events-user.js ></script>
+<script src=https://pushme-pullyou.github.io/core/r1/2-res-results/res-results.js ></script>
+<script src=https://pushme-pullyou.github.io/core/r1/2-res-results/res-results-events.js  ></script>
+<script src=https://pushme-pullyou.github.io/core/r1/2-eus-events-user/eus-events-user.js ></script>
 -->
 <script>
 
+
+	var USR = USR || {};
+
+	USR.peepsFavorites =
+
+		'<optgroup label="Theo" >' +
+			'<option selected >Theo-Armour</option>' +
+			'<option>jaanga</option>' +
+		'</optgroup>' +
+
+		'<optgroup label="Three.js/WedGL" >' +
+			'<option>Mrdoob</option>' +
+			'<option>bhouston</option>' +
+			'<option>gero3</option>' +
+			'<option>saqoosha</option>' +
+			'<option>WestLangley</option>' +
+			'<option>zz85</option>' +
+			'<option>Koblin</option>' +
+			'<option>alteredq</option>' +
+			'<option>kig</option>' +
+			'<option>spite</option>' +
+			'<option>greggman</option>' +
+			'<option>philigb</option>' +
+			'<option>toji</option>' +
+			'<option>tparisi</option>' +
+			'<option>aroduc</option>' +
+			'<option>lo-th</option>' +
+			'<option>CallumPrentice</option>' +
+		'</optgroup>' +
+
+		'<optgroup label="FGx">' +
+			'<option>GeoffMcl</option>' +
+			'<option>pedromorgan</option>' +
+		'</optgroup>' +
+
+		'<optgroup label="Google" >' +
+			'<option>kenrussell</option>' +
+			'<option>toji</option>' +
+		'</optgroup>' +
+
+		'<optgroup label="Ladybug" >' +
+			'<option>MostaphaRoudsari</option>' +
+			'<option>chriswmackey</option>' +
+			'<option>ayezioro</option>' +
+		'</optgroup>' +
+
+		'<optgroup label="Sage Math" >' +
+			'<option>PaulMasson</option>' +
+			'<option>WilliamStein</option>' +
+			'<option>HaraldSchilly</option>' +
+			'<option>DanDrake</option>' +
+		'</optgroup>' +
+
+		'<optgroup label="???" >' +
+			'<option>3Dmashup</option>' +
+			'<option>art</option>' +
+			'<option>alavit-d</option>' +
+			'<option>mourner</option>' +
+			'<option>mbostock</option>' +
+		'</optgroup>' +
+
+		'<optgroup label="OpenDesk" >' +
+			'<option>harrykeen18</option>' +
+		'</optgroup>' +
+
+		'<optgroup label="Abantech" >' +
+			'<option>GMelencio</option>' +
+			'<option>jamesAbantech</option>' +
+		'</optgroup>' +
+
+		'<optgroup label="Wiredcraft" >' +
+			'<option>hunvreus</option>' +
+			'<option>quentinberder</option>' +
+		'</optgroup>' +
+
+		'<optgroup label="Autodesk" >' +
+			'<option>jeremytammik</option>' +
+			'<option>KeanW</option>' +
+			'<option>Autodesk</option>' +
+		'</optgroup>' +
+
+	'';
+
+
 	COR.readMeURL = 'index.html#../README.md';
-//	COR.readMeText = 'This is the default version of [GubGub]( https://jaanga.github.io/gubgub/ ). GubGub may be tailored to fit your needs.';
+//	COR.readMeText = 'This is the default version of [DabDab]( https://pushme-pullyou.github.io/dabdab/ ). DabDad may be tailored to fit your needs.';
 
 	var SELselQuery;
 
