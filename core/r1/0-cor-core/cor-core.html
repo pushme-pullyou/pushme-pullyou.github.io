@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>Pushme-Pullyou COR Core</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='GubGub Core stylesheet, menu content and utilities' >
+<meta name=keywords content='GubGub,Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-12-01' >
+</head>
+<body>
+<script src=https://rawgit.com/showdownjs/showdown/develop/dist/showdown.min.js ></script>
+
+<script src=../../r1/0-cor-core/cor-core.js ></script>
+<script src=../../r1/0-mn3-menu-three/mn3-menu-three.js ></script>
+
+<script>
+
+//	location.hash = '#README.md';
+
+	COR.readMeURL = '#README.md'; // for testing
+	COR.readMeText = 'This is the default COR version of Pushme-Pullyou.';
+
+	init();
+
+	function init() {
+
+		COR.taglineHeader += '+ a hard COR howdy!' + b;
+
+		MNU.initThreeColumns();
+
+		MNU.menu.innerHTML =
+
+			COR.getMenuDetailsHeader() +
+
+			COR.getMenuDetailsTemplate() +
+
+			COR.getMenuDetailsAbout() +
+
+			COR.getMenuFooter() +
+
+		b;
+
+		CORdetailsTemplate.setAttribute( 'open', 'open' );
+
+		window.addEventListener( 'hashchange', onHashChange, false );
+
+		onHashChange();
+
+	}
+
+	function onHashChange() {
+
+		var hash, callback, xhr, txt;
+
+		hash = location.hash.slice( 1 );
+
+//		if ( hash.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+
+		if ( hash.endsWith( '.md' ) === true ) {
+
+			COR.requestFile( hash, callbackMD );
+
+			function callbackMD( xhr ) {
+
+				if ( xhr.target.status === 404 ) { return; }
+
+				txt = xhr.target.responseText;
+
+				if ( hash.includes( 'README.md' ) === true ){ txt = txt.replace( 'READMEbespokeText', COR.readMeText || '' ); }
+
+				MNU.contents.innerHTML = COR.converter.makeHtml( txt );
+
+			}
+
+			return;
+
+		}
+
+	};
+
+</script>
+</body>
+</html>

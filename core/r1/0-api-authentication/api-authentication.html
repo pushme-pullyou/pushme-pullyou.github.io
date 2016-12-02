@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>API Authentication Access Token2</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='GubGub authentication for the GitHub API' >
+<meta name=keywords content='Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-11-02' >
+</head>
+<body>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.5.0/showdown.min.js ></script>
+
+<script src=../../r1/0-cor-core/cor-core.js ></script>
+<script src=../../r1/0-mn3-menu-three/mn3-menu-three.js ></script>
+<script src=../../r1/0-api-authentication/api-authentication.js ></script>
+
+<script>
+// Copyright © 2016 Jaanga authors. MIT License
+
+	init();
+
+	function init() {
+
+		COR.taglineHeader += '+ an API token howdy!' + b;
+
+		MNU.initThreeColumns();
+
+		MNU.menu.innerHTML =
+
+			COR.getMenuDetailsHeader() +
+
+			API.getMenuDetailsAPIAccessToken() +
+
+//			API.getMenuDetailsAPIRates() +
+
+			COR.getMenuDetailsAbout() +
+
+			COR.getMenuFooter() +
+
+		b;
+
+		APIapiAcessToken.setAttribute( 'open', 'open' );
+
+//		APIapiRates.setAttribute( 'open', 'open' );
+
+		window.addEventListener( 'hashchange', onHashChange, false );
+
+		onHashChange();
+
+console.log( 'API.token', ( API.token || 'not provided' ) );
+
+	}
+
+
+	function onHashChange() {
+
+		var url, callback, xhr;
+
+		url = location.hash.slice( 1 );
+
+		if ( url.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+
+		if ( url.endsWith( '.md' ) === true ) {
+
+			COR.requestFile( url, callbackMD );
+
+			function callbackMD( xhr ) {
+
+				if ( xhr.target.status === 404 ) { return; }
+
+				MNU.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
+
+				if ( url.match( 'README.md' ) === true ){ READMEbespokeText.innerHTML = 'things'; }
+
+			}
+
+			return;
+
+		}
+
+	};
+
+</script>
+</body>
+</html>

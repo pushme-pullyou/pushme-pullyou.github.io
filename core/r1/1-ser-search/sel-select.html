@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>SEL Select1</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='GubGub SEL Select. Select or enter a query for the GitHub User API.
+Select a user from the list of results or enter a user name.
+Preview many aspects of their GitHub corpus. Monitor recent activity' >
+<meta name=keywords content='Jaanga,Theo Armour,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-12-01' >
+</head>
+<body>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.4/showdown.min.js ></script>
+
+<script src=../../r1/0-cor-core/cor-core.js ></script>
+<script src=../../r1/0-mn3-menu-three/mn3-menu-three.js ></script>
+<script src=../../r1/0-api-authentication/api-authentication.js ></script>
+
+<script src=../../r1/1-sel-select/sel-select.js ></script>
+<script src=../../r1/0-usr-users/usr-users.js ></script>
+
+<!--
+<script src=../../r2/1-dat-data/dat-data.js ></script>
+
+<script src=../../r2/2-eus-events-user/eus-events-user.js ></script>
+-->
+
+<script>
+
+//	location.hash = '#README.md';
+
+	COR.readMeURL = '#README.md'; // for testing
+	COR.readMeText = 'This is the default SEL testing version of GubGub.';
+
+	init();
+
+	function init() {
+
+		COR.taglineHeader += '+ a SEL select howdy!' + b;
+
+		COR.readMeText = 'This is the SEL default version of GubGub.';
+
+		MNU.initThreeColumns();
+
+		MNU.menu.innerHTML =
+
+			COR.getMenuDetailsHeader() +
+
+			API.getMenuDetailsAPIAccessToken() +
+
+			SEL.getMenuDetailsSelectQuery() +
+
+			SEL.getMenuDetailsSelectUser() +
+
+			COR.getMenuDetailsAbout() +
+
+			COR.getMenuFooter() +
+
+		b;
+
+		window.addEventListener( 'hashchange', onHashChange, false );
+
+		SELselQuery.selectedIndex = 0;
+
+		SEL.setUserDetails();
+
+		onHashChange();
+
+	}
+
+
+	function onHashChange() {
+
+		var hash, callback, xhr;
+
+		hash = location.hash.slice( 1 );
+
+		if ( hash.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+
+		if ( hash.endsWith( '.md' ) === true ) {
+
+			COR.requestFile( hash, callbackMD );
+
+			function callbackMD( xhr ) {
+
+				if ( xhr.target.status === 404 ) { return; }
+
+				txt = xhr.target.responseText;
+
+				if ( hash.includes( 'README.md' ) === true ){ txt = txt.replace( 'READMEbespokeText', COR.readMeText || '' ); }
+
+				MNU.contents.innerHTML = COR.converter.makeHtml( txt );
+
+			}
+
+			return;
+
+		}
+
+		if ( hash && hash !== SEL.user ) {
+
+			SEL.user = hash;
+
+			SEL.getUserDetails();
+
+		}
+
+	};
+
+</script>
+</body>
+</html>
