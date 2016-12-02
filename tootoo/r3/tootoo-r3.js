@@ -123,7 +123,7 @@
 
 			} else {
 
-				filesText += '<a href=JavaScript:getFileSetContents("' + TOO.urlGHPages + encodeURI( key ) + '"); >' + key + '</a>'+ b;
+				filesText += '<a href=JavaScript:getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); >' + key + '</a>'+ b;
 
 			}
 
@@ -229,7 +229,6 @@
 		var converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
 
 		requestFile( url, callbackMD );
-console.log( '43', url );
 
 		function callbackMD( xhr ) {
 
@@ -251,8 +250,8 @@ console.log( '43', url );
 			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) + 
 			' style="border:0px solid red"; >' +
 		'<iframe>';
-//
-		ifr.onload
+
+// how to catch and display errors loading iframes?
 
 		menuFileData.innerHTML =
 			'URL: ' + url.slice( 8 ).link( url ) + b +

@@ -15,8 +15,8 @@
 
 Variations adapted for various GitHub repositories
 
-[tootoo-r3-theo-armour.html]( http://pushme-pullyou.github.io/tootoo/r3/tootoo-r3-theo-armour.html )
-[tootoo-r3-leader-photos.html]( http://pushme-pullyou.github.io/tootoo/r3/tootoo-r3-leader-photos.html )
+* [tootoo-r3-theo-armour.html]( http://pushme-pullyou.github.io/tootoo/r3/tootoo-r3-theo-armour.html )
+* [tootoo-r3-leader-photos.html]( http://pushme-pullyou.github.io/tootoo/r3/tootoo-r3-leader-photos.html )
 
 
 ## Concept
@@ -67,7 +67,7 @@ Nonetheless it would be nice to have more including features such as the followi
 
 * 2016-12-01 ~ Overlay or plugin to display issues in right column
 * 2016-11-30 ~ Go to next file using cursor keys
-* 2016-11-30 ~ Material Design version
+* 2016-11-30 ~ Material Design Light version
 * 2016-11-30 ~ Better handling of current file data
 * 2016-11-11 ~ Display HTML as source or in an iframe
 
@@ -86,6 +86,12 @@ Nonetheless it would be nice to have more including features such as the followi
 
 
 ## Change Log
+
+
+### 2016-12-02 
+
+* Initial support for opening files using location.hash
+
 
 ### 2016-12-01 ~ R3
 
