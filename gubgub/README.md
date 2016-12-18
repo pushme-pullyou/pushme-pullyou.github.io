@@ -361,13 +361,13 @@ Editing the Code
 --------------------------------------------------------------------------------
 
 <iframe src='https://pushme-pullyou.github.io/ace-editor/ace-view-r1.html#
-	https://pushme-pullyou.github.io/gubgub/r2.guggub-r2.html' width=100% height=600 ></iframe>
+	https://pushme-pullyou.github.io/gubgub/r2/index.html' width=100% height=600 ></iframe>
 
-<input type=button onclick=window.location.href='https://github.com/jaanga/jaanga.github.io/blob/master/cookbook-html/templates/github-api-user-explorer2/github-api-user-explorer2-r1.html';
+<input type=button onclick=window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/blob/master/gubgub/r2/index.html';
 value='Source code listing' >
 
 
-* Open this file: https://github.com/jaanga/jaanga.github.io/blob/master/cookbook-html/templates/github-api-user-explorer2/github-api-user-explorer2-r1.html
+* Open this file: https://github.com/pushme-pullyou/pushme-pullyou.github.io/blob/master/gubgub/r2/index.html
 * Click the 'Raw' icon and save the raw file to your computer
 * Once you've downloaded the file, you can click it to run it.
 * Open the file with a text editor
@@ -400,7 +400,7 @@ See
 * https://en.wikipedia.org/wiki/Doctor_Dolittle
 * https://en.wikipedia.org/wiki/Gub_Gub%27s_Book
 
-Other Dr Dolittle aniumal names that could be fun project names:
+Other Dr Dolittle animal names that could be fun project names:
 
  The animal team includes Polynesia (a parrot), Gub-Gub (a pig), Jip (a dog), Dab-Dab (a duck), Chee-Chee (a monkey), Too-Too (an owl), the Pushmi-pullyu, and a White Mouse later named simply "Whitey".
 
