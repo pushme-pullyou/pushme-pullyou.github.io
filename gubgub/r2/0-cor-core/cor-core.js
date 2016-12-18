@@ -46,7 +46,7 @@
 		var menuDetailsHeader =
 
 			'<h3>' +
-				'<a href=http://jaanga.github.io/ title="Jaanga - your 3D happy place" > &#x2766 Jaanga </a> &raquo; ' +
+				'<a href=http://pushme-pullyou.github.io/ title="Jaanga - your GitHub coming and going happy place" > &#x2766 Pushme-Pullyou </a> &raquo; ' +
 			'</h3>' +
 			'<h2>' +
 				'<a href="" title="Click here to refresh this page" >' + document.title + '</a> ~ ' +

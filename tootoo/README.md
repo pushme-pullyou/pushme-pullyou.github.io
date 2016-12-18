@@ -49,7 +49,8 @@ Nonetheless it would be nice to have more including features such as the followi
 
 ## Features
 
-* TBD
+* Makes a single call to the GitHub API for each GitHub user
+	* Therefore is stingy about GitHub rate limit usage
 * Select GitHub users and repos from a drop down list
 * Creates breadcrumbs and tree menu with data accessed via the GitHub Developer API
 * Enter the name of a GitHub user you know in the input box

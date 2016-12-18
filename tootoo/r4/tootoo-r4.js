@@ -1,6 +1,6 @@
 // Copyright © 2016 Jaanga authors. MIT license.
 
-	var TOO = { release: 'r3' };
+	var TOO = { release: 'r4' };
 
 	var b = '<br>';
 	var editor;
@@ -131,8 +131,6 @@
 
 			}
 
-
-
 		}
 
 		TOO.menu.innerHTML = foldersText + filesText;
@@ -141,7 +139,7 @@
 
 		setDefaultContents( path, filesText );
 
-//		file0.focus();
+//		if ( p !== '' ) { file0.focus(); }
 
 	}
 
@@ -195,13 +193,19 @@
 
 			getFileMD( TOO.urlGHPages + p + file );
 
+			file1.focus();
+
+		} else if ( txt.includes( 'toogallery') ) {
+
+			createPageOfImages( TOO.urlGHPages + p , keys );
+
 		} else {
 
-			contents.innerHTML = '<h2 style="margin:200px 0 0 50px;" > Select a file to view from the menu </h2>';
+//			if ( p !== '' ) { file0.focus(); }
+
+//			contents.innerHTML = '<h2 style="margin:200px 0 0 50px;" > Select a file to view from the menu </h2>';
 
 		}
-
-file1.focus();
 
 	}
 
@@ -266,6 +270,8 @@ file1.focus();
 			'URL: ' + url.slice( 8 ).link( url ) + b +
 		b;
 
+		if ( p !== '' ) { file0.focus(); }
+
 	}
 
 
@@ -273,7 +279,7 @@ file1.focus();
 
 		contents.innerHTML =
 			'<img id=image src="' + url +
-			'" style="border:2px solid gray; margin: 25px 0 0 50px;" >';
+			'" style="border:2px solid gray; margin: 25px 0 0 50px; max-width: 800px; " >';
 
 		menuFileData.innerHTML =
 			'URL: ' + url.slice( 8 ).link( url ) + b +
@@ -322,6 +328,33 @@ file1.focus();
 
 	}
 
+	function createPageOfImages( path, photos ) {
+
+//		var page, item, item2, fileName;
+
+		page = '';
+
+		for ( var i = 0; i < photos.length; i++ ) {
+
+			item = photos[ i ];
+//			item2 = item.split( '/' )
+
+//			fileName = item2.pop();
+			fileName = item.replace( /[-_]/g, ' ' );
+console.log( 'item', item );
+
+			page += '<div style=display:inline-block;margin:10px; >' +
+				'<a href=JavaScript:getFileSetContents("' + path + item +'"); ><img src=' + path + encodeURI( item ) + ' height=200; title="' + fileName.slice( 0, -4 ) + '" ></a>' +
+				'</div>';
+
+		}
+
+//console.log( 'page', page  );
+
+		contents.innerHTML = page;
+
+	}
+
 
 	function getFileDataXHR( xhr ) {
 
@@ -333,6 +366,8 @@ file1.focus();
 		b;
 
 	}
+
+
 
 // may not be needed
 
