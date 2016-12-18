@@ -236,7 +236,7 @@ And so, there can be many styles of coding in each language. And each can have i
 	* Adds complexities to scripts
 	* Strikes fear in the hearts of new users
 	* Looks to the future not the past
-	* Simple features in the pipeline are built on the lessons learned from the complextiies of the past  
+	* Simple features in the pipeline are built on the lessons learned from the complextiies of the past
 
 
 ### No Server Needed
@@ -301,7 +301,7 @@ API Call: [https://api.github.com/rate_limit]( https://api.github.com/rate_limit
 * Edit or enter your own query
 * First item in the list is a special item
     * Calls pre-selected list of users
-    * Displays reslults in 'Select GitHub User...' menu item  
+    * Displays reslults in 'Select GitHub User...' menu item
     * Data is in `usr-usr.js`
 
 GitHub Developer API calls:
@@ -317,7 +317,7 @@ Relevant Documentation
 Investigations
 
 * We are building up a set of standard queries
-* Most of the current queries are based on this syntax: `%keyword%+stars:>%number%`  
+* Most of the current queries are based on this syntax: `%keyword%+stars:>%number%`
 * We are looking for more varied yet still interesting types of queries to provide as samples
 * See also the 'Links of Interest' section
 
@@ -360,7 +360,7 @@ API Calls:
 Editing the Code
 --------------------------------------------------------------------------------
 
-<iframe src='https://jaanga.github.io/cookbook-html/examples/libraries/ace-editor/ace-view-r1.html#
+<iframe src='https://pushme-pullyou.github.io/ace-editor/ace-view-r1.html#
 	https://pushme-pullyou.github.io/gubgub/r2.guggub-r2.html' width=100% height=600 ></iframe>
 
 <input type=button onclick=window.location.href='https://github.com/jaanga/jaanga.github.io/blob/master/cookbook-html/templates/github-api-user-explorer2/github-api-user-explorer2-r1.html';

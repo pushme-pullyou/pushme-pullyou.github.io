@@ -92,8 +92,8 @@
 
 	function setMenu( path ) {
 
-//		var folders, obj, keys;
-//		var foldersText, filesText;
+		var folders, obj, keys;
+		var foldersText, filesText;
 
 		folders = path ? path.split( '/' ) : [] ;
 
@@ -113,6 +113,7 @@
 		count = 0;
 
 		p = path ? path + '/': '';
+history.replaceState( '', document.title, window.location.pathname );
 
 		for ( var i = 0; i < keys.length; i++ ) {
 
@@ -126,7 +127,7 @@
 
 				filesText += '<a id=file' + ( count++ ) + ' href=JavaScript:getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); ' +
 				' onfocus=getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); >' +
-					key +
+				key +
 				'</a>'+ b;
 
 			}
