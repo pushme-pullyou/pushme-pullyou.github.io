@@ -92,7 +92,7 @@
 
 	function setMenu( path ) {
 
-		var folders, obj, keys;
+		var folders, obj;
 		var foldersText, filesText;
 
 		folders = path ? path.split( '/' ) : [] ;
@@ -107,17 +107,17 @@
 
 		}
 
-		keys = Object.keys( obj.children );
+		TOO.keys = Object.keys( obj.children );
 		foldersText = '';
 		filesText = '<small> Use tag and shift-tab to browse files quickly </small>' + b;
 		count = 0;
 
 		p = path ? path + '/': '';
-history.replaceState( '', document.title, window.location.pathname );
+		history.replaceState( '', document.title, window.location.pathname );
 
-		for ( var i = 0; i < keys.length; i++ ) {
+		for ( var i = 0; i < TOO.keys.length; i++ ) {
 
-			key = keys[ i ];
+			key = TOO.keys[ i ];
 
 			if ( Object.keys( obj.children[ key ].children ).length > 0 ) {
 
@@ -198,7 +198,7 @@ history.replaceState( '', document.title, window.location.pathname );
 
 		} else if ( txt.includes( 'toogallery') ) {
 
-			createPageOfImages( TOO.urlGHPages + p , keys );
+			createPageOfImages( TOO.urlGHPages + p , TOO.keys );
 
 		} else {
 
@@ -342,7 +342,7 @@ history.replaceState( '', document.title, window.location.pathname );
 
 //			fileName = item2.pop();
 			fileName = item.replace( /[-_]/g, ' ' );
-console.log( 'item', item );
+//console.log( 'item', item );
 
 			page += '<div style=display:inline-block;margin:10px; >' +
 				'<a href=JavaScript:getFileSetContents("' + path + item +'"); ><img src=' + path + encodeURI( item ) + ' height=200; title="' + fileName.slice( 0, -4 ) + '" ></a>' +
