@@ -160,7 +160,6 @@
 
 		var txt, repoKeys, repo;
 
-
 // console.clear();
 		txt =
 
@@ -184,7 +183,9 @@
 
 // can we add type of user here?
 
-			txt += '<h2 style=margin-bottom:0; >User/repo: ' + repoName.link( 'https://github.com/' + repoName ) + '</h2>';
+			txt += '<h2 style=margin-bottom:0; >User/repo: ' +
+				repoName.link( 'https://github.com/' + repoName ) +
+			'</h2>';
 
 			repo = EUS.repos[ repoKeys[ i ] ];
 

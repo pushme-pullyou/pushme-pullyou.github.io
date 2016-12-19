@@ -7,6 +7,7 @@
 [TooToo Read Me]( https://pushme-pullyou.github.io/tootoo/ )
 ===
 
+## [tootoo-r3]( https://pushme-pullyou.github.io/tootoo/r4/tootoo-r4.html )
 ## [tootoo-r3]( https://pushme-pullyou.github.io/tootoo/r3/tootoo-r3.html )
 ## [tootoo-r2]( https://pushme-pullyou.github.io/tootoo/r2/tootoo-r2.html )
 ## [tootoo-r1]( https://pushme-pullyou.github.io/tootoo/tootoo-r1.html )
@@ -89,7 +90,7 @@ Nonetheless it would be nice to have more including features such as the followi
 ## Change Log
 
 
-### 2016-12-02 
+### 2016-12-02
 
 * Initial support for opening files using location.hash
 
