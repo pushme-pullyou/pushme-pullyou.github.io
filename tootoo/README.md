@@ -7,7 +7,7 @@
 [TooToo Read Me]( https://pushme-pullyou.github.io/tootoo/ )
 ===
 
-## [tootoo-r3]( https://pushme-pullyou.github.io/tootoo/r4/tootoo-r4.html )
+## [tootoo-r4]( https://pushme-pullyou.github.io/tootoo/r4/tootoo-r4.html )
 ## [tootoo-r3]( https://pushme-pullyou.github.io/tootoo/r3/tootoo-r3.html )
 ## [tootoo-r2]( https://pushme-pullyou.github.io/tootoo/r2/tootoo-r2.html )
 ## [tootoo-r1]( https://pushme-pullyou.github.io/tootoo/tootoo-r1.html )
@@ -67,6 +67,7 @@ Nonetheless it would be nice to have more including features such as the followi
 
 ## Goals / To Do
 
+* 2016-12-29 ~ Add location hash parsing
 * 2016-12-01 ~ Overlay or plugin to display issues in right column
 * 2016-11-30 ~ Go to next file using cursor keys
 * 2016-11-30 ~ Material Design Light version
@@ -76,7 +77,6 @@ Nonetheless it would be nice to have more including features such as the followi
 
 
 ## Users
-
 
 
 [Leader Photos]( https://leaderphotos.github.io/tootoo/r2/tootoo-r2-leader-photos.html )
