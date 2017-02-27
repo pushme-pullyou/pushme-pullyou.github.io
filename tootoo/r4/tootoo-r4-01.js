@@ -7,7 +7,7 @@
 
 	function requestAPIContents() {
 
-		var xhr, response, path, paths, obj, treeNode;
+		var xhr, response, path, paths, obj, treeNode, keys;
 
 		requestFile( TOO.url, rFcallback );
 
@@ -29,16 +29,14 @@
 
 			}
 
-			TOO.length = paths.length;
-
 			if ( TOO.folder === '' ) { // we are in top folder
 
-				TOO.data = { 'children' : {} };
+				TOO.data = { 'children' : [] };
 				obj = TOO.data.children;
 
 			} else {
 
-				TOO.data = {};
+				TOO.data = [];
 				obj = TOO.data
 
 			}
@@ -49,9 +47,10 @@
 				buildTree( paths[ i ].split( '/' ), obj );
 
 			}
+
 */
 
-			paths.map( function( path ) { return buildTree( path.split( '/' ), obj ) } );
+			paths2 = paths.map( function( path ) { return buildTree( path.split( '/' ), obj ) } );
 
 
 //debugger;
@@ -61,7 +60,7 @@
 
 			function buildTree( parts, treeNode ) {
 
-				var keys, newNode;
+				var newNode;
 
 				if ( parts.length === 0 ) { return; }
 
@@ -79,13 +78,29 @@
 
 				}
 
-				newNode = { 'text' : parts[ 0 ], 'children' : {} };
+//				newNode = { 'text' : parts[ 0 ], 'children' : {} };
 
-				treeNode[ newNode.text ] = newNode;
+//				treeNode[ newNode.text ] = newNode;
+
+//				buildTree( parts.splice( 1, parts.length ), newNode.children );
+
+
+				newNode = {'text': parts[0] ,'children':[]};
+
+				treeNode.push(newNode);
 
 				buildTree( parts.splice( 1, parts.length ), newNode.children );
 
+
 			}
+
+console.log( 'TOO.data', TOO.data );
+
+			menuInfo.innerHTML = '<p> Number of items found: ' + paths.length + b +
+
+				'<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '" target="_blank"> View repository on GitHub </a>' +
+
+			'</p>';
 
 			setMenu();
 
@@ -103,8 +118,8 @@
 
 		obj = TOO.folder ? TOO.data[ TOO.folder ] : TOO.data;
 
+
 // very curious things going on here, but it works...
-// probably could use a for...each and not need keys...
 
 		for ( var i = 0; i < folders.length; i++ ) {
 
@@ -118,7 +133,6 @@
 		count = 0;
 
 		p = path ? path + '/': '';
-
 		history.replaceState( '', document.title, window.location.pathname );
 
 		for ( var i = 0; i < TOO.keys.length; i++ ) {
@@ -131,7 +145,7 @@
 
 			} else {
 
-				filesText += '<a id=file' + ( count++ ) + ' href=JavaScript:getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '","' + p + '","' + key + '"); ' +
+				filesText += '<a id=file' + ( count++ ) + ' href=JavaScript:getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); ' +
 //				' onfocus=getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); ' +
 //				' onclick=getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); ' +
 				'>' +
@@ -143,18 +157,12 @@
 			}
 
 		}
-console.log( 'filesText', filesText);
+
 		TOO.menu.innerHTML = foldersText + filesText;
 
 		setBreadcrumbs( path );
 
 		setDefaultContents( path, filesText );
-
-		menuInfo.innerHTML = '<p> Number of items found: ' + TOO.length + b +
-
-			'<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '" target="_blank"> View repository on GitHub </a>' +
-
-		'</p>';
 
 //		if ( p !== '' ) { file0.focus(); }
 
@@ -224,27 +232,13 @@ console.log( 'filesText', filesText);
 
 		}
 
-		button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + p + file + '" target="_blank"> Edit </a>';
-
-
 	}
 
 // formats to consider adding: PDF
 // https://mozilla.github.io/pdf.js/
 
-	function getFileSetContents( url, path, key ){
-
-// console.log( 'url', url );
-// console.log( 'key', key );
-
-		button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + key + '" target="_blank"> Edit </a>';
-
-//		button.addEventListener( 'click', function ( event ) {
-
-//			window.open( 'https://github.com/' + TOO.user + '/' + TOO.repo + '/edit/' + TOO.branch + '/' + key );
-
-//		}, false );
-
+	function getFileSetContents( url ){
+console.log( 'url', url );
 		var u = url.toLowerCase();
 
 		if ( u.endsWith( '.md' ) ){

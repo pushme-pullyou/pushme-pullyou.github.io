@@ -2,20 +2,18 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>tootoo r4</title>
+<title>tootoo r5</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Basic slide in and slide out menu with three bar icon that adjusts for small screen size.' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 <meta name=date content='2016-12-01' >
 </head>
 <body>
-<script src=https://rawgit.com/showdownjs/showdown/develop/dist/showdown.min.js ></script>
-<script src=tootoo-r4.js ></script>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js  ></script>
+<script src=tootoo-r5.js ></script>
 <script>
-// Copyright © 2016 Jaanga authors. MIT license
+// Copyright © 2017 Jaanga authors. MIT license
 // https://github.com/showdownjs/showdown
-// http://stackoverflow.com/questions/17140711/how-to-show-a-list-or-array-into-a-tree-structure-in-javascript
-
 
 	var users = {};
 
@@ -27,7 +25,6 @@
 		rawgit: true
 //		noIndex: 'true'
 	};
-
 	users.d3GH = {
 		user : 'd3',
 		repo : 'd3.github.com',
@@ -35,7 +32,6 @@
 		folder : '',
 		rawgit: true
 	};
-
 	users.jDemo = {
 		user: 'jaanga',
 		repo: 'jaanga.github.io',
@@ -80,7 +76,6 @@
 		branch : 'gh-pages',
 		folder : ''
 	};
-
 	users.leader = {
 		user : 'leaderphotos',
 		repo : 'leaderphotos.github.io',
@@ -94,14 +89,12 @@
 		folder : '',
 		rawgit: true
 	};
-
 	users.paulmasson = {
 		user : 'paulmasson',
 		repo : 'paulmasson.github.io',
 		branch : 'master',
 		folder : ''
 	};
-
 	users.pushmePullyou = {
 		user : 'pushme-pullyou',
 		repo : 'pushme-pullyou.github.io',
@@ -109,21 +102,18 @@
 		folder : '',
 		noIndex: 'true'
 	};
-
 	users.sagemathGH = {
 		user : 'sagemath',
 		repo : 'sagemath.github.io',
 		branch : 'master',
 		folder : ''
 	};
-
 	users.sagemathCell = {
 		user : 'sagemath',
 		repo : 'sagecell',
 		branch : 'gh-pages',
 		folder : ''
 	};
-
 	users.sagemathSageDev = {
 		user : 'sagemath',
 		repo : 'sage',
@@ -131,21 +121,18 @@
 		folder : '',
 		rawgit: true
 	};
-
 	users.sagemathDocs = {
 		user : 'sagemath',
 		repo : 'documentation',
 		branch : 'gh-pages',
 		folder : 'html'
 	};
-
 	users.sagemathPlanet = {
 		user : 'sagemath',
 		repo : 'planet',
 		branch : 'gh-pages',
 		folder : ''
 	};
-
 	users.theoArmour = {
 		user : 'theo-armour',
 		repo : 'drawing',
@@ -163,14 +150,13 @@
 	};
 */
 
-	var TOO;
-
+	var b = '<br>';
 
 	init();
 
 	function init() {
 
-// should the css be in the JavaScript file?
+// should there be a basic css in the JavaScript file?
 
 		var css, container, contents, hamburger, menu;
 
@@ -187,12 +173,28 @@
 			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
 			'#button { background-color: #555; color: #fff; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: 20px; }' +
 			'#button:hover { cursor: pointer; opacity: 1; }' +
-			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%;}' +
-			'#TOOcontents { border: 0px #ccc solid; left: 325px; position: absolute; }' +
-			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px; }' +
-			'#hamburger h2 { margin: 0; }' +
-			'#menu { background-color: #eee; border: 1px #ccc solid; box-sizing:border-box;  height: 100%; overflow-y: auto; padding: 0 10px; position: fixed; width: 325px; }' +
-			'#menu h2 { margin: 0; }' +
+			'#button a { text-decoration: none; color: #fff; }' +
+			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%; }' +
+
+// let each type of contents decide its best width and placement
+			'#contents { border: 0px #ccc solid; height: 100%; left: 325px; position: absolute; width: ' + ( window.innerWidth - 325 ) + 'px; }' +
+//			'#contents { border: 2px #ccc solid; margin-left: 325px; position: absolute; width: 100%; }' +
+
+			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }' +
+			'#hamburger h2 { margin: 0;}' +
+
+			'#menu { background-color: #eee; border: 1px #ccc solid; box-sizing:border-box; height: 100%; overflow-y: auto; padding: 0 10px; position: fixed; width: 325px; }' +
+			'#menu h2 {margin: 0; }' +
+			'#menuBreadcrumbs h2, #menuBreadcrumbs h3 { font-size: 14pt; margin: 0; }' +
+
+			'#nextFile { color: #888; font-size: 36pt; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: ' + (0.5 * window.innerHeight ) + 'px; }' +
+			'#nextFile:hover { cursor: pointer; opacity: 1; }' +
+			'#nextFile a { text-decoration: none; color: #888; }' +
+
+			'#previousFile { color: #888; font-size: 36pt; opacity: 0.5; padding: 8px; position: fixed; margin-left: 350px; top: ' + (0.5 * window.innerHeight ) + 'px; }' +
+			'#previousFile:hover { cursor: pointer; opacity: 1; }' +
+			'#previousFile a { text-decoration: none; color: #888; }' +
+
 		'';
 
 		container = document.body.appendChild( document.createElement( 'div' ) );
@@ -207,15 +209,15 @@
 					' ~ <a href="https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 				'</h2>' +
 
-				'<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>' +
+				'<div class=popUp id=popHelp style=display:none; ><div>Hi there!</div>Click the i-in-circle, info icon for latest updates.</div>' +
 
-				'<div><small>Browse the contents of many files in a GitHub repo really quickly</small></div>' +
+				'<div><small><i>Browse and view the contents of files on GitHub remarkably quickly</i></small></div>' + b +
 
 				'<details id=SELdetailsUser open title="" >' +
 
 					'<summary><h3>Select GitHub User / Repo</h3></summary>' +
 
-						'<select id=SELselUser onchange=setUser(this.value); title="Select user" size=10 style=width:100%;  >' +
+						'<select id=SELselUser onchange=setUser(this.value); title="Select user" size=15 style=width:100%;  >' +
 
 						'</select>' + b +
 
@@ -227,24 +229,23 @@
 
 				'</details>' +
 
-
 				'<details open>' +
 
 					'<summary><h3>Menu</h3></summary>' +
 
-					'<div id=menuBreadcrumbs ></div>' +
+					'<div id=menuBreadcrumbs ></div>' + b +
 
-					'<div id=menuItems ></div>' +
-
-					'<div id=menuInfo ></div>' +
+					'<div id=menuItems ></div>' + b +
 
 				'</details>' +
 
-				'<details open>' +
+				'<details>' +
 
-					'<summary><h3>Current File Data</h3></summary>' +
+					'<summary><h3>Current File Info</h3></summary>' +
 
-					'<div id=menuFileData ></div>' +
+					'<div id=menuFileData ></div>' + b +
+
+					'<div id=menuInfo ></div>' + b +
 
 				'</details>' +
 
@@ -252,7 +253,7 @@
 
 					'<summary><h3>About</h3></summary>' +
 
-					'<p>Copyright &copy; 2016 Jaanga authors. <a href=https://jaanga.github.io/home/r4/index.html#http://jaanga.github.io/jaanga-copyright-and-mit-license.md >MIT license</a>.</p>' +
+					'<p>Copyright &copy; 2017 Jaanga authors. <a href=https://jaanga.github.io/home/r4/index.html#http://jaanga.github.io/jaanga-copyright-and-mit-license.md >MIT license</a>.</p>' +
 					'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
 
 				'</details>' +
@@ -267,41 +268,41 @@
 				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
 			'</div>' +
 
-			'<div id=TOOcontents >' +
+			'<div id=contents >' +
 				'<h1>.</h1>' +
 			'</div>' +
 
 		'';
 
+// to JS?
+
+		getMenuSelectUserOptions();
+
+		SELselUser.selectedIndex = users.keys.indexOf( user );
+
 		button = document.body.appendChild( document.createElement( 'div' ) );
 		button.id = 'button';
 		button.innerHTML = 'Edit';
-
-//		button.addEventListener( 'click', function ( event ) {
-
-//				window.open( 'https://github.com/mrdoob/three.js/blob/dev/docs/' + section + '/' + path + '.html' );
-//				window.open( 'https://github.com/' + TOO.user + '/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' ) );
-
-//		}, false );
 
 		window.addEventListener( 'resize', onWindowResize, false );
 
 		onWindowResize();
 
-		getSelectUserOptions();
-
 		setUser( 'pushmePullyou' );
+
 
 		if ( location.hash ) {
 
-			getFileSetContents( location.hash.slice( 1 ) );
+//			getFileSetContents( location.hash.slice( 1 ) );
 
 		}
 
 	}
 
 
-	function getSelectUserOptions(){
+// add items to menu
+
+	function getMenuSelectUserOptions(){
 
 		users.keys = Object.keys( users );
 
@@ -319,8 +320,8 @@
 	function setUser( user ){
 
 		TOO = users[ user ];
-
-		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
+// to JS?
+//		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
 
 		if ( TOO.rawgit ) {
 
@@ -332,12 +333,17 @@
 
 		}
 
+		getNextPreviousButtons();
+
+// all needed?
+
+		TOO.contents = contents;
 		TOO.breadcrumbs = menuBreadcrumbs;
 		TOO.menu = menuItems;
+		TOO.menuInfo = menuInfo;
+		TOO.button = button;
 
 		requestAPIContents();
-
-		SELselUser.selectedIndex = users.keys.indexOf( user );
 
 	}
 
@@ -346,7 +352,7 @@
 
 		if ( window.self !== window.top || window.innerWidth < 500 ) { container.style.left = '-325px'; }
 
-		TOOcontents.style.width = window.innerWidth - 350;
+		contents.style.width = window.innerWidth - 350;
 
 	}
 

@@ -3,7 +3,7 @@
 	var TOO = { release: 'r4' };
 
 	var b = '<br>';
-	var editor;
+	var TOObutton, editor;
 
 	function requestAPIContents() {
 
@@ -43,7 +43,7 @@
 
 			}
 
-/*
+/* map is simpler
 			for ( var i = 0 ; i < paths.length; i++ ) {
 
 				buildTree( paths[ i ].split( '/' ), obj );
@@ -98,6 +98,7 @@
 
 		var folders, obj;
 		var foldersText, filesText;
+		var count, p;
 
 		folders = path ? path.split( '/' ) : [] ;
 
@@ -106,11 +107,12 @@
 // very curious things going on here, but it works...
 // probably could use a for...each and not need keys...
 
-		for ( var i = 0; i < folders.length; i++ ) {
+//		for ( var i = 0; i < folders.length; i++ ) {
 
-			obj = obj.children[ folders[ i ] ];
+//			obj = obj.children[ folders[ i ] ];
 
-		}
+//		}
+
 
 		TOO.keys = Object.keys( obj.children );
 		foldersText = '';
@@ -118,8 +120,6 @@
 		count = 0;
 
 		p = path ? path + '/': '';
-
-		history.replaceState( '', document.title, window.location.pathname );
 
 		for ( var i = 0; i < TOO.keys.length; i++ ) {
 
@@ -131,7 +131,9 @@
 
 			} else {
 
-				filesText += '<a id=file' + ( count++ ) + ' href=JavaScript:getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '","' + p + '","' + key + '"); ' +
+//				filesText += '<a id=file' + ( count++ ) + ' href=JavaScript:getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '","' + p + '","' + key + '"); ' +
+				filesText += '<a id=file' + ( count++ ) + ' href=JavaScript:getFileSetContents("' + p + '","' + key + '"); ' +
+
 //				' onfocus=getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); ' +
 //				' onclick=getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); ' +
 				'>' +
@@ -143,14 +145,17 @@
 			}
 
 		}
-console.log( 'filesText', filesText);
+// console.log( 'filesText', filesText);
+
+		history.replaceState( '', document.title, window.location.pathname );
+
 		TOO.menu.innerHTML = foldersText + filesText;
 
 		setBreadcrumbs( path );
 
-		setDefaultContents( path, filesText );
+		setDefaultContents( p, filesText );
 
-		menuInfo.innerHTML = '<p> Number of items found: ' + TOO.length + b +
+		TOO.menuInfo.innerHTML = '<p> Number of files found: ' + TOO.length + b + b +
 
 			'<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '" target="_blank"> View repository on GitHub </a>' +
 
@@ -186,9 +191,7 @@ console.log( 'filesText', filesText);
 
 	function setDefaultContents( path, filesText ) {
 
-		var p, txt, start, file;
-
-		p = path ? path + '/': '';
+		var txt, start, file;
 
 		txt = filesText.toLowerCase();
 
@@ -200,7 +203,7 @@ console.log( 'filesText', filesText);
 
 			file =  filesText.slice( start, start + 10 );
 
-			getFileHTML( TOO.urlGHPages + p + file );
+			getFileHTML( TOO.urlGHPages + path + file );
 
 		} else if ( txt.includes( 'readme.md' ) ) {
 
@@ -208,38 +211,46 @@ console.log( 'filesText', filesText);
 
 			file =  filesText.slice( start, start + 9 );
 
-			getFileMD( TOO.urlGHPages + p + file );
+			getFileMD( TOO.urlGHPages + path + file );
 
 			file1.focus();
 
 		} else if ( txt.includes( 'toogallery') ) {
 
-			createPageOfImages( TOO.urlGHPages + p , TOO.keys );
+			createPageOfImages( TOO.urlGHPages + path , TOO.keys );
 
 		} else {
 
-//			if ( p !== '' ) { file0.focus(); }
+//			if ( path !== '' ) { file0.focus(); }
 
 //			contents.innerHTML = '<h2 style="margin:200px 0 0 50px;" > Select a file to view from the menu </h2>';
 
 		}
 
-		button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + p + file + '" target="_blank"> Edit </a>';
+		if ( TOO.button ) {
 
+			TOO.button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + file + '" target="_blank"> Edit </a>';
+		}
 
 	}
 
 // formats to consider adding: PDF
 // https://mozilla.github.io/pdf.js/
 
-	function getFileSetContents( url, path, key ){
+	function getFileSetContents( path, key ){
 
 // console.log( 'url', url );
 // console.log( 'key', key );
 
-		button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + key + '" target="_blank"> Edit </a>';
+		url = TOO.urlGHPages + path + encodeURI( key );
 
-//		button.addEventListener( 'click', function ( event ) {
+		if ( TOO.button ) {
+
+			TOO.button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + key + '" target="_blank"> Edit </a>';
+
+		}
+
+//		TOObutton.addEventListener( 'click', function ( event ) {
 
 //			window.open( 'https://github.com/' + TOO.user + '/' + TOO.repo + '/edit/' + TOO.branch + '/' + key );
 
@@ -278,7 +289,7 @@ console.log( 'filesText', filesText);
 
 // console.log( 'resp', xhr.target.response );
 
-			TOOcontents.innerHTML =
+			TOO.contents.innerHTML =
 
 				'<div style=margin-left:50px;max-width:800px; >' +
 					converter.makeHtml( xhr.target.response ) +
@@ -293,7 +304,7 @@ console.log( 'filesText', filesText);
 
 	function getFileHTML( url ){
 
-		TOOcontents.innerHTML =
+		TOO.contents.innerHTML =
 			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) +
 			' style="border:0px solid red"; >' +
 		'<iframe>';
@@ -304,14 +315,14 @@ console.log( 'filesText', filesText);
 			'URL: ' + url.slice( 8 ).link( url ) + b +
 		b;
 
-		if ( p !== '' ) { file0.focus(); }
+//		if ( p !== '' ) { file0.focus(); }
 
 	}
 
 
 	function getFileImage( url ){
 
-		TOOcontents.innerHTML =
+		TOO.contents.innerHTML =
 			'<img id=image src="' + url +
 			'" style="border:2px solid gray; margin: 25px 0 0 50px; max-width: 800px; " >';
 
@@ -324,7 +335,7 @@ console.log( 'filesText', filesText);
 
 	function getFileCode( url ) {
 
-		TOOcontents.innerHTML =
+		TOO.contents.innerHTML =
 			'<div id=contentsCode style=margin-left:50px;width:800px;height:' + window.innerHeight + 'px; >' +
 			' item will appear here ' +
 		'</div>';
@@ -385,7 +396,7 @@ console.log( 'filesText', filesText);
 
 //console.log( 'page', page  );
 
-		TOOcontents.innerHTML = page;
+		TOO.contents.innerHTML = page;
 
 	}
 
@@ -395,9 +406,12 @@ console.log( 'filesText', filesText);
 		var lastMod = xhr.target.getResponseHeader ( "Last-Modified" );
 
 		menuFileData.innerHTML =
-			'URL: ' + xhr.target.responseURL.slice( 8 ).link( xhr.target.responseURL ) + b +
-			'Size: ' + xhr.total.toLocaleString() + ' ~ last modified: ' + lastMod + b +
-		b;
+			'<small><i>Loaded maximum first 10,000 characters.<br></i></small>' + b +
+			'URL: ' + b + xhr.target.responseURL.slice( 8 ).link( xhr.target.responseURL ) + b +
+			'Size: ' + xhr.total.toLocaleString() + ' bytes' + b +
+			'Last modified: ' + b + lastMod + b +
+
+		'';
 
 	}
 

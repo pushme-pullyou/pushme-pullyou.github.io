@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>Open Index or Markdown</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='File wrangler. Default index.html file. Opens HTML or Markdown files. Passes location.hash.' >
+<meta name=keywords content='ShowDown,Markdown,AJAX,JavaScript,HTML,CSS,GitHub,FOSS' >
+<meta name=date content='2017-01-01' >
+</head>
+<body>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js ></script>
+<script>
+// https://github.com/showdownjs/showdown
+// https://github.com/jaanga/jaanga.github.io/tree/master/cookbook-html/templates2/open-index-or-markdown
+
+	var defaultFile = 'index.html';
+	location.hash = 'README.md';
+
+	var container;
+	var b = '<br>';
+
+	init();
+
+	function init() {
+
+		if ( location.hash.match( '.md' ) ) {
+
+			onHashChange();
+
+		} else {
+
+			window.location.href = defaultFile + location.hash;
+
+		}
+
+	}
+
+	function onHashChange() {
+
+		var css, converter, url, xhr;
+
+		css = document.head.appendChild( document.createElement( 'style' ) );
+		css.innerHTML =
+
+			'html { height: 100%; }' +
+			'body { border: 0px solid red; font: 12pt monospace; height: 100%; left: 0; margin: 0 auto; overflow: hidden; max-width: 1200px; right: 0; }' +
+			'a { color: crimson; text-decoration: none; }' +
+			'button, input[type=button] { background-color: #eee; border: 2px #eee solid; color: #888; }' +
+			'#contents { margin: 0 0 0 200px; }' +
+			'#menu { background-color: lightgrey; color: red; height: 100%; position: absolute; top: 0; width: 100px; }' +
+
+		'';
+
+		container = container ? container : document.body.appendChild( document.createElement( 'div' ) ) ;
+
+		converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
+
+		mnu = 'hi' + b +
+			'ccc' + b +
+			'ddd' + b +
+		'';
+
+		url = location.hash.slice( 1 );
+
+		xhr = new XMLHttpRequest();
+		xhr.open( 'get', url, true );
+		xhr.onload = function() {
+
+			container.innerHTML =
+				'<div id=menu >' + mnu + '</div>' +
+				'<div id=contents >' + converter.makeHtml( xhr.responseText ) + '</div>';
+			container.id = container;
+			//container.style.padding = '0 0 0 200px';
+
+		};
+		xhr.send( null );
+
+		document.title = url.split( '/' ).pop();
+
+		window.addEventListener( 'hashchange', onHashChange, false );
+
+	}
+
+</script>
+</body>
+</html>

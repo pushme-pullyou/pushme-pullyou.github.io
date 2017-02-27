@@ -14,11 +14,13 @@
 
 ## Instances
 
-Variations adapted for various GitHub repositories
+Variations/experiments adapted for various GitHub repositories
 
-* [tootoo-r3-theo-armour.html]( http://pushme-pullyou.github.io/tootoo/r3/tootoo-r3-theo-armour.html )
-* [tootoo-r3-leader-photos.html]( http://pushme-pullyou.github.io/tootoo/r3/tootoo-r3-leader-photos.html )
-
+* [tootoo-r5-theo-armour.html]( http://pushme-pullyou.github.io/tootoo/r5/tootoo-r5-theo-armour.html )
+* [tootoo-r5-leader-photos.html]( http://pushme-pullyou.github.io/tootoo/r5/tootoo-r5-leader-photos.html )
+* [tootoo-r5-masson-sagemath-docs.html]( http://pushme-pullyou.github.io/tootoo/r5/tootoo-r5-masson-sagemath-docs.html )
+* [tootoo-r5-theoDraw.html]( http://pushme-pullyou.github.io/tootoo/r5/tootoo-r5-theoDraw.html )
+* [tootoo-r5-theo-pages2.html ]( http://pushme-pullyou.github.io/tootoo/r5/tootoo-r5-theo-pages2.html )
 
 ## Concept
 
@@ -30,6 +32,7 @@ Nonetheless it would be nice to have more including features such as the followi
 * Browse the contents of many files on GitHub really quickly
 	* Move to the next file using only a single click
 	* Views files as rendered or as source code
+* Edit any file on GitHub
 
 ### Mission
 
@@ -40,6 +43,7 @@ Nonetheless it would be nice to have more including features such as the followi
 * To demonstrate that the GitHub API is accessible by beginner to intermediate coders
 * To demonstrate that you can do many nice things with the GitHub API without having to use a server or a terminal window or localhost
 * To enable you to see what your peeps have been working on and playing with
+* Encourage you to edit any file on GitHub
 
 
 
@@ -60,6 +64,11 @@ Nonetheless it would be nice to have more including features such as the followi
 * Direct link to this read me file
 * Click on title to reload
 
+## Demos
+
+* Open Source Guide
+* https://frontendmasters.gitbooks.io/front-end-handbook-2017/content/
+
 
 ## Issues
 
@@ -67,14 +76,12 @@ Nonetheless it would be nice to have more including features such as the followi
 
 ## Goals / To Do
 
+
 * 2016-12-29 ~ Add location hash parsing
 * 2016-12-01 ~ Overlay or plugin to display issues in right column
-* 2016-11-30 ~ Go to next file using cursor keys
+* 2016-11-30 ~ Go to next previous file using cursor keys
 * 2016-11-30 ~ Material Design Light version
 * 2016-11-30 ~ Better handling of current file data
-* 2016-11-11 ~ Display HTML as source or in an iframe
-
-
 
 ## Users
 
@@ -85,10 +92,69 @@ Nonetheless it would be nice to have more including features such as the followi
 
 ## Links of Interest
 
+Document viewers from different sources
 
+* https://threejs.org/examples/
+* https://threejs.org/docs/index.html
+
+* https://www.gitbook.com/
+	* https://www.gitbook.com/book/frontendmasters/front-end-handbook-2017/details
+	* https://97-things-every-x-should-know.gitbooks.io/97-things-every-programmer-should-know/content/en/thing_13/index.html
+* http://philschatz.com/
+	* http://cnx.org/
+https://github.com/bryanbraun/franklin
+
+### Specialty Viewers
+
+
+* https://github.com/DDMAL/diva.js
+* http://dillinger.io/
+* https://www.documentcloud.org/home
+* http://swagger.io/swagger-editor/
+* https://htmlpreview.github.io/
+	* very useful
+* https://help.github.com/articles/3d-file-viewer/
+* https://github.com/HoTT
+* https://github.com/bryanbraun/franklin
+* http://oerpub.github.io/github-bookeditor/
+	* https://github.com/oerpub
+* https://github.com/sxswdemo/github-book
+
+### Lists / Portals
+
+* https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md#javascript
+* https://www.quora.com/What-are-some-online-books-hosted-on-Github
+* http://readwrite.com/2013/11/08/seven-ways-to-use-github-that-arent-coding/
+
+### About
+
+* https://go-to-hellman.blogspot.com/2015/01/why-github-is-important-for-book.html
+* https://github.com/GITenberg
+
+### Turn into a book?
+
+* https://codetower.github.io/es6-features/
+* https://deploystack.io/
+* https://github.com/kamranahmedse/design-patterns-for-humans/blob/master/README.md
+
+
+###
 
 ## Change Log
 
+### 2017-02-26
+
+* In very messy, broken state
+* But go to next and previous files are working
+* So is menu item highlighting
+* Also a fair amount of code clean up
+* 2016-11-30 ~ Go to next previous file using click << done
+
+### 2017-02-25
+
+* Add Edit button
+* 2017-02-25 ~ Edit button
+* 2016-11-11 ~ Display HTML as source or in an iframe
 
 ### 2016-12-02
 
@@ -98,8 +164,6 @@ Nonetheless it would be nice to have more including features such as the followi
 ### 2016-12-01 ~ R3
 
 * Moves to Pushme-Pullyou organization
-
-
 
 ### 2016-11-30 ~ R2
 

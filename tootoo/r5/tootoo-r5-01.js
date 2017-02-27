@@ -9,6 +9,10 @@
 
 		var xhr, response, path, paths, obj, treeNode;
 
+		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
+
+//		TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
+
 		requestFile( TOO.url, rFcallback );
 
 		function rFcallback( xhr ) {
@@ -42,14 +46,6 @@
 				obj = TOO.data
 
 			}
-
-/*
-			for ( var i = 0 ; i < paths.length; i++ ) {
-
-				buildTree( paths[ i ].split( '/' ), obj );
-
-			}
-*/
 
 			paths.map( function( path ) { return buildTree( path.split( '/' ), obj ) } );
 
@@ -97,20 +93,13 @@
 	function setMenu( path ) {
 
 		var folders, obj;
-		var foldersText, filesText;
+//		var foldersText, filesText;
+		var count, p;
+		TOO. files = [];
 
 		folders = path ? path.split( '/' ) : [] ;
 
 		obj = TOO.folder ? TOO.data[ TOO.folder ] : TOO.data;
-
-// very curious things going on here, but it works...
-// probably could use a for...each and not need keys...
-
-		for ( var i = 0; i < folders.length; i++ ) {
-
-			obj = obj.children[ folders[ i ] ];
-
-		}
 
 		TOO.keys = Object.keys( obj.children );
 		foldersText = '';
@@ -118,8 +107,6 @@
 		count = 0;
 
 		p = path ? path + '/': '';
-
-		history.replaceState( '', document.title, window.location.pathname );
 
 		for ( var i = 0; i < TOO.keys.length; i++ ) {
 
@@ -131,30 +118,34 @@
 
 			} else {
 
-				filesText += '<a id=file' + ( count++ ) + ' href=JavaScript:getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '","' + p + '","' + key + '"); ' +
-//				' onfocus=getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); ' +
-//				' onclick=getFileSetContents("' + TOO.urlGHPages + p + encodeURI( key ) + '"); ' +
-				'>' +
-
-				key +
-
+				filesText += '<a id=file' + ( count++ ) + ' href=JavaScript:getFileSetContents("' + p + '","' + key + '"); >' +
+					key +
 				'</a>'+ b;
-
+				TOO.files.push( key );
 			}
 
 		}
-console.log( 'filesText', filesText);
+
+// console.log( 'files', TOO.files);
+
+		history.replaceState( '', document.title, window.location.pathname );
+
 		TOO.menu.innerHTML = foldersText + filesText;
 
 		setBreadcrumbs( path );
 
-		setDefaultContents( path, filesText );
+		setDefaultContents( p, filesText );
 
-		menuInfo.innerHTML = '<p> Number of items found: ' + TOO.length + b +
+		TOO.menuInfo.innerHTML = '<p> Number of files found: ' + TOO.length + b + b +
 
 			'<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '" target="_blank"> View repository on GitHub </a>' +
 
 		'</p>';
+
+		if ( TOO.button ) {
+
+			TOO.button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + p + key + '" target="_blank"> Edit </a>';
+		}
 
 //		if ( p !== '' ) { file0.focus(); }
 
@@ -184,11 +175,75 @@ console.log( 'filesText', filesText);
 	}
 
 
+	function setEditButton( path, file ) {
+
+		if ( TOO.button ) {
+
+			TOO.button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + file + '" target="_blank"> Edit </a>';
+		}
+
+	}
+
+
+	function getNextPreviousButtons() {
+
+		nextFile = document.body.appendChild( document.createElement( 'div' ) );
+		nextFile.id = 'nextFile';
+		nextFile.innerHTML = '&gt;';
+		nextFile.style.cssText = 'color: #888; font-size: 36pt; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: ' + (0.5 * window.innerHeight ) + 'px; ';
+
+
+		previousFile = document.body.appendChild( document.createElement( 'div' ) );
+		previousFile.id = 'previousFile';
+		previousFile.innerHTML = '&lt;';
+		previousFile.style.cssText = 'color: #888; font-size: 36pt; opacity: 0.5; padding: 8px; position: fixed; left: 350px; top: ' + (0.5 * window.innerHeight ) + 'px; ';
+
+		TOO.nextFile = nextFile;
+		TOO.previousFile = previousFile;
+
+	}
+
+	function setNextPreviousButtons( path, file ) {
+
+		index = TOO.files.indexOf( file );
+
+		el = document.getElementById( 'file' + index );
+
+		for ( var i = 0; i < TOO.files.length; i++ ) {
+
+			el = document.getElementById( 'file' + i );
+
+			col = ( i === index )  ? 'orange' : '';
+
+			el.style.backgroundColor = col;
+
+		}
+
+		indexNext = TOO.files.indexOf( file ) + 1;
+
+		if ( indexNext >= TOO.files.length ) { indexNext = 0; }
+
+		indexPrevious = TOO.files.indexOf( file ) - 1;
+
+		if ( indexPrevious < 0 ) { indexPrevious = TOO.files.length - 1; }
+
+		if ( TOO.nextFile ) {
+
+	//		TOO.nextFile.innerHTML = '<a style=text-decoration;none; href=JavaScript:getFileSetContents("' + path + '","' + TOO.files[indexNext] + '"); > &gt; </a>';
+			TOO.nextFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + path + '","' + TOO.files[indexNext] + '"); > &gt; </a>';
+
+			TOO.previousFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + path + '","' + TOO.files[indexPrevious] + '"); > &lt; </a>';
+
+		}
+
+//		location.hash = 'https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + TOO.files[ index ]
+
+	}
+
+
 	function setDefaultContents( path, filesText ) {
 
-		var p, txt, start, file;
-
-		p = path ? path + '/': '';
+		var txt, start, file;
 
 		txt = filesText.toLowerCase();
 
@@ -200,7 +255,7 @@ console.log( 'filesText', filesText);
 
 			file =  filesText.slice( start, start + 10 );
 
-			getFileHTML( TOO.urlGHPages + p + file );
+			getFileHTML( TOO.urlGHPages + path + file );
 
 		} else if ( txt.includes( 'readme.md' ) ) {
 
@@ -208,42 +263,35 @@ console.log( 'filesText', filesText);
 
 			file =  filesText.slice( start, start + 9 );
 
-			getFileMD( TOO.urlGHPages + p + file );
+			getFileMD( TOO.urlGHPages + path + file );
 
 			file1.focus();
 
 		} else if ( txt.includes( 'toogallery') ) {
 
-			createPageOfImages( TOO.urlGHPages + p , TOO.keys );
+			createPageOfImages( TOO.urlGHPages + path , TOO.keys );
 
 		} else {
 
-//			if ( p !== '' ) { file0.focus(); }
+//			if ( path !== '' ) { file0.focus(); }
 
 //			contents.innerHTML = '<h2 style="margin:200px 0 0 50px;" > Select a file to view from the menu </h2>';
 
 		}
 
-		button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + p + file + '" target="_blank"> Edit </a>';
 
+		setEditButton( path, file );
+		setNextPreviousButtons( path, file );
 
 	}
+
 
 // formats to consider adding: PDF
 // https://mozilla.github.io/pdf.js/
 
-	function getFileSetContents( url, path, key ){
+	function getFileSetContents( path, file ){
 
-// console.log( 'url', url );
-// console.log( 'key', key );
-
-		button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + key + '" target="_blank"> Edit </a>';
-
-//		button.addEventListener( 'click', function ( event ) {
-
-//			window.open( 'https://github.com/' + TOO.user + '/' + TOO.repo + '/edit/' + TOO.branch + '/' + key );
-
-//		}, false );
+		url = TOO.urlGHPages + path + encodeURI( file );
 
 		var u = url.toLowerCase();
 
@@ -265,6 +313,9 @@ console.log( 'filesText', filesText);
 
 		}
 
+		setEditButton( path, file );
+		setNextPreviousButtons( path, file )
+
 	}
 
 
@@ -278,7 +329,7 @@ console.log( 'filesText', filesText);
 
 // console.log( 'resp', xhr.target.response );
 
-			TOOcontents.innerHTML =
+			TOO.contents.innerHTML =
 
 				'<div style=margin-left:50px;max-width:800px; >' +
 					converter.makeHtml( xhr.target.response ) +
@@ -293,7 +344,7 @@ console.log( 'filesText', filesText);
 
 	function getFileHTML( url ){
 
-		TOOcontents.innerHTML =
+		TOO.contents.innerHTML =
 			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) +
 			' style="border:0px solid red"; >' +
 		'<iframe>';
@@ -304,14 +355,14 @@ console.log( 'filesText', filesText);
 			'URL: ' + url.slice( 8 ).link( url ) + b +
 		b;
 
-		if ( p !== '' ) { file0.focus(); }
+//		if ( p !== '' ) { file0.focus(); }
 
 	}
 
 
 	function getFileImage( url ){
 
-		TOOcontents.innerHTML =
+		TOO.contents.innerHTML =
 			'<img id=image src="' + url +
 			'" style="border:2px solid gray; margin: 25px 0 0 50px; max-width: 800px; " >';
 
@@ -324,7 +375,7 @@ console.log( 'filesText', filesText);
 
 	function getFileCode( url ) {
 
-		TOOcontents.innerHTML =
+		TOO.contents.innerHTML =
 			'<div id=contentsCode style=margin-left:50px;width:800px;height:' + window.innerHeight + 'px; >' +
 			' item will appear here ' +
 		'</div>';
@@ -385,7 +436,7 @@ console.log( 'filesText', filesText);
 
 //console.log( 'page', page  );
 
-		TOOcontents.innerHTML = page;
+		TOO.contents.innerHTML = page;
 
 	}
 
@@ -395,9 +446,12 @@ console.log( 'filesText', filesText);
 		var lastMod = xhr.target.getResponseHeader ( "Last-Modified" );
 
 		menuFileData.innerHTML =
-			'URL: ' + xhr.target.responseURL.slice( 8 ).link( xhr.target.responseURL ) + b +
-			'Size: ' + xhr.total.toLocaleString() + ' ~ last modified: ' + lastMod + b +
-		b;
+			'<small><i>Loaded maximum first 10,000 characters.<br></i></small>' + b +
+			'URL: ' + b + xhr.target.responseURL.slice( 8 ).link( xhr.target.responseURL ) + b +
+			'Size: ' + xhr.total.toLocaleString() + ' bytes' + b +
+			'Last modified: ' + b + lastMod + b +
+
+		'';
 
 	}
 

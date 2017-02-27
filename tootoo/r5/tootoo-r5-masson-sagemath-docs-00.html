@@ -2,15 +2,15 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TA Drawing</title>
+<title>SageMath Docs</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Basic slide in and slide out menu with three bar icon that adjusts for small screen size.' >
+<meta name=description content='' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2016-12-19' >
+<meta name=date content='2017-02-16' >
 </head>
 <body>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.5.0/showdown.min.js ></script>
-<script src=tootoo-r4.js ></script>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=tootoo-r5.js ></script>
 <script>
 
 // https://github.com/showdownjs/showdown
@@ -19,11 +19,11 @@
 
 	var users = {};
 
-	users.theoArmour = {
-		user : 'theo-armour',
-		repo : 'drawing',
-		branch : 'master',
-		folder : '',
+	users.sagemathDocs = {
+		user : 'paulmasson',
+		repo : 'sagemath-docs',
+		branch : 'gh-pages',
+		folder : 'functions',
 		noIndex : 'true'
 	};
 
@@ -42,11 +42,12 @@
 
 	function init() {
 
-		var css, container, contents, hamburger, menu;
+		var css, container,TOOcontents, hamburger, menu;
 
 		css = document.body.appendChild( document.createElement('style') );
 		css.innerHTML =
-			'html, body { font: 12pt monospace; height: 100%; margin: 0; }' +
+			'html { height: 100%; }' +
+			'body { font: 12pt monospace; height: 100%; /* left: 0; margin: 0 auto; ; right: 0; max-width: 1200px; */ }' +
 			'a { color: crimson; text-decoration: none; }' +
 			'button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }' +
 //			'input[type=range] { -webkit-appearance: none; -moz-appearance: none; background-color: #ddd; width: 160px; }' +
@@ -55,13 +56,9 @@
 			'summary { outline: none; }' +
 			'summary h3 { display: inline; }' +
 			'.popUp { background-color: white; left: 300px; border: 1px solid red; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }' +
-			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
-			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%;}' +
-			'#TOOcontents { border: 0px #ccc solid; left: 375px; position: absolute; }' +
-			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px; }' +
-			'#hamburger h2 { margin: 0; }' +
-			'#menu { background-color: #eee; border: 1px #ccc solid; box-sizing:border-box;  height: 100%; overflow-y: auto; padding: 0 10px; position: fixed; width: 325px; }' +
-//			'#menu h2 { margin: 0; }' +
+			'#contents { margin: 0 0 0 350px; }' +
+			'#menu { background-color: lightgrey; height: 100%; overflow: scroll; padding: 0 0 0 10px; position: fixed; top: 0; width: 300px; }' +
+
 		'';
 
 		container = document.body.appendChild( document.createElement( 'div' ) );
@@ -79,73 +76,74 @@
 
 				'<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>' +
 
-				'<p><small>Browse some of my work with a utility I\'m in the process of building.</small></p>' +
+//				'<p><small>Browse some of my work with a utility I\'m in the process of building.</small></p>' +
 
 				'<details open>' +
 
-					'<summary><h3>Repository</h3></summary>' +
+					'<summary><h3> Repository</h3></summary>' +
 
 					'<div id=menuBreadcrumbs ></div>' +
+//  '<small> Use tag and shift-tab to browse files quickly </small>' + b;
 
-					'<div id=menuItems ></div>' +
+					'<div id=menuItems ></div>' + b +
+
+				'</details>' +
+
+				'<details>' +
+
+					'<summary><h3> Current File Data</h3></summary>' +
+
+					'<div id=menuFileData ></div>' +
 
 					'<div id=menuInfo ></div>' +
 
 				'</details>' +
 
-				'<details open>' +
-
-					'<summary><h3>Current File Data</h3></summary>' +
-
-					'<div id=menuFileData ></div>' +
-
-				'</details>' +
-
 				'<details>' +
-					'<summary><h3>About</h3></summary>' +
-					'<p>Copyright &copy; 2016 Jaanga authors. <a href=http://jaanga.github.io/home/r4/index.html#http://jaanga.github.io/jaanga-copyright-and-mit-license.md >MIT license</a>.</p>' +
+
+					'<summary><h3> About </h3></summary>' +
+
+					'<p>Copyright &copy; 2017 Jaanga authors. <a href=http://jaanga.github.io/home/r4/index.html#http://jaanga.github.io/jaanga-copyright-and-mit-license.md >MIT license</a>.</p>' +
 					'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
+
 				'</details>' +
 
-				'<hr>' +
+//				'<hr>' +
 				'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1> &#x2766 <h1></a></center>' +
 				'<div class=popUp id=pop2 style=display:none;bottom:10px; >Jaanga - your 3D happy place.<br>Click here to return to the top of the page</div>' +
 
 			'</div>' +
 
-			'<div id=hamburger onclick=container.style.left=container.style.left===""?"-325px":""; >' +
-				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
-			'</div>' +
+//			'<div id=hamburger onclick=container.style.left=container.style.left===""?"-325px":""; >' +
+//				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
+//			'</div>' +
 
-			'<div id=TOOcontents >' +
+			'<div id=contents >' +
 				'<h1>Typical contents</h1>' +
 			'</div>' +
 
 		'';
 
-		window.addEventListener( 'resize', onWindowResize, false );
+		TOO = users[ 'sagemathDocs' ];
 
-		onWindowResize();
+//		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
 
-		TOO = users[ 'theoArmour' ];
+//		TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
 
-		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
-
-		TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
-
-		TOO.breadcrumbs = menuBreadcrumbs;
-		TOO.menu = menuItems;
+		setUser();
 
 		requestAPIContents();
 
 	}
 
+	function setUser() {
 
-	function onWindowResize() {
+		TOO.contents = contents;
+		TOO.breadcrumbs = menuBreadcrumbs;
+		TOO.menu = menuItems;
+		TOO.menuInfo = menuInfo;
 
-		if ( window.self !== window.top || window.innerWidth < 500 ) { container.style.left = '-325px'; }
-
-		TOOcontents.style.width = window.innerWidth - 350;
+		getNextPreviousButtons();
 
 	}
 
