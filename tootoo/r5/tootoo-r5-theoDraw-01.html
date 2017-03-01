@@ -2,11 +2,11 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>SageMath Docs</title>
+<title>TA Drawing</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='' >
+<meta name=description content='Basic slide in and slide out menu with three bar icon that adjusts for small screen size.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2017-02-16' >
+<meta name=date content='2017-02-26' >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
@@ -17,11 +17,11 @@
 
 	var users = {};
 
-	users.sagemathDocs = {
-		user : 'paulmasson',
-		repo : 'sagemath-docs',
-		branch : 'gh-pages',
-		folder : 'functions',
+	users.theoArmour = {
+		user : 'theo-armour',
+		repo : 'drawing',
+		branch : 'master',
+		folder : '',
 		noIndex : 'true'
 	};
 
@@ -34,14 +34,15 @@
 	};
 */
 
-
+	var b = '<br>';
 
 	init();
 
 	function init() {
 
 		var css, container, contents, hamburger, menu;
-		var b = '<br>';
+
+		var css, container, contents, hamburger, menu;
 
 		css = document.body.appendChild( document.createElement('style') );
 		css.innerHTML =
@@ -84,7 +85,8 @@
 		container.id = 'container';
 		container.innerHTML =
 
-				'<div id=menu >' +
+			'<div id=menu >' +
+
 
 				'<h2>' +
 					'<a href=https://pushme-pullyou.github.io/ title="Pushme-Pullyou - your coming and going happy place" > &#x2766 </a><br>' +
@@ -94,9 +96,7 @@
 
 				'<div class=popUp id=popHelp style=display:none; ><div>Hi there!</div>Click the i-in-circle, info icon for latest updates.</div>' +
 
-				'<div><small><i>Browse and view the contents of files on GitHub remarkably quickly</i></small></div>' + b +
-
-//				'<p><small>Browse some of my work with a utility I\'m in the process of building.</small></p>' +
+				'<p><small>Browse some of my work with a utility I\'m in the process of building.</small></p>' +
 
 				'<details open>' +
 
@@ -119,15 +119,12 @@
 				'</details>' +
 
 				'<details>' +
-
-					'<summary><h3> About </h3></summary>' +
-
+					'<summary><h3>About</h3></summary>' +
 					'<p>Copyright &copy; 2017 Jaanga authors. <a href=http://jaanga.github.io/home/r4/index.html#http://jaanga.github.io/jaanga-copyright-and-mit-license.md >MIT license</a>.</p>' +
 					'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
-
 				'</details>' +
 
-//				'<hr>' +
+				'<hr>' +
 				'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1> &#x2766 <h1></a></center>' +
 				'<div class=popUp id=pop2 style=display:none;bottom:10px; >Jaanga - your 3D happy place.<br>Click here to return to the top of the page</div>' +
 
@@ -143,11 +140,49 @@
 
 		'';
 
+		button = document.body.appendChild( document.createElement( 'div' ) );
+		button.id = 'button';
+		button.innerHTML = 'Edit';
+
 		window.addEventListener( 'resize', onWindowResize, false );
 
 		onWindowResize();
 
-		TOO.init( users[ 'sagemathDocs' ] );
+		setUser( 'theoArmour' );
+
+
+	}
+
+
+	function setUser( user ){
+
+		TOO = users[ user ];
+
+// to JS?
+//		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
+
+		if ( TOO.rawgit ) {
+
+			TOO.urlGHPages = 'https://rawgit.com/' + TOO.user + '/' + TOO.repo + '/' + TOO.branch + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
+
+		} else {
+
+			TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
+
+		}
+
+		getNextPreviousButtons();
+
+// all needed?
+
+		TOO.contents = contents;
+		TOO.breadcrumbs = menuBreadcrumbs;
+		TOO.menu = menuItems;
+		TOO.menuInfo = menuInfo;
+		TOO.button = button;
+
+		requestAPIContents();
+
 	}
 
 

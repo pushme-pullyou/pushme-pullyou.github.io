@@ -142,13 +142,161 @@
 
 		'';
 
+		button = document.body.appendChild( document.createElement( 'div' ) );
+		button.id = 'button';
+		button.innerHTML = 'Edit';
 
         window.addEventListener( 'resize', onWindowResize, false );
 
         onWindowResize();
 
-		TOO.init( users[ 'leader' ] );
+ //       TOO = users[ 'leader' ];
 
+  //      TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
+
+        TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.folder + ( TOO.folder ? '/' : '' );
+
+ //       TOO.breadcrumbs = menuBreadcrumbs;
+ //       TOO.menu = menuItems;
+
+		setUser( 'leader' );
+
+        requestAPIContents();
+
+	}
+
+	function setUser( user ){
+
+		TOO = users[ user ];
+// to JS?
+//		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
+
+		if ( TOO.rawgit ) {
+
+			TOO.urlGHPages = 'https://rawgit.com/' + TOO.user + '/' + TOO.repo + '/' + TOO.branch + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
+
+		} else {
+
+			TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
+
+		}
+
+		getNextPreviousButtons();
+
+// all needed?
+
+		TOO.contents = contents;
+		TOO.breadcrumbs = menuBreadcrumbs;
+		TOO.menu = menuItems;
+		TOO.menuInfo = menuInfo;
+		TOO.button = button;
+
+		requestAPIContents();
+
+//		SELselUser.selectedIndex = users.keys.indexOf( user );
+
+	}
+
+
+/*
+    function setMenu( path ) {
+
+        var obj, folders, keys;
+        var foldersText, filesText;
+		photos = [];
+
+        folders = path ? path.split( '/' ) : [] ;
+
+        obj = TOO.folder ? TOO.data[ TOO.folder ] : TOO.data;
+
+// very curious things going on here, but it works...
+
+        for ( var i = 0; i < folders.length; i++ ) {
+
+            obj = obj.children[ folders[ i ] ];
+
+        }
+
+        keys = Object.keys( obj.children );
+        foldersText = '';
+        filesText = '';
+
+        p = path ? path + '/': '';
+
+
+        for ( var i = 0; i < keys.length; i++ ) {
+
+
+            key = keys[ i ];
+
+            if ( Object.keys( obj.children[ key ].children ).length > 0 ) {
+
+                foldersText += ' &#x1f4c1; <a href=JavaScript:setMenu("' + p + encodeURI( key ) + '"); >' + key + '</a>'+ b;
+
+            } else if ( key.match( '.thumb' ) || key.match( '.highlight' ) || key.match( '.sized' ) || key.endsWith( '.dat' ) || key.endsWith( '.lock' ) ) {
+
+                continue;
+
+            } else if ( !key.endsWith( '.jpg' ) && !key.endsWith( '.md' )  ) {
+
+                continue;
+
+            } else {
+
+				fileName = key.replace( /[-_]/g, ' ' ).slice( 0, -4 );
+                filesText += '<a href=JavaScript:getFileSetContents("' + p + encodeURI( key ) + '"); >' + fileName + '</a>'+ b;
+				photos.push( key );
+
+            }
+
+        }
+
+        TOO.menu.innerHTML = foldersText + filesText;
+
+        setBreadcrumbs( path );
+
+        setDefaultContents( path, filesText );
+
+		createPageOfImages( p, photos );
+
+    }
+
+	function setUser() {
+
+		TOO.contents = contents;
+		TOO.breadcrumbs = menuBreadcrumbs;
+		TOO.menu = menuItems;
+		TOO.menuInfo = menuInfo;
+
+		getNextPreviousButtons();
+
+	}
+
+*/
+
+	function createPageOfImages( path, photos ) {
+
+		var page, item, item2, fileName;
+
+		page = '';
+
+		for ( var i = 0; i < photos.length; i++ ) {
+
+			item = photos[ i ];
+			item2 = item.split( '/' )
+
+			fileName = item2.pop();
+			fileName = fileName.replace( /[-_]/g, ' ' );
+
+			page += '<div style=display:inline-block;margin:10px; >' +
+				'<a href=JavaScript:getFileSetContents("' + path + item +'"); ><img src=' + TOO.urlGHPages + path + item + ' height=200; title="' + fileName.slice( 0, -4 ) + '" ></a>' +
+				'</div>';
+
+		}
+
+//console.log( 'page', page  );
+
+		contents.innerHTML = page;
 
 	}
 

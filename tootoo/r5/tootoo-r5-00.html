@@ -2,14 +2,14 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>SageMath Docs</title>
+<title>tootoo r5</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2017-02-16' >
+<meta name=date content='2016-12-01' >
 </head>
 <body>
-<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js  ></script>
 <script src=tootoo-r5.js ></script>
 <script>
 // Copyright © 2017 Jaanga authors. MIT license
@@ -17,12 +17,128 @@
 
 	var users = {};
 
-	users.sagemathDocs = {
-		user : 'paulmasson',
-		repo : 'sagemath-docs',
+	users.d3 = {
+		user : 'd3',
+		repo : 'd3',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+//		noIndex: 'true'
+	};
+	users.d3GH = {
+		user : 'd3',
+		repo : 'd3.github.com',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+	};
+	users.jDemo = {
+		user: 'jaanga',
+		repo: 'jaanga.github.io',
+		branch: 'master',
+		folder: 'demo'
+	};
+	users.jTerrain = {
+		user: 'jaanga',
+		repo: 'terrain3',
+		branch: 'gh-pages',
+		folder: ''
+	};
+	users.jaanga = {
+		user : 'jaanga',
+		repo : 'jaanga.github.io',
+		branch : 'master',
+		folder : ''
+	};
+	users.jupyter = {
+		user : 'jupyter',
+		repo : 'jupyter.github.io',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+	};
+	users.jupyterNotebook = {
+		user : 'jupyter',
+		repo : 'notebook',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+	};
+	users.ladybugDynamo = {
+		user : 'ladybug-analysis-tools',
+		repo : 'ladybug-dynamo',
 		branch : 'gh-pages',
-		folder : 'functions',
-		noIndex : 'true'
+		folder : ''
+	};
+	users.ladybugWeb = {
+		user : 'ladybug-analysis-tools',
+		repo : 'ladybug-web',
+		branch : 'gh-pages',
+		folder : ''
+	};
+	users.leader = {
+		user : 'leaderphotos',
+		repo : 'leaderphotos.github.io',
+		branch : 'master',
+		folder :''
+	};
+	users.mrdoob = {
+		user : 'mrdoob',
+		repo : 'three.js',
+		branch : 'dev',
+		folder : '',
+		rawgit: true
+	};
+	users.paulmasson = {
+		user : 'paulmasson',
+		repo : 'paulmasson.github.io',
+		branch : 'master',
+		folder : ''
+	};
+	users.pushmePullyou = {
+		user : 'pushme-pullyou',
+		repo : 'pushme-pullyou.github.io',
+		branch : 'master',
+		folder : '',
+		noIndex: 'true'
+	};
+	users.sagemathGH = {
+		user : 'sagemath',
+		repo : 'sagemath.github.io',
+		branch : 'master',
+		folder : ''
+	};
+	users.sagemathCell = {
+		user : 'sagemath',
+		repo : 'sagecell',
+		branch : 'gh-pages',
+		folder : ''
+	};
+	users.sagemathSageDev = {
+		user : 'sagemath',
+		repo : 'sage',
+		branch : 'develop',
+		folder : '',
+		rawgit: true
+	};
+	users.sagemathDocs = {
+		user : 'sagemath',
+		repo : 'documentation',
+		branch : 'gh-pages',
+		folder : 'html'
+	};
+	users.sagemathPlanet = {
+		user : 'sagemath',
+		repo : 'planet',
+		branch : 'gh-pages',
+		folder : ''
+	};
+	users.theoArmour = {
+		user : 'theo-armour',
+		repo : 'drawing',
+		branch : 'master',
+		folder : '',
+		noIndex: 'true'
 	};
 
 /*
@@ -34,14 +150,15 @@
 	};
 */
 
-
+	var b = '<br>';
 
 	init();
 
 	function init() {
 
+// should there be a basic css in the JavaScript file?
+
 		var css, container, contents, hamburger, menu;
-		var b = '<br>';
 
 		css = document.body.appendChild( document.createElement('style') );
 		css.innerHTML =
@@ -96,7 +213,21 @@
 
 				'<div><small><i>Browse and view the contents of files on GitHub remarkably quickly</i></small></div>' + b +
 
-//				'<p><small>Browse some of my work with a utility I\'m in the process of building.</small></p>' +
+				'<details id=SELdetailsUser open title="" >' +
+
+					'<summary><h3>Select GitHub User / Repo</h3></summary>' +
+
+						'<select id=SELselUser onchange=setUser(this.value); title="Select user" size=15 style=width:100%;  >' +
+
+						'</select>' + b +
+
+					'<small>Enter a user name and press enter: </small>' + b +
+
+					'<input id=SELinpUser placeholder="Enter a search user < will be working soon" onchange=""; style=width:100%; >' + b +
+
+					b +
+
+				'</details>' +
 
 				'<details open>' +
 
@@ -120,14 +251,14 @@
 
 				'<details>' +
 
-					'<summary><h3> About </h3></summary>' +
+					'<summary><h3>About</h3></summary>' +
 
-					'<p>Copyright &copy; 2017 Jaanga authors. <a href=http://jaanga.github.io/home/r4/index.html#http://jaanga.github.io/jaanga-copyright-and-mit-license.md >MIT license</a>.</p>' +
+					'<p>Copyright &copy; 2017 Jaanga authors. <a href=https://jaanga.github.io/home/r4/index.html#http://jaanga.github.io/jaanga-copyright-and-mit-license.md >MIT license</a>.</p>' +
 					'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
 
 				'</details>' +
 
-//				'<hr>' +
+				'<hr>' +
 				'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1> &#x2766 <h1></a></center>' +
 				'<div class=popUp id=pop2 style=display:none;bottom:10px; >Jaanga - your 3D happy place.<br>Click here to return to the top of the page</div>' +
 
@@ -138,16 +269,82 @@
 			'</div>' +
 
 			'<div id=contents >' +
-				'<h1>Typical contents</h1>' +
+				'<h1>.</h1>' +
 			'</div>' +
 
 		'';
+
+// to JS?
+
+		getMenuSelectUserOptions();
+
+		SELselUser.selectedIndex = users.keys.indexOf( user );
+
+		button = document.body.appendChild( document.createElement( 'div' ) );
+		button.id = 'button';
+		button.innerHTML = 'Edit';
 
 		window.addEventListener( 'resize', onWindowResize, false );
 
 		onWindowResize();
 
-		TOO.init( users[ 'sagemathDocs' ] );
+		setUser( 'pushmePullyou' );
+
+
+		if ( location.hash ) {
+
+//			getFileSetContents( location.hash.slice( 1 ) );
+
+		}
+
+	}
+
+
+// add items to menu
+
+	function getMenuSelectUserOptions(){
+
+		users.keys = Object.keys( users );
+
+		for ( var i = 0; i < users.keys.length; i++ ) {
+
+			user = users[ users.keys[ i ] ];
+
+			SELselUser[ i ] = new Option( user.user + ' ' + user.repo + ' ' + user.folder + ' ' + user.branch, users.keys[ i ] );
+
+		}
+
+	}
+
+
+	function setUser( user ){
+
+		TOO = users[ user ];
+// to JS?
+//		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
+
+		if ( TOO.rawgit ) {
+
+			TOO.urlGHPages = 'https://rawgit.com/' + TOO.user + '/' + TOO.repo + '/' + TOO.branch + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
+
+		} else {
+
+			TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
+
+		}
+
+		getNextPreviousButtons();
+
+// all needed?
+
+		TOO.contents = contents;
+		TOO.breadcrumbs = menuBreadcrumbs;
+		TOO.menu = menuItems;
+		TOO.menuInfo = menuInfo;
+		TOO.button = button;
+
+		requestAPIContents();
+
 	}
 
 
@@ -158,6 +355,7 @@
 		contents.style.width = window.innerWidth - 350;
 
 	}
+
 
 </script>
 </body>

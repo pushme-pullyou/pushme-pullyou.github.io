@@ -1,64 +1,17 @@
 // Copyright © 2017 Jaanga authors. MIT license.
 
 	var TOO = {};
+
 	var b = '<br>';
-
-	TOO.init = function( user ) {
-
-		TOO.user    = user.user;
-		TOO.repo    = user.repo;
-		TOO.branch  = user.branch;
-		TOO.folder  = user.folder
-		TOO.noIndex = user.noIndex,
-		TOO.rawgit  = user.rawgit
-
-		TOO.contents = contents;
-		TOO.breadcrumbs = menuBreadcrumbs;
-		TOO.menu = menuItems;
-		TOO.menuInfo = menuInfo;
-
-		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
-
-		if ( TOO.rawgit ) {
-
-			TOO.urlGHPages = 'https://rawgit.com/' + TOO.user + '/' + TOO.repo + '/' + TOO.branch + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
-
-		} else {
-
-			TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
-
-		}
-
-		getButtons();
-
-		requestAPIContents();
-
-	}
-
-
-	function getButtons() {
-
-		button = document.body.appendChild( document.createElement( 'div' ) );
-		button.id = 'button';
-		button.innerHTML = 'Edit';
-		TOO.button = button;
-
-		nextFile = document.body.appendChild( document.createElement( 'div' ) );
-		nextFile.id = 'nextFile';
-		nextFile.innerHTML = '&gt;';
-		TOO.nextFile = nextFile;
-
-		previousFile = container.appendChild( document.createElement( 'div' ) );
-		previousFile.id = 'previousFile';
-		previousFile.innerHTML = '&lt;';
-		TOO.previousFile = previousFile;
-
-	}
-
+	var editor;
 
 	function requestAPIContents() {
 
 		var xhr, obj, treeNode;
+
+		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
+
+//		TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
 
 		requestFile( TOO.url, callbackRequestFile );
 
@@ -183,19 +136,20 @@
 
 		}
 
+		history.replaceState( '', document.title, window.location.pathname );
+
+
 		setBreadcrumbs( path );
 
 		TOO.menu.innerHTML = foldersText + filesText;
+
+		setDefaultContents( pathString, filesText );
 
 		TOO.menuInfo.innerHTML = '<div> Number of files found: ' + TOO.length + b + b +
 
 			'<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '" target="_blank"> View repository on GitHub </a>' +
 
 		'</div>';
-
-		setDefaultContents( pathString, filesText );
-
-//		history.replaceState( '', document.title, window.location.pathname );
 
 	}
 
@@ -219,6 +173,65 @@
 		}
 
 		TOO.breadcrumbs.innerHTML = txt;
+
+	}
+
+
+	function setEditButton( path, file ) {
+
+		if ( TOO.button ) {
+
+			TOO.button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + file + '" target="_blank"> Edit </a>';
+		}
+
+	}
+
+
+	function getNextPreviousButtons() {
+
+		nextFile = document.body.appendChild( document.createElement( 'div' ) );
+		nextFile.id = 'nextFile';
+		nextFile.innerHTML = '&gt;';
+
+		previousFile = container.appendChild( document.createElement( 'div' ) );
+		previousFile.id = 'previousFile';
+		previousFile.innerHTML = '&lt;';
+
+		TOO.nextFile = nextFile;
+		TOO.previousFile = previousFile;
+
+	}
+
+
+	function setNextPreviousButtons( path, file ) {
+
+		index = TOO.files.indexOf( file );
+
+		for ( var i = 0; i < TOO.files.length; i++ ) {
+
+			el = document.getElementById( 'file' + i );
+
+			col = ( i === index )  ? '#ccc' : '';
+
+			el.style.backgroundColor = col;
+
+		}
+
+		indexNext = index + 1;
+
+		if ( index >= TOO.files.length - 1 ) { indexNext = 0; }
+
+		indexPrevious = index - 1;
+
+		if ( index <= 0 ) { indexPrevious = TOO.files.length - 1; }
+
+		if ( TOO.nextFile ) {
+
+			TOO.nextFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + path + '","' + encodeURI( TOO.files[indexNext] ) + '"); > &gt; </a>';
+
+			TOO.previousFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + path + '","' + encodeURI( TOO.files[indexPrevious] ) + '"); > &lt; </a>';
+
+		}
 
 	}
 
@@ -258,9 +271,12 @@
 			file =  TOO.files[ 0 ];
 			getFileSetContents( path, file  );
 
+//			contents.innerHTML = '<h2 style="margin:200px 0 0 50px;" > Select a file to view from the menu </h2>';
+
 		}
 
-		setButtons( path, file );
+		setEditButton( path, file );
+		setNextPreviousButtons( path, file );
 
 	}
 
@@ -292,45 +308,8 @@
 
 		}
 
-		setButtons( path, file );
-
-	}
-
-
-	function setButtons( path, file ) {
-
-		if ( TOO.button ) {
-
-			TOO.button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + file + '" target="_blank"> Edit </a>';
-		}
-
-		index = TOO.files.indexOf( file );
-
-		for ( var i = 0; i < TOO.files.length; i++ ) {
-
-			el = document.getElementById( 'file' + i );
-
-			col = ( i === index )  ? '#ccc' : '';
-
-			el.style.backgroundColor = col;
-
-		}
-
-		indexNext = index + 1;
-
-		if ( index >= TOO.files.length - 1 ) { indexNext = 0; }
-
-		indexPrevious = index - 1;
-
-		if ( index <= 0 ) { indexPrevious = TOO.files.length - 1; }
-
-		if ( TOO.nextFile ) {
-
-			TOO.nextFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + path + '","' + encodeURI( TOO.files[indexNext] ) + '"); > &gt; </a>';
-
-			TOO.previousFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + path + '","' + encodeURI( TOO.files[indexPrevious] ) + '"); > &lt; </a>';
-
-		}
+		setEditButton( path, file );
+		setNextPreviousButtons( path, file )
 
 	}
 
@@ -340,6 +319,8 @@
 // https://github.com/showdownjs/showdown
 
 		showdown.setFlavor('github');
+
+//		var converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
 
 		var converter = new showdown.Converter();
 
@@ -398,7 +379,7 @@
 			' item will appear here ' +
 		'</div>';
 
-		if ( TOO.editor ) {
+		if ( editor ) {
 
 			setEditContents();
 
@@ -407,31 +388,30 @@
 // check here for latest: https://cdnjs.com/libraries/ace/
 // Anyway to get latest automatically?
 
-			TOO.editor = document.body.appendChild( document.createElement( 'script' ) );
-			TOO.editor.onload = setEditContents;
-			TOO.editor.src = 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js';
+			editor = document.body.appendChild( document.createElement( 'script' ) );
+			editor.onload = setEditContents;
+			editor.src = 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js';
 
 		}
 
 		function setEditContents() {
 
-			TOO.editor = ace.edit( 'contentsCode' );
-			TOO.editor.$blockScrolling = Infinity;
-			TOO.editor.getSession().setMode( 'ace/mode/markdown' );
+			editor = ace.edit( 'contentsCode' );
+			editor.$blockScrolling = Infinity;
+			editor.getSession().setMode( 'ace/mode/markdown' );
 
 			requestFile( url, callback );
 
 			function callback( xhr ) {
 
 				getFileDataXHR( xhr );
-				TOO.editor.setValue( xhr.target.response.slice( 0, 10000 ), -1 );
+				editor.setValue( xhr.target.response.slice( 0, 10000 ), -1 );
 
 			}
 
 		}
 
 	}
-
 
 	function createPageOfImages( path, photos ) {
 

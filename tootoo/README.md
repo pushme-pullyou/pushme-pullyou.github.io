@@ -64,11 +64,11 @@ Nonetheless it would be nice to have more including features such as the followi
 * Direct link to this read me file
 * Click on title to reload
 
-## Demos
+## Demo Possibilities
 
 * Open Source Guide
 * https://frontendmasters.gitbooks.io/front-end-handbook-2017/content/
-
+* https://github.com/bpesquet/thejsway/blob/master/manuscript/chapter05.md
 
 ## Issues
 
@@ -76,12 +76,17 @@ Nonetheless it would be nice to have more including features such as the followi
 
 ## Goals / To Do
 
-
+* 2017-02-28 ~ Finish namespacing
+* 2017-02-27 ~ Add handlers for STL files
+* 2016-11-30 ~ Better handling of current file data for HTML etc
 * 2016-12-29 ~ Add location hash parsing
-* 2016-12-01 ~ Overlay or plugin to display issues in right column
-* 2016-11-30 ~ Go to next previous file using cursor keys
 * 2016-11-30 ~ Material Design Light version
-* 2016-11-30 ~ Better handling of current file data
+
+
+### Maybe / Needs mre thought
+
+* 2016-11-30 ~ Go to next previous file using cursor keys or not??
+* 2016-12-01 ~ Overlay or plugin to display issues in right column
 
 ## Users
 
@@ -141,6 +146,18 @@ https://github.com/bryanbraun/franklin
 ###
 
 ## Change Log
+
+### 2017-02-28
+
+* All behavior in JS
+* HTML file very clean
+* All examples updated
+* 2017-02-27 ~ finalize what's in HTML and what's in the JS << done
+* Started Namespacing
+
+### 2017-02-27
+
+* Much cleaned up
 
 ### 2017-02-26
 
