@@ -183,15 +183,14 @@ console.log( 'a', a );
 
 				}
 
-	//console.log( 'path', TOO.path );
-	//console.log( 'file', TOO.file );
+//console.log( 'path', TOO.path );
+//console.log( 'file', TOO.file );
 
 				TOO.setMenu( TOO.path, TOO.file );
 
 			} else {
 
 				TOO.setMenu();
-
 
 			}
 
@@ -261,7 +260,7 @@ console.log( 'a', a );
 
 		if ( file ){
 
-			TOO.getFileSetContents( pathString, file )
+			TOO.getFileSetContents( pathString, file );
 
 		} else {
 
