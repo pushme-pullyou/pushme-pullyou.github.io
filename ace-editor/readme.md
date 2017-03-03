@@ -11,7 +11,7 @@
 ## Full Screen: [ Ace View ]( https://jaanga.github.io/cookbook-html/examples/libraries/ace-editor/index.html )
 
 
-<img src="XXXX" style=display:none; width=800 >
+<img src="" style=display:none; width=800 >
 
 <iframe src=https://jaanga.github.io/cookbook-html/examples/libraries/ace-editor/index.html width=100% height=600px ></iframe>
 
@@ -34,7 +34,7 @@ _Ace View_
 * TBD
 * Click three bars( 'hamburger' ) icon to slide menu in or out
 * Direct link to this read me file
-* Click on title to reload 
+* Click on title to reload
 
 
 ## Things you can do using this script

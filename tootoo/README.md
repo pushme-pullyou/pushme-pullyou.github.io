@@ -7,20 +7,26 @@
 [TooToo Read Me]( https://pushme-pullyou.github.io/tootoo/ )
 ===
 
+## [tootoo-r4]( https://pushme-pullyou.github.io/tootoo/r6/tootoo.html )
+## [tootoo-r4]( https://pushme-pullyou.github.io/tootoo/r5/tootoo-r5.html )
 ## [tootoo-r4]( https://pushme-pullyou.github.io/tootoo/r4/tootoo-r4.html )
 ## [tootoo-r3]( https://pushme-pullyou.github.io/tootoo/r3/tootoo-r3.html )
 ## [tootoo-r2]( https://pushme-pullyou.github.io/tootoo/r2/tootoo-r2.html )
 ## [tootoo-r1]( https://pushme-pullyou.github.io/tootoo/tootoo-r1.html )
 
-## Instances
+## Instances / Demos
 
 Variations/experiments adapted for various GitHub repositories
 
-* [tootoo-r5-theo-armour.html]( http://pushme-pullyou.github.io/tootoo/r5/tootoo-r5-theo-armour.html )
-* [tootoo-r5-leader-photos.html]( http://pushme-pullyou.github.io/tootoo/r5/tootoo-r5-leader-photos.html )
-* [tootoo-r5-masson-sagemath-docs.html]( http://pushme-pullyou.github.io/tootoo/r5/tootoo-r5-masson-sagemath-docs.html )
-* [tootoo-r5-theoDraw.html]( http://pushme-pullyou.github.io/tootoo/r5/tootoo-r5-theoDraw.html )
-* [tootoo-r5-theo-pages2.html ]( http://pushme-pullyou.github.io/tootoo/r5/tootoo-r5-theo-pages2.html )
+* ## Demos
+
+* [The JavaScript Way]( pushme-pullyou.github.io/tootoo/r6/tootoo-the-javascript-way.html )
+* [Open Source Guide]( pushme-pullyou.github.io/tootoo/r6/tootoo-open-source-guide.html )
+* [tootoo-r5-theo-armour.html]( http://pushme-pullyou.github.io/tootoo/r6/tootoo-theo-armour.html )
+* [tootoo-r5-leader-photos.html]( http://pushme-pullyou.github.io/tootoo/r6/tootoo-leader-photos.html )
+* [tootoo-r5-masson-sagemath-docs.html]( http://pushme-pullyou.github.io/tootoo/r6/tootoo-masson-sagemath-docs.html )
+* [tootoo-r5-theoDraw.html]( http://pushme-pullyou.github.io/tootoo/r6/tootoo-theoDraw.html )
+* [tootoo-r5-theo-pages2.html ]( http://pushme-pullyou.github.io/tootoo/r6/tootoo-theo-pages2.html )
 
 ## Concept
 
@@ -64,11 +70,15 @@ Nonetheless it would be nice to have more including features such as the followi
 * Direct link to this read me file
 * Click on title to reload
 
+
+
 ## Demo Possibilities
 
 * Open Source Guide
 * https://frontendmasters.gitbooks.io/front-end-handbook-2017/content/
+* https://github.com/FrontendMasters/front-end-handbook-2017
 * https://github.com/bpesquet/thejsway/blob/master/manuscript/chapter05.md
+
 
 ## Issues
 
@@ -76,10 +86,14 @@ Nonetheless it would be nice to have more including features such as the followi
 
 ## Goals / To Do
 
+* 2017-02-28 ~ Read table of contents from file
+* 2017-02-28 ~ Update contents position upon resize
+* 2017-02-28 ~ Select style
+* 2017-02-28 ~ Handle internal links << 2017-03-02 started
 * 2017-02-28 ~ Finish namespacing
 * 2017-02-27 ~ Add handlers for STL files
 * 2016-11-30 ~ Better handling of current file data for HTML etc
-* 2016-12-29 ~ Add location hash parsing
+* 2016-12-29 ~ Add location hash parsing << started
 * 2016-11-30 ~ Material Design Light version
 
 
@@ -110,7 +124,6 @@ Document viewers from different sources
 https://github.com/bryanbraun/franklin
 
 ### Specialty Viewers
-
 
 * https://github.com/DDMAL/diva.js
 * http://dillinger.io/
@@ -146,6 +159,18 @@ https://github.com/bryanbraun/franklin
 ###
 
 ## Change Log
+
+### 2017-03-03
+
+* Continue name spacing
+* Add settngs menu with change color buttons - first pass
+* Add contents type of ment to 'The JavaScript Way' demo
+
+### 2017-03-02
+
+* Move to simpler file release structure
+* Location.hash is operational
+* 2017-02-28 ~ Handle internal links << fot the JavaScript Way
 
 ### 2017-02-28
 

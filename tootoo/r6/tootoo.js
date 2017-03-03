@@ -12,10 +12,41 @@
 		TOO.noIndex = user.noIndex,
 		TOO.rawgit  = user.rawgit
 
+		TOO.path = null;
+		TOO.file = null;
+
 		TOO.contents = contents;
 		TOO.breadcrumbs = menuBreadcrumbs;
 		TOO.menu = menuItems;
 		TOO.menuInfo = menuInfo;
+
+		if ( location.hash ) {
+
+			params = (window.location.hash.substr(1)).split("&");
+
+console.log( 'params', params );
+
+			for ( var i = 0; i < params.length; i++ ) {
+
+				var a = params[ i ].split( '=' );
+
+console.log( 'a', a );
+
+				TOO.user    = a[ 0 ] === 'user'    ? a[ 1 ] : TOO.user;
+				TOO.repo    = a[ 0 ] === 'repo'    ? a[ 1 ] : TOO.repo;
+				TOO.branch  = a[ 0 ] === 'branch'  ? a[ 1 ] : TOO.branch;
+				TOO.folder  = a[ 0 ] === 'folder'  ? a[ 1 ] : TOO.folder;
+				TOO.noIndex = a[ 0 ] === 'noindex' ? a[ 1 ] : TOO.noIndex;
+				TOO.rawgit  = a[ 0 ] === 'rawgit'  ? a[ 1 ] : TOO.rawgit;
+
+				TOO.path    = a[ 0 ] === 'path'    ? a[ 1 ] : TOO.path;
+				TOO.file    = a[ 0 ] === 'file'    ? a[ 1 ] : TOO.file;
+
+			}
+		}
+
+	console.log( 'path', TOO.path );
+	console.log( 'file', TOO.file );
 
 		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
 
@@ -29,14 +60,14 @@
 
 		}
 
-		getButtons();
+		TOO.getButtons();
 
-		requestAPIContents();
+		TOO.requestAPIContents();
 
 	}
 
 
-	function getButtons() {
+	TOO.getButtons = function() {
 
 		button = document.body.appendChild( document.createElement( 'div' ) );
 		button.id = 'button';
@@ -56,7 +87,7 @@
 	}
 
 
-	function requestAPIContents() {
+	TOO.requestAPIContents = function() {
 
 		var xhr, obj, treeNode;
 
@@ -129,14 +160,49 @@
 
 			}
 
-			setMenu();
+			if ( location.hash ) {
+
+				params = (window.location.hash.substr(1)).split("&");
+
+//console.log( 'params', params );
+
+				for ( var i = 0; i < params.length; i++ ) {
+
+					var a = params[ i ].split( '=' );
+
+//console.log( 'a', a );
+
+					TOO.user = a[ 0 ] === 'user' ? a[ 1 ] : TOO.user;
+					TOO.repo = a[ 0 ] === 'repo' ? a[ 1 ] : TOO.repo;
+					TOO.branch = a[ 0 ] === 'branch' ? a[ 1 ] : TOO.branch;
+					TOO.folder = a[ 0 ] === 'folder' ? a[ 1 ] : TOO.folder;
+
+					TOO.path = a[ 0 ] === 'path' ? a[ 1 ] : TOO.path;
+
+					TOO.file = a[ 0 ] === 'file' ? a[ 1 ] : TOO.file;
+
+				}
+
+	//console.log( 'path', TOO.path );
+	//console.log( 'file', TOO.file );
+
+				TOO.setMenu( TOO.path, TOO.file );
+
+			} else {
+
+				TOO.setMenu();
+
+
+			}
 
 		}
 
 	}
 
 
-	function setMenu( path ) {
+	TOO.setMenu = function( path, file ) {
+
+//console.log( 'path', path );
 
 		var folders, obj;
 		var foldersText, filesText;
@@ -174,7 +240,7 @@
 
 			} else {
 
-				filesText += '<div id=file' + ( count++ ) + ' style=width:100%; ><a  href=JavaScript:getFileSetContents("' + pathString + '","' + encodeURI( key ) + '"); >' +
+				filesText += '<div id=file' + ( count++ ) + ' style=width:100%; ><a href=JavaScript:TOO.getFileSetContents("' + pathString + '","' + encodeURI( key ) + '"); >' +
 					key +
 				'</a></div>';
 
@@ -183,7 +249,7 @@
 
 		}
 
-		setBreadcrumbs( path );
+		TOO.setBreadcrumbs( path );
 
 		TOO.menu.innerHTML = foldersText + filesText;
 
@@ -193,14 +259,22 @@
 
 		'</div>';
 
-		setDefaultContents( pathString, filesText );
+		if ( file ){
+
+			TOO.getFileSetContents( pathString, file )
+
+		} else {
+
+			TOO.setDefaultContents( pathString, filesText );
+
+		}
 
 //		history.replaceState( '', document.title, window.location.pathname );
 
 	}
 
 
-	function setBreadcrumbs( path ) {
+	TOO.setBreadcrumbs = function( path ) {
 
 		var name, txt, folders, str;
 
@@ -223,7 +297,7 @@
 	}
 
 
-	function setDefaultContents( path, filesText ) {
+	TOO.setDefaultContents = function( path, filesText ) {
 
 		var txt, start, file;
 
@@ -256,11 +330,11 @@
 		} else {
 
 			file =  TOO.files[ 0 ];
-			getFileSetContents( path, file  );
+			TOO.getFileSetContents( path, file  );
 
 		}
 
-		setButtons( path, file );
+		TOO.setButtons( path, file );
 
 	}
 
@@ -268,7 +342,7 @@
 // formats to consider adding: PDF, STL & 3D formats
 // https://mozilla.github.io/pdf.js/
 
-	function getFileSetContents( path, file ){
+	TOO.getFileSetContents = function( path, file ){
 
 		url = TOO.urlGHPages + path + encodeURI( file );
 
@@ -292,12 +366,12 @@
 
 		}
 
-		setButtons( path, file );
+		TOO.setButtons( path, file );
 
 	}
 
 
-	function setButtons( path, file ) {
+	TOO.setButtons = function( path, file ) {
 
 		if ( TOO.button ) {
 
@@ -305,7 +379,7 @@
 		}
 
 		index = TOO.files.indexOf( file );
-
+console.log( 'index', index );
 		for ( var i = 0; i < TOO.files.length; i++ ) {
 
 			el = document.getElementById( 'file' + i );
@@ -326,9 +400,9 @@
 
 		if ( TOO.nextFile ) {
 
-			TOO.nextFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + path + '","' + encodeURI( TOO.files[indexNext] ) + '"); > &gt; </a>';
+			TOO.nextFile.innerHTML = '<a href=JavaScript:TOO.getFileSetContents("' + path + '","' + encodeURI( TOO.files[indexNext] ) + '"); > &gt; </a>';
 
-			TOO.previousFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + path + '","' + encodeURI( TOO.files[indexPrevious] ) + '"); > &lt; </a>';
+			TOO.previousFile.innerHTML = '<a href=JavaScript:TOO.getFileSetContents("' + path + '","' + encodeURI( TOO.files[indexPrevious] ) + '"); > &lt; </a>';
 
 		}
 
@@ -449,7 +523,7 @@
 //console.log( 'item', item );
 
 			page += '<div style=display:inline-block;margin:10px; >' +
-				'<a href=JavaScript:getFileSetContents("' + path + item +'"); ><img src=' + path + encodeURI( item ) + ' height=200; title="' + fileName.slice( 0, -4 ) + '" ></a>' +
+				'<a href=JavaScript:TOO.getFileSetContents("' + path + item +'"); ><img src=' + path + encodeURI( item ) + ' height=200; title="' + fileName.slice( 0, -4 ) + '" ></a>' +
 			'</div>';
 
 		}
@@ -487,3 +561,29 @@
 		xhr.send( null );
 
 	}
+
+		TOO.cssChangeDark = function() {
+
+		fontID = 'Open+Sans';
+//		fontID = 'Great+Vibes';
+
+
+		font = document.body.appendChild( document.createElement( 'link' ) );
+		font.id = fontID;
+		font.rel = 'stylesheet';
+		font.href = 'http://fonts.googleapis.com/css?family=' + fontID;
+
+		document.body.style.backgroundColor = '#222';
+		document.body.style.color = '#ddd';
+		document.body.style.font = '12pt Open Sans';
+
+	}
+
+	TOO.cssChangeLight = function() {
+
+		document.body.style.backgroundColor = '#fff';
+		document.body.style.color = '#000';
+		document.body.style.font = '12pt monospace';
+
+	}
+
