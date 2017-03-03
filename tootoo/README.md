@@ -7,8 +7,8 @@
 [TooToo Read Me]( https://pushme-pullyou.github.io/tootoo/ )
 ===
 
-## [tootoo-r4]( https://pushme-pullyou.github.io/tootoo/r6/tootoo.html )
-## [tootoo-r4]( https://pushme-pullyou.github.io/tootoo/r5/tootoo-r5.html )
+## [tootoo-r6]( https://pushme-pullyou.github.io/tootoo/r6/tootoo.html )
+## [tootoo-r5]( https://pushme-pullyou.github.io/tootoo/r5/tootoo-r5.html )
 ## [tootoo-r4]( https://pushme-pullyou.github.io/tootoo/r4/tootoo-r4.html )
 ## [tootoo-r3]( https://pushme-pullyou.github.io/tootoo/r3/tootoo-r3.html )
 ## [tootoo-r2]( https://pushme-pullyou.github.io/tootoo/r2/tootoo-r2.html )
@@ -18,15 +18,15 @@
 
 Variations/experiments adapted for various GitHub repositories
 
-* ## Demos
+### Demos
 
-* [The JavaScript Way]( pushme-pullyou.github.io/tootoo/r6/tootoo-the-javascript-way.html )
-* [Open Source Guide]( pushme-pullyou.github.io/tootoo/r6/tootoo-open-source-guide.html )
-* [tootoo-r5-theo-armour.html]( http://pushme-pullyou.github.io/tootoo/r6/tootoo-theo-armour.html )
-* [tootoo-r5-leader-photos.html]( http://pushme-pullyou.github.io/tootoo/r6/tootoo-leader-photos.html )
-* [tootoo-r5-masson-sagemath-docs.html]( http://pushme-pullyou.github.io/tootoo/r6/tootoo-masson-sagemath-docs.html )
-* [tootoo-r5-theoDraw.html]( http://pushme-pullyou.github.io/tootoo/r6/tootoo-theoDraw.html )
-* [tootoo-r5-theo-pages2.html ]( http://pushme-pullyou.github.io/tootoo/r6/tootoo-theo-pages2.html )
+* [The JavaScript Way]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-the-javascript-way.html )
+* [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-open-source-guide.html )
+* [tootoo-r5-theo-armour.html]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-theo-armour.html )
+* [tootoo-r5-leader-photos.html]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-leader-photos.html )
+* [tootoo-r5-masson-sagemath-docs.html]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-masson-sagemath-docs.html )
+* [tootoo-r5-theoDraw.html]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-theoDraw.html )
+* [tootoo-r5-theo-pages2.html ]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-theo-pages2.html )
 
 ## Concept
 
