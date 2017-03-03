@@ -55,7 +55,6 @@
 			[ 'header', '...' ],
 			[ 'concl02.md', 'Acknowledgements' ],
 
-
 		];
 
 		let count = 0;
@@ -75,6 +74,8 @@
 
 			 }
 		}
+
+		TOO.getFileSetContents( 'manuscript/', 'intro01.md' );
 	}
 
 	init();
@@ -207,8 +208,6 @@
 		TOO.setMenu = TOO.setMenuJSWay;
 
 		TOO.init( users );
-
-		TOO.getFileSetContents( 'manuscript/', 'intro01.md' );
 
 
 	}

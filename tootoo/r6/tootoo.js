@@ -45,8 +45,8 @@ console.log( 'a', a );
 			}
 		}
 
-	console.log( 'path', TOO.path );
-	console.log( 'file', TOO.file );
+//	console.log( 'path', TOO.path );
+//	console.log( 'file', TOO.file );
 
 		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
 
@@ -378,7 +378,7 @@ console.log( 'a', a );
 		}
 
 		index = TOO.files.indexOf( file );
-console.log( 'index', index );
+// console.log( 'index', index );
 		for ( var i = 0; i < TOO.files.length; i++ ) {
 
 			el = document.getElementById( 'file' + i );
