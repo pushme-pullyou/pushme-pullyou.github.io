@@ -17,7 +17,8 @@
 
 		TOO.contents = contents;
 		TOO.breadcrumbs = menuBreadcrumbs;
-		TOO.menu = menuItems;
+		TOO.menu = menu;
+		TOO.menuItems = menuItems;
 		TOO.menuInfo = menuInfo;
 
 		if ( location.hash ) {
@@ -91,7 +92,7 @@ console.log( 'a', a );
 
 		var xhr, obj, treeNode;
 
-		requestFile( TOO.url, callbackRequestFile );
+		TOO.requestFile( TOO.url, callbackRequestFile );
 
 		function callbackRequestFile( xhr ) {
 
@@ -235,7 +236,7 @@ console.log( 'a', a );
 
 			if ( Object.keys( obj.children[ key ].children ).length > 0 ) {
 
-				foldersText += ' &#x1f4c1; <a href=JavaScript:setMenu("' + pathString + encodeURI( key ) + '"); >' + key + '</a>'+ b; // it's a folder
+				foldersText += ' &#x1f4c1; <a href=JavaScript:TOO.setMenu("' + pathString + encodeURI( key ) + '"); >' + key + '</a>'+ b; // it's a folder
 
 			} else {
 
@@ -250,7 +251,7 @@ console.log( 'a', a );
 
 		TOO.setBreadcrumbs( path );
 
-		TOO.menu.innerHTML = foldersText + filesText;
+		TOO.menuItems.innerHTML = foldersText + filesText;
 
 		TOO.menuInfo.innerHTML = '<div> Number of files found: ' + TOO.length + b + b +
 
@@ -279,7 +280,7 @@ console.log( 'a', a );
 
 		name = TOO.folder ? TOO.folder : TOO.repo;
 
-		txt = '<h2><a href=JavaScript:setMenu(); >' + name + '</a> &raquo; </h2>';
+		txt = '<h2><a href=JavaScript:TOO.setMenu(); >' + name + '</a> &raquo; </h2>';
 		folders = path ?  path.split( '/' ) : [] ;
 		str = '';
 
@@ -287,7 +288,7 @@ console.log( 'a', a );
 
 			str += folders[ i ] + '/';
 
-			txt += '<h3><a href=JavaScript:setMenu("' + str.slice( 0, -1 ) + '"); >' + folders[ i ] + '</a> &raquo; </h3>';
+			txt += '<h3><a href=JavaScript:TOO.setMenu("' + str.slice( 0, -1 ) + '"); >' + folders[ i ] + '</a> &raquo; </h3>';
 
 		}
 
@@ -310,7 +311,7 @@ console.log( 'a', a );
 
 			file =  filesText.slice( start, start + 10 );
 
-			getFileHTML( TOO.urlGHPages + path + file );
+			TOO.getFileHTML( TOO.urlGHPages + path + file );
 
 		} else if ( txt.includes( 'readme.md' ) ) {
 
@@ -318,13 +319,13 @@ console.log( 'a', a );
 
 			file =  filesText.slice( start, start + 9 );
 
-			getFileMD( TOO.urlGHPages + path + file );
+			TOO.getFileMD( TOO.urlGHPages + path + file );
 
 			file1.focus();
 
 		} else if ( txt.includes( 'toogallery') ) {
 
-			createPageOfImages( TOO.urlGHPages + path , TOO.keys );
+			TOO.createPageOfImages( TOO.urlGHPages + path , TOO.keys );
 
 		} else {
 
@@ -349,25 +350,25 @@ console.log( 'a', a );
 
 		if ( u.endsWith( '.md' ) ){
 
-			getFileMD( url );
+			TOO.getFileMD( url );
 
 		} else if ( u.endsWith( '.html' ) || u.endsWith( '.htm' ) ) {
 
-			getFileHTML( url );
+			TOO.getFileHTML( url );
 
 		} else if ( u.endsWith( '.gif' ) || u.endsWith( '.ico' ) || u.endsWith( '.jpg' ) || u.endsWith( '.png' ) ||  u.endsWith( '.svg' ) ) {
 
-			getFileImage( url );
+			TOO.getFileImage( url );
 
 		} else {
 
-			getFileCode( url );
+			TOO.getFileCode( url );
 
 		}
 
 		TOO.setButtons( path, file );
 
-	}
+	};
 
 
 	TOO.setButtons = function( path, file ) {
@@ -408,7 +409,7 @@ console.log( 'a', a );
 	}
 
 
-	function getFileMD( url ) {
+	TOO.getFileMD = function( url ) {
 
 // https://github.com/showdownjs/showdown
 
@@ -416,7 +417,7 @@ console.log( 'a', a );
 
 		var converter = new showdown.Converter();
 
-		requestFile( url, callbackMD );
+		TOO.requestFile( url, callbackMD );
 
 		function callbackMD( xhr ) {
 
@@ -426,14 +427,14 @@ console.log( 'a', a );
 				converter.makeHtml( xhr.target.response ) +
 			'</div>';
 
-			getFileDataXHR( xhr );
+			TOO.getFileDataXHR( xhr );
 
 		}
 
 	}
 
 
-	function getFileHTML( url ){
+	 TOO.getFileHTML = function( url ){
 
 		TOO.contents.innerHTML =
 			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) +
@@ -448,10 +449,10 @@ console.log( 'a', a );
 			'URL: ' + url.slice( 8 ).link( url ) + b +
 		b;
 
-	}
+	};
 
 
-	function getFileImage( url ){
+	 TOO.getFileImage = function( url ){
 
 		TOO.contents.innerHTML =
 			'<img id=image src="' + url +
@@ -461,10 +462,10 @@ console.log( 'a', a );
 			'URL: ' + url.slice( 8 ).link( url ) + b +
 		b;
 
-	}
+	};
 
 
-	function getFileCode( url ) {
+	 TOO.getFileCode = function( url ) {
 
 		TOO.contents.innerHTML =
 			'<div id=contentsCode style="border: 0px red solid; height: 100%; margin: 0 auto; width: 900px; position: relative;" >' +
@@ -492,21 +493,21 @@ console.log( 'a', a );
 			TOO.editor.$blockScrolling = Infinity;
 			TOO.editor.getSession().setMode( 'ace/mode/markdown' );
 
-			requestFile( url, callback );
+			TOO.requestFile( url, callback );
 
 			function callback( xhr ) {
 
-				getFileDataXHR( xhr );
+				TOO.getFileDataXHR( xhr );
 				TOO.editor.setValue( xhr.target.response.slice( 0, 10000 ), -1 );
 
 			}
 
 		}
 
-	}
+	};
 
 
-	function createPageOfImages( path, photos ) {
+	 TOO.createPageOfImages = function( path, photos ) {
 
 		var page, item, item2, fileName;
 
@@ -534,7 +535,7 @@ console.log( 'a', a );
 	}
 
 
-	function getFileDataXHR( xhr ) {
+	 TOO.getFileDataXHR = function( xhr ) {
 
 		var lastMod = xhr.target.getResponseHeader ( "Last-Modified" );
 
@@ -550,7 +551,7 @@ console.log( 'a', a );
 
 // test: requestFile( 'http://http://jaanga.github.io/readme.md' , function( xhr ){ console.log( 'xhr', xhr.target.response ); } );
 
-	function requestFile( url, callback ) {
+	 TOO.requestFile = function( url, callback ) {
 
 		var xhr;
 		xhr = new XMLHttpRequest();
@@ -561,28 +562,102 @@ console.log( 'a', a );
 
 	}
 
-		TOO.cssChangeDark = function() {
 
-		fontID = 'Open+Sans';
-//		fontID = 'Great+Vibes';
+	TOO.menuSettings =
+
+		'<details>' +
+
+		'<summary><h3> Settings </h3></summary>' +
+
+		'<div><button onclick=TOO.cssColorsDark();  >Dark</button>' +
+			' <button onclick=TOO.cssColorsLight(); >Light</button>' +
+			' <button onclick=TOO.cssColorsSepia(); >Sepia</button>' +
+		'</div>' + b +
+
+		'<div><button onclick=TOO.cssFontOpenSans(); >Open Sans</button>' +
+			' <button onclick=TOO.cssFontInconsolata(); >Inconsolata</button>' +
+			' <button onclick=TOO.cssFontMonospace(); >Monospace</button>' +
+		'</div>' + b +
+
+		'<div><button onclick=TOO.cssFontSizeNormal(); >Normal</button>' +
+			' <button onclick=TOO.cssFontSizeLarger(); >Larger</button>' +
+			' <button onclick=TOO.cssFontSizeLargest(); >Largest</button>' +
+		'</div>' + b +
+
+		'</details>' +
+	'';
 
 
-		font = document.body.appendChild( document.createElement( 'link' ) );
+	TOO.cssColorsDark = function() {
+
+		document.body.style.backgroundColor = '#222';
+		document.body.style.color = '#ddd';
+		TOO.menu.style.backgroundColor = '#555';
+
+	};
+
+	TOO.cssColorsLight = function() {
+
+		document.body.style.backgroundColor = '#fff';
+		document.body.style.color = '#000';
+		TOO.menu.style.backgroundColor = '#eee';
+
+	};
+
+	TOO.cssColorsSepia = function() {
+
+		document.body.style.backgroundColor = '#f3eacb';
+		document.body.style.color = '#704214';
+		TOO.menu.style.backgroundColor = '#704214';
+
+	};
+
+	TOO.cssFontOpenSans = function() {
+
+		let fontID = 'Open+Sans';
+
+		let font = document.body.appendChild( document.createElement( 'link' ) );
 		font.id = fontID;
 		font.rel = 'stylesheet';
 		font.href = 'http://fonts.googleapis.com/css?family=' + fontID;
 
-		document.body.style.backgroundColor = '#222';
-		document.body.style.color = '#ddd';
-		document.body.style.font = '12pt Open Sans';
+		document.body.style.fontFamily = 'Open Sans';
+
+	};
+
+	TOO.cssFontInconsolata = function() {
+
+		let fontID = 'Inconsolata';
+
+		let font = document.body.appendChild( document.createElement( 'link' ) );
+		font.id = fontID;
+		font.rel = 'stylesheet';
+		font.href = 'http://fonts.googleapis.com/css?family=' + fontID;
+
+		document.body.style.fontFamily = 'Inconsolata';
+
+	};
+
+	TOO.cssFontMonospace = function() {
+
+		document.body.style.fontFamily = 'monospace';
+
+	};
+
+	TOO.cssFontSizeNormal = function() {
+
+		document.body.style.fontSize = '12pt';
+
+	};
+
+	TOO.cssFontSizeLarger = function() {
+
+		document.body.style.fontSize = '14pt';
+
+	};
+
+	TOO.cssFontSizeLargest = function() {
+
+		document.body.style.fontSize = '18pt';
 
 	}
-
-	TOO.cssChangeLight = function() {
-
-		document.body.style.backgroundColor = '#fff';
-		document.body.style.color = '#000';
-		document.body.style.font = '12pt monospace';
-
-	}
-

@@ -30,15 +30,18 @@ Variations/experiments adapted for various GitHub repositories
 
 ## Concept
 
-The GitHub web site allows you to do many things.
+The [GitHub web site]( https://github.com ) allows you to do many things.
 
 Nonetheless it would be nice to have more including features such as the following:
 
-* View HTML files as rendered web pages
+* View HTML, Markdown format files as rendered web pages
 * Browse the contents of many files on GitHub really quickly
 	* Move to the next file using only a single click
 	* Views files as rendered or as source code
 * Edit any file on GitHub
+
+It would also be nice to do these things and still be understandable by an entry level programmer
+
 
 ### Mission
 
@@ -51,6 +54,9 @@ Nonetheless it would be nice to have more including features such as the followi
 * To enable you to see what your peeps have been working on and playing with
 * Encourage you to edit any file on GitHub
 
+* Code written in pure and simple JavaScript
+* Few if any libraries or external dependencies
+* Easy enough to learn what's going on in a day or so
 
 
 ### Vision
@@ -72,13 +78,6 @@ Nonetheless it would be nice to have more including features such as the followi
 
 
 
-## Demo Possibilities
-
-* Open Source Guide
-* https://frontendmasters.gitbooks.io/front-end-handbook-2017/content/
-* https://github.com/FrontendMasters/front-end-handbook-2017
-* https://github.com/bpesquet/thejsway/blob/master/manuscript/chapter05.md
-
 
 ## Issues
 
@@ -86,27 +85,31 @@ Nonetheless it would be nice to have more including features such as the followi
 
 ## Goals / To Do
 
-* 2017-02-28 ~ Read table of contents from file
+* Go back / history - needs full location hash
 * 2017-02-28 ~ Update contents position upon resize
-* 2017-02-28 ~ Select style
-* 2017-02-28 ~ Handle internal links << 2017-03-02 started
-* 2017-02-28 ~ Finish namespacing
+	* Need to adjust for each file type
 * 2017-02-27 ~ Add handlers for STL files
 * 2016-11-30 ~ Better handling of current file data for HTML etc
-* 2016-12-29 ~ Add location hash parsing << started
 * 2016-11-30 ~ Material Design Light version
 
 
-### Maybe / Needs mre thought
+### Maybe / Needs more thought
 
 * 2016-11-30 ~ Go to next previous file using cursor keys or not??
 * 2016-12-01 ~ Overlay or plugin to display issues in right column
 
 ## Users
 
-
 [Leader Photos]( https://leaderphotos.github.io/tootoo/r2/tootoo-r2-leader-photos.html )
 * Has custom gallery page feature
+
+
+## Demo Possibilities / Turn into a book?
+
+* https://codetower.github.io/es6-features/
+* https://deploystack.io/
+* https://github.com/kamranahmedse/design-patterns-for-humans/blob/master/README.md
+* https://frontendmasters.gitbooks.io/front-end-handbook-2017/content/
 
 
 ## Links of Interest
@@ -149,22 +152,22 @@ https://github.com/bryanbraun/franklin
 * https://go-to-hellman.blogspot.com/2015/01/why-github-is-important-for-book.html
 * https://github.com/GITenberg
 
-### Turn into a book?
-
-* https://codetower.github.io/es6-features/
-* https://deploystack.io/
-* https://github.com/kamranahmedse/design-patterns-for-humans/blob/master/README.md
-
-
-###
 
 ## Change Log
+
+### 2017-03-04
+
+* Added settings menu item with colors, fonts and sizes
+* 2017-02-28 ~ Finish name spacing << done
 
 ### 2017-03-03
 
 * Continue name spacing
 * Add settngs menu with change color buttons - first pass
-* Add contents type of ment to 'The JavaScript Way' demo
+	* 2017-02-28 ~ Select style
+* Add contents type of menu to 'The JavaScript Way' demo
+	* 2017-02-28 ~ Read table of contents from file
+* 2016-12-29 ~ Add location hash parsing << started / mostly working
 
 ### 2017-03-02
 

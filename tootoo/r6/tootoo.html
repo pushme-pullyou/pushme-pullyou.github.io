@@ -177,7 +177,7 @@
 			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%; }' +
 
 // let each type of contents decide its best width and placement
-			'#contents { border: 0px #ccc solid; height: 100%; left: 325px; position: absolute; width: ' + ( window.innerWidth - 325 ) + 'px; }' +
+			'#contents { border: 0px #f00 solid; height: 100%; left: 325px; position: absolute; width: ' + ( window.innerWidth - 325 ) + 'px; }' +
 //			'#contents { border: 2px #ccc solid; margin-left: 325px; position: absolute; width: 100%; }' +
 
 			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }' +
@@ -249,15 +249,7 @@
 
 				'</details>' +
 
-				'<details>' +
-
-					'<summary><h3> Settings </h3></summary>' +
-
-					'<div><button onclick=cssChangeDark(); value="it do" >css change dark</button>' +
-						' <button onclick=cssChangeLight(); value="it do" >css change Light</button>' +
-					'</div>' + b +
-
-				'</details>' +
+				TOO.menuSettings +
 
 				'<details>' +
 
@@ -323,7 +315,7 @@
 
 		if ( window.self !== window.top || window.innerWidth < 500 ) { container.style.left = '-325px'; }
 
-		contents.style.width = window.innerWidth - 350;
+		contents.style.width = window.innerWidth - 325;
 
 	}
 
