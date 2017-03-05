@@ -215,7 +215,7 @@
 
 				'<details id=SELdetailsUser open title="" >' +
 
-					'<summary><h3> Select GitHub User / Repo </h3></summary>' +
+					'<summary><h3> Select User/ Repo/ Branch </h3></summary>' +
 
 						'<select id=SELselUser onchange=TOO.init(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
 
@@ -253,7 +253,7 @@
 
 				'<details>' +
 
-					'<summary><h3> About </h3></summary>' +
+					'<summary><h3>About </h3></summary>' +
 
 					'<p>Copyright &copy; 2017 Jaanga authors. <a href=https://jaanga.github.io/home/r4/index.html#http://jaanga.github.io/jaanga-copyright-and-mit-license.md >MIT license</a>.</p>' +
 					'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
@@ -288,7 +288,6 @@
 //		location.hash = 'user=paulmasson&repo=paulmasson.github.io&branch=master&file=readme.md';
 //		location.hash = 'user=mrdoob&repo=three.js&branch=dev&rawgit=true&file=README.md';
 
-
 		TOO.init( users[ 'pushmePullyou' ] );
 
 	}
@@ -315,6 +314,7 @@
 
 		if ( window.self !== window.top || window.innerWidth < 500 ) { container.style.left = '-325px'; }
 
+// note: contents div behaves differently depending on type of content
 		contents.style.width = window.innerWidth - 325;
 
 	}

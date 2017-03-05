@@ -77,17 +77,17 @@ It would also be nice to do these things and still be understandable by an entry
 * Click on title to reload
 
 
-
-
 ## Issues
 
 
 
 ## Goals / To Do
 
-* Go back / history - needs full location hash
+* 2017-03-05 ~ Offer choice between curated contents and all files
+* 2017-03-05 ~ make user/repo input box work
+* 2017-03-05 ~ Go back / history - needs full location hash
 * 2017-02-28 ~ Update contents position upon resize
-	* Need to adjust for each file type
+	* Ugh - Needs to adjust for each file type
 * 2017-02-27 ~ Add handlers for STL files
 * 2016-11-30 ~ Better handling of current file data for HTML etc
 * 2016-11-30 ~ Material Design Light version
@@ -154,6 +154,12 @@ https://github.com/bryanbraun/franklin
 
 
 ## Change Log
+
+### 2017-03-05
+
+* Code cleanup
+* Update the demos
+* Add template file
 
 ### 2017-03-04
 

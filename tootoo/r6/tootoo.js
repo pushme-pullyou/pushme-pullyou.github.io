@@ -567,7 +567,7 @@ console.log( 'a', a );
 
 		'<details>' +
 
-		'<summary><h3> Settings </h3></summary>' +
+		'<summary><h3>Settings</h3></summary>' +
 
 		'<div><button onclick=TOO.cssColorsDark();  >Dark</button>' +
 			' <button onclick=TOO.cssColorsLight(); >Light</button>' +
