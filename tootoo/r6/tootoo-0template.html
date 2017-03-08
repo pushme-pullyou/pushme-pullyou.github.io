@@ -15,7 +15,7 @@
 // Copyright © 2017 PushMe PullYou authors. MIT license
 // https://github.com/showdownjs/showdown
 
-	pushMePullyou = {
+	let user = {
 		user : 'pushme-pullyou',
 		repo : 'pushme-pullyou.github.io',
 		branch : 'master',
@@ -27,8 +27,8 @@
 
 	function init() {
 
-		var css, container, contents, hamburger, menu;
-		var b = '<br>';
+		let css, container, contents, hamburger, menu;
+		let b = '<br>';
 
 		css = document.body.appendChild( document.createElement('style') );
 		css.innerHTML =
@@ -132,7 +132,7 @@
 
 		onWindowResize();
 
-		TOO.init( pushMePullyou );
+		TOO.init( user );
 	}
 
 
