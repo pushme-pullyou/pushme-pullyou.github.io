@@ -25,13 +25,11 @@
 
 			params = (window.location.hash.substr(1)).split("&");
 
-console.log( 'params', params );
+//console.log( 'params', params );
 
 			for ( var i = 0; i < params.length; i++ ) {
 
 				var a = params[ i ].split( '=' );
-
-console.log( 'a', a );
 
 				TOO.user    = a[ 0 ] === 'user'    ? a[ 1 ] : TOO.user;
 				TOO.repo    = a[ 0 ] === 'repo'    ? a[ 1 ] : TOO.repo;
