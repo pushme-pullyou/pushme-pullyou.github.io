@@ -20,7 +20,7 @@ _scripts to help you explore and build on GitHub_
 
 ## [TooToo]( https://pushme-pullyou.github.io/tootoo/ )
 
-* [README](  #path=tootoo&file=README.md'; )
+* [README](  #path=tootoo&file=README.md' )
 * Browse and view files on GitHub with remarkable ease
 
 
