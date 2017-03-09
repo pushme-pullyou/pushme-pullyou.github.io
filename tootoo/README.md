@@ -1,25 +1,24 @@
-<span style=display:none; >[You are now in GitHub source code view - click this link to view Read Me file as a web page]
-( https://pushme-pullyou.github.io/tootoo/index.html#readme.md "View file as a web page." ) </span>
-<input type=button onclick=window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/'; value='You are now in GitHub web page view - Click this button to view Read Me file as source code' >
+<span style=display:none; >[You are now in GitHub source code view - click this link to view this read me file as a web page]
+( https://pushme-pullyou.github.io/tootoo/index.html#README.md "View file as a web page." ) </span>
+<input type=button onclick=window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/'; value='You are now in GitHub web page view - Click this button to view this read me file as source code' >
 
 [Pushme-Pullyou]( https://pushme-pullyou.github.io ) &raquo;
 
-[TooToo Read Me]( https://pushme-pullyou.github.io/tootoo/ )
+[TooToo Read Me]( https://pushme-pullyou.github.io/#path=tootoo&file=README.md )
 ===
-
+_Browse and view files on GitHub with remarkable ease_
 
 ## [tootoo-r6]( https://pushme-pullyou.github.io/tootoo/r6/tootoo.html )
-## [tootoo-r5]( https://pushme-pullyou.github.io/tootoo/r5/tootoo-r5.html )
-## [tootoo-r4]( https://pushme-pullyou.github.io/tootoo/r4/tootoo-r4.html )
-## [tootoo-r3]( https://pushme-pullyou.github.io/tootoo/r3/tootoo-r3.html )
-## [tootoo-r2]( https://pushme-pullyou.github.io/tootoo/r2/tootoo-r2.html )
-## [tootoo-r1]( https://pushme-pullyou.github.io/tootoo/tootoo-r1.html )
+
+* [tootoo-r5]( https://pushme-pullyou.github.io/tootoo/r5/tootoo-r5.html )
+* [tootoo-r4]( https://pushme-pullyou.github.io/tootoo/r4/tootoo-r4.html )
+* [tootoo-r3]( https://pushme-pullyou.github.io/tootoo/r3/tootoo-r3.html )
+* [tootoo-r2]( https://pushme-pullyou.github.io/tootoo/r2/tootoo-r2.html )
+* [tootoo-r1]( https://pushme-pullyou.github.io/tootoo/tootoo-r1.html )
 
 ## Instances / Demos
 
-Variations/experiments adapted for various GitHub repositories
-
-### Demos
+The following links lead to variations/experiments adapted for various GitHub repositories
 
 * [The JavaScript Way]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-the-javascript-way.html )
 * [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-open-source-guide.html )
@@ -54,9 +53,8 @@ It would also be nice to do these things and still be understandable by an entry
 * To demonstrate that you can do many nice things with the GitHub API without having to use a server or a terminal window or localhost
 * To enable you to see what your peeps have been working on and playing with
 * Encourage you to edit any file on GitHub
-
-* Code written in pure and simple JavaScript
-* Few if any libraries or external dependencies
+* Code written in pure vanilla simple JavaScript
+* Few external dependencies
 * Easy enough to learn what's going on in a day or so
 
 
@@ -84,7 +82,6 @@ It would also be nice to do these things and still be understandable by an entry
 
 ## Goals / To Do
 
-* 2017-03-05 ~ Offer choice between curated contents and all files
 * 2017-03-05 ~ make user/repo input box work
 * 2017-03-05 ~ Go back / history - needs full location hash
 * 2017-02-28 ~ Update contents position upon resize
@@ -119,7 +116,6 @@ Document viewers from different sources
 
 * https://threejs.org/examples/
 * https://threejs.org/docs/index.html
-
 * https://www.gitbook.com/
 	* https://www.gitbook.com/book/frontendmasters/front-end-handbook-2017/details
 	* https://97-things-every-x-should-know.gitbooks.io/97-things-every-programmer-should-know/content/en/thing_13/index.html
@@ -155,6 +151,11 @@ https://github.com/bryanbraun/franklin
 
 
 ## Change Log
+
+
+### 2017-03-08
+
+* 2017-03-05 ~ Offer choice between curated contents and all files << done
 
 ### 2017-03-05
 

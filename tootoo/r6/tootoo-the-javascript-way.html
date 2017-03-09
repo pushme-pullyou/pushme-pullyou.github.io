@@ -6,13 +6,13 @@
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on GitHub with remarkable ease' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2017-02-28' >
+<meta name=date content='2017-03-08' >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js  ></script>
 <script src=tootoo.js ></script>
 <script>
-// Copyright © 2017 Jaanga authors. MIT license
+// Copyright © 2017 Pushme Pullyou authors. MIT license
 // https://github.com/showdownjs/showdown
 
 
@@ -25,9 +25,13 @@
 //		noIndex: 'true'
 	};
 
-	TOO.setMenuJSWay = function() {
+	TOO.setMenuContents = function() {
 
 		TOO.files = [];
+		TOO.menuTitle.innerHTML = 'Table of Contents';
+		TOO.breadcrumbs.innerHTML = '';
+		TOO.menuItems.innerHTML = '';
+
 		TOO.fileTitles = [
 
 			[ 'header', 'Introduction' ],
@@ -62,11 +66,11 @@
 
 			if ( TOO.fileTitles[ i ][ 0 ] === 'header') {
 
-				TOO.menu.innerHTML += '<h4>'  + TOO.fileTitles[ i ][ 1 ] + '</h4>';
+				TOO.menuItems.innerHTML += '<h4>'  + TOO.fileTitles[ i ][ 1 ] + '</h4>';
 
 			} else {
 
-				TOO.menu.innerHTML += '<div id=file' + count++ + ' style=width:100%; >' +
+				TOO.menuItems.innerHTML += '<div id=file' + count++ + ' style=width:100%; >' +
 				'<a href=JavaScript:TOO.getFileSetContents("manuscript/","' + TOO.fileTitles[ i ][ 0 ] + '"); > ' + TOO.fileTitles[ i ][ 1 ] + ' </a>' +
 				'</div>';
 
@@ -76,6 +80,7 @@
 		}
 
 		TOO.getFileSetContents( 'manuscript/', 'intro01.md' );
+
 	}
 
 	init();
@@ -85,7 +90,7 @@
 // should there be a basic css in the JavaScript file?
 
 		let css, container, contents, hamburger, menu;
-		let b = '<br>';
+		const b = '<br>';
 
 		css = document.body.appendChild( document.createElement('style') );
 		css.innerHTML =
@@ -144,9 +149,14 @@
 					'Get off to a good start in the JavaScript universe or catch up with its newest evolutions.' +
 				'</i></small></div>' + b +
 
+				'<div>' +
+					'<button onclick=TOO.setMenu=TOO.setMenuContents();  >Table of Conntents</button>' +
+					' <button onclick=TOO.setMenu=TOO.setMenuDefault(); >All Files</button>' +
+				'</div>' + b +
+
 				'<details open>' +
 
-					'<summary><h3> Contents </h3></summary>' +
+					'<summary><h3 id=menuTitle > Contents </h3></summary>' +
 
 					'<div id=menuBreadcrumbs ></div>' + b +
 
@@ -156,7 +166,7 @@
 
 				'<details>' +
 
-					'<summary><h3> Current File Info </h3></summary>' +
+					'<summary><h3>Current File Info </h3></summary>' +
 
 					'<div id=menuFileData ></div>' + b +
 
@@ -164,19 +174,11 @@
 
 				'</details>' +
 
-				'<details>' +
-
-					'<summary><h3> Settings </h3></summary>' +
-
-					'<div><button onclick=TOO.cssChangeDark(); value="it do" >css change dark</button>' +
-						' <button onclick=TOO.cssChangeLight(); value="it do" >css change Light</button>' +
-					'</div>' + b +
-
-				'</details>' +
+				TOO.menuSettings +
 
 				'<details>' +
 
-					'<summary><h3> About </h3></summary>' +
+					'<summary><h3>About </h3></summary>' +
 
 					'<p>Copyright &copy; 2017 Jaanga authors. <a href=https://jaanga.github.io/home/r4/index.html#http://jaanga.github.io/jaanga-copyright-and-mit-license.md >MIT license</a>.</p>' +
 					'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
@@ -205,15 +207,14 @@
 
 //		window.addEventListener ( 'hashchange', requestAPIContents, false );
 
-		TOO.setMenu = TOO.setMenuJSWay;
+//		TOO.setMenu = TOO.setMenuJSWay;
 
 		TOO.init( users );
-
 
 	}
 
 
-	function getFileMD( url ) {
+	TOO.getFileMD = function( url ) {
 
 // https://github.com/showdownjs/showdown
 
@@ -221,7 +222,7 @@
 
 		let converter = new showdown.Converter();
 
-		requestFile( url, callbackMD );
+		TOO.requestFile( url, callbackMD );
 
 		TOO.contents.style.overflowX = 'hidden';
 
@@ -239,14 +240,12 @@
 
 			text = text.replace( /">/g, '";TOO.init(users); >');
 
-//console.log( 'txt', text );
-
 			TOO.contents.innerHTML =
 			'<div style="border: 0px red solid; margin: 0 auto; width: 800px; position: relative;" >' +
 				text +
 			'</div>';
 
-			getFileDataXHR( xhr );
+			TOO.getFileDataXHR( xhr );
 
 		}
 

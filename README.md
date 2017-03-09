@@ -12,17 +12,17 @@ _scripts to help you explore and build on GitHub_
 
 ## [GubGub]( https://pushme-pullyou.github.io/gubgub/ )
 
-* [README](  https://pushme-pullyou.github.io#path=gubgub&file=README.md )
+* [README]( https://pushme-pullyou.github.io#path=gubgub&file=README.md )
 * Explore GitHub users and their repositories
 
 ## [DabDab]( https://pushme-pullyou.github.io/dabdab )
 
-* [README](  https://pushme-pullyou.github.io#path=dabdab&file=README.md )
+* [README]( https://pushme-pullyou.github.io#path=dabdab&file=README.md )
 * Monitor updates by selected GitHub users
 
 ## [TooToo]( https://pushme-pullyou.github.io/tootoo/ )
 
-* [README](  https://pushme-pullyou.github.io#path=tootoo&file=README.md )
+* [README]( https://pushme-pullyou.github.io#path=tootoo&file=README.md )
 * Browse and view files on GitHub with remarkable ease
 
 
