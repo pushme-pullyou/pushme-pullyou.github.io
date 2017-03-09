@@ -8,7 +8,7 @@
 ===
 _Monitor updates by selected GitHub users_
 
-## [DabDab R1]( https://pushme-pullyou.github.io/dabdab/r1/index.html#../README.md )
+## [DabDab R1]( https://pushme-pullyou.github.io/dabdab/r1/index.html )
 
 
 ## Features
