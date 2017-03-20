@@ -1,5 +1,9 @@
 <span style=display:none; >[You are now in GitHub source code view - click this link to view this read me file as a web page]( https://pushme-pullyou.github.io/tootoo/index.html#README.md "View file as a web page." ) </span>
+<<<<<<< HEAD
 <input type=button onclick=window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/'; value='You are now in GitHub web page view - Click this button to view this read me file as source code' >
+=======
+<div><input type=button onclick=window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/'; value='You are now in GitHub web page view - Click this button to view this read me file as source code' ></div>
+>>>>>>> origin/master
 
 [Pushme-Pullyou]( https://pushme-pullyou.github.io ) &raquo;
 
