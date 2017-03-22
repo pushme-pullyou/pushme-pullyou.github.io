@@ -15,6 +15,7 @@
 	EUS.repos = [];
 
 	EUS.readmeTypes = [ 'README.md', 'readme.md', 'README.markdown', 'README.rst', 'README' ];
+
 	EUS.css = '<style>body { font: 10pt monospace; }</style>\n';
 
 // used by eus-events-user-r1.html /- bit to any great effect
@@ -216,7 +217,7 @@
 
 
 
-	EUS.getIframeContents= function( repo ) {
+	EUS.getIframeContents = function( repo ) {
 
 		var xhr, user, style;
 
@@ -230,6 +231,7 @@
 //			case 'Abantech':
 			case 'fgx':
 			case 'jeremytammik':
+			case 'paulmasson' :
 			case 'webmath':
 			case 'lo-th':
 
@@ -256,7 +258,7 @@
 
 		urlReadMe = 'https://rawgit.com/' + repo + branch + EUS.readmeTypes[ count ];
 
-//console.log( '', repo, branch, EUS.readmeTypes[ count ] );
+// console.log( '', repo, branch, EUS.readmeTypes[ count ] );
 
 		xhr = new XMLHttpRequest();
 		xhr.repo = repo;
@@ -270,12 +272,13 @@
 
 			if ( xhr.status !== 404 ) {
 
-				text = COR.converter.makeHtml( xhr.responseText );
+//				text = COR.converter.makeHtml( xhr.responseText );
+				text = xhr.responseText;
 
 			} else if ( ++xhr.count < EUS.readmeTypes.length ) {
 
 				EUS.getReadMe( xhr.repo, xhr.branch, xhr.count );
-
+				text = xhr.responseText;
 			} else {
 
 				text = 'File not found: ' + xhr.repo + branch + fileName + b +
