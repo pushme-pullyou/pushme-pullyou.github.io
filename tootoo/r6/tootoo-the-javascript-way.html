@@ -4,19 +4,19 @@
 <meta charset=utf-8 >
 <title>The JavaScript Way</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on GitHub with remarkable ease' >
+<meta name=description content='Browse and view The JavaScript Way files on GitHub with remarkable ease' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 <meta name=date content='2017-03-08' >
 </head>
 <body>
-<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js  ></script>
-<script src=tootoo.js ></script>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=tootoo-6-2.js ></script>
 <script>
 // Copyright © 2017 Pushme Pullyou authors. MIT license
 // https://github.com/showdownjs/showdown
 
 
-	let users = {
+	let user = {
 		user : 'bpesquet',
 		repo : 'thejsway',
 		branch : 'master',
@@ -35,29 +35,30 @@
 		TOO.fileTitles = [
 
 			[ 'header', 'Introduction' ],
-			[ 'intro01.md', 'About this book' ],
-			[ 'intro02.md', 'Welcome to programming' ],
-			[ 'intro03.md', 'Introducing JavaScript' ],
-			[ 'intro04.md', 'What you\'ll need' ],
-			[ 'header', 'Part I: Learn to code programs' ],
+				[ 'intro01.md', 'About this book' ],
+				[ 'intro02.md', 'Welcome to programming' ],
+				[ 'intro03.md', 'Introducing JavaScript' ],
+				[ 'intro04.md', 'What you\'ll need' ],
 
-			[ 'chapter01.md', '1. 3, 2, 1... Code!' ],
-			[ 'chapter02.md', '2. Play with variables' ],
-			[ 'chapter03.md', '3. Add conditions' ],
-			[ 'chapter04.md', '4. Repeat statements' ],
-			[ 'chapter05.md', '5. Write functions'],
-			[ 'chapter06.md', '6. Create your first objects'],
-			[ 'chapter07.md', '7. Store data in arrays'],
-			[ 'chapter08.md', '8. Work with strings'],
-			[ 'chapter09.md', '9. Understand object-oriented programming' ],
-			[ 'chapter10.md', '10. Discover functional programming'],
+			[ 'header', 'Part I: Learn to code programs' ],
+				[ 'chapter01.md', '1. 3, 2, 1... Code!' ],
+				[ 'chapter02.md', '2. Play with variables' ],
+				[ 'chapter03.md', '3. Add conditions' ],
+				[ 'chapter04.md', '4. Repeat statements' ],
+				[ 'chapter05.md', '5. Write functions'],
+				[ 'chapter06.md', '6. Create your first objects'],
+				[ 'chapter07.md', '7. Store data in arrays'],
+				[ 'chapter08.md', '8. Work with strings'],
+				[ 'chapter09.md', '9. Understand object-oriented programming' ],
+				[ 'chapter10.md', '10. Discover functional programming'],
+
 			[ 'header', 'Part II: Create interactive web pages'],
 			[ 'header', '...'],
 			[ 'header', 'Part III: Build web apps'],
 			[ 'header', '...'],
 			[ 'header', 'Conclusion'],
 			[ 'header', '...' ],
-			[ 'concl02.md', 'Acknowledgements' ],
+				[ 'concl02.md', 'Acknowledgements' ],
 
 		];
 
@@ -101,17 +102,19 @@
 			'summary { outline: none; }' +
 			'summary h3 { display: inline; }' +
 
-			'.popUp { background-color: white; border: 1px solid red; left: 150px; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }' +
+			'.popUp { background-color: white; border: 1px solid red; left: 180px; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }' +
 
 			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
-			'#button { background-color: #555; color: #fff; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: 20px; }' +
-			'#button:hover { cursor: pointer; opacity: 1; }' +
-			'#button a { text-decoration: none; color: #fff; }' +
+
 			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%; }' +
 
 // let each type of contents decide its best width and placement
 			'#contents { border: 0px #f00 solid; height: 100%; left: 325px; position: absolute; width: ' + ( window.innerWidth - 325 ) + 'px; }' +
 //			'#contents { border: 2px #ccc solid; margin-left: 325px; position: absolute; width: 100%; }' +
+
+			'#editButton { background-color: #555; color: #fff; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: 20px; }' +
+			'#editButton:hover { cursor: pointer; opacity: 1; }' +
+			'#editButton a { text-decoration: none; color: #fff; }' +
 
 			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }' +
 			'#hamburger h2 { margin: 0;}' +
@@ -134,12 +137,13 @@
 		container.id = 'container';
 		container.innerHTML =
 
-				'<div id=menu >' +
+			'<div id=menu >' +
 
 				'<h2>' +
-					'<a href=https://pushme-pullyou.github.io/ title="Pushme-Pullyou - your coming and going happy place" > &#x2766 </a><br>' +
+					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766 </a>' + b +
 					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
-					' ~ <a href="https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
+					' ~ <a href="https://github.com/' + user.user + '/' + user.repo + '" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
+
 				'</h2>' +
 
 				'<div class=popUp id=popHelp style=display:none; ><div>Hi there!</div>Click the i-in-circle, info icon for latest updates.</div>' +
@@ -166,7 +170,7 @@
 
 				'<details>' +
 
-					'<summary><h3>Current File Info </h3></summary>' +
+					'<summary><h3>Current File Info</h3></summary>' +
 
 					'<div id=menuFileData ></div>' + b +
 
@@ -177,17 +181,15 @@
 				TOO.menuSettings +
 
 				'<details>' +
-
-					'<summary><h3>About </h3></summary>' +
-
-					'<p>Copyright &copy; 2017 Jaanga authors. <a href=https://jaanga.github.io/home/r4/index.html#http://jaanga.github.io/jaanga-copyright-and-mit-license.md >MIT license</a>.</p>' +
+					'<summary><h3>About</h3></summary>' +
+					'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.repo + ' authors. ' +
+					'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
 					'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
-
 				'</details>' +
 
 				'<hr>' +
 				'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1> &#x2766 <h1></a></center>' +
-				'<div class=popUp id=pop2 style=display:none;bottom:10px; >Jaanga - your 3D happy place.<br>Click here to return to the top of the page</div>' +
+				'<div class=popUp id=pop2 style=display:none;bottom:20px; >' + user.user + ' - ' + user.subText + '.<br>Click here to return to the top of the page</div>' +
 
 			'</div>' +
 
@@ -205,11 +207,7 @@
 
 		onWindowResize();
 
-//		window.addEventListener ( 'hashchange', requestAPIContents, false );
-
-//		TOO.setMenu = TOO.setMenuJSWay;
-
-		TOO.init( users );
+		TOO.init( user );
 
 	}
 

@@ -69,10 +69,10 @@
 
 	TOO.getButtons = function() {
 
-		button = document.body.appendChild( document.createElement( 'div' ) );
-		button.id = 'button';
-		button.innerHTML = 'Edit';
-		TOO.button = button;
+		editButton = document.body.appendChild( document.createElement( 'div' ) );
+		editButton.id = 'editButton';
+		editButton.innerHTML = 'Edit';
+		TOO.editButton = editButton;
 
 		nextFile = document.body.appendChild( document.createElement( 'div' ) );
 		nextFile.id = 'nextFile';
@@ -376,9 +376,9 @@
 // edit, next and previous buttons
 	TOO.setButtons = function( path, file ) {
 
-		if ( TOO.button ) {
+		if ( TOO.editButton ) {
 
-			TOO.button.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + file + '" target="_blank"> Edit </a>';
+			TOO.editButton.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + file + '" target="_blank"> Edit </a>';
 		}
 
 		index = TOO.files.indexOf( file );
