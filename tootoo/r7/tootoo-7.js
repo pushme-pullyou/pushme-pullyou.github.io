@@ -12,8 +12,8 @@
 		TOO.noIndex = user.noIndex,
 		TOO.rawgit  = user.rawgit
 
-		TOO.path = null;
-		TOO.file = null;
+//		TOO.path = null;
+//		TOO.file = null;
 
 		TOO.contents = contents;
 		TOO.breadcrumbs = menuBreadcrumbs;
@@ -24,6 +24,7 @@
 
 		TOO.setMenu = TOO.setMenuContents ? TOO.setMenuContents : TOO.setMenuDefault;
 
+/*
 		if ( location.hash ) {
 
 			params = (window.location.hash.substr(1)).split("&");
@@ -47,9 +48,7 @@
 
 //	console.log( 'path', TOO.path );
 //	console.log( 'file', TOO.file );
-
-
-		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
+*/
 
 		if ( TOO.rawgit ) {
 
@@ -92,6 +91,8 @@
 	TOO.requestAPIContents = function() {
 
 		let xhr, obj, treeNode;
+
+		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
 
 		TOO.requestFile( TOO.url, callbackRequestFile );
 
@@ -163,7 +164,7 @@
 			}
 
 			if ( location.hash ) {
-
+/*
 				params = (window.location.hash.substr(1)).split("&");
 
 				for ( let i = 0; i < params.length; i++ ) {
@@ -178,13 +179,13 @@
 					TOO.file   = a[ 0 ] === 'file'   ? a[ 1 ] : TOO.file;
 
 				}
-
+*/
 				TOO.setMenu( TOO.path, TOO.file );
 
 			} else {
 
-				TOO.setMenu();
-
+//				TOO.setMenu();
+				TOO.setMenu( TOO.path, TOO.file );
 			}
 
 		}
@@ -194,7 +195,7 @@
 
 	TOO.setMenuDefault = function( path, file ) {
 
-//console.log( 'path', path );
+console.log( 'path', path, file );
 
 		let folders, obj;
 		let foldersText, filesText;
@@ -308,7 +309,7 @@
 
 		txt = filesText.toLowerCase();
 
-		if ( location.hash ) { return; }
+//		if ( location.hash ) { return; }
 
 		if ( txt.includes( 'index.html' ) && TOO.noIndex !== 'true' ) {
 
@@ -334,7 +335,7 @@
 
 		} else {
 
-			file =  TOO.files[ 0 ];
+			file = TOO.files[ 0 ];
 			TOO.getFileSetContents( path, file  );
 
 		}
@@ -350,6 +351,8 @@
 	TOO.getFileSetContents = function( path, file ){
 
 		url = TOO.urlGHPages + path + encodeURI( file );
+
+		location.hash = path + file;
 
 		let u = url.toLowerCase();
 

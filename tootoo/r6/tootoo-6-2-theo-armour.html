@@ -2,7 +2,7 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo 6.2 Template</title>
+<title>TooToo Template 6.2 Theo Armour</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
@@ -16,11 +16,10 @@
 // https://github.com/showdownjs/showdown
 
 	let user = {
-		user : 'pushme-pullyou',
-		repo : 'pushme-pullyou.github.io',
+		user : 'theo-armour',
+		repo : 'theo-armour.github.io',
 		branch : 'master',
-		folder : '',
-		noIndex : 'true'
+		folder : ''
 	};
 
 	init();
@@ -78,7 +77,6 @@
 				'<h2>' +
 					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766 </a>' + b +
 					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
-//					' ~ <a href="https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 					' ~ <a href="https://github.com/' + user.user + '/' + user.repo + '" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 
 				'</h2>' +
@@ -126,7 +124,9 @@
 				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
 			'</div>' +
 
-			'<div id=contents ></div>' +
+			'<div id=contents >' +
+				'<h1>.</h1>' +
+			'</div>' +
 
 		'';
 

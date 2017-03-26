@@ -2,23 +2,24 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo 6.2 Template</title>
+<title>📈 Jaanga SP500</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
-<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2017-03-23' >
+<meta name=description content='A variety of tools to browse and view all S&P 500 symbols all at once.' >
+<meta name=keywords content='Three.js,WebGL,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-03-26' >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-<script src=tootoo-6-2.js ></script>
+<script src=tootoo-7.js ></script>
 <script>
 // Copyright © 2017 PushMe PullYou authors. MIT license
 // https://github.com/showdownjs/showdown
 
 	let user = {
-		user : 'pushme-pullyou',
-		repo : 'pushme-pullyou.github.io',
-		branch : 'master',
+		user : 'jaanga',
+		subText : 'Your S&P 500 happy place',
+		repo : 'sp500',
+		branch : 'gh-pages',
 		folder : '',
 		noIndex : 'true'
 	};
@@ -34,6 +35,7 @@
 		css.innerHTML =
 			'html, body { font: 12pt monospace; height: 100%; margin: 0; }' +
 			'a { color: crimson; text-decoration: none; }' +
+			'a:hover { text-decoration: underline; }' +
 			'button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }' +
 			'pre, blockquote { background-color: #eee; padding: 10px; }' +
 			'summary { outline: none; }' +
@@ -54,7 +56,7 @@
 			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }' +
 			'#hamburger h2 { margin: 0;}' +
 
-			'#menu { background-color: #eee; border: 0px #ccc solid; box-sizing:border-box; height: 100%; overflow-y: auto; padding: 0 10px; position: fixed; width: 325px; }' +
+			'#menu { background-color: #eee; border: 1px #ccc solid; box-sizing:border-box; height: 100%; overflow-y: auto; padding: 0 10px; position: fixed; width: 325px; }' +
 			'#menu h2, #menu h4 {margin: 0; }' +
 			'#menuBreadcrumbs h2, #menuBreadcrumbs h3 { font-size: 14pt; margin: 0; }' +
 
@@ -73,7 +75,6 @@
 		container.innerHTML =
 
 			'<div id=menu >' +
-
 
 				'<h2>' +
 					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766 </a>' + b +
@@ -133,6 +134,18 @@
 		window.addEventListener( 'resize', onWindowResize, false );
 
 		onWindowResize();
+
+
+		if ( location.hash ) {
+
+			path = location.hash.slice( 1 ).split( '/');
+
+			TOO.file = path.pop();
+			TOO.path = path.join();
+
+console.log( TOO.path , TOO.file );
+
+		}
 
 		TOO.init( user );
 

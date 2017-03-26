@@ -2,9 +2,9 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo 6.2 Template</title>
+<title>TooToo 6.2 Open Source Guide</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=description content='Browse and view Open Source Guides on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 <meta name=date content='2017-03-23' >
 </head>
@@ -15,13 +15,98 @@
 // Copyright © 2017 PushMe PullYou authors. MIT license
 // https://github.com/showdownjs/showdown
 
-	let user = {
-		user : 'pushme-pullyou',
-		repo : 'pushme-pullyou.github.io',
-		branch : 'master',
+	var user = {
+		user : 'github',
+		repo : 'open-source-guide',
+		branch : 'gh-pages',
 		folder : '',
+		rawgit: true,
 		noIndex : 'true'
 	};
+
+	TOO.setMenuContents = function() {
+
+		TOO.files = [];
+		TOO.menuTitle.innerHTML = 'Table of Contents';
+		TOO.breadcrumbs.innerHTML = '';
+		TOO.menuItems.innerHTML = '';
+
+		TOO.fileTitles = [
+
+			[ 'header', 'Open Source Guides' ],
+				[ '', 'index.html', 'Open Source Guides' ],
+				[ '_articles/', 'how-to-contribute.md', 'How to Contribute to Open Source' ],
+				[ '_articles/', 'starting-a-project.md', 'Starting an Open Source Project' ],
+				[ '_articles/', 'finding-users.md', 'Finding Users For Your Project' ],
+				[ '_articles/', 'building-community.md', 'Building Welcoming Communities' ],
+				[ '_articles/', 'best-practices.md', 'Best Practices for Maintainers' ],
+				[ '_articles/', 'leadership-and-governance.md', 'Leadership and Governance' ],
+				[ '_articles/', 'getting-paid.md', 'Getting Paid for Open Source Work' ],
+				[ '_articles/', 'code-of-conduct.md', 'Your Code of Conduct' ],
+				[ '_articles/', 'metrics.md', 'Open Source Metrics' ],
+				[ '_articles/', 'legal.md', 'The Legal Side of Open Source' ],
+
+			[ 'header', 'More'],
+				[ '', 'README.md', 'About'],
+				[ '', 'CONTRIBUTING.md', 'Contribute'],
+				[ '', 'CODE_OF_CONDUCT.md', 'Contributor Covenant Code of Conduct'],
+				[ '', 'notices.md', 'Legal Disclaimer / Licenses'],
+			[ 'header', 'Docs'],
+				[ 'docs/', 'content-model.md', 'Content Model'],
+				[ 'docs/', 'new-guides.md', 'Proposing a new guide'],
+				[ 'docs/', 'personas.md', 'Personas'],
+				[ 'docs/', 'roadmap.md', 'Roadmap'],
+				[ 'docs/', 'styleguide.md', 'Style Guide' ],
+
+
+/*
+			[ 'header', 'Part I: Learn to code programs' ],
+				[ '_articles/', 'chapter01.md', '1. 3, 2, 1... Code!' ],
+				[ '_articles/', 'chapter02.md', '2. Play with variables' ],
+				[ '_articles/', 'chapter03.md', '3. Add conditions' ],
+				[ '_articles/', 'chapter04.md', '4. Repeat statements' ],
+				[ '_articles/', 'chapter05.md', '5. Write functions'],
+				[ '_articles/', 'chapter06.md', '6. Create your first objects'],
+				[ '_articles/', 'chapter07.md', '7. Store data in arrays'],
+				[ '_articles/', 'chapter08.md', '8. Work with strings'],
+				[ '_articles/', 'chapter09.md', '9. Understand object-oriented programming' ],
+				[ '_articles/', 'chapter10.md', '10. Discover functional programming'],
+
+
+
+			[ 'header', '...'],
+			[ 'header', 'Part III: Build web apps'],
+			[ 'header', '...'],
+			[ 'header', 'Conclusion'],
+			[ 'header', '...' ],
+				[ 'concl02.md', 'Acknowledgements' ],
+*/
+		];
+
+		let count = 0;
+		for ( let i = 0; i < TOO.fileTitles.length; i++ ) {
+
+			if ( TOO.fileTitles[ i ][ 0 ] === 'header') {
+
+				TOO.menuItems.innerHTML += '<h4>'  + TOO.fileTitles[ i ][ 1 ] + '</h4>';
+
+			} else {
+
+				TOO.menuItems.innerHTML += '<div id=file' + count++ + ' style=width:100%; >' +
+				'<a href=JavaScript:TOO.getFileSetContents("' + TOO.fileTitles[ i ][ 0 ] + '","' + TOO.fileTitles[ i ][ 1 ] + '"); > ' +
+					TOO.fileTitles[ i ][ 2 ] +
+				' </a>' +
+				'</div>';
+
+				TOO.files.push( TOO.fileTitles[ i ][ 1 ] );
+
+			 }
+		}
+
+		TOO.getFileSetContents( '_articles/', 'how-to-contribute.md' );
+
+	}
+
 
 	init();
 
@@ -72,8 +157,7 @@
 		container.id = 'container';
 		container.innerHTML =
 
-			'<div id=menu >' +
-
+				'<div id=menu >' +
 
 				'<h2>' +
 					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766 </a>' + b +
@@ -126,7 +210,9 @@
 				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
 			'</div>' +
 
-			'<div id=contents ></div>' +
+			'<div id=contents >' +
+				'<h1>.</h1>' +
+			'</div>' +
 
 		'';
 
@@ -137,6 +223,51 @@
 		TOO.init( user );
 
 	}
+
+
+	TOO.getFileMD = function( url ) {
+
+// https://github.com/showdownjs/showdown
+
+		showdown.setFlavor('github');
+
+		let converter = new showdown.Converter();
+
+		TOO.requestFile( url, callbackMD );
+
+		TOO.contents.style.overflowX = 'hidden';
+
+		function callbackMD( xhr ) {
+
+			raw = xhr.target.response
+
+			raw = raw.slice( 4 )
+
+			raw = raw.slice( raw.indexOf( '---' ) + 3 );
+
+			text = converter.makeHtml( raw );
+
+			text = text.replace( /src="\/assets/g, 'src="https://raw.githubusercontent.com/github/opensource.guide/gh-pages/assets' );
+
+//		text = text.replace( /a href=\"LICENSE"/g, 'a href=JavaScript:location.hash="file=LICENSE"');
+
+//			text = text.replace( /a href=\"CONTRIBUTING.md"/g, 'a href=JavaScript:location.hash="file=CONTRIBUTING.md"');
+
+//			text = text.replace( /a href=\"manuscript\//g, 'a href=JavaScript:location.hash="path=_articles&file=');
+
+			text = text.replace( /">/g, '";TOO.init(users); >');
+
+			TOO.contents.innerHTML =
+			'<div style="border: 0px red solid; margin: 0 auto; width: 800px; position: relative;" >' +
+				text +
+			'</div>';
+
+			TOO.getFileDataXHR( xhr );
+
+		}
+
+	}
+
 
 
 	function onWindowResize() {

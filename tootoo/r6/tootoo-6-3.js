@@ -48,19 +48,6 @@
 //	console.log( 'path', TOO.path );
 //	console.log( 'file', TOO.file );
 
-
-		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
-
-		if ( TOO.rawgit ) {
-
-			TOO.urlGHPages = 'https://rawgit.com/' + TOO.user + '/' + TOO.repo + '/' + TOO.branch + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
-
-		} else {
-
-			TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
-
-		}
-
 		TOO.getButtons();
 
 		TOO.requestAPIContents();
@@ -92,6 +79,8 @@
 	TOO.requestAPIContents = function() {
 
 		let xhr, obj, treeNode;
+
+		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
 
 		TOO.requestFile( TOO.url, callbackRequestFile );
 
@@ -305,6 +294,16 @@
 	TOO.setDefaultContents = function( path, filesText ) {
 
 		let txt, start, file;
+
+		if ( TOO.rawgit ) {
+
+			TOO.urlGHPages = 'https://rawgit.com/' + TOO.user + '/' + TOO.repo + '/' + TOO.branch + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
+
+		} else {
+
+			TOO.urlGHPages = 'https://' + TOO.user + '.github.io/' + TOO.repo + '/' + TOO.folder + ( TOO.folder ? '/' : '' );
+
+		}
 
 		txt = filesText.toLowerCase();
 
