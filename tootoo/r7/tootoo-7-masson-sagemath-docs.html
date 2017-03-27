@@ -2,10 +2,10 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>📈 Jaanga SP500</title>
+<title>SageMath Docs</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='A variety of tools to browse and view all S&P 500 symbols all at once.' >
-<meta name=keywords content='Three.js,WebGL,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=description content='Browse and view files on SageMath Docs with remarkable ease.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 <meta name=date content='2017-03-26' >
 </head>
 <body>
@@ -16,12 +16,12 @@
 // https://github.com/showdownjs/showdown
 
 	let user = {
-		user : 'jaanga',
-		subText : 'Your S&P 500 happy place',
-		repo : 'sp500',
+		user : 'paulmasson',
+		subText : 'SageMath ++',
+		repo : 'sagemath-docs',
 		branch : 'gh-pages',
-		folder : '',
-		noIndex : true
+		folder : 'functions',
+		noIndex : 'true'
 	};
 
 	init();
@@ -75,7 +75,7 @@
 		container.id = 'container';
 		container.innerHTML =
 
-			'<div id=menu >' +
+				'<div id=menu >' +
 
 				'<h2>' +
 					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766 </a>' + b +
@@ -116,6 +116,7 @@
 					'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
 					'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
 					'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
+
 				'</details>' +
 
 				'<hr>' +
@@ -136,16 +137,12 @@
 
 		onWindowResize();
 
-
 		if ( location.hash ) {
 
 			path = location.hash.slice( 1 ).split( '/');
 
 			TOO.file = path.pop();
 			TOO.path = path.join();
-
-//console.log( 'TOO.path', TOO.path );
-//console.log( 'TOO.file', TOO.file );
 
 		}
 

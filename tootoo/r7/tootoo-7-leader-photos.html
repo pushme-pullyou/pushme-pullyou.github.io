@@ -2,10 +2,10 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>📈 Jaanga SP500</title>
+<title>Leader Photos</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='A variety of tools to browse and view all S&P 500 symbols all at once.' >
-<meta name=keywords content='Three.js,WebGL,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=description content='Browse and view files on Leader Photos with remarkable ease.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 <meta name=date content='2017-03-26' >
 </head>
 <body>
@@ -15,14 +15,15 @@
 // Copyright © 2017 PushMe PullYou authors. MIT license
 // https://github.com/showdownjs/showdown
 
-	let user = {
-		user : 'jaanga',
-		subText : 'Your S&P 500 happy place',
-		repo : 'sp500',
-		branch : 'gh-pages',
-		folder : '',
-		noIndex : true
-	};
+
+    var user = {
+        user : 'leaderphotos',
+        repo : 'leaderphotos.github.io',
+        branch : 'master',
+		noIndex : true,
+        folder :'albums'
+    };
+
 
 	init();
 
@@ -132,10 +133,9 @@
 
 		'';
 
-		window.addEventListener( 'resize', onWindowResize, false );
+        window.addEventListener( 'resize', onWindowResize, false );
 
-		onWindowResize();
-
+        onWindowResize();
 
 		if ( location.hash ) {
 
@@ -143,9 +143,6 @@
 
 			TOO.file = path.pop();
 			TOO.path = path.join();
-
-//console.log( 'TOO.path', TOO.path );
-//console.log( 'TOO.file', TOO.file );
 
 		}
 
@@ -158,7 +155,7 @@
 
 		if ( window.self !== window.top || window.innerWidth < 500 ) { container.style.left = '-325px'; }
 
-		contents.style.width = window.innerWidth - 350;
+        contents.style.width = window.innerWidth - 350;
 
 	}
 

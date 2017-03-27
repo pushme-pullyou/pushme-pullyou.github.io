@@ -1,3 +1,5 @@
+// TooToo enable you to browse public GitHub user or organization repos, gather their files names, create menus and displays the files
+// See https://pushme-pullyou.github.io
 // Copyright © 2017 Pushme Pullyou authors. MIT license.
 
 	let TOO = {};
@@ -88,6 +90,7 @@
 
 
 // request all the file names in the user's repo
+
 	TOO.requestAPIContents = function() {
 
 		let xhr, obj, treeNode;
@@ -164,6 +167,7 @@
 			}
 
 			if ( location.hash ) {
+
 /*
 				params = (window.location.hash.substr(1)).split("&");
 
@@ -180,12 +184,14 @@
 
 				}
 */
+
+				TOO.path = TOO.folder !== '' && TOO.folder === TOO.path ? '' : TOO.path;
 				TOO.setMenu( TOO.path, TOO.file );
 
 			} else {
 
-//				TOO.setMenu();
-				TOO.setMenu( TOO.path, TOO.file );
+				TOO.setMenu();
+
 			}
 
 		}
@@ -195,11 +201,12 @@
 
 	TOO.setMenuDefault = function( path, file ) {
 
-console.log( 'path', path, file );
+		TOO.file = file;
+		TOO.path = path;
 
 		let folders, obj;
 		let foldersText, filesText;
-		let count, pathString;
+//		let count, pathString;
 		TOO.files = [];
 		TOO.menuTitle.innerHTML="All Files";
 		TOO.menuItems.innerHTML = '';
@@ -223,7 +230,7 @@ console.log( 'path', path, file );
 		filesText = ''; // '<small> Use tag and shift-tab to browse files quickly </small>' + b;
 		count = 0;
 
-		pathString = path ? path + '/': '';
+		pathString = path ? path + '/' : '';
 
 		for ( let i = 0; i < TOO.keys.length; i++ ) {
 
@@ -263,9 +270,9 @@ console.log( 'path', path, file );
 
 		'</div>';
 
-		if ( file ){
+		if ( TOO.file !== undefined ){
 
-			TOO.getFileSetContents( pathString, file );
+			TOO.getFileSetContents( pathString, TOO.file );
 
 		} else {
 
@@ -309,13 +316,14 @@ console.log( 'path', path, file );
 
 		txt = filesText.toLowerCase();
 
-//		if ( location.hash ) { return; }
-
-		if ( txt.includes( 'index.html' ) && TOO.noIndex !== 'true' ) {
+		if ( txt.includes( 'index.html' ) && TOO.noIndex !== true ) {
 
 			start = txt.indexOf( 'index.html' );
 
 			file =  filesText.slice( start, start + 10 );
+
+// use getFileSetContents...
+			location.hash = path + file;
 
 			TOO.getFileHTML( TOO.urlGHPages + path + file );
 
@@ -324,6 +332,8 @@ console.log( 'path', path, file );
 			start = txt.indexOf( 'readme.md' );
 
 			file =  filesText.slice( start, start + 9 );
+
+			location.hash = path + file;
 
 			TOO.getFileMD( TOO.urlGHPages + path + file );
 
@@ -340,6 +350,7 @@ console.log( 'path', path, file );
 
 		}
 
+		TOO.file = file;
 		TOO.setButtons( path, file );
 
 	}
@@ -350,9 +361,20 @@ console.log( 'path', path, file );
 
 	TOO.getFileSetContents = function( path, file ){
 
+		if ( file === undefined ) {
+
+			folder = TOO.folder ? TOO.folder + '/' : '';
+			location.hash = path + folder;
+			TOO.contents.innerHTML = '<center>no files in this folder</center>';
+			return;
+
+		}
+
 		url = TOO.urlGHPages + path + encodeURI( file );
 
-		location.hash = path + file;
+		folder = TOO.folder ? TOO.folder + '/' : '';
+
+		location.hash = path + folder + file;
 
 		let u = url.toLowerCase();
 
@@ -384,7 +406,9 @@ console.log( 'path', path, file );
 
 		if ( TOO.editButton ) {
 
-			TOO.editButton.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + file + '" target="_blank"> Edit </a>';
+			folder = TOO.folder ? TOO.folder + '/' : '';
+
+			TOO.editButton.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + folder + file + '" target="_blank"> Edit </a>';
 		}
 
 		index = TOO.files.indexOf( file );

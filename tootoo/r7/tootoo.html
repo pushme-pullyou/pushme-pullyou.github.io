@@ -2,27 +2,162 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>📈 Jaanga SP500</title>
+<title>tootoo r7</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='A variety of tools to browse and view all S&P 500 symbols all at once.' >
-<meta name=keywords content='Three.js,WebGL,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 <meta name=date content='2017-03-26' >
 </head>
 <body>
-<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js  ></script>
 <script src=tootoo-7.js ></script>
 <script>
 // Copyright © 2017 PushMe PullYou authors. MIT license
 // https://github.com/showdownjs/showdown
 
-	let user = {
-		user : 'jaanga',
-		subText : 'Your S&P 500 happy place',
-		repo : 'sp500',
-		branch : 'gh-pages',
+	var users = {};
+
+	users.d3 = {
+		user : 'd3',
+		repo : 'd3',
+		branch : 'master',
 		folder : '',
-		noIndex : true
+		rawgit: true
+//		noIndex: 'true'
 	};
+	users.d3GH = {
+		user : 'd3',
+		repo : 'd3.github.com',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+	};
+	users.jDemo = {
+		user: 'jaanga',
+		repo: 'jaanga.github.io',
+		branch: 'master',
+		folder: 'demo'
+	};
+	users.jTerrain = {
+		user: 'jaanga',
+		repo: 'terrain3',
+		branch: 'gh-pages',
+		folder: ''
+	};
+	users.jaanga = {
+		user : 'jaanga',
+		repo : 'jaanga.github.io',
+		branch : 'master',
+		folder : ''
+	};
+	users.jupyter = {
+		user : 'jupyter',
+		repo : 'jupyter.github.io',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+	};
+	users.jupyterNotebook = {
+		user : 'jupyter',
+		repo : 'notebook',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+	};
+	users.ladybugDynamo = {
+		user : 'ladybug-analysis-tools',
+		repo : 'ladybug-dynamo',
+		branch : 'gh-pages',
+		folder : ''
+	};
+	users.ladybugWeb = {
+		user : 'ladybug-analysis-tools',
+		repo : 'ladybug-web',
+		branch : 'gh-pages',
+		folder : ''
+	};
+	users.leader = {
+		user : 'leaderphotos',
+		repo : 'leaderphotos.github.io',
+		branch : 'master',
+		folder :''
+	};
+	users.mrdoob = {
+		user : 'mrdoob',
+		repo : 'three.js',
+		branch : 'dev',
+		folder : '',
+		rawgit: true
+	};
+	users.paulmasson = {
+		user : 'paulmasson',
+		repo : 'paulmasson.github.io',
+		branch : 'master',
+		folder : ''
+	};
+	users.pushmePullyou = {
+		user : 'pushme-pullyou',
+		repo : 'pushme-pullyou.github.io',
+		branch : 'master',
+		folder : '',
+		noIndex: 'true',
+		rawgit: null
+	};
+	users.pushmePullyouTooTo = {
+		user : 'pushme-pullyou',
+		repo : 'pushme-pullyou.github.io',
+		branch : 'master',
+		folder : 'tootoo',
+		noIndex: 'true',
+		rawgit: null
+	};
+	users.sagemathGH = {
+		user : 'sagemath',
+		repo : 'sagemath.github.io',
+		branch : 'master',
+		folder : ''
+	};
+	users.sagemathCell = {
+		user : 'sagemath',
+		repo : 'sagecell',
+		branch : 'gh-pages',
+		folder : ''
+	};
+	users.sagemathSageDev = {
+		user : 'sagemath',
+		repo : 'sage',
+		branch : 'develop',
+		folder : '',
+		rawgit: true
+	};
+	users.sagemathDocs = {
+		user : 'sagemath',
+		repo : 'documentation',
+		branch : 'gh-pages',
+		folder : 'html'
+	};
+	users.sagemathPlanet = {
+		user : 'sagemath',
+		repo : 'planet',
+		branch : 'gh-pages',
+		folder : ''
+	};
+	users.theoArmour = {
+		user : 'theo-armour',
+		repo : 'drawing',
+		branch : 'master',
+		folder : '',
+		noIndex: 'true'
+	};
+
+/*
+	users. = {
+		user : '',
+		repo : '',
+		branch : '',
+		folder : ''
+	};
+*/
 
 	init();
 
@@ -30,6 +165,8 @@
 
 		let css, container, contents, hamburger, menu;
 		const b = '<br>';
+
+		user = users[ 'pushmePullyou' ];
 
 		css = document.body.appendChild( document.createElement('style') );
 		css.innerHTML =
@@ -78,9 +215,8 @@
 			'<div id=menu >' +
 
 				'<h2>' +
-					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766 </a>' + b +
+					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766</a>' + b +
 					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
-//					' ~ <a href="https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 					' ~ <a href="https://github.com/' + user.user + '/' + user.repo + '" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 
 				'</h2>' +
@@ -88,6 +224,20 @@
 				'<div class=popUp id=popHelp style=display:none; ><div>Hi there!</div>Click the i-in-circle, info icon for latest updates.</div>' +
 
 				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
+
+					'<summary><h3>Select User/ Repo/ Branch </h3></summary>' +
+
+						'<select id=SELselUser onchange=TOO.init(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
+
+						'</select>' + b +
+
+					'<small>Enter a user name and press enter: </small>' + b +
+
+					'<input id=SELinpUser placeholder="Enter a search user < will be working soon" onchange=""; style=width:100%; >' + b +
+
+					b +
+
+				'</details>' +
 
 				'<details open>' +
 
@@ -116,6 +266,7 @@
 					'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
 					'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
 					'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
+
 				'</details>' +
 
 				'<hr>' +
@@ -128,28 +279,43 @@
 				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
 			'</div>' +
 
-			'<div id=contents ></div>' +
+			'<div id=contents >' +
+				'<h1>.</h1>' +
+			'</div>' +
 
 		'';
+
+		getMenuSelectUserOptions();
+
+		SELselUser.selectedIndex = users.keys.indexOf( user );
 
 		window.addEventListener( 'resize', onWindowResize, false );
 
 		onWindowResize();
 
-
-		if ( location.hash ) {
-
-			path = location.hash.slice( 1 ).split( '/');
-
-			TOO.file = path.pop();
-			TOO.path = path.join();
-
-//console.log( 'TOO.path', TOO.path );
-//console.log( 'TOO.file', TOO.file );
-
-		}
+//		location.hash = 'path=ace-editor&file=readme.md';
+//		location.hash = 'path=tootoo&file=README.md';
+//		location.hash = 'user=paulmasson&repo=paulmasson.github.io&branch=master&file=readme.md';
+//		location.hash = 'user=mrdoob&repo=three.js&branch=dev&rawgit=true&file=README.md';
 
 		TOO.init( user );
+
+	}
+
+
+// add items to menu
+
+	function getMenuSelectUserOptions(){
+
+		users.keys = Object.keys( users );
+
+		for ( var i = 0; i < users.keys.length; i++ ) {
+
+			user = users[ users.keys[ i ] ];
+
+			SELselUser[ i ] = new Option( user.user + ' ' + user.repo + ' ' + user.folder + ' ' + user.branch, users.keys[ i ] );
+
+		}
 
 	}
 
@@ -158,7 +324,8 @@
 
 		if ( window.self !== window.top || window.innerWidth < 500 ) { container.style.left = '-325px'; }
 
-		contents.style.width = window.innerWidth - 350;
+// note: contents div behaves differently depending on type of content
+		contents.style.width = window.innerWidth - 325;
 
 	}
 

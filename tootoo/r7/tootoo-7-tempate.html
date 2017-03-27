@@ -6,7 +6,7 @@
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2017-03-23' >
+<meta name=date content='2017-03-26' >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
@@ -17,10 +17,11 @@
 
 	let user = {
 		user : 'pushme-pullyou',
+		subText: 'Your GitHub exploring happy place',
 		repo : 'pushme-pullyou.github.io',
 		branch : 'master',
 		folder : '',
-		noIndex : 'true'
+		noIndex : 'true' // try to show read instead of loding index.html
 	};
 
 	init();
@@ -43,14 +44,15 @@
 			'.popUp { background-color: white; border: 1px solid red; left: 180px; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }' +
 
 			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
-			'#button { background-color: #555; color: #fff; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: 20px; }' +
-			'#button:hover { cursor: pointer; opacity: 1; }' +
-			'#button a { text-decoration: none; color: #fff; }' +
+
 			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%; }' +
 
 // let each type of contents decide its best width and placement
 			'#contents { border: 0px #ccc solid; height: 100%; left: 325px; position: absolute; width: ' + ( window.innerWidth - 325 ) + 'px; }' +
-//			'#contents { border: 2px #ccc solid; margin-left: 325px; position: absolute; width: 100%; }' +
+
+			'#editButton { background-color: #555; color: #fff; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: 20px; }' +
+			'#editButton:hover { cursor: pointer; opacity: 1; }' +
+			'#editButton a { text-decoration: none; color: #fff; }' +
 
 			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }' +
 			'#hamburger h2 { margin: 0;}' +
@@ -75,11 +77,9 @@
 
 			'<div id=menu >' +
 
-
 				'<h2>' +
-					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766 </a>' + b +
+					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766</a>' + b +
 					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
-//					' ~ <a href="https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 					' ~ <a href="https://github.com/' + user.user + '/' + user.repo + '" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 
 				'</h2>' +
@@ -135,15 +135,12 @@
 
 		onWindowResize();
 
-
 		if ( location.hash ) {
 
 			path = location.hash.slice( 1 ).split( '/');
 
 			TOO.file = path.pop();
 			TOO.path = path.join();
-
-console.log( TOO.path , TOO.file );
 
 		}
 
