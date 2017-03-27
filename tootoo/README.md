@@ -3,12 +3,11 @@
 
 [Pushme-Pullyou]( https://pushme-pullyou.github.io ) &raquo;
 
-[TooToo Read Me]( https://pushme-pullyou.github.io/#path=tootoo&file=README.md )
+[TooToo Read Me]( https://pushme-pullyou.github.io/#tootoo/README.md )
 ===
 _Browse and view files on GitHub with remarkable ease_
 
 ## [tootoo-r7 Dev]( https://pushme-pullyou.github.io/tootoo/r6/tootoo.html )
-
 ## [tootoo-r6]( https://pushme-pullyou.github.io/tootoo/r6/tootoo.html )
 
 * [tootoo-r5]( https://pushme-pullyou.github.io/tootoo/r5/tootoo-r5.html )
@@ -22,7 +21,7 @@ _Browse and view files on GitHub with remarkable ease_
 The following links lead to variations/experiments adapted for various GitHub repositories
 
 * [The JavaScript Way]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-the-javascript-way.html )
-* [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-open-source-guide.html )
+* [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-6-2-open-source-guide.html )
 * [tootoo-7-theo-armour.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-theo-armour.html )
 * [tootoo-7-leader-photos.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-leader-photos.html )
 * [tootoo-7-masson-sagemath-docs.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-masson-sagemath-docs.html )
