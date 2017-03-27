@@ -20,18 +20,21 @@ _Browse and view files on GitHub with remarkable ease_
 
 The following links lead to variations/experiments adapted for various GitHub repositories
 
-* [The JavaScript Way]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-the-javascript-way.html )
-* [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-6-2-open-source-guide.html )
-* [tootoo-7-theo-armour.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-theo-armour.html )
+
 * [tootoo-7-leader-photos.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-leader-photos.html )
 * [tootoo-7-masson-sagemath-docs.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-masson-sagemath-docs.html )
 * [tootoo-7-sp500.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-sp500.html )
+* [tootoo-7-template.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-templateour.html )
+* [tootoo-7-theo-armour.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-theo-armour.html )
+
+* [The JavaScript Way]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-the-javascript-way.html )
+* [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-6-2-open-source-guide.html )
 * [tootoo-r5-theoDraw.html]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-theoDraw.html )
 * [tootoo-r5-theo-pages2.html ]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-theo-pages2.html )
 
 ## Concept
 
-The [GitHub web site]( https://github.com ) allows you to do many things.
+The [GitHub web site]( https://github.com ) allows you to do many wonderful things.
 
 Nonetheless it would be nice to have more including features such as the following:
 
@@ -41,7 +44,7 @@ Nonetheless it would be nice to have more including features such as the followi
 	* Views files as rendered or as source code
 * Edit any file on GitHub
 
-It would also be nice to do these things and still be understandable by an entry level programmer
+It would also be nice to do these things and have the code still be understandable by an entry level programmer
 
 
 ### Mission
@@ -83,8 +86,8 @@ It would also be nice to do these things and still be understandable by an entry
 
 ## Goals / To Do
 
+* 2017-03-26 ~ Read local files??
 * 2017-03-05 ~ make user/repo input box work
-* 2017-03-05 ~ Go back / history - needs full location hash
 * 2017-02-28 ~ Update contents position upon resize
 	* Ugh - Needs to adjust for each file type
 * 2017-02-27 ~ Add handlers for STL files
@@ -152,6 +155,12 @@ https://github.com/bryanbraun/franklin
 
 
 ## Change Log
+
+### 2017-03-26 ~ Theo
+
+* 2017-03-05 ~ Go back / history - needs full location hash << working but needs more
+* Many updates over the last few days
+
 
 
 ### 2017-03-08

@@ -16,6 +16,7 @@
 // https://github.com/showdownjs/showdown
 
 	var users = {};
+	var user;
 
 	users.d3 = {
 		user : 'd3',
@@ -23,7 +24,7 @@
 		branch : 'master',
 		folder : '',
 		rawgit: true
-//		noIndex: 'true'
+//		noIndex: true
 	};
 	users.d3GH = {
 		user : 'd3',
@@ -65,13 +66,13 @@
 		rawgit: true
 	};
 	users.ladybugDynamo = {
-		user : 'ladybug-analysis-tools',
+		user : 'ladybug-tools',
 		repo : 'ladybug-dynamo',
 		branch : 'gh-pages',
 		folder : ''
 	};
 	users.ladybugWeb = {
-		user : 'ladybug-analysis-tools',
+		user : 'ladybug-tools',
 		repo : 'ladybug-web',
 		branch : 'gh-pages',
 		folder : ''
@@ -100,7 +101,7 @@
 		repo : 'pushme-pullyou.github.io',
 		branch : 'master',
 		folder : '',
-		noIndex: 'true',
+		noIndex: true,
 		rawgit: null
 	};
 	users.pushmePullyouTooTo = {
@@ -108,7 +109,7 @@
 		repo : 'pushme-pullyou.github.io',
 		branch : 'master',
 		folder : 'tootoo',
-		noIndex: 'true',
+		noIndex: true,
 		rawgit: null
 	};
 	users.sagemathGH = {
@@ -147,7 +148,7 @@
 		repo : 'drawing',
 		branch : 'master',
 		folder : '',
-		noIndex: 'true'
+		noIndex: true
 	};
 
 /*
@@ -227,7 +228,7 @@
 
 					'<summary><h3>Select User/ Repo/ Branch </h3></summary>' +
 
-						'<select id=SELselUser onchange=TOO.init(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
+						'<select id=SELselUser onchange=location.hash="";TOO.init(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
 
 						'</select>' + b +
 
@@ -298,6 +299,16 @@
 //		location.hash = 'user=paulmasson&repo=paulmasson.github.io&branch=master&file=readme.md';
 //		location.hash = 'user=mrdoob&repo=three.js&branch=dev&rawgit=true&file=README.md';
 
+
+		if ( location.hash ) {
+
+			path = location.hash.slice( 1 ).split( '/');
+
+			TOO.file = path.pop();
+			TOO.path = path.join();
+
+		}
+
 		TOO.init( user );
 
 	}
@@ -307,6 +318,7 @@
 
 	function getMenuSelectUserOptions(){
 
+		var user;
 		users.keys = Object.keys( users );
 
 		for ( var i = 0; i < users.keys.length; i++ ) {
