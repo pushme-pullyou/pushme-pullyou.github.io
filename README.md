@@ -16,12 +16,12 @@ _scripts to help you explore and build on GitHub_
 ## [DabDab]( https://pushme-pullyou.github.io/dabdab/ )
 
 * [README]( https://pushme-pullyou.github.io#dabdab/README.md )
-* Monitor updates by selected GitHub users
+* Got friends? Monitor updates for selected GitHub users
 
 ## [TooToo]( https://pushme-pullyou.github.io/tootoo/ )
 
 * [README]( https://pushme-pullyou.github.io#tootoo/README.md )
-* Browse and view files on GitHub with remarkable ease
+* Browse and view many files on GitHub with remarkable ease
 * 2017-03-26 ~ Where the current action is occurring
 
 
@@ -30,16 +30,15 @@ _scripts to help you explore and build on GitHub_
 * Explore GitHub using the GitHub API
 * Explore the GitHub API using entry-level, plain-vanilla JavaScript
 
-## Upcoming
-
-* Get official Twittter name for each symbol - using Twitter API
-
-
 
 ## Naming Convention
 
 See: [List of Doctor Dolittle characters]( https://en.wikipedia.org/wiki/List_of_Doctor_Dolittle_characters )
 
+## To Do
+
+* Start exploring GitHub Topics
+    * And projects?
 
 ## Change Log
 
