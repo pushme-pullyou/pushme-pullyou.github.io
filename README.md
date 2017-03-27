@@ -30,6 +30,12 @@ _scripts to help you explore and build on GitHub_
 * Explore GitHub using the GitHub API
 * Explore the GitHub API using entry-level, plain-vanilla JavaScript
 
+## Upcoming
+
+* Get official Twittter name for each symbol - using Twitter API
+
+
+
 ## Naming Convention
 
 See: [List of Doctor Dolittle characters]( https://en.wikipedia.org/wiki/List_of_Doctor_Dolittle_characters )
