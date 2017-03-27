@@ -10,18 +10,19 @@ _scripts to help you explore and build on GitHub_
 
 ## [GubGub]( https://pushme-pullyou.github.io/gubgub/ )
 
-* [README]( https://pushme-pullyou.github.io#path=gubgub&file=README.md )
+* [README]( https://pushme-pullyou.github.io/#gubgub/README.md )
 * Explore GitHub users and their repositories
 
-## [DabDab]( https://pushme-pullyou.github.io/dabdab )
+## [DabDab]( https://pushme-pullyou.github.io/dabdab/ )
 
-* [README]( https://pushme-pullyou.github.io#path=dabdab&file=README.md )
+* [README]( https://pushme-pullyou.github.io#dabdab/README.md )
 * Monitor updates by selected GitHub users
 
 ## [TooToo]( https://pushme-pullyou.github.io/tootoo/ )
 
-* [README]( https://pushme-pullyou.github.io#path=tootoo&file=README.md )
+* [README]( https://pushme-pullyou.github.io#tootoo/README.md )
 * Browse and view files on GitHub with remarkable ease
+* 2017-03-26 ~ Where the current action is occurring
 
 
 ## Features
@@ -35,6 +36,11 @@ See: [List of Doctor Dolittle characters]( https://en.wikipedia.org/wiki/List_of
 
 
 ## Change Log
+
+### 2017-03-26 ~
+
+* Many updates
+* On TooToo R7
 
 ### 2017-03-08
 
