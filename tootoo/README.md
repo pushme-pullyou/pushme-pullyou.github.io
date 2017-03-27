@@ -7,7 +7,7 @@
 ===
 _Browse and view files on GitHub with remarkable ease_
 
-## [tootoo-r7 Dev]( https://pushme-pullyou.github.io/tootoo/r6/tootoo.html )
+## [tootoo-r7 Dev]( https://pushme-pullyou.github.io/tootoo/r7/tootoo.html )
 ## [tootoo-r6]( https://pushme-pullyou.github.io/tootoo/r6/tootoo.html )
 
 * [tootoo-r5]( https://pushme-pullyou.github.io/tootoo/r5/tootoo-r5.html )
@@ -23,10 +23,11 @@ The following links lead to variations/experiments adapted for various GitHub re
 
 * [tootoo-7-leader-photos.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-leader-photos.html )
 * [tootoo-7-masson-sagemath-docs.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-masson-sagemath-docs.html )
-* [tootoo-7-sp500.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-sp500.html )
+* [tootoo-7-sp500.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-sp500.html ) << 2017-03-26 ~ where the action is
 * [tootoo-7-template.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-template.html )
 * [tootoo-7-theo-armour.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-theo-armour.html )
-Older
+
+Older revisions / waiting to be updated
 * [The JavaScript Way]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-the-javascript-way.html )
 * [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-6-2-open-source-guide.html )
 * [tootoo-r5-theoDraw.html]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-theoDraw.html )
@@ -158,7 +159,8 @@ https://github.com/bryanbraun/franklin
 
 ### 2017-03-26 ~ Theo
 
-* 2017-03-05 ~ Go back / history - needs full location hash << working but needs more
+* [Blog Post]( https://github.com/pushme-pullyou/pushme-pullyou.github.io/issues/1 )
+* 2017-03-05 ~ Add go back / history - needs full location hash << working but needs more
 * Many updates over the last few days
 
 

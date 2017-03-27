@@ -39,6 +39,7 @@ See: [List of Doctor Dolittle characters]( https://en.wikipedia.org/wiki/List_of
 
 ### 2017-03-26 ~
 
+* [Blog Post]( https://github.com/pushme-pullyou/pushme-pullyou.github.io/issues/1 )
 * Many updates
 * On TooToo R7
 
