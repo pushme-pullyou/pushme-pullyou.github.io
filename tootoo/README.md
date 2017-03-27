@@ -24,9 +24,9 @@ The following links lead to variations/experiments adapted for various GitHub re
 * [tootoo-7-leader-photos.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-leader-photos.html )
 * [tootoo-7-masson-sagemath-docs.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-masson-sagemath-docs.html )
 * [tootoo-7-sp500.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-sp500.html )
-* [tootoo-7-template.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-templateour.html )
+* [tootoo-7-template.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-template.html )
 * [tootoo-7-theo-armour.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-theo-armour.html )
-
+Older
 * [The JavaScript Way]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-the-javascript-way.html )
 * [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-6-2-open-source-guide.html )
 * [tootoo-r5-theoDraw.html]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-theoDraw.html )
