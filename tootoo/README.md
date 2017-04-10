@@ -87,6 +87,7 @@ It would also be nice to do these things and have the code still be understandab
 
 ## Goals / To Do
 
+* 2017-04-09 ~ document creating a gallery using leader photos
 * 2017-03-26 ~ Read local files??
 * 2017-03-05 ~ make user/repo input box work
 * 2017-02-28 ~ Update contents position upon resize
@@ -157,13 +158,18 @@ https://github.com/bryanbraun/franklin
 
 ## Change Log
 
+
+### 2017-04-09 ~ Theo
+
+* Update Read Me
+* Created folder for examples
+* Added predIQtiv as a working example
+
 ### 2017-03-26 ~ Theo
 
 * [Blog Post]( https://github.com/pushme-pullyou/pushme-pullyou.github.io/issues/1 )
 * 2017-03-05 ~ Add go back / history - needs full location hash << working but needs more
 * Many updates over the last few days
-
-
 
 ### 2017-03-08
 
