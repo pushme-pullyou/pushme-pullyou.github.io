@@ -654,7 +654,7 @@
 		let font = document.body.appendChild( document.createElement( 'link' ) );
 		font.id = fontID;
 		font.rel = 'stylesheet';
-		font.href = 'http://fonts.googleapis.com/css?family=' + fontID;
+		font.href = 'https://fonts.googleapis.com/css?family=' + fontID;
 
 		document.body.style.fontFamily = 'Open Sans';
 
@@ -667,7 +667,7 @@
 		let font = document.body.appendChild( document.createElement( 'link' ) );
 		font.id = fontID;
 		font.rel = 'stylesheet';
-		font.href = 'http://fonts.googleapis.com/css?family=' + fontID;
+		font.href = 'https://fonts.googleapis.com/css?family=' + fontID;
 
 		document.body.style.fontFamily = 'Inconsolata';
 

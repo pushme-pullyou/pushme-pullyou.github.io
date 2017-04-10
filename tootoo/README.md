@@ -26,10 +26,10 @@ The following links lead to variations/experiments adapted for various GitHub re
 * [tootoo-7-sp500.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-sp500.html ) << 2017-03-26 ~ where the action is
 * [tootoo-7-template.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-template.html )
 * [tootoo-7-theo-armour.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-theo-armour.html )
+* [tootoo-7-the-javaScript-way]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-the-javascript-way.html )
+* [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-open-source-guide.html )
 
 Older revisions / waiting to be updated
-* [The JavaScript Way]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-the-javascript-way.html )
-* [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-6-2-open-source-guide.html )
 * [tootoo-r5-theoDraw.html]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-theoDraw.html )
 * [tootoo-r5-theo-pages2.html ]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-theo-pages2.html )
 
