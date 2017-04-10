@@ -83,7 +83,7 @@ It would also be nice to do these things and have the code still be understandab
 
 ## Issues
 
-
+* 2017-04-09 ~ Highlight correct file when multiple README files
 
 ## Goals / To Do
 
