@@ -84,6 +84,7 @@ It would also be nice to do these things and have the code still be understandab
 ## Issues
 
 * 2017-04-09 ~ Highlight correct file when multiple README files - as when there is a table of contents
+* 2017-04-09 ~ Hendle next and previous buttons nicely when there is a table of contents
 
 ## Goals / To Do
 
@@ -157,6 +158,11 @@ https://github.com/bryanbraun/franklin
 
 
 ## Change Log
+
+### 2017-04-12 ~ Theo
+
+* 2017-03-26 ~ Read local files?? << started
+* Various menu fixes
 
 
 ### 2017-04-09 ~ Theo
