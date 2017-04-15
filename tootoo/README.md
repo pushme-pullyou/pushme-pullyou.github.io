@@ -90,6 +90,9 @@ It would also be nice to do these things and have the code still be understandab
 ## Goals / To Do
 
 * 2017-04-09 ~ document creating a gallery using leader photos
+	* Should not have to update Leader Photos
+	* Gallery can be creatd remotely
+* 2017-04-15 ~ CSS is separate file
 * 2017-03-26 ~ Read local files??
 * 2017-03-05 ~ make user/repo input box work
 * 2017-02-28 ~ Update contents position upon resize
