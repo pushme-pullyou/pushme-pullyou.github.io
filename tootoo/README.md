@@ -20,8 +20,11 @@ _Browse and view files on GitHub with remarkable ease_
 
 The following links lead to variations/experiments adapted for various GitHub repositories
 
-
+* [prediqtiv.html]( https://pushme-pullyou.github.io/tootoo/examples/prediqtiv.html )
+* [theo-draw.html]( https://pushme-pullyou.github.io/tootoo/examples/theo-draw.html )
+* [theo-pages2.html ]( https://pushme-pullyou.github.io/tootoo/examples/theo-pages2.html )
 * [tootoo-7-leader-photos.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-leader-photos.html )
+
 * [tootoo-7-masson-sagemath-docs.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-masson-sagemath-docs.html )
 * [tootoo-7-sp500.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-sp500.html ) << 2017-03-26 ~ where the action is
 * [tootoo-7-template.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-template.html )
@@ -30,8 +33,6 @@ The following links lead to variations/experiments adapted for various GitHub re
 * [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-open-source-guide.html )
 
 Older revisions / waiting to be updated
-* [tootoo-r5-theoDraw.html]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-theoDraw.html )
-* [tootoo-r5-theo-pages2.html ]( https://pushme-pullyou.github.io/tootoo/r6/tootoo-theo-pages2.html )
 
 ## Concept
 

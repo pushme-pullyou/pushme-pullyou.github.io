@@ -2,27 +2,88 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>Leader Photos</title>
+<title>predIQtive</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on Leader Photos with remarkable ease.' >
-<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2017-03-26' >
+<meta name=description content='A variety of tools to browse and view all S&P 500 symbols all at once.' >
+<meta name=keywords content='Three.js,WebGL,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-04-08' >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-<script src=tootoo-7.js ></script>
+<script src=../r7/tootoo-7.js ></script>
 <script>
 // Copyright © 2017 PushMe PullYou authors. MIT license
 // https://github.com/showdownjs/showdown
 
+	let images = 'https://raw.githubusercontent.com/prediqtiv/prediqtiv.github.io/master/images/';
 
-    var user = {
-        user : 'leaderphotos',
-        repo : 'leaderphotos.github.io',
-        branch : 'master',
-		noIndex : true,
-        folder :'albums'
-    };
+	let user = {
+		user : 'prediqtiv',
+		subText : 'Invest smarter',
+		repo : 'prediqtiv.github.io',
+		branch : 'master',
+		folder : '',
+		noIndex : true
+	};
+
+
+	TOO.setMenuContents = function() {
+
+		TOO.files = [];
+		TOO.menuTitle.innerHTML = 'Table of Contents';
+		TOO.breadcrumbs.innerHTML = '';
+		TOO.menuItems.innerHTML = '';
+
+		TOO.fileTitles = [
+
+			[ 'header', 'predIQtiv' ],
+				[ '', 'README.md', 'predIQtiv home page' ],
+				[ '', 'license.md', 'Copyright and license' ],
+			[ 'header', 'eyeCue'],
+				[ 'eye-cue/', 'README.md', 'eyeCue Read Me' ],
+			[ 'header', 'Trades'],
+				[ 'trades-get/', 'README.md', 'Trades Get Read Me' ],
+			[ 'header', 'Tweets'],
+				[ 'tweets/', 'README.md', 'Tweets Read Me' ],
+			[ 'header', 'White Papers'],
+				[ 'white-papers/', 'README.md', 'White Papers Read Me' ],
+			[ 'header', 'Device Parameters Test '],
+				[ 'device-parameters-test/', 'README.md', 'Device Parameters Test Read Me' ],
+
+
+		];
+
+		let count = 0;
+		for ( let i = 0; i < TOO.fileTitles.length; i++ ) {
+
+			if ( TOO.fileTitles[ i ][ 0 ] === 'header') {
+
+				TOO.menuItems.innerHTML += '<h4>'  + TOO.fileTitles[ i ][ 1 ] + '</h4>';
+
+			} else {
+
+				TOO.menuItems.innerHTML += '<div id=file' + count++ + ' style=width:100%; >' +
+				'<a href=JavaScript:TOO.getFileSetContents("' + TOO.fileTitles[ i ][ 0 ] + '","' + TOO.fileTitles[ i ][ 1 ] + '"); > ' +
+					TOO.fileTitles[ i ][ 2 ] +
+				' </a>' +
+				'</div>';
+
+				TOO.files.push( TOO.fileTitles[ i ][ 1 ] );
+
+			 }
+		}
+
+		if ( !location.hash ) {
+
+			TOO.getFileSetContents( '', 'README.md' );
+
+		} else {
+
+			TOO.getFileSetContents( TOO.path + '/', TOO.file );
+
+		}
+
+	}
 
 
 	init();
@@ -35,7 +96,7 @@
 		css = document.body.appendChild( document.createElement('style') );
 		css.innerHTML =
 			'html, body { font: 12pt monospace; height: 100%; margin: 0; }' +
-			'a { color: crimson; text-decoration: none; }' +
+			'a { color: blue; text-decoration: none; }' +
 			'a:hover { text-decoration: underline; }' +
 			'button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }' +
 			'pre, blockquote { background-color: #eee; padding: 10px; }' +
@@ -44,7 +105,7 @@
 
 			'.popUp { background-color: white; border: 1px solid red; left: 180px; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }' +
 
-			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
+			'#bars { color: blue; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
 
 			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%; }' +
 
@@ -79,16 +140,21 @@
 			'<div id=menu >' +
 
 				'<h2>' +
-					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766 </a>' + b +
-					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
+//					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766 </a>' + b +
+					'<a href="" title="Click here to refresh this page" ><img src=' + images + 'predIQtiv.png height=48px ></a>' +
 //					' ~ <a href="https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
-					' ~ <a href="https://github.com/' + user.user + '/' + user.repo + '" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
+					' <a href="https://github.com/' + user.user + '/' + user.repo + '" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; style=vertical-align:top; > &#x24D8; </a>' +
 
 				'</h2>' +
 
 				'<div class=popUp id=popHelp style=display:none; ><div>Hi there!</div>Click the i-in-circle, info icon for latest updates.</div>' +
 
 				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
+
+				'<div>' +
+					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu();  >Table of Conntents</button>' +
+					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
+				'</div>' + b +
 
 				'<details open>' +
 
@@ -120,7 +186,7 @@
 				'</details>' +
 
 				'<hr>' +
-				'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1> &#x2766 <h1></a></center>' +
+				'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1><img src=' + images + 'five-boxes.png height=32 ><h1></a></center>' +
 				'<div class=popUp id=pop2 style=display:none;bottom:20px; >' + user.user + ' - ' + user.subText + '.<br>Click here to return to the top of the page</div>' +
 
 			'</div>' +
@@ -133,16 +199,20 @@
 
 		'';
 
-        window.addEventListener( 'resize', onWindowResize, false );
+		window.addEventListener( 'resize', onWindowResize, false );
 
-        onWindowResize();
+		onWindowResize();
+
 
 		if ( location.hash ) {
 
-			path = location.hash.slice( 1 ).split( '/');
+			path = location.hash.slice( 1 ).split( '/' );
 
 			TOO.file = path.pop();
-			TOO.path = path.join();
+			TOO.path = path.join( '/' );
+
+//console.log( 'TOO.path', TOO.path );
+//console.log( 'TOO.file', TOO.file );
 
 		}
 
@@ -151,11 +221,40 @@
 	}
 
 
+	TOO.getFileMD = function( url ) {
+
+// https://github.com/showdownjs/showdown
+
+		showdown.setFlavor('github');
+
+		let converter = new showdown.Converter();
+
+		TOO.requestFile( url, callbackMD );
+
+		function callbackMD( xhr ) {
+
+			text = xhr.target.response;
+
+			text = text.replace( /images\//g, images );
+
+			TOO.contents.innerHTML =
+
+			'<div style="border: 0px red solid; margin: 0 auto; width: 800px; position: relative;" >' +
+				converter.makeHtml( text ) +
+			'</div>';
+
+			TOO.getFileDataXHR( xhr );
+
+		}
+
+	}
+
+
 	function onWindowResize() {
 
 		if ( window.self !== window.top || window.innerWidth < 500 ) { container.style.left = '-325px'; }
 
-        contents.style.width = window.innerWidth - 350;
+		contents.style.width = window.innerWidth - 350;
 
 	}
 

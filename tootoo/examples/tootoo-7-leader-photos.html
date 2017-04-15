@@ -2,94 +2,33 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>The JavaScript Way</title>
+<title>Leader Photos</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view The JavaScript Way files on GitHub with remarkable ease' >
+<meta name=description content='Browse and view files on Leader Photos with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 <meta name=date content='2017-03-26' >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-<script src=tootoo-7.js ></script>
+<script src=../r7/tootoo-7.js ></script>
 <script>
-// Copyright © 2017 Pushme Pullyou authors. MIT license
+// Copyright © 2017 PushMe PullYou authors. MIT license
 // https://github.com/showdownjs/showdown
 
 
-	let user = {
-		user : 'bpesquet',
-		subText: 'Your JavaScript learning happy place',
-		repo : 'thejsway',
+	var user = {
+		user : 'leaderphotos',
+		repo : 'leaderphotos.github.io',
+		subText : 'Browse Nigel\'s photos quickly and easily',
 		branch : 'master',
-		folder : '',
-		rawgit: true
-//		noIndex: 'true'
+		noIndex : true,
+		folder :'albums'
 	};
 
-	TOO.setMenuContents = function() {
-
-		TOO.files = [];
-		TOO.menuTitle.innerHTML = 'Table of Contents';
-		TOO.breadcrumbs.innerHTML = '';
-		TOO.menuItems.innerHTML = '';
-
-		TOO.fileTitles = [
-
-			[ 'header', 'Introduction' ],
-				[ 'intro01.md', 'About this book' ],
-				[ 'intro02.md', 'Welcome to programming' ],
-				[ 'intro03.md', 'Introducing JavaScript' ],
-				[ 'intro04.md', 'What you\'ll need' ],
-
-			[ 'header', 'Part I: Learn to code programs' ],
-				[ 'chapter01.md', '1. 3, 2, 1... Code!' ],
-				[ 'chapter02.md', '2. Play with variables' ],
-				[ 'chapter03.md', '3. Add conditions' ],
-				[ 'chapter04.md', '4. Repeat statements' ],
-				[ 'chapter05.md', '5. Write functions'],
-				[ 'chapter06.md', '6. Create your first objects'],
-				[ 'chapter07.md', '7. Store data in arrays'],
-				[ 'chapter08.md', '8. Work with strings'],
-				[ 'chapter09.md', '9. Understand object-oriented programming' ],
-				[ 'chapter10.md', '10. Discover functional programming'],
-
-			[ 'header', 'Part II: Create interactive web pages'],
-			[ 'header', '...'],
-			[ 'header', 'Part III: Build web apps'],
-			[ 'header', '...'],
-			[ 'header', 'Conclusion'],
-			[ 'header', '...' ],
-				[ 'concl02.md', 'Acknowledgements' ],
-
-		];
-
-		let count = 0;
-		for ( let i = 0; i < TOO.fileTitles.length; i++ ) {
-
-			if ( TOO.fileTitles[ i ][ 0 ] === 'header') {
-
-				TOO.menuItems.innerHTML += '<h4>'  + TOO.fileTitles[ i ][ 1 ] + '</h4>';
-
-			} else {
-
-				TOO.menuItems.innerHTML += '<div id=file' + count++ + ' style=width:100%; >' +
-				'<a href=JavaScript:TOO.getFileSetContents("manuscript/","' + TOO.fileTitles[ i ][ 0 ] + '"); > ' + TOO.fileTitles[ i ][ 1 ] + ' </a>' +
-				'</div>';
-
-				TOO.files.push( TOO.fileTitles[ i ][ 0 ] );
-
-			 }
-		}
-
-		TOO.getFileSetContents( 'manuscript/', 'intro01.md' );
-
-	}
 
 	init();
 
 	function init() {
-
-// should there be a basic css in the JavaScript file?
 
 		let css, container, contents, hamburger, menu;
 		const b = '<br>';
@@ -98,6 +37,7 @@
 		css.innerHTML =
 			'html, body { font: 12pt monospace; height: 100%; margin: 0; }' +
 			'a { color: crimson; text-decoration: none; }' +
+			'a:hover { text-decoration: underline; }' +
 			'button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }' +
 			'pre, blockquote { background-color: #eee; padding: 10px; }' +
 			'summary { outline: none; }' +
@@ -140,27 +80,20 @@
 			'<div id=menu >' +
 
 				'<h2>' +
-					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766</a>' + b +
+					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766 </a>' + b +
 					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
+//					' ~ <a href="https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 					' ~ <a href="https://github.com/' + user.user + '/' + user.repo + '" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 
 				'</h2>' +
 
 				'<div class=popUp id=popHelp style=display:none; ><div>Hi there!</div>Click the i-in-circle, info icon for latest updates.</div>' +
 
-				'<div><small><i>' +
-					'By Baptiste Pesquet' + b  +
-					'Get off to a good start in the JavaScript universe or catch up with its newest evolutions.' +
-				'</i></small></div>' + b +
-
-				'<div>' +
-					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu();  >Table of Conntents</button>' +
-					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
-				'</div>' + b +
+				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
 
 				'<details open>' +
 
-					'<summary><h3 id=menuTitle > Contents </h3></summary>' +
+					'<summary><h3 id=menuTitle >Menu</h3></summary>' +
 
 					'<div id=menuBreadcrumbs ></div>' + b +
 
@@ -182,7 +115,7 @@
 
 				'<details>' +
 					'<summary><h3>About</h3></summary>' +
-					'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.repo + ' authors. ' +
+					'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
 					'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
 					'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
 				'</details>' +
@@ -198,54 +131,23 @@
 			'</div>' +
 
 			'<div id=contents ></div>' +
-				'<h1>.</h1>' +
-			'</div>' +
 
 		'';
 
-		window.addEventListener( 'resize', onWindowResize, false );
+        window.addEventListener( 'resize', onWindowResize, false );
 
-		onWindowResize();
+        onWindowResize();
 
-		TOO.init( user );
+		if ( location.hash ) {
 
-	}
+			path = location.hash.slice( 1 ).split( '/');
 
-
-	TOO.getFileMD = function( url ) {
-
-// https://github.com/showdownjs/showdown
-
-		showdown.setFlavor('github');
-
-		let converter = new showdown.Converter();
-
-		TOO.requestFile( url, callbackMD );
-
-		TOO.contents.style.overflowX = 'hidden';
-
-		function callbackMD( xhr ) {
-
-			text = converter.makeHtml( xhr.target.response );
-
-			text = text.replace( /src="images/g, 'src="https://raw.githubusercontent.com/bpesquet/thejsway/master/manuscript/images' );
-
-			text = text.replace( /a href=\"LICENSE"/g, 'a href=JavaScript:location.hash="file=LICENSE"');
-
-			text = text.replace( /a href=\"CONTRIBUTING.md"/g, 'a href=JavaScript:location.hash="file=CONTRIBUTING.md"');
-
-			text = text.replace( /a href=\"manuscript\//g, 'a href=JavaScript:location.hash="path=manuscript&file=');
-
-			text = text.replace( /">/g, '";TOO.init(users); >');
-
-			TOO.contents.innerHTML =
-			'<div style="border: 0px red solid; margin: 0 auto; width: 800px; position: relative;" >' +
-				text +
-			'</div>';
-
-			TOO.getFileDataXHR( xhr );
+			TOO.file = path.pop();
+			TOO.path = path.join();
 
 		}
+
+		TOO.init( user );
 
 	}
 
@@ -254,7 +156,7 @@
 
 		if ( window.self !== window.top || window.innerWidth < 500 ) { container.style.left = '-325px'; }
 
-		contents.style.width = window.innerWidth - 350;
+        contents.style.width = window.innerWidth - 350;
 
 	}
 

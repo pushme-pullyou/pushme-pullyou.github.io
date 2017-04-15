@@ -42,11 +42,14 @@ See: [List of Doctor Dolittle characters]( https://en.wikipedia.org/wiki/List_of
 
 ## Change Log
 
+_See also read me files in folders for more timely and script-specific updates_
+
+
 ### 2017-03-26 ~
 
 * [Blog Post]( https://github.com/pushme-pullyou/pushme-pullyou.github.io/issues/1 )
 * Many updates
-* On TooToo R7
+* On TooToo R7 (home page script)
 
 ### 2017-03-08
 
