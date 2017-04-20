@@ -20,16 +20,17 @@ _Browse and view files on GitHub with remarkable ease_
 
 The following links lead to variations/experiments adapted for various GitHub repositories
 
+* [tootoo-template.html]( https://pushme-pullyou.github.io/tootoo/example/ztootoo-7-template.html )
 * [prediqtiv.html]( https://pushme-pullyou.github.io/tootoo/examples/prediqtiv.html )
 * [theo-draw.html]( https://pushme-pullyou.github.io/tootoo/examples/theo-draw.html )
 * [theo-pages2.html ]( https://pushme-pullyou.github.io/tootoo/examples/theo-pages2.html )
-* [tootoo-7-leader-photos.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-leader-photos.html )
+* [leader-photos.html]( https://pushme-pullyou.github.io/tootoo/examples/leader-photos.html )
+* [the-javascript-way]( https://pushme-pullyou.github.io/tootoo/examples/the-javascript-way.html )
 
+More
 * [tootoo-7-masson-sagemath-docs.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-masson-sagemath-docs.html )
 * [tootoo-7-sp500.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-sp500.html ) << 2017-03-26 ~ where the action is
-* [tootoo-7-template.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-template.html )
 * [tootoo-7-theo-armour.html]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-theo-armour.html )
-* [tootoo-7-the-javaScript-way]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-the-javascript-way.html )
 * [Open Source Guide]( https://pushme-pullyou.github.io/tootoo/r7/tootoo-7-open-source-guide.html )
 
 Older revisions / waiting to be updated
@@ -92,7 +93,7 @@ It would also be nice to do these things and have the code still be understandab
 * 2017-04-09 ~ document creating a gallery using leader photos
 	* Should not have to update Leader Photos
 	* Gallery can be creatd remotely
-* 2017-04-15 ~ CSS is separate file
+* 2017-04-15 ~ CSS in separate file
 * 2017-03-26 ~ Read local files??
 * 2017-03-05 ~ make user/repo input box work
 * 2017-02-28 ~ Update contents position upon resize
