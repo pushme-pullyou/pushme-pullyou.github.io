@@ -243,6 +243,8 @@
 
 		pathString = path ? path + '/' : '';
 
+		TOO.keys = TOO.cleanUp( TOO.keys );
+
 		for ( let i = 0; i < TOO.keys.length; i++ ) {
 
 			key = TOO.keys[ i ];
@@ -256,7 +258,7 @@
 				'</a>'+
 				b;
 
-			} else { // it's a file
+			} else if ( key.indexOf( '.thumb.' ) === -1  ) { // it's a file
 
 				filesText +=
 
@@ -267,6 +269,7 @@
 				'</div>';
 
 				TOO.files.push( key );
+
 			}
 
 		}
@@ -294,6 +297,12 @@
 //		history.replaceState( '', document.title, window.location.pathname );
 
 	}
+
+
+	TOO.cleanUp = function( keys ){ return keys; };
+
+
+
 
 
 	TOO.setBreadcrumbs = function( path ) {

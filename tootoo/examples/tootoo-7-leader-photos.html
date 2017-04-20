@@ -26,6 +26,26 @@
 	};
 
 
+	TOO.cleanUp = function( keys ){
+
+		var arr = [];
+
+		for ( let i = 0; i < keys.length; i++ ) {
+
+			key = TOO.keys[ i ];
+			if ( key.indexOf( '.thumb.' ) > -1 ) { continue; }
+			if ( key.indexOf( '.highlight.' ) > -1 ) { continue; }
+			if ( key.endsWith( '.dat' ) ) { continue; }
+			if ( key.endsWith( '.lock' ) ) { continue; }
+			if ( key.endsWith( '.js' ) ) { continue; }
+			arr.push( key );
+
+		}
+
+	 return arr;
+
+	}
+
 	init();
 
 	function init() {
