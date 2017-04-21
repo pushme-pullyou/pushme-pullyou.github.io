@@ -10,7 +10,7 @@
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-<script src=../r7/tootoo-7.js ></script>
+<script src=../r8/tootoo-8.js ></script>
 <script>
 // Copyright © 2017 Pushme Pullyou authors. MIT license
 // https://github.com/showdownjs/showdown
@@ -36,22 +36,22 @@
 		TOO.fileTitles = [
 
 			[ 'header', 'Introduction' ],
-				[ 'intro01.md', 'About this book' ],
-				[ 'intro02.md', 'Welcome to programming' ],
-				[ 'intro03.md', 'Introducing JavaScript' ],
-				[ 'intro04.md', 'What you\'ll need' ],
+				[ 'manuscript/', 'intro01.md', 'About this book' ],
+				[ 'manuscript/', 'intro02.md', 'Welcome to programming' ],
+				[ 'manuscript/', 'intro03.md', 'Introducing JavaScript' ],
+				[ 'manuscript/', 'intro04.md', 'What you\'ll need' ],
 
 			[ 'header', 'Part I: Learn to code programs' ],
-				[ 'chapter01.md', '1. 3, 2, 1... Code!' ],
-				[ 'chapter02.md', '2. Play with variables' ],
-				[ 'chapter03.md', '3. Add conditions' ],
-				[ 'chapter04.md', '4. Repeat statements' ],
-				[ 'chapter05.md', '5. Write functions'],
-				[ 'chapter06.md', '6. Create your first objects'],
-				[ 'chapter07.md', '7. Store data in arrays'],
-				[ 'chapter08.md', '8. Work with strings'],
-				[ 'chapter09.md', '9. Understand object-oriented programming' ],
-				[ 'chapter10.md', '10. Discover functional programming'],
+				[ 'manuscript/', 'chapter01.md', '1. 3, 2, 1... Code!' ],
+				[ 'manuscript/', 'chapter02.md', '2. Play with variables' ],
+				[ 'manuscript/', 'chapter03.md', '3. Add conditions' ],
+				[ 'manuscript/', 'chapter04.md', '4. Repeat statements' ],
+				[ 'manuscript/', 'chapter05.md', '5. Write functions'],
+				[ 'manuscript/', 'chapter06.md', '6. Create your first objects'],
+				[ 'manuscript/', 'chapter07.md', '7. Store data in arrays'],
+				[ 'manuscript/', 'chapter08.md', '8. Work with strings'],
+				[ 'manuscript/', 'chapter09.md', '9. Understand object-oriented programming' ],
+				[ 'manuscript/', 'chapter10.md', '10. Discover functional programming'],
 
 			[ 'header', 'Part II: Create interactive web pages'],
 			[ 'header', '...'],
@@ -59,7 +59,7 @@
 			[ 'header', '...'],
 			[ 'header', 'Conclusion'],
 			[ 'header', '...' ],
-				[ 'concl02.md', 'Acknowledgements' ],
+				[ 'manuscript/', 'concl02.md', 'Acknowledgements' ],
 
 		];
 
@@ -73,10 +73,11 @@
 			} else {
 
 				TOO.menuItems.innerHTML += '<div id=file' + count++ + ' style=width:100%; >' +
-				'<a href=JavaScript:TOO.getFileSetContents( "manuscript/","' + TOO.fileTitles[ i ][ 0 ] + '"); > ' + TOO.fileTitles[ i ][ 1 ] + ' </a>' +
+				'<a href=JavaScript:TOO.getFileSetContents("' + TOO.fileTitles[ i ][ 0 ] + '","' + TOO.fileTitles[ i ][ 1 ] + '"); > ' +
+					TOO.fileTitles[ i ][ 2 ] +
 				'</div>';
 
-				TOO.files.push( TOO.fileTitles[ i ][ 0 ] );
+				TOO.files.push( TOO.fileTitles[ i ][ 0 ] + TOO.fileTitles[ i ][ 1 ] );
 
 			 }
 		}
@@ -100,49 +101,9 @@
 
 	function init() {
 
-// should there be a basic css in the JavaScript file?
+		let container, contents, hamburger, menu;
 
-		let css, container, contents, hamburger, menu;
-		const b = '<br>';
-
-		css = document.body.appendChild( document.createElement('style') );
-		css.innerHTML =
-			'html, body { font: 12pt monospace; height: 100%; margin: 0; }' +
-			'a { color: crimson; text-decoration: none; }' +
-			'button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }' +
-			'pre, blockquote { background-color: #eee; padding: 10px; }' +
-			'summary { outline: none; }' +
-			'summary h3 { display: inline; }' +
-
-			'.popUp { background-color: white; border: 1px solid red; left: 180px; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }' +
-
-			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
-
-			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%; }' +
-
-// let each type of contents decide its best width and placement
-			'#contents { border: 0px #ccc solid; height: 100%; left: 325px; position: absolute; width: ' + ( window.innerWidth - 325 ) + 'px; }' +
-
-			'#editButton { background-color: #555; color: #fff; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: 20px; }' +
-			'#editButton:hover { cursor: pointer; opacity: 1; }' +
-			'#editButton a { text-decoration: none; color: #fff; }' +
-
-			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }' +
-			'#hamburger h2 { margin: 0;}' +
-
-			'#menu { background-color: #eee; border: 1px #ccc solid; box-sizing:border-box; height: 100%; overflow-y: auto; padding: 0 10px; position: fixed; width: 325px; }' +
-			'#menu h2, #menu h4 {margin: 0; }' +
-			'#menuBreadcrumbs h2, #menuBreadcrumbs h3 { font-size: 14pt; margin: 0; }' +
-
-			'#nextFile { color: #888; font-size: 36pt; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: ' + (0.5 * window.innerHeight ) + 'px; }' +
-			'#nextFile:hover { cursor: pointer; opacity: 1; }' +
-			'#nextFile a { text-decoration: none; color: #888; }' +
-
-			'#previousFile { color: #888; font-size: 36pt; opacity: 0.5; padding: 8px; position: fixed; margin-left: 350px; top: ' + (0.5 * window.innerHeight ) + 'px; }' +
-			'#previousFile:hover { cursor: pointer; opacity: 1; }' +
-			'#previousFile a { text-decoration: none; color: #888; }' +
-
-		'';
+		TOO.setCSS();
 
 		container = document.body.appendChild( document.createElement( 'div' ) );
 		container.id = 'container';

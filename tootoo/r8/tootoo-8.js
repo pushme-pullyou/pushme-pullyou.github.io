@@ -5,6 +5,50 @@
 	let TOO = {};
 	var b = '<br>';
 
+	TOO.setCSS = function() {
+
+		let css, container, contents, hamburger, menu;
+		const b = '<br>';
+
+		css = document.body.appendChild( document.createElement('style') );
+		css.innerHTML =
+			'html, body { font: 12pt monospace; height: 100%; margin: 0; }' +
+			'a { color: crimson; text-decoration: none; }' +
+			'a:hover { text-decoration: underline; }' +
+			'button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }' +
+			'pre, blockquote { background-color: #eee; padding: 10px; }' +
+			'summary { outline: none; }' +
+			'summary h3 { display: inline; }' +
+
+			'.popUp { background-color: white; border: 1px solid red; left: 180px; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }' +
+
+			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
+
+			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%; }' +
+
+// let each type of contents decide its best width and placement
+			'#contents { border: 0px #ccc solid; height: 100%; left: 325px; position: absolute; width: ' + ( window.innerWidth - 325 ) + 'px; }' +
+
+			'#editButton { background-color: #555; color: #fff; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: 20px; }' +
+			'#editButton a { text-decoration: none; color: #fff; }' +
+
+			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }' +
+
+			'#menu { background-color: #eee; border: 1px #ccc solid; box-sizing:border-box; height: 100%; overflow-y: auto; padding: 0 10px; position: fixed; width: 325px; }' +
+
+			'#nextFile { color: #888; font-size: 36pt; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: ' + (0.5 * window.innerHeight ) + 'px; }' +
+
+			'#previousFile { color: #888; font-size: 36pt; opacity: 0.5; padding: 8px; position: fixed; margin-left: 350px; top: ' + (0.5 * window.innerHeight ) + 'px; }' +
+
+			'#hamburger h2, #menu h2, #menu h4 {margin: 0; }' +
+			'#menuBreadcrumbs h2, #menuBreadcrumbs h3 { font-size: 14pt; margin: 0; }' +
+			'#editButton:hover, #previousFile:hover, #nextFile:hover { cursor: pointer; opacity: 1; }' +
+			'#nextFile a, #previousFile a { text-decoration: none; color: #888; }' +
+
+		'';
+
+	}
+
 	TOO.init = function( user ) {
 
 		TOO.user    = user.user;
@@ -26,41 +70,10 @@
 
 		TOO.setMenu = TOO.setMenuContents ? TOO.setMenuContents : TOO.setMenuDefault;
 
-/*
-		if ( location.hash ) {
-
-			params = (window.location.hash.substr(1)).split("&");
-
-			for ( let i = 0; i < params.length; i++ ) {
-
-				let a = params[ i ].split( '=' );
-
-				TOO.user    = a[ 0 ] === 'user'    ? a[ 1 ] : TOO.user;
-				TOO.repo    = a[ 0 ] === 'repo'    ? a[ 1 ] : TOO.repo;
-				TOO.branch  = a[ 0 ] === 'branch'  ? a[ 1 ] : TOO.branch;
-				TOO.folder  = a[ 0 ] === 'folder'  ? a[ 1 ] : TOO.folder;
-				TOO.noIndex = a[ 0 ] === 'noindex' ? a[ 1 ] : TOO.noIndex;
-				TOO.rawgit  = a[ 0 ] === 'rawgit'  ? a[ 1 ] : TOO.rawgit;
-
-				TOO.path    = a[ 0 ] === 'path'    ? a[ 1 ] : TOO.path;
-				TOO.file    = a[ 0 ] === 'file'    ? a[ 1 ] : TOO.file;
-
-			}
-		}
-
-*/
-
-//	console.log( 'path', TOO.path );
-//	console.log( 'file', TOO.file );
-
 // trick to get TooToo to read the local file and view current edits
 
-//		if ( TOO.path && TOO.path.slice( 0, 3 ) === '@@@' ) {
 		if ( location.hash.includes( '@@@' ) ) {
 
-			path = location.hash.slice( 4 ).split( '/' )
-			TOO.file = path.pop();
-			TOO.path = path.join( '/' ) + '/';
 			TOO.urlGHPages = '';
 
 		} else if ( TOO.rawgit ) {
@@ -79,6 +92,25 @@
 
 	}
 
+
+	TOO.getButtonsvvv = function() {
+
+		TOO.editButton = document.body.appendChild( document.createElement( 'div' ) );
+		TOO.editButton.id = 'editButton';
+		TOO.editButton.innerHTML = 'Edit';
+		TOO.editButton.title = 'Update this page using the GitHub source code editor';
+
+		TOO.nextFile = document.body.appendChild( document.createElement( 'div' ) );
+		TOO.nextFile.id = 'nextFile';
+		TOO.nextFile.innerHTML = '&gt;';
+		TOO.nextFile.title = 'Next file';
+
+		TOO.previousFile = container.appendChild( document.createElement( 'div' ) );
+		TOO.previousFile.id = 'previousFile';
+		TOO.previousFile.innerHTML = '&lt;';
+		TOO.previousFile.title = 'Previous file';
+
+	}
 
 	TOO.getButtons = function() {
 
@@ -102,16 +134,15 @@
 
 	}
 
-
 // request all the file names in the user's repo
 
 	TOO.requestAPIContents = function() {
 
-		let xhr, obj, treeNode;
+		let url, xhr, obj, treeNode;
 
-		TOO.url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
+		url = 'https://api.github.com/repos/' + TOO.user + '/' + TOO.repo + '/git/trees/' + TOO.branch + '?recursive=1';
 
-		TOO.requestFile( TOO.url, callbackRequestFile );
+		TOO.requestFile( url, callbackRequestFile );
 
 		function callbackRequestFile( xhr ) {
 
@@ -149,6 +180,25 @@
 
 			paths.map( function( path ) { return buildTree( path.split( '/' ), obj ) } );
 
+			if ( location.hash ) {
+
+				path = location.hash.slice( 1 ).split( '/' );
+
+				TOO.file = path.pop();
+				TOO.path = path.join( '/' );
+
+				TOO.path = TOO.folder !== '' && TOO.folder === TOO.path ? '' : TOO.path;
+				TOO.setMenu( TOO.path, TOO.file );
+
+			} else {
+
+				TOO.setMenu();
+
+			}
+
+		}
+
+
 // http://stackoverflow.com/questions/17140711/how-to-show-a-list-or-array-into-a-tree-structure-in-javascript
 // https://jsfiddle.net/z07q8omt/
 
@@ -179,36 +229,6 @@
 				buildTree( parts.splice( 1, parts.length ), newNode.children );
 
 			}
-
-			if ( location.hash ) {
-
-/*
-				params = (window.location.hash.substr(1)).split("&");
-
-				for ( let i = 0; i < params.length; i++ ) {
-
-					let a = params[ i ].split( '=' );
-
-					TOO.user   = a[ 0 ] === 'user' ?   a[ 1 ] : TOO.user;
-					TOO.repo   = a[ 0 ] === 'repo' ?   a[ 1 ] : TOO.repo;
-					TOO.branch = a[ 0 ] === 'branch' ? a[ 1 ] : TOO.branch;
-					TOO.folder = a[ 0 ] === 'folder' ? a[ 1 ] : TOO.folder;
-					TOO.path   = a[ 0 ] === 'path'   ? a[ 1 ] : TOO.path;
-					TOO.file   = a[ 0 ] === 'file'   ? a[ 1 ] : TOO.file;
-
-				}
-*/
-
-				TOO.path = TOO.folder !== '' && TOO.folder === TOO.path ? '' : TOO.path;
-				TOO.setMenu( TOO.path, TOO.file );
-
-			} else {
-
-				TOO.setMenu();
-
-			}
-
-		}
 
 	}
 
@@ -394,9 +414,10 @@
 		}
 
 		url = TOO.urlGHPages + path + encodeURI( file );
-//console.log( 'url', url );
+
 		folder = TOO.folder ? TOO.folder + '/' : '';
 
+// why here
 		location.hash = path + folder + file;
 
 		let u = url.toLowerCase();
@@ -427,24 +448,31 @@
 // edit, next and previous buttons
 	TOO.setButtons = function( path, file ) {
 
+console.log( 'file', path,' - ', file );
+
 		if ( TOO.editButton ) {
 
 			folder = TOO.folder ? TOO.folder + '/' : '';
 
-			TOO.editButton.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + path + folder + file + '" target="_blank"> Edit </a>';
+			TOO.editButton.innerHTML = '<a href="https://github.com/' + TOO.user + '/' + TOO.repo + '/blob/' + TOO.branch + '/' + folder + path + file + '" target="_blank"> Edit </a>';
 		}
 
-		index = TOO.files.indexOf( file );
+//		index = TOO.files.indexOf( path ? path : './' + file );
+		index = TOO.files.indexOf( path + file );
+
+		if ( path === '' && file === 'README.md' ) { index = 0; }
 
 		for ( let i = 0; i < TOO.files.length; i++ ) {
 
 			el = document.getElementById( 'file' + i );
 
-			col = ( i === index )  ? '#ccc' : '';
+			col = ( i === index ) ? '#ccc' : '';
 
 			el.style.backgroundColor = col;
 
 		}
+
+//		if ( path === '' & file === 'README.md') { }
 
 		indexNext = index + 1;
 
