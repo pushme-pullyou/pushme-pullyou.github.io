@@ -164,6 +164,11 @@ https://github.com/bryanbraun/franklin
 
 ## Change Log
 
+
+### 2017-04-22 ~ Theo ~ TooToo2
+
+* Much, much simpler code
+
 ### 2017-04-19 ~ Theo
 
 * More work on examples
