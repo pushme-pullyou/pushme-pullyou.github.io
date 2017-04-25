@@ -1,90 +1,6 @@
-<!doctype html>
-<html lang=en >
-<head>
-<meta charset=utf-8 >
-<title></title>
-<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Basic slide in and slide out menu with three bar icon that adjusts for small screen size.' >
-<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2016-11-05' >
-</head>
-<body>
-<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-<script src=select-users.js ></script>
-<script>
-// Copyright 2017 Jaanga authors ~ MIT license
+	TOO = {};
 
-	user = {
-		user : 'prediqtiv',
-		subText : 'Invest smarter',
-		repo : 'prediqtiv.github.io',
-		branch : 'master',
-		folder : '',
-		defaultFile : 'README.md'
-	};
-
-
-
-	let editor, files;
-	const b = '<br>';
-
-	init();
-
-	function init() {
-
-		let container, contents, hamburger, menu;
-
-		setCSS();
-
-		container = document.body.appendChild( document.createElement( 'div' ) );
-		container.id = 'container';
-		container.innerHTML =
-			'<div id=menu >' +
-
-				'<h2>' +
-					'<a href=http://jaanga.github.io title="Jaanga - your 3D happy place" > &#x2766 </a><br>' +
-//					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
-					'<a href="" title="Click here to refresh this page" >' + location.pathname.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) + '</a>' +
-					' ~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
-				'</h2>' +
-
-				'<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>' +
-
-				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
-
-				'<div id=selectUsers ></div>' +
-
-				'<details open >' +
-
-					'<summary><h3>Menu</h3></summary>' +
-
-					'<div id=breadcrumbs ></div>' +
-					'<div id=menuItems ></div>' +
-
-				'</details>' +
-
-			'</div>' +
-
-			'<div id=hamburger onclick=container.style.left=container.style.left===""?"-325px":""; >' +
-				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
-			'</div>' +
-
-			'<div id=contents ></div>' +
-
-		'';
-
-		if ( window.self !== window.top ) { container.style.left = '-325px'; }
-
-		initSelectUsers();
-
-		initButtons();
-
-		initUser( user );
-
-	}
-
-
-	function setCSS() {
+	TOO.setCSS = function() {
 
 		let css, container, contents, hamburger, menu;
 
@@ -129,7 +45,30 @@
 	}
 
 
-	function initButtons() {
+	TOO.initUser = function( usr ) {
+
+		user = usr;
+
+		TOO.setMenu = TOO.setMenuContents ? TOO.setMenuContents : TOO.setMenuDefault;
+
+		TOO.initButtons();
+
+		if ( user.rawgit ) {
+
+			urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
+
+		} else {
+
+			urlGHPages = 'https://' + user.user + '.github.io/' + user.repo + '/';
+
+		}
+
+		TOO.setMenu( user.path);
+
+	}
+
+
+	TOO.initButtons = function() {
 
 		editButton = document.body.appendChild( document.createElement( 'div' ) );
 		editButton.id = 'editButton';
@@ -149,45 +88,26 @@
 	}
 
 
-	function initUser( user ) {
-
-
-		if ( user.rawgit ) {
-
-			urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
-
-		} else {
-
-			urlGHPages = 'https://' + user.user + '.github.io/' + user.repo + '/';
-
-		}
-
-		getFolderContents();
-
-	}
-
-
-
-	function getFolderContents( path ) {
+	TOO.setMenuDefault = function ( path ) {
 
 		let fileName;
 
 		fileName = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
 
-		setBreadcrumbs( path );
+		TOO.setBreadcrumbs( path );
 
-		requestFile( fileName, callbackFolderContents );
+		TOO.requestFile( fileName, TOO.callbackFolderContents );
 
 	}
 
 
-	function callbackFolderContents( xhr ) {
+	TOO.callbackFolderContents = function( xhr ) {
 
 		let response, items, item, count;
 
 		response = xhr.target.response;
 		items = JSON.parse( response );
-
+//console.log( 'item', items );
 		files = [];
 		count = 0;
 		menuItems.innerHTML = '';
@@ -199,7 +119,7 @@
 			if ( item.type === 'dir' ) {
 
 				menuItems.innerHTML +=
-					'<a href=# onclick=getFolderContents("' + item.path  + '"); > 🗀 ' + item.name  + '</a>' + b +
+					'<a href=# onclick=TOO.setMenuDefault("' + item.path  + '"); > 🗀 ' + item.name  + '</a>' + b +
 				'';
 
 			}
@@ -214,7 +134,7 @@
 
 				menuItems.innerHTML +=
 //					'<a href=# onclick=ifr.src="' + urlGHPages + '/' + item.path + '"; >' + item.name  + '</a>' + b +
-					'<a href=# id=file' + count++ + ' onclick=getFileSetContents("' + item.path + '"); > ' + item.name + '</a>' + b +
+					'<a href=# id=file' + count++ + ' onclick=TOO.getFileSetContents("' + item.path + '"); > ' + item.name + '</a>' + b +
 
 				'';
 
@@ -224,11 +144,12 @@
 
 		}
 
-		setDefaultContents();
+		TOO.setDefaultContents();
 
 	}
 
-	function setDefaultContents() {
+
+	TOO.setDefaultContents = function() {
 
 		let txt, start, file, f;
 
@@ -237,24 +158,23 @@
 			file = files[ i ];
 			f = file.toLowerCase();
 
-			if ( f === 'index.html' || f === 'index.htm') { getFileSetContents( file ); return; }
-			if ( f === 'readme.md' ) { getFileSetContents( file ); return; }
+			if ( f === 'index.html' || f === 'index.htm') { TOO.getFileSetContents( file ); return; }
+			if ( f === 'readme.md' ) { TOO.getFileSetContents( file ); return; }
 
 		}
 
-		getFileSetContents( files[ 0 ]  );
+		TOO.getFileSetContents( files[ 0 ]  );
 
 	}
 
 
-
-	function setBreadcrumbs( path ) {
+	TOO.setBreadcrumbs = function( path ) {
 
 		let name, txt, folders, str;
 
 		name = user.folder ? user.folder : user.repo;
 
-		txt = '<h3><a href=JavaScript:getFolderContents(); >' + name + '</a> &raquo; </h3>';
+		txt = '<h3><a href=JavaScript:TOO.setMenuDefault(); >' + name + '</a> &raquo; </h3>';
 
 		folders = path ? path.split( '/' ) : [] ;
 
@@ -264,7 +184,7 @@
 
 			str += folders[ i ] + '/';
 
-			txt += '<h3><a href=JavaScript:getFolderContents("' + str.slice( 0, -1 ) + '"); >' + folders[ i ] + '</a> &raquo; </h3>';
+			txt += '<h3><a href=JavaScript:TOO.setMenuDefault("' + str.slice( 0, -1 ) + '"); >' + folders[ i ] + '</a> &raquo; </h3>';
 
 		}
 
@@ -276,7 +196,7 @@
 
 
 
-	function getFileSetContents( path ) {
+	TOO.getFileSetContents = function( path ) {
 
 		let url, u;
 
@@ -293,28 +213,28 @@
 
 		if ( u.endsWith( '.md' ) ){
 
-			getFileMD( url );
+			TOO.getFileMD( url );
 
 		} else if ( u.endsWith( '.html' ) || u.endsWith( '.htm' ) ) {
 
-			getFileHTML( url );
+			TOO.getFileHTML( url );
 
 		} else if ( u.endsWith( '.gif' ) || u.endsWith( '.ico' ) || u.endsWith( '.jpg' ) || u.endsWith( '.png' ) ||  u.endsWith( '.svg' ) ) {
 
-			getFileImage( url );
+			TOO.getFileImage( url );
 
 		} else {
 
-			getFileCode( url );
+			TOO.getFileCode( url );
 
 		}
 
-		setHighlightAndButtons( path );
+		TOO.setHighlightAndButtons( path );
 
 	}
 
 
-	function getFileHTML( url ){
+	TOO.getFileHTML = function( url ){
 
 		contents.innerHTML =
 			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) +
@@ -324,15 +244,15 @@
 	}
 
 
-	function getFileMD( url ) {
+	TOO.getFileMD = function( url ) {
 
-// https://github.com/showdownjs/showdown
+	// https://github.com/showdownjs/showdown
 
 		showdown.setFlavor('github');
 
 		let converter = new showdown.Converter();
 
-		requestFile( url, callbackMD );
+		TOO.requestFile( url, callbackMD );
 
 		function callbackMD( xhr ) {
 
@@ -347,57 +267,98 @@
 	}
 
 
-	 function getFileImage( url ){
+	TOO.getFileImage = function( url ){
 
 		contents.innerHTML = '<img src="' + url + '" style="border: 0px solid gray; margin: 25px 0 0 50px; max-width: 800px; " >';
 
 	}
 
 
-	 function getFileCode( url ) {
+	TOO.getFileCode = function( url ) {
 
-// try embed gist
-		contents.innerHTML =
-			'<div id=contentsCode style="border: 0px red solid; height: 900px; margin: 0 auto; width: 900px; position: relative;" >' +
-			' item will appear here ' +
-		'</div>';
+	// try embed gist
+			contents.innerHTML =
+				'<div id=contentsCode style="border: 0px red solid; height: 900px; margin: 0 auto; width: 900px; position: relative;" >' +
+				' item will appear here ' +
+			'</div>';
 
-		if ( editor ) {
+			if ( editor ) {
 
-			setEditContents();
+				setEditContents();
 
-		} else {
+			} else {
 
-// check here for latest: https://cdnjs.com/libraries/ace/
-// Anyway to get latest automatically?
-// use GitHub code embed??
+	// check here for latest: https://cdnjs.com/libraries/ace/
+	// Anyway to get latest automatically?
+	// use GitHub code embed??
 
-			editor = document.body.appendChild( document.createElement( 'script' ) );
-			editor.onload = setEditContents;
-			editor.src = 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js';
-
-		}
-
-		function setEditContents() {
-
-			editor = ace.edit( 'contentsCode' );
-			editor.$blockScrolling = Infinity;
-			editor.getSession().setMode( 'ace/mode/markdown' );
-
-			requestFile( url, callback );
-
-			function callback( xhr ) {
-
-				editor.setValue( xhr.target.response.slice( 0, 10000 ), -1 );
+				editor = document.body.appendChild( document.createElement( 'script' ) );
+				editor.onload = setEditContents;
+				editor.src = 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js';
 
 			}
 
-		}
+			function setEditContents() {
+
+				editor = ace.edit( 'contentsCode' );
+				editor.$blockScrolling = Infinity;
+				editor.getSession().setMode( 'ace/mode/markdown' );
+
+				TOO.requestFile( url, callback );
+
+				function callback( xhr ) {
+
+					editor.setValue( xhr.target.response.slice( 0, 10000 ), -1 );
+
+				}
+
+			}
 
 	}
 
 
-	function setHighlightAndButtons ( path ) {
+	TOO.createPageOfImages = function( path ) {
+
+	//		let page,items,  item, item2, fileName;
+
+			page = '';
+
+			fileName = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + path;
+
+			TOO.setBreadcrumbs( path );
+
+			TOO.requestFile( fileName, callbackGalleryContents );
+
+			function callbackGalleryContents( xhr ){
+
+				response = xhr.target.response;
+				items = JSON.parse( response );
+
+				for ( let i = 0; i < items.length; i++ ) {
+
+					item = items[ i ];
+
+					source = item.download_url;
+
+					if ( source.includes( 'TOOgallery' ) || source.includes( '.thumb' ) || source.endsWith( '.dat' ) || source.endsWith( '.lock' ) ) { continue; }
+
+					page += '<div style=display:inline-block;margin:10px; >' +
+						'<a href=JavaScript:TOO.getFileSetContents("' + item.path +'"); ><img src=' + source + ' height=200; title="' + fileName.slice( 0, -4 ) + '" ></a>' +
+					'</div>';
+
+				}
+
+		//console.log( 'page', page  );
+
+				contents.innerHTML = page;
+
+			}
+
+	}
+
+
+
+	TOO.setHighlightAndButtons = function( path ) {
 
 //highlight
 		index = files.indexOf( path );
@@ -431,15 +392,15 @@
 
 		if ( nextFile || previousFile ) {
 
-			nextFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + files[ indexNext ] + '"); > &gt; </a>';
+			nextFile.innerHTML = '<a href=JavaScript:TOO.getFileSetContents("' + files[ indexNext ] + '"); > &gt; </a>';
 
-			previousFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + files[ indexPrevious ] + '"); > &lt; </a>';
+			previousFile.innerHTML = '<a href=JavaScript:TOO.getFileSetContents("' + files[ indexPrevious ] + '"); > &lt; </a>';
 
 		}
 
 	}
 
-	function requestFile( fileName, callback ) {
+	TOO.requestFile = function ( fileName, callback ) {
 
 		var fileName, text, lines;
 
@@ -451,7 +412,3 @@
 		xhr.send( null );
 
 	}
-
-</script>
-</body>
-</html>

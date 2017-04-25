@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title></title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Basic slide in and slide out menu with three bar icon that adjusts for small screen size.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-11-05' >
+</head>
+<body>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=../r1/too-tootoo.js ></script>
+<script src=../r1/sel-select-users.js ></script>
+<script>
+// Copyright 2017 Jaanga authors ~ MIT license
+
+	user = {
+		user : 'prediqtiv',
+		subText : 'Invest smarter',
+		repo : 'prediqtiv.github.io',
+		branch : 'master',
+		folder : '',
+		defaultFile : 'README.md'
+	};
+
+
+	 TOO.setMenuContents = function() {
+
+		files = [];
+		menuTitle.innerHTML = 'Table of Contents';
+		breadcrumbs.innerHTML = '';
+		menuItems.innerHTML = '';
+
+		fileTitles = [
+
+			[ 'header', 'predIQtiv' ],
+				[ './', 'README.md', 'predIQtiv home page' ],
+				[ './', 'license.md', 'Copyright and license' ],
+			[ 'header', 'eyeCue'],
+				[ 'eye-cue/', 'README.md', 'eyeCue Read Me' ],
+			[ 'header', 'Trades'],
+				[ 'trades-get/', 'README.md', 'Trades Get Read Me' ],
+			[ 'header', 'Tweets'],
+				[ 'tweets/', 'README.md', 'Tweets Read Me' ],
+			[ 'header', 'White Papers'],
+				[ 'white-papers/', 'README.md', 'White Papers Read Me' ],
+			[ 'header', 'Device Parameters Test '],
+				[ 'device-parameters-test/', 'README.md', 'Device Parameters Test Read Me' ],
+
+
+		];
+
+		let count = 0;
+
+		for ( let i = 0; i < fileTitles.length; i++ ) {
+
+			if ( fileTitles[ i ][ 0 ] === 'header') {
+
+				menuItems.innerHTML += '<h4>'  + fileTitles[ i ][ 1 ] + '</h4>';
+
+			} else {
+
+				menuItems.innerHTML += '<div id=file' + count++ + ' style=width:100%; >' +
+				'<a href=JavaScript:TOO.getFileSetContents("' + fileTitles[ i ][ 0 ] + '/' + fileTitles[ i ][ 1 ] + '"); > ' +
+					fileTitles[ i ][ 2 ] +
+				' </a>' +
+				'</div>';
+
+				files.push( fileTitles[ i ][ 0 ] + fileTitles[ i ][ 1 ] );
+
+			 }
+		}
+
+		if ( !location.hash ) {
+
+			TOO.getFileSetContents( 'README.md' );
+
+		} else {
+
+			TOO.getFileSetContents( path + '/' + file );
+
+		}
+
+	}
+
+
+	let editor, files;
+	const b = '<br>';
+
+	init();
+
+	function init() {
+
+		let container, contents, hamburger, menu;
+
+		TOO.setCSS();
+
+		container = document.body.appendChild( document.createElement( 'div' ) );
+		container.id = 'container';
+		container.innerHTML =
+			'<div id=menu >' +
+
+				'<h2>' +
+					'<a href=http://jaanga.github.io title="Jaanga - your 3D happy place" > &#x2766 </a><br>' +
+//					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
+					'<a href="" title="Click here to refresh this page" >' + location.pathname.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) + '</a>' +
+					' ~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
+				'</h2>' +
+
+				'<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>' +
+
+				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
+
+				'<div id=selectUsers ></div>' +
+
+				'<details open >' +
+
+					'<summary><h3 id=menuTitle >Menu</h3></summary>' +
+
+				'<div>' +
+					'<button onclick=TOO.setMenuContents();  >Table of Contents</button>' +
+					' <button onclick=TOO.setMenuDefault(); >All Files</button>' +
+				'</div>' + b +
+
+					'<div id=breadcrumbs ></div>' +
+					'<div id=menuItems ></div>' +
+
+				'</details>' +
+
+			'</div>' +
+
+			'<div id=hamburger onclick=container.style.left=container.style.left===""?"-325px":""; >' +
+				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
+			'</div>' +
+
+			'<div id=contents ></div>' +
+
+		'';
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+//		initSelectUsers();
+
+
+
+//		initButtons();
+
+		TOO.initUser( user );
+
+//		setMenu = setMenuContents ? setMenuContents : setMenuDefault;
+
+//		setMenuContents();
+
+	}
+
+
+
+</script>
+</body>
+</html>

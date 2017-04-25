@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title></title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-11-05' >
+</head>
+<body>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=../r1/too-tootoo.js ></script>
+<script src=../r1/sel-select-users.js ></script>
+<script>
+// Copyright 2017 Jaanga authors ~ MIT license
+
+	user = {
+		user : 'prediqtiv',
+		subText : 'Invest smarter',
+		repo : 'prediqtiv.github.io',
+		branch : 'master',
+		folder : '',
+		defaultFile : 'README.md'
+	};
+
+
+	let editor, files;
+	const b = '<br>';
+
+	init();
+
+	function init() {
+
+		let container, contents, hamburger, menu;
+
+		TOO.setCSS();
+
+		container = document.body.appendChild( document.createElement( 'div' ) );
+		container.id = 'container';
+		container.innerHTML =
+			'<div id=menu >' +
+
+				'<h2>' +
+					'<a href=http://jaanga.github.io title="Jaanga - your 3D happy place" > &#x2766 </a><br>' +
+//					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
+					'<a href="" title="Click here to refresh this page" >' + location.pathname.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) + '</a>' +
+					' ~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
+				'</h2>' +
+
+				'<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>' +
+
+				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
+
+				'<div id=SELselectUsers ></div>' +
+
+				'<details open >' +
+
+					'<summary><h3>Menu</h3></summary>' +
+
+					'<div id=breadcrumbs ></div>' +
+					'<div id=menuItems ></div>' +
+
+				'</details>' +
+
+			'</div>' +
+
+			'<div id=hamburger onclick=container.style.left=container.style.left===""?"-325px":""; >' +
+				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
+			'</div>' +
+
+			'<div id=contents ></div>' +
+
+		'';
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		SEL.initSelectUsers();
+
+		TOO.initUser( user );
+
+	}
+
+</script>
+</body>
+</html>

@@ -10,11 +10,145 @@
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-<script src=select-users.js ></script>
 <script>
 // Copyright 2017 Jaanga authors ~ MIT license
 
-	user = {
+	var users = {};
+	var user;
+
+	users.d3 = {
+		user : 'd3',
+		repo : 'd3',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+//		noIndex: true
+	};
+	users.d3GH = {
+		user : 'd3',
+		repo : 'd3.github.com',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+	};
+	users.jDemo = {
+		user: 'jaanga',
+		repo: 'jaanga.github.io',
+		branch: 'master',
+		folder: 'demo'
+	};
+	users.jTerrain = {
+		user: 'jaanga',
+		repo: 'terrain3',
+		branch: 'gh-pages',
+		folder: ''
+	};
+	users.jaanga = {
+		user : 'jaanga',
+		repo : 'jaanga.github.io',
+		branch : 'master',
+		folder : ''
+	};
+	users.jupyter = {
+		user : 'jupyter',
+		repo : 'jupyter.github.io',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+	};
+	users.jupyterNotebook = {
+		user : 'jupyter',
+		repo : 'notebook',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+	};
+	users.ladybugDynamo = {
+		user : 'ladybug-tools',
+		repo : 'ladybug-dynamo',
+		branch : 'gh-pages',
+		folder : ''
+	};
+	users.ladybugWeb = {
+		user : 'ladybug-tools',
+		repo : 'ladybug-web',
+		branch : 'gh-pages',
+		folder : ''
+	};
+	users.leader = {
+		user : 'leaderphotos',
+		repo : 'leaderphotos.github.io',
+		branch : 'master',
+		folder :''
+	};
+	users.mrdoob = {
+		user : 'mrdoob',
+		repo : 'three.js',
+		branch : 'dev',
+		folder : '',
+		rawgit: true
+	};
+	users.paulmasson = {
+		user : 'paulmasson',
+		repo : 'paulmasson.github.io',
+		branch : 'master',
+		folder : ''
+	};
+	users.pushmePullyou = {
+		user : 'pushme-pullyou',
+		repo : 'pushme-pullyou.github.io',
+		branch : 'master',
+		folder : '',
+		noIndex: true,
+		rawgit: null
+	};
+	users.pushmePullyouTooTo = {
+		user : 'pushme-pullyou',
+		repo : 'pushme-pullyou.github.io',
+		branch : 'master',
+		folder : 'tootoo',
+		noIndex: true,
+		rawgit: null
+	};
+	users.sagemathGH = {
+		user : 'sagemath',
+		repo : 'sagemath.github.io',
+		branch : 'master',
+		folder : ''
+	};
+	users.sagemathCell = {
+		user : 'sagemath',
+		repo : 'sagecell',
+		branch : 'gh-pages',
+		folder : ''
+	};
+	users.sagemathSageDev = {
+		user : 'sagemath',
+		repo : 'sage',
+		branch : 'develop',
+		folder : '',
+		rawgit: true
+	};
+	users.sagemathDocs = {
+		user : 'sagemath',
+		repo : 'documentation',
+		branch : 'gh-pages',
+		folder : 'html'
+	};
+	users.sagemathPlanet = {
+		user : 'sagemath',
+		repo : 'planet',
+		branch : 'gh-pages',
+		folder : ''
+	};
+	users.theoArmour = {
+		user : 'theo-armour',
+		repo : 'drawing',
+		branch : 'master',
+		folder : '',
+		noIndex: true
+	};
+	users.user = {
 		user : 'prediqtiv',
 		subText : 'Invest smarter',
 		repo : 'prediqtiv.github.io',
@@ -22,11 +156,21 @@
 		folder : '',
 		defaultFile : 'README.md'
 	};
+/*
+	users. = {
+		user : '',
+		repo : '',
+		branch : '',
+		folder : ''
+	};
 
-
+*/
 
 	let editor, files;
-	const b = '<br>';
+
+	let userStart = 'd3';
+
+	let b = '<br>';
 
 	init();
 
@@ -52,9 +196,16 @@
 
 				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
 
-				'<div id=selectUsers ></div>' +
+					'<summary><h3>Select User/ Repo/ Branch </h3></summary>' +
 
-				'<details open >' +
+						'<select id=SELselUser onchange=initUser(this.value); title="Select user" size=15 style=width:100%;  >' +
+
+						'</select>' + b +
+					b +
+
+				'</details>' +
+
+				'<details open>' +
 
 					'<summary><h3>Menu</h3></summary>' +
 
@@ -75,11 +226,12 @@
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
-		initSelectUsers();
+		getMenuSelectUserOptions();
 
-		initButtons();
+		initUser( userStart );
 
-		initUser( user );
+		getButtons();
+//		getFolderContents();
 
 	}
 
@@ -87,10 +239,10 @@
 	function setCSS() {
 
 		let css, container, contents, hamburger, menu;
+		const b = '<br>';
 
 		css = document.body.appendChild( document.createElement('style') );
 		css.innerHTML =
-
 			'html, body { font: 12pt monospace; height: 100%; margin: 0; }' +
 			'a { color: crimson; text-decoration: none; }' +
 			'a:hover { text-decoration: underline; }' +
@@ -129,28 +281,27 @@
 	}
 
 
-	function initButtons() {
+	function getMenuSelectUserOptions(){
 
-		editButton = document.body.appendChild( document.createElement( 'div' ) );
-		editButton.id = 'editButton';
-		editButton.innerHTML = 'Edit';
-		editButton.title = 'Update this page using the GitHub source code editor';
+		var user;
+		users.keys = Object.keys( users );
 
-		nextFile = document.body.appendChild( document.createElement( 'div' ) );
-		nextFile.id = 'nextFile';
-		nextFile.innerHTML = '&gt;';
-		nextFile.title = 'Next file';
+		for ( var i = 0; i < users.keys.length; i++ ) {
 
-		previousFile = container.appendChild( document.createElement( 'div' ) );
-		previousFile.id = 'previousFile';
-		previousFile.innerHTML = '&lt;';
-		previousFile.title = 'Previous file';
+			user = users[ users.keys[ i ] ];
+
+			SELselUser[ i ] = new Option( user.user + ' ' + user.repo + ' ' + user.folder + ' ' + user.branch, users.keys[ i ] );
+
+		}
+
+		SELselUser.selectedIndex = users.keys.indexOf( userStart );
 
 	}
 
 
-	function initUser( user ) {
+	function initUser( usr ) {
 
+		user = users[ usr ];
 
 		if ( user.rawgit ) {
 
@@ -224,21 +375,21 @@
 
 		}
 
+//		getFileSetContents( user.defaultFile );
 		setDefaultContents();
 
 	}
 
 	function setDefaultContents() {
 
-		let txt, start, file, f;
+		let txt, start, file;
 
 		for ( var i = 0; i < files.length; i++ ) {
 
-			file = files[ i ];
-			f = file.toLowerCase();
+			file = files[ i ]
 
-			if ( f === 'index.html' || f === 'index.htm') { getFileSetContents( file ); return; }
-			if ( f === 'readme.md' ) { getFileSetContents( file ); return; }
+			if ( file.toLowerCase() === 'index.html' ) { getFileSetContents( file ); return; }
+			if ( file.toLowerCase() === 'readme.md' ) { getFileSetContents( file ); return; }
 
 		}
 
@@ -246,6 +397,25 @@
 
 	}
 
+
+	function getButtons() {
+
+		editButton = document.body.appendChild( document.createElement( 'div' ) );
+		editButton.id = 'editButton';
+		editButton.innerHTML = 'Edit';
+		editButton.title = 'Update this page using the GitHub source code editor';
+
+		nextFile = document.body.appendChild( document.createElement( 'div' ) );
+		nextFile.id = 'nextFile';
+		nextFile.innerHTML = '&gt;';
+		nextFile.title = 'Next file';
+
+		previousFile = container.appendChild( document.createElement( 'div' ) );
+		previousFile.id = 'previousFile';
+		previousFile.innerHTML = '&lt;';
+		previousFile.title = 'Previous file';
+
+	}
 
 
 	function setBreadcrumbs( path ) {
@@ -256,7 +426,7 @@
 
 		txt = '<h3><a href=JavaScript:getFolderContents(); >' + name + '</a> &raquo; </h3>';
 
-		folders = path ? path.split( '/' ) : [] ;
+		folders = path ?  path.split( '/' ) : [] ;
 
 		str = '';
 
@@ -273,6 +443,48 @@
 	}
 
 
+	function setButtons ( path ) {
+
+		if ( editButton ) {
+
+			folder = user.folder ? user.folder + '/' : '';
+
+			editButton.innerHTML = '<a href="https://github.com/' + user.user + '/' + user.repo + '/blob/' + user.branch + '/' + folder + path + '" target="_blank"> Edit </a>';
+
+		}
+
+		index = files.indexOf( path );
+
+		for ( let i = 0; i < files.length; i++ ) {
+
+			el = document.getElementById( 'file' + i );
+
+			col = ( i === index )  ? '#ccc' : '';
+
+			el.style.backgroundColor = col;
+
+		}
+
+		indexNext = index + 1;
+
+		if ( index >= files.length - 1 ) { indexNext = 0; }
+
+		indexPrevious = index - 1;
+
+		if ( index <= 0 ) { indexPrevious = files.length - 1; }
+
+		if ( nextFile || previousFile ) {
+
+			nextFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + files[ indexNext ] + '"); > &gt; </a>';
+
+			previousFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + files[ indexPrevious ] + '"); > &lt; </a>';
+
+		} else {
+
+
+		}
+
+	}
 
 
 
@@ -309,12 +521,12 @@
 
 		}
 
-		setHighlightAndButtons( path );
+		setButtons( path );
 
 	}
 
 
-	function getFileHTML( url ){
+	 function getFileHTML( url ){
 
 		contents.innerHTML =
 			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) +
@@ -322,6 +534,7 @@
 		'<iframe>';
 
 	}
+
 
 
 	function getFileMD( url ) {
@@ -349,14 +562,15 @@
 
 	 function getFileImage( url ){
 
-		contents.innerHTML = '<img src="' + url + '" style="border: 0px solid gray; margin: 25px 0 0 50px; max-width: 800px; " >';
+		contents.innerHTML =
+			'<img id=image src="' + url +
+			'" style="border: 0px solid gray; margin: 25px 0 0 50px; max-width: 800px; " >';
 
 	}
 
 
 	 function getFileCode( url ) {
 
-// try embed gist
 		contents.innerHTML =
 			'<div id=contentsCode style="border: 0px red solid; height: 900px; margin: 0 auto; width: 900px; position: relative;" >' +
 			' item will appear here ' +
@@ -396,48 +610,6 @@
 
 	}
 
-
-	function setHighlightAndButtons ( path ) {
-
-//highlight
-		index = files.indexOf( path );
-
-		for ( let i = 0; i < files.length; i++ ) {
-
-			el = document.getElementById( 'file' + i );
-
-			col = ( i === index ) ? '#ccc' : '';
-
-			el.style.backgroundColor = col;
-
-		}
-
-// buttons
-		if ( editButton ) {
-
-			folder = user.folder ? user.folder + '/' : '';
-
-			editButton.innerHTML = '<a href="https://github.com/' + user.user + '/' + user.repo + '/blob/' + user.branch + '/' + folder + path + '" target="_blank"> Edit </a>';
-
-		}
-
-		indexNext = index + 1;
-
-		if ( index >= files.length - 1 ) { indexNext = 0; }
-
-		indexPrevious = index - 1;
-
-		if ( index <= 0 ) { indexPrevious = files.length - 1; }
-
-		if ( nextFile || previousFile ) {
-
-			nextFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + files[ indexNext ] + '"); > &gt; </a>';
-
-			previousFile.innerHTML = '<a href=JavaScript:getFileSetContents("' + files[ indexPrevious ] + '"); > &lt; </a>';
-
-		}
-
-	}
 
 	function requestFile( fileName, callback ) {
 
