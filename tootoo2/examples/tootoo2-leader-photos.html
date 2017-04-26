@@ -10,8 +10,9 @@
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-<script src=../r1/too-tootoo.js ></script>
+<script src=../r1/css.js ></script>
 <script src=../r1/sel-select-users.js ></script>
+<script src=../r1/too-tootoo.js ></script>
 <script>
 // Copyright 2017 Jaanga authors ~ MIT license
 
@@ -107,7 +108,7 @@
 
 		let container, contents, hamburger, menu;
 
-		TOO.setCSS();
+		CSS.setCSS();
 
 		container = document.body.appendChild( document.createElement( 'div' ) );
 		container.id = 'container';
@@ -156,7 +157,6 @@
 		TOO.initUser( user );
 
 	}
-
 
 
 </script>
