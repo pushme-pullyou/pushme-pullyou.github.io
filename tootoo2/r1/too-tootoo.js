@@ -107,7 +107,7 @@
 
 		response = xhr.target.response;
 		items = JSON.parse( response );
-//console.log( 'item', items );
+
 		files = [];
 		count = 0;
 		menuItems.innerHTML = '';
@@ -246,7 +246,7 @@
 
 	TOO.getFileMD = function( url ) {
 
-	// https://github.com/showdownjs/showdown
+// https://github.com/showdownjs/showdown
 
 		showdown.setFlavor('github');
 
@@ -276,7 +276,7 @@
 
 	TOO.getFileCode = function( url ) {
 
-	// try embed gist
+// try embed gist
 			contents.innerHTML =
 				'<div id=contentsCode style="border: 0px red solid; height: 900px; margin: 0 auto; width: 900px; position: relative;" >' +
 				' item will appear here ' +
@@ -288,15 +288,16 @@
 
 			} else {
 
-	// check here for latest: https://cdnjs.com/libraries/ace/
-	// Anyway to get latest automatically?
-	// use GitHub code embed??
+// check here for latest: https://cdnjs.com/libraries/ace/
+// Anyway to get latest automatically?
+// use GitHub code embed??
 
 				editor = document.body.appendChild( document.createElement( 'script' ) );
 				editor.onload = setEditContents;
 				editor.src = 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js';
 
 			}
+
 
 			function setEditContents() {
 
@@ -319,7 +320,7 @@
 
 	TOO.createPageOfImages = function( path ) {
 
-	//		let page,items,  item, item2, fileName;
+			let page, items, item, fileName;
 
 			page = '';
 
@@ -347,8 +348,6 @@
 					'</div>';
 
 				}
-
-		//console.log( 'page', page  );
 
 				contents.innerHTML = page;
 
@@ -412,3 +411,4 @@
 		xhr.send( null );
 
 	}
+
