@@ -279,6 +279,7 @@
 
 				EUS.getReadMe( xhr.repo, xhr.branch, xhr.count );
 				text = xhr.responseText;
+
 			} else {
 
 				text = 'File not found: ' + xhr.repo + branch + fileName + b +

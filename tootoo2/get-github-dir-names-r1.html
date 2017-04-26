@@ -117,24 +117,54 @@
 
 		function callback( xhr ) {
 
-//			let response, text;
+//			let response, items, item;
+//			let headers, arr, name;
 
 			response = xhr.target.response;
 			items = JSON.parse( response );
 
 			txt = '';
+			headers = [];
+
+//String.prototype.capitalize = function() {
+//   return this.charAt(0).toUpperCase() + this.slice(1);
+//}
 
 			for ( var i = 0; i < items.tree.length; i++ ) {
 
 				item = items.tree[ i ];
 
 				if ( item.type === 'tree' ) {
-//console.log( '', item );
-					txt += item.path + b;
+
+					arr = item.path.split( '/' );
+
+					if ( arr.length < 2 ) { continue;  }
+
+					if ( headers.indexOf( arr[ 1 ] ) === -1 ) {
+
+						headers.push( arr[ 1 ] );
+
+						txt += "[ 'header', '" + arr[ 1 ][ 0 ].toUpperCase() + arr[ 1 ].slice( 1 ) + "' ]," + b;
+
+					} else {
+
+						arr = arr[ 2 ].split( '-' );
+
+						for ( var j = 0 ; j < arr.length ; j++ ){
+
+							arr[ j ] = arr[ j ][ 0 ].toUpperCase() + arr[ j ].slice( 1 );
+						}
+
+						name = arr.join( ' ' );
+
+						txt += "&nbsp; &nbsp; [ '" + item.path + "', 'gallery', '" + name + "' ]," + b;
+
+					}
 
 				}
 
 			}
+
 			contents.innerHTML = txt;
 
 		}

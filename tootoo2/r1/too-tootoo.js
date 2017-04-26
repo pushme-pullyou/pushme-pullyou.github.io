@@ -1,55 +1,14 @@
 	TOO = {};
 
-	TOO.setCSS = function() {
-
-		let css, container, contents, hamburger, menu;
-
-		css = document.body.appendChild( document.createElement('style') );
-		css.innerHTML =
-
-			'html, body { font: 12pt monospace; height: 100%; margin: 0; }' +
-			'a { color: crimson; text-decoration: none; }' +
-			'a:hover { text-decoration: underline; }' +
-			'button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }' +
-			'pre, blockquote { background-color: #eee; padding: 10px; }' +
-			'summary { outline: none; }' +
-			'summary h3 { display: inline; }' +
-
-			'.popUp { background-color: white; border: 1px solid red; left: 180px; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }' +
-
-			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
-
-			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%; }' +
-
-// let each type of contents decide its best width and placement
-			'#contents { border: 0px #ccc solid; height: 100%; left: 325px; position: absolute; width: ' + ( window.innerWidth - 325 ) + 'px; }' +
-
-			'#editButton { background-color: #555; color: #fff; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: 20px; }' +
-			'#editButton a { text-decoration: none; color: #fff; }' +
-
-			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }' +
-
-			'#menu { background-color: #eee; border: 1px #ccc solid; box-sizing:border-box; height: 100%; overflow-y: auto; padding: 0 10px; position: fixed; width: 325px; }' +
-
-			'#nextFile { color: #888; font-size: 36pt; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: ' + (0.5 * window.innerHeight ) + 'px; }' +
-
-			'#previousFile { color: #888; font-size: 36pt; opacity: 0.5; padding: 8px; position: fixed; margin-left: 350px; top: ' + (0.5 * window.innerHeight ) + 'px; }' +
-
-			'#hamburger h2, #menu h2, #menu h4 {margin: 0; }' +
-			'#menuBreadcrumbs h2, #menuBreadcrumbs h3 { font-size: 14pt; margin: 0; }' +
-			'#editButton:hover, #previousFile:hover, #nextFile:hover { cursor: pointer; opacity: 1; }' +
-			'#nextFile a, #previousFile a { text-decoration: none; color: #888; }' +
-
-		'';
-
-	}
+	let editor, files;
+	const b = '<br>';
 
 
 	TOO.initUser = function( usr ) {
 
 		user = usr;
 
-		TOO.setMenu = TOO.setMenuContents ? TOO.setMenuContents : TOO.setMenuDefault;
+		TOO.setMenu = TOO.tableOfContents !== undefined ? TOO.setMenuContents : TOO.setMenuDefault;
 
 		TOO.initButtons();
 
@@ -99,6 +58,63 @@
 		TOO.requestFile( fileName, TOO.callbackFolderContents );
 
 	}
+
+
+	TOO.setMenuContents = function() {
+
+		files = [];
+		menuTitle.innerHTML = 'Table of Contents';
+		breadcrumbs.innerHTML = '';
+		menuItems.innerHTML = '';
+
+		let count = 0;
+
+		for ( let i = 0; i < TOO.tableOfContents.length; i++ ) {
+
+			if ( TOO.tableOfContents[ i ][ 0 ] === 'header') {
+
+				menuItems.innerHTML += '<h4>'  + TOO.tableOfContents[ i ][ 1 ] + '</h4>';
+
+			} else if ( TOO.tableOfContents[ i ][ 1 ] === 'gallery') {
+
+
+				menuItems.innerHTML +=
+
+//				'<div id=file' + count++ + ' style=width:100%; >' +
+				'<div id=file' + count++ + ' >' +
+					'<a href=JavaScript:TOO.createPageOfImages("' + TOO.tableOfContents[ i ][ 0 ] + '"); > ' +
+						TOO.tableOfContents[ i ][ 2 ] +
+					' </a>' +
+				'</div>';
+
+				files.push( TOO.tableOfContents[ i ][ 0 ] );
+
+			} else {
+
+				menuItems.innerHTML +=
+				'<div id=file' + count++ + ' style=width:100%; >' +
+					'<a href=JavaScript:TOO.getFileSetContents("' + TOO.tableOfContents[ i ][ 0 ] + '/' + TOO.tableOfContents[ i ][ 1 ] + '"); > ' +
+						TOO.tableOfContents[ i ][ 2 ] +
+					' </a>' +
+				'</div>';
+
+				files.push( TOO.tableOfContents[ i ][ 0 ] + TOO.tableOfContents[ i ][ 1 ] );
+
+			 }
+		}
+
+		if ( !location.hash ) {
+
+			TOO.getFileSetContents( 'README.md' );
+
+		} else {
+
+			TOO.getFileSetContents( path + '/' + file );
+
+		}
+
+	}
+
 
 
 	TOO.callbackFolderContents = function( xhr ) {
@@ -326,7 +342,7 @@
 
 			fileName = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + path;
 
-			TOO.setBreadcrumbs( path );
+//			TOO.setBreadcrumbs( path );
 
 			TOO.requestFile( fileName, callbackGalleryContents );
 
@@ -341,7 +357,7 @@
 
 					source = item.download_url;
 
-					if ( source.includes( 'TOOgallery' ) || source.includes( '.thumb' ) || source.endsWith( '.dat' ) || source.endsWith( '.lock' ) ) { continue; }
+					if ( source.includes( 'TOOgallery' ) || source.includes( '.thumb' ) || source.includes( '.highlight' ) || source.endsWith( '.dat' )  || source.endsWith( '.lock' ) ) { continue; }
 
 					page += '<div style=display:inline-block;margin:10px; >' +
 						'<a href=JavaScript:TOO.getFileSetContents("' + item.path +'"); ><img src=' + source + ' height=200; title="' + fileName.slice( 0, -4 ) + '" ></a>' +

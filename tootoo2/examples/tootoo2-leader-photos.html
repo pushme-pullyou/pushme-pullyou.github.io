@@ -16,7 +16,7 @@
 <script>
 // Copyright 2017 Jaanga authors ~ MIT license
 
-	user = {
+	let user = {
 		user : 'leaderphotos',
 		repo : 'leaderphotos.github.io',
 		branch : 'master',
@@ -24,83 +24,160 @@
 		defaultFile : 'README.md'
 	};
 
-
-	TOO.setMenuContents = function() {
-
-		files = [];
-		menuTitle.innerHTML = 'Table of Contents';
-		breadcrumbs.innerHTML = '';
-		menuItems.innerHTML = '';
-
-		fileTitles = [
-
-			[ 'header', '' ],
-				[ './', 'README.md', 'home page' ],
+	TOO.tableOfContents = [
+		[ 'header', 'Leader Photos' ],
+			[ './', 'README.md', 'Home' ],
 //				[ './', 'license.md', 'Copyright and license' ],
-			[ 'header', 'Australia'],
-				[ 'albums/Australia/australian-cowboys/', 'gallery', 'Australian Cowboys' ],
-				[ 'albums/Australia/australian-station-girl/', 'gallery', 'Australian Station Girl' ],
-			[ 'header', 'Balkans War'],
-				[ 'albums/Balkans-war/Bosniabw/', 'gallery', 'Bosnia BW' ],
-			[ 'header', 'Cities Tourism'],
-				[ 'tweets/', 'README.md', 'Tweets Read Me' ],
-			[ 'header', 'White Papers'],
-				[ 'white-papers/', 'README.md', 'White Papers Read Me' ],
-			[ 'header', 'Device Parameters Test '],
-				[ 'device-parameters-test/', 'README.md', 'Device Parameters Test Read Me' ],
+		[ 'header', 'Australia'],
+			[ 'albums/Australia/australian-cowboys/', 'gallery', 'Australian Cowboys' ],
+			[ 'albums/Australia/australian-station-girl/', 'gallery', 'Australian Station Girl' ],
+		[ 'header', 'Balkans War'],
+			[ 'albums/Balkans-war/Bosniabw/', 'gallery', 'Bosnia BW' ],
+			[ 'albums/Balkans-war/kosovar-refugees-albania', 'gallery', 'Kosovar Refugees Albania' ],
+			[ 'albums/Balkans-war/romakosovo', 'gallery', 'Roma Kosovo' ],
+			[ 'albums/Balkans-war/romany-gypsies-exodus-balkans', 'gallery', 'Romany Gypsies Exodus Balkans' ],
+
+		[ 'header', 'Britain' ],
+			[ 'albums/Britain/bonfireseason', 'gallery', 'Bonfire Season' ],
+			[ 'albums/Britain/castles-scotland', 'gallery', 'Castles Scotland' ],
+			[ 'albums/Britain/dublin', 'gallery', 'Dublin' ],
+			[ 'albums/Britain/early-years', 'gallery', 'Early Years' ],
+			[ 'albums/Britain/irelandwestcoast', 'gallery', 'Ireland West Coast' ],
+			[ 'albums/Britain/staffs', 'gallery', 'Staffs' ],
+		[ 'header', 'Cities Tourism' ],
+			[ 'albums/Citiestourism/London', 'gallery', 'London' ],
+			[ 'albums/Citiestourism/castore', 'gallery', 'Castore' ],
+			[ 'albums/Citiestourism/ibizanitefever', 'gallery', 'Ibiza Nite Fever' ],
+			[ 'albums/Citiestourism/paris', 'gallery', 'Paris' ],
+		[ 'header', 'Gypsies' ],
+			[ 'albums/Gypsies/Bucharest-Belgrade', 'gallery', 'Bucharest Belgrade' ],
+			[ 'albums/Gypsies/Roma-recycling', 'gallery', 'Roma Recycling' ],
+			[ 'albums/Gypsies/finlandroma', 'gallery', 'Finland Roma' ],
+			[ 'albums/Gypsies/gitanos-almeria-spain', 'gallery', 'Gitanos Almeria Spain' ],
+			[ 'albums/Gypsies/gypsies-france', 'gallery', 'Gypsies France' ],
+			[ 'albums/Gypsies/roma-lyon', 'gallery', 'Roma Lyon' ],
+			[ 'albums/Gypsies/romany-gypsies-england', 'gallery', 'Romany Gypsies England' ],
+			[ 'albums/Gypsies/romany-refugees-across-europe', 'gallery', 'Romany Refugees Across Europe' ],
+			[ 'albums/Gypsies/romapoland', 'gallery', 'Roma Poland' ],
+			[ 'albums/Gypsies/romatexas', 'gallery', 'Roma Texas' ],
+			[ 'albums/Gypsies/romatravellersforum', 'gallery', 'Roma Travellers Forum' ],
+			[ 'albums/Gypsies/romaturkeygreece', 'gallery', 'Roma Turkey Greece' ],
+			[ 'albums/Gypsies/romavilhelmcovaci', 'gallery', 'Roma Vilhelmcovaci' ],
+			[ 'albums/Gypsies/slovakiaroma', 'gallery', 'Slovakia Roma' ],
+		[ 'header', 'Paris Student Demonstrations' ],
+			[ 'albums/Parisstudentdemonstrations/Parisstudentdemonstration31-03-2006', 'gallery', 'Paris Student Demonstration 31 03 2006' ],
+			[ 'albums/Parisstudentdemonstrations/parisgeneralstrike', 'gallery', 'Paris General Strike' ],
+		[ 'header', 'Sainte Sara' ],
+		[ 'header', 'Spanish Spring Festivals' ],
+			[ 'albums/Spanish-Spring-Festivals/Feria-Sevilla', 'gallery', 'Feria Sevilla' ],
+			[ 'albums/Spanish-Spring-Festivals/Semana-Santa', 'gallery', 'Semana Santa' ],
+			[ 'albums/Spanish-Spring-Festivals/el-rocio', 'gallery', 'El Rocio' ],
+		[ 'header', 'Tropical Rainforests' ],
+			[ 'albums/Tropical-Rainforests/Deforestation', 'gallery', 'Deforestation' ],
+			[ 'albums/Tropical-Rainforests/album01', 'gallery', 'Album01' ],
+			[ 'albums/Tropical-Rainforests/yanomani-deforestation', 'gallery', 'Yanomani Deforestation' ],
+		[ 'header', 'Vilhelm Covaci' ],
+		[ 'header', 'Art Commissions' ],
+			[ 'albums/artcommissions/artists', 'gallery', 'Artists' ],
+			[ 'albums/artcommissions/joachimecklwasser', 'gallery', 'Joachimecklwasser' ],
+		[ 'header', 'Batak' ],
+		[ 'header', 'Bits' ],
+		[ 'header', 'Black-and-white' ],
+			[ 'albums/black-and-white/bosnia-balkans-1994', 'gallery', 'Bosnia Balkans 1994' ],
+			[ 'albums/black-and-white/central-america', 'gallery', 'Central America' ],
+			[ 'albums/black-and-white/deforestation-seasia', 'gallery', 'Deforestation Seasia' ],
+			[ 'albums/black-and-white/earlyyears', 'gallery', 'Earlyyears' ],
+			[ 'albums/black-and-white/staffordshire-england', 'gallery', 'Staffordshire England' ],
+			[ 'albums/black-and-white/street-children-ca', 'gallery', 'Street Children Ca' ],
+		[ 'header', 'Centralamerica' ],
+			[ 'albums/centralamerica/guatemala', 'gallery', 'Guatemala' ],
+			[ 'albums/centralamerica/guatemalabw', 'gallery', 'Guatemalabw' ],
+			[ 'albums/centralamerica/streetchildren', 'gallery', 'Streetchildren' ],
+			[ 'albums/centralamerica/todossantos', 'gallery', 'Todossantos' ],
+		[ 'header', 'Chernobyl' ],
+		[ 'header', 'Classicpowerboats' ],
+			[ 'albums/classicpowerboats/motorboat', 'gallery', 'Motorboat' ],
+			[ 'albums/classicpowerboats/powerboatp1', 'gallery', 'Powerboatp1' ],
+		[ 'header', 'Climate' ],
+			[ 'albums/climate/hurricanemitch', 'gallery', 'Hurricanemitch' ],
+		[ 'header', 'Cuisine' ],
+			[ 'albums/cuisine/bras', 'gallery', 'Bras' ],
+			[ 'albums/cuisine/genoa', 'gallery', 'Genoa' ],
+			[ 'albums/cuisine/lasserre', 'gallery', 'Lasserre' ],
+			[ 'albums/cuisine/nice', 'gallery', 'Nice' ],
+			[ 'albums/cuisine/rostang', 'gallery', 'Rostang' ],
+		[ 'header', 'Elements' ],
+			[ 'albums/elements/fire', 'gallery', 'Fire' ],
+		[ 'header', 'Food' ],
+			[ 'albums/food/chasseausanglier', 'gallery', 'Chasseausanglier' ],
+			[ 'albums/food/meat', 'gallery', 'Meat' ],
+			[ 'albums/food/meatbook', 'gallery', 'Meatbook' ],
+		[ 'header', 'Forests' ],
+			[ 'albums/forests/forestsaerialfrance', 'gallery', 'Forestsaerialfrance' ],
+			[ 'albums/forests/paris-nature', 'gallery', 'Paris Nature' ],
+		[ 'header', 'Hanspeter2' ],
+		[ 'header', 'Homepagephotos' ],
+		[ 'header', 'Horses' ],
+			[ 'albums/horses/fantasia', 'gallery', 'Fantasia' ],
+			[ 'albums/horses/romany', 'gallery', 'Romany' ],
+			[ 'albums/horses/todossantosnew', 'gallery', 'Todossantosnew' ],
+		[ 'header', 'Leaderphotos' ],
+			[ 'albums/leaderphotos/bartholomeworthodoxturkey', 'gallery', 'Bartholomeworthodoxturkey' ],
+			[ 'albums/leaderphotos/panoramafb', 'gallery', 'Panoramafb' ],
+		[ 'header', 'Music' ],
+			[ 'albums/music/goranbregovic', 'gallery', 'Goranbregovic' ],
+			[ 'albums/music/goranbregovickristjanjarvi', 'gallery', 'Goranbregovickristjanjarvi' ],
+		[ 'header', 'Nigel_dickinson_portraits' ],
+		[ 'header', 'Nigeria' ],
+			[ 'albums/nigeria/Coupe-Decaleaubataclan', 'gallery', 'Coupe Decaleaubataclan' ],
+			[ 'albums/nigeria/hausa-animist-ritual', 'gallery', 'Hausa Animist Ritual' ],
+			[ 'albums/nigeria/kano-durbar-fantasia', 'gallery', 'Kano Durbar Fantasia' ],
+			[ 'albums/nigeria/sharia-kano-nigeria', 'gallery', 'Sharia Kano Nigeria' ],
+			[ 'albums/nigeria/yopougon', 'gallery', 'Yopougon' ],
+		[ 'header', 'Outdoors' ],
+			[ 'albums/outdoors/sinai-desert-trek', 'gallery', 'Sinai Desert Trek' ],
+		[ 'header', 'Partyrave' ],
+			[ 'albums/partyrave/techno', 'gallery', 'Techno' ],
+		[ 'header', 'Peopleportraits' ],
+			[ 'albums/peopleportraits/John-travolta-jumbo-jet', 'gallery', 'John Travolta Jumbo Jet' ],
+			[ 'albums/peopleportraits/portraits', 'gallery', 'Portraits' ],
+		[ 'header', 'Peripheryhost' ],
+			[ 'albums/peripheryhost/periphery', 'gallery', 'Periphery' ],
+		[ 'header', 'Places' ],
+			[ 'albums/places/corsica-fire-ice-water', 'gallery', 'Corsica Fire Ice Water' ],
+			[ 'albums/places/nino-emma-corretti-soglio', 'gallery', 'Nino Emma Corretti Soglio' ],
+		[ 'header', 'Pollutionandenvironment' ],
+			[ 'albums/pollutionandenvironment/pollutiondanube', 'gallery', 'Pollutiondanube' ],
+			[ 'albums/pollutionandenvironment/road-protest', 'gallery', 'Road Protest' ],
+		[ 'header', 'Religions' ],
+			[ 'albums/religions/animistafrica', 'gallery', 'Animistafrica' ],
+			[ 'albums/religions/buddhismfrance', 'gallery', 'Buddhismfrance' ],
+			[ 'albums/religions/elrociospain', 'gallery', 'Elrociospain' ],
+			[ 'albums/religions/gypsypilgrimmage', 'gallery', 'Gypsypilgrimmage' ],
+			[ 'albums/religions/semanasanta', 'gallery', 'Semanasanta' ],
+		[ 'header', 'Ridiculous' ],
+			[ 'albums/ridiculous/fishcircus', 'gallery', 'Fishcircus' ],
+		[ 'header', 'Romaexpo' ],
+			[ 'albums/romaexpo/movingwalls', 'gallery', 'Movingwalls' ],
+			[ 'albums/romaexpo/roma40', 'gallery', 'Roma40' ],
+		[ 'header', 'Saintesmaries' ],
+			[ 'albums/saintesmaries/Saralepelerinagedesgitans', 'gallery', 'Saralepelerinagedesgitans' ],
+			[ 'albums/saintesmaries/gypsiesandguardianssaintesmaries', 'gallery', 'Gypsiesandguardianssaintesmaries' ],
+			[ 'albums/saintesmaries/gypsycampssaintesmaries', 'gallery', 'Gypsycampssaintesmaries' ],
+			[ 'albums/saintesmaries/gypsymusicdancebears', 'gallery', 'Gypsymusicdancebears' ],
+			[ 'albums/saintesmaries/manitas', 'gallery', 'Manitas' ],
+			[ 'albums/saintesmaries/saintesara', 'gallery', 'Saintesara' ],
+			[ 'albums/saintesmaries/saintesmariesaerial', 'gallery', 'Saintesmariesaerial' ],
+			[ 'albums/saintesmaries/saintesmarieschurch', 'gallery', 'Saintesmarieschurch' ],
+		[ 'header', 'Sarawak' ],
+		[ 'header', 'Sebastian' ],
+		[ 'header', 'Sebastian02' ],
+		[ 'header', 'Sebastianportraits' ],
+		[ 'header', 'Weddings' ],
+			[ 'albums/weddings/mariageyannannesophie', 'gallery', 'Mariageyannannesophie' ],
+	];
 
 
-		];
-
-		let count = 0;
-
-		for ( let i = 0; i < fileTitles.length; i++ ) {
-
-			if ( fileTitles[ i ][ 0 ] === 'header') {
-
-				menuItems.innerHTML += '<h4>'  + fileTitles[ i ][ 1 ] + '</h4>';
-
-			} else if ( fileTitles[ i ][ 1 ] === 'gallery') {
-
-
-				menuItems.innerHTML +=
-				'<div id=file' + count++ + ' style=width:100%; >' +
-					'<a href=JavaScript:TOO.createPageOfImages("' + fileTitles[ i ][ 0 ] + '"); > ' +
-						fileTitles[ i ][ 2 ] +
-					' </a>' +
-				'</div>';
-
-				files.push( fileTitles[ i ][ 0 ] );
-
-			} else {
-
-				menuItems.innerHTML +=
-				'<div id=file' + count++ + ' style=width:100%; >' +
-					'<a href=JavaScript:TOO.getFileSetContents("' + fileTitles[ i ][ 0 ] + '/' + fileTitles[ i ][ 1 ] + '"); > ' +
-						fileTitles[ i ][ 2 ] +
-					' </a>' +
-				'</div>';
-
-				files.push( fileTitles[ i ][ 0 ] + fileTitles[ i ][ 1 ] );
-
-			 }
-		}
-
-		if ( !location.hash ) {
-
-			TOO.getFileSetContents( 'README.md' );
-
-		} else {
-
-			TOO.getFileSetContents( path + '/' + file );
-
-		}
-
-	}
-
-
-	let editor, files;
-	const b = '<br>';
 
 	init();
 
@@ -116,7 +193,7 @@
 			'<div id=menu >' +
 
 				'<h2>' +
-					'<a href=http://jaanga.github.io title="Jaanga - your 3D happy place" > &#x2766 </a><br>' +
+//					'<a href=http://jaanga.github.io title="Jaanga - your 3D happy place" > &#x2766 </a><br>' +
 //					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
 					'<a href="" title="Click here to refresh this page" >' + location.pathname.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) + '</a>' +
 					' ~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
@@ -137,7 +214,7 @@
 					' <button onclick=TOO.setMenuDefault(); >All Files</button>' +
 				'</div>' + b +
 
-					'<div id=breadcrumbs ></div>' +
+					'<div id=breadcrumbs style=display:"none"; ></div>' +
 					'<div id=menuItems ></div>' +
 
 				'</details>' +

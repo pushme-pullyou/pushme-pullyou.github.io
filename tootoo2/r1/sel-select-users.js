@@ -1,7 +1,7 @@
 
 	let SEL = {};
 	let users = {};
-	let user;
+
 
 	users.d3 = {
 		user : 'd3',
