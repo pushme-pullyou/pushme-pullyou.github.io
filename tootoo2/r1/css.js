@@ -1,5 +1,7 @@
 	CSS = {};
 
+	MNU = {};
+
 	CSS.setCSS = function() {
 
 		let css;
@@ -10,6 +12,7 @@
 			'html, body { font: 12pt monospace; height: 100%; margin: 0; }' +
 			'a { color: crimson; text-decoration: none; }' +
 			'a:hover { text-decoration: underline; }' +
+			'aside { font-style: oblique; }' +
 			'button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }' +
 			'pre, blockquote { background-color: #eee; padding: 10px; }' +
 			'summary { outline: none; }' +
@@ -22,7 +25,7 @@
 			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%; }' +
 
 // let each type of contents decide its best width and placement
-			'#contents { border: 0px #ccc solid; height: 100%; left: 325px; position: absolute; width: ' + ( window.innerWidth - 325 ) + 'px; }' +
+			'#contents { border: 0px #ccc solid; height: 100%; left: 325px; overflow-x: hidden; position: absolute; width: ' + ( window.innerWidth - 325 ) + 'px; }' +
 
 			'#editButton { background-color: #555; color: #fff; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: 20px; }' +
 			'#editButton a { text-decoration: none; color: #fff; }' +

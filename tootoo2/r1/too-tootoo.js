@@ -1,6 +1,6 @@
 	TOO = {};
 
-	let editor, files;
+//	let files;
 	const b = '<br>';
 
 
@@ -10,9 +10,15 @@
 
 		TOO.setMenu = TOO.tableOfContents !== undefined ? TOO.setMenuContents : TOO.setMenuDefault;
 
+		if ( MNU.init ) { MNU.init() };
+
 		TOO.initButtons();
 
-		if ( user.rawgit ) {
+		if ( location.hash.includes( '@@@' ) ) {
+
+			TOO.urlGHPages = '';
+
+		} else if ( user.rawgit ) {
 
 			urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
 
@@ -22,7 +28,8 @@
 
 		}
 
-		TOO.setMenu( user.path);
+		TOO.setMenu( user.path );
+
 
 	}
 
@@ -49,20 +56,79 @@
 
 	TOO.setMenuDefault = function ( path ) {
 
-		let fileName;
+		let url;
 
-		fileName = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
+		url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
 
 		TOO.setBreadcrumbs( path );
 
-		TOO.requestFile( fileName, TOO.callbackFolderContents );
+		TOO.requestFile( url, TOO.callbackFolderContents );
 
 	}
 
 
-	TOO.setMenuContents = function() {
+	TOO.callbackFolderContents = function( xhr ) {
 
-		files = [];
+//		let response, items, item, count;
+
+		response = xhr.target.response;
+		items = JSON.parse( response );
+
+		TOO.files = [];
+		count = 0;
+		menuItems.innerHTML = '';
+
+		for ( let i = 0; i < items.length; i++ ) {
+
+			item = items[ i ];
+
+			if ( item.type === 'dir' ) {
+// make highlighting full width. see below
+				menuItems.innerHTML +=
+					'<a href=JavaScript:location.hash="' + item.path + '";TOO.setMenuDefault("' + item.path  + '"); style=width:100%;  > 🗀 ' + item.name  + '</a>' + b +
+				'';
+
+			}
+
+		}
+
+		for ( i = 0; i < items.length; i++ ) {
+
+			item = items[ i ];
+
+			if ( item.type === 'file' ) {
+
+				menuItems.innerHTML +=
+
+					'<a id=file' + count++ + ' href=JavaScript:TOO.getFileSetContents("' + item.path + '"); style=width:100%;  > ' + item.name + '</a>' + b +
+
+				'';
+
+				TOO.files.push( item.path );
+
+			}
+
+		}
+
+
+// do the following within the above loops...
+		if ( location.hash && ( location.hash.includes( '/' ) || location.hash.includes( '.' ) ) )  {
+
+			TOO.getFileSetContents( location.hash.slice( 1 ) );
+
+		} else {
+
+			TOO.setDefaultContents();
+
+		}
+
+	}
+
+
+
+	TOO.setMenuContents = function() { // we have a table of contents / TOO.tableOfContents somewhere
+
+		TOO.files = [];
 		menuTitle.innerHTML = 'Table of Contents';
 		breadcrumbs.innerHTML = '';
 		menuItems.innerHTML = '';
@@ -71,23 +137,21 @@
 
 		for ( let i = 0; i < TOO.tableOfContents.length; i++ ) {
 
-			if ( TOO.tableOfContents[ i ][ 0 ] === 'header') {
+			if ( TOO.tableOfContents[ i ][ 0 ] === 'header' ) {
 
 				menuItems.innerHTML += '<h4>'  + TOO.tableOfContents[ i ][ 1 ] + '</h4>';
 
-			} else if ( TOO.tableOfContents[ i ][ 1 ] === 'gallery') {
-
+			} else if ( TOO.tableOfContents[ i ][ 1 ] === 'gallery' ) {
 
 				menuItems.innerHTML +=
 
-//				'<div id=file' + count++ + ' style=width:100%; >' +
 				'<div id=file' + count++ + ' >' +
 					'<a href=JavaScript:TOO.createPageOfImages("' + TOO.tableOfContents[ i ][ 0 ] + '"); > ' +
 						TOO.tableOfContents[ i ][ 2 ] +
 					' </a>' +
 				'</div>';
 
-				files.push( TOO.tableOfContents[ i ][ 0 ] );
+				TOO.files.push( TOO.tableOfContents[ i ][ 0 ] );
 
 			} else {
 
@@ -98,7 +162,7 @@
 					' </a>' +
 				'</div>';
 
-				files.push( TOO.tableOfContents[ i ][ 0 ] + TOO.tableOfContents[ i ][ 1 ] );
+				TOO.files.push( TOO.tableOfContents[ i ][ 0 ] + TOO.tableOfContents[ i ][ 1 ] );
 
 			 }
 		}
@@ -116,70 +180,22 @@
 	}
 
 
-
-	TOO.callbackFolderContents = function( xhr ) {
-
-		let response, items, item, count;
-
-		response = xhr.target.response;
-		items = JSON.parse( response );
-
-		files = [];
-		count = 0;
-		menuItems.innerHTML = '';
-
-		for ( let i = 0; i < items.length; i++ ) {
-
-			item = items[ i ];
-
-			if ( item.type === 'dir' ) {
-
-				menuItems.innerHTML +=
-					'<a href=# onclick=TOO.setMenuDefault("' + item.path  + '"); > 🗀 ' + item.name  + '</a>' + b +
-				'';
-
-			}
-
-		}
-
-		for ( i = 0; i < items.length; i++ ) {
-
-			item = items[ i ];
-
-			if ( item.type === 'file' ) {
-
-				menuItems.innerHTML +=
-//					'<a href=# onclick=ifr.src="' + urlGHPages + '/' + item.path + '"; >' + item.name  + '</a>' + b +
-					'<a href=# id=file' + count++ + ' onclick=TOO.getFileSetContents("' + item.path + '"); > ' + item.name + '</a>' + b +
-
-				'';
-
-				files.push( item.path );
-
-			}
-
-		}
-
-		TOO.setDefaultContents();
-
-	}
-
-
 	TOO.setDefaultContents = function() {
 
-		let txt, start, file, f;
+		let txt, start, path, p;
 
-		for ( var i = 0; i < files.length; i++ ) {
+		for ( var i = 0; i < TOO.files.length; i++ ) {
 
-			file = files[ i ];
-			f = file.toLowerCase();
+			path = TOO.files[ i ];
+			p = path.toLowerCase();
 
-			if ( f === 'index.html' || f === 'index.htm') { TOO.getFileSetContents( file ); return; }
-			if ( f === 'readme.md' ) { TOO.getFileSetContents( file ); return; }
+			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { TOO.getFileSetContents( path ); return; }
+			if ( p.endsWith( 'readme.md' ) ) { TOO.getFileSetContents( path ); return; }
 
 		}
 
-		TOO.getFileSetContents( files[ 0 ]  );
+		path = TOO.files[ 0 ];
+		TOO.getFileSetContents( path  );
 
 	}
 
@@ -207,8 +223,6 @@
 		breadcrumbs.innerHTML = txt;
 
 	}
-
-
 
 
 
@@ -247,6 +261,8 @@
 
 		TOO.setHighlightAndButtons( path );
 
+		location.hash = path;
+
 	}
 
 
@@ -260,24 +276,34 @@
 	}
 
 
+	TOO.massageText = function( response ){
+
+		text = TOO.converter.makeHtml( response );
+
+		return text;
+
+	};
+
+
 	TOO.getFileMD = function( url ) {
 
 // https://github.com/showdownjs/showdown
 
 		showdown.setFlavor('github');
 
-		let converter = new showdown.Converter();
+		TOO.converter = new showdown.Converter();
 
 		TOO.requestFile( url, callbackMD );
 
 		function callbackMD( xhr ) {
 
+			text = TOO.massageText( xhr.target.response );
+
 			contents.innerHTML =
 
 			'<div style="border: 0px red solid; margin: 0 auto; width: 800px; position: relative;" >' +
-				converter.makeHtml( xhr.target.response ) +
+				text +
 			'</div>';
-
 		}
 
 	}
@@ -293,43 +319,43 @@
 	TOO.getFileCode = function( url ) {
 
 // try embed gist
-			contents.innerHTML =
-				'<div id=contentsCode style="border: 0px red solid; height: 900px; margin: 0 auto; width: 900px; position: relative;" >' +
-				' item will appear here ' +
-			'</div>';
+		contents.innerHTML =
+			'<div id=contentsCode style="border: 0px red solid; height: 900px; margin: 0 auto; width: 900px; position: relative;" >' +
+			' item will appear here ' +
+		'</div>';
 
-			if ( editor ) {
+		if ( TOO.editor ) {
 
-				setEditContents();
+			setEditContents();
 
-			} else {
+		} else {
 
 // check here for latest: https://cdnjs.com/libraries/ace/
 // Anyway to get latest automatically?
 // use GitHub code embed??
 
-				editor = document.body.appendChild( document.createElement( 'script' ) );
-				editor.onload = setEditContents;
-				editor.src = 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js';
+			TOO.editor = document.body.appendChild( document.createElement( 'script' ) );
+			TOO.editor.onload = setEditContents;
+			TOO.editor.src = 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js';
+
+		}
+
+
+		function setEditContents() {
+
+			editor = ace.edit( 'contentsCode' );
+			editor.$blockScrolling = Infinity;
+			editor.getSession().setMode( 'ace/mode/markdown' );
+
+			TOO.requestFile( url, callback );
+
+			function callback( xhr ) {
+
+				editor.setValue( xhr.target.response.slice( 0, 10000 ), -1 );
 
 			}
 
-
-			function setEditContents() {
-
-				editor = ace.edit( 'contentsCode' );
-				editor.$blockScrolling = Infinity;
-				editor.getSession().setMode( 'ace/mode/markdown' );
-
-				TOO.requestFile( url, callback );
-
-				function callback( xhr ) {
-
-					editor.setValue( xhr.target.response.slice( 0, 10000 ), -1 );
-
-				}
-
-			}
+		}
 
 	}
 
@@ -339,10 +365,9 @@
 			let page, items, item, fileName;
 
 			page = '';
+//			count = 0;
 
 			fileName = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + path;
-
-//			TOO.setBreadcrumbs( path );
 
 			TOO.requestFile( fileName, callbackGalleryContents );
 
@@ -367,18 +392,20 @@
 
 				contents.innerHTML = page;
 
+				TOO.setHighlightAndButtons( path, true );
+
 			}
 
 	}
 
 
 
-	TOO.setHighlightAndButtons = function( path ) {
+	TOO.setHighlightAndButtons = function( path, gallery ) {
 
 //highlight
-		index = files.indexOf( path );
+		index = TOO.files.indexOf( path );
 
-		for ( let i = 0; i < files.length; i++ ) {
+		for ( let i = 0; i < TOO.files.length; i++ ) {
 
 			el = document.getElementById( 'file' + i );
 
@@ -399,18 +426,25 @@
 
 		indexNext = index + 1;
 
-		if ( index >= files.length - 1 ) { indexNext = 0; }
+		if ( index >= TOO.files.length - 1 ) { indexNext = 0; }
 
 		indexPrevious = index - 1;
 
-		if ( index <= 0 ) { indexPrevious = files.length - 1; }
+		if ( index <= 0 ) { indexPrevious = TOO.files.length - 1; }
 
 		if ( nextFile || previousFile ) {
 
-			nextFile.innerHTML = '<a href=JavaScript:TOO.getFileSetContents("' + files[ indexNext ] + '"); > &gt; </a>';
+			if ( gallery ) {
 
-			previousFile.innerHTML = '<a href=JavaScript:TOO.getFileSetContents("' + files[ indexPrevious ] + '"); > &lt; </a>';
+				nextFile.innerHTML = '<a href=JavaScript:TOO.createPageOfImages("' + TOO.files[ indexNext ] + '"); > &gt; </a>';
+				previousFile.innerHTML = '<a href=JavaScript:TOO.createPageOfImages("' + TOO.files[ indexPrevious ] + '"); > &lt; </a>';
 
+			} else {
+
+				nextFile.innerHTML = '<a href=JavaScript:TOO.getFileSetContents("' + TOO.files[ indexNext ] + '"); > &gt; </a>';
+				previousFile.innerHTML = '<a href=JavaScript:TOO.getFileSetContents("' + TOO.files[ indexPrevious ] + '"); > &lt; </a>';
+
+			}
 		}
 
 	}

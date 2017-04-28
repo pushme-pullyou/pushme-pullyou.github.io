@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>TooToo 6.2 Open Source Guide</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Browse and view Open Source Guides on GitHub with remarkable ease.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-04-26' >
+</head>
+<body>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=../r1/css.js ></script>
+<script src=../r1/sel-select-users.js ></script>
+<script src=../r1/mnu-menu-settings.js ></script>
+<script src=../r1/too-tootoo.js ></script>
+<script>
+// Copyright © 2017 PushMe PullYou authors. MIT license
+// https://github.com/showdownjs/showdown
+
+	var user = {
+		user : 'github',
+		subText: 'Your open source exploring happy place',
+		repo : 'open-source-guide',
+		branch : 'gh-pages',
+		folder : '',
+		rawgit: true,
+//		noIndex : 'true'
+	};
+
+	TOO.tableOfContents = [
+
+			[ '', 'README.md', 'About'],
+
+		[ 'header', 'Open Source Guides' ],
+//			[ '', 'index.html', 'Open Source Guides' ],
+			[ '_articles/', 'how-to-contribute.md', 'How to Contribute to Open Source' ],
+			[ '_articles/', 'starting-a-project.md', 'Starting an Open Source Project' ],
+			[ '_articles/', 'finding-users.md', 'Finding Users For Your Project' ],
+			[ '_articles/', 'building-community.md', 'Building Welcoming Communities' ],
+			[ '_articles/', 'best-practices.md', 'Best Practices for Maintainers' ],
+			[ '_articles/', 'leadership-and-governance.md', 'Leadership and Governance' ],
+			[ '_articles/', 'getting-paid.md', 'Getting Paid for Open Source Work' ],
+			[ '_articles/', 'code-of-conduct.md', 'Your Code of Conduct' ],
+			[ '_articles/', 'metrics.md', 'Open Source Metrics' ],
+			[ '_articles/', 'legal.md', 'The Legal Side of Open Source' ],
+
+		[ 'header', 'More'],
+			[ '', 'CONTRIBUTING.md', 'Contribute'],
+			[ '', 'CODE_OF_CONDUCT.md', 'Contributor Covenant Code of Conduct'],
+			[ '', 'notices.md', 'Legal Disclaimer / Licenses'],
+		[ 'header', 'Docs'],
+			[ 'docs/', 'content-model.md', 'Content Model'],
+			[ 'docs/', 'new-guides.md', 'Proposing a new guide'],
+			[ 'docs/', 'personas.md', 'Personas'],
+			[ 'docs/', 'roadmap.md', 'Roadmap'],
+			[ 'docs/', 'styleguide.md', 'Style Guide' ],
+
+	];
+
+
+	init();
+
+	function init() {
+
+		let container, contents, hamburger, menu;
+
+		CSS.setCSS();
+
+		container = document.body.appendChild( document.createElement( 'div' ) );
+		container.id = 'container';
+		container.innerHTML =
+
+			'<div id=menu >' +
+
+				'<h2>' +
+					'<a href=https://' + user.user + '.github.io/ title="' + user.subText + '" > &#x2766 </a>' + b +
+					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
+					' ~ <a href="https://github.com/' + user.user + '/' + user.repo + '" onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
+
+				'</h2>' +
+
+				'<div class=popUp id=popHelp style=display:none; ><div>Hi there!</div>Click the i-in-circle, info icon for latest updates.</div>' +
+
+				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
+
+				'<details open>' +
+
+					'<summary><h3 id=menuTitle >Menu</h3></summary>' +
+
+					'<div id=breadcrumbs ></div>' + b +
+
+					'<div id=menuItems ></div>' + b +
+
+				'</details>' + b +
+
+				'<div id=mnuSettings ></div>' +
+
+				'<div id=mnuAbout ></div>' +
+
+			'</div>' +
+
+			'<div id=hamburger onclick=container.style.left=container.style.left===""?"-325px":""; >' +
+				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
+			'</div>' +
+
+			'<div id=contents ></div>' +
+
+		'';
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		TOO.initUser( user );
+
+	}
+
+
+	TOO.massageText = function( response ){
+
+		raw = response.slice( 4 )
+
+		raw = raw.slice( raw.indexOf( '---' ) + 3 );
+
+		text = TOO.converter.makeHtml( raw );
+
+		text = text.replace( /image: \/assets/g, '<img src="https://raw.githubusercontent.com/github/opensource.guide/gh-pages/assets' );
+
+		text = text.replace( /src="\/assets/g, 'src="https://raw.githubusercontent.com/github/opensource.guide/gh-pages/assets' );
+
+//		text = text.replace( /a href=\"LICENSE"/g, 'a href=JavaScript:location.hash="file=LICENSE"');
+
+//			text = text.replace( /a href=\"CONTRIBUTING.md"/g, 'a href=JavaScript:location.hash="file=CONTRIBUTING.md"');
+
+//			text = text.replace( /a href=\"manuscript\//g, 'a href=JavaScript:location.hash="path=_articles&file=');
+
+		text = text.replace( /">/g, '";TOO.init(users); >');
+
+
+		return text;
+
+	}
+
+
+
+	function onWindowResize() {
+
+		if ( window.self !== window.top || window.innerWidth < 500 ) { container.style.left = '-325px'; }
+
+		contents.style.width = window.innerWidth - 350;
+
+	}
+
+</script>
+</body>
+</html>

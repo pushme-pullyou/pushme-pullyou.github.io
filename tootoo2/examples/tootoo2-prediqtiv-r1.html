@@ -6,12 +6,13 @@
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='A variety of tools to browse and view all S&P 500 symbols all at once.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2016-11-05' >
+<meta name=date content='2017-04-26' >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
 <script src=../r1/css-prediqtiv.js ></script>
 <script src=../r1/sel-select-users.js ></script>
+<script src=../r1/mnu-menu-settings.js ></script>
 <script src=../r1/too-tootoo.js ></script>
 <script>
 // Copyright 2017 Jaanga authors ~ MIT license
@@ -21,10 +22,11 @@
 	user = {
 		user : 'prediqtiv',
 		subText : 'Invest smarter',
+		logo: '<img src=' + images + 'five-boxes.png height=32 >',
 		repo : 'prediqtiv.github.io',
 		branch : 'master',
 		folder : '',
-		defaultFile : 'README.md'
+//		defaultFile : 'README.md'
 	};
 
 
@@ -77,7 +79,7 @@
 
 				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
 
-				'<div id=selectUsers ></div>' +
+//				'<div id=selectUsers ></div>' +
 
 				'<details open >' +
 
@@ -91,7 +93,11 @@
 					'<div id=breadcrumbs ></div>' +
 					'<div id=menuItems ></div>' +
 
-				'</details>' +
+				'</details>' + b +
+
+				'<div id=mnuSettings ></div>' +
+
+				'<div id=mnuAbout ></div>' +
 
 			'</div>' +
 
@@ -105,20 +111,10 @@
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
-//		initSelectUsers();
-
-
-
-//		initButtons();
-
 		TOO.initUser( user );
 
-//		setMenu = setMenuContents ? setMenuContents : setMenuDefault;
-
-//		setMenuContents();
 
 	}
-
 
 
 </script>

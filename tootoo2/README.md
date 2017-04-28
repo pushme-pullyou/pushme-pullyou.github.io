@@ -8,6 +8,8 @@ TooToo2 Read Me
 
 ## To Do
 
+* 2017-04-26 ~ add footer
+* 2017-04-26 ~ add settings
 * 2017-04-25 ~ Bring over tootoo1 readme
 * 2017-04-25 ~ Discard unwanted files as a function
 * location hash

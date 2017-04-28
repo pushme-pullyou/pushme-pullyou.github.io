@@ -5,6 +5,7 @@
 
 	users.d3 = {
 		user : 'd3',
+		logo : '<img src=https://d3js.org/logo.svg height=32 >',
 		repo : 'd3',
 		branch : 'master',
 		folder : '',
@@ -13,6 +14,7 @@
 	};
 	users.d3GH = {
 		user : 'd3',
+		logo : '<img src=https://d3js.org/logo.svg height=32 >',
 		repo : 'd3.github.com',
 		branch : 'master',
 		folder : '',
@@ -20,24 +22,28 @@
 	};
 	users.jDemo = {
 		user: 'jaanga',
+		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
 		repo: 'jaanga.github.io',
 		branch: 'master',
 		folder: 'demo'
 	};
 	users.jTerrain = {
 		user: 'jaanga',
+		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
 		repo: 'terrain3',
 		branch: 'gh-pages',
 		folder: ''
 	};
 	users.jaanga = {
 		user : 'jaanga',
+		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
 		repo : 'jaanga.github.io',
 		branch : 'master',
 		folder : ''
 	};
 	users.jupyter = {
 		user : 'jupyter',
+		logo : '<img src=https://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png height=32 >',
 		repo : 'jupyter.github.io',
 		branch : 'master',
 		folder : '',
@@ -45,6 +51,7 @@
 	};
 	users.jupyterNotebook = {
 		user : 'jupyter',
+		logo : '<img src=https://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png height=32 >',
 		repo : 'notebook',
 		branch : 'master',
 		folder : '',
@@ -78,6 +85,7 @@
 	};
 	users.paulmasson = {
 		user : 'paulmasson',
+		logo : '<img src=http://paulmasson.github.io/apple-touch-icon.png height=32 >',
 		repo : 'paulmasson.github.io',
 		branch : 'master',
 		folder : ''
@@ -158,13 +166,13 @@
 
 	 SEL.initSelectUsers = function() {
 
-		SELselectUsers.innerHTML =
+		selSelectUsers.innerHTML =
 
 				'<details open>' +
 
-					'<summary><h3>Select User/ Repo/ Branch </h3></summary>' +
+					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
 
-						'<select id=SELselUser onchange=TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
+						'<select id=selUser onchange=TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
 
 						'</select>' + b +
 					b +
@@ -188,10 +196,10 @@
 
 			user = users[ users.keys[ i ] ];
 
-			SELselUser[ i ] = new Option( user.user + ' ' + user.repo + ' ' + user.folder + ' ' + user.branch, users.keys[ i ] );
+			selUser[ i ] = new Option( user.user + ' ' + user.repo + ' ' + user.folder + ' ' + user.branch, users.keys[ i ] );
 
 		}
 
-		SELselUser.selectedIndex = users.keys.indexOf( user.user );
+		selUser.selectedIndex = users.keys.indexOf( user.user );
 
 	}
