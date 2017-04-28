@@ -131,6 +131,8 @@
 
 			text = TOO.converter.makeHtml( response );
 
+			text = text.replace( /src="images/g, 'src="https://rawgit.com/bpesquet/thejsway/master/manuscript/images' );
+
 			text = text.replace( /a href=\"LICENSE"/g, 'a href=JavaScript:location.hash="file=LICENSE"');
 
 			text = text.replace( /a href=\"CONTRIBUTING.md"/g, 'a href=JavaScript:location.hash="file=CONTRIBUTING.md"');
@@ -143,7 +145,7 @@
 
 	};
 
-	TOO.getFileMD = function( url ) {
+	TOO.getFileMDxxx = function( url ) {
 
 // https://github.com/showdownjs/showdown
 
