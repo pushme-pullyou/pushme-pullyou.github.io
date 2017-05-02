@@ -4,27 +4,40 @@
 <meta charset=utf-8 >
 <title></title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=description content='Browse and view Mr.doob&apos;s Three.js files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2016-11-05' >
+<meta name=date content='2017-05-02' >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
 <script src=../r1/css.js ></script>
-<script src=../r1/sel-select-users.js ></script>
 <script src=../r1/mnu-menu-settings.js ></script>
 <script src=../r1/too-tootoo.js ></script>
-
 <script>
-// Copyright 2017 Jaanga authors ~ MIT license
+// Copyright 2017 Pushme Pullyou authors ~ MIT license
 
-	user = {
-		user : 'prediqtiv',
-		subText : 'Invest smarter',
-		repo : 'prediqtiv.github.io',
-		branch : 'master',
+	var protocol, usr;
+
+	protocol = location.protocol;
+
+	if ( protocol === 'file:' ) {
+
+		usr  = location.pathname.slice( 0, location.pathname.indexOf( 'github.io' ) - 1 );
+		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
+
+	} else if ( protocol === 'https:' ) {
+
+		usr = location.host.slice( 0, location.host.indexOf( '.' ) );
+
+	}
+
+
+	let user = {
+		user : 'mrdoob',
+		repo : 'three.js',
+		branch : 'dev',
 		folder : '',
-		defaultFile : 'README.md'
+		rawgit: true
 	};
 
 
@@ -42,9 +55,9 @@
 			'<div id=menu >' +
 
 				'<h2>' +
-					'<a href=http://jaanga.github.io title="Jaanga - your 3D happy place" > &#x2766 </a><br>' +
-//					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
-					'<a href="" title="Click here to refresh this page" >' + location.pathname.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) + '</a>' +
+					'<a href=http://pushme-pullyou.github.io title="Jaanga - your Github repo happy place" > &#x2766 </a><br>' +
+					'<a href="" title="Click here to refresh this page" >' + user.user + '/' + user.folder + '</a>' +
+//					'<a href="" title="Click here to refresh this page" >' + location.pathname.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) + '</a>' +
 					' ~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 				'</h2>' +
 
@@ -52,11 +65,9 @@
 
 				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
 
-				'<div id=selSelectUsers ></div>' +
-
 				'<details open >' +
 
-					'<summary><h3 id=menuTitle >Menu</h3></summary>' +
+					'<summary><h3 id=menuTitle >Contents</h3></summary>' +
 
 					'<div id=breadcrumbs ></div>' +
 					'<div id=menuItems ></div>' +
@@ -78,8 +89,6 @@
 		'';
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
-
-		SEL.initSelectUsers();
 
 		TOO.initUser( user );
 

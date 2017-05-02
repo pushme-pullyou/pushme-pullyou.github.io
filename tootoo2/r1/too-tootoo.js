@@ -21,7 +21,7 @@
 
 		} else if ( user.rawgit ) {
 
-			TOO.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
+			TOO.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 
 		} else {
 
@@ -29,7 +29,7 @@
 
 		}
 
-		TOO.setMenu( user.path );
+		TOO.setMenu( user.folder );
 
 
 	}
@@ -57,7 +57,9 @@
 
 	TOO.setMenuDefault = function ( path ) {
 
-		let url;
+//		let url;
+
+
 
 		url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
 
@@ -111,11 +113,13 @@
 
 		}
 
-
-// do the following within the above loops...
-		if ( location.hash && ( location.hash.includes( '/' ) || location.hash.includes( '.' ) ) )  {
+		if ( location.hash  === '' && ( location.hash.includes( '/' ) || location.hash.includes( '.' ) ) )  {
 
 			TOO.getFileSetContents( location.hash.slice( 1 ) );
+
+		} else if ( user.defaultFile !== undefined ) {
+
+			TOO.getFileSetContents( user.defaultFile );
 
 		} else {
 
@@ -206,6 +210,7 @@
 		let name, txt, folders, str;
 
 		name = user.folder ? user.folder : user.repo;
+		name = user.repo;
 
 		txt = '<h3><a href=JavaScript:TOO.setMenuDefault(); >' + name + '</a> &raquo; </h3>';
 

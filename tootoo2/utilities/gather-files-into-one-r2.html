@@ -13,7 +13,6 @@
 // Copyright 2017 Jaanga authors ~ MIT license
 
 	var htm, css, mnu, sel, too;
-	var count = 0;
 
 	init();
 
@@ -95,15 +94,7 @@
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
-
-		requestFile( '../examples/tootoo2-basic-r1.html', callbackHtm );
-
-//		requestFile( '../r1/mnu-menu-settings.js', callbackMnu );
-//		requestFile( '../r1/sel-select-users.js', callbackSel );
-//		requestFile( '../r1/too-tootoo.js', callbackToo );
-//		contents.innerText += footer;
-
-
+		requestFile( '../r1/tootoo2-template-r1.html', callbackHtm );
 
 	}
 
@@ -116,6 +107,7 @@
 
 	}
 
+
 	function callbackCss( xhr ) {
 
 		css = xhr.target.response;
@@ -127,6 +119,7 @@
 		contents.innerText = htm;
 
 	}
+
 
 	function callbackMnu( xhr ) {
 
@@ -151,24 +144,17 @@
 
 	}
 
-	function assemble(){
-
-		contents.innerText = htm;
-
-	}
 
 	function requestFile( fileName, callback, section ) {
 
-//		let fileName, text, lines;
+		let xhr;
 
 		xhr = new XMLHttpRequest();
 		xhr.crossOrigin = 'anonymous';
 		xhr.open( 'GET', fileName, true );
 		xhr.onerror = function( xhr ) { console.log( 'error', xhr  ); };
-		xhr.onload = function( xhr ){ callback( xhr, section ) };
+		xhr.onload = callback;
 		xhr.send( null );
-
-
 
 	}
 

@@ -2,7 +2,14 @@
 	let SEL = {};
 	let users = {};
 
-
+	users.bPesquet = {
+		user : 'bpesquet',
+		subText: 'A modern introduction to an essential language.',
+		repo : 'thejsway',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+	};
 	users.d3 = {
 		user : 'd3',
 		logo : '<img src=https://d3js.org/logo.svg height=32 >',
@@ -18,7 +25,23 @@
 		repo : 'd3.github.com',
 		branch : 'master',
 		folder : '',
+		rawgit: true,
+		defaultFile : 'LICENSE'
+	};
+	users.frontEnd = {
+		user : 'FrontendMasters',
+		repo : 'front-end-handbook-2017',
+		branch : 'master',
+		folder : '',
 		rawgit: true
+	};
+	users.jaanga = {
+		user : 'jaanga',
+		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
+		repo : 'jaanga.github.io',
+		branch : 'master',
+		folder : '',
+		defaultFile : 'readme.md'
 	};
 	users.jDemo = {
 		user: 'jaanga',
@@ -27,19 +50,19 @@
 		branch: 'master',
 		folder: 'demo'
 	};
+	users.jDocs = {
+		user: 'jaanga',
+		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
+		repo: 'jaanga.github.io',
+		branch: 'master',
+		folder: 'documents'
+	};
 	users.jTerrain = {
 		user: 'jaanga',
 		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
 		repo: 'terrain3',
 		branch: 'gh-pages',
 		folder: ''
-	};
-	users.jaanga = {
-		user : 'jaanga',
-		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
-		repo : 'jaanga.github.io',
-		branch : 'master',
-		folder : ''
 	};
 	users.jupyter = {
 		user : 'jupyter',
@@ -68,7 +91,8 @@
 		user : 'ladybug-tools',
 		repo : 'ladybug-web',
 		branch : 'gh-pages',
-		folder : ''
+		folder : '',
+		rawgit: true
 	};
 	users.leader = {
 		user : 'leaderphotos',
@@ -140,18 +164,28 @@
 	};
 	users.theoArmour = {
 		user : 'theo-armour',
+		repo : 'theo-armour.github.io',
+		branch : 'master',
+		folder : ''
+	};
+	users.theoDraw = {
+		user : 'theo-armour',
 		repo : 'drawing',
 		branch : 'master',
-		folder : '',
-		noIndex: true
+		folder : ''
+	};
+	users.theoPages2 = {
+		user : 'theo-armour',
+		repo : 'theo-armour.github.io',
+		branch : 'master',
+		folder : 'pages2'
 	};
 	users.prediqtiv = {
 		user : 'prediqtiv',
 		subText : 'Invest smarter',
 		repo : 'prediqtiv.github.io',
 		branch : 'master',
-		folder : '',
-		defaultFile : 'README.md'
+		folder : ''
 	};
 
 /*
@@ -172,7 +206,7 @@
 
 					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
 
-						'<select id=selUser onchange=TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
+						'<select id=selUser onchange=location.hash="";TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
 
 						'</select>' + b +
 					b +

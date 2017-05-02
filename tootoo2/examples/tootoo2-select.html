@@ -11,40 +11,13 @@
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
 <script src=../r1/css.js ></script>
+<script src=../r1/sel-select-users.js ></script>
 <script src=../r1/mnu-menu-settings.js ></script>
 <script src=../r1/too-tootoo.js ></script>
 
 <script>
 // Copyright 2017 Jaanga authors ~ MIT license
 
-
-	protocol = location.protocol;
-
-	if ( protocol === 'file:' ) {
-
-		usr  = location.pathname.slice( 42 );
-		usr = usr.slice( 0, usr.indexOf( '.' ) );
-
-	} else if ( protocol === 'https:' ) {
-
-		usr = location.host.slice( 0, location.host.indexOf( '.' ) );
-
-	}
-
-console.log( 'usr', usr );
-
-	user = {
-		user : usr,
-		subText : '',
-		repo : usr + '.github.io',
-		branch : 'master',
-		folder : '',
-		defaultFile : 'README.md'
-	};
-
-//	location.hash = 'README.md';
-
-/*
 	user = {
 		user : 'prediqtiv',
 		subText : 'Invest smarter',
@@ -54,7 +27,6 @@ console.log( 'usr', usr );
 		defaultFile : 'README.md'
 	};
 
-*/
 
 	init();
 
@@ -70,7 +42,7 @@ console.log( 'usr', usr );
 			'<div id=menu >' +
 
 				'<h2>' +
-					'<a href=http://pushme-pullyou.github.io title="Jaanga - your github repo happy place" > &#x2766 </a><br>' +
+					'<a href=http://jaanga.github.io title="Jaanga - your 3D happy place" > &#x2766 </a><br>' +
 //					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
 					'<a href="" title="Click here to refresh this page" >' + location.pathname.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) + '</a>' +
 					' ~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
@@ -80,9 +52,11 @@ console.log( 'usr', usr );
 
 				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
 
+				'<div id=selSelectUsers ></div>' +
+
 				'<details open >' +
 
-					'<summary><h3 id=menuTitle >Menu</h3></summary>' +
+					'<summary><h3 id=menuTitle >Contents</h3></summary>' +
 
 					'<div id=breadcrumbs ></div>' +
 					'<div id=menuItems ></div>' +
@@ -104,6 +78,8 @@ console.log( 'usr', usr );
 		'';
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		SEL.initSelectUsers();
 
 		TOO.initUser( user );
 

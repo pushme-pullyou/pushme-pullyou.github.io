@@ -2,11 +2,11 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>Front-end Handbook 2017</title>
+<title></title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on GitHub with remarkable ease' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2017-03-26' >
+<meta name=date content='2017-05-02' >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
@@ -14,18 +14,33 @@
 <script src=../r1/mnu-menu-settings.js ></script>
 <script src=../r1/too-tootoo.js ></script>
 <script>
-// Copyright © 2017 PushMe PullYou authors. MIT license
-// https://github.com/showdownjs/showdown
+// Copyright 2017 Pushme Pullyou authors ~ MIT license
+
+	var protocol, usr;
+
+	protocol = location.protocol;
+
+	if ( protocol === 'file:' ) {
+
+		usr  = location.pathname.slice( 0, location.pathname.indexOf( 'github.io' ) - 1 );
+		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
+
+	} else if ( protocol === 'https:' ) {
+
+		usr = location.host.slice( 0, location.host.indexOf( '.' ) );
+
+	}
 
 
 	var user = {
-		user : 'FrontendMasters',
-		repo : 'front-end-handbook-2017',
+		user : usr,
+		subText : '',
+		repo : usr + '.github.io',
 		branch : 'master',
 		folder : '',
-		rawgit: true
-//		noIndex: 'true'
+		defaultFile : 'README.md'
 	};
+
 
 	init();
 
@@ -42,7 +57,7 @@
 
 				'<h2>' +
 					'<a href=http://pushme-pullyou.github.io title="Jaanga - your Github repo happy place" > &#x2766 </a><br>' +
-					'<a href="" title="Click here to refresh this page" >' + user.user + '</a>' +
+					'<a href="" title="Click here to refresh this page" >' + user.user + '/' + user.folder + '</a>' +
 //					'<a href="" title="Click here to refresh this page" >' + location.pathname.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) + '</a>' +
 					' ~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 				'</h2>' +
@@ -77,47 +92,6 @@
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
 		TOO.initUser( user );
-
-
-	}
-
-	function XXXgetFileMD( url ) {
-
-// https://github.com/showdownjs/showdown
-
-		showdown.setFlavor('github');
-
-		var converter = new showdown.Converter();
-
-		requestFile( url, callbackMD );
-
-		TOO.contents.style.overflowX = 'hidden';
-
-		function callbackMD( xhr ) {
-
-			text = converter.makeHtml( xhr.target.response );
-
-			text = text.replace( /src="/g, 'src="https://raw.githubusercontent.com/FrontendMasters/front-end-handbook-2017/master/images/' );
-
-console.log( 'txt', text );
-
-			TOO.contents.innerHTML =
-			'<div style="border: 0px red solid; margin: 0 auto; width: 800px; position: relative;" >' +
-				text +
-			'</div>';
-
-			getFileDataXHR( xhr );
-
-		}
-
-	}
-
-
-	function onWindowResize() {
-
-		if ( window.self !== window.top || window.innerWidth < 500 ) { container.style.left = '-325px'; }
-
-		contents.style.width = window.innerWidth - 350;
 
 	}
 
