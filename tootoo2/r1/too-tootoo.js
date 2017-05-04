@@ -31,7 +31,6 @@
 
 		TOO.setMenu( user.folder );
 
-
 	}
 
 
@@ -57,9 +56,7 @@
 
 	TOO.setMenuDefault = function ( path ) {
 
-//		let url;
-
-
+		let url;
 
 		url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
 

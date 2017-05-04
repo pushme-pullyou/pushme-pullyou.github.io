@@ -10,9 +10,13 @@
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-<script src=../examples/css-prediqtiv.js ></script>
-<script src=../r1/mnu-menu-settings.js ></script>
-<script src=../r1/too-tootoo.js ></script>
+<script src=../r2/css.js ></script>
+<script src=../r2/but-buttons.js ></script>
+<script src=../r2/sel-select-users.js ></script>
+<script src=../r2/set-settings-about.js ></script>
+<script src=../r2/too-tootoo.js ></script>
+<script src=../r2/mnu-items.js ></script>
+<script src=../r2/cnt-contents.js ></script>
 <script>
 // Copyright 2017 prediqtiv authors ~ MIT license
 
@@ -29,26 +33,27 @@
 	};
 
 
-	TOO.tableOfContents = [
+	TOO.tableOfContents =
 
-		[ 'header', 'predIQtiv' ],
-			[ '', 'README.md', 'predIQtiv home page' ],
-			[ '', 'license.md', 'Copyright and license' ],
-		[ 'header', 'eyeCue'],
-			[ 'eye-cue/', 'README.md', 'eyeCue Read Me' ],
-			[ 'eye-cue/replay/', 'README.md', '<ul><li>eyeCue Replay Read Me</li></ul>' ],
-			[ 'eye-cue/realtime/', 'README.md', '<ul><li>eyeCue Realtime Read Me</li></ul>' ],
-		[ 'header', 'Trades'],
-			[ 'trades-get/', 'README.md', 'Trades Get Read Me' ],
-		[ 'header', 'Tweets'],
-			[ 'tweets/', 'README.md', 'Tweets Read Me' ],
-		[ 'header', 'White Papers'],
-			[ 'white-papers/', 'README.md', 'White Papers Read Me' ],
-			[ 'white-papers/', 'outliers-data-normlization.md', '<ul><li>Markets, Outliers and Data Normalization</li></ul>' ],
-		[ 'header', 'Device Parameters Test '],
-			[ 'device-parameters-test/', 'README.md', 'Device Parameters Test Read Me' ],
-
-	];
+`
+## predIQtiv
+[predIQtiv home page]( #README.md )
+[Copyright and license]( #license.md )
+## eyeCue
+[eyeCue Read Me]( #eye-cue/README.md )
+* [eyeCue Replay Read Me](#eye-cue/replay/README.md )
+* [eyeCue Realtime Read]( #eye-cue/realtime/README.md )
+## Trades
+[Trades Get Read Me]( #trades-get/README.md )
+## Tweets
+[Tweets Read Me]( #tweets/README.md )
+## White Papers
+[White Papers Read Me]( #white-papers/README.md )
+* [Markets, Outliers and Data Normalization]( #white-papers/outliers-data-normlization.md )
+* [Code, Styling and Abstraction]( #white-papers/code-styling-abstraction.md )
+## Device Parameters Test
+[Device Parameters Test Read Me]( #device-parameters-test/README.md )
+`;
 
 
 	init();
@@ -78,22 +83,16 @@
 
 				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
 
-				'<details open >' +
 
-					'<summary><h3 id=menuTitle >Menu</h3></summary>' +
+				'<div>' +
+					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu();  >Table of Conntents</button>' +
+					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
+				'</div>' + b +
 
-					'<div>' +
-						'<button onclick=TOO.setMenuContents();  >Table of Contents</button>' +
-						' <button onclick=TOO.setMenuDefault(); >All Files</button>' +
-					'</div>' + b +
-
-					'<div id=breadcrumbs ></div>' +
-					'<div id=menuItems ></div>' +
-
-				'</details>' + b +
+				'<div id=mnuItems ></div>' +
 
 				'<div id=mnuSettings ></div>' +
-
+				'<div id=mnuCount ></div>' +
 				'<div id=mnuAbout ></div>' +
 
 			'</div>' +
@@ -107,12 +106,22 @@
 		'';
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+		window.addEventListener ( 'hashchange', onHashChange, false );
+
+		BUT.initButtons();
+
+		SET.init();
 
 		TOO.initUser( user );
 
 	}
 
 
+	function onHashChange() {
+
+		TOO.getFileSetContents( location.hash.slice( 1 ) );
+
+	}
 </script>
 </body>
 </html>

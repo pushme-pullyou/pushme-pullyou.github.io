@@ -15,14 +15,28 @@
 	var title, fileNameHtm, fileNameCss;
 
 	title = 'preIQtiv - invest smarter';
-	title = 'Leader Photos - by Nigel Dickinson';
+//	title = 'Leader Photos - by Nigel Dickinson';
 
-	fileNameHtm = '../r1/tootoo2-template-r1.html';
-	fileNameHtm = '../examples/tootoo2-prediqtiv-r1.html';
-	fileNameHtm = '../examples/tootoo2-leader-photos.html';
+	fileNameHtm = '../r2/tootoo2-template.html';
+	fileNameHtm = '../examples-r2/tootoo2-prediqtiv.html';
+//	fileNameHtm = '../examples/tootoo2-leader-photos.html';
 
-	fileNameCss = '../r1/css.js';
-//	fileNameCss = '../examples/css-prediqtiv.js';
+	fileNameCss = '../r2/css.js';
+	fileNameCss = '../examples/css-prediqtiv.js';
+
+	files = [
+
+		'../r2/css.js',
+		'../r2/but-buttons.js',
+		'../r2/sel-select-users.js',
+		'../r2/set-settings-about.js',
+		'../r2/too-tootoo.js',
+		'../r2/mnu-items.js',
+		'../r2/cnt-contents.js',
+
+	];
+
+	count = 0;
 
 	var htm, rme, css, mnu, sel, too;
 
@@ -118,10 +132,10 @@
 
 		htm = htm.replace( '<title>', '<title>' + title );
 
-		requestFile( '../r1/README.md', callbackRme );
+		requestFile( '../r2/README.md', callbackRme );
+
 
 	}
-
 
 	function callbackRme( xhr ) {
 
@@ -134,7 +148,6 @@
 	}
 
 
-
 	function callbackCss( xhr ) {
 
 		css = xhr.target.response;
@@ -145,39 +158,117 @@
 			'// css.js inserted\n' +
 			css );
 
-		requestFile( '../r1/mnu-menu-settings.js', callbackMnu );
+		requestFile( files[ 1 ], callback1 );
 
 		contents.innerText = htm;
 
 	}
 
 
-	function callbackMnu( xhr ) {
+	function callback1( xhr ) {
 
-		mnu = xhr.target.response;
+		var txt = xhr.target.response;
 
-		htm = htm.replace( '<script src=..\/r1\/mnu-menu-settings.js >', '<script>' +
-			'\n// mnu-menu-settings.js inserted\n' +
-			mnu
+		htm = htm.replace( '<script src=' + files[ 1 ]  + ' >',
+
+			'<script>' + '\n// ' + files[ 1 ] + ' inserted\n' + txt
 		);
 
-		requestFile( '../r1/too-tootoo.js', callbackToo );
+		requestFile( files[ 2 ], callback2 );
+
+		contents.innerText = htm;
+
+	}
+
+	function callback2( xhr ) {
+
+		var txt = xhr.target.response;
+
+		htm = htm.replace( '<script src=' + files[ 2 ] + ' >',
+
+			'<script>' + '\n// ' + files[ 2 ] + ' inserted\n' + txt
+		);
+
+		requestFile( files[ 3 ], callback3 );
+
+//		contents.innerText = htm;
+
+	}
+
+
+	function callback3( xhr ) {
+
+		var txt = xhr.target.response;
+
+		htm = htm.replace( '<script src=' + files[ 3 ] + ' >',
+
+			'<script>' + '\n// ' + files[ 3 ] + ' inserted\n' + txt
+		);
+
+		requestFile( files[ 4 ], callback4 );
+
+		contents.innerText = htm;
+
+	}
+
+	function callback4( xhr ) {
+
+		txt = xhr.target.response;
+
+		htm = htm.replace( '<script src=' + files[ 4 ] + ' >',
+
+			'<script>' + '\n// ' + files[ 4 ] + ' inserted\n' + txt
+		);
+
+		requestFile( files[ 5 ], callback5 );
+
+//		contents.innerText = htm;
+
+	}
+
+	function callback5( xhr ) {
+
+		txt = xhr.target.response;
+
+		htm = htm.replace( '<script src=' + files[ 5 ] + ' >',
+
+			'<script>' + '\n// ' + files[ 5 ] + ' inserted\n' + txt
+		);
+
+		requestFile( files[ 6 ], callback6 );
+
+//		contents.innerText = txt;
+
+	}
+
+	function callback6( xhr ) {
+
+		txt = xhr.target.response;
+
+		htm = htm.replace( '<script src=' + files[ 6 ] + ' >',
+
+			'<script>' + '\n// ' + files[ 6 ] + ' inserted\n' + txt
+		);
+
+//		requestFile( files[ 7 ], callback7 );
 
 		contents.innerText = htm;
 
 	}
 
 
-	function callbackToo( xhr ) {
+	function callback7( xhr ) {
 
-		too = xhr.target.response;
+		txt = xhr.target.response;
 
-		htm = htm.replace( '<script src=..\/r1/too-tootoo.js >', '<script>' +
-			'\n//too-tootoo.js inserted\n' +
-			too
+		txt = htm.replace( '<script src=' + files[ 5 ] ,
+
+			'<script>' + '\n// ' + files[ 7 ] + ' inserted\n' + txt
 		);
 
-		contents.innerText = htm;
+//		requestFile( files[ 6 ], callback6 );
+
+//		contents.innerText = txt;
 
 	}
 

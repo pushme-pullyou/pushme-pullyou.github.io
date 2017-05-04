@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>Front-end Handbook 2017</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-03-26' >
+</head>
+<body>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=../r2/css.js ></script>
+<script src=../r2/but-buttons.js ></script>
+<script src=../r2/sel-select-users.js ></script>
+<script src=../r2/set-settings-about.js ></script>
+<script src=../r2/too-tootoo.js ></script>
+<script src=../r2/cnt-contents.js ></script>
+
+<script src=tootoo2-front-end-menu.js ></script>
+<script>
+// Copyright © 2017 PushMe PullYou authors. MIT license
+// https://github.com/showdownjs/showdown
+
+
+	var user = {
+		user : 'FrontendMasters',
+		repo : 'front-end-handbook-2017',
+		branch : 'master',
+		folder : '',
+		rawgit: true
+
+	};
+
+
+	TOO.massageText = function( response ){
+
+		var text;
+
+		text = TOO.converter.makeHtml( response );
+
+		text = text.replace( /src="images/g, 'src="https://rawgit.com/FrontendMasters/front-end-handbook-2017/master/images/' );
+		text = text.replace( /src="..\/images/g, 'src="https://rawgit.com/FrontendMasters/front-end-handbook-2017/master/images/' );
+
+		return text;
+
+	};
+
+
+	init();
+
+	function init() {
+
+		let container, contents, hamburger, menu;
+
+		CSS.setCSS();
+
+		container = document.body.appendChild( document.createElement( 'div' ) );
+		container.id = 'container';
+		container.innerHTML =
+			'<div id=menu >' +
+
+				'<h2>' +
+					'<a href=http://pushme-pullyou.github.io title="Jaanga - your Github repo happy place" > &#x2766 </a><br>' +
+					'<a href="" title="Click here to refresh this page" >' + user.user + '</a>' +
+					' ~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
+				'</h2>' +
+
+				'<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>' +
+
+				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
+
+				'<div>' +
+					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu();  >Table of Contents</button>' +
+					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
+				'</div>' + b +
+
+				'<div id=mnuItems ></div>' +
+
+				'<div id=mnuSettings ></div>' +
+				'<div id=mnuCount ></div>' +
+				'<div id=mnuAbout ></div>' +
+
+			'</div>' +
+
+			'<div id=hamburger onclick=container.style.left=container.style.left===""?"-325px":""; >' +
+				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
+			'</div>' +
+
+			'<div id=contents ></div>' +
+
+		'';
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		window.addEventListener ( 'hashchange', onHashChange, false );
+
+		BUT.initButtons();
+
+		SET.init();
+
+		TOO.initUser( user );
+
+	}
+
+	function onHashChange() {
+
+		TOO.getFileSetContents( location.hash.slice( 1 ) );
+
+	}
+
+</script>
+</body>
+</html>

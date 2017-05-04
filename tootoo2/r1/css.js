@@ -1,6 +1,6 @@
-	CSS = {};
 
-	MNU = {};
+
+	CSS = {};
 
 	CSS.setCSS = function() {
 
@@ -24,7 +24,6 @@
 
 			'#container {  height: 100%; left: 0; position: absolute; transition: left 1s; width: 100%; }' +
 
-// let each type of contents decide its best width and placement
 			'#contents { border: 0px #ccc solid; height: 100%; left: 325px; overflow-x: hidden; position: absolute; width: ' + ( window.innerWidth - 325 ) + 'px; }' +
 
 			'#editButton { background-color: #555; color: #fff; opacity: 0.5; padding: 8px; position: fixed; right: 20px; top: 20px; }' +
