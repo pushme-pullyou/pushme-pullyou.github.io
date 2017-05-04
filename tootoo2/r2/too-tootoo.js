@@ -1,9 +1,6 @@
 	TOO = {};
 
-//	let files;
 	const b = '<br>';
-
-
 
 	TOO.initUser = function( usr ) {
 
@@ -21,6 +18,7 @@
 				'<div id=menuItems ></div>' +
 
 			'</details>' + b +
+
 		'';
 
 		if ( location.hash.includes( '@@@' ) ) {
@@ -41,17 +39,6 @@
 		TOO.setMenu( user.folder );
 
 	}
-
-
-
-
-	TOO.massageText = function( response ){
-
-		text = TOO.converter.makeHtml( response );
-
-		return text;
-
-	};
 
 
 	TOO.setMenuDefault = function ( path ) {
