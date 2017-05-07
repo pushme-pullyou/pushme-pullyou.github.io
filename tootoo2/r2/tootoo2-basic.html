@@ -12,10 +12,8 @@
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
 <script src=../r2/css.js ></script>
 <script src=../r2/but-buttons.js ></script>
-<script src=../r2/sel-select-users.js ></script>
 <script src=../r2/set-settings-about.js ></script>
 <script src=../r2/too-tootoo.js ></script>
-<script src=../r2/mnu-items.js ></script>
 <script src=../r2/cnt-contents.js ></script>
 <script>
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
@@ -72,7 +70,7 @@
 
 				'<div id=mnuSelect ></div>' +
 
-				'<div id=mnuItems ></div>' +
+				'<div id=mnuContents ></div>' +
 
 				'<div id=mnuSettings ></div>' +
 				'<div id=mnuCount ></div>' +
@@ -91,8 +89,6 @@
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
 		window.addEventListener ( 'hashchange', onHashChange, false );
-
-		SEL.initSelectUsers();
 
 		BUT.initButtons();
 

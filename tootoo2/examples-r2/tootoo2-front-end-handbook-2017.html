@@ -10,14 +10,16 @@
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-<script src=../r2/css.js ></script>
+
+<script src=tootoo2-front-end-menu.js ></script>
+
 <script src=../r2/but-buttons.js ></script>
+<script src=../r2/css.js ></script>
 <script src=../r2/sel-select-users.js ></script>
 <script src=../r2/set-settings-about.js ></script>
 <script src=../r2/too-tootoo.js ></script>
 <script src=../r2/cnt-contents.js ></script>
 
-<script src=tootoo2-front-end-menu.js ></script>
 <script>
 // Copyright © 2017 PushMe PullYou authors. MIT license
 // https://github.com/showdownjs/showdown
@@ -75,8 +77,7 @@
 					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
 				'</div>' + b +
 
-				'<div id=mnuItems ></div>' +
-
+				'<div id=mnuContents ></div>' +
 				'<div id=mnuSettings ></div>' +
 				'<div id=mnuCount ></div>' +
 				'<div id=mnuAbout ></div>' +
@@ -106,6 +107,31 @@
 	function onHashChange() {
 
 		TOO.getFileSetContents( location.hash.slice( 1 ) );
+
+		if ( MNU.files ) {
+
+			links = document.getElementsByTagName( 'li' );
+
+			for ( let i = 0; i < links.length; i++ ) {
+
+				link = links[ i ];
+				text = link.firstElementChild.hash;
+
+				if ( text === location.hash ) {
+
+console.log( 'bingo ', MNU.files.indexOf( location.hash ) );
+
+					link.style.backgroundColor = 'lightgreen';
+
+				} else {
+
+					link.style.backgroundColor = '';
+
+				}
+
+			}
+
+		}
 
 	}
 

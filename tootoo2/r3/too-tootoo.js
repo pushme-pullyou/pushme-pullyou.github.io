@@ -1,10 +1,31 @@
 	let TOO = {};
-	let MNU = {};
-
+	var MNU = MNU || {};
 
 	const b = '<br>';
 
+
+	MNU.getFiles = function() {
+
+		MNU.files = MNU.tableOfContents.replace( / /g, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
+
+	};
+
+
+	TOO.setContentsWidth = function() {
+
+		contents.style.width = ( window.innerWidth - 325 ) + 'px';
+
+	}
+
 	TOO.initUser = function( usr ) {
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		window.addEventListener( 'resize', TOO.setContentsWidth(), false );
+
+		TOO.setContentsWidth();
+
+		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
 
 		user = usr;
 
@@ -37,6 +58,8 @@
 
 		}
 
+		if ( MNU.tableOfContents ) { MNU.getFiles(); }
+
 		TOO.setMenu = MNU.tableOfContents !== undefined ? TOO.setMenuContents : TOO.setMenuDefault;
 		TOO.setMenu( user.folder );
 
@@ -46,7 +69,7 @@
 	TOO.setMenuDefault = function ( path ) {
 
 		let url;
-
+		TOO.path = path;
 		url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
 
 		TOO.setBreadcrumbs( path );
@@ -63,7 +86,7 @@
 		response = xhr.target.response;
 		items = JSON.parse( response );
 
-		TOO.files = [];
+		MNU.files = [];
 		count = 0;
 		menuItems.innerHTML = '';
 
@@ -74,8 +97,8 @@
 			if ( item.type === 'dir' ) {
 
 				menuItems.innerHTML +=
-//					'<a href=JavaScript:location.hash="' + item.path + '";TOO.setMenuDefault("' + item.path  + '"); style=width:100%;  > 🗀 ' + item.name  + '</a>' + b +
-					'<a href=JavaScript:TOO.setMenuDefault("' + item.path  + '"); style=width:100%;  > 🗀 ' + item.name  + '</a>' + b +
+					'<a href=JavaScript:location.hash="";TOO.setMenuDefault("' + item.path  + '"); style=width:100%;  > 🗀 ' + item.name  + '</a>' + b +
+//					'<a href=JavaScript:TOO.setMenuDefault("' + item.path  + '"); style=width:100%;  > 🗀 ' + item.name  + '</a>' + b +
 
 				'';
 
@@ -93,7 +116,7 @@
 					'<a id=file' + count++ + ' href=#' + item.path + ' style=width:100%;  > ' + item.name + '</a>' + b +
 				'';
 
-				TOO.files.push( item.path );
+				MNU.files.push( item.path );
 
 			}
 
@@ -102,11 +125,11 @@
 
 		if ( location.hash === '' && ( location.hash.includes( '/' ) || location.hash.includes( '.' ) ) )  {
 
-			TOO.getFileSetContents( location.hash.slice( 1 ) );
+			CNT.getFileSetContents( location.hash.slice( 1 ) );
 
-		} else if ( user.defaultFile !== undefined ) {
+		} else if ( user.defaultFile !== undefined && user.folder === TOO.path ) {
 
-			TOO.getFileSetContents( user.defaultFile );
+			CNT.getFileSetContents( user.defaultFile );
 
 		} else {
 
@@ -119,32 +142,32 @@
 
 	TOO.setMenuContents = function() { // we have a table of contents / TOO.tableOfContents somewhere
 
-		var text;
+//		var text;
 
 		showdown.setFlavor( 'github' );
 
 		TOO.converter = new showdown.Converter();
 
-		text = TOO.massageText( MNU.tableOfContents );
+		text = CNT.massageText( MNU.tableOfContents );
 
 		menuItems.innerHTML = text;
 
-		TOO.files = [];
+		MNU.files = [];
 		menuTitle.innerHTML = 'Table of Contents';
 		breadcrumbs.innerHTML = '';
 
 
 		if ( location.hash.length > 1 ) {
 
-			TOO.getFileSetContents( location.hash.slice( 1 )  );
+			CNT.getFileSetContents( location.hash.slice( 1 )  );
 
-		} else if ( user.defaultFile !== undefined ) {
+		} else if ( user.defaultFile !== undefined && user.folder === TOO.path ) {
 
-			TOO.getFileSetContents( user.defaultFile );
+			CNT.getFileSetContents( user.defaultFile );
 
 		} else {
 
-			TOO.getFileSetContents( 'README.md' );
+			CNT.getFileSetContents( 'README.md' );
 
 		}
 
@@ -155,18 +178,18 @@
 
 		let txt, start, path, p;
 
-		for ( var i = 0; i < TOO.files.length; i++ ) {
+		for ( var i = 0; i < MNU.files.length; i++ ) {
 
-			path = TOO.files[ i ];
+			path = MNU.files[ i ];
 			p = path.toLowerCase();
 
-			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { TOO.getFileSetContents( path ); return; }
-			if ( p.endsWith( 'readme.md' ) ) { TOO.getFileSetContents( path ); return; }
+			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CNT.getFileSetContents( path ); return; }
+			if ( p.endsWith( 'readme.md' ) ) { CNT.getFileSetContents( path ); return; }
 
 		}
 
-		path = TOO.files[ 0 ];
-		TOO.getFileSetContents( path  );
+		path = MNU.files[ 0 ];
+		CNT.getFileSetContents( path  );
 
 	}
 
@@ -193,6 +216,44 @@
 		}
 
 		breadcrumbs.innerHTML = txt;
+
+	}
+
+
+	TOO.onHashChange = function() {
+
+		if ( location.hash.slice( 1,2 ) === '!' ) {
+
+			CNT.createPageOfImages( location.hash.slice( 2 ) );
+
+		} else {
+
+			CNT.getFileSetContents( location.hash.slice( 1 ) );
+
+		}
+
+		if ( MNU.files ) {
+
+			links = document.getElementsByTagName( 'li' );
+
+			for ( let i = 0; i < links.length; i++ ) {
+
+				link = links[ i ];
+				text = link.firstChild.hash;
+
+				if ( text === location.hash ) {
+
+					link.style.backgroundColor = 'lightgreen';
+
+				} else {
+
+					link.style.backgroundColor = '';
+
+				}
+
+			}
+
+		}
 
 	}
 

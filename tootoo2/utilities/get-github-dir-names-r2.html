@@ -143,7 +143,7 @@
 
 						headers.push( arr[ 1 ] );
 
-						txt += "[ 'header', '" + arr[ 1 ][ 0 ].toUpperCase() + arr[ 1 ].slice( 1 ) + "' ]," + b;
+						txt += '### ' + arr[ 1 ][ 0 ].toUpperCase() + arr[ 1 ].slice( 1 ).replace( /-/g, ' ' ) + b;
 
 					} else {
 
@@ -156,7 +156,10 @@
 
 						name = arr.join( ' ' );
 
-						txt += "&nbsp; &nbsp; [ '" + item.path + "', 'gallery', '" + name + "' ]," + b;
+						txt += '* [' + name + ']( #!' + item.path + ' )' + b;
+
+
+
 
 					}
 
@@ -164,6 +167,50 @@
 
 			}
 
+			txt = txt.replace( /Bosniabw/, 'Bosnia BW' );
+			txt = txt.replace( 'Romakosovo', 'Roma Kosovo' );
+			txt = txt.replace( 'Bonfireseason', 'Bonfire Season' );
+			txt = txt.replace( 'Irelandwestcoast', 'Ireland West Coast' );
+			txt = txt.replace( 'Citiestourism', 'Cities Tourism' );
+			txt = txt.replace( 'Ibizanitefever', 'Ibiza Nite Fever' );
+			txt = txt.replace( 'Finlandroma', 'Finland Roma' );
+			txt = txt.replace( 'Romapoland', 'Roma Poland' );
+			txt = txt.replace( 'Romatexas', 'Roma Texas' );
+			txt = txt.replace( 'Romatravellersforum', 'Roma Travellers Forum' );
+			txt = txt.replace( 'Romaturkeygreece', 'Roma Turkey Greece' );
+			txt = txt.replace( 'Romavilhelmcovaci', 'Roma Vilhelm Covaci' );
+			txt = txt.replace( 'Slovakiaroma', 'Slovakia Roma' );
+			txt = txt.replace( 'Parisstudentdemonstrations', 'Paris Student Demonstrations' );
+			txt = txt.replace( 'Parisstudentdemonstration31', 'Paris Student Demonstration 31' );
+			txt = txt.replace( 'Parisgeneralstrike', 'Paris General Strike' );
+			txt = txt.replace( 'Artcommissions', 'Art Commissions' );
+			txt = txt.replace( 'Joachimecklwasser', 'Joachim Ecklwasser' );
+			txt = txt.replace( 'Earlyyears', 'Early Years' );
+			txt = txt.replace( 'Centralamerica', 'Central America' );
+			txt = txt.replace( 'Guatemalabw', 'Guatemala BW' );
+			txt = txt.replace( 'Streetchildren', 'Street Children' );
+			txt = txt.replace( 'Todossantos', 'Todos Santos' );
+			txt = txt.replace( 'Classicpowerboats', 'Classic Powerboats' );
+			txt = txt.replace( 'Hurricanemitch', 'Hurricane Mitch' );
+			txt = txt.replace( 'Chasseausanglier', 'Chasse au Sanglier' );
+			txt = txt.replace( 'Meatbook', 'Meat Book' );
+			txt = txt.replace( 'Forestsaerialfrance', 'Forests Aerial France' );
+			txt = txt.replace( 'Hanspeter2', 'Hans Peter' );
+			txt = txt.replace( 'Homepagephotos', 'Homepagephotos' );
+			txt = txt.replace( 'Todossantosnew', 'Todossantosnew' );
+			txt = txt.replace( 'Leaderphotos', 'Leaderphotos' );
+			txt = txt.replace( 'Bartholomeworthodoxturkey', 'Bartholomeworthodoxturkey' );
+			txt = txt.replace( 'Panoramafb', 'Panoramafb' );
+			txt = txt.replace( '', '' );
+
+
+
+			txt = txt.replace( '', '' );
+			txt = txt.replace( '', '' );
+			txt = txt.replace( '', '' );
+			txt = txt.replace( '', '' );
+			txt = txt.replace( '', '' );
+			txt = txt.replace( '', '' );
 			contents.innerHTML = txt;
 
 		}

@@ -15,7 +15,6 @@
 <script src=../r2/sel-select-users.js ></script>
 <script src=../r2/set-settings-about.js ></script>
 <script src=../r2/too-tootoo.js ></script>
-<script src=../r2/mnu-items.js ></script>
 <script src=../r2/cnt-contents.js ></script>
 <script>
 // Copyright 2017 prediqtiv authors ~ MIT license
@@ -32,29 +31,35 @@
 //		defaultFile : 'README.md'
 	};
 
+	MNU = {};
 
-	TOO.tableOfContents =
+	MNU.tableOfContents =
 
 `
 ## predIQtiv
-[predIQtiv home page]( #README.md )
-[Copyright and license]( #license.md )
+* [predIQtiv home page]( #README.md )
+* [Copyright and license]( #license.md )
 ## eyeCue
-[eyeCue Read Me]( #eye-cue/README.md )
-* [eyeCue Replay Read Me](#eye-cue/replay/README.md )
-* [eyeCue Realtime Read]( #eye-cue/realtime/README.md )
+* [eyeCue Read Me]( #eye-cue/README.md )
+    * [eyeCue Replay Read Me](#eye-cue/replay/README.md )
+    * [eyeCue Realtime Read]( #eye-cue/realtime/README.md )
 ## Trades
-[Trades Get Read Me]( #trades-get/README.md )
+* [Trades Get Read Me]( #trades-get/README.md )
 ## Tweets
-[Tweets Read Me]( #tweets/README.md )
+* [Tweets Read Me]( #tweets/README.md )
 ## White Papers
-[White Papers Read Me]( #white-papers/README.md )
-* [Markets, Outliers and Data Normalization]( #white-papers/outliers-data-normlization.md )
-* [Code, Styling and Abstraction]( #white-papers/code-styling-abstraction.md )
+* [White Papers Read Me]( #white-papers/README.md )
+    * [Markets, Outliers and Data Normalization]( #white-papers/outliers-data-normlization.md )
+    * [Code, Styling and Abstraction]( #white-papers/code-styling-abstraction.md )
 ## Device Parameters Test
-[Device Parameters Test Read Me]( #device-parameters-test/README.md )
+* [Device Parameters Test Read Me]( #device-parameters-test/README.md )
 `;
 
+	MNU.getFiles = function() {
+
+		MNU.files = MNU.tableOfContents.replace( / /gi, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
+
+	}();
 
 	init();
 
@@ -89,7 +94,7 @@
 					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
 				'</div>' + b +
 
-				'<div id=mnuItems ></div>' +
+				'<div id=mnuContents ></div>' +
 
 				'<div id=mnuSettings ></div>' +
 				'<div id=mnuCount ></div>' +
@@ -121,7 +126,33 @@
 
 		TOO.getFileSetContents( location.hash.slice( 1 ) );
 
+		if ( MNU.files ) {
+
+			links = document.getElementsByTagName( 'li' );
+
+			for ( let i = 0; i < links.length; i++ ) {
+
+				link = links[ i ];
+				text = link.firstChild.hash;
+
+				if ( text === location.hash ) {
+
+console.log( 'bingo ', MNU.files.indexOf( location.hash ) );
+
+					link.style.backgroundColor = 'lightgreen';
+
+				} else {
+
+					link.style.backgroundColor = '';
+
+				}
+
+			}
+
+		}
+
 	}
+
 </script>
 </body>
 </html>

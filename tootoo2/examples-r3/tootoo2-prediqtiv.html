@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title></title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-05-03' >
+<link rel=stylesheet href=../r3/style.css >
+<style>
+a { color: blue; }
+#bars { color: blue; }
+</style>
+</head>
+
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=../r3/but-buttons.js ></script>
+<script src=../r3/set-settings-about.js ></script>
+<script src=../r3/too-tootoo.js ></script>
+<script src=../r3/cnt-contents.js ></script>
+
+<body>
+
+	<div id=container >
+
+		<div id=menu >
+
+			<h2>
+				<a href=http://pushme-pullyou.github.io title="Jaanga - your Github repo happy place" > &#x2766 </a><br>
+				<a id=mnuTitle href="" title="Click here to refresh this page" ></a>
+				~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
+			</h2>
+
+			<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>
+
+			<div id=mnuTagline ><small></small></div>
+
+			<div id=mnuSelect ></div>
+
+			<div id=mnuContents ></div>
+
+			<div id=mnuSettings ></div>
+			<div id=mnuCount ></div>
+			<div id=mnuAbout ></div>
+
+		</div>
+
+		<div id=hamburger onclick=container.style.left=container.style.left===""?"-325px":""; >
+			<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>
+		</div>
+
+		<div id=contents ></div>
+
+		<div id=butEditFile >Edit</div>
+		<div id=butNextFile >&gt;</div>
+		<div id=butPreviousFile >&lt;</div>
+
+
+	</div>
+
+<script>
+
+// Copyright 2017 Pushme Pullyou authors ~ MIT license
+
+	let images = 'https://prediqtiv.github.io/images/';
+
+	user = {
+		user : 'prediqtiv',
+		subText : 'Invest smarter',
+		logo: '<img src=' + images + 'five-boxes.png height=32 >',
+		repo : 'prediqtiv.github.io',
+		branch : 'master',
+		folder : '',
+//		defaultFile : 'README.md'
+	};
+
+	MNU = {};
+
+	MNU.tableOfContents =
+
+`
+## predIQtiv
+* [predIQtiv home page]( #README.md )
+* [Copyright and license]( #license.md )
+## eyeCue
+* [eyeCue Read Me]( #eye-cue/README.md )
+    * [eyeCue Replay Read Me](#eye-cue/replay/README.md )
+    * [eyeCue Realtime Read]( #eye-cue/realtime/README.md )
+## Trades
+* [Trades Get Read Me]( #trades-get/README.md )
+## Tweets
+* [Tweets Read Me]( #tweets/README.md )
+## White Papers
+* [White Papers Read Me]( #white-papers/README.md )
+    * [Markets, Outliers and Data Normalization]( #white-papers/outliers-data-normlization.md )
+    * [Code, Styling and Abstraction]( #white-papers/code-styling-abstraction.md )
+## Device Parameters Test
+* [Device Parameters Test Read Me]( #device-parameters-test/README.md )
+`;
+
+	MNU.getFiles = function() {
+
+		MNU.files = MNU.tableOfContents.replace( / /gi, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
+
+	};
+
+
+	init();
+
+	function init() {
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
+
+		mnuTitle.innerHTML = 'predIQtiv';
+		mnuTagline.innerHTML = document.head.querySelector( "[name=description]" ).content;
+
+		MNU.getFiles();
+		SET.init();
+
+		TOO.initUser( user );
+
+	}
+
+</script>
+</body>
+</html>

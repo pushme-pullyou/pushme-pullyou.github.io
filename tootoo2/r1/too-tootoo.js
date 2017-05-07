@@ -141,7 +141,7 @@
 
 			if ( TOO.tableOfContents[ i ][ 0 ] === 'header' ) {
 
-				menuItems.innerHTML += '<h4>'  + TOO.tableOfContents[ i ][ 1 ] + '</h4>';
+				menuItems.innerHTML += '<h4>' + TOO.tableOfContents[ i ][ 1 ] + '</h4>';
 
 			} else if ( TOO.tableOfContents[ i ][ 1 ] === 'gallery' ) {
 
