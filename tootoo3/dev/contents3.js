@@ -1,8 +1,8 @@
 
-	let CNT = {};
-	CNT.editor = undefined;
+	let CON = {};
+	CON.editor = undefined;
 
-	CNT.getFileSetContents = function( path ) {
+	CON.getFileSetContents = function( path ) {
 
 		let url, u;
 
@@ -20,19 +20,19 @@
 
 		if ( u.endsWith( '.md' ) ){
 
-			CNT.getFileMD( url );
+			CON.getFileMD( url );
 
 		} else if ( u.endsWith( '.html' ) || u.endsWith( '.htm' ) ) {
 
-			CNT.getFileHTML( url );
+			CON.getFileHTML( url );
 
 		} else if ( u.endsWith( '.gif' ) || u.endsWith( '.ico' ) || u.endsWith( '.jpg' ) || u.endsWith( '.png' ) ||  u.endsWith( '.svg' ) ) {
 
-			CNT.getFileImage( url );
+			CON.getFileImage( url );
 
 		} else {
 
-			CNT.getFileCode( url );
+			CON.getFileCode( url );
 
 		}
 
@@ -43,7 +43,7 @@
 	}
 
 
-	CNT.getFileHTML = function( url ){
+	CON.getFileHTML = function( url ){
 
 		contents.innerHTML =
 //			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) +
@@ -54,17 +54,17 @@
 	}
 
 
-	CNT.massageText = function( response ){
+	CON.massageText = function( response ){
 
-		CNT.converter = new showdown.Converter();
-		text = CNT.converter.makeHtml( response );
+		CON.converter = new showdown.Converter();
+		text = CON.converter.makeHtml( response );
 
 		return text;
 
 	};
 
 
-	CNT.getFileMD = function( url ) {
+	CON.getFileMD = function( url ) {
 
 // https://github.com/showdownjs/showdown
 
@@ -76,7 +76,7 @@
 
 
 
-			text = CNT.massageText( xhr.target.response );
+			text = CON.massageText( xhr.target.response );
 
 			contents.innerHTML =
 
@@ -91,14 +91,14 @@
 	}
 
 
-	CNT.getFileImage = function( url ){
+	CON.getFileImage = function( url ){
 
 		contents.innerHTML = '<img src="' + url + '" style="border: 0px solid gray; margin: 25px 0 0 50px; max-width: 800px; " >';
 
 	}
 
 
-	CNT.getFileCode = function( url ) {
+	CON.getFileCode = function( url ) {
 
 // try embed gist
 
@@ -107,7 +107,7 @@
 			' item will appear here ' +
 		'</div>';
 
-		if ( CNT.editor !== undefined ) {
+		if ( CON.editor !== undefined ) {
 
 			setEditContents();
 
@@ -117,9 +117,9 @@
 // Anyway to get latest automatically?
 // use GitHub code embed??
 
-			CNT.editor = document.body.appendChild( document.createElement( 'script' ) );
-			CNT.editor.onload = setEditContents;
-			CNT.editor.src = 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js';
+			CON.editor = document.body.appendChild( document.createElement( 'script' ) );
+			CON.editor.onload = setEditContents;
+			CON.editor.src = 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js';
 
 		}
 
@@ -143,7 +143,7 @@
 	}
 
 
-	CNT.createPageOfImages = function( path ) {
+	CON.createPageOfImages = function( path ) {
 
 			let page, url, items, item, source;
 
@@ -168,7 +168,7 @@
 						source.endsWith( '.lock' ) ) { continue; }
 
 					page += '<div style=display:inline-block;margin:10px; >' +
-						'<a href=JavaScript:CNT.getFileSetContents("' + item.path +'"); ><img src=' + source + ' height=200; title="' + url.slice( 0, -4 ) + '" ></a>' +
+						'<a href=JavaScript:CON.getFileSetContents("' + item.path +'"); ><img src=' + source + ' height=200; title="' + url.slice( 0, -4 ) + '" ></a>' +
 					'</div>';
 
 				}
@@ -183,3 +183,74 @@
 
 	}
 
+
+
+
+	BUT = {};
+
+// see CNT.getFileSetContents
+
+	BUT.setHighlightAndButtons = function( path, gallery ) {
+
+//highlight
+		if ( gallery ) {
+
+			index = MNU.files.indexOf( '#!' + path );
+
+		} else {
+
+			index = MNU.files.indexOf( path );
+
+		}
+
+		for ( let i = 0; i < MNU.files.length; i++ ) {
+
+			el = document.getElementById( 'file' + i );
+
+			col = ( i === index ) ? '#ccc' : '';
+
+			if ( el ) { el.style.backgroundColor = col; } // else ...
+
+		}
+
+
+
+// buttons
+
+		if ( butEditFile ) {
+
+			var folder = user.folder ? user.folder + '/' : '';
+
+			butEditFile.innerHTML = '<a href="https://github.com/' + user.user + '/' + user.repo + '/blob/' + user.branch + '/' + folder + path + '" target="_blank"> Edit </a>';
+
+		}
+
+
+		indexNext = index + 1;
+
+		if ( MNU.files[ indexNext ].includes( '###' ) ) { indexNext++; }
+		if ( indexNext >= MNU.files.length - 1 ) { indexNext = 0; }
+
+		indexPrevious = index - 1;
+
+		if ( indexPrevious <= 0 ) { indexPrevious = MNU.files.length - 1; }
+		if ( MNU.files[ indexPrevious ].includes( '###' ) ) { indexPrevious--; }
+		if ( indexPrevious <= 0 ) { indexPrevious = MNU.files.length - 1; }
+
+
+		if ( butNextFile || butPreviousFile ) {
+
+			if ( gallery ) {
+
+				butNextFile.innerHTML = '<a href=JavaScript:CNT.createPageOfImages("' + MNU.files[ indexNext ].slice( 2 ) + '"); > &gt; </a>';
+				butPreviousFile.innerHTML = '<a href=JavaScript:CNT.createPageOfImages("' + MNU.files[ indexPrevious ].slice( 2 ) + '"); > &lt; </a>';
+
+			} else {
+
+				butNextFile.innerHTML = '<a href=JavaScript:CNT.getFileSetContents("' + MNU.files[ indexNext ] + '"); > &gt; </a>';
+				butPreviousFile.innerHTML = '<a href=JavaScript:CNT.getFileSetContents("' + MNU.files[ indexPrevious ] + '"); > &lt; </a>';
+
+			}
+		}
+
+	}

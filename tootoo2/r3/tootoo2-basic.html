@@ -65,8 +65,10 @@
 
 	if ( protocol === 'file:' ) {
 
-		usr  = location.pathname.slice( 0, location.pathname.indexOf( 'github.io' ) - 1 );
+		firstDot = location.pathname.indexOf( 'github.io' );
+		usr = location.pathname.slice( 0, firstDot - 1 );
 		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
+		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
 
 	} else if ( protocol === 'https:' ) {
 
@@ -80,8 +82,7 @@
 		subText : '',
 		repo : usr + '.github.io',
 		branch : 'master',
-		folder : 'tootoo2',
-//		defaultFile : 'README.md'
+		folder : path
 	};
 
 
