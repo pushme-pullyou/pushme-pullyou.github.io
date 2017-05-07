@@ -2,7 +2,7 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo3 Basic</title>
+<title></title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
@@ -17,6 +17,7 @@
 <script src=../dev/menu3.js ></script>
 <script src=../dev/contents3.js ></script>
 
+<script src=tootoo3-front-end-menu.js ></script>
 <body>
 
 	<div id=container >
@@ -60,30 +61,27 @@
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
-	let protocol, usr;
-
-	protocol = location.protocol;
-
-	if ( protocol === 'file:' ) {
-
-		firstDot = location.pathname.indexOf( 'github.io' );
-		usr = location.pathname.slice( 0, firstDot - 1 );
-		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
-		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
-
-	} else if ( protocol === 'https:' ) {
-
-		usr = location.host.slice( 0, location.host.indexOf( '.' ) );
-
-	}
-
-
-	let user = {
-		user : usr,
-		subText : '',
-		repo : usr + '.github.io',
+	var user = {
+		user : 'FrontendMasters',
+		repo : 'front-end-handbook-2017',
 		branch : 'master',
-		folder : path
+		folder : '',
+		rawgit: true
+
+	};
+
+
+	CON.massageText = function( response ){
+
+		var text;
+
+		text = TOO.converter.makeHtml( response );
+
+		text = text.replace( /src="images/g, 'src="https://rawgit.com/FrontendMasters/front-end-handbook-2017/master/images/' );
+		text = text.replace( /src="..\/images/g, 'src="https://rawgit.com/FrontendMasters/front-end-handbook-2017/master/images/' );
+
+		return text;
+
 	};
 
 

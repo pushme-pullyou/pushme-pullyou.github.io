@@ -1,5 +1,6 @@
 
 	let CON = {};
+
 	CON.editor = undefined;
 
 	CON.getFileSetContents = function( path ) {
@@ -208,7 +209,6 @@
 			if ( el ) { el.style.backgroundColor = col; } // else ...
 
 		}
-
 
 
 // buttons

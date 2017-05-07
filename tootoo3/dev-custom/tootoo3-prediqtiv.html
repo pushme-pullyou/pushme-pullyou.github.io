@@ -2,14 +2,16 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo3 Basic</title>
+<title></title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 <meta name=date content='2017-05-07' >
-
 <link rel=stylesheet href=../dev/style3.css >
-
+<style>
+a { color: blue; }
+#bars { color: blue; }
+</style>
 </head>
 
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
@@ -60,31 +62,40 @@
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
-	let protocol, usr;
+	let images = 'https://prediqtiv.github.io/images/';
 
-	protocol = location.protocol;
-
-	if ( protocol === 'file:' ) {
-
-		firstDot = location.pathname.indexOf( 'github.io' );
-		usr = location.pathname.slice( 0, firstDot - 1 );
-		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
-		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
-
-	} else if ( protocol === 'https:' ) {
-
-		usr = location.host.slice( 0, location.host.indexOf( '.' ) );
-
-	}
-
-
-	let user = {
-		user : usr,
-		subText : '',
-		repo : usr + '.github.io',
+	user = {
+		user : 'prediqtiv',
+		subText : 'Invest smarter',
+		logo: '<img src=' + images + 'five-boxes.png height=32 >',
+		repo : 'prediqtiv.github.io',
 		branch : 'master',
-		folder : path
+		folder : '',
+//		defaultFile : 'README.md'
 	};
+
+
+	MNU.tableOfContents =
+
+`
+## predIQtiv
+* [predIQtiv home page]( #README.md )
+* [Copyright and license]( #license.md )
+## eyeCue
+* [eyeCue Read Me]( #eye-cue/README.md )
+    * [eyeCue Replay Read Me](#eye-cue/replay/README.md )
+    * [eyeCue Realtime Read]( #eye-cue/realtime/README.md )
+## Trades
+* [Trades Get Read Me]( #trades-get/README.md )
+## Tweets
+* [Tweets Read Me]( #tweets/README.md )
+## White Papers
+* [White Papers Read Me]( #white-papers/README.md )
+    * [Markets, Outliers and Data Normalization]( #white-papers/outliers-data-normlization.md )
+    * [Code, Styling and Abstraction]( #white-papers/code-styling-abstraction.md )
+## Device Parameters Test
+* [Device Parameters Test Read Me]( #device-parameters-test/README.md )
+`;
 
 
 	init();
@@ -97,7 +108,6 @@
 		TOO.initUser( user );
 
 	}
-
 
 </script>
 </body>

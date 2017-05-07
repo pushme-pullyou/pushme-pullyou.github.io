@@ -3,16 +3,9 @@
 	const b = '<br>';
 
 
-
-
-
-	TOO.setContentsWidth = function() {
-
-		contents.style.width = ( window.innerWidth - 325 ) + 'px';
-
-	}
-
 	TOO.initUser = function( usr ) {
+
+		user = usr;
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
@@ -22,18 +15,18 @@
 
 		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
 
-		user = usr;
-
 		mnuContents.innerHTML =
+
+
+
+			'<details open >' +
+
+				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
 
 				'<div>' +
 					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu(); >Table of Contents</button>' +
 					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
 				'</div>' + b +
-
-			'<details open >' +
-
-				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
 
 				'<div id=breadcrumbs ></div>' +
 				'<div id=menuItems ></div>' +
@@ -59,6 +52,8 @@
 		}
 
 		if ( MNU.tableOfContents ) { MNU.getFiles(); }
+
+		MNU.init();
 
 		TOO.setMenu = MNU.tableOfContents !== undefined ? TOO.setMenuContents : TOO.setMenuDefault;
 		TOO.setMenu( user.folder );
@@ -255,6 +250,14 @@
 			}
 
 		}
+
+	}
+
+
+
+	TOO.setContentsWidth = function() {
+
+		contents.style.width = ( window.innerWidth - 325 ) + 'px';
 
 	}
 
