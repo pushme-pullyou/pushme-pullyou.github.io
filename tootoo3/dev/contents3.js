@@ -36,7 +36,7 @@
 
 		}
 
-		BUT.setHighlightAndButtons( path );
+		CON.setHighlightAndButtons( path );
 
 		location.hash = path;
 
@@ -175,7 +175,7 @@
 
 				contents.innerHTML = page;
 
-				BUT.setHighlightAndButtons( path, true );
+				CON.setHighlightAndButtons( path, true );
 
 				location.hash = '!' + path;
 
@@ -186,11 +186,7 @@
 
 
 
-	BUT = {};
-
-// see CNT.getFileSetContents
-
-	BUT.setHighlightAndButtons = function( path, gallery ) {
+	CON.setHighlightAndButtons = function( path, gallery ) {
 
 //highlight
 		if ( gallery ) {
@@ -227,28 +223,28 @@
 
 
 		indexNext = index + 1;
-
+		if ( indexNext >= MNU.files.length ) { indexNext = 0; }
 		if ( MNU.files[ indexNext ].includes( '###' ) ) { indexNext++; }
-		if ( indexNext >= MNU.files.length - 1 ) { indexNext = 0; }
+		if ( indexNext >= MNU.files.length ) { indexNext = 0; }
 
 		indexPrevious = index - 1;
 
-		if ( indexPrevious <= 0 ) { indexPrevious = MNU.files.length - 1; }
+		if ( indexPrevious < 0 ) { indexPrevious = MNU.files.length - 1; }
 		if ( MNU.files[ indexPrevious ].includes( '###' ) ) { indexPrevious--; }
-		if ( indexPrevious <= 0 ) { indexPrevious = MNU.files.length - 1; }
+		if ( indexPrevious < 0 ) { indexPrevious = MNU.files.length - 1; }
 
 
 		if ( butNextFile || butPreviousFile ) {
 
 			if ( gallery ) {
 
-				butNextFile.innerHTML = '<a href=JavaScript:CNT.createPageOfImages("' + MNU.files[ indexNext ].slice( 2 ) + '"); > &gt; </a>';
-				butPreviousFile.innerHTML = '<a href=JavaScript:CNT.createPageOfImages("' + MNU.files[ indexPrevious ].slice( 2 ) + '"); > &lt; </a>';
+				butNextFile.innerHTML = '<a href=JavaScript:CON.createPageOfImages("' + MNU.files[ indexNext ].slice( 2 ) + '"); > &gt; </a>';
+				butPreviousFile.innerHTML = '<a href=JavaScript:CON.createPageOfImages("' + MNU.files[ indexPrevious ].slice( 2 ) + '"); > &lt; </a>';
 
 			} else {
 
-				butNextFile.innerHTML = '<a href=JavaScript:CNT.getFileSetContents("' + MNU.files[ indexNext ] + '"); > &gt; </a>';
-				butPreviousFile.innerHTML = '<a href=JavaScript:CNT.getFileSetContents("' + MNU.files[ indexPrevious ] + '"); > &lt; </a>';
+				butNextFile.innerHTML = '<a href=JavaScript:CON.getFileSetContents("' + MNU.files[ indexNext ] + '"); > &gt; </a>';
+				butPreviousFile.innerHTML = '<a href=JavaScript:CON.getFileSetContents("' + MNU.files[ indexPrevious ] + '"); > &lt; </a>';
 
 			}
 		}

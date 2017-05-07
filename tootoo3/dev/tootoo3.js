@@ -1,14 +1,9 @@
 	let TOO = {};
-	var MNU = MNU || {};
 
 	const b = '<br>';
 
 
-	MNU.getFiles = function() {
 
-		MNU.files = MNU.tableOfContents.replace( / /g, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
-
-	};
 
 
 	TOO.setContentsWidth = function() {
@@ -30,6 +25,11 @@
 		user = usr;
 
 		mnuContents.innerHTML =
+
+				'<div>' +
+					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu(); >Table of Contents</button>' +
+					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
+				'</div>' + b +
 
 			'<details open >' +
 
@@ -153,7 +153,7 @@
 
 		menuItems.innerHTML = text;
 
-		MNU.files = [];
+//		MNU.files = [];
 		menuTitle.innerHTML = 'Table of Contents';
 		breadcrumbs.innerHTML = '';
 

@@ -99,3 +99,11 @@
 		document.body.style.fontSize = size;
 
 	};
+
+
+	MNU.getFiles = function() {
+
+		MNU.files = MNU.tableOfContents.replace( / /g, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
+
+	};
+
