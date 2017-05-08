@@ -70,9 +70,11 @@
 		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
 		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
 
-	} else if ( protocol === 'https:' ) {
+	} else if ( protocol === 'http:' ) {
 
-		usr = location.host.slice( 0, location.host.indexOf( '.' ) );
+		firstDot = location.hostname.indexOf( '.github.io' );
+		usr = location.hostname.slice( 0, firstDot );
+		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
 
 	}
 
