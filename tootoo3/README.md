@@ -6,10 +6,16 @@ TooToo3 Read Me
 _Browse and view files on GitHub with remarkable ease_
 
 
+### Dev
+
 * https://pushme-pullyou.github.io/tootoo3/dev/tootoo3-basic.html
 * https://pushme-pullyou.github.io/tootoo3/dev/tootoo3-select.html
 
+### All in One
 
+* https://pushme-pullyou.github.io/tootoo3/all-in-one/tootoo3-all-in-one.html
+
+### Custom
 
 * https://pushme-pullyou.github.io/tootoo3/dev-custom/tootoo3-front-end-handbook-2017.html
 * https://pushme-pullyou.github.io/tootoo3/dev-custom/tootoo3-leader-photos.html
