@@ -9,7 +9,7 @@
 
 		if ( path === undefined ) {
 
-			contents.innerHTML = '<center>No files in this folder</center>';
+			contents.innerHTML = '<center style=top:50%; >No files in this folder</center>';
 
 			return;
 
