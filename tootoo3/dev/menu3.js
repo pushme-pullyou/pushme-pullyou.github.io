@@ -3,6 +3,34 @@
 
 	MNU.init = function() {
 
+		if ( MNU.tableOfContents ) {
+
+				txt = '<p>' +
+					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu(); >Table of Contents</button>' +
+					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
+				'</p>';
+
+		} else {
+
+				txt = '';
+
+		}
+
+		mnuContents.innerHTML =
+
+			txt +
+
+			'<details open >' +
+
+				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
+
+				'<div id=breadcrumbs ></div>' +
+				'<div id=menuItems ></div>' +
+
+			'</details>' + b +
+
+		'';
+
 		mnuSettings.innerHTML =
 
 			'<details>' +
@@ -101,9 +129,5 @@
 	};
 
 
-	MNU.getFiles = function() {
 
-		MNU.files = MNU.tableOfContents.replace( / /g, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
-
-	};
 

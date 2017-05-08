@@ -3,41 +3,18 @@
 	const b = '<br>';
 
 
+
 	TOO.initUser = function( usr ) {
 
 		user = usr;
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
-		window.addEventListener( 'resize', TOO.setContentsWidth(), false );
+		window.addEventListener( 'resize', TOO.setContentsWidth, false );
 
 		TOO.setContentsWidth();
 
 		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
-
-		if ( MNU.tableOfContents ) {
-
-				txt = '<div>' +
-					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu(); >Table of Contents</button>' +
-					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
-				'</div>' + b;
-
-			} else { txt = ''; }
-
-		mnuContents.innerHTML =
-
-			'<details open >' +
-
-				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
-
-				txt +
-
-				'<div id=breadcrumbs ></div>' +
-				'<div id=menuItems ></div>' +
-
-			'</details>' + b +
-
-		'';
 
 
 		if ( location.hash.includes( '@@@' ) ) { // read local files ~ used by readme.html to help you view local files while you edit them
@@ -55,7 +32,7 @@
 
 		}
 
-		if ( MNU.tableOfContents ) { MNU.getFiles(); }
+		if ( MNU.tableOfContents ) { TOO.getFiles(); }
 
 		MNU.init();
 
@@ -63,6 +40,8 @@
 		TOO.setMenu( user.folder );
 
 	}
+
+
 
 
 	TOO.setMenuDefault = function ( path ) {
@@ -73,6 +52,7 @@
 
 		url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
 
+		menuTitle.innerHTML = 'All Files';
 		TOO.setBreadcrumbs( path );
 
 		TOO.requestFile( url, TOO.callbackFolderContents );
@@ -124,6 +104,8 @@
 		}
 
 
+// move to TOO.setDefaultContents
+
 		if ( location.hash !== '' && ( location.hash.includes( '/' ) || location.hash.includes( '.' ) ) )  {
 
 			CON.getFileSetContents( location.hash.slice( 1 ) );
@@ -143,7 +125,8 @@
 
 	TOO.setMenuContents = function() { // we have a table of contents / TOO.tableOfContents somewhere
 
-		var text, arr;
+		var text, fNames, fName;
+		var index, ReadMe;
 
 		TOO.files = [];
 
@@ -155,31 +138,40 @@
 
 		menuItems.innerHTML = text;
 
-		arr = MNU.tableOfContents.replace( / /g, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
+		fNames = MNU.tableOfContents.replace( / /g, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
 
-		for ( var i = 1; i < arr.length - 1; i++ ) {
+		for ( var i = 1; i < fNames.length - 1; i++ ) {
 
-			if ( arr[ i ].includes( '###' ) || arr[ i ] === '' || arr[ i ].length < 5 ) { continue; }
+			fName = fNames[ i ];
+			if ( fName.includes( '###' ) || fName === '' || fName.length < 5 ) { continue; }
 
-			TOO.files.push( arr[ i ].slice( 1 ) );
+			TOO.files.push( fName.slice( 1 ) );
 
 		}
+
+		index = TOO.files.indexOf( 'readme.md');
+		readMe = index > -1 ? TOO.files[ index ] : '';
+		index = TOO.files.indexOf( 'README.md');
+		readMe = index > -1 ? TOO.files[ index ] : readMe;
 
 		menuTitle.innerHTML = 'Table of Contents';
 		breadcrumbs.innerHTML = '';
 
 
+// move to TOO.setDefaultContents
+
 		if ( location.hash.length > 1 ) {
 
 			CON.getFileSetContents( location.hash.slice( 1 )  );
 
-		} else if ( user.defaultFile !== undefined && user.folder === TOO.path ) {
+//		} else if ( user.defaultFile !== undefined && user.folder === TOO.path ) {
+		} else if ( user.defaultFile !== undefined ) {
 
 			CON.getFileSetContents( user.defaultFile );
 
 		} else {
 
-			CON.getFileSetContents( 'README.md' );
+			CON.getFileSetContents( readMe ); ///
 
 		}
 
@@ -239,6 +231,8 @@
 
 	TOO.onHashChange = function() {
 
+// console.log( 'onHashChange', location.hash );
+
 		if ( location.hash.slice( 1,2 ) === '!' ) {
 
 			CON.createPageOfImages( location.hash.slice( 2 ) );
@@ -277,14 +271,21 @@
 
 
 	TOO.setContentsWidth = function() {
-
+console.log( '', 23 );
 		contents.style.width = ( window.innerWidth - 325 ) + 'px';
 
 	}
 
 
+	TOO.getFiles = function() {
+
+		TOO.files = MNU.tableOfContents.replace( / /g, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
+
+	};
+
 	TOO.requestFile = function ( fileName, callback ) {
 
+console.log( 'requestFile', location.hash );
 		var fileName, text, lines;
 
 		xhr = new XMLHttpRequest();

@@ -90,6 +90,7 @@ It would also be nice to do these things and have the code still be understandab
 
 
 ### All versions
+
 * Display rendered file contents with a single click
 * Edit button takes you to source code file on GitHub
 * Next and previous buttons allow for fast file browsing
@@ -103,12 +104,25 @@ It would also be nice to do these things and have the code still be understandab
 
 ## To Do
 
+* 2017-05-08 ~ tootoo3.js see // move to TOO.setDefaultContents
+	* 2017-05-07 ~ TOO.setDefaultContents: change to: TOO.files.includes( 'readme.md' )
+* 2017-05-08 ~ Add full folder and file stats
+* 2017-05-08 ~ user.folder > user.path
+* 2017-05-08 ~ Scroll menu items into view
+* 2017-05-08 ~ Cursor key movement through menus
+* 2017-05-08 ~ Jazz up menu title in menu bar
 * 2017-05-08 ~ Edit button broken
-* 2017-05-07 ~ TOO.setDefaultContents: change to: TOO.files.includes( 'readme.md' )
 * 2017-05-07 ~ handle if sub-repo or or folder
 * Enter the name of a GitHub user you know in the input box
 
 ## Change Log
+
+
+### 2017-05-08 ~ Theo
+
+Many little fixes
+
+
 
 ### 2017-05-07 ~ Theo
 
