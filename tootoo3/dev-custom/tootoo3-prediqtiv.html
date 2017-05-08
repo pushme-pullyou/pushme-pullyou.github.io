@@ -26,9 +26,9 @@ a { color: blue; }
 		<div id=menu >
 
 			<h2>
-				<a href=http://pushme-pullyou.github.io title="Jaanga - your Github repo happy place" > &#x2766 </a><br>
+<!--				<a href=https://pushme-pullyou.github.io title="Jaanga - your Github repo happy place" > &#x2766 </a><br> -->
 				<a id=mnuTitle href="" title="Click here to refresh this page" ></a>
-				~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
+				<a href=https://github.com/prediqtiv/prediqtiv.github.io/ onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
 			</h2>
 
 			<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>
@@ -102,7 +102,7 @@ a { color: blue; }
 
 	function init() {
 
-		mnuTitle.innerHTML = document.title;
+		mnuTitle.innerHTML = '<img src=' + images + 'predIQtiv.png  height=64 >';
 		mnuTagline.innerHTML = '<small><p>' + document.head.querySelector( "[name=description]" ).content + '</p></small>';
 
 		TOO.initUser( user );
