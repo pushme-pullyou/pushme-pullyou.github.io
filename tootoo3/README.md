@@ -15,6 +15,13 @@ _Browse and view files on GitHub with remarkable ease_
 
 * https://pushme-pullyou.github.io/tootoo3/all-in-one/tootoo3-all-in-one.html
 
+### All-in-One in Use
+
+* https://jaanga.github.io/documents/tootoo3-all-in-one.html#documents/index.html
+* https://jaanga.github.io/blog/tootoo3-all-in-one.html
+* https://jaanga.github.io/blode/tootoo3-all-in-one.html << edited to repo
+* https://jaanga.github.io/cookbook/tootoo3-all-in-one.html << edited to repo
+
 ### Custom
 
 * https://pushme-pullyou.github.io/tootoo3/dev-custom/tootoo3-front-end-handbook-2017.html

@@ -15,16 +15,22 @@
 
 		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
 
+		if ( MNU.tableOfContents ) {
+
+				txt = '<div>' +
+					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu(); >Table of Contents</button>' +
+					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
+				'</div>' + b;
+
+			} else { txt = ''; }
+
 		mnuContents.innerHTML =
 
 			'<details open >' +
 
 				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
 
-				'<div>' +
-					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu(); >Table of Contents</button>' +
-					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
-				'</div>' + b +
+				txt +
 
 				'<div id=breadcrumbs ></div>' +
 				'<div id=menuItems ></div>' +
