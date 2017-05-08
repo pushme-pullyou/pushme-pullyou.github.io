@@ -59,6 +59,7 @@
 
 		MNU.init();
 
+console.log( '', location.hash );
 		TOO.setMenu = MNU.tableOfContents !== undefined ? TOO.setMenuContents : TOO.setMenuDefault;
 		TOO.setMenu( user.folder );
 
@@ -68,6 +69,7 @@
 	TOO.setMenuDefault = function ( path ) {
 
 		let url;
+
 		TOO.path = path;
 
 		url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
@@ -123,7 +125,7 @@
 		}
 
 
-		if ( location.hash === '' && ( location.hash.includes( '/' ) || location.hash.includes( '.' ) ) )  {
+		if ( location.hash !== '' && ( location.hash.includes( '/' ) || location.hash.includes( '.' ) ) )  {
 
 			CON.getFileSetContents( location.hash.slice( 1 ) );
 
@@ -142,7 +144,7 @@
 
 	TOO.setMenuContents = function() { // we have a table of contents / TOO.tableOfContents somewhere
 
-//		var text, arr;
+		var text, arr;
 
 		TOO.files = [];
 
@@ -164,7 +166,6 @@
 
 		}
 
-//		MNU.files = [];
 		menuTitle.innerHTML = 'Table of Contents';
 		breadcrumbs.innerHTML = '';
 
@@ -195,8 +196,10 @@
 			path = TOO.files[ i ];
 			p = path.toLowerCase();
 
-			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
+// uppercase README gets selected before lower case index
+
 			if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
+			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
 
 		}
 
@@ -209,9 +212,9 @@
 	TOO.setBreadcrumbs = function( path ) {
 
 		let name, txt, folders, str;
+		name = user.repo;
 
 		name = user.folder ? user.folder : user.repo;
-		name = user.repo;
 
 		txt = '<h3><a href=JavaScript:TOO.setMenuDefault(); >' + name + '</a> &raquo; </h3>';
 
