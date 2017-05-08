@@ -2,7 +2,7 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo3.1 Basic</title>
+<title>Pushme-PullYou</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
@@ -801,37 +801,16 @@ summary h3 { display: inline; }
 
 	</div>
 
-<script defer >
+<script>
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
-	let protocol, usr, firstDot, path;
-
-	protocol = location.protocol;
-
-	if ( protocol === 'file:' ) {
-
-		firstDot = location.pathname.indexOf( 'github.io' );
-		usr = location.pathname.slice( 0, firstDot - 1 );
-		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
-
-		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
-
-	} else if ( protocol.includes( 'http' ) ) {
-
-		firstDot = location.hostname.indexOf( '.github.io' );
-		usr = location.hostname.slice( 0, firstDot );
-		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
-
-	}
-
-
 	let user = {
-		user : usr,
-		subText : 'Hello, there',
-		repo : usr + '.github.io',
+		user : 'pushme-pullyou',
+		subText : 'Browse & view real fast!',
+		repo : 'pushme-pullyou.github.io',
 		branch : 'master',
-		folder : path,
+		folder : '',
 	};
 
 

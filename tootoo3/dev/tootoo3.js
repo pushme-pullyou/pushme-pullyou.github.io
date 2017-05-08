@@ -206,6 +206,7 @@
 	TOO.setBreadcrumbs = function( path ) {
 
 		let name, txt, folders, str;
+
 		name = user.repo;
 
 		name = user.folder ? user.folder : user.repo;
@@ -230,8 +231,6 @@
 
 
 	TOO.onHashChange = function() {
-
-// console.log( 'onHashChange', location.hash );
 
 		if ( location.hash.slice( 1,2 ) === '!' ) {
 
@@ -271,7 +270,7 @@
 
 
 	TOO.setContentsWidth = function() {
-console.log( '', 23 );
+
 		contents.style.width = ( window.innerWidth - 325 ) + 'px';
 
 	}
@@ -285,7 +284,6 @@ console.log( '', 23 );
 
 	TOO.requestFile = function ( fileName, callback ) {
 
-console.log( 'requestFile', location.hash );
 		var fileName, text, lines;
 
 		xhr = new XMLHttpRequest();
