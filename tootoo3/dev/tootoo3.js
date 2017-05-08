@@ -59,7 +59,6 @@
 
 		MNU.init();
 
-console.log( '', location.hash );
 		TOO.setMenu = MNU.tableOfContents !== undefined ? TOO.setMenuContents : TOO.setMenuDefault;
 		TOO.setMenu( user.folder );
 
@@ -190,6 +189,9 @@ console.log( '', location.hash );
 	TOO.setDefaultContents = function() {
 
 		let txt, start, path, p;
+
+
+// change to: TOO.files.includes( 'readme.md' )
 
 		for ( var i = 0; i < TOO.files.length; i++ ) {
 

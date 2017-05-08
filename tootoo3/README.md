@@ -32,3 +32,17 @@ _Browse and view files on GitHub with remarkable ease_
 
 * https://pushme-pullyou.github.io/tootoo3/dev-custom/
 
+
+
+## To Do
+
+* 2017-05-07 ~ TOO.setDefaultContents: change to: TOO.files.includes( 'readme.md' )
+* 2017-05-07 ~ handle if sub-repo or or folder
+
+
+## Change Log
+
+### 2017-05-07 ~ Theo
+
+* TooToo3 ~ slimmer and trimmer than ever before
+* Has real HTML and CSS
