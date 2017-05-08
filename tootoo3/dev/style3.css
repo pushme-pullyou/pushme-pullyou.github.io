@@ -33,3 +33,4 @@ summary h3 { display: inline; }
 
 #butNextFile a, #butPreviousFile a { text-decoration: none; color: #888; }
 #butNextFile:hover, #butPreviousFile:hover { cursor: pointer; opacity: 1; }
+
