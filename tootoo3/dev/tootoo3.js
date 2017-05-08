@@ -17,8 +17,6 @@
 
 		mnuContents.innerHTML =
 
-
-
 			'<details open >' +
 
 				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
@@ -82,7 +80,7 @@
 		response = xhr.target.response;
 		items = JSON.parse( response );
 
-		MNU.files = [];
+		TOO.files = [];
 		count = 0;
 		menuItems.innerHTML = '';
 
@@ -112,7 +110,7 @@
 					'<a id=file' + count++ + ' href=#' + item.path + ' style=width:100%;  > ' + item.name + '</a>' + b +
 				'';
 
-				MNU.files.push( item.path );
+				TOO.files.push( item.path );
 
 			}
 
@@ -138,7 +136,9 @@
 
 	TOO.setMenuContents = function() { // we have a table of contents / TOO.tableOfContents somewhere
 
-//		var text;
+//		var text, arr;
+
+		TOO.files = [];
 
 		showdown.setFlavor( 'github' );
 
@@ -147,6 +147,16 @@
 		text = CON.massageText( MNU.tableOfContents );
 
 		menuItems.innerHTML = text;
+
+		arr = MNU.tableOfContents.replace( / /g, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
+
+		for ( var i = 1; i < arr.length - 1; i++ ) {
+
+			if ( arr[ i ].includes( '###' ) || arr[ i ] === '' || arr[ i ].length < 5 ) { continue; }
+
+			TOO.files.push( arr[ i ].slice( 1 ) );
+
+		}
 
 //		MNU.files = [];
 		menuTitle.innerHTML = 'Table of Contents';
@@ -174,9 +184,9 @@
 
 		let txt, start, path, p;
 
-		for ( var i = 0; i < MNU.files.length; i++ ) {
+		for ( var i = 0; i < TOO.files.length; i++ ) {
 
-			path = MNU.files[ i ];
+			path = TOO.files[ i ];
 			p = path.toLowerCase();
 
 			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
@@ -184,7 +194,7 @@
 
 		}
 
-		path = MNU.files[ 0 ];
+		path = TOO.files[ 0 ];
 		CON.getFileSetContents( path  );
 
 	}
@@ -228,7 +238,7 @@
 
 		}
 
-		if ( MNU.files ) {
+		if ( TOO.files ) {
 
 			links = document.getElementsByTagName( 'li' );
 

@@ -2,7 +2,7 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title></title>
+<title>Front End Hangbook 2017</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
@@ -78,6 +78,8 @@
 		text = TOO.converter.makeHtml( response );
 
 		text = text.replace( /src="images/g, 'src="https://rawgit.com/FrontendMasters/front-end-handbook-2017/master/images/' );
+		text = text.replace( /src="cover.jpg/g, 'src="https://rawgit.com/FrontendMasters/front-end-handbook-2017/master/cover.jpg' );
+
 		text = text.replace( /src="..\/images/g, 'src="https://rawgit.com/FrontendMasters/front-end-handbook-2017/master/images/' );
 
 		return text;

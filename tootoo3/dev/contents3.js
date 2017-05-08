@@ -191,22 +191,26 @@
 
 //highlight
 		if ( gallery ) {
-
-			index = MNU.files.indexOf( '#!' + path );
+console.log( '', TOO.files, path );
+			index = TOO.files.indexOf( '!' + path );
 
 		} else {
 
-			index = MNU.files.indexOf( path );
+			index = TOO.files.indexOf( path );
 
 		}
 
-		for ( let i = 0; i < MNU.files.length; i++ ) {
+		for ( let i = 0; i < TOO.files.length; i++ ) {
 
 			el = document.getElementById( 'file' + i );
 
 			col = ( i === index ) ? '#ccc' : '';
 
-			if ( el ) { el.style.backgroundColor = col; } // else ...
+			if ( el ) {
+
+				el.style.backgroundColor = col;
+				el.scrollIntoView();  // not workink
+			} // else ...
 
 		}
 
@@ -223,28 +227,31 @@
 
 
 		indexNext = index + 1;
-		if ( indexNext >= MNU.files.length ) { indexNext = 0; }
-		if ( MNU.files[ indexNext ].includes( '###' ) ) { indexNext++; }
-		if ( indexNext >= MNU.files.length ) { indexNext = 0; }
+		if ( indexNext >= TOO.files.length ) { indexNext = 0; }
+
+//		if ( indexNext >= MNU.files.length ) { indexNext = 0; }
+//		if ( MNU.files[ indexNext ].includes( '###' ) ) { indexNext++; }
+//		if ( indexNext >= MNU.files.length ) { indexNext = 0; }
 
 		indexPrevious = index - 1;
+		if ( indexPrevious < 0 ) { indexPrevious = TOO.files.length - 1; }
 
-		if ( indexPrevious < 0 ) { indexPrevious = MNU.files.length - 1; }
-		if ( MNU.files[ indexPrevious ].includes( '###' ) ) { indexPrevious--; }
-		if ( indexPrevious < 0 ) { indexPrevious = MNU.files.length - 1; }
+//		if ( indexPrevious < 0 ) { indexPrevious = MNU.files.length - 1; }
+//		if ( MNU.files[ indexPrevious ].includes( '###' ) ) { indexPrevious--; }
+//		if ( indexPrevious < 0 ) { indexPrevious = MNU.files.length - 1; }
 
 
 		if ( butNextFile || butPreviousFile ) {
 
 			if ( gallery ) {
 
-				butNextFile.innerHTML = '<a href=JavaScript:CON.createPageOfImages("' + MNU.files[ indexNext ].slice( 2 ) + '"); > &gt; </a>';
-				butPreviousFile.innerHTML = '<a href=JavaScript:CON.createPageOfImages("' + MNU.files[ indexPrevious ].slice( 2 ) + '"); > &lt; </a>';
+				butNextFile.innerHTML = '<a href=JavaScript:CON.createPageOfImages("' + TOO.files[ indexNext ].slice( 2 ) + '"); > &gt; </a>';
+				butPreviousFile.innerHTML = '<a href=JavaScript:CON.createPageOfImages("' + TOO.files[ indexPrevious ].slice( 2 ) + '"); > &lt; </a>';
 
 			} else {
 
-				butNextFile.innerHTML = '<a href=JavaScript:CON.getFileSetContents("' + MNU.files[ indexNext ] + '"); > &gt; </a>';
-				butPreviousFile.innerHTML = '<a href=JavaScript:CON.getFileSetContents("' + MNU.files[ indexPrevious ] + '"); > &lt; </a>';
+				butNextFile.innerHTML = '<a href=JavaScript:CON.getFileSetContents("' + TOO.files[ indexNext ] + '"); > &gt; </a>';
+				butPreviousFile.innerHTML = '<a href=JavaScript:CON.getFileSetContents("' + TOO.files[ indexPrevious ] + '"); > &lt; </a>';
 
 			}
 		}
