@@ -71,6 +71,9 @@ It would also be nice to do these things and have the code still be understandab
 
 ## Features
 
+_ see also https://github.com/prediqtiv/prediqtiv.github.io/issues/5_
+
+
 ### All-in-One Basic Version
 
 * Copy the single file to any folder available via GitHub pages
@@ -104,6 +107,7 @@ It would also be nice to do these things and have the code still be understandab
 
 ## To Do
 
+* 2017-05-08 ~ Add recent events
 * 2017-05-08 ~ tootoo3.js see // move to TOO.setDefaultContents
 	* 2017-05-07 ~ TOO.setDefaultContents: change to: TOO.files.includes( 'readme.md' )
 * 2017-05-08 ~ Add full folder and file stats
