@@ -34,6 +34,7 @@
 
 	];
 
+
 	count = 0;
 
 	var htm, rme, css, mnu, sel, too;
@@ -88,13 +89,15 @@
 
 				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
 
+					'<p>' +
+						'<select id=selFile onchange=selectFile(); title="Select file" size=15 style=width:100%;  >' +
+						'</select>' +
+					'</p>' +
+
+
 				'<details open>' +
 
 					'<summary><h3>Menu</h3></summary>' +
-
-					'<p>' +
-						'' +
-					'</p>' +
 
 					'<p>' +
 						'<button onclick=saveFile(); > Save File </button>' +
@@ -118,10 +121,49 @@
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
+		getMenuSelectUserOptions();
 
 		requestFile( fileNameHtm, callbackHtm );
 
 	}
+
+	function selectFile(){
+
+		var folderName = 'https://cdn.rawgit.com/pushme-pullyou/pushme-pullyou.github.io/master/tootoo3/dev-custom/';
+
+		requestFile( folderName + selFile.value, callbackHtm );
+
+	}
+
+
+	function getMenuSelectUserOptions() {
+
+		let user;
+
+		var folderName = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo3/dev-custom/';
+
+		requestFile( folderName, callbackFiles );
+
+	}
+
+	function callbackFiles( xhr ){
+
+		var files = xhr.target.response;
+
+		files = JSON.parse( files );
+
+		for (let i = 0; i < files.length; i++) {
+
+			file = files[ i ];
+
+			selFile.innerHTML += '<option>' + file.name + '</option>';
+
+		 }
+
+		selFile.selectedIndex = 0
+
+	}
+
 
 
 	function callbackHtm( xhr ) {
@@ -249,7 +291,7 @@
 		blob = new Blob( [ contents.value ] );
 		a = document.body.appendChild( document.createElement( 'a' ) );
 		a.href = window.URL.createObjectURL( blob );
-		a.download = fileTitle;
+		a.download = selFile.value.replace( 'tootoo3-', 'tootoo3-all-in-one-' );
 		a.click();
 		a = null;
 

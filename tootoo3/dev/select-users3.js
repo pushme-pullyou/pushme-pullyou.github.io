@@ -226,7 +226,8 @@
 
 console.clear();
 
-		location.hash="";
+//		location.hash="";
+		history.replaceState( '', document.title, window.location.pathname );
 		user = users[ selUser.value ];
 		TOO.initUser();
 

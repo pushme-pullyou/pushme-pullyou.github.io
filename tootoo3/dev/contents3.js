@@ -40,6 +40,7 @@
 		CON.setHighlightAndButtons( path );
 
 		location.hash = path;
+		menu.scrollTop = 0;
 
 	}
 
@@ -74,8 +75,6 @@
 		TOO.requestFile( url, callbackMD );
 
 		function callbackMD( xhr ) {
-
-
 
 			text = CON.massageText( xhr.target.response );
 

@@ -59,6 +59,7 @@
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
+/*
 	let protocol, usr, firstDot, path;
 
 	protocol = location.protocol;
@@ -87,7 +88,7 @@
 		folder : path
 	};
 
-
+*/
 	init();
 
 	function init() {
@@ -100,7 +101,10 @@
 //		selUser.selectedIndex = Math.floor( Math.random() * users.keys.length );
 		selUser.selectedIndex = 0;
 
-		TOO.initUser( users[ selUser.value ] );
+
+		SEL.selectUser();
+
+//		TOO.initUser( users[ selUser.value ] );
 
 	}
 

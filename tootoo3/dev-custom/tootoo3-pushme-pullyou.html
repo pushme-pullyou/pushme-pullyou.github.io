@@ -2,12 +2,12 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>Pushme-PullYou</title>
+<title>PushMe-PullYou</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-05-07' >
+<meta name=date content='2017-05-14' >
 
 <link rel=stylesheet href=../dev/style3.css >
 
@@ -61,12 +61,23 @@
 
 	let user = {
 		user : 'pushme-pullyou',
-		subText : 'Browse & view real fast!',
+		subText : 'Browse & view stuff on GitHub real fast!',
 		repo : 'pushme-pullyou.github.io',
 		branch : 'master',
 		folder : '',
 	};
 
+
+	MNU.tableOfContents =
+`### Pushme-Pullyou
+* [Read Me]( #README.md )
+### GubGub
+* [Read Me]( #gubgub/README.md )
+### DabDab
+* [Read Me]( #dabdab/README.md )
+### TooToo
+* [Read Me]( #tootoo3/README.md )
+`;
 
 	init();
 
@@ -75,7 +86,7 @@
 		mnuTitle.innerHTML = user.user;
 		mnuTagline.innerHTML = '<small><p>' + document.head.querySelector( "[name=description]" ).content + '</p></small>';
 
-		TOO.initUser( user );
+		TOO.initUser();
 
 	}
 

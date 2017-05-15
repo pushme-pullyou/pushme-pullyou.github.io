@@ -105,6 +105,7 @@
 		}
 
 
+
 // move to TOO.setDefaultContents
 
 		if ( location.hash !== '' && ( location.hash.includes( '/' ) || location.hash.includes( '.' ) ) )  {
