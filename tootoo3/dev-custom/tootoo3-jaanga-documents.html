@@ -2,21 +2,23 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo3.1 Basic</title>
+<title>Jaanga Documents</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=description content='Jaanga - your 3D happy place.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-05-07' >
+<meta name=date content='2017-05-14' >
 
 <link rel=stylesheet href=../dev/style3.css >
 
 </head>
-<body>
+
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
 <script src=../dev/tootoo3.js ></script>
 <script src=../dev/menu3.js ></script>
 <script src=../dev/contents3.js ></script>
+
+<body>
 
 	<div id=container >
 
@@ -55,10 +57,11 @@
 
 	</div>
 
-<script defer >
+<script>
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
+/*
 	let protocol, usr, firstDot, path;
 
 	protocol = location.protocol;
@@ -68,7 +71,6 @@
 		firstDot = location.pathname.indexOf( 'github.io' );
 		usr = location.pathname.slice( 0, firstDot - 1 );
 		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
-
 		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
 
 	} else if ( protocol.includes( 'http' ) ) {
@@ -79,24 +81,38 @@
 
 	}
 
-console.log( 'u', usr, 'p', path );
+*/
+
 	let user = {
-		user : usr,
-		subText : 'Hello, there',
-		repo : usr + '.github.io',
+		user : 'jaanga',
+		subText : 'Your 3D happy place',
+		repo : 'jaanga.github.io',
 		branch : 'master',
-		folder : path,
+		folder : 'documents',
+
 	};
+
+	MNU.tableOfContents =
+`### Documents
+* [Read Me]( #readme.md )
+### Jaanga Practice Notes
+* [Read Me]( #jaanga-practice-notes/readme.md )
+### Coding Styles Gallery
+* [Read Me]( #coding-styles-gallery/readme.md )
+### CS482
+* [Read Me]( #cs482/readme.md )
+
+`;
 
 
 	init();
 
 	function init() {
 
-		mnuTitle.innerHTML = user.user;
+		mnuTitle.innerHTML = document.title;
 		mnuTagline.innerHTML = '<small><p>' + document.head.querySelector( "[name=description]" ).content + '</p></small>';
 
-		TOO.initUser();
+		TOO.initUser( user );
 
 	}
 

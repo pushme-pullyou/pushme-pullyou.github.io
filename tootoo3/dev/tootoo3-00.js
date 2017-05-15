@@ -4,7 +4,9 @@
 
 
 
-	TOO.initUser = function() {
+	TOO.initUser = function( usr ) {
+
+		user = usr;
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
@@ -26,7 +28,7 @@
 
 		} else if ( user.repo === user.user + '.github.io' ) {
 
-			TOO.urlGHPages = 'https://' + user.user + '.github.io/';
+			TOO.urlGHPages = 'https://' + user.user + '.github.io/' + user.folder + '/';
 
 		} else {
 

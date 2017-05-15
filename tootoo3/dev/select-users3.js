@@ -3,11 +3,11 @@
 	let users = {};
 
 	users.bPesquet = {
-		user : 'bpesquet',
+		user: 'bpesquet',
 		subText: 'A modern introduction to an essential language.',
-		repo : 'thejsway',
-		branch : 'master',
-		folder : '',
+		repo: 'thejsway',
+		branch: 'master',
+		folder: '',
 		rawgit: true,
 //		defaultFile : 'LICENSE'
 	};
@@ -18,7 +18,6 @@
 		branch : 'master',
 		folder : '',
 		rawgit: true
-//		noIndex: true
 	};
 	users.d3GH = {
 		user : 'd3',
@@ -208,7 +207,8 @@
 					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
 
 //						'<select id=selUser onchange=location.hash="";TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
-						'<select id=selUser onchange=TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
+//						'<select id=selUser onchange=TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
+						'<select id=selUser onchange=SEL.selectUser(); title="Select user" size=15 style=width:100%;  >' +
 
 						'</select>' + b +
 					b +
@@ -222,20 +222,31 @@
 	}
 
 
-	SEL.getMenuSelectUserOptions = function(){
+	SEL.selectUser = function(){
+
+console.clear();
+
+		location.hash="";
+		user = users[ selUser.value ];
+		TOO.initUser();
+
+	}
+
+
+	SEL.getMenuSelectUserOptions = function () {
 
 		let user;
 
-		users.keys = Object.keys( users );
+		users.keys = Object.keys(users);
 
-		for ( let i = 0; i < users.keys.length; i++ ) {
+		for (let i = 0; i < users.keys.length; i++) {
 
-			user = users[ users.keys[ i ] ];
+			user = users[users.keys[i]];
 
-			selUser[ i ] = new Option( user.user + ' ' + user.repo + ' ' + user.folder + ' ' + user.branch, users.keys[ i ] );
+			selUser[i] = new Option(user.user + ' ' + user.repo + ' ' + user.folder + ' ' + user.branch, users.keys[i]);
 
-		}
+		 }
 
-		selUser.selectedIndex = users.keys.indexOf( user.user );
+		selUser.selectedIndex = users.keys.indexOf(user.user);
 
-	}
+	 }

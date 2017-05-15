@@ -1,7 +1,9 @@
 
-	MNU = {};
+	let MNU = {};
 
 	MNU.init = function() {
+
+		let txt;
 
 		if ( MNU.tableOfContents ) {
 
@@ -74,7 +76,7 @@
 
 		'';
 
-	}
+	};
 
 
 	MNU.cssColors = function( back, color, mnu ) {
