@@ -130,7 +130,7 @@
 	function selectFile(){
 
 		var folderName = 'https://cdn.rawgit.com/pushme-pullyou/pushme-pullyou.github.io/master/tootoo3/dev-custom/';
-
+		var folderName = '../dev-custom/';
 		requestFile( folderName + selFile.value, callbackHtm );
 
 	}
@@ -152,7 +152,7 @@
 
 		files = JSON.parse( files );
 
-		for (let i = 0; i < files.length; i++) {
+		for ( let i = 0; i < files.length; i++) {
 
 			file = files[ i ];
 

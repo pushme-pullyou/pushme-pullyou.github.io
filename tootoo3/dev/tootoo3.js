@@ -151,11 +151,12 @@
 
 		}
 
+// not needed??
 		index = TOO.files.indexOf( 'readme.md');
 		readMe = index > -1 ? TOO.files[ index ] : '';
 		index = TOO.files.indexOf( 'README.md');
 		readMe = index > -1 ? TOO.files[ index ] : readMe;
-console.log( 'readMe',  readMe);
+
 		menuTitle.innerHTML = 'Table of Contents';
 		breadcrumbs.innerHTML = '';
 
