@@ -14,23 +14,23 @@
 
 	var title, fileNameHtm, fileNameCss;
 
-	fileNameHtm = '../dev/tootoo3-basic.html';
+	fileNameHtm = '../../dev/tootoo3-basic.html';
 	fileTitle = 'tootoo3-all-in-one.html';
 
-	fileNameHtm = '../dev-custom/tootoo3-prediqtiv.html';
+	fileNameHtm = '../../dev-custom/tootoo3-prediqtiv.html';
 	fileTitle = 'tootoo3-all-in-one-prediqtiv.html';
 
 //	fileNameHtm = '../examples/tootoo2-leader-photos.html';
 
 
-	fileNameCss = '../dev/style3.css';
+	fileNameCss = '../../dev/style3.css';
 //	fileNameCss = '../examples/css-prediqtiv.js';
 
 	files = [
 
-		'../dev/tootoo3.js',
-		'../dev/menu3.js',
-		'../dev/contents3.js',
+		'../../dev/tootoo3.js',
+		'../../dev/menu3.js',
+		'../../dev/contents3.js',
 
 	];
 
@@ -123,14 +123,15 @@
 
 		getMenuSelectUserOptions();
 
-		requestFile( fileNameHtm, callbackHtm );
+
+
 
 	}
 
 	function selectFile(){
 
 		var folderName = 'https://cdn.rawgit.com/pushme-pullyou/pushme-pullyou.github.io/master/tootoo3/dev-custom/';
-		var folderName = '../dev-custom/';
+		var folderName = '../../dev-custom/';
 		requestFile( folderName + selFile.value, callbackHtm );
 
 	}
@@ -154,13 +155,19 @@
 
 		for ( let i = 0; i < files.length; i++) {
 
-			file = files[ i ];
+			file = files[ i ].name;
 
-			selFile.innerHTML += '<option>' + file.name + '</option>';
+			if ( file.endsWith( '.html') || file.endsWith( '.htm') ) {
+
+				selFile.innerHTML += '<option>' + file + '</option>';
+
+			}
 
 		 }
 
-		selFile.selectedIndex = 0
+		selFile.selectedIndex = 1;
+
+		selectFile();
 
 	}
 
@@ -170,9 +177,20 @@
 
 		htm = xhr.target.response;
 
-		requestFile( '../dev/README.md', callbackRme );
+		let date = new Date();
+		let today = date.getFullYear() + '-' + ( date.getMonth() + 1 )+ '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes();
+		let strOld = /<meta name=date content=\'(.*?)\' >/;
+
+		let strNew = "<meta name=date content='" + today + "' >";
+
+		htm = htm.replace( strOld, strNew );
+
 
 		contents.innerText = htm;
+
+		requestFile( '../../dev/README.md', callbackRme );
+
+
 
 
 	}
