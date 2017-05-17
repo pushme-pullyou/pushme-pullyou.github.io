@@ -70,7 +70,7 @@
 		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
 
 		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
-		repo = path.endsWith( '.gitgub.io' ) ? usr + '.github.io' : path;
+//		repo = path.endsWith( '.gitgub.io' ) ? usr + '.github.io' : path;
 
 	} else if ( protocol.includes( 'http' ) ) {
 
@@ -80,14 +80,14 @@
 
 	}
 
-console.log( 'u', usr, 'p', path, 'r', repo );
+console.log( 'u', usr, 'p', path );
 
 	let user = {
-		user : usr,
+		user : 'abantech',
 		subText : 'Hello, there',
-		repo : usr + '.github.io',
+		repo : 'abantech.github.io',
 		branch : 'master',
-		folder : path,
+		folder : '',
 	};
 
 

@@ -195,8 +195,8 @@
 
 // uppercase README gets selected before lower case index
 
+			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); }
 			if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
-			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
 
 		}
 

@@ -28,9 +28,9 @@
 
 	files = [
 
-		'../../dev/tootoo3.js',
-		'../../dev/menu3.js',
-		'../../dev/contents3.js',
+		'../dev/tootoo3.js',
+		'../dev/menu3.js',
+		'../dev/contents3.js',
 
 	];
 
@@ -224,7 +224,7 @@
 
 		htm = htm.replace( strOld, strNew );
 
-		requestFile( files[ 0 ], callback1 );
+		requestFile( '../' + files[ 0 ], callback1 );
 
 		contents.innerText = htm;
 
@@ -243,7 +243,7 @@
 
 		);
 
-		requestFile( files[ 1 ], callback2 );
+		requestFile( '../' + files[ 1 ], callback2 );
 
 //		contents.innerText = htm;
 
@@ -262,7 +262,7 @@
 
 		);
 
-		requestFile( files[ 2 ], callback3 );
+		requestFile( '../' + files[ 2 ], callback3 );
 
 //		contents.innerText = htm;
 
