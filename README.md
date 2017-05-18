@@ -18,9 +18,9 @@ _scripts to help you explore and build on GitHub_
 * [README]( https://pushme-pullyou.github.io#dabdab/README.md )
 * Got friends? Monitor updates for selected GitHub users
 
-## [TooToo]( https://pushme-pullyou.github.io/tootoo3/ )
+## [TooToo]( https://pushme-pullyou.github.io/tootoo/ )
 
-* [README]( https://pushme-pullyou.github.io#tootoo3/README.md )
+* [README]( https://pushme-pullyou.github.io#tootoo/README.md )
 * Browse and view many files on GitHub with remarkable ease
 * 2017-03-26 ~ Where the current action is occurring
 

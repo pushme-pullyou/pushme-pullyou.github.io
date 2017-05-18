@@ -1,36 +1,16 @@
-<span style=display:none; >[You are now in GitHub source code view - click this link to view this read me file as a web page]( https://pushme-pullyou.github.io/tootoo3/index.html#README.md "View file as a web page." ) </span>
+<span style=display:none; >[You are now in GitHub source code view - click this link to view this read me file as a web page]( https://pushme-pullyou.github.io/tootoo/ "View file as a web page." ) </span>
 
 
 TooToo Read Me
 ===
 _Browse and view files on GitHub with remarkable ease_
 
-https://pushme-pullyou.github.io/tootoo3
+https://pushme-pullyou.github.io/tootoo
 
 ### Dev
 
-* https://pushme-pullyou.github.io/tootoo3/dev/tootoo3-basic.html
-* https://pushme-pullyou.github.io/tootoo3/dev/tootoo3-select.html
-
-### All in One
-
-* https://pushme-pullyou.github.io/tootoo3/all-in-one/tootoo3-all-in-one.html
-
-### All-in-One in Use
-
-* https://jaanga.github.io/documents/tootoo3-all-in-one.html#documents/index.html
-* https://jaanga.github.io/blog/tootoo3-all-in-one.html
-* https://jaanga.github.io/blode/tootoo3-all-in-one.html << edited to repo
-* https://jaanga.github.io/cookbook/tootoo3-all-in-one.html << edited to repo
-
-### Custom
-
-* https://pushme-pullyou.github.io/tootoo3/dev-custom/tootoo3-front-end-handbook-2017.html
-* https://pushme-pullyou.github.io/tootoo3/dev-custom/tootoo3-leader-photos.html
-* https://pushme-pullyou.github.io/tootoo3/dev-custom/tootoo3-open-source-guide.html
-* https://pushme-pullyou.github.io/tootoo3/dev-custom/tootoo3-prediqtiv.html
-* https://pushme-pullyou.github.io/tootoo3/dev-custom/tootoo3-thejsway.html
-* https://pushme-pullyou.github.io/tootoo3/dev-custom/
+* https://pushme-pullyou.github.io/tootoo/dev/tootoo3-basic.html
+* https://pushme-pullyou.github.io/tootoo/dev/tootoo3-select.html
 
 
 
@@ -38,18 +18,23 @@ https://pushme-pullyou.github.io/tootoo3
 
 The [GitHub web site]( https://github.com ) allows you to do many wonderful things.
 
-Nonetheless it would be nice to have more including features such as the following:
+Nonetheless it would be nice to have even more ways of doing more things including features such as the following:
 
-* View HTML, Markdown format files as rendered web pages
+* View HTML, Markdown format files - and many other file types - as rendered web pages
 * Browse the contents of many files on GitHub really quickly
 	* Move to the next file using only a single click
 	* Views files as rendered or as source code
-* Edit any file on GitHub
+* Access files quickly and then edit and commit changes using the GitHub interface
 
 It would also be nice to do these things and have the code still be understandable by an entry level programmer
 
 
 ### Mission
+
+#### User / Client-side
+
+
+
 
 * View HTML files as rendered web pages
 * Browse the contents of many files on GitHub really quickly
@@ -71,8 +56,28 @@ It would also be nice to do these things and have the code still be understandab
 
 ## Features
 
-_ see also https://github.com/prediqtiv/prediqtiv.github.io/issues/5_
 
+### User Features
+* View files via a human-curated table of contents or view all files as compiled by the computer
+* Edit button at top right allows you to jump straight to the source code on GitHub - fully editable by YOU
+* Next and previous arrows allow you to jump to the next file in the Table of Contents or All Files views
+* Currently displayed file is is highlighted in the menu
+* Settings menu - a work in progress - allows you to update the font, text size and colors
+* Click the title to reload the page, Click the 'hamburger to slide the menu out of the view
+* Works 'kind of OK' on a small screen
+
+
+### Developer Features
+
+* Menus are generated on the fly
+	* Drop the script in any folder on GitHub and it generates the menu and display
+	* Drop the script in one of your local folders, update the link, and it generates the menu and display of the remote folder
+* Everything is client-side
+    * Runs on GitHub
+    * Runs on your local GitHub repo
+* Accesses the GitHub Restful API so menus are always as up to date as the latest commit
+* All FOSS written in plain-vanilla entry level JavaScript
+* Create the Table of Contents using GitHub-flavor Markdown
 
 ### All-in-One Basic Version
 
