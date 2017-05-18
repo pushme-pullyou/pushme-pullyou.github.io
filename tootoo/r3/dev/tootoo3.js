@@ -16,7 +16,7 @@
 
 
 		if ( location.hash.includes( '@@@' ) ) { // read local files ~ used by readme.html to help you view local files while you edit them
-
+// has many issues
 			TOO.urlGHPages = './';
 			location.hash = location.hash.replace( '@@@', '' );
 

@@ -188,6 +188,7 @@
 
 	CON.setHighlightAndButtons = function( path, gallery ) {
 
+console.log( 'path', path );
 		var index, el, col, folder, indexNext, indexPrevious;
 //highlight
 		if ( gallery ) {
