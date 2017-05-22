@@ -13,6 +13,23 @@
 <script>
 // Copyright 2017 Jaanga authors ~ MIT license
 
+var indexHTML =
+`<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<\/head>
+<body>
+<script>
+
+	window.location.href = '../xxxxx.html' + location.hash;
+
+<\/script>
+<\/body>
+<\/html>
+`
+;
+
 	let protocol, usr, firstDot, path;
 
 	protocol = location.protocol;
@@ -44,7 +61,8 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 		url : usr + '.github.io',
 		branch : 'master',
 		path : path,
-		script: path.split( '/' ).pop()
+		script: path.split( '/' ).pop(),
+		files: 'https://api.github.com/repos/' + usr + '/' + usr + '.github.io/contents/' + path
 	};
 
 
@@ -74,7 +92,8 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
 			'#container { left: 0; position: absolute; transition: left 1s; width: 100%;}' +
 
-			'#contents { border: 1px #ccc solid; left: 375px; max-width: 800px; position: absolute; }' +
+			'#readme { border: 1px #ccc solid; left: 375px; max-width: 800px; position: absolute; top: 275px; }' +
+			'#index { border: 1px #ccc solid; height: 250px; left: 375px; max-width: 800px; position: absolute; top: 5px; }' +
 
 			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px; }' +
 			'#hamburger h2 { margin: 0; }' +
@@ -103,16 +122,19 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 
 					'<summary><h3>Menu</h3></summary>' +
 
-					'<p>' +
+					'<div>' +
 						'User: ' + user.user + b +
 						'Repo: ' + user.repo + b +
 						'Branch: ' + user.branch + b +
 						'Path: ' + user.path + b +
 						'Script: ' + user.script + b +
-					'</p>' +
+						'Files:' + b +
+						'<div id=files></div>' +
+					'</div>' +
 
 					'<p>' +
-						'<button onclick=saveFile(); > Save File </button>' +
+						'<button onclick=saveIndexFile(); > Save Index File </button> ' +
+						'<button onclick=saveFile(); > Save Read Me File </button>' +
 					'</p>' +
 
 					'<div id=menuInfo ></div>' +
@@ -125,16 +147,22 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
 			'</div>' +
 
-			'<div id=contents ></div>' +
+			'<div id=index ></div>' +
+
+			'<div id=readme ></div>' +
 
 		'';
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
-		contents.innerHTML += '';
+		index.innerText = indexHTML;
+		index.contentEditable = true;
+
+		readme.contentEditable = true;
 
 		requestFile( 'github-readme-template.md', callbackReadMe );
 
+		requestFile( user.files, callbackFiles );
 	}
 
 
@@ -143,16 +171,34 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 		var converter = new showdown.Converter();
 		var text = xhr.target.response;
 		var breadcrumbs = setBreadcrumbs();
+		var date = new Date();
+		var today = date.getFullYear() + '-' + ( '0' + date.getMonth() ).slice( -2 ) + '-' + ( '0' + date.getDate()).slice( -2 );
 
 		text = text.replace( /thisURL/g, user.url );
 		text = text.replace( /thisPath/g, user.path );
 		text = text.replace( /thisScript/g, user.script.replace( /-/g, ' ' ) );
 		text = text.replace( /thisBreadcrumbs/g, breadcrumbs );
+		text = text.replace( /thisDate/g, today );
 		text = converter.makeHtml( text );
-		contents.innerHTML = text;
+		readme.innerHTML = text;
 
 	}
 
+
+	function callbackFiles( xhr ){
+
+		var filesData;
+
+		filesData = JSON.parse( xhr.target.response );
+console.log( '', filesData );
+		for ( var i = 0; i < filesData.length; i++ ) {
+
+			files.innerHTML += filesData[ i ].name + '<br>';
+
+		}
+
+
+	}
 
 
 	function setBreadcrumbs() {
@@ -200,17 +246,31 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 
 	function saveFile() {
 
-		let date, blob, a;
+		let blob, a;
 
-		date = new Date();
-		blob = new Blob( [ contents.value ] );
+		blob = new Blob( [ readme.value ] );
 		a = document.body.appendChild( document.createElement( 'a' ) );
 		a.href = window.URL.createObjectURL( blob );
-		a.download = selFile.value.replace( 'tootoo3-', 'tootoo3-all-in-one-' );
+		a.download = 'README.md';
 		a.click();
 		a = null;
 
 	}
+
+	function saveIndexFile() {
+
+		let blob, a;
+
+		blob = new Blob( [ index.value ] );
+		a = document.body.appendChild( document.createElement( 'a' ) );
+		a.href = window.URL.createObjectURL( blob );
+		a.download = 'index.html';
+		a.click();
+		a = null;
+
+	}
+
+
 
 
 </script>
