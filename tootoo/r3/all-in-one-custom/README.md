@@ -1,20 +1,20 @@
-<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://thisURL/thisPath/#README.md "View file as a web page." ) </span>
+<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/tootoo/r3/all-in-one-custom/#README.md "View file as a web page." ) </span>
 
 
-thisBreadcrumbs
+<a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/" >r3</a> &raquo; </h3>
 
 
-[thisScript Read Me]( https://thisURL/thisPath/index.html#readme.md )
+[all in one custom Read Me]( https://pushme-pullyou.github.io/tootoo/r3/all-in-one-custom/index.html#readme.md )
 ===
 _say something fun here_
 
-## Full Screen: [ thisScript ]( https://thisURL/thisPath/index.html )
+## Full Screen: [ all in one custom ]( https://pushme-pullyou.github.io/tootoo/r3/all-in-one-custom/index.html )
 
 <img src="" style=display:none; width=800 >
 
-<iframe id=ifr src=https://thisURL/thisPath/index.html style="border: 1px solid red;" width=100% height=600px ></iframe>
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/all-in-one-custom/index.html style="border: 1px solid red;" width=100% height=600px ></iframe>
 
-_thisScript_
+_all in one custom_
 
 ***
 
@@ -87,7 +87,7 @@ Intended for xxx
 
 ## Change Log
 
-### thisDate
+### 2017-04-22
 
 * First commit
 * Add Read Me
@@ -95,5 +95,5 @@ Intended for xxx
 
 ***
 
-# <a href=javascript:window.scrollTo(0,0); style=text-align:center;text-decoration:none;width:100%; title='pushMe pullYou ~ your coming and going happy place' > ❦ </a>
+# <a href=javascript:window.scrollTo(0,0); style=text-align:center;text-decoration:none; title='pushMe pullYou ~ your coming and going happy place' > ❦ </a>
 
