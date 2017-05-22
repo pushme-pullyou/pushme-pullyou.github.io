@@ -11,7 +11,7 @@
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
 <script>
-// Copyright 2017 Jaanga authors ~ MIT license
+// Copyright 2017 PushMe PullYou authors ~ MIT license
 
 var indexHTML =
 `<!doctype html>
@@ -108,10 +108,10 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 			'<div id=menu >' +
 
 				'<h2>' +
-					'<a href=http://jaanga.github.io title="Jaanga - your 3D happy place" > &#x2766 </a><br>' +
+					'<a href=http://pushme-pullyou.github.io title="pushMe-pullYou - your con=ming and going happy place" > &#x2766 </a><br>' +
 //					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
 					'<a href="" title="Click here to refresh this page" >' + location.pathname.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) + '</a>' +
-					' ~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
+					' ~ <a href=index.html#README.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
 				'</h2>' +
 
 				'<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>' +
@@ -178,9 +178,10 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 		text = text.replace( /thisPath/g, user.path );
 		text = text.replace( /thisScript/g, user.script.replace( /-/g, ' ' ) );
 		text = text.replace( /thisBreadcrumbs/g, breadcrumbs );
-		text = text.replace( /thisDate/g, today );
-		text = converter.makeHtml( text );
-		readme.innerHTML = text;
+		readMeText = text.replace( /thisDate/g, today );
+		readMeHTML = converter.makeHtml( readMeText );
+
+		readme.innerHTML = readMeHTML;
 
 	}
 
@@ -248,7 +249,7 @@ console.log( '', filesData );
 
 		let blob, a;
 
-		blob = new Blob( [ readme.value ] );
+		blob = new Blob( [ readMeText ] );
 		a = document.body.appendChild( document.createElement( 'a' ) );
 		a.href = window.URL.createObjectURL( blob );
 		a.download = 'README.md';
