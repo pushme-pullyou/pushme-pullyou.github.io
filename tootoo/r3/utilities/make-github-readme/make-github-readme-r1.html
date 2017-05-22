@@ -32,6 +32,8 @@
 		usr = location.hostname.slice( 0, firstDot );
 		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
 
+		repo = path.endsWith( '.gitgub.io' ) ? usr + '.github.io' : path;
+
 	}
 
 console.log( 'u', usr, 'p', path, 'r', repo );
