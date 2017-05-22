@@ -1,16 +1,18 @@
-<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://thisURL/thisPath/#README.md "View file as a web page." ) </span>
+<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://thisURL/thisPath/#thisPath/README.md "View file as a web page." ) </span>
 
 
+<!--
 thisBreadcrumbs
+-->
 
-
-[thisScript Read Me]( https://thisURL/thisPath/index.html#readme.md )
+[thisScript Read Me]( https://thisURL/#thisPath/README.md )
 ===
 _say something fun here_
 
 ## Full Screen: [ thisScript ]( https://thisURL/thisPath/index.html )
-
+<!--
 <img src="" style=display:none; width=800 >
+-->
 
 <iframe id=ifr src=https://thisURL/thisPath/index.html style="border: 1px solid red;" width=100% height=600px ></iframe>
 
@@ -23,7 +25,7 @@ _thisScript_
 ### Issues / Problems
 <!--
 
-The general format is an adaptation of the ideas developed in Alexander's _et al_ [A Pattern Language]( https://books.google.com/books?id=hwAHmktpk5IC&pg=PR10#v=onepage&q&f=false ) - as sammarized on page 10.
+The general format is an adaptation of the ideas developed in Alexander's _et al_ [A Pattern Language]( https://books.google.com/books?id=hwAHmktpk5IC&pg=PR10#v=onepage&q&f=false ) - as summarized on page 10.
 
 Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice.
 
@@ -95,5 +97,5 @@ Intended for xxx
 
 ***
 
-# <a href=javascript:window.scrollTo(0,0); style=text-align:center;text-decoration:none;width:100%; title='pushMe pullYou ~ your coming and going happy place' > ❦ </a>
+<h1><a href=javascript:window.scrollTo(0,0); style=text-align:center;text-decoration:none;width:100%; title='pushMe pullYou ~ your coming and going happy place' > ❦ </a></h1>
 
