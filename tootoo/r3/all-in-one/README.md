@@ -5,4 +5,9 @@ TooToo3 All-in-One Read Me
 ===
 _Browse and view files on GitHub with remarkable ease_
 
+## Possible Names
+
+* Anywhere
+* singleFile
+* dropIn
 

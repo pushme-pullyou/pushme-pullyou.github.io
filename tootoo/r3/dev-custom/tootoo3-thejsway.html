@@ -48,12 +48,14 @@
 
 		<div id=contents ></div>
 
-		<div id=butEditFile >Edit</div>
-		<div id=butNextFile >&gt;</div>
-		<div id=butPreviousFile >&lt;</div>
+
 
 
 	</div>
+
+		<div id=butEditFile >Edit</div>
+		<div id=butNextFile >&gt;</div>
+		<div id=butPreviousFile >&lt;</div>
 
 <script>
 
@@ -70,7 +72,8 @@
 		defaultFile: 'manuscript/intro01.md'
 	};
 
-	MNU.tableOfContents  =
+
+	MNU.tableOfContents =
 `
 * [Read Me]( #README.md )
 ### Introduction
@@ -97,7 +100,9 @@
 * [Acknowledgements]( #manuscript/concl02.md )
 * [Contribution guidelines]( #CONTRIBUTING.md )
 * [License]( #LICENSE)
-`
+`;
+
+
 
 	init();
 

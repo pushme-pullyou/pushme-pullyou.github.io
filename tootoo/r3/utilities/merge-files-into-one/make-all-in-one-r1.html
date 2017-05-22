@@ -17,7 +17,7 @@
 //	fileNameHtm = '../dev/tootoo3-basic.html';
 //	fileTitle = 'tootoo3-2-all-in-one.html';
 
-	fileNameHtm = '../dev-custom/tootoo3-prediqtiv.html';
+	fileNameHtm = '../../dev-custom/tootoo3-prediqtiv.html';
 	fileTitle = 'tootoo3-all-in-one-prediqtiv.html';
 
 
@@ -31,13 +31,13 @@
 
 
 
-	fileNameCss = '../dev/style3.css';
+	fileNameCss = '../../dev/style3.css';
 
 	files = [
 
-		'../dev/tootoo3.js',
-		'../dev/menu3.js',
-		'../dev/contents3.js',
+		'../../dev/tootoo3.js',
+		'../../dev/menu3.js',
+		'../../dev/contents3.js',
 
 	];
 
@@ -123,10 +123,10 @@
 
 		fileInfo.innerHTML =
 
-			'fileNameHtm: ' + b +
-			fileNameHtm + b +
-			'fileTitle: ' + b +
-			fileTitle + b +
+//			'fileNameHtm: ' + b +
+//			fileNameHtm + b +
+//			'fileTitle: ' + b +
+//			fileTitle + b +
 		'';
 
 		requestFile( fileNameHtm, callbackHtm );
@@ -138,7 +138,7 @@
 
 		htm = xhr.target.response;
 
-		requestFile( '../dev/README.md', callbackRme );
+		requestFile( '../../dev/README.md', callbackRme );
 
 		contents.innerText = htm;
 

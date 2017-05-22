@@ -17,8 +17,8 @@
 	fileNameHtm = '../../dev/tootoo3-basic.html';
 	fileTitle = 'tootoo3-all-in-one.html';
 
-	fileNameHtm = '../../dev-custom/tootoo3-prediqtiv.html';
-	fileTitle = 'tootoo3-all-in-one-prediqtiv.html';
+//	fileNameHtm = '../../dev-custom/tootoo3-prediqtiv.html';
+//	fileTitle = 'tootoo3-all-in-one-prediqtiv.html';
 
 //	fileNameHtm = '../examples/tootoo2-leader-photos.html';
 
@@ -89,10 +89,9 @@
 
 				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
 
-					'<p>' +
-						'<select id=selFile onchange=selectFile(); title="Select file" size=15 style=width:100%;  >' +
-						'</select>' +
-					'</p>' +
+				'<p>' +
+					'<select id=selFile onchange=selectFile(); title="Select file" size=15 style=width:100%; ></select>' +
+				'</p>' +
 
 
 				'<details open>' +
@@ -121,16 +120,15 @@
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
+
 		getMenuSelectUserOptions();
-
-
 
 
 	}
 
 	function selectFile(){
 
-		var folderName = 'https://cdn.rawgit.com/pushme-pullyou/pushme-pullyou.github.io/master/tootoo3/dev-custom/';
+		var folderName = 'https://cdn.rawgit.com/pushme-pullyou/pushme-pullyou.github.io/master/tootoo/r3/dev-custom/';
 		var folderName = '../../dev-custom/';
 		requestFile( folderName + selFile.value, callbackHtm );
 
@@ -141,7 +139,7 @@
 
 		let user;
 
-		var folderName = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo3/dev-custom/';
+		var folderName = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r3/dev-custom/';
 
 		requestFile( folderName, callbackFiles );
 

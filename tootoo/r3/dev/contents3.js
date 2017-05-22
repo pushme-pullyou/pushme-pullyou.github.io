@@ -49,8 +49,9 @@
 
 		contents.innerHTML =
 //			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) +
-			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=100% ' +
-			' style="border:0 none; " >' +
+//			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=100% ' +
+			'<iframe id=ifr src=' + url + ' > ' +
+//			' style="border:0 none; " >' +
 		'<iframe>';
 
 	}
@@ -80,9 +81,7 @@
 
 			contents.innerHTML =
 
-			'<div style="margin: 0 auto; width: 800px; position: relative;" >' +
-				text +
-			'</div>';
+			'<div id=divMD >' + text + '</div>';
 
 			contents.scrollTop = 0;
 
@@ -188,9 +187,10 @@
 
 	CON.setHighlightAndButtons = function( path, gallery ) {
 
-console.log( 'path', path );
 		var index, el, col, folder, indexNext, indexPrevious;
+
 //highlight
+
 		if ( gallery ) {
 
 			index = TOO.files.indexOf( '!' + path );
