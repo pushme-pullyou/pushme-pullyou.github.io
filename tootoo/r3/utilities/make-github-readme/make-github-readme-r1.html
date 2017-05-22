@@ -261,7 +261,7 @@ console.log( '', filesData );
 
 		let blob, a;
 
-		blob = new Blob( [ index.value ] );
+		blob = new Blob( [ index.innerText ] );
 		a = document.body.appendChild( document.createElement( 'a' ) );
 		a.href = window.URL.createObjectURL( blob );
 		a.download = 'index.html';
