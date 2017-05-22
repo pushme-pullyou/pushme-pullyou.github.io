@@ -191,7 +191,7 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 		var filesData;
 
 		filesData = JSON.parse( xhr.target.response );
-console.log( '', filesData );
+
 		for ( var i = 0; i < filesData.length; i++ ) {
 
 			files.innerHTML += filesData[ i ].name + '<br>';
@@ -222,7 +222,7 @@ console.log( '', filesData );
 			str += folders[ i ] + '/';
 			url += folders[ i ] + '/'
 
-			txt += ' <a href="' + url +'" ; >' + folders[ i ] + '</a> &raquo; </h3>';
+			txt += ' <a href="' + url +'" >' + folders[ i ] + '</a> &raquo; </h3>';
 
 		}
 
