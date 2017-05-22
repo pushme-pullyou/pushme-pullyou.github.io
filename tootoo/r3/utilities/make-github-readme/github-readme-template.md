@@ -44,7 +44,6 @@ patterns are descriptions of common problems and proposal for the solutions that
 ## To Do / Goals / Up Next
 
 
-
 ## Issues / Bugs / Things that need Work
 
 
@@ -67,7 +66,7 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 ## Things you can do by editing the code
 
-* Open this file: https://github.com/jaanga/jaanga.github.io/tree/master/documents/xxxxxx/xxxxxx-r1.html
+* Open the source code for this file: Click the 'Edit' box in the top right hand corner
 * Click the 'Raw' icon and save the raw file to your computer
 * Once you've downloaded the file, you can click it to run it.
 * Open the file with a text editor
@@ -96,6 +95,5 @@ Intended for xxx
 
 ***
 
-<center title='Jaanga ~ your 3D happy place' >
-# <a href=javascript:window.scrollTo(0,0); style=text-decoration:none; > ❦ </a>
-</center>
+# <a href=javascript:window.scrollTo(0,0); style=text-align:center;text-decoration:none; title='pushMe pullYou ~ your coming and going happy place' > ❦ </a>
+
