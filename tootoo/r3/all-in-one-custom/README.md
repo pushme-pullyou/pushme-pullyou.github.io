@@ -8,11 +8,11 @@
 ===
 _say something fun here_
 
-## Full Screen: [ all in one custom ]( https://pushme-pullyou.github.io/tootoo/r3/all-in-one-custom/index.html )
+## Full Screen: [ all in one prediqtiv ]( https://pushme-pullyou.github.io/tootoo/r3/all-in-one-custom/tootoo3-all-in-one-prediqtiv.html )
 
 <img src="" style=display:none; width=800 >
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/all-in-one-custom/index.html style="border: 1px solid red;" width=100% height=600px ></iframe>
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/all-in-one-custom/tootoo3-all-in-one-prediqtiv.html style="border: 1px solid red;" width=100% height=600px ></iframe>
 
 _all in one custom_
 
