@@ -1,14 +1,11 @@
 <span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/tootoo/r3/all-in-one-custom/#README.md "View file as a web page." ) </span>
 
 
-<a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/" >r3</a> &raquo; </h3>
-
-
 [all in one custom Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/all-in-one-custom/README.md )
 ===
 _say something fun here_
 
-## Full Screen: [ all in one prediqtiv ]( https://pushme-pullyou.github.io/tootoo/r3/all-in-one-custom/tootoo3-all-in-one-prediqtiv.html )
+## Full Screen Demo: [ all in one prediqtiv ]( https://pushme-pullyou.github.io/tootoo/r3/all-in-one-custom/tootoo3-all-in-one-prediqtiv.html )
 
 <img src="" style=display:none; width=800 >
 
