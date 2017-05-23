@@ -77,7 +77,21 @@
 
 		function callbackMD( xhr ) {
 
-			text = CON.massageText( xhr.target.response );
+			response = xhr.target.response;
+
+			if ( response.includes( 'DOCTYPE') ) {
+
+console.log( '', response  );
+
+				contents.innerHTML = '<h1 style=text-align:center; >file not found</h1>';
+
+				return;
+
+			}
+
+
+
+			text = CON.massageText( response );
 
 			contents.innerHTML =
 
