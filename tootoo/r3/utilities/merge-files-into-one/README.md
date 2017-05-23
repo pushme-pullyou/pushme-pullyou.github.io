@@ -7,7 +7,7 @@
 
 [merge files into one Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/utilities/merge-files-into-one/README.md )
 ===
-_say something fun here_
+_e pluribus unum_
 
 ## Full Screen: [ merge files into one ]( https://pushme-pullyou.github.io/tootoo/r3/utilities/merge-files-into-one/index.html )
 <!--
