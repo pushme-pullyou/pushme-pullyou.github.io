@@ -33,10 +33,30 @@ _scripts to help you explore and build on GitHub_
 
 ## Naming Convention
 
+The names of the scripts here are derived the the names of characters in Hugh Lofting's [Dr Dolittle]( https://en.wikipedia.org/wiki/Doctor_Dolittle ) series of children's books.
+
 See: [List of Doctor Dolittle characters]( https://en.wikipedia.org/wiki/List_of_Doctor_Dolittle_characters )
+
+### The pushmi-pullyu
+
+_The pushmi-pullyu (pronounced "push-me—pull-you") is a "gazelle-unicorn cross" which has two heads (one of each) at opposite ends of its body_ - Wikipedia
+
+We use `pushMe pullYou` instead of `pushmi-pullyu`.
+
+The reference is based on the coincidence that much of the usage of Git is based on the process of pulling and pushing data to and fro a server.
+
+### Gub-Gub
+Gub-Gub is Doctor Dolittle's pet pig.
+
+### Dab-Dab
+Dab-Dab is Doctor Dolittle's pet duck.
+
+### Too-Too
+Too-Too is the doctor's pet owl.
 
 ## To Do
 
+* Start upgrading to GitHub graphQL
 * Start exploring GitHub Topics
     * And projects?
 
@@ -45,6 +65,9 @@ See: [List of Doctor Dolittle characters]( https://en.wikipedia.org/wiki/List_of
 _See also read me files in folders for more timely and script-specific updates_
 
 
+### 2017-05-23
+
+* Add Dr doLittle naming references to read me
 ### 2017-03-26 ~
 
 * [Blog Post]( https://github.com/pushme-pullyou/pushme-pullyou.github.io/issues/1 )

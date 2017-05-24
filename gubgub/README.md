@@ -91,7 +91,7 @@ then you have come to a good place...
 
 * Help you discover new algorithms and new concepts
 * Link associated projects that you had no idea they were associated
-* Transfer all of this into your own set of tools
+* Transfer all of these abilities into your own set of tools
 
 
 ### Features
@@ -408,6 +408,7 @@ Other Dr Dolittle animal names that could be fun project names:
 Issues
 --------------------------------------------------------------------------------
 
+* 2017-05-23 ~ number of stars not updated when you change users
 * 2016-10-30 ~ Open README with link: loads user and overwrites README
 * 2016-10-29 ~ Double loads at times
 * 2016-10-29 ~ Why is there an error: 2-sel-select/sel-select-r1.html ?

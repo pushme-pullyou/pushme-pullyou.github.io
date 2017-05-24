@@ -13,7 +13,7 @@ _Monitor updates by selected GitHub users_
 
 ## Features
 
-* See what all you people have been doing on GitHub is the last few days
+* See what all your peops have been doing on GitHub in the last few days
 
 
 
