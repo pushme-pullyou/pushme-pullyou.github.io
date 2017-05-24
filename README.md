@@ -11,17 +11,26 @@ _scripts to help you explore and build on GitHub_
 ## [GubGub]( https://pushme-pullyou.github.io/gubgub/ )
 
 * [README]( https://pushme-pullyou.github.io/#gubgub/README.md )
-* Explore GitHub users and their repositories
+* Explore the activity of many GitHub users
+* View the Read Me files of their repositories
+	* Helped by the GitHub API and client-side cookbook JavaScript.
 
 ## [DabDab]( https://pushme-pullyou.github.io/dabdab/ )
 
 * [README]( https://pushme-pullyou.github.io#dabdab/README.md )
 * Got friends? Monitor updates for selected GitHub users
+* Select users from a list
+* View user's events by repo and by date
+* Links to numerous GitHub user statistics
 
-## [TooToo]( https://pushme-pullyou.github.io/tootoo/ )
-
+## [TooToo Read Me]( https://pushme-pullyou.github.io/tootoo/ )
+<!--
 * [README]( https://pushme-pullyou.github.io#tootoo/README.md )
+-->
+
 * Browse and view many files on GitHub with remarkable ease
+* Buttons for: Edit this page, Next page, Previous page
+* Menus with current selection highlighted
 * 2017-03-26 ~ Where the current action is occurring
 
 

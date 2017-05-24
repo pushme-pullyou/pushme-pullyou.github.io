@@ -5,9 +5,12 @@ TooToo Read Me
 ===
 _Browse and view files on GitHub with remarkable ease_
 
-https://pushme-pullyou.github.io/tootoo
+## Basic
 
-### Dev
+* https://pushme-pullyou.github.io/tootoo
+* https://pushme-pullyou.github.io/tootoo/r3/dev/
+
+### Select
 
 * https://pushme-pullyou.github.io/tootoo/dev/tootoo3-basic.html
 * https://pushme-pullyou.github.io/tootoo/dev/tootoo3-select.html
