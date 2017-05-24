@@ -1,21 +1,21 @@
-<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/tootoo/r3/dev-custom/#tootoo/r3/dev-custom/README.md "View file as a web page." ) </span>
+<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/tootoo/r3/all-in-one-select/#tootoo/r3/all-in-one-select/README.md "View file as a web page." ) </span>
+
 
 <!--
 <a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/" >r3</a> &raquo; </h3>
 -->
 
-[dev custom Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/dev-custom/README.md )
+[all in one select Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/all-in-one-select/README.md )
 ===
 _say something fun here_
 
-## Full Screen: [ dev custom ]( https://pushme-pullyou.github.io/tootoo/r3/dev-custom/index.html )
+## Full Screen: [ all in one select ]( https://pushme-pullyou.github.io/tootoo/r3/all-in-one-select/make-github-readme-r1.html )
 <!--
 <img src="" style=display:none; width=800 >
 -->
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/dev-custom/index.html style="border: 1px solid red;" width=100% height=600px ></iframe>
-
-_dev custom_
+<iframe id=ifr src=tootoo/r3/all-in-one-select/tootoo3-select.html style="border: 1px solid red;" width=100% height=600px ></iframe>
+_all in one select_
 
 ***
 
@@ -88,7 +88,7 @@ Intended for xxx
 
 ## Change Log
 
-### 2017-04-22
+### 2017-04-23
 
 * First commit
 * Add Read Me

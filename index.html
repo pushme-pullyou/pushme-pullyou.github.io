@@ -7,7 +7,7 @@
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-5-22 18:28' >
+<meta name=date content='2017-5-23 20:26' >
 
 <!--
 
@@ -95,13 +95,15 @@ summary h3 { display: inline; }
 		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
 
 
-		if ( location.hash.includes( '@@@' ) ) {
+//		if ( location.hash.includes( '@@@' ) ) {
+		if ( location.protocol === 'file:' ) {
 
 // read local files ~ used by readme.html to help you view local files while you edit them
 // has many issues. May not be worth keeping
+console.log( 'ccc', 23 );
 
 			TOO.urlGHPages = './';
-			location.hash = location.hash.replace( '@@@', '' );
+//			location.hash = location.hash.replace( '@@@', '' );
 
 		} else if ( user.rawgit ) {
 
@@ -850,11 +852,15 @@ console.log( '', response  );
 ### DabDab
 * [Read Me]( #dabdab/README.md )
 ### TooToo
-Can we say little things here?
-* [Read Me]( #tootoo/README.md )
-	* [All in One]( #tootoo/r3/all-in-one/README.md )
-	* [All in One Custom]( #tootoo/r3/all-in-one-custom/README.md )
-### Utilities
+* [TooToo Read Me]( #tootoo/README.md )
+* [All in One Read Me]( #tootoo/r3/all-in-one/README.md )
+* [All in One Custom Read Me]( #tootoo/r3/all-in-one-custom/README.md )
+* [All in One Select Read Me]( #tootoo/r3/all-in-one-select/README.md )
+* [Dev Read Me]( #tootoo/r3/dev/README.md )
+* [Dev Custom Read Me]( #tootoo/r3/dev-custom/README.md )
+#### TooToo Utilities
+* [Utilities Read Me]( #tootoo/r3/utilities/README.md )
+* [get-github-dir-names]( #tootoo/r3/utilities/get-github-dir-names/README.md )
 * [Make Read Me Read Me]( #tootoo/r3/utilities/make-github-readme/README.md )
 * [Merge Files into one]( #tootoo/r3/utilities/merge-files-into-one/README.md )
 

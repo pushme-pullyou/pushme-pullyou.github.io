@@ -15,13 +15,15 @@
 		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
 
 
-		if ( location.hash.includes( '@@@' ) ) {
+//		if ( location.hash.includes( '@@@' ) ) {
+		if ( location.protocol === 'file:' ) {
 
 // read local files ~ used by readme.html to help you view local files while you edit them
 // has many issues. May not be worth keeping
+console.log( 'ccc', 23 );
 
 			TOO.urlGHPages = './';
-			location.hash = location.hash.replace( '@@@', '' );
+//			location.hash = location.hash.replace( '@@@', '' );
 
 		} else if ( user.rawgit ) {
 
