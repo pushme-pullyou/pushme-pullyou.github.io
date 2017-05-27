@@ -5,6 +5,15 @@ TooToo Read Me
 ===
 _Browse and view files on GitHub with remarkable ease_
 
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/all-in-one-select/tootoo3-select.html width=100% height=600px ></iframe>
+_TooToo Select R3_
+
+_The above instance of TooToo is embedded inside an iframe. A number of links do not work as expected.
+For a fully-working demo it's better that you open the scripts full screen._
+
+## Full screen [_TooToo Basic R3_]( https://pushme-pullyou.github.io/tootoo/r3/dev/tootoo3-basic.html )
+
+
 ## Basic
 
 * https://pushme-pullyou.github.io/tootoo
@@ -13,7 +22,7 @@ _Browse and view files on GitHub with remarkable ease_
 ### Select
 
 * https://pushme-pullyou.github.io/tootoo/dev/tootoo3-basic.html
-* https://pushme-pullyou.github.io/tootoo/dev/tootoo3-select.html
+* https://pushme-pullyou.github.io/tootoo/r3/all-in-one-select/tootoo3-select.html
 
 
 
