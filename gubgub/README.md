@@ -20,7 +20,10 @@ _<small>
 
 
 <iframe id=ifr src=https://pushme-pullyou.github.io/gubgub/r2/ width=100% height=600px ></iframe>
-Pushme-Pullyou GubGub R1_
+_Pushme-Pullyou GubGub R2 with randomly selected user or organization_
+
+_The above instance of GubGub is embedded inside an iframe. A number of links do not work as expected.
+For a fully-working demo it's better that you open the scripts full screen._
 
 
 
@@ -36,7 +39,7 @@ Full screen: [Pushme-Pullyou GubGub R1]( https://pushme-pullyou.github.io/gubgub
 Concept
 --------------------------------------------------------------------------------
 
-2017-05-27 ~ The bulk of this read me has been 'pushed upstairs' to the main pushMe pullYou read me.
+2017-05-27 ~ The bulk of the previous read me has been 'pushed upstairs' to the main pushMe pullYou read me.
 Content specific to GubGub will be added in due course
 
 

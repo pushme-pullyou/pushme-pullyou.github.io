@@ -8,20 +8,45 @@
 ===
 _Monitor updates by selected GitHub users_
 
-## [DabDab R1]( https://pushme-pullyou.github.io/dabdab/r1/index.html )
+<iframe id=ifr src=https://pushme-pullyou.github.io/dabdab/r1/ width=100% height=600px ></iframe>
+_DabDab R1_
 
+_The above instance of DabDab is embedded inside an iframe. A number of links do not work as expected.
+For a fully-working demo it's better that you open the scripts full screen._
+
+## Full screen [DabDab R1]( https://pushme-pullyou.github.io/dabdab/r1/index.html )
+
+
+## Concept
+
+It's not currently quick and easy to see what dozens of GitHub users have created sine you last visted.
+
+### Mission
+
+* Make it easy to create menus with your favorite GitHub users and organizations
+* Quickly view their latest activities
+* Move to next user with a single click
 
 ## Features
 
-* See what all your peops have been doing on GitHub in the last few days
+* See what all your peeps have been doing on GitHub in the last few days
+* A subset of the GubGub code
 
+## Issues
 
+* 2017-05-27 ~ Type in user name not updating location.hash
 
 ## Goals / To Do
 
+* 2017-05-27 ~ Transform menu from HTML to MarkDown
 * Add and edit lists of users using a GitHub Gist
 
+
 ## Change Log
+
+### 2017-05-27
+
+* update readme
 
 ### 2017-03-08
 
