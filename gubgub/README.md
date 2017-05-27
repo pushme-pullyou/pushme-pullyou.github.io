@@ -79,7 +79,7 @@ then you have come to a good place...
 
 * Help you build tools that make the GitHub web pages and the data come to you
 	* Reduce that endless click to go there and click to come back, click go there and click come back - repeated endlessly
-    * 'You don't have to go there. It comes to you.' - Henrik Bennetsen
+	* 'You don't have to go there. It comes to you.' - Henrik Bennetsen
 * Provide you with as many ways as possible for viewing content and statistics - really quickly and easily readable
 * Display ways of getting to content such as the README files and gists wherever possible
 	* Show what is being created in a timely fashion
@@ -254,7 +254,7 @@ And so, there can be many styles of coding in each language. And each can have i
     * Every script is in its own folder with its own HTML testing file
 
 
-Scripts
+## Scripts
 -------------------------------------------------------------------------------
 
 * The app is built using a number of script files
@@ -445,71 +445,6 @@ Generally
 * 2016-10-28 ~ Decide if better to open links in same tab or new tab
 * 2016-10-26 ~ Allow for translation into many languages. text in JSON file?
 
-
-
-Links of Interest / Background Context
---------------------------------------------------------------------------------
-
-### Posts
-
-* https://github.com/jaanga/gubgub/issues/2
-* https://www.reddit.com/r/github/comments/5a8vzt/jaanga_gubgub_r1_explore_and_monitor_many_github/?ref=share&ref_source=link
-* https://twitter.com/ta/status/792871595001847808
-
-### Web sites that help you explore GitHub
-
-* https://resume.github.io/ ~ added 2016-10-19
-* https://github.com/trending
-* https://github.com/trending/javascript
-* https://www.reddit.com/r/github/
-* https://www.reddit.com/r/coolgithubprojects
-* https://github.com/leereilly/games
-* http://www.gitlogs.com/
-* http://ghv.artzub.com/
-* http://github-awards.com/
-* https://github-ranking.com/
-* https://gist.github.com/paulmillr/2657075/
-* http://githut.info/
-
-### Things You Can Do with the [GitHub Search API]( https://developer.github.com/v3/search/ )
-
-* https://gist.github.com/jasonrudolph/6065289
-* Please add more!
-
-### Credits
-
-* [GitHub Developer API]( https://developer.github.com/v3/ )
-* [Showdown]( https://github.com/showdownjs/showdown )
-    * Showdown is a JavaScript Markdown to HTML converter, based on the original works by John Gruber.
-    * Showdown can be used client side (in the browser) or server side (with NodeJs).
-
-
-### README Considerations
-
-* http://tom.preston-werner.com/2010/08/23/readme-driven-development.html
-* https://github.com/noffle/art-of-readme
-    * This README is much influenced by noffle's README
-
-
-### Coding
-
-* [Mozilla Developer Network (MDN) JavaScript]( https://developer.mozilla.org/en-US/docs/Web/JavaScript )
-* [W3schools.com]( http://www.w3schools.com/js/ )
-	* Much maligned by full-stack developers,
-	* but it the first thing that show up on Google
-
-
-### Coding Style
-
-* [Mr.doob coding style]( https://github.com/mrdoob/three.js/wiki/Mr.doob's-Code-Style%E2%84%A2 )
-* [Does Mr.doob approve your code style? ]( http://zz85.github.io/mrdoobapproves/ )
-    * [MrDoob Approves – A Javascript CodeStyle Editor+Validator+Formatter Project]( http://www.lab4games.net/zz85/blog/2015/01/25/mrdoob-approves-a-javascript-codestyle-editor-validator-formatter-project/ )
-
-
-### Users
-
-* [theo-armour.github.io](  https://theo-armour.github.io )
-* [paul-m]( http://jaanga.github.io/demo/paul-m/gubgub-pm/ )
 
 
 
