@@ -13,7 +13,7 @@ _say something fun here_
 <img src="" style=display:none; width=800 >
 -->
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/dev-custom/index.html style="border: 1px solid red;" width=100% height=600px ></iframe>
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/dev-custom/index.html width=100% height=600px ></iframe>
 
 _dev custom_
 

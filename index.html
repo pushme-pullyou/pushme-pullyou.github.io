@@ -4,10 +4,10 @@
 <meta charset=utf-8 >
 <title>PushMe-PullYou</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=description content='Browse and view files all over GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-5-23 21:20' >
+<meta name=date content='2017-5-27 14:45' >
 
 <!--
 
@@ -60,7 +60,7 @@ summary h3 { display: inline; }
 #hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }
 #hamburger h2, #menu h2, #menu h4 {margin: 0; }
 
-#ifr { /* border: 0px #ccc solid; */ height: 500px; width: 100%; }
+#ifr { /* border: 0px yellow solid; */ height: 500px; width: 100%; }
 
 #menu { background-color: #eee; border: 1px #ccc solid; box-sizing:border-box; height: 100%; overflow-y: auto; padding: 0 10px; position: fixed; width: 325px; }
 #menu ul { margin:0; padding-left:20px; }
@@ -94,16 +94,9 @@ summary h3 { display: inline; }
 
 		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
 
-
-//		if ( location.hash.includes( '@@@' ) ) {
 		if ( location.protocol === 'file:' ) {
 
-// read local files ~ used by readme.html to help you view local files while you edit them
-// has many issues. May not be worth keeping
-console.log( 'ccc', 23 );
-
 			TOO.urlGHPages = './';
-//			location.hash = location.hash.replace( '@@@', '' );
 
 		} else if ( user.rawgit ) {
 
@@ -853,11 +846,12 @@ console.log( '', response  );
 * [Read Me]( #dabdab/README.md )
 ### TooToo
 * [TooToo Read Me]( #tootoo/README.md )
-* [All in One Read Me]( #tootoo/r3/all-in-one/README.md )
-* [All in One Custom Read Me]( #tootoo/r3/all-in-one-custom/README.md )
-* [All in One Select Read Me]( #tootoo/r3/all-in-one-select/README.md )
+####TooToo Versions
 * [Dev Read Me]( #tootoo/r3/dev/README.md )
 * [Dev Custom Read Me]( #tootoo/r3/dev-custom/README.md )
+* [Dev Select Read Me]( #tootoo/r3/dev-select/README.md )
+* [All in One Read Me]( #tootoo/r3/all-in-one/README.md )
+* [All in One Custom Read Me]( #tootoo/r3/all-in-one-custom/README.md )
 #### TooToo Utilities
 * [Utilities Read Me]( #tootoo/r3/utilities/README.md )
 * [get-github-dir-names]( #tootoo/r3/utilities/get-github-dir-names/README.md )
