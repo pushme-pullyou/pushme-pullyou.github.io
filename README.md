@@ -5,7 +5,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 [Pushme-Pullyou README]( https://pushme-pullyou.github.io/ )
 ================================================================================
 
-_scripts to help you explore and build on GitHub_
+_JavaScript scripts to help you explore and build new tools on GitHub_
 
 
 ## [GubGub]( https://pushme-pullyou.github.io/gubgub/ ) Script
@@ -36,7 +36,7 @@ _scripts to help you explore and build on GitHub_
 
 
 
-## Concept
+Concept Attempt #1
 --------------------------------------------------------------------------------
 _The issues and problems we are trying to solve_
 
@@ -77,6 +77,17 @@ So, if you are looking to build tools to:
 
 then you have come to a good place...
 
+## Concept Attempt #2
+
+* We live in a world where the [full-stack developer]( https://www.sitepoint.com/full-stack-developer/ ) reigns supreme
+* We champion [DevOps]( https://en.wikipedia.org/wiki/DevOps ) as if good DevOps is the primary goal
+
+But:
+
+* What if you are an entry-level coder?
+* What if you are more interested in STEM topics more than [DevO.ps]( http://devo.ps ) and programming?
+
+Then you have come to the right place.
 
 ### Mission
 
@@ -92,17 +103,16 @@ then you have come to a good place...
 * Replicate the above in various languages and dialects
 * Build code so simple to read that you can easily translate/fix/alter it to make it work the way you want it to work
 
-
 ### Vision
 
-* Help you discover new algorithms and new concepts
+To help you
+* Concentrate on your project at hand - but its substance no its code
+* Discover new algorithms and new concepts
 * Link associated projects that you had no idea they were associated
 * Transfer all of these abilities into your own set of tools
 
 
-
-### Features
-
+## Features
 
 
 * Display and compare GitHub responses in many different ways
@@ -110,22 +120,8 @@ then you have come to a good place...
 * Coded throughout with entry-level JavaScript
 
 
-## Coding Style
+Coding Style
 --------------------------------------------------------------------------------
-
-### Mission
-
-* We live in a world where the [full-stack developer]( https://www.sitepoint.com/full-stack-developer/ ) reigns supreme
-* We champion [DevOps]( https://en.wikipedia.org/wiki/DevOps ) as if good DevOps is the primary goal
-
-But:
-
-* What if you are an entry-level coder?
-* What if you are more interested in STEM topics more than [DevO.ps]( http://devo.ps ) and programming?
-
-Then you have come to the right place.
-
-
 
 
 ### Entry Level Code / Cookbook Style
@@ -142,11 +138,11 @@ Then you have come to the right place.
 ### Compatibility
 
 * Anticipated user: somebody who writes code
-	* Sitting in front of a modern computer with recent multi-core CPU and Intel HD4000 GPU
+	* Sitting in front of a modern computer with recent multi-core CPU and Intel HD4000 GPU or better
 	* Display 1600 x 900 pixels or better
 * Every effort made to use latest most simple methods
-* Tested on latest Chrome, FireFox, Edge and Safari
-* Tested on Windows and MacOS
+* Tested on latest Chrome, FireFox, Edge and Safari << Not yet
+* Tested on Windows and MacOS << Not yet
 * Operation on Android and iOS is a bonus not a requirement
 * Backwards compatibility eschewed
 	* Adds complexities to scripts
@@ -159,7 +155,7 @@ Then you have come to the right place.
 
 * 100% client side
 * Loads scripts from GitHub pages or localhost
-* Uses Rawgit as a content delivery network (CDN)
+* Uses Rawgit or equivalent as a content delivery network (CDN)
 * Accesses GitHub Developer API via [RESTful]( https://en.wikipedia.org/wiki/Representational_state_transfer ) URL calls
 	* No terminal window/ [curl]( https://curl.haxx.se/ ) needed here
 
