@@ -112,7 +112,10 @@ To help you
 * Transfer all of these abilities into your own set of tools
 
 
-## Features
+Features
+--------------------------------------------------------------------------------
+
+_See also individual script read me files in folders for more timely and script-specific features_
 
 
 * Display and compare GitHub responses in many different ways
@@ -193,7 +196,7 @@ There are hundreds of computer programming languages.
 And so, there can be many styles of coding in each language. And each can have its own beauty.
 
 
-## Script Naming Conventions
+Script Naming Conventions
 --------------------------------------------------------------------------------
 
 The names of the scripts here are derived the the names of characters in Hugh Lofting's [Dr Dolittle]( https://en.wikipedia.org/wiki/Doctor_Dolittle ) series of children's books.
@@ -220,7 +223,7 @@ Too-Too is the doctor's pet owl.
 
 
 
-## Links of Interest / Background Context
+Links of Interest / Background Context
 --------------------------------------------------------------------------------
 
 ### Posts
@@ -288,7 +291,7 @@ Too-Too is the doctor's pet owl.
 
 
 ## Copyright and License
---------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Copyright © 2017 pushMe pullYou authors. [MIT License]( #LICENSE.md ).
 
@@ -303,7 +306,7 @@ Copyright © 2017 pushMe pullYou authors. [MIT License]( #LICENSE.md ).
 ## Change Log
 --------------------------------------------------------------
 
-_See also indicidual script read me files in folders for more timely and script-specific updates_
+_See also individual script read me files in folders for more timely and script-specific updates_
 
 ### 2017-05-24
 

@@ -13,15 +13,16 @@ _<small>
     helped by the <a href="https://developer.github.com/v3/" target="_blank" >GitHub API</a> and client-side cookbook JavaScript.
 </small>_
 
-<img  style=display:none; src="https://pushme-pullyou.github.io/gubgub/r1/gubgub-r1.jpg" width=800 >
-
 <!--
-
-<iframe id=ifr src=https://pushme-pullyou.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
-Pushme-Pullyou GubGub R1_
-
+<img  style=display:none; src="https://pushme-pullyou.github.io/gubgub/r1/gubgub-r1.jpg" width=800 >
 ***
 -->
+
+
+<iframe id=ifr src=https://pushme-pullyou.github.io/gubgub/r2/ width=100% height=600px ></iframe>
+Pushme-Pullyou GubGub R1_
+
+
 
 
 Full screen: [Pushme-Pullyou GubGub R2]( https://pushme-pullyou.github.io/gubgub/r2/ )
@@ -32,75 +33,27 @@ Full screen: [Pushme-Pullyou GubGub R1]( https://pushme-pullyou.github.io/gubgub
 --------------------------------------------------------------------------------
 
 
-READMEbespokeText
-
 Concept
 --------------------------------------------------------------------------------
 
-GitHub has [millions of projects]( https://github.com/about ).
+2017-05-27 ~ The bulk of this read me has been 'pushed upstairs' to the main pushMe pullYou read me.
+Content specific to GubGub will be added in due course
 
-With so many projects, finding GitHub projects that may be of interest to you is not easy.
-
-Finding projects with code you might actually want to fork use is even less easy.
-
-And then, when you identify a GitHub user of interest, it's not that easy to explore the user's work.
-
-When you find somebody you like, it's not easy to:
-
-* Monitor what they have done recently
-* Search the many repositories
-* Discard material that looks interesting - but has not been updated in years
-
-Then there's the other side of the coin:
-
-* How can you make your own work more visible to the world?
-* How can visitors to your GitHub projects become informed in a speedy, fun manner about all the things you are doing.
-
-Certainly the [Explore GitHub]( https://github.com/explore ) page is a good place to start.
-
-And there are a number of really interesting curation efforts. See 'Links of Interest' below.
-
-And none of that stops you or us from investigating even more ways of exploring GitHub.
-
-And, guess what, GitHub supplies a quite amazing tool for finding stuff on GitHub.
-
-The [GitHub Developer API]( https://developer.github.com/ ) provides fast, free and easy access to millions of GitHub projects.
-
-So, if you are looking to build tools to:
-
-* help you snoop around GitHub
-* find the things that are of particular interest to you
-* and monitor their progress
-
-then you have come to a good place...
 
 
 ### Mission
 
-* Help you build tools that make the GitHub web pages and the data come to you
-	* Reduce that endless click to go there and click to come back, click go there and click come back - repeated endlessly
-	* 'You don't have to go there. It comes to you.' - Henrik Bennetsen
-* Provide you with as many ways as possible for viewing content and statistics - really quickly and easily readable
-* Display ways of getting to content such as the README files and gists wherever possible
-	* Show what is being created in a timely fashion
-* Create a variety of versions - from very simple to totally custom-tailored for a particular user
-* Replicate in various languages and dialects
-
+* Explore GitHub using the GitHub API
+* Take advantage of the GitHub API search tools
+* Explore dozens of GitHub users really uuickly
 
 ### Vision
-
-* Help you discover new algorithms and new concepts
-* Link associated projects that you had no idea they were associated
-* Transfer all of these abilities into your own set of tools
 
 
 ### Features
 
-* Select or edit GitHub API search queries
-* Select results to view from list of users - or add your own user
-* Display and compare GitHub responses in many different ways
-* 100% client-side - host on GitHub Pages - no server needed
-* Coded throughout with entry-level JavaScript
+* Compact interface full of data
+	* Some would say too much data in too small a space
 
 
 Usage
@@ -169,92 +122,9 @@ The client-side JavaScript script creates and updates three columns of data/cont
 
 
 
-Coding Style
---------------------------------------------------------------------------------
-
-### Mission
-
-* We live in a world where the [full-stack developer]( https://www.sitepoint.com/full-stack-developer/ ) reigns supreme
-* We champion [DevOps]( https://en.wikipedia.org/wiki/DevOps ) as if good DevOps is the primary goal
-
-But:
-
-* What if you are an entry-level coder?
-* What if you are interested in STEM topics than [DevO.ps]( http://devo.ps )?
-
-Then you have come to the right place.
 
 
-### Written for GitHub Users and Coders
-
-You are here to explore code, therefore:
-
-* Font is default monotype font - fixed character spacing
-* UI is minimal
-	* Offers many - too many? - options
-* Uses most up-to-date JavaScript features
-* Displays the identical data using varying methods
-
-But some idiosyncrasies:
-
-* Follows [Mr.doob coding style]( https://github.com/mrdoob/three.js/wiki/Mr.doob's-Code-Style%E2%84%A2 )
-	* Open airy, almost a poetic style of displaying code
-* Does not follow normal split up of HTML, CSS and JavaScript
-	* Content, appearance and behavior
-* Does follow the idea that its all mutable stuff in the DOM
-	* Even content
-	* It all starts as alphanumeric characters and ends up as pixels
-	* Remix, re-appropriate, re-hash as needed
-	* Uses JavaScript to do this mash-up
-    * It's <s>[turtles](https://en.wikipedia.org/wiki/Turtles_all_the_way_down )</s> JavaScript all the way down
-
-There are hundreds of computer programming languages.
-And so, there can be many styles of coding in each language. And each can have its own beauty.
-
-
-### Entry Level Code / Cookbook Style
-
-* Code is almost all entry level JavaScript
-* Download and run
-* JavaScript is used for everything including
-	* Adding HTML
-	* Applying CSS
-* The dependencies are:
-	* ShowDown Markdown interpreter
-	* GitHub API
-
-### Compatibility
-
-* Anticipated user: somebody who writes code
-	* Sitting in front of a modern computer with recent multi-core CPU and Intel HD4000 GPU
-	* Display 1600 x 900 pixels or better
-* Every effort made to use latest most simple methods
-* Tested on latest Chrome, FireFox, Edge and Safari
-* Tested on Windows and MacOS
-* Operation on Android and iOS is a bonus not a requirement
-* Backwards compatibility eschewed
-	* Adds complexities to scripts
-	* Strikes fear in the hearts of new users
-	* Looks to the future not the past
-	* Simple features in the pipeline are built on the lessons learned from the complextiies of the past
-
-
-### No Server Needed
-
-* 100% client side
-* Loads scripts from GitHub pages or localhost
-* Uses Rawgit as a content delivery network (CDN)
-* Accesses GitHub Developer API via [RESTful]( https://en.wikipedia.org/wiki/Representational_state_transfer ) URL calls
-	* No terminal window/ [curl]( https://curl.haxx.se/ ) needed here
-
-### Namespace, Variable Names and File Namespace
-
-    * Menu and column headers have tooltips that indicate namespace and script name.
-    * Example: the Select menu has `SEL` as a namespace and `sel-select-r1.js` as a file
-    * Every script is in its own folder with its own HTML testing file
-
-
-## Scripts
+Scripts
 -------------------------------------------------------------------------------
 
 * The app is built using a number of script files
@@ -458,6 +328,11 @@ Copyright © 2016 Jaanga authors. [MIT License]( #LICENSE.md )
 Change Log
 --------------------------------------------------------------------------------
 
+### 2017-05-27 ~Theo
+
+* Update Read Me
+
+Some time between now and previous update this project was forked from Jaanga to pushMe pullYou
 
 ### 2016-11-06
 
@@ -481,7 +356,7 @@ Change Log
 * R2 committed
 * 2016-10-26 ~ COR: Display current user in document.title < added
 * Halfway through renaming folders and cleaning-up code
-* Moving to onHashChange ib HTNL strategy
+* Moving to onHashChange ib HTML strategy
     * Will try to use 'if not loaded then load strategy'
     * Keep all major decisions all in the HTML file
     * Use location hash to control things
