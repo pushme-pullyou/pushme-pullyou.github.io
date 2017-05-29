@@ -5,19 +5,18 @@
 <a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/" >r3</a> &raquo; </h3>
 -->
 
-[all in one select Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/all-in-one-select/README.md )
+[TooToo Dev Select Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/dev-select/README.md )
 ===
 _say something fun here_
 
-## Full Screen: [ all in one select ]( https://pushme-pullyou.github.io/tootoo/r3/all-in-one-select/make-github-readme-r1.html )
 <!--
 <img src="" style=display:none; width=800 >
-
-<iframe src=tootoo/r3/all-in-one-select/tootoo3-select.html style="border: 1px solid red;" width=100% height=600 ></iframe>
 -->
 
-<iframe id=ifr src=tootoo/r3/all-in-one-select/tootoo3-select.html ></iframe>
-_all in one select_
+<iframe id=ifr src=tootoo/r3/dev-select/tootoo3-select.html ></iframe>
+_TooToo Dev Select_
+
+## Full Screen: [ TooToo Dev Select ]( https://pushme-pullyou.github.io/tootoo/r3/dev-select/tootoo3-select.html )
 
 ***
 
@@ -44,11 +43,6 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 * TBD
 
-## To Do / Goals / Up Next
-
-
-## Issues / Bugs / Things that need Work
-
 
 ## Features
 
@@ -60,11 +54,9 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 ## Things you can do using this script
 
-
 * Click the three bars( 'hamburger menu icon' ) to slide the menu in and out
 * Press Control-U/Command-Option-U to view the source code
 * Press Control-Shift-J/Command-Option-J to see if the JavaScript console reports any errors
-
 
 
 ## Things you can do by editing the code
@@ -80,17 +72,20 @@ patterns are descriptions of common problems and proposal for the solutions that
 _where used_
 
 Intended for xxx
--->
-
-
 
 ## Links of Interest
+-->
+
+## To Do / Goals / Up Next
+
+
+## Issues / Bugs / Things that need Work
 
 
 
 ## Change Log
 
-### 2017-04-23
+### 2017-05-23
 
 * First commit
 * Add Read Me
@@ -98,5 +93,5 @@ Intended for xxx
 
 ***
 
-<h1><a href=javascript:window.scrollTo(0,0); style=text-align:center;text-decoration:none;width:100%; title='pushMe pullYou ~ your coming and going happy place' > ❦ </a></h1>
+<h1 style=text-align:center; ><a href=javascript:window.scrollTo(0,0); title='pushMe pullYou ~ your coming and going happy place' > ❦ </a></h1>
 

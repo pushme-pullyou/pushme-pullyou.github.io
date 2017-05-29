@@ -5,18 +5,18 @@
 <a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/" >r3</a> &raquo; </h3>
 -->
 
-[TooToo dev choose Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/dev-choose/README.md )
+[TooToo Dev Choose Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/dev-choose/README.md )
 ===
-_Many issues - a work in progress_
+_Identify all the TooToo files in a folder on GitHub. Many issues - a work in progress_
 
 <!--
 <img src="" style=display:none; width=800 >
 -->
 
 <iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/dev-choose/tootoo3-choose.html width=100% height=600px ></iframe>
-_dev choose_
+_TooToo Dev Choose
 
-## Full Screen: [ dev choose ]( https://pushme-pullyou.github.io/tootoo/r3/dev-choose/tootoo3-choose.html )
+## Full Screen: [ TooToo Dev Choose ]( https://pushme-pullyou.github.io/tootoo/r3/dev-choose/tootoo3-choose.html )
 
 ***
 

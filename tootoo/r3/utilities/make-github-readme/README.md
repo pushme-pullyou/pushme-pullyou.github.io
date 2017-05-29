@@ -1,20 +1,22 @@
 <span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/#README.md "View file as a web page." ) </span>
 
-
+<!--
 <a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/" >r3</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/utilities/" >utilities</a> &raquo; </h3>
+-->
 
-
-[make github readme Read Me]( https://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/index.html#readme.md )
+[Make Github Read Me Read Me]( https://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/index.html#readme.md )
 ===
-_say something fun here_
+_Create detailed, pre-filled index and Read Me files on the fly_
 
-## Full Screen: [ make github readme ]( https://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/index.html )
-
+<!--
 <img src="" style=display:none; width=800 >
+-->
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/index.html style="border: 1px solid red;" width=100% height=600px ></iframe>
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/index.html width=100% height=600px ></iframe>
+_Make Github Read Me_
 
-_make github readme_
+## Full Screen: [ Make Github Read Me ]( https://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/index.html )
+
 
 ***
 
@@ -31,6 +33,8 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 -->
 
+Creating Read Me and index.html files takes up time and yet are mostly mindless tasks. Is it possible to create Read Me files semi-automatically?
+
 ### Mission
 <!-- a statement of a rationale, applicable now as well as in the future -->
 
@@ -41,15 +45,13 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 * TBD
 
-## To Do / Goals / Up Next
-
-
-## Issues / Bugs / Things that need Work
 
 
 ## Features
 
-* TBD
+* Drop the file in and folder. Make a few adjustments. Save Index and Read Me files to your hard disk.
+
+More
 * Click three bars( 'hamburger' ) icon to slide menu in or out
 * Direct link to this read me file
 * Click on title to reload
@@ -77,17 +79,23 @@ patterns are descriptions of common problems and proposal for the solutions that
 _where used_
 
 Intended for xxx
+
+## Links of Interest
+
 -->
 
 
 
-## Links of Interest
 
+## To Do / Goals / Up Next
+
+
+## Issues / Bugs / Things that need Work
 
 
 ## Change Log
 
-### 2017-04-22
+### 2017-05-22
 
 * First commit
 * Add Read Me
@@ -95,5 +103,5 @@ Intended for xxx
 
 ***
 
-# <a href=javascript:window.scrollTo(0,0); style=text-align:center;text-decoration:none;width:100%; title='pushMe pullYou ~ your coming and going happy place' > ❦ </a>
+<h1 style=text-align:center;text-decoration:none;width:100%; ><a href=javascript:window.scrollTo(0,0); title='pushMe pullYou ~ your coming and going happy place' > ❦ </a></h1>
 

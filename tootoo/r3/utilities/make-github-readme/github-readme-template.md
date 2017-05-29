@@ -94,5 +94,5 @@ Intended for xxx
 
 ***
 
-<h1><a href=javascript:window.scrollTo(0,0); style=text-align:center;text-decoration:none;width:100%; title='pushMe pullYou ~ your coming and going happy place' > ❦ </a></h1>
+<h1 style=text-align:center;text-decoration:none;width:100%; ><a href=javascript:window.scrollTo(0,0); title='pushMe pullYou ~ your coming and going happy place' > ❦ </a></h1>
 

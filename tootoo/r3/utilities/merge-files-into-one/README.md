@@ -14,7 +14,7 @@ _e pluribus unum_
 <img src="" style=display:none; width=800 >
 -->
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/utilities/merge-files-into-one/index.html style="border: 1px solid red;" width=100% height=600px ></iframe>
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/utilities/merge-files-into-one/index.html width=100% height=600px ></iframe>
 
 _merge files into one_
 
@@ -43,15 +43,13 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 * TBD
 
-## To Do / Goals / Up Next
-
-
-## Issues / Bugs / Things that need Work
-
-
 ## Features
 
-* TBD
+* List available file in dev-custom folder
+* Click any file to cause the file, it JavaScript and CSS merged into a single file.
+* Click the save button to save the file to a local disk
+
+More
 * Click three bars( 'hamburger' ) icon to slide menu in or out
 * Direct link to this read me file
 * Click on title to reload
@@ -79,12 +77,15 @@ patterns are descriptions of common problems and proposal for the solutions that
 _where used_
 
 Intended for xxx
+
+## Links of Interest
 -->
 
 
+## To Do / Goals / Up Next
 
-## Links of Interest
 
+## Issues / Bugs / Things that need Work
 
 
 ## Change Log
@@ -97,5 +98,5 @@ Intended for xxx
 
 ***
 
-<h1><a href=javascript:window.scrollTo(0,0); style=text-align:center;text-decoration:none;width:100%; title='pushMe pullYou ~ your coming and going happy place' > ❦ </a></h1>
+<h1 style=text-align:center; ><a href=JavaScript:window.scrollTo(0,0); title='pushMe pullYou ~ your coming and going happy place' > ❦ </a></h1>
 

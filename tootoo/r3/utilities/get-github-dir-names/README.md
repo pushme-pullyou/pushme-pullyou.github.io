@@ -7,9 +7,8 @@
 
 [get github dir names Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/utilities/get-github-dir-names/README.md )
 ===
-_say something fun here_
+_get the names of all the directories in a reop, Helps wit building a menu of photo albums_
 
-## Full Screen: [ get github dir names ]( https://pushme-pullyou.github.io/tootoo/r3/utilities/get-github-dir-names/index.html )
 <!--
 <img src="" style=display:none; width=800 >
 -->
@@ -17,6 +16,8 @@ _say something fun here_
 <iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/utilities/get-github-dir-names/index.html style="border: 1px solid red;" width=100% height=600px ></iframe>
 
 _get github dir names_
+
+## Full Screen: [ get github dir names ]( https://pushme-pullyou.github.io/tootoo/r3/utilities/get-github-dir-names/index.html )
 
 ***
 
@@ -42,11 +43,6 @@ patterns are descriptions of common problems and proposal for the solutions that
 <!--  a descriptive picture of a desired future state -->
 
 * TBD
-
-## To Do / Goals / Up Next
-
-
-## Issues / Bugs / Things that need Work
 
 
 ## Features
@@ -79,17 +75,20 @@ patterns are descriptions of common problems and proposal for the solutions that
 _where used_
 
 Intended for xxx
+
+## Links of Interest
 -->
 
 
+## To Do / Goals / Up Next
 
-## Links of Interest
 
+## Issues / Bugs / Things that need Work
 
 
 ## Change Log
 
-### 2017-04-23
+### 2017-05-23
 
 * First commit
 * Add Read Me
@@ -97,5 +96,5 @@ Intended for xxx
 
 ***
 
-<h1><a href=javascript:window.scrollTo(0,0); style=text-align:center;text-decoration:none;width:100%; title='pushMe pullYou ~ your coming and going happy place' > ❦ </a></h1>
+<h1 style=text-align:center;text-decoration:none;width:100%; ><a href=javascript:window.scrollTo(0,0); title='pushMe pullYou ~ your coming and going happy place' > ❦ </a></h1>
 
