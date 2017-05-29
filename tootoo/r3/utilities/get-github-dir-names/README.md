@@ -13,7 +13,7 @@ _get the names of all the directories in a reop, Helps wit building a menu of ph
 <img src="" style=display:none; width=800 >
 -->
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/utilities/get-github-dir-names/index.html style="border: 1px solid red;" width=100% height=600px ></iframe>
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/utilities/get-github-dir-names/index.html onload=ifr.contentWindow.container.style.left=0;  ></iframe>
 
 _get github dir names_
 

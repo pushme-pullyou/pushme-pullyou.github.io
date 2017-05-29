@@ -5,7 +5,7 @@ TooToo Read Me
 ===
 _Browse and view files on GitHub with remarkable ease_
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/dev-select/tootoo3-select.html width=100% height=600px ></iframe>
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/dev-select/tootoo3-select.html onload=ifr.contentWindow.contents.style.left=0; ></iframe>
 _TooToo Select R3_
 
 _The above instance of TooToo is embedded inside an iframe. A number of links do not work as expected.

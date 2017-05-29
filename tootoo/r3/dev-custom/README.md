@@ -12,7 +12,7 @@ _TooToo files with curated tables of contents_
 <img src="" style=display:none; width=800 >
 -->
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/dev-custom/index.html width=100% height=600px ></iframe>
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/dev-custom/index.html onload=ifr.contentWindow.container.style.left=0; ></iframe>
 
 _TooToo Dev Custom - with much recursion_
 
