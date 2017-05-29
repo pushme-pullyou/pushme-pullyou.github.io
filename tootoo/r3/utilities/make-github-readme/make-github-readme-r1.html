@@ -173,7 +173,7 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 		var text = xhr.target.response;
 		var breadcrumbs = setBreadcrumbs();
 		var date = new Date();
-		var today = date.getFullYear() + '-' + ( '0' + date.getMonth() ).slice( -2 ) + '-' + ( '0' + date.getDate()).slice( -2 );
+		var today = date.getFullYear() + '-' + ( '0' + ( date.getMonth() + 1 ) ).slice( -2 ) + '-' + ( '0' + date.getDate()).slice( -2 );
 
 		text = text.replace( /thisURL/g, user.url );
 		text = text.replace( /thisPath/g, user.path );
