@@ -6,7 +6,6 @@ TooToo is a JavaScript app that helps you browse through GitHub repositories and
 
 It's part of the Pushme-Pullyou collection of JavaScript files: https://pushme-pullyou.github.io/
 
-See TooToo Read Me:/ https://pushme-pullyou.github.io/tootoo/
-
+This Read Me is embedded in every TooToo All-in-One script. For details see the main TooToo Read Me:/ https://pushme-pullyou.github.io/tootoo/
 
 Copyright © 2017 Pushme Pullyou authors. MIT License.

@@ -6,7 +6,7 @@
 
 [dev custom Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/dev-custom/README.md )
 ===
-_say something fun here_
+_Identif all the TooToo files in a folder on GitHub_
 
 ## Full Screen: [ dev custom ]( https://pushme-pullyou.github.io/tootoo/r3/dev-custom/index.html )
 <!--
@@ -21,7 +21,7 @@ _dev custom_
 
 ## Concept
 
-### Issues / Problems
+### Issues / Problems to be solved
 <!--
 
 The general format is an adaptation of the ideas developed in Alexander's _et al_ [A Pattern Language]( https://books.google.com/books?id=hwAHmktpk5IC&pg=PR10#v=onepage&q&f=false ) - as summarized on page 10.
@@ -42,15 +42,13 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 * TBD
 
-## To Do / Goals / Up Next
-
-
-## Issues / Bugs / Things that need Work
 
 
 ## Features
 
-* TBD
+* Search for the names all the TootToo files in a folder on GitHub
+* Display file names in a menu
+* Click file name to display its menu in menu and contents in msin panel
 * Click three bars( 'hamburger' ) icon to slide menu in or out
 * Direct link to this read me file
 * Click on title to reload
@@ -84,6 +82,11 @@ Intended for xxx
 
 ## Links of Interest
 
+
+## Issues / Bugs / Things that need Work
+
+
+## To Do / Goals / Up Next
 
 
 ## Change Log

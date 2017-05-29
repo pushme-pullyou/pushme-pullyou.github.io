@@ -9,20 +9,20 @@ thisBreadcrumbs
 ===
 _say something fun here_
 
-## Full Screen: [ thisScript ]( https://thisURL/thisPath/index.html )
 <!--
 <img src="" style=display:none; width=800 >
 -->
 
-<iframe id=ifr src=https://thisURL/thisPath/index.html style="border: 1px solid red;" width=100% height=600px ></iframe>
-
+<iframe id=ifr src=https://thisURL/thisPath/index.html width=100% height=600px ></iframe>
 _thisScript_
+
+## Full Screen: [ thisScript ]( https://thisURL/thisPath/index.html )
 
 ***
 
 ## Concept
 
-### Issues / Problems
+### Issues / Problems that need solving
 <!--
 
 The general format is an adaptation of the ideas developed in Alexander's _et al_ [A Pattern Language]( https://books.google.com/books?id=hwAHmktpk5IC&pg=PR10#v=onepage&q&f=false ) - as summarized on page 10.
@@ -43,11 +43,6 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 * TBD
 
-## To Do / Goals / Up Next
-
-
-## Issues / Bugs / Things that need Work
-
 
 ## Features
 
@@ -59,11 +54,9 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 ## Things you can do using this script
 
-
 * Click the three bars( 'hamburger menu icon' ) to slide the menu in and out
 * Press Control-U/Command-Option-U to view the source code
 * Press Control-Shift-J/Command-Option-J to see if the JavaScript console reports any errors
-
 
 
 ## Things you can do by editing the code
@@ -82,9 +75,13 @@ Intended for xxx
 -->
 
 
-
 ## Links of Interest
 
+
+## To Do / Goals / Up Next
+
+
+## Issues / Bugs / Things that need Work
 
 
 ## Change Log

@@ -19,7 +19,7 @@ For a fully-working demo it's better that you open the scripts full screen._
 
 ## Concept
 
-It's not currently quick and easy to see what dozens of GitHub users have created sine you last visted.
+It's not currently quick and easy to see what dozens of GitHub users have created since you last visited GitHub.
 
 ### Mission
 
