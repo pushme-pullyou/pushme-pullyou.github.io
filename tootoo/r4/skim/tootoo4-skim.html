@@ -2,9 +2,9 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo4 Library</title>
+<title>TooToo4 Skim</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=description content='Browse and view files on GitHub at faster files per hour.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
 <meta name=date content='2017-05-29' >
@@ -18,13 +18,7 @@
 <script src=../dev/menu4.js ></script>
 <script src=../dev/select-users4.js ></script>
 <script src=../dev/contents4.js ></script>
-<!--
-<script src=repo-the-jsway.js ></script>
-<script src=repo-prediqtiv.js ></script>
-<script src=repo-open-source-guide.js ></script>
 
-<script src=repo-leader-photos.js ></script>
--->
 
 	<div id=container >
 
@@ -67,31 +61,6 @@
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
-/*
-	let protocol, usr, firstDot, path;
-
-	protocol = location.protocol;
-
-	if ( protocol === 'file:' ) {
-
-		firstDot = location.pathname.indexOf( 'github.io' );
-		usr = location.pathname.slice( 0, firstDot - 1 );
-		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
-
-		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
-		repo = path.endsWith( '.gitgub.io' ) ? usr + '.github.io' : path;
-
-	} else if ( protocol.includes( 'http' ) ) {
-
-		firstDot = location.hostname.indexOf( '.github.io' );
-		usr = location.hostname.slice( 0, firstDot );
-		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
-
-	}
-
-*/
-
-
 	init();
 
 	function init() {
@@ -101,9 +70,9 @@
 
 		SEL.initSelectUsers();
 
-		SEL.getRepoOptions();
+		SEL.getMenuSelectUserOptions();
 
-		TOO.initUser();
+		SEL.selectUser();
 
 	}
 

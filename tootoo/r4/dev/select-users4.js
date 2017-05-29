@@ -208,7 +208,7 @@
 
 //						'<select id=selUser onchange=location.hash="";TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
 //						'<select id=selUser onchange=TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
-						'<select id=selUser onchange=SEL.selectRepo(); title="Select user" size=15 style=width:100%;  >' +
+						'<select id=selUser onchange=SEL.selectUser(); title="Select user" size=15 style=width:100%;  >' +
 
 						'</select>' + b +
 					b +

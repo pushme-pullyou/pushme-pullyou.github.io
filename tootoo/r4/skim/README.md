@@ -2,7 +2,7 @@
 
 
 
-[TooToo Skim Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/dev-select/README.md )
+[TooToo Skim Read Me]( https://pushme-pullyou.github.io/#tootoo/skim/README.md )
 ===
 _Drive GitHub faster files an hour_
 
@@ -10,10 +10,10 @@ _Drive GitHub faster files an hour_
 <img src="" style=display:none; width=800 >
 -->
 
-<iframe id=ifr src=tootoo/r4/dev-select/tootoo3-select.html onload=ifr.contentWindow.container.style.left=0; ></iframe>
-_TooToo Skin_
+<iframe id=ifr src=tootoo/r4/skim/tootoo4-skim.html ></iframe>
+_TooToo Skim_
 
-## Full Screen: [ TooToo Skim ]( https://pushme-pullyou.github.io/tootoo/r3/dev-select/tootoo3-select.html )
+## Full Screen: [ TooToo Skim ]( https://pushme-pullyou.github.io/tootoo/r4/skim/tootoo4-skim.html )
 
 ***
 
