@@ -1,4 +1,4 @@
-	let user = {
+	var user = {
 		user : 'bpesquet',
 		subText: 'A modern introduction to an essential language.',
 		repo : 'thejsway',

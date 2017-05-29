@@ -1,5 +1,5 @@
 
-	let user = {
+	var user = {
 		user : 'jaanga',
 		subText : 'Your 3D happy place',
 		repo : 'jaanga.github.io',

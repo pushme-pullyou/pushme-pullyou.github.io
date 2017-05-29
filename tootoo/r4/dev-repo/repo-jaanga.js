@@ -1,4 +1,4 @@
-	let user = {
+	var user = {
 		user : 'jaanga',
 		subText : '',
 		repo : 'jaanga.github.io',

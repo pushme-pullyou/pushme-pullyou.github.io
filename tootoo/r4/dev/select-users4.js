@@ -208,7 +208,7 @@
 
 //						'<select id=selUser onchange=location.hash="";TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
 //						'<select id=selUser onchange=TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
-						'<select id=selUser onchange=SEL.selectUser(); title="Select user" size=15 style=width:100%;  >' +
+						'<select id=selUser onchange=SEL.selectRepo(); title="Select user" size=15 style=width:100%;  >' +
 
 						'</select>' + b +
 					b +
@@ -225,7 +225,9 @@
 
 	SEL.getRepoOptions = function() {
 
-		let urlFolderAPI = 'https://api.github.com/repos/' + user.user + '/' + user.user + '.github.io/contents/' + user.path + '/';
+//		let urlFolderAPI;
+
+		urlFolderAPI = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
 
 		TOO.requestFile( urlFolderAPI, callbackRepos );
 
@@ -235,12 +237,13 @@
 
 	function callbackRepos( xhr ){
 
-		let urlFolder = 'https://' + user.user + '.github.io/' + user.path + '/';
+//		let files, file;
+//		let urlFolder = 'https://' + user.user + '.github.io/' + user.path + '/';
 
-		let files = xhr.target.response;
+		files = xhr.target.response;
 
 		files = JSON.parse( files );
-console.log( 'files', files );
+
 		for ( let i = 0; i < files.length; i++) {
 
 			file = files[ i ].name;
@@ -252,6 +255,23 @@ console.log( 'files', files );
 			}
 
 		 }
+
+	}
+
+	SEL.selectRepo = function(){
+
+console.clear();
+
+//		location.hash="";
+		history.replaceState( '', document.title, window.location.pathname );
+
+		var scr = document.body.appendChild( document.createElement( 'script' ) );
+
+		scr.onload = TOO.initUser;
+
+		scr.src = selUser.value;
+//		user = users[ selUser.value ];
+
 
 	}
 

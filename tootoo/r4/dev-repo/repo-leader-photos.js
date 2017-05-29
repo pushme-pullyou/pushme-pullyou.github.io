@@ -1,11 +1,11 @@
 
 
 
-	let user = {
+	var user = {
 		user : 'leaderphotos',
 		repo : 'leaderphotos.github.io',
 		branch : 'master',
-		folder :'',
+		path :'',
 		defaultFile : 'README.md'
 	};
 

@@ -1,6 +1,6 @@
-	let images = 'https://prediqtiv.github.io/images/';
+	var images = 'https://prediqtiv.github.io/images/';
 
-	user = {
+	var user = {
 		user : 'prediqtiv',
 		subText : 'Invest smarter',
 		logo: '<img src=' + images + 'five-boxes.png height=32 >',
