@@ -256,7 +256,12 @@
 
 		 }
 
+		 selUser.selectedIndex = 7;
+
+		 SEL.selectRepo();
+
 	}
+
 
 	SEL.selectRepo = function(){
 
@@ -269,11 +274,14 @@ console.clear();
 
 		scr.onload = TOO.initUser;
 
-		scr.src = selUser.value;
+		scr.src = '../dev-repo/' + selUser.value;
 //		user = users[ selUser.value ];
 
 
 	}
+
+
+
 
 	SEL.selectUser = function(){
 

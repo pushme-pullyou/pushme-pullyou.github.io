@@ -2,12 +2,12 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo3.1 Basic</title>
+<title>TooToo4 Library</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-05-07' >
+<meta name=date content='2017-05-29' >
 
 <link rel=stylesheet href=../dev/style4.css >
 
@@ -23,15 +23,15 @@
 <script src=repo-prediqtiv.js ></script>
 <script src=repo-open-source-guide.js ></script>
 
--->
 <script src=repo-leader-photos.js ></script>
+-->
 
 	<div id=container >
 
 		<div id=menu >
 
 			<h2>
-				<a href=http://pushme-pullyou.github.io title="Jaanga - your Github repo happy place" > &#x2766 </a><br>
+				<a href=http://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
 				<a id=mnuTitle href="" title="Click here to refresh this page" ></a>
 				~ <a href=index.html#README.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
 			</h2>
@@ -89,15 +89,6 @@
 
 	}
 
-//console.log( 'u', usr, 'p', path );
-
-	let user = {
-		user : usr,
-		subText : 'Hello, there',
-		repo : usr + '.github.io',
-		branch : 'master',
-		folder : path,
-	};
 */
 
 
@@ -105,10 +96,8 @@
 
 	function init() {
 
-		mnuTitle.innerHTML = user.title ? user.title : user.user;
+		mnuTitle.innerHTML = document.title;
 		mnuTagline.innerHTML = '<small><p>' + document.head.querySelector( "[name=description]" ).content + '</p></small>';
-
-
 
 		SEL.initSelectUsers();
 
