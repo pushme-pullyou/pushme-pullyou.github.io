@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title></title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-04-24' >
+</head>
+<body>
+<script>
+// Copyright 2017 Jaanga authors ~ MIT license
+
+	const b = '<br>';
+	let txt;
+	init();
+
+	function init() {
+
+		let css, container, contents, hamburger, menu;
+
+		css = document.body.appendChild( document.createElement('style') );
+		css.innerHTML =
+			'body { font: 12pt monospace; margin: 0; }' +
+			'a { color: crimson; text-decoration: none; }' +
+			'a:hover { text-decoration: underline; }' +
+
+			'button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }' +
+			'input[type=range] { -webkit-appearance: none; -moz-appearance: none; background-color: #ddd; width: 160px; }' +
+			'input[type=range]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }' +
+			'input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; background-color: #888; height: 20px; width: 10px; }' +
+
+			'summary { outline: none; }' +
+			'summary h3 { display: inline; }' +
+
+			'.popUp { background-color: white; left: 300px; border: 1px solid red; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }' +
+			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
+			'#container { left: 0; position: absolute; transition: left 1s; width: 100%;}' +
+
+			'#contents { border: 1px #ccc solid; left: 375px; max-width: 800px; position: absolute; }' +
+
+			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px; }' +
+			'#hamburger h2 { margin: 0; }' +
+			'#menu { background-color: #eee; border: 1px #ccc solid; padding: 0 10px; position: absolute; width: 300px; }' +
+			'#menu h2 { margin: 0; }' +
+		'';
+
+		container = document.body.appendChild( document.createElement( 'div' ) );
+		container.id = 'container';
+		container.innerHTML =
+			'<div id=menu >' +
+
+				'<h2>' +
+					'<a href=http://jaanga.github.io title="Jaanga - your 3D happy place" > &#x2766 </a><br>' +
+//					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
+					'<a href="" title="Click here to refresh this page" >' + location.pathname.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) + '</a>' +
+					' ~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
+				'</h2>' +
+
+				'<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>' +
+
+				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
+
+				'<details open>' +
+
+					'<summary><h3>Menu</h3></summary>' +
+
+					'<p>' +
+						'This is a template or boilerplate file that is frequently used to start-off a Jaanga projects.' +
+					'</p>' +
+
+					'<p>' +
+						'<button onclick=doIt(); > Button 3 </button>' +
+					'</p>' +
+
+					'<div id=menuInfo ></div>' +
+
+				'</details>' +
+
+			'</div>' +
+
+			'<div id=hamburger onclick=container.style.left=container.style.left===""?"-325px":""; >' +
+				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
+			'</div>' +
+
+			'<div id=contents >' +
+				'<h1>Typical contents</h1>' +
+			'</div>' +
+
+		'';
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		let fileName;
+
+		fileName = 'https://api.github.com/repos/' + 'leaderphotos' + '/' + 'leaderphotos.github.io' + '/contents/' + 'albums';
+		fileName = 'https://api.github.com/repos/leaderphotos/leaderphotos.github.io/git/trees/master?recursive=1';
+
+		requestFile( fileName );
+
+
+	}
+
+
+	function requestFile( fileName ) {
+
+//		let fileName, text, lines;
+
+		xhr = new XMLHttpRequest();
+		xhr.crossOrigin = 'anonymous';
+		xhr.open( 'GET', fileName, true );
+		xhr.onerror = function( xhr ) { console.log( 'error', xhr  ); };
+		xhr.onload = callback;
+		xhr.send( null );
+
+		function callback( xhr ) {
+
+//			let response, items, item;
+//			let headers, arr, name;
+
+			response = xhr.target.response;
+			items = JSON.parse( response );
+
+			txt = '';
+			headers = [];
+
+//String.prototype.capitalize = function() {
+//   return this.charAt(0).toUpperCase() + this.slice(1);
+//}
+
+			for ( var i = 0; i < items.tree.length; i++ ) {
+
+				item = items.tree[ i ];
+
+				if ( item.type === 'tree' ) {
+
+					arr = item.path.split( '/' );
+
+					if ( arr.length < 2 ) { continue;  }
+
+					if ( headers.indexOf( arr[ 1 ] ) === -1 ) {
+
+						headers.push( arr[ 1 ] );
+
+						txt += '### ' + arr[ 1 ][ 0 ].toUpperCase() + arr[ 1 ].slice( 1 ).replace( /-/g, ' ' ) + b;
+
+					} else {
+
+						arr = arr[ 2 ].split( '-' );
+
+						for ( var j = 0 ; j < arr.length ; j++ ){
+
+							arr[ j ] = arr[ j ][ 0 ].toUpperCase() + arr[ j ].slice( 1 );
+						}
+
+						name = arr.join( ' ' );
+
+						txt += '* [' + name + ']( #!' + item.path + ' )' + b;
+
+
+
+
+					}
+
+				}
+
+			}
+
+			txt = txt.replace( /Bosniabw/, 'Bosnia BW' );
+			txt = txt.replace( 'Romakosovo', 'Roma Kosovo' );
+			txt = txt.replace( 'Bonfireseason', 'Bonfire Season' );
+			txt = txt.replace( 'Irelandwestcoast', 'Ireland West Coast' );
+			txt = txt.replace( 'Citiestourism', 'Cities Tourism' );
+			txt = txt.replace( 'Ibizanitefever', 'Ibiza Nite Fever' );
+			txt = txt.replace( 'Finlandroma', 'Finland Roma' );
+			txt = txt.replace( 'Romapoland', 'Roma Poland' );
+			txt = txt.replace( 'Romatexas', 'Roma Texas' );
+			txt = txt.replace( 'Romatravellersforum', 'Roma Travellers Forum' );
+			txt = txt.replace( 'Romaturkeygreece', 'Roma Turkey Greece' );
+			txt = txt.replace( 'Romavilhelmcovaci', 'Roma Vilhelm Covaci' );
+			txt = txt.replace( 'Slovakiaroma', 'Slovakia Roma' );
+			txt = txt.replace( 'Parisstudentdemonstrations', 'Paris Student Demonstrations' );
+			txt = txt.replace( 'Parisstudentdemonstration31', 'Paris Student Demonstration 31' );
+			txt = txt.replace( 'Parisgeneralstrike', 'Paris General Strike' );
+			txt = txt.replace( 'Artcommissions', 'Art Commissions' );
+			txt = txt.replace( 'Joachimecklwasser', 'Joachim Ecklwasser' );
+			txt = txt.replace( 'Earlyyears', 'Early Years' );
+			txt = txt.replace( 'Centralamerica', 'Central America' );
+			txt = txt.replace( 'Guatemalabw', 'Guatemala BW' );
+			txt = txt.replace( 'Streetchildren', 'Street Children' );
+			txt = txt.replace( 'Todossantos', 'Todos Santos' );
+			txt = txt.replace( 'Classicpowerboats', 'Classic Powerboats' );
+			txt = txt.replace( 'Powerboatp1', 'Powerboat' );
+			txt = txt.replace( 'Hurricanemitch', 'Hurricane Mitch' );
+			txt = txt.replace( 'Chasseausanglier', 'Chasse au Sanglier' );
+			txt = txt.replace( 'Meatbook', 'Meat Book' );
+			txt = txt.replace( 'Forestsaerialfrance', 'Forests Aerial France' );
+			txt = txt.replace( 'Hanspeter2', 'Hans Peter' );
+			txt = txt.replace( 'Homepagephotos', 'Home Page Photos' );
+			txt = txt.replace( 'Todossantosnew', 'Todos Santos New' );
+			txt = txt.replace( 'Leaderphotos', 'Leader Photos' );
+			txt = txt.replace( 'Bartholomeworthodoxturkey', 'Bartholomew Orthodox Turkey' );
+			txt = txt.replace( 'Panoramafb', 'Panorama FB' );
+			txt = txt.replace( 'Goranbregovic', 'Goran Bregovic' );
+			txt = txt.replace( 'Goranbregovickristjanjarvi', 'Goran Bregovic Kristjan Jarvi' );
+			txt = txt.replace( 'Nigel_dickinson_portraits', 'Nigel Dickinson Portraits' );
+			txt = txt.replace( 'Coupe Decaleaubataclan', 'Coupe Decale au Bataclan' );
+			txt = txt.replace( 'Peripheryhost', 'Periphery Host' );
+			txt = txt.replace( 'Pollutionandenvironment', 'Pollution and Environment' );
+			txt = txt.replace( 'Pollutiondanube', 'Pollution Danube' );
+			txt = txt.replace( 'Animistafrica', 'Animist Africa' );
+			txt = txt.replace( 'Buddhismfrance', 'Buddhism France' );
+			txt = txt.replace( 'Elrociospain', 'El Rocio Spain' );
+			txt = txt.replace( 'Gypsypilgrimmage', 'Gypsy Pilgrimmage' );
+			txt = txt.replace( 'Semanasanta', 'Semana Santa' );
+			txt = txt.replace( 'Fishcircus', 'Fish Circus' );
+			txt = txt.replace( 'Romaexpo', 'Roma Expo' );
+			txt = txt.replace( 'Movingwalls', 'Moving Walls' );
+			txt = txt.replace( 'Saintesmaries', 'Saintes Maries' );
+			txt = txt.replace( 'Saralepelerinagedesgitans', 'Sara le pelerinage des gitans' );
+			txt = txt.replace( 'Gypsiesandguardianssaintesmaries', 'Gypsies and guardians Saintes Maries' );
+			txt = txt.replace( 'Gypsycampssaintesmaries', 'Gypsy Camps Saintes Maries' );
+			txt = txt.replace( 'Gypsymusicdancebears', 'Gypsy Music Dance Bears' );
+			txt = txt.replace( 'Saintesara', 'Sainte Sara' );
+			txt = txt.replace( 'Saintesmariesaerial', 'Saintes Maries Aerial' );
+			txt = txt.replace( 'Saintesmarieschurch', 'Saintes Maries Church' );
+			txt = txt.replace( 'Sebastian02', 'Sebastian 2' );
+			txt = txt.replace( 'Sebastianportraits', 'Sebastian Portraits' );
+			txt = txt.replace( 'Mariageyannannesophie', 'Mariage Yann Anne Sophie' );
+
+
+			txt = txt.replace( '', '' );
+			txt = txt.replace( '', '' );
+			txt = txt.replace( '', '' );
+			txt = txt.replace( '', '' );
+			txt = txt.replace( '', '' );
+			txt = txt.replace( '', '' );
+			contents.innerHTML = txt;
+
+		}
+
+	}
+
+
+
+
+</script>
+</body>
+</html>

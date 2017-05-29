@@ -217,10 +217,43 @@
 
 		'';
 
-		SEL.getMenuSelectUserOptions();
+//		SEL.getMenuSelectUserOptions();
 
 	}
 
+
+
+	SEL.getRepoOptions = function() {
+
+		let urlFolderAPI = 'https://api.github.com/repos/' + user.user + '/' + user.user + '.github.io/contents/' + user.path + '/';
+
+		TOO.requestFile( urlFolderAPI, callbackRepos );
+
+
+	}
+
+
+	function callbackRepos( xhr ){
+
+		let urlFolder = 'https://' + user.user + '.github.io/' + user.path + '/';
+
+		let files = xhr.target.response;
+
+		files = JSON.parse( files );
+console.log( 'files', files );
+		for ( let i = 0; i < files.length; i++) {
+
+			file = files[ i ].name;
+
+			if ( file.endsWith( '.js') ) {
+
+				selUser.innerHTML += '<option>' + file + '</option>';
+
+			}
+
+		 }
+
+	}
 
 	SEL.selectUser = function(){
 
