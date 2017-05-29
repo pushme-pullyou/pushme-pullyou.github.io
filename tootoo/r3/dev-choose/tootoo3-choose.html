@@ -14,10 +14,10 @@
 <style>
 #container2 { height: 100%; left: 0; overflow: hidden; position: absolute; transition: left 1s; width: 100%; }
 
-#contents2 { border:0px solid yellow; height: 100%; left: 325px; overflow: hidden; position: absolute; width: 100%; }
+#contents2 { border: 0px solid yellow; height: 100%; left: 325px; overflow: hidden; position: absolute; width: 100%; }
 #contents { border: 0px #00f solid; height: 100%; left: 325px; overflow-x: hidden; position: absolute; max-width: calc( 100% - 325px ); }
 
-
+#ifr { height: 100%; }
 
 </style>
 </head>
@@ -39,7 +39,7 @@
 			<h2>
 				<a href=http://pushme-pullyou.github.io title="Jaanga - your Github repo happy place" > &#x2766 </a><br>
 				<a id=mnuTitle href="" title="Click here to refresh this page" ></a>
-				~ <a href=https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo3 onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
+				~ <a href=https://pushme-pullyou.github.io/index.html#tootoo/r3/dev-choose/README.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
 			</h2>
 
 			<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>
@@ -109,8 +109,7 @@
 		contents2.innerHTML =
 
 //		'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=100% ' +
-		'<iframe id=ifr src=' + url + ' width=100% height=100% ' +
-			' style="border:0 none; " >' +
+		'<iframe id=ifr src=' + url + ' >' +
 		'<iframe>';
 
 	}
@@ -165,7 +164,7 @@ console.log( 'ifr', item.style.marginLeft );
 
 		 }
 
-		selFile.selectedIndex = 1;
+		selFile.selectedIndex = 5;
 
 //		selectFile();
 

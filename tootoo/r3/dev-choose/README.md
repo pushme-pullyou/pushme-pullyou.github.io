@@ -5,9 +5,9 @@
 <a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/" >r3</a> &raquo; </h3>
 -->
 
-[dev choose Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/dev-choose/README.md )
+[TooToo dev choose Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/dev-choose/README.md )
 ===
-_say something fun here_
+_Many issues - a work in progress_
 
 <!--
 <img src="" style=display:none; width=800 >
@@ -33,6 +33,8 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 -->
 
+When you are testing TooToo, you want to be able to call up and display a good number of TooToo files very quickly. This script helps you spot bugs and errors more quickly.
+
 ### Mission
 <!-- a statement of a rationale, applicable now as well as in the future -->
 
@@ -46,8 +48,9 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 ## Features
 
-
-* TBD
+* Identify all the TooToo files in a folder on GitHub
+* Display file names in menu
+* When user clicks a file name, display its menu items in the menu and its contents in contents panel
 * Click three bars( 'hamburger' ) icon to slide menu in or out
 * Direct link to this read me file
 * Click on title to reload
@@ -84,6 +87,7 @@ Intended for xxx
 
 ## Issues / Bugs / Things that need Work
 
+* Next, Previous and Edit buttons have issues
 
 ## Change Log
 
