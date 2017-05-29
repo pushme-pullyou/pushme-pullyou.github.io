@@ -38,3 +38,16 @@
 * [License]( #LICENSE)
 `;
 
+
+
+	CON.massageText = function( response ){
+
+		var text;
+
+		text = TOO.converter.makeHtml( response );
+
+		text = text.replace( /src="images/g, 'src="https://rawgit.com/bpesquet/thejsway/master/manuscript/images' );
+
+		return text;
+
+	};

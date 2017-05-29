@@ -34,3 +34,13 @@
     * [Code, Styling and Abstraction]( #white-papers/code-styling-abstraction.md )
 ### [Blog Posts]( https://github.com/prediqtiv/prediqtiv.github.io/labels/blog%20post )
 `;
+
+
+	CON.massageText = function( response ){
+
+		CON.converter = new showdown.Converter();
+		text = CON.converter.makeHtml( response );
+
+		return text;
+
+	};

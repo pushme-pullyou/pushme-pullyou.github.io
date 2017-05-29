@@ -16,15 +16,8 @@
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
 <script src=../dev/tootoo4.js ></script>
 <script src=../dev/menu4.js ></script>
-<script src=../dev/select-users4.js ></script>
 <script src=../dev/contents4.js ></script>
-<!--
-<script src=repo-the-jsway.js ></script>
-<script src=repo-prediqtiv.js ></script>
-<script src=repo-open-source-guide.js ></script>
-
-<script src=repo-leader-photos.js ></script>
--->
+<script src=../dev-repo/repo-pushme-pullyou.js ></script>
 
 	<div id=container >
 
@@ -32,9 +25,9 @@
 
 			<h2>
 				<a href=http://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
+			</h2>
 				<a id=mnuTitle href="" title="Click here to refresh this page" ></a>
 				~ <a href=index.html#README.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
-			</h2>
 
 			<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>
 
@@ -74,7 +67,7 @@
 		mnuTitle.innerHTML = document.title;
 		mnuTagline.innerHTML = '<small><p>' + document.head.querySelector( "[name=description]" ).content + '</p></small>';
 
-		SEL.initSelectRepos();
+		TOO.initUser();
 
 
 	}

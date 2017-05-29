@@ -22,13 +22,36 @@ var indexHTML =
 <body>
 <script>
 
-	window.location.href = './xxxxx.html' + location.hash;
+// This file can be dragged to any repo - where it should open any avilable README.md file
+
+	let protocol, usr, firstDot, path, localPath;
+
+	protocol = location.protocol;
+
+	if ( protocol === 'file:' ) {
+
+		firstDot = location.pathname.indexOf( 'github.io' );
+		usr = location.pathname.slice( 0, firstDot - 1 );
+		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
+
+		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
+
+	} else if ( protocol.includes( 'http' ) ) {
+
+		firstDot = location.hostname.indexOf( '.github.io' );
+		usr = location.hostname.slice( 0, firstDot );
+		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
+
+	}
+
+	localPath = path.replace( /-/g, '' ).replace( /\w+/g, '..' );
+
+	window.location.href = localPath + '/index.html#' + path + '/README.md';
 
 <\/script>
 <\/body>
 <\/html>
-`
-;
+`;
 
 	let protocol, usr, firstDot, path;
 
@@ -93,7 +116,7 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 			'#container { left: 0; position: absolute; transition: left 1s; width: 100%;}' +
 
 			'#readme { border: 1px #ccc solid; left: 375px; max-width: 800px; position: absolute; top: 275px; }' +
-			'#index { border: 1px #ccc solid; height: 250px; left: 375px; max-width: 800px; position: absolute; top: 5px; }' +
+			'#index { border: 1px #ccc solid; height: 250px; left: 375px; max-width: 800px; overflow: auto; position: absolute; top: 5px; }' +
 
 			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px; }' +
 			'#hamburger h2 { margin: 0; }' +
@@ -171,9 +194,10 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 
 		var converter = new showdown.Converter();
 		var text = xhr.target.response;
-		var breadcrumbs = setBreadcrumbs();
+		var breadcrumbs = setBreadcrumbs();  // no longer needed??
+
 		var date = new Date();
-		var today = date.getFullYear() + '-' + ( '0' + date.getMonth() ).slice( -2 ) + '-' + ( '0' + date.getDate()).slice( -2 );
+		var today = date.getFullYear() + '-' + ( '0' + ( date.getMonth() + 1 ) ).slice( -2 ) + '-' + ( '0' + date.getDate()).slice( -2 );
 
 		text = text.replace( /thisURL/g, user.url );
 		text = text.replace( /thisPath/g, user.path );
@@ -271,8 +295,6 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 		a = null;
 
 	}
-
-
 
 
 </script>

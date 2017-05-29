@@ -198,7 +198,7 @@
 */
 
 
-	 SEL.initSelectUsers = function() {
+	 SEL.initSelectRepos = function() {
 
 		mnuSelect.innerHTML =
 
@@ -206,9 +206,7 @@
 
 					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
 
-//						'<select id=selUser onchange=location.hash="";TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
-//						'<select id=selUser onchange=TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
-						'<select id=selUser onchange=SEL.selectUser(); title="Select user" size=15 style=width:100%;  >' +
+						'<select id=selUser onchange=SEL.selectRepo(); title="Select repo" size=15 style=width:100%;  >' +
 
 						'</select>' + b +
 					b +
@@ -217,7 +215,7 @@
 
 		'';
 
-//		SEL.getMenuSelectUserOptions();
+		SEL.getRepoOptions();
 
 	}
 
@@ -225,7 +223,7 @@
 
 	SEL.getRepoOptions = function() {
 
-//		let urlFolderAPI;
+		let urlFolderAPI;
 
 		urlFolderAPI = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
 
@@ -282,6 +280,28 @@ console.clear();
 
 
 
+	 SEL.initSelectUsers = function() {
+
+		mnuSelect.innerHTML =
+
+				'<details open>' +
+
+					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
+
+//						'<select id=selUser onchange=location.hash="";TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
+//						'<select id=selUser onchange=TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
+						'<select id=selUser onchange=SEL.selectUser(); title="Select user" size=15 style=width:100%;  >' +
+
+						'</select>' + b +
+					b +
+
+				'</details>' +
+
+		'';
+
+//		SEL.getMenuSelectUserOptions();
+
+	}
 
 	SEL.selectUser = function(){
 

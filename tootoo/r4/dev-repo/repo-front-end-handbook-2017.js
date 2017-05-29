@@ -117,3 +117,20 @@
 `;
 
 
+	CON.massageText = function( response ){
+
+		var text;
+
+		text = TOO.converter.makeHtml( response );
+
+		text = text.replace( /src="images/g, 'src="https://rawgit.com/FrontendMasters/front-end-handbook-2017/master/images/' );
+		text = text.replace( /src="cover.jpg/g, 'src="https://rawgit.com/FrontendMasters/front-end-handbook-2017/master/cover.jpg' );
+
+		text = text.replace( /src="..\/images/g, 'src="https://rawgit.com/FrontendMasters/front-end-handbook-2017/master/images/' );
+
+		return text;
+
+	};
+
+
+

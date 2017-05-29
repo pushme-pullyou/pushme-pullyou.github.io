@@ -6,42 +6,34 @@
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='combine multiple tootoo files into one file.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2017-04-24' >
+<meta name=date content='2017-05-14' >
 </head>
 <body>
 <script>
 // Copyright 2017 Jaanga authors ~ MIT license
 
-	var title, fileNameHtm, fileNameCss, files;
+	var title, fileNameHtm, fileNameCss;
 
-//	fileNameHtm = '../dev/tootoo3-basic.html';
-//	fileTitle = 'tootoo3-2-all-in-one.html';
-
-	fileNameHtm = '../../dev-custom/tootoo3-prediqtiv.html';
-	fileTitle = 'tootoo3-all-in-one-prediqtiv.html';
+	fileNameHtm = '../../dev/tootoo4-basic.html';
+	fileTitle = 'tootoo3-all-in-one.html';
 
 
-//	fileNameHtm = '../dev-custom/tootoo3-pushme-pullyou.html';
-//	fileTitle = 'tootoo3-2-all-in-one-pushme-pullyou.html';
-
-//	fileNameHtm = '../examples/tootoo3-leader-photos.html';
-
-//	fileNameHtm = '../dev-custom/tootoo3-XXX.html';
-//	fileTitle = 'tootoo3-2-all-in-one-XXX.html';
-
-
-
-	fileNameCss = '../../dev/style3.css';
+	fileNameCss = '../../dev/style4.css';
+//	fileNameCss = '../examples/css-prediqtiv.js';
 
 	files = [
 
-		'../../dev/tootoo3.js',
-		'../../dev/menu3.js',
-		'../../dev/contents3.js',
+		'../dev/tootoo4.js',
+		'../dev/menu4.js',
+		'../dev/contents4.js',
 
 	];
 
-	var htm, rme, css, mnu, sel, too;
+
+	count = 0;
+
+	var htm, readMe, css, mnu, sel, too;
+		const b = '<br>';
 
 	init();
 
@@ -49,7 +41,6 @@
 
 		let css, container, hamburger, menu;
 		let txt = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
-		const b = '<br>';
 
 		css = document.body.appendChild( document.createElement('style') );
 		css.innerHTML =
@@ -69,7 +60,7 @@
 			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
 			'#container { left: 0; position: absolute; transition: left 1s; width: 100%;}' +
 
-			'#contents { border: 1px #ccc solid; height: 900px; left: 375px; max-width: 1000px; position: absolute; }' +
+			'#contents { border: 1px #ccc solid; height: 900px; left: 375px; max-width: 800px; position: absolute; }' +
 
 			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px; }' +
 			'#hamburger h2 { margin: 0; }' +
@@ -93,11 +84,14 @@
 
 				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
 
+				'<p>' +
+					'<select id=selFile onchange=selectFile(); title="Select file" size=15 style=width:100%; ></select>' +
+				'</p>' +
+
+
 				'<details open>' +
 
 					'<summary><h3>Menu</h3></summary>' +
-
-					'<p id=fileInfo ></p>' +
 
 					'<p>' +
 						'<button onclick=saveFile(); > Save File </button>' +
@@ -121,15 +115,54 @@
 
 		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
-		fileInfo.innerHTML =
 
-//			'fileNameHtm: ' + b +
-//			fileNameHtm + b +
-//			'fileTitle: ' + b +
-//			fileTitle + b +
-		'';
+		getMenuSelectUserOptions();
 
-		requestFile( fileNameHtm, callbackHtm );
+
+	}
+
+
+
+	function getMenuSelectUserOptions() {
+
+		let user;
+
+		var folderName = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
+
+		requestFile( folderName, callbackFiles );
+
+	}
+
+
+	function callbackFiles( xhr ){
+
+		var files = xhr.target.response;
+
+		files = JSON.parse( files );
+
+		for ( let i = 0; i < files.length; i++) {
+
+			file = files[ i ].name;
+
+			if ( file.endsWith( '.js') ) {
+
+				selFile.innerHTML += '<option>' + file + '</option>';
+
+			}
+
+		 }
+
+		selFile.selectedIndex = 8;
+
+		selectFile();
+
+	}
+
+
+	function selectFile(){
+
+		var fileName = '../../dev/tootoo4-basic.html';
+		requestFile( fileName, callbackHtm );
 
 	}
 
@@ -138,16 +171,23 @@
 
 		htm = xhr.target.response;
 
-		requestFile( '../../dev/README.md', callbackRme );
+		let date = new Date();
+		let today = date.getFullYear() + '-' + ( date.getMonth() + 1 )+ '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes();
+		let strOld = /<meta name=date content=\'(.*?)\' >/;
+
+		let strNew = "<meta name=date content='" + today + "' >";
+
+		htm = htm.replace( strOld, strNew );
 
 		contents.innerText = htm;
 
+		requestFile( '../../dev/README.md', callbackReadMe );
 
 	}
 
-	function callbackRme( xhr ) {
+	function callbackReadMe( xhr ) {
 
-		rme = xhr.target.response;
+		readMe = xhr.target.response;
 
 		requestFile( fileNameCss, callbackCss );
 
@@ -160,12 +200,12 @@
 
 		css = xhr.target.response;
 
-		let strOld = /<link rel=stylesheet href=..\/dev\/style3.css >/;
+		let strOld = /<link rel=stylesheet href=..\/dev\/style4.css >/;
 
 		let strNew =
 
 			'<!--' +
-				'\n' + rme + '\n' +
+				'\n' + readMe + '\n' +
 			'-->\n' +
 			'<style>\n' +
 				css + '\n\n' +
@@ -174,7 +214,7 @@
 
 		htm = htm.replace( strOld, strNew );
 
-		requestFile( files[ 0 ], callback1 );
+		requestFile( '../' + files[ 0 ], callback1 );
 
 		contents.innerText = htm;
 
@@ -193,7 +233,7 @@
 
 		);
 
-		requestFile( files[ 1 ], callback2 );
+		requestFile( '../' + files[ 1 ], callback2 );
 
 //		contents.innerText = htm;
 
@@ -212,7 +252,7 @@
 
 		);
 
-		requestFile( files[ 2 ], callback3 );
+		requestFile( '../' + files[ 2 ], callback3 );
 
 //		contents.innerText = htm;
 
@@ -231,9 +271,27 @@
 
 		);
 
+		requestFile( '../../dev-repo/' + selFile.value, callback4 );
+
+	}
+
+
+	function callback4( xhr ) {
+
+		var txt = xhr.target.response;
+
+		htm = htm.replace(
+
+			'<script src=..\/dev-repo/repo-pushme-pullyou.js >',
+
+			'<script>\n// ' + selFile.value + ' inserted\n\n' + txt
+
+		);
+
 		contents.innerText = htm;
 
 	}
+
 
 
 
@@ -259,12 +317,11 @@
 		blob = new Blob( [ contents.value ] );
 		a = document.body.appendChild( document.createElement( 'a' ) );
 		a.href = window.URL.createObjectURL( blob );
-		a.download = fileTitle;
+		a.download = selFile.value.replace( 'repo-', 'tootoo3-all-in-one-' ).replace( '.js', '.html' );
 		a.click();
 		a = null;
 
 	}
-
 
 
 </script>

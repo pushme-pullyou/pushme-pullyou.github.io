@@ -38,3 +38,21 @@
 * [Style Guide]( #docs/styleguide.md )
 
 `;
+
+
+
+	CON.massageText = function( response ){
+
+		raw = response.slice( 4 )
+
+		raw = raw.slice( raw.indexOf( '---' ) + 3 );
+
+		text = TOO.converter.makeHtml( raw );
+
+		text = text.replace( /image: \/assets/g, '<img src="https://rawgit.com/github/opensource.guide/gh-pages/assets' );
+
+		text = text.replace( /src="\/assets/g, 'src="https://rawgit.com/github/opensource.guide/gh-pages/assets' );
+
+		return text;
+
+	}

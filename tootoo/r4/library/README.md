@@ -1,7 +1,7 @@
-<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/#tootoo/r4/library/README.md "View file as a web page." ) </span>
+<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/tootoo/r3/dev-choose/#tootoo/r4/library/README.md "View file as a web page." ) </span>
 
 
-[TooToo Library Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/dev-choose/README.md )
+[TooToo Library Read Me]( https://pushme-pullyou.github.io/#tootoo/r4/library/README.md )
 ===
 _Identify all the TooToo files in a folder on GitHub. Many issues - a work in progress_
 
@@ -9,10 +9,10 @@ _Identify all the TooToo files in a folder on GitHub. Many issues - a work in pr
 <img src="" style=display:none; width=800 >
 -->
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/dev-choose/tootoo3-choose.html width=100% height=600px ></iframe>
-_TooToo Library_
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r4/library/tootoo4-library.html width=100% height=600px ></iframe>
+_TooToo Library
 
-## Full Screen: [ TooToo Library ]( https://pushme-pullyou.github.io/tootoo/r3/dev-choose/tootoo3-choose.html )
+## Full Screen: [ TooToo Library ]( https://pushme-pullyou.github.io/tootoo/r4/library/tootoo4-library.html )
 
 ***
 

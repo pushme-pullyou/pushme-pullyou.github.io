@@ -6,3 +6,13 @@
 		folder : '',
 	};
 
+
+	CON.massageText = function( response ){
+
+		CON.converter = new showdown.Converter();
+		text = CON.converter.makeHtml( response );
+
+		return text;
+
+	};
+
