@@ -213,6 +213,7 @@
 
 				'</details>' +
 
+				'<div id=mnuUserTitle ></div>' +
 		'';
 
 		SEL.getRepoOptions();
@@ -262,6 +263,7 @@
 
 
 	SEL.selectRepo = function(){
+
 // console.clear();
 
 //		location.hash="";
@@ -273,6 +275,7 @@
 
 		scr.src = '../dev-repo/' + selUser.value;
 //		user = users[ selUser.value ];
+
 
 
 	}

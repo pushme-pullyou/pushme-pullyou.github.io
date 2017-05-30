@@ -17,10 +17,7 @@
 <script src=../dev/tootoo4.js ></script>
 <script src=../dev/menu4.js ></script>
 <script src=../dev/contents4.js ></script>
-<!--
-<script src=../dev-repo/repo-prediqtiv.js ></script>
--->
-<script src=../dev-repo/repo-pushme-pullyou.js ></script>
+
 
 	<div id=container >
 
@@ -62,6 +59,35 @@
 <script >
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
+	let protocol, user, firstDot, path;
+
+	protocol = location.protocol;
+
+	if ( protocol === 'file:' ) {
+
+		firstDot = location.pathname.indexOf( 'github.io' );
+		user = location.pathname.slice( 0, firstDot - 1 );
+		user = user.slice( user.lastIndexOf( '/' ) + 1 );
+
+		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
+
+	} else if ( protocol.includes( 'http' ) ) {
+
+		firstDot = location.hostname.indexOf( '.github.io' );
+		user = location.hostname.slice( 0, firstDot );
+		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
+
+	}
+
+//console.log( 'u', user, 'p', path );
+
+	user = {
+		user : user,
+		repo : user + '.github.io',
+		branch : 'master',
+		path : path,
+
+	};
 
 	init();
 
@@ -70,10 +96,12 @@
 		let tagLine;
 
 		tagLine = user.tagLine ? user.tagLine : document.head.querySelector( "[name=description]" ).content;
+
 		mnuTitle.innerHTML = user.title ? user.title : user.user;
 		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
 
 		TOO.initUser();
+
 
 	}
 

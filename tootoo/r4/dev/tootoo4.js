@@ -130,6 +130,11 @@
 
 		TOO.files = [];
 
+		if ( mnuSelect.innerHTML.includes( 'mnuUserTitle' ) ) {
+
+			mnuUserTitle.innerHTML = '<h2>' + ( user.title ? user.title : user.user ) + '</h2>';
+		}
+
 		showdown.setFlavor( 'github' );
 
 		TOO.converter = new showdown.Converter();
