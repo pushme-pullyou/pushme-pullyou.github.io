@@ -78,13 +78,26 @@ var indexHTML =
 
 console.log( 'u', usr, 'p', path, 'r', repo );
 
+	script = path.split( '/' ).pop();
+
+	scriptTitle = script.split( '-' );
+
+	for ( var i = 0 ; i < scriptTitle.length ; i++ ){
+
+        scriptTitle[ i ] = scriptTitle[ i ].charAt( 0 ).toUpperCase() + scriptTitle[ i ].slice( 1 );
+
+    }
+
+	scriptTitle = scriptTitle.join( ' ' );
+
 	let user = {
 		user : usr,
 		subText : 'Hello, there',
 		url : usr + '.github.io',
 		branch : 'master',
 		path : path,
-		script: path.split( '/' ).pop(),
+		script: script,
+		scriptTitle : scriptTitle,
 		files: 'https://api.github.com/repos/' + usr + '/' + usr + '.github.io/contents/' + path
 	};
 
@@ -151,6 +164,7 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 						'Branch: ' + user.branch + b +
 						'Path: ' + user.path + b +
 						'Script: ' + user.script + b +
+						'ScriptTitle: ' + user.scriptTitle + b +
 						'Files:' + b +
 						'<div id=files></div>' +
 					'</div>' +
@@ -176,7 +190,7 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 
 		'';
 
-		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+//		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
 		index.innerText = indexHTML;
 		index.contentEditable = true;
@@ -201,7 +215,8 @@ console.log( 'u', usr, 'p', path, 'r', repo );
 
 		text = text.replace( /thisURL/g, user.url );
 		text = text.replace( /thisPath/g, user.path );
-		text = text.replace( /thisScript/g, user.script.replace( /-/g, ' ' ) );
+//		text = text.replace( /thisScript/g, user.script.replace( /-/g, ' ' ) );
+		text = text.replace( /thisScript/g, user.scriptTitle );
 		text = text.replace( /thisBreadcrumbs/g, breadcrumbs );
 		readMeText = text.replace( /thisDate/g, today );
 		readMeHTML = converter.makeHtml( readMeText );
