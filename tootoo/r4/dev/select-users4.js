@@ -254,7 +254,7 @@
 
 		 }
 
-		 selUser.selectedIndex = 7;
+		 selUser.selectedIndex = 8;
 
 		 SEL.selectRepo();
 
@@ -262,8 +262,7 @@
 
 
 	SEL.selectRepo = function(){
-
-console.clear();
+// console.clear();
 
 //		location.hash="";
 		history.replaceState( '', document.title, window.location.pathname );
