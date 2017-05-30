@@ -19,11 +19,8 @@
 * [TooToo Read Me]( #tootoo/README.md )
 #### TooToo Versions
 * [Dev Read Me]( #tootoo/r3/dev/README.md )
-* [Dev Choose Read Me]( #tootoo/r4/library/README.md )
-* [Dev Custom Read Me]( #tootoo/r4/skim/README.md )
-* [Dev Select Read Me]( #tootoo/r3/dev-select/README.md )
-* [All in One Read Me]( #tootoo/r3/all-in-one/README.md )
-* [All in One Custom Read Me]( #tootoo/r3/all-in-one-custom/README.md )
+* [Library Read Me]( #tootoo/r4/library/README.md )
+* [Skim Read Me]( #tootoo/r4/skim/README.md )
 #### TooToo Utilities
 * [Utilities Read Me]( #tootoo/r4/utilities/README.md )
 * [get-github-dir-names]( #tootoo/r4/utilities/get-github-dir-names/README.md )

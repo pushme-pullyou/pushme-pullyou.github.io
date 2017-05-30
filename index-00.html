@@ -2,12 +2,12 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo4 Library</title>
+<title>PushMe-PullYou</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=description content='Browse and view files all over GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-5-29 17:4' >
+<meta name=date content='2017-5-28 20:45' >
 
 <!--
 
@@ -75,7 +75,7 @@ summary h3 { display: inline; }
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
 <script>
-// ../dev/tootoo4.js inserted
+// ../dev/tootoo3.js inserted
 
 	let TOO = {};
 
@@ -93,7 +93,7 @@ summary h3 { display: inline; }
 
 		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
 
-		if ( location.protocol === 'bbb file:' ) {
+		if ( location.protocol === 'file:' ) {
 
 			TOO.urlGHPages = './';
 
@@ -377,7 +377,7 @@ summary h3 { display: inline; }
 
 </script>
 <script>
-// ../dev/menu4.js inserted
+// ../dev/menu3.js inserted
 
 
 	let MNU = {};
@@ -516,7 +516,7 @@ summary h3 { display: inline; }
 
 </script>
 <script>
-// ../dev/contents4.js inserted
+// ../dev/contents3.js inserted
 
 
 	let CON = {};
@@ -785,60 +785,16 @@ console.log( '', response  );
 
 	}
 </script>
-<script>
-// repo-pushme-pullyou.js inserted
-
-
-	var user = {
-		user : 'pushme-pullyou',
-		subText : 'Browse & view stuff on GitHub real fast!',
-		repo : 'pushme-pullyou.github.io',
-		branch : 'master',
-		folder : '',
-	};
-
-
-	MNU.tableOfContents =
-`### Pushme-Pullyou
-* [Read Me]( #README.md )
-### GubGub
-* [Read Me]( #gubgub/README.md )
-### DabDab
-* [Read Me]( #dabdab/README.md )
-### TooToo
-* [TooToo Read Me]( #tootoo/README.md )
-#### TooToo Versions
-* [Dev Read Me]( #tootoo/r3/dev/README.md )
-* [Library Read Me]( #tootoo/r4/library/README.md )
-* [Skim Read Me]( #tootoo/r4/skim/README.md )
-#### TooToo Utilities
-* [Utilities Read Me]( #tootoo/r4/utilities/README.md )
-* [get-github-dir-names]( #tootoo/r4/utilities/get-github-dir-names/README.md )
-* [Make Read Me Read Me]( #tootoo/r4/utilities/make-github-readme/README.md )
-* [Merge Files into one]( #tootoo/r4/utilities/merge-files-into-one/README.md )
-
-`;
-
-
-	CON.massageText = function( response ){
-
-		CON.converter = new showdown.Converter();
-		text = CON.converter.makeHtml( response );
-
-		return text;
-
-	};
-</script>
 
 	<div id=container >
 
 		<div id=menu >
 
 			<h2>
-				<a href=http://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
-			</h2>
+				<a href=http://pushme-pullyou.github.io title="Jaanga - your Github repo happy place" > &#x2766 </a><br>
 				<a id=mnuTitle href="" title="Click here to refresh this page" ></a>
-				~ <a href=index.html#README.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
+				~ <a href=#README.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
+			</h2>
 
 			<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>
 
@@ -867,21 +823,54 @@ console.log( '', response  );
 
 	</div>
 
-<script >
+<script>
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
+
+	let user = {
+		user : 'pushme-pullyou',
+		subText : 'Browse & view stuff on GitHub real fast!',
+		repo : 'pushme-pullyou.github.io',
+		branch : 'master',
+		folder : '',
+	};
+
+
+	MNU.tableOfContents =
+`### Pushme-Pullyou
+* [Read Me]( #README.md )
+### GubGub
+* [Read Me]( #gubgub/README.md )
+### DabDab
+* [Read Me]( #dabdab/README.md )
+### TooToo
+* [TooToo Read Me]( #tootoo/README.md )
+#### TooToo Versions
+* [Dev Read Me]( #tootoo/r3/dev/README.md )
+* [Dev Choose Read Me]( #tootoo/r3/dev-choose/README.md )
+* [Dev Custom Read Me]( #tootoo/r3/dev-custom/README.md )
+* [Dev Select Read Me]( #tootoo/r3/dev-select/README.md )
+* [All in One Read Me]( #tootoo/r3/all-in-one/README.md )
+* [All in One Custom Read Me]( #tootoo/r3/all-in-one-custom/README.md )
+#### TooToo Utilities
+* [Utilities Read Me]( #tootoo/r3/utilities/README.md )
+* [get-github-dir-names]( #tootoo/r3/utilities/get-github-dir-names/README.md )
+* [Make Read Me Read Me]( #tootoo/r3/utilities/make-github-readme/README.md )
+* [Merge Files into one]( #tootoo/r3/utilities/merge-files-into-one/README.md )
+
+`;
 
 	init();
 
 	function init() {
 
-		mnuTitle.innerHTML = document.title;
+		mnuTitle.innerHTML = user.user;
 		mnuTagline.innerHTML = '<small><p>' + document.head.querySelector( "[name=description]" ).content + '</p></small>';
 
 		TOO.initUser();
 
-
 	}
+
 
 </script>
 </body>
