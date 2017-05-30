@@ -3,14 +3,14 @@
 
 [TooToo Library Read Me]( https://pushme-pullyou.github.io/#tootoo/r4/library/README.md )
 ===
-_Identify all the TooToo files in a folder on GitHub. Many issues - a work in progress_
+_Display all the TooToo files in a folder on GitHub_
 
 <!--
 <img src="" style=display:none; width=800 >
 -->
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r4/library/tootoo4-library.html width=100% height=600px ></iframe>
-_TooToo Library
+<iframe id=ifr2 src=https://pushme-pullyou.github.io/tootoo/r4/library/tootoo4-library.html onload=ifr2.contentWindow.contents.style.left=0; ></iframe>
+_TooToo Library_
 
 ## Full Screen: [ TooToo Library ]( https://pushme-pullyou.github.io/tootoo/r4/library/tootoo4-library.html )
 

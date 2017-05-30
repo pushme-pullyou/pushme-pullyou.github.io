@@ -5,6 +5,7 @@
 		repo : 'jaanga.github.io',
 		branch : 'master',
 		folder : 'documents',
+		title : 'Jaanga Documents',
 
 	};
 

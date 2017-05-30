@@ -5,7 +5,8 @@
 		branch : 'master',
 		folder : '',
 		rawgit: true,
-		defaultFile: 'manuscript/intro01.md'
+		defaultFile: 'manuscript/intro01.md',
+		title : 'The JavaScript Way'
 	};
 
 
