@@ -50,7 +50,7 @@
 		contents.innerHTML =
 //			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) +
 //			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=100% ' +
-			'<iframe id=ifr src=' + url + ' > ' +
+			'<iframe id=ifrHTML src=' + url + ' > ' +
 //			' style="border:0 none; " >' +
 		'<iframe>';
 
