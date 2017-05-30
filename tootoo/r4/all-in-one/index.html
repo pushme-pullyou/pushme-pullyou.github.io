@@ -6,31 +6,28 @@
 <body>
 <script>
 
-// This file can be dragged to any repo - where it should open any avilable README.md file
+  let protocol, firstDot, user, path, pathFull;
 
-let protocol, usr, firstDot, path, localPath;
+  protocol = location.protocol;
 
-protocol = location.protocol;
+  if ( protocol === 'file:' ) {
 
-if ( protocol === 'file:' ) {
+    firstDot = location.pathname.indexOf( 'github.io' );
+    user = location.pathname.slice( 0, firstDot - 1 );
+    user = user.slice( user.lastIndexOf( '/' ) + 1 );
 
-firstDot = location.pathname.indexOf( 'github.io' );
-usr = location.pathname.slice( 0, firstDot - 1 );
-usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
+    path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
 
-path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' ) );
+  } else if ( protocol.includes( 'http' ) ) {
 
-} else if ( protocol.includes( 'http' ) ) {
-
-firstDot = location.hostname.indexOf( '.github.io' );
-usr = location.hostname.slice( 0, firstDot );
-path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' ) );
+  firstDot = location.hostname.indexOf( '.github.io' );
+  user = location.hostname.slice( 0, firstDot );
+  path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
 
 }
 
-localPath = path.replace( /-/g, '' ).replace( /w+/g, '..' );
-
-window.location.href = localPath + '/index.html#' + path + '/README.md';
+pathFull = path.replace( /-/g, '' ).replace( /\w+/g, '..' ) + '/index.html#' + path + '/README.md';
+window.location.href = pathFull;
 
 </script>
 </body>
