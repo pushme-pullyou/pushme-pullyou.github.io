@@ -2,12 +2,12 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo4 Library</title>
+<title>TooToo4 Basic</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-5-29 17:4' >
+<meta name=date content='2017-5-29 18:6' >
 
 <!--
 
@@ -388,7 +388,8 @@ summary h3 { display: inline; }
 
 		if ( MNU.tableOfContents ) {
 
-				txt = '<p>' +
+				txt = // '<h2>' + ( user.title ? user.title : user.user ) + '</h2>' +
+					'<p>' +
 					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu(); >Table of Contents</button>' +
 					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
 				'</p>';
@@ -791,10 +792,12 @@ console.log( '', response  );
 
 	var user = {
 		user : 'pushme-pullyou',
+		tagLine : 'Browse & view stuff on GitHub real fast!',
 		subText : 'Browse & view stuff on GitHub real fast!',
 		repo : 'pushme-pullyou.github.io',
 		branch : 'master',
-		folder : '',
+		path : '',
+		title : 'PushMe PullYou',
 	};
 
 
@@ -836,9 +839,9 @@ console.log( '', response  );
 
 			<h2>
 				<a href=http://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
-			</h2>
 				<a id=mnuTitle href="" title="Click here to refresh this page" ></a>
 				~ <a href=index.html#README.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
+			</h2>
 
 			<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>
 
@@ -875,8 +878,11 @@ console.log( '', response  );
 
 	function init() {
 
-		mnuTitle.innerHTML = document.title;
-		mnuTagline.innerHTML = '<small><p>' + document.head.querySelector( "[name=description]" ).content + '</p></small>';
+		let tagLine;
+
+		tagLine = user.tagLine ? user.tagLine : document.head.querySelector( "[name=description]" ).content;
+		mnuTitle.innerHTML = user.title ? user.title : user.user;
+		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
 
 		TOO.initUser();
 

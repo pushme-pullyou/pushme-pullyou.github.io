@@ -1,10 +1,12 @@
 
 	var user = {
 		user : 'pushme-pullyou',
+		tagLine : 'Browse & view stuff on GitHub real fast!',
 		subText : 'Browse & view stuff on GitHub real fast!',
 		repo : 'pushme-pullyou.github.io',
 		branch : 'master',
-		folder : '',
+		path : '',
+		title : 'PushMe PullYou',
 	};
 
 

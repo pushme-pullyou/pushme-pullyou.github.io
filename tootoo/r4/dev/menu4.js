@@ -7,7 +7,7 @@
 
 		if ( MNU.tableOfContents ) {
 
-				txt = '<h2>' + ( user.title ? user.title : user.user ) + '</h2>' +
+				txt = // '<h2>' + ( user.title ? user.title : user.user ) + '</h2>' +
 					'<p>' +
 					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu(); >Table of Contents</button>' +
 					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
