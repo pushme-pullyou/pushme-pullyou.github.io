@@ -19,14 +19,23 @@
 
 	}
 
-//console.log( 'u', user, 'p', path );
+console.log( 'u', user, 'p', path );
 
-	MNU.tableOfContents = '';
+//	MNU.tableOfContents = 'cccccccccccccccc';
 
 	user = {
 		user : user,
 		repo : user + '.github.io',
 		branch : 'master',
 		path : path,
+		tagLine : 'testing',
+	};
+
+	CON.massageText = function( response ){
+
+		CON.converter = new showdown.Converter();
+		text = CON.converter.makeHtml( response );
+
+		return text;
 
 	};
