@@ -5,26 +5,38 @@ TooToo Read Me
 ===
 _Browse and view files on GitHub with remarkable ease_
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/dev-select/tootoo3-select.html ></iframe>
-_TooToo Select R3_
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r4/library/tootoo4-library.html ></iframe>
+_TooToo Library_
 
 _The above instance of TooToo is embedded inside an iframe. A number of links do not work as expected.
 For a fully-working demo it's better that you open the scripts full screen._
 
-## Full screen example [_TooToo Select R3_]( https://pushme-pullyou.github.io/tootoo/r3/dev-select/tootoo3-select.html )
+## Full screen example [TooToo Library R4]( https://pushme-pullyou.github.io/tootoo/r4/library/tootoo4-library.html )
 
 
 ## Multiple Versions
 
 #### Basic
 
-* https://pushme-pullyou.github.io/tootoo/r3/dev
-* https://pushme-pullyou.github.io/tootoo/r3/dev/tootoo3-basic.html
+* https://pushme-pullyou.github.io/tootoo/r4/dev
+* https://pushme-pullyou.github.io/tootoo/r4/dev/tootoo3-basic.html
+
+#### All-in-One
+
+* [TooToo Dev Select Read Me ]( https://pushme-pullyou.github.io/tootoo/r4/all-in-one/ )
+* [TooToo Dev Select]( https://pushme-pullyou.github.io/tootoo/r4/all-in-one/tootoo4-all-in-one.html  )
+
+
+#### Library
+
+* [TooToo Dev Select Read Me ]( https://pushme-pullyou.github.io/tootoo/r4/library/ )
+* [TooToo Dev Select]( https://pushme-pullyou.github.io/tootoo/r4/library/tootoo4-library.html  )
+
 
 #### Select
 
-* [TooToo Dev Select Read Me ]( https://pushme-pullyou.github.io/tootoo/r3/dev-select/ )
-* [TooToo Dev Select]( https://pushme-pullyou.github.io/tootoo/r3/dev-select/tootoo3-select.html )
+* [TooToo Dev Select Read Me ]( https://pushme-pullyou.github.io/tootoo/r4/skim/ )
+* [TooToo Dev Select]( https://pushme-pullyou.github.io/tootoo/r4/skim/tootoo4-skim.html )
 
 
 

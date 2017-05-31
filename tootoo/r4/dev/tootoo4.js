@@ -6,7 +6,9 @@
 
 	TOO.initUser = function() {
 
-//		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+// if not, then overwrites. Fix this!
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
 		window.addEventListener( 'resize', TOO.setContentsWidth, false );
 
