@@ -5,11 +5,23 @@
 
 	if ( protocol === 'file:' ) {
 
-		firstDot = location.pathname.indexOf( 'github.io' );
-		user = location.pathname.slice( 0, firstDot - 1 );
-		user = user.slice( user.lastIndexOf( '/' ) + 1 );
+		if ( location.pathname.includes( 'github.io' ) ) {
 
-		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
+			firstDot = location.pathname.indexOf( 'github.io' );
+			user = location.pathname.slice( 0, firstDot - 1 );
+			user = user.slice( user.lastIndexOf( '/' ) + 1 );
+			repo = user + '.github.io';
+
+			path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
+
+		} else if ( location.pathname.includes( 'github.com' ) ) {
+
+			firstDot = location.pathname.indexOf( 'github.com' );
+			user = location.pathname.slice( 0, firstDot - 1 );
+			user = user.slice( user.lastIndexOf( '/' ) + 1 );
+			repo = user + '.github.com';
+			path = location.pathname.slice( firstDot + 11, location.pathname.lastIndexOf( '/' )  );
+		}
 
 	} else if ( protocol.includes( 'http' ) ) {
 
@@ -19,13 +31,13 @@
 
 	}
 
-console.log( 'u', user, 'p', path );
+// console.log( 'u', user, 'p', path );
 
-//	MNU.tableOfContents = 'cccccccccccccccc';
+//	MNU.tableOfContents = '';
 
 	user = {
 		user : user,
-		repo : user + '.github.io',
+		repo : repo,
 		branch : 'master',
 		path : path,
 		tagLine : 'testing',

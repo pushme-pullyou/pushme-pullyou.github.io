@@ -6,7 +6,7 @@
 		logo: '<img src=' + images + 'five-boxes.png height=32 >',
 		repo : 'prediqtiv.github.io',
 		branch : 'master',
-		folder : '',
+		path : '',
 
 		infoLink : 'https://github.com/prediqtiv',
 		title : '<img src=' + images + 'predIQtiv.png  height=64 >',

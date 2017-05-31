@@ -3,7 +3,7 @@
 		subText : '',
 		repo : 'jaanga.github.io',
 		branch : 'master',
-		folder : '',
+		path : '',
 
 	};
 

@@ -161,9 +161,8 @@
 
 	function selectFile(){
 
-		var fileName = selFile.value.includes( 'all-in-0ne' ) ?
-			 '../../dev/tootoo4-template-all-in-one.html' :
-			 '../../dev/tootoo4-basic.html';
+		let fileName = '../../dev/tootoo4-basic.html';
+
 		requestFile( fileName, callbackHtm );
 
 	}

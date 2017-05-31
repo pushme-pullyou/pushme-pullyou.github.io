@@ -7,7 +7,7 @@
 <meta name=description content='Default: Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-5-31 16:33' >
+<meta name=date content='2017-5-31 16:29' >
 
 <!--
 
@@ -797,54 +797,58 @@ console.log( '', response  );
 	}
 </script>
 <script>
-// repo-prediqtiv.js inserted
-
-	var images = 'https://prediqtiv.github.io/images/';
+// repo-the-jsway.js inserted
 
 	var user = {
-		user : 'prediqtiv',
-
-		logo: '<img src=' + images + 'five-boxes.png height=32 >',
-		repo : 'prediqtiv.github.io',
+		user : 'bpesquet',
+		subText: 'A modern introduction to an essential language.',
+		repo : 'thejsway',
 		branch : 'master',
 		path : '',
-
-		infoLink : 'https://github.com/prediqtiv',
-		title : '<img src=' + images + 'predIQtiv.png  height=64 >',
-		tagLine : 'Invest Smarter!',
-		subText : 'Invest smarter',
-//		defaultFile : 'README.md'
+		rawgit: true,
+		defaultFile: 'manuscript/intro01.md',
+		title : 'The JavaScript Way'
 	};
 
 
 	MNU.tableOfContents =
-
 `
-### predIQtiv
-* [predIQtiv home page]( #README.md )
-* [Copyright and license]( #license.md )
-### eyeCue
-* [eyeCue Read Me]( #eye-cue/README.md )
-    * [eyeCue Replay Read Me](#eye-cue/replay/README.md )
-    * [eyeCue Realtime Read]( #eye-cue/realtime/README.md )
-### Trades
-* [Trades Get Read Me]( #trades-get/README.md )
-### Tweets
-* [Tweets Read Me]( #tweets/README.md )
-### Company URLs
-* [URL Get Read Me]( #url-get/README.md )
-### White Papers
-* [White Papers Read Me]( #white-papers/README.md )
-    * [Markets, Outliers and Data Normalization]( #white-papers/outliers-data-normlization.md )
-    * [Code, Styling and Abstraction]( #white-papers/code-styling-abstraction.md )
-### [Blog Posts]( https://github.com/prediqtiv/prediqtiv.github.io/labels/blog%20post )
+* [Read Me]( #README.md )
+### Introduction
+* [About this book]( #manuscript/intro01.md )
+* [Welcome to programming]( #manuscript/intro02.md )
+* [Introducing JavaScript]( #manuscript/intro03.md )
+* [What you\'ll need]( #manuscript/intro04.md )
+### Learn to code programs
+1. [1. 3, 2, 1... Code!]( #manuscript/chapter01.md )
+2. [Play with variables]( #manuscript/chapter02.md )
+3. [Add conditions]( #manuscript/chapter03.md )
+4. [Repeat statements]( #manuscript/chapter04.md )
+5. [Write functions]( #manuscript/chapter05.md )
+6. [Create your first objects]( #manuscript/chapter06.md )
+7. [Store data in arrays]( #manuscript/chapter07.md )
+8. [Work with strings]( #manuscript/chapter08.md )
+9. [Understand object-oriented programming]( #manuscript/chapter09.md )
+10. [Discover functional programming]( #manuscript/chapter10.md )
+### Part II: Create interactive web pages
+...
+### Part III: Build web apps
+...
+### Conclusion
+* [Acknowledgements]( #manuscript/concl02.md )
+* [Contribution guidelines]( #CONTRIBUTING.md )
+* [License]( #LICENSE)
 `;
+
 
 
 	CON.massageText = function( response ){
 
-		CON.converter = new showdown.Converter();
-		text = CON.converter.makeHtml( response );
+		var text;
+
+		text = TOO.converter.makeHtml( response );
+
+		text = text.replace( /src="images/g, 'src="https://rawgit.com/bpesquet/thejsway/master/manuscript/images' );
 
 		return text;
 

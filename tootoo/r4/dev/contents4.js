@@ -27,7 +27,7 @@
 
 			CON.getFileHTML( url );
 
-		} else if ( u.endsWith( '.gif' ) || u.endsWith( '.ico' ) || u.endsWith( '.jpg' ) || u.endsWith( '.png' ) ||  u.endsWith( '.svg' ) ) {
+		} else if ( u.endsWith( '.gif' ) || u.endsWith( '.ico' ) || u.endsWith( '.jpg' ) || u.endsWith( '.jpeg' ) || u.endsWith( '.png' ) ||  u.endsWith( '.svg' ) ) {
 
 			CON.getFileImage( url );
 

@@ -16,9 +16,11 @@
 
 		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
 
-		if ( location.protocol === 'file:' ) { // can help with local testing. Needs work.
+		if ( location.protocol === 'vvvfile:' ) { // can help with local testing. Needs work.
 
-			TOO.urlGHPages = './';
+			pathFull1 = user.path.replace( /-/g, '' ).replace( /\w+/g, '..' ) + '/';
+			pathFull = pathFull1 === '/' ? './' : pathFull1;
+			TOO.urlGHPages = pathFull;
 
 		} else if ( user.rawgit ) {
 
@@ -95,7 +97,7 @@ console.log( 'url', url );
 			if ( item.type === 'file' ) {
 
 				menuItems.innerHTML +=
-					'<a id=file' + count++ + ' href=#' + item.path + ' style=width:100%;  > ' + item.name + '</a>' + b +
+					'<a id=file' + count++ + ' href=#' + encodeURI( item.path ) + ' style=width:100%;  > ' + item.name + '</a>' + b +
 				'';
 
 				TOO.files.push( item.path );
@@ -217,7 +219,7 @@ console.log( 'url', url );
 
 		name = user.repo;
 
-		name = user.path ? user.path : user.repo;
+//		name = user.path ? user.path : user.repo;
 
 		txt = '<h3><a href=JavaScript:TOO.setMenuDefault(); >' + name + '</a> &raquo; </h3>';
 

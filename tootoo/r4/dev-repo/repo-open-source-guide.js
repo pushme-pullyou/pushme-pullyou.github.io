@@ -3,7 +3,7 @@
 		subText: 'Your open source exploring happy place',
 		repo : 'open-source-guide',
 		branch : 'gh-pages',
-		folder : '',
+		path : '',
 		rawgit: true,
 		title : 'Open Source Guides'
 	};

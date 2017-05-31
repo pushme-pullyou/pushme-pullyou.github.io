@@ -3,7 +3,7 @@
 		user : 'FrontendMasters',
 		repo : 'front-end-handbook-2017',
 		branch : 'master',
-		folder : '',
+		path : '',
 		rawgit: true
 
 	};

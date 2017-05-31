@@ -3,7 +3,7 @@
 		subText: 'A modern introduction to an essential language.',
 		repo : 'thejsway',
 		branch : 'master',
-		folder : '',
+		path : '',
 		rawgit: true,
 		defaultFile: 'manuscript/intro01.md',
 		title : 'The JavaScript Way'

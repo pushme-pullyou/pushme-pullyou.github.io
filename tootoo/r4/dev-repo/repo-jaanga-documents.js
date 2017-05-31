@@ -4,7 +4,7 @@
 		subText : 'Your 3D happy place',
 		repo : 'jaanga.github.io',
 		branch : 'master',
-		folder : 'documents',
+		path : 'documents',
 		title : 'Jaanga Documents',
 
 	};
