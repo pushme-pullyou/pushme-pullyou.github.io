@@ -7,7 +7,7 @@
 		subText: 'A modern introduction to an essential language.',
 		repo: 'thejsway',
 		branch: 'master',
-		folder: '',
+		path: '',
 		rawgit: true,
 //		defaultFile : 'LICENSE'
 	};
@@ -16,7 +16,7 @@
 		logo : '<img src=https://d3js.org/logo.svg height=32 >',
 		repo : 'd3',
 		branch : 'master',
-		folder : '',
+		path : '',
 		rawgit: true
 	};
 	users.d3GH = {
@@ -24,7 +24,7 @@
 		logo : '<img src=https://d3js.org/logo.svg height=32 >',
 		repo : 'd3.github.com',
 		branch : 'master',
-		folder : '',
+		path : '',
 		rawgit: true,
 		defaultFile : 'LICENSE'
 	};
@@ -32,7 +32,7 @@
 		user : 'FrontendMasters',
 		repo : 'front-end-handbook-2017',
 		branch : 'master',
-		folder : '',
+		path : '',
 		rawgit: true
 	};
 	users.jaanga = {
@@ -40,7 +40,7 @@
 		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
 		repo : 'jaanga.github.io',
 		branch : 'master',
-		folder : '',
+		path : '',
 		defaultFile : 'readme.md'
 	};
 	users.jDemo = {
@@ -48,28 +48,28 @@
 		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
 		repo: 'jaanga.github.io',
 		branch: 'master',
-		folder: 'demo'
+		path: 'demo'
 	};
 	users.jDocs = {
 		user: 'jaanga',
 		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
 		repo: 'jaanga.github.io',
 		branch: 'master',
-		folder: 'documents'
+		path: 'documents'
 	};
 	users.jTerrain = {
 		user: 'jaanga',
 		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
 		repo: 'terrain3',
 		branch: 'gh-pages',
-		folder: ''
+		path: ''
 	};
 	users.jupyter = {
 		user : 'jupyter',
 		logo : '<img src=https://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png height=32 >',
 		repo : 'jupyter.github.io',
 		branch : 'master',
-		folder : '',
+		path : '',
 		rawgit: true
 	};
 	users.jupyterNotebook = {
@@ -77,34 +77,34 @@
 		logo : '<img src=https://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png height=32 >',
 		repo : 'notebook',
 		branch : 'master',
-		folder : '',
+		path : '',
 		rawgit: true
 	};
 	users.ladybugDynamo = {
 		user : 'ladybug-tools',
 		repo : 'ladybug-dynamo',
 		branch : 'gh-pages',
-		folder : '',
+		path : '',
 		rawgit: true
 	};
 	users.ladybugWeb = {
 		user : 'ladybug-tools',
 		repo : 'ladybug-web',
 		branch : 'gh-pages',
-		folder : '',
+		path : '',
 		rawgit: true
 	};
 	users.leader = {
 		user : 'leaderphotos',
 		repo : 'leaderphotos.github.io',
 		branch : 'master',
-		folder :''
+		path :''
 	};
 	users.mrdoob = {
 		user : 'mrdoob',
 		repo : 'three.js',
 		branch : 'dev',
-		folder : '',
+		path : '',
 		rawgit: true
 	};
 	users.paulmasson = {
@@ -112,13 +112,13 @@
 		logo : '<img src=http://paulmasson.github.io/apple-touch-icon.png height=32 >',
 		repo : 'paulmasson.github.io',
 		branch : 'master',
-		folder : ''
+		path : ''
 	};
 	users.pushmePullyou = {
 		user : 'pushme-pullyou',
 		repo : 'pushme-pullyou.github.io',
 		branch : 'master',
-		folder : '',
+		path : '',
 		noIndex: true,
 		rawgit: null
 	};
@@ -126,7 +126,7 @@
 		user : 'pushme-pullyou',
 		repo : 'pushme-pullyou.github.io',
 		branch : 'master',
-		folder : 'tootoo',
+		path : 'tootoo',
 		noIndex: true,
 		rawgit: null
 	};
@@ -134,58 +134,59 @@
 		user : 'sagemath',
 		repo : 'sagemath.github.io',
 		branch : 'master',
-		folder : ''
+		path : ''
 	};
 	users.sagemathCell = {
 		user : 'sagemath',
 		repo : 'sagecell',
 		branch : 'gh-pages',
-		folder : '',
+		path : '',
 		rawgit: true
 	};
 	users.sagemathSageDev = {
 		user : 'sagemath',
 		repo : 'sage',
 		branch : 'develop',
-		folder : '',
+		path : '',
 		rawgit: true
 	};
 	users.sagemathDocs = {
 		user : 'sagemath',
 		repo : 'documentation',
 		branch : 'gh-pages',
-		folder : 'html'
+		path : 'html'
 	};
 	users.sagemathPlanet = {
 		user : 'sagemath',
 		repo : 'planet',
 		branch : 'gh-pages',
-		folder : ''
+		path : ''
 	};
 	users.theoArmour = {
 		user : 'theo-armour',
 		repo : 'theo-armour.github.io',
 		branch : 'master',
-		folder : ''
+		path : ''
 	};
 	users.theoDraw = {
 		user : 'theo-armour',
 		repo : 'drawing',
 		branch : 'master',
-		folder : ''
+		path : ''
 	};
 	users.theoPages2 = {
 		user : 'theo-armour',
 		repo : 'theo-armour.github.io',
 		branch : 'master',
-		folder : 'pages2'
+		path : '', //pages2'
+		subText : 'pet the cat',
 	};
 	users.prediqtiv = {
 		user : 'prediqtiv',
 		subText : 'Invest smarter',
 		repo : 'prediqtiv.github.io',
 		branch : 'master',
-		folder : ''
+		path : ''
 	};
 
 /*
@@ -193,7 +194,7 @@
 		user : '',
 		repo : '',
 		branch : '',
-		folder : ''
+		path : ''
 	};
 */
 
@@ -228,16 +229,15 @@
 
 		urlFolderAPI = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
 
-		TOO.requestFile( urlFolderAPI, callbackRepos );
+		TOO.requestFile( urlFolderAPI, SEL.callbackRepos );
 
 
 	}
 
 
-	function callbackRepos( xhr ){
+	SEL.callbackRepos = function( xhr ){
 
-//		let files, file;
-//		let urlFolder = 'https://' + user.user + '.github.io/' + user.path + '/';
+		let files, file;
 
 		files = xhr.target.response;
 
@@ -264,23 +264,24 @@
 
 	SEL.selectRepo = function(){
 
-// console.clear();
+console.clear();
 
 //		location.hash="";
 		history.replaceState( '', document.title, window.location.pathname );
 
+// only create if not already
 		var scr = document.body.appendChild( document.createElement( 'script' ) );
 
 		scr.onload = TOO.initUser;
 
 		scr.src = '../dev-repo/' + selUser.value;
+
 //		user = users[ selUser.value ];
-
-
 
 	}
 
 
+///////////////////
 
 	 SEL.initSelectUsers = function() {
 
@@ -290,8 +291,6 @@
 
 					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
 
-//						'<select id=selUser onchange=location.hash="";TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
-//						'<select id=selUser onchange=TOO.initUser(users[this.value]); title="Select user" size=15 style=width:100%;  >' +
 						'<select id=selUser onchange=SEL.selectUser(); title="Select user" size=15 style=width:100%;  >' +
 
 						'</select>' + b +
@@ -301,9 +300,30 @@
 
 		'';
 
-//		SEL.getMenuSelectUserOptions();
+		SEL.getMenuSelectUserOptions();
 
 	}
+
+
+
+	SEL.getMenuSelectUserOptions = function () {
+
+		users.keys = Object.keys( users );
+
+		for ( let i = 0; i < users.keys.length; i++ ) {
+
+			user = users[ users.keys[ i ] ];
+
+			selUser[ i ] = new Option( user.user + ' ' + user.repo + ' ' + user.path + ' ' + user.branch, users.keys[ i ] );
+
+		 }
+
+		selUser.selectedIndex = Math.floor( Math.random() * users.keys.length );
+
+		SEL.selectUser();
+
+	 }
+
 
 	SEL.selectUser = function(){
 
@@ -312,25 +332,8 @@ console.clear();
 //		location.hash="";
 		history.replaceState( '', document.title, window.location.pathname );
 		user = users[ selUser.value ];
+
 		TOO.initUser();
 
 	}
 
-
-	SEL.getMenuSelectUserOptions = function () {
-
-		let user;
-
-		users.keys = Object.keys(users);
-
-		for (let i = 0; i < users.keys.length; i++) {
-
-			user = users[users.keys[i]];
-
-			selUser[i] = new Option(user.user + ' ' + user.repo + ' ' + user.folder + ' ' + user.branch, users.keys[i]);
-
-		 }
-
-		selUser.selectedIndex = users.keys.indexOf(user.user);
-
-	 }

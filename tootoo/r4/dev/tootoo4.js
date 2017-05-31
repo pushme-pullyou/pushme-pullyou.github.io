@@ -16,7 +16,7 @@
 
 		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
 
-		if ( location.protocol === 'bbb file:' ) {
+		if ( location.protocol === 'file:' ) { // can help with local testing. Needs work.
 
 			TOO.urlGHPages = './';
 

@@ -2,12 +2,16 @@
 
 	var user = {
 		user : 'prediqtiv',
-		subText : 'Invest smarter',
+
 		logo: '<img src=' + images + 'five-boxes.png height=32 >',
 		repo : 'prediqtiv.github.io',
 		branch : 'master',
 		folder : '',
+
+		infoLink : 'https://github.com/prediqtiv',
 		title : '<img src=' + images + 'predIQtiv.png  height=64 >',
+		tagLine : 'Invest Smarter!',
+		subText : 'Invest smarter',
 //		defaultFile : 'README.md'
 	};
 

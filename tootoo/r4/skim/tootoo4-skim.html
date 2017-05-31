@@ -61,6 +61,8 @@
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
+	let user = {};
+
 	init();
 
 	function init() {
@@ -69,10 +71,6 @@
 		mnuTagline.innerHTML = '<small><p>' + document.head.querySelector( "[name=description]" ).content + '</p></small>';
 
 		SEL.initSelectUsers();
-
-		SEL.getMenuSelectUserOptions();
-
-		SEL.selectUser();
 
 	}
 
