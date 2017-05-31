@@ -6,7 +6,7 @@
 
 	TOO.initUser = function() {
 
-		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+//		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
 		window.addEventListener( 'resize', TOO.setContentsWidth, false );
 
@@ -37,7 +37,7 @@
 		MNU.init();
 
 		TOO.setMenu = MNU.tableOfContents !== undefined ? TOO.setMenuContents : TOO.setMenuDefault;
-		TOO.setMenu( user.folder );
+		TOO.setMenu( user.path );
 
 	}
 
@@ -110,7 +110,7 @@
 
 			CON.getFileSetContents( location.hash.slice( 1 ) );
 
-		} else if ( user.defaultFile !== undefined && user.folder === TOO.path ) {
+		} else if ( user.defaultFile !== undefined && user.path === TOO.path ) {
 
 			CON.getFileSetContents( user.defaultFile );
 
@@ -170,7 +170,7 @@
 
 			CON.getFileSetContents( location.hash.slice( 1 )  );
 
-//		} else if ( user.defaultFile !== undefined && user.folder === TOO.path ) {
+//		} else if ( user.defaultFile !== undefined && user.path === TOO.path ) {
 		} else if ( user.defaultFile !== undefined ) {
 
 			CON.getFileSetContents( user.defaultFile );
@@ -215,7 +215,7 @@
 
 		name = user.repo;
 
-		name = user.folder ? user.folder : user.repo;
+		name = user.path ? user.path : user.repo;
 
 		txt = '<h3><a href=JavaScript:TOO.setMenuDefault(); >' + name + '</a> &raquo; </h3>';
 

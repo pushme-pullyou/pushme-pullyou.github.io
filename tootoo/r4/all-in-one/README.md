@@ -7,7 +7,7 @@
 
 [All In One Read Me]( https://pushme-pullyou.github.io/#tootoo/r4/all-in-one/README.md )
 ===
-_say something fun here_
+_Browse and view files on GitHub with remarkable ease_
 
 <!--
 <img src="" style=display:none; width=800 >
@@ -72,13 +72,16 @@ patterns are descriptions of common problems and proposal for the solutions that
 _where used_
 
 Intended for xxx
--->
-
 
 ## Links of Interest
-
+-->
 
 ## To Do / Goals / Up Next
+
+### Possible alternative titles
+* Anywhere
+* singleFile
+* dropIn
 
 
 ## Issues / Bugs / Things that need Work

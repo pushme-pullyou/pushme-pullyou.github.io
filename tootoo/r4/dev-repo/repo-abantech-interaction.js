@@ -1,11 +1,15 @@
-	let user = {
+	user = {
 		user : 'abantech',
 		subText : 'Hello, there',
 		repo : 'interaction-studies',
-//		branch : 'gh-pages',
-		folder : '',
+		branch : 'gh-pages',
+		path : '',
+		rawgit : true,
+		defaultFile : 'readme.md'
 	};
 
+
+	MNU.tableOfContents  = '';
 
 	CON.massageText = function( response ){
 

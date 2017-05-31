@@ -1,5 +1,5 @@
 
-	let protocol, user, firstDot, path;
+//	let protocol, firstDot, path;
 
 	protocol = location.protocol;
 
@@ -20,6 +20,8 @@
 	}
 
 //console.log( 'u', user, 'p', path );
+
+	MNU.tableOfContents = '';
 
 	user = {
 		user : user,

@@ -1,12 +1,15 @@
 
-	let user = {
+	user = {
 		user : 'abantech',
 		subText : 'Hello, there',
 		repo : 'abantech.github.io',
 		branch : 'master',
-		folder : '',
+		path : '',
+		rawgit : true,
+		defaultFile : 'readme.md'
 	};
 
+	MNU.tableOfContents  = '';
 
 	CON.massageText = function( response ){
 

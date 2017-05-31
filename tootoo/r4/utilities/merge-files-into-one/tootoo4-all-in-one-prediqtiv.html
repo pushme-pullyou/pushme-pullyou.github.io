@@ -7,7 +7,7 @@
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-5-30 16:16' >
+<meta name=date content='2017-5-30 16:25' >
 
 <!--
 
@@ -796,39 +796,54 @@ console.log( '', response  );
 <script src=../dev-repo/repo-prediqtiv.js ></script>
 -->
 <script>
-// repo-all-in-one.js inserted
+// repo-prediqtiv.js inserted
 
+	var images = 'https://prediqtiv.github.io/images/';
 
-	let protocol, user, firstDot, path;
-
-	protocol = location.protocol;
-
-	if ( protocol === 'file:' ) {
-
-		firstDot = location.pathname.indexOf( 'github.io' );
-		user = location.pathname.slice( 0, firstDot - 1 );
-		user = user.slice( user.lastIndexOf( '/' ) + 1 );
-
-		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
-
-	} else if ( protocol.includes( 'http' ) ) {
-
-		firstDot = location.hostname.indexOf( '.github.io' );
-		user = location.hostname.slice( 0, firstDot );
-		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
-
-	}
-
-//console.log( 'u', user, 'p', path );
-
-	user = {
-		user : user,
-		repo : user + '.github.io',
+	var user = {
+		user : 'prediqtiv',
+		subText : 'Invest smarter',
+		logo: '<img src=' + images + 'five-boxes.png height=32 >',
+		repo : 'prediqtiv.github.io',
 		branch : 'master',
-		path : path,
-
+		folder : '',
+		title : '<img src=' + images + 'predIQtiv.png  height=64 >',
+//		defaultFile : 'README.md'
 	};
-</script>
+
+
+	MNU.tableOfContents =
+
+`
+### predIQtiv
+* [predIQtiv home page]( #README.md )
+* [Copyright and license]( #license.md )
+### eyeCue
+* [eyeCue Read Me]( #eye-cue/README.md )
+    * [eyeCue Replay Read Me](#eye-cue/replay/README.md )
+    * [eyeCue Realtime Read]( #eye-cue/realtime/README.md )
+### Trades
+* [Trades Get Read Me]( #trades-get/README.md )
+### Tweets
+* [Tweets Read Me]( #tweets/README.md )
+### Company URLs
+* [URL Get Read Me]( #url-get/README.md )
+### White Papers
+* [White Papers Read Me]( #white-papers/README.md )
+    * [Markets, Outliers and Data Normalization]( #white-papers/outliers-data-normlization.md )
+    * [Code, Styling and Abstraction]( #white-papers/code-styling-abstraction.md )
+### [Blog Posts]( https://github.com/prediqtiv/prediqtiv.github.io/labels/blog%20post )
+`;
+
+
+	CON.massageText = function( response ){
+
+		CON.converter = new showdown.Converter();
+		text = CON.converter.makeHtml( response );
+
+		return text;
+
+	};</script>
 
 	<div id=container >
 

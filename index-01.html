@@ -7,7 +7,7 @@
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-5-30 16:16' >
+<meta name=date content='2017-5-29 18:6' >
 
 <!--
 
@@ -57,10 +57,9 @@ summary h3 { display: inline; }
 #divMD {border: 0px orange solid; margin: 0 auto; max-width: 800px; overflow-x: hidden; position: adsolute; }
 
 #hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }
-#hamburger h2, #menuItems h2, #menuItems h4 {margin: 0; }
+#hamburger h2, #menu h2, #menu h4 {margin: 0; }
 
 #ifr { /* border: 0px yellow solid; */ height: 500px; width: 100%; }
-#ifrHTML { border: 0px yellow solid; margin: 0 8%; height: 100%; padding: 0; width: 100%; }
 
 #menu { background-color: #eee; border: 1px #ccc solid; box-sizing:border-box; height: 100%; overflow-y: auto; padding: 0 10px; position: fixed; width: 325px; }
 #menu ul { margin:0; padding-left:20px; }
@@ -209,11 +208,6 @@ summary h3 { display: inline; }
 		var index, ReadMe;
 
 		TOO.files = [];
-
-		if ( mnuSelect.innerHTML.includes( 'mnuUserTitle' ) ) {
-
-			mnuUserTitle.innerHTML = '<h2>' + ( user.title ? user.title : user.user ) + '</h2>';
-		}
 
 		showdown.setFlavor( 'github' );
 
@@ -394,7 +388,7 @@ summary h3 { display: inline; }
 
 		if ( MNU.tableOfContents ) {
 
-				txt =
+				txt = // '<h2>' + ( user.title ? user.title : user.user ) + '</h2>' +
 					'<p>' +
 					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu(); >Table of Contents</button>' +
 					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
@@ -577,7 +571,7 @@ summary h3 { display: inline; }
 		contents.innerHTML =
 //			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) +
 //			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=100% ' +
-			'<iframe id=ifrHTML src=' + url + ' > ' +
+			'<iframe id=ifr src=' + url + ' > ' +
 //			' style="border:0 none; " >' +
 		'<iframe>';
 
@@ -792,40 +786,49 @@ console.log( '', response  );
 
 	}
 </script>
-<!--
-<script src=../dev-repo/repo-prediqtiv.js ></script>
--->
 <script>
-// repo-all-in-one.js inserted
+// repo-pushme-pullyou.js inserted
 
 
-	let protocol, user, firstDot, path;
-
-	protocol = location.protocol;
-
-	if ( protocol === 'file:' ) {
-
-		firstDot = location.pathname.indexOf( 'github.io' );
-		user = location.pathname.slice( 0, firstDot - 1 );
-		user = user.slice( user.lastIndexOf( '/' ) + 1 );
-
-		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
-
-	} else if ( protocol.includes( 'http' ) ) {
-
-		firstDot = location.hostname.indexOf( '.github.io' );
-		user = location.hostname.slice( 0, firstDot );
-		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
-
-	}
-
-//console.log( 'u', user, 'p', path );
-
-	user = {
-		user : user,
-		repo : user + '.github.io',
+	var user = {
+		user : 'pushme-pullyou',
+		tagLine : 'Browse & view stuff on GitHub real fast!',
+		subText : 'Browse & view stuff on GitHub real fast!',
+		repo : 'pushme-pullyou.github.io',
 		branch : 'master',
-		path : path,
+		path : '',
+		title : 'PushMe PullYou',
+	};
+
+
+	MNU.tableOfContents =
+`### Pushme-Pullyou
+* [Read Me]( #README.md )
+### GubGub
+* [Read Me]( #gubgub/README.md )
+### DabDab
+* [Read Me]( #dabdab/README.md )
+### TooToo
+* [TooToo Read Me]( #tootoo/README.md )
+#### TooToo Versions
+* [Dev Read Me]( #tootoo/r3/dev/README.md )
+* [Library Read Me]( #tootoo/r4/library/README.md )
+* [Skim Read Me]( #tootoo/r4/skim/README.md )
+#### TooToo Utilities
+* [Utilities Read Me]( #tootoo/r4/utilities/README.md )
+* [get-github-dir-names]( #tootoo/r4/utilities/get-github-dir-names/README.md )
+* [Make Read Me Read Me]( #tootoo/r4/utilities/make-github-readme/README.md )
+* [Merge Files into one]( #tootoo/r4/utilities/merge-files-into-one/README.md )
+
+`;
+
+
+	CON.massageText = function( response ){
+
+		CON.converter = new showdown.Converter();
+		text = CON.converter.makeHtml( response );
+
+		return text;
 
 	};
 </script>
@@ -837,7 +840,7 @@ console.log( '', response  );
 			<h2>
 				<a href=http://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
 				<a id=mnuTitle href="" title="Click here to refresh this page" ></a>
-				~ <a href=https://github.com/pushme-pullyou onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
+				~ <a href=index.html#README.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
 			</h2>
 
 			<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>
@@ -882,6 +885,7 @@ console.log( '', response  );
 		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
 
 		TOO.initUser();
+
 
 	}
 

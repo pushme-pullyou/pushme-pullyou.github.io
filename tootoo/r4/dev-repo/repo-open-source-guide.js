@@ -10,8 +10,8 @@
 
 
 	MNU.tableOfContents =
-`
-* [About]( #README.md )
+`### th
+[About]( #README.md )
 
 ### Open Source Guides
 * [How to Contribute to Open Source]( #_articles/how-to-contribute.md )

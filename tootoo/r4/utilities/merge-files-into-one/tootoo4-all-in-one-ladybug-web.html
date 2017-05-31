@@ -7,7 +7,7 @@
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-5-30 16:16' >
+<meta name=date content='2017-5-30 16:29' >
 
 <!--
 
@@ -796,39 +796,49 @@ console.log( '', response  );
 <script src=../dev-repo/repo-prediqtiv.js ></script>
 -->
 <script>
-// repo-all-in-one.js inserted
+// repo-ladybug-web.js inserted
 
+	var user = {
+		user : 'ladybug-tools',
+		subText : 'Browse & view stuff on Ladybug Web real fast!',
+		repo : 'ladybug-web',
+		rawgit: true,
+		branch : 'gh-pages',
 
-	let protocol, user, firstDot, path;
-
-	protocol = location.protocol;
-
-	if ( protocol === 'file:' ) {
-
-		firstDot = location.pathname.indexOf( 'github.io' );
-		user = location.pathname.slice( 0, firstDot - 1 );
-		user = user.slice( user.lastIndexOf( '/' ) + 1 );
-
-		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
-
-	} else if ( protocol.includes( 'http' ) ) {
-
-		firstDot = location.hostname.indexOf( '.github.io' );
-		user = location.hostname.slice( 0, firstDot );
-		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
-
-	}
-
-//console.log( 'u', user, 'p', path );
-
-	user = {
-		user : user,
-		repo : user + '.github.io',
-		branch : 'master',
-		path : path,
-
+		path : '',
 	};
-</script>
+
+
+	MNU.tableOfContents =
+`## Ladybug Web
+
+[Ladybug Web Read Me]( #readme.md )
+
+### Analemma 3D
+[Annalema 3D Read Me]( #analemma-3d/readme.md )
+
+### Ladybug Web Solar Calculator
+[Solar Calculator Read me]( #solar-calculator-ladybug-web/readme.md)
+[Solar Calculator](  #solar-calculator-ladybug-web/solar-calculator-ladybug-web-viewer-r3.html )
+#### Agafonkin
+[Agafonkin Solar Calculator Read Me]( #solar-calculator-agafonkin/readme.md )
+[Agafonkin Solar Calculator]( #solar-calculator-agafonkin/suncalc-sandbox-r7.html )
+#### Bostock
+[Bostock Solar Calculator Read Me]( #solar-calculator-bostock/readme.md )
+[Bostock Solar Calculator]( #solar-calculator-bostock/bostock-solar-calculator-viewer-r5.html )
+#### NOAA
+[NOAA Solar Calculator Read Me]( #solar-calculator-noaa/readme.md )
+[NOAA Solar Calculator]( #solar-calculator-noaa/ladybug-web-solar-calculator-noaa-viewer-r3.html )
+`;
+
+	CON.massageText = function( response ){
+
+		CON.converter = new showdown.Converter();
+		text = CON.converter.makeHtml( response );
+
+		return text;
+
+	};</script>
 
 	<div id=container >
 
