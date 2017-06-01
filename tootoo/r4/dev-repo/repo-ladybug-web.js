@@ -13,7 +13,9 @@
 `## Ladybug Web
 
 [Ladybug Web Read Me]( #readme.md )
-
+[Coding Style]( #coding-style.md )
+[License]( #license.md )
+[Project Explorer-readme]( #project-explorer-readme.md )
 ### Analemma 3D
 [Annalema 3D Read Me]( #analemma-3d/readme.md )
 
