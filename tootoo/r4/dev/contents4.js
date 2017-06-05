@@ -40,7 +40,7 @@
 		CON.setHighlightAndButtons( path );
 
 		location.hash = path;
-		menu.scrollTop = 0;
+//		menu.scrollTop = 0;
 
 	}
 

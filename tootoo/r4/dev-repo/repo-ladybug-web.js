@@ -4,9 +4,11 @@
 		branch : 'gh-pages',
 		rawgit : true,
 
-		help : 'https://github.com/ladybug-tools/',
+		help : 'https://github.com/ladybug-tools/ladybug-web',
 		path : '',
 		subText : 'Browse & view stuff on Ladybug Web real fast!',
+		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
+		title : 'Ladybug Web',
 	};
 
 
@@ -58,7 +60,7 @@
 * [Shadow Range OBJ Core ]( #shadow-range-obj-core/ladybug-web-shadow-range-obj-core-r4.html )
 * &#x1F5D7; [Shadow Range OBJ Core ]( https://rawgit.com/ladybug-tools/ladybug-web/gh-pages/shadow-range-obj-core/ladybug-web-shadow-range-obj-core-r4.html )
 #### Shadow OBJ Gallery
-* [Shadow Range OBJ Gallery Read Me]( #shadow-range-range-obj-gallery/readme.md )
+* [Shadow Range OBJ Gallery Read Me]( #shadow-range-obj-gallery/readme.md )
 * [Shadow Range OBJ Gallery ]( #shadow-range-obj-gallery/ladybug-web-shadow-range-obj-gallery-r5.html )
 * &#x1F5D7; [Shadow Range OBJ Gallery ]( https://rawgit.com/ladybug-tools/ladybug-web/gh-pages/shadow-range-obj-gallery/ladybug-web-shadow-range-obj-gallery-r5.html )
 #### Shadow OBJ Opener
