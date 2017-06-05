@@ -28,7 +28,7 @@
 					<a href=http://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
 -->
 				<a id=mnuTitle href="" title="Click here to refresh this page" ></a>
-				<a id=mnuHelp href=https://github.com/pushme-pullyou onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
+				<a id=mnuInfoLink href=https://github.com/pushme-pullyou onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
 			</h2>
 
 			<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>
@@ -68,7 +68,7 @@
 
 		let tagLine;
 
-		mnuHelp.href = user.help ? user.help : 'https://github.com/pushme-pullyou';
+		mnuInfoLink.href = user.help ? user.help : 'https://github.io/pushme-pullyou';
 
 		tagLine = user.tagLine ? user.tagLine : document.head.querySelector( "[name=description]" ).content;
 

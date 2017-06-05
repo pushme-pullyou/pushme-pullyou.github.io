@@ -31,7 +31,7 @@ summary h3 { display: inline; }
 #divMD {border: 0px orange solid; margin: 0 auto; max-width: 800px; overflow-x: hidden; position: adsolute; }
 
 #hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }
-#hamburger h2, #menuItems h2, #menuItems h4 {margin: 0; }
+#hamburger h2, #menuItems h2, #menuItems h4 { margin: 0; }
 
 #ifr { /* border: 0px yellow solid; */ height: 500px; width: 100%; }
 #ifrHTML { border: 0px yellow solid; margin: 0 8%; height: 100%; padding: 0; width: 100%; }
