@@ -80,6 +80,63 @@
 		path : '',
 		rawgit: true
 	};
+
+
+	users.ladybugTools = {
+		user : 'ladybug-tools',
+		repo : 'ladybug-tools.github.io',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+
+	users.ladybugTools3dModels = {
+		user : 'ladybug-tools',
+		repo : '3d-models',
+		branch : 'gh-pages',
+		path : '',
+		rawgit: true
+	};
+
+	users.ladybugToolsLadybug = {
+		user : 'ladybug-tools',
+		repo : 'ladybug',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+	users.ladybugToolsLadybug = {
+		user : 'ladybug-tools',
+		repo : 'ladybug',
+		branch : 'gh-pages',
+		path : '',
+		rawgit: true
+	};
+
+	users.ladybugToolsButterfly = {
+		user : 'ladybug-tools',
+		repo : 'butterfly',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+
+	users.ladybugToolsButterflyPlus = {
+		user : 'ladybug-tools',
+		repo : 'butterfly-plus',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+
+	users.ladybugDcStudies = {
+		user : 'ladybug-tools',
+		repo : 'dc-studies',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+
 	users.ladybugDynamo = {
 		user : 'ladybug-tools',
 		repo : 'ladybug-dynamo',
@@ -87,6 +144,23 @@
 		path : '',
 		rawgit: true
 	};
+
+	users.ladybugToolsHoneybee = {
+		user : 'ladybug-tools',
+		repo : 'honeybee',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+
+	users.ladybugToolsHoneybeePlus = {
+		user : 'ladybug-tools',
+		repo : 'honeybee-plus',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+
 	users.ladybugWeb = {
 		user : 'ladybug-tools',
 		repo : 'ladybug-web',
@@ -319,6 +393,7 @@ console.clear();
 		 }
 
 		selUser.selectedIndex = Math.floor( Math.random() * users.keys.length );
+		selUser.selectedIndex = 10;
 
 		SEL.selectUser();
 

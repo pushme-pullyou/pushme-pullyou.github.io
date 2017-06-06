@@ -2,12 +2,12 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo4 Basic2</title>
+<title>TooToo4 Basic</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Default: Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-06-05' >
+<meta name=date content='2017-05-29' >
 
 <link rel=stylesheet href=../dev/style4.css >
 
@@ -17,15 +17,14 @@
 
 <script src=../dev/tootoo4.js ></script>
 <script src=../dev/menu4.js ></script>
-<script src=../dev/select-users4.js ></script>
 <script src=../dev/contents4.js ></script>
+<script src=../dev-repo/repo-pushme-pullyou.js ></script>
 <script src=../dev/html.js ></script>
+
 
 <script >
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
-
-	let user = {};
 
 	init();
 
@@ -44,7 +43,7 @@
 		mnuTitle.innerHTML = user.title ? user.title : user.user;
 		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
 
-		SEL.initSelectUsers();
+		TOO.initUser();
 
 	}
 
