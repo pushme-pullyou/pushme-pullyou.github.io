@@ -2,6 +2,9 @@
 	let SEL = {};
 	let users = {};
 
+	let urlAPIFolderRepos = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
+
+
 	users.bPesquet = {
 		user: 'bpesquet',
 		subText: 'A modern introduction to an essential language.',
@@ -299,12 +302,7 @@
 
 	SEL.getRepoOptions = function() {
 
-		let urlFolderAPI;
-
-		urlFolderAPI = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
-
-		TOO.requestFile( urlFolderAPI, SEL.callbackRepos );
-
+		TOO.requestFile( urlAPIFolderRepos, SEL.callbackRepos );
 
 	}
 
