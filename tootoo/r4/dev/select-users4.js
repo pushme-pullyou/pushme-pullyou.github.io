@@ -338,16 +338,33 @@
 
 //console.clear();
 
+
 //		location.hash="";
 		history.replaceState( '', document.title, window.location.pathname );
 
 // only create if not already
 		var scr = document.body.appendChild( document.createElement( 'script' ) );
 
-		scr.onload = TOO.initUser;
+		scr.onload = SEL.onload;
 
 		scr.src = folderRepo + selUser.value;
-		user = users[ selUser.value ];
+//		user = users[ selUser.value ];
+
+
+	}
+
+
+	SEL.onload = function() {
+
+		let tagLine;
+
+		mnuHelp.href = user.help ? user.help : 'https://github.com/pushme-pullyou';
+
+		tagLine = user.tagLine ? user.tagLine : document.head.querySelector( "[name=description]" ).content;
+
+		mnuTitle.innerHTML = user.title ? user.title : user.user;
+		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
+		TOO.initUser();
 
 	}
 

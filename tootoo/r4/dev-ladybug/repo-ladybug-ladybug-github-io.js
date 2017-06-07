@@ -1,16 +1,16 @@
 
 	user = {
 		user : 'ladybug-tools',
-		repo : 'ladybug.github.io',
+		repo : 'ladybug-tools.github.io',
 		branch : 'master',
 		path : '',
 		rawgit: true,
 
-		help : 'https://github.com/ladybug-tools/ladybug.github.io',
+		help : 'https://github.com/ladybug-tools/ladybug-tools.github.io',
 		path : '',
-		subText : 'Browse & view stuff on Ladybug Web real fast!',
-		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
-		title : 'Ladybug',
+		subText : 'adybug Tools GitHub presence!',
+		tagLine : 'Ladybug Tools GitHub presence!',
+		title : 'Ladybug Tools',
 	};
 
 
