@@ -2,9 +2,9 @@
 	user = {
 		user : 'ladybug-tools',
 		repo : 'ladybug',
-		branch : 'dc-studies',
+		branch : 'master',
 		path : '',
-		rawgit: true
+		rawgit: true,
 
 		help : 'https://github.com/ladybug-tools/dc-studies',
 		path : '',

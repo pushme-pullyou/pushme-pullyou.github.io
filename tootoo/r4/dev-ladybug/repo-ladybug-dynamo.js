@@ -4,7 +4,7 @@
 		repo : 'ladybug-dynamo',
 		branch : 'master',
 		path : '',
-		rawgit: true
+		rawgit: true,
 
 		help : 'https://github.com/ladybug-tools/ladybug-dynamo',
 		path : '',

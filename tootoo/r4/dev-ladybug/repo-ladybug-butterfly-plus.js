@@ -1,10 +1,10 @@
 
-	users = {
+	user = {
 		user : 'ladybug-tools',
 		repo : 'butterfly-plus',
 		branch : 'master',
 		path : '',
-		rawgit: true
+		rawgit: true,
 
 		help : 'https://github.com/ladybug-tools/butterfly=plus',
 		path : '',
@@ -18,7 +18,7 @@
 `
 ## Ladybug
 
-* [Ladybug Read Me]( #README.md )
+* [Butterfly Plugins Read Me]( #README.md )
 * [License]( #LICENSE )
 `;
 

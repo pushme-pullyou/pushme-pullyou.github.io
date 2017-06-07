@@ -3,13 +3,13 @@
 		repo : '3d-models',
 		branch : 'gh-pages',
 		path : '',
-		rawgit: true
+		rawgit: true,
 
 		help : 'https://github.com/ladybug-tools/ladybug-web',
 		path : '',
 		subText : 'Browse & view stuff on Ladybug Web real fast!',
 		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
-		title : 'Ladybug Web',
+		title : 'Ladybug 3D Models',
 	};
 
 
@@ -17,7 +17,7 @@
 `
 ## Ladybug 3D Models
 
-* [Ladybug Web Read Me]( #README.md )
+* [Ladybug Web Read Me]( #readme.md )
 * [License]( #LICENSE )
 `;
 

@@ -4,7 +4,7 @@
 		repo : 'honeybee',
 		branch : 'master',
 		path : '',
-		rawgit: true
+		rawgit: true,
 
 		help : 'https://github.com/ladybug-tools/ladybug',
 		path : '',
@@ -18,8 +18,8 @@
 `
 ## honeybee
 
-* [honeybee Read Me]( #readme.md )
-* [License]( #license.md )
+* [honeybee Read Me]( #README.md )
+* [License]( #LICENSE )
 `;
 
 

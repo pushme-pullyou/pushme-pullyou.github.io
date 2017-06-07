@@ -3,7 +3,7 @@
 	let users = {};
 
 	var urlAPIFolderRepos = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
-
+	var folderRepo = '../dev-repo/'
 
 	users.bPesquet = {
 		user: 'bpesquet',
@@ -346,7 +346,7 @@
 
 		scr.onload = TOO.initUser;
 
-		scr.src = '../dev-repo/' + selUser.value;
+		scr.src = folderRepo + selUser.value;
 		user = users[ selUser.value ];
 
 	}
