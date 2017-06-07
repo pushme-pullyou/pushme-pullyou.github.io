@@ -1,24 +1,24 @@
 
-	users.ladybugToolsLadybug = {
+	user = {
 		user : 'ladybug-tools',
-		repo : 'ladybug',
+		repo : 'honeybee',
 		branch : 'master',
 		path : '',
 		rawgit: true
 
 		help : 'https://github.com/ladybug-tools/ladybug',
 		path : '',
-		subText : 'Browse & view stuff on Ladybug Web real fast!',
-		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
-		title : 'Ladybug',
+		subText : 'A python library to create, run and visualize the results of daylight (radiance) and energy analysis (OpenStudio).',
+		tagLine : 'A python library to create, run and visualize the results of daylight (radiance) and energy analysis (OpenStudio).',
+		title : 'honeybee',
 	};
 
 
 	MNU.tableOfContents =
 `
-## Ladybug
+## honeybee
 
-* [Ladybug Read Me]( #readme.md )
+* [honeybee Read Me]( #readme.md )
 * [License]( #license.md )
 `;
 

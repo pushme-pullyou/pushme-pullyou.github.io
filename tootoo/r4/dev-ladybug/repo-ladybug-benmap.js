@@ -1,5 +1,5 @@
 
-	users.ladybugToolsLadybug = {
+	user = {
 		user : 'ladybug-tools',
 		repo : 'benmap',
 		branch : 'master',
@@ -18,8 +18,8 @@
 `
 ## Building Energy Map
 
-* [Building Energy Map]( #readme.md )
-* [License]( #license.md )
+* [Building Energy Map]( #README.md )
+* [License]( #LICENSE )
 `;
 
 

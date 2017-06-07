@@ -1,5 +1,5 @@
 
-	users.ladybugToolsLadybug = {
+	user = {
 		user : 'ladybug-tools',
 		repo : 'ladybug',
 		branch : 'master',
@@ -18,8 +18,8 @@
 `
 ## Ladybug
 
-* [Ladybug Read Me]( #readme.md )
-* [License]( #license.md )
+* [Ladybug Read Me]( #README.md )
+* [License]( #LICENSE )
 `;
 
 

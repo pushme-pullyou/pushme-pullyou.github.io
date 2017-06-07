@@ -1,25 +1,25 @@
 
-	users.ladybugToolsLadybug = {
+	user = {
 		user : 'ladybug-tools',
-		repo : 'ladybug',
+		repo : 'ladybug-dynamo',
 		branch : 'master',
 		path : '',
 		rawgit: true
 
-		help : 'https://github.com/ladybug-tools/ladybug',
+		help : 'https://github.com/ladybug-tools/ladybug-dynamo',
 		path : '',
 		subText : 'Browse & view stuff on Ladybug Web real fast!',
 		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
-		title : 'Ladybug',
+		title : 'ladybug-dynamo',
 	};
 
 
 	MNU.tableOfContents =
 `
-## Ladybug
+## ladybug-dynamo
 
-* [Ladybug Read Me]( #readme.md )
-* [License]( #license.md )
+* [ladybug-dynamo Read Me]( #README.md )
+* [License]( #LICENSE )
 `;
 
 

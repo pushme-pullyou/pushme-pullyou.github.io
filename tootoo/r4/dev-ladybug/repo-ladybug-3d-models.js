@@ -17,8 +17,8 @@
 `
 ## Ladybug 3D Models
 
-* [Ladybug Web Read Me]( #readme.md )
-* [License]( #license.md )
+* [Ladybug Web Read Me]( #README.md )
+* [License]( #LICENSE )
 `;
 
 

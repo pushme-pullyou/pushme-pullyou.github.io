@@ -1,7 +1,7 @@
 
-	users.ladybugToolsLadybug = {
+	user = {
 		user : 'ladybug-tools',
-		repo : 'ladybug',
+		repo : 'butterfly-primer',
 		branch : 'master',
 		path : '',
 		rawgit: true
@@ -10,16 +10,16 @@
 		path : '',
 		subText : 'Browse & view stuff on Ladybug Web real fast!',
 		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
-		title : 'Ladybug',
+		title : 'butterfly primer',
 	};
 
 
 	MNU.tableOfContents =
 `
-## Ladybug
+## Butterfly Primer
 
-* [Ladybug Read Me]( #readme.md )
-* [License]( #license.md )
+* [utterfly-primer Read Me]( #README.md )
+* [License]( #LICENSE )
 `;
 
 

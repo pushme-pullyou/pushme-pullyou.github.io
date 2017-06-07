@@ -1,16 +1,16 @@
 
-	users.ladybugToolsLadybug = {
+	users = {
 		user : 'ladybug-tools',
-		repo : 'ladybug',
-		branch : 'gh-pages',
+		repo : 'butterfly-plus',
+		branch : 'master',
 		path : '',
 		rawgit: true
 
-		help : 'https://github.com/ladybug-tools/ladybug',
+		help : 'https://github.com/ladybug-tools/butterfly=plus',
 		path : '',
 		subText : 'Browse & view stuff on Ladybug Web real fast!',
-		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
-		title : 'Ladybug',
+		tagLine : 'Butterfly[+] plugins...',
+		title : 'Butterfly[+] plugins',
 	};
 
 
@@ -18,8 +18,8 @@
 `
 ## Ladybug
 
-* [Ladybug Read Me]( #readme.md )
-* [License]( #license.md )
+* [Ladybug Read Me]( #README.md )
+* [License]( #LICENSE )
 `;
 
 

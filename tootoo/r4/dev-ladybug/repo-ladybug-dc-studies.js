@@ -1,25 +1,25 @@
 
-	users.ladybugToolsLadybug = {
+	user = {
 		user : 'ladybug-tools',
 		repo : 'ladybug',
-		branch : 'master',
+		branch : 'dc-studies',
 		path : '',
 		rawgit: true
 
-		help : 'https://github.com/ladybug-tools/ladybug',
+		help : 'https://github.com/ladybug-tools/dc-studies',
 		path : '',
-		subText : 'Browse & view stuff on Ladybug Web real fast!',
-		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
-		title : 'Ladybug',
+		subText : 'Daylight coefficient studies',
+		tagLine : 'Daylight coefficient studies',
+		title : 'dc-studies',
 	};
 
 
 	MNU.tableOfContents =
 `
-## Ladybug
+## dc-studies
 
-* [Ladybug Read Me]( #readme.md )
-* [License]( #license.md )
+* [dc-studies Read Me]( #README.md )
+* [License]( #LICENSE )
 `;
 
 

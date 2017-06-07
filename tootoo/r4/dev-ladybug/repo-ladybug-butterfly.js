@@ -1,5 +1,5 @@
 
-	users.ladybugToolsLadybug = {
+	user = {
 		user : 'ladybug-tools',
 		repo : 'butterfly',
 		branch : 'master',
@@ -8,18 +8,18 @@
 
 		help : 'https://github.com/ladybug-tools/ladybug',
 		path : '',
-		subText : 'Browse & view stuff on Ladybug Web real fast!',
-		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
-		title : 'Ladybug',
+		subText : 'A light python API for creating and running OpenFoam cases for CFD simulation.',
+		tagLine : 'A light python API for creating and running OpenFoam cases for CFD simulation.',
+		title : 'butterfly',
 	};
 
 
 	MNU.tableOfContents =
 `
-## Ladybug
+## butterfly
 
-* [Ladybug Read Me]( #readme.md )
-* [License]( #license.md )
+* [butterfly Read Me]( #README.md )
+* [License]( #LICENSE )
 `;
 
 

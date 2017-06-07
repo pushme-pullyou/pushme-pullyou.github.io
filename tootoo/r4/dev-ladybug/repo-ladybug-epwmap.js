@@ -1,25 +1,25 @@
 
-	users.ladybugToolsLadybug = {
+	user = {
 		user : 'ladybug-tools',
-		repo : 'ladybug',
-		branch : 'master',
+		repo : 'epwmap',
+		branch : 'gh-pages',
 		path : '',
 		rawgit: true
 
 		help : 'https://github.com/ladybug-tools/ladybug',
 		path : '',
-		subText : 'Browse & view stuff on Ladybug Web real fast!',
-		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
-		title : 'Ladybug',
+		subText : 'Map of available .epw weather files',
+		tagLine : 'Map of available .epw weather files',
+		title : 'epwmap',
 	};
 
 
 	MNU.tableOfContents =
 `
-## Ladybug
+## epwmap
 
-* [Ladybug Read Me]( #readme.md )
-* [License]( #license.md )
+* [epwmap Read Me]( #README.md )
+* [License]( #LICENSE )
 `;
 
 

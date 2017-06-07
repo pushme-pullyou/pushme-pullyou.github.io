@@ -1,24 +1,24 @@
 
-	users.ladybugToolsLadybug = {
+	user = {
 		user : 'ladybug-tools',
-		repo : 'ladybug',
+		repo : 'honeybee-resources',
 		branch : 'master',
 		path : '',
 		rawgit: true
 
 		help : 'https://github.com/ladybug-tools/ladybug',
 		path : '',
-		subText : 'Browse & view stuff on Ladybug Web real fast!',
-		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
-		title : 'Ladybug',
+		subText : 'A repository to collect useful resources for honeybee daylight and or energy simulation',
+		tagLine : 'A repository to collect useful resources for honeybee daylight and or energy simulation',
+		title : 'honeybee-resources',
 	};
 
 
 	MNU.tableOfContents =
 `
-## Ladybug
+## honeybee-resources
 
-* [Ladybug Read Me]( #readme.md )
+* [honeybee-resources Read Me]( #readme.md )
 * [License]( #license.md )
 `;
 
