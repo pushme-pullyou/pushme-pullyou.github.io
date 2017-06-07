@@ -81,7 +81,7 @@
 
 			if ( response.includes( 'DOCTYPE') ) {
 
-console.log( '', response  );
+// console.log( '', response  );
 
 				contents.innerHTML = '<h1 style=text-align:center; >file not found</h1>';
 

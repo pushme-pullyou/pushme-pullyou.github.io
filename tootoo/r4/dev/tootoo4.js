@@ -54,7 +54,7 @@
 		TOO.path = path;
 
 		url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
-console.log( 'url', url );
+//console.log( 'url', url );
 		menuTitle.innerHTML = 'All Files';
 		TOO.setBreadcrumbs( path );
 
@@ -292,9 +292,8 @@ console.log( 'url', url );
 
 	};
 
-	TOO.requestFile = function ( fileName, callback ) {
 
-		var fileName, text, lines;
+	TOO.requestFile = function ( fileName, callback ) {
 
 		xhr = new XMLHttpRequest();
 		xhr.crossOrigin = 'anonymous';

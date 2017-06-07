@@ -1,3 +1,5 @@
+
+
 	var user = {
 		user : 'ladybug-tools',
 		repo : 'ladybug-web',
@@ -19,7 +21,7 @@
 * [Ladybug Web Read Me]( #readme.md )
 * [Coding Style]( #coding-style.md )
 * [License]( #license.md )
-<!--[Project Explorer-readme]( #project-explorer-readme.md ) -->
+
 ### Analemma 3D
 * [Analemma 3D Read Me]( #analemma-3d/readme.md )
 * [Analemma 3D]( #analemma-3d/index.html )
@@ -67,7 +69,6 @@
 * [Shadow Range OBJ Opener Read Me]( #shadow-range-obj-opener/readme.md )
 * [Shadow Range OBJ Opener ]( #shadow-range-obj-opener/ladybug-web-shadow-range-obj-opener-r2.html )
 * &#x1F5D7; [Shadow Range OBJ Opener ]( https://rawgit.com/ladybug-tools/ladybug-web/gh-pages/shadow-range-obj-opener/ladybug-web-shadow-range-obj-opener-r2.html )
-
 
 `;
 

@@ -2,7 +2,7 @@
 	let SEL = {};
 	let users = {};
 
-	let urlAPIFolderRepos = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
+	var urlAPIFolderRepos = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
 
 
 	users.bPesquet = {
@@ -327,16 +327,16 @@
 
 		 }
 
-		 selUser.selectedIndex = 8;
+		selUser.selectedIndex = 8;
 
-		 SEL.selectRepo();
+		SEL.selectRepo();
 
 	}
 
 
 	SEL.selectRepo = function(){
 
-console.clear();
+//console.clear();
 
 //		location.hash="";
 		history.replaceState( '', document.title, window.location.pathname );
@@ -347,15 +347,14 @@ console.clear();
 		scr.onload = TOO.initUser;
 
 		scr.src = '../dev-repo/' + selUser.value;
-
-//		user = users[ selUser.value ];
+		user = users[ selUser.value ];
 
 	}
 
 
 ///////////////////
 
-	 SEL.initSelectUsers = function() {
+	SEL.initSelectUsers = function() {
 
 		mnuSelect.innerHTML =
 
@@ -388,19 +387,19 @@ console.clear();
 
 			selUser[ i ] = new Option( user.user + ' ' + user.repo + ' ' + user.path + ' ' + user.branch, users.keys[ i ] );
 
-		 }
+		}
 
 		selUser.selectedIndex = Math.floor( Math.random() * users.keys.length );
 		selUser.selectedIndex = 10;
 
 		SEL.selectUser();
 
-	 }
+	}
 
 
 	SEL.selectUser = function(){
 
-console.clear();
+//console.clear();
 
 //		location.hash="";
 		history.replaceState( '', document.title, window.location.pathname );
