@@ -88,9 +88,9 @@
 				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
 			'</div>' +
 
-			'<textarea id=contents style=height:900px;width:1000px;>' +
+			'<div id=contents style=height:900px;width:1000px;>' +
 
-			'</textarea>' +
+			'</div>' +
 
 		'';
 
@@ -152,9 +152,54 @@ console.log( 'repo', repo  );
 
 	function callbackTree( xhr  ) {
 
-		txt = xhr.target.response;
+			response = xhr.target.response;
+			items = JSON.parse( response );
 
-		contents.value = txt;
+			txt = '';
+			headers = [];
+
+//String.prototype.capitalize = function() {
+//   return this.charAt(0).toUpperCase() + this.slice(1);
+//}
+
+			for ( var i = 0; i < items.tree.length; i++ ) {
+
+				item = items.tree[ i ];
+
+				if ( item.type === 'tree' ) {
+
+					arr = item.path.split( '/' );
+
+					if ( arr.length < 2 ) { continue;  }
+
+					if ( headers.indexOf( arr[ 1 ] ) === -1 ) {
+
+						headers.push( arr[ 1 ] );
+
+						txt += '### ' + arr[ 1 ][ 0 ].toUpperCase() + arr[ 1 ].slice( 1 ).replace( /-/g, ' ' ) + b;
+
+					} else {
+
+						arr = arr[ 2 ].split( '-' );
+
+						for ( var j = 0 ; j < arr.length ; j++ ){
+
+							arr[ j ] = arr[ j ][ 0 ].toUpperCase() + arr[ j ].slice( 1 );
+						}
+
+						name = arr.join( ' ' );
+
+						txt += '* [' + name + ']( #' + item.path + ' )' + b;
+
+					}
+
+				}  else if ( item.path.toLowerCase().endsWith( '.html' ) || item.path.toLowerCase().endsWith( '.md' ) ) {
+
+					txt += '* [' + item.path + ']( #!' + item.path + ' )' + b;
+				}
+			}
+
+			contents.innerHTML = txt;
 
 	}
 
