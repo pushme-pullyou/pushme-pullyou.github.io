@@ -6,67 +6,22 @@
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on Ladybug Tools with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-
 <meta name=date content='2017-06-08' >
-
 <link rel=stylesheet href=js/style.css >
-
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-
 <script src=js/tootoo4.js ></script>
 <script src=js/menu4.js ></script>
 <script src=js/select-users4.js ></script>
 <script src=js/contents4.js ></script>
 <script src=js/html.js ></script>
-
-<!--
-	<div id=container >
-
-		<div id=menu >
-
-			<h2>
-				<a href=http://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
-				<a id=mnuTitle href="" title="Click here to refresh this page" ></a>
-				~ <a href=index.html#README.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
-			</h2>
-
-			<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>
-
-			<div id=mnuTagline ><small></small></div>
-
-			<div id=mnuSelect ></div>
-
-			<div id=mnuContents ></div>
-
-			<div id=mnuSettings ></div>
-			<div id=mnuCount ></div>
-			<div id=mnuAbout ></div>
-
-		</div>
-
-		<div id=hamburger onclick=container.style.left=container.style.left===""?"-325px":""; >
-			<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>
-		</div>
-
-		<div id=contents ></div>
-
-		<div id=butEditFile >Edit</div>
-		<div id=butNextFile >&gt;</div>
-		<div id=butPreviousFile ><</div>
-
-	</div>
--->
-
 <script>
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
-//	var user = {};
-
-	urlAPIFolderRepos = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-ladybug/';
-	folderRepo = '../dev-ladybug/';
+	urlAPIFolderRepos = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/library-ladybug/repositories/';
+	folderRepo = 'repositories/';
 
 	init();
 
@@ -78,11 +33,7 @@
 
 		SEL.initSelectRepos();
 
-
-
-
 	}
-
 
 </script>
 </body>
