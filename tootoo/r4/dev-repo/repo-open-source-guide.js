@@ -1,10 +1,12 @@
 	var user = {
 		user : 'github',
-		subText: 'Your open source exploring happy place',
 		repo : 'open-source-guide',
 		branch : 'gh-pages',
 		path : '',
 		rawgit: true,
+
+		tagLine : 'a collection of resources for individuals, communities, and companies who want to learn how to run and contribute to an open source project',
+		subText: 'Your open source exploring happy place',
 		title : 'Open Source Guides'
 	};
 

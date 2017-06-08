@@ -2,12 +2,12 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title></title>
+<title>Open Source Guides</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Default: Browse and view files on GitHub with remarkable ease.' >
+<meta name=description content='a collection of resources for individuals, communities, and companies who want to learn how to run and contribute to an open source project' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
 
-<meta name=date content='2017-05-29' >
+<meta name=date content='2017-6-7' >
 
 <style>
 
@@ -58,142 +58,6 @@ summary h3 { display: inline; }
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
 <script>
-
-	let MNU = {};
-
-	MNU.init = function() {
-
-		let txt;
-
-		if ( MNU.tableOfContents ) {
-
-				txt =
-					'<p>' +
-					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu(); >Table of Contents</button>' +
-					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
-				'</p>';
-
-		} else {
-
-				txt = '';
-
-		}
-
-		mnuContents.innerHTML =
-
-			txt +
-
-			'<details open >' +
-
-				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
-
-				'<div id=breadcrumbs ></div>' +
-				'<div id=menuItems ></div>' +
-
-			'</details>' + b +
-
-		'';
-
-		mnuSettings.innerHTML =
-
-			'<details>' +
-
-				'<summary><h3>Settings</h3></summary>' +
-
-				'<div><button onclick=MNU.cssColors("#222","#ddd","#555");  >Dark</button>' +
-					' <button onclick=MNU.cssColors("#fff","#000","#eee"); >Light</button>' +
-					' <button onclick=MNU.cssColors("#f3eacb","#704214","#704214"); >Sepia</button>' +
-				'</div>' + b +
-
-				'<div><button onclick=MNU.cssFontOpenSans(); >Open Sans</button>' +
-					' <button onclick=MNU.cssFontInconsolata(); >Inconsolata</button>' +
-					' <button onclick=MNU.cssFontMonospace(); >Monospace</button>' +
-				'</div>' + b +
-
-				'<div><button onclick=MNU.cssFontSize("12pt"); >Normal</button>' +
-					' <button onclick=MNU.cssFontSize("14pt"); >Larger</button>' +
-					' <button onclick=MNU.cssFontSize("18pt"); >Largest</button>' +
-				'</div>' + b +
-
-			'</details>' +
-		'';
-
-		mnuAbout.innerHTML =
-
-			'<details>' +
-
-				'<summary><h3>About</h3></summary>' +
-
-				'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
-				'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
-				'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
-
-			'</details>' +
-
-			'<hr>' +
-
-			'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1>' + ( user.logo ? user.logo : '❦' ) + '</h1></a></center>' +
-			'<div class=popUp id=pop2 style=display:none;bottom:20px; >' + user.user + ' - ' + user.subText + '.<br>Click here to return to the top of the page</div>' +
-
-		'';
-
-	};
-
-
-	MNU.cssColors = function( back, color, mnu ) {
-
-		document.body.style.backgroundColor = back;
-		document.body.style.color = color;
-		menu.style.backgroundColor = mnu;
-
-	};
-
-
-	MNU.cssFontOpenSans = function() {
-
-		let fontID = 'Open+Sans';
-
-		let font = document.body.appendChild( document.createElement( 'link' ) );
-		font.id = fontID;
-		font.rel = 'stylesheet';
-		font.href = 'https://fonts.googleapis.com/css?family=' + fontID;
-
-		document.body.style.fontFamily = 'Open Sans';
-
-	};
-
-
-	MNU.cssFontInconsolata = function() {
-
-		let fontID = 'Inconsolata';
-
-		let font = document.body.appendChild( document.createElement( 'link' ) );
-		font.id = fontID;
-		font.rel = 'stylesheet';
-		font.href = 'https://fonts.googleapis.com/css?family=' + fontID;
-
-		document.body.style.fontFamily = 'Inconsolata';
-
-	};
-
-
-	MNU.cssFontMonospace = function() {
-
-//		document.body.style.fontFamily = '"Lucida Console", Monaco, monospace';
-		document.body.style.fontFamily = 'monospace';
-
-	};
-
-
-	MNU.cssFontSize = function( size ) {
-
-		document.body.style.fontSize = size;
-
-	};
-
-
-
-
 	let TOO = {};
 
 	const b = '<br>';
@@ -501,6 +365,142 @@ summary h3 { display: inline; }
 	}
 
 
+	let MNU = {};
+
+	MNU.init = function() {
+
+		let txt;
+
+		if ( MNU.tableOfContents ) {
+
+				txt =
+					'<p>' +
+					'<button onclick=TOO.setMenu=TOO.setMenuContents;TOO.setMenu(); >Table of Contents</button>' +
+					' <button onclick=TOO.setMenu=TOO.setMenuDefault;TOO.setMenu(); >All Files</button>' +
+				'</p>';
+
+		} else {
+
+				txt = '';
+
+		}
+
+		mnuContents.innerHTML =
+
+			txt +
+
+			'<details open >' +
+
+				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
+
+				'<div id=breadcrumbs ></div>' +
+				'<div id=menuItems ></div>' +
+
+			'</details>' + b +
+
+		'';
+
+		mnuSettings.innerHTML =
+
+			'<details>' +
+
+				'<summary><h3>Settings</h3></summary>' +
+
+				'<div><button onclick=MNU.cssColors("#222","#ddd","#555");  >Dark</button>' +
+					' <button onclick=MNU.cssColors("#fff","#000","#eee"); >Light</button>' +
+					' <button onclick=MNU.cssColors("#f3eacb","#704214","#704214"); >Sepia</button>' +
+				'</div>' + b +
+
+				'<div><button onclick=MNU.cssFontOpenSans(); >Open Sans</button>' +
+					' <button onclick=MNU.cssFontInconsolata(); >Inconsolata</button>' +
+					' <button onclick=MNU.cssFontMonospace(); >Monospace</button>' +
+				'</div>' + b +
+
+				'<div><button onclick=MNU.cssFontSize("12pt"); >Normal</button>' +
+					' <button onclick=MNU.cssFontSize("14pt"); >Larger</button>' +
+					' <button onclick=MNU.cssFontSize("18pt"); >Largest</button>' +
+				'</div>' + b +
+
+			'</details>' +
+		'';
+
+		mnuAbout.innerHTML =
+
+			'<details>' +
+
+				'<summary><h3>About</h3></summary>' +
+
+				'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
+				'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
+				'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
+
+			'</details>' +
+
+			'<hr>' +
+
+			'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1>' + ( user.logo ? user.logo : '❦' ) + '</h1></a></center>' +
+			'<div class=popUp id=pop2 style=display:none;bottom:20px; >' + user.user + ' - ' + user.subText + '.<br>Click here to return to the top of the page</div>' +
+
+		'';
+
+	};
+
+
+	MNU.cssColors = function( back, color, mnu ) {
+
+		document.body.style.backgroundColor = back;
+		document.body.style.color = color;
+		menu.style.backgroundColor = mnu;
+
+	};
+
+
+	MNU.cssFontOpenSans = function() {
+
+		let fontID = 'Open+Sans';
+
+		let font = document.body.appendChild( document.createElement( 'link' ) );
+		font.id = fontID;
+		font.rel = 'stylesheet';
+		font.href = 'https://fonts.googleapis.com/css?family=' + fontID;
+
+		document.body.style.fontFamily = 'Open Sans';
+
+	};
+
+
+	MNU.cssFontInconsolata = function() {
+
+		let fontID = 'Inconsolata';
+
+		let font = document.body.appendChild( document.createElement( 'link' ) );
+		font.id = fontID;
+		font.rel = 'stylesheet';
+		font.href = 'https://fonts.googleapis.com/css?family=' + fontID;
+
+		document.body.style.fontFamily = 'Inconsolata';
+
+	};
+
+
+	MNU.cssFontMonospace = function() {
+
+//		document.body.style.fontFamily = '"Lucida Console", Monaco, monospace';
+		document.body.style.fontFamily = 'monospace';
+
+	};
+
+
+	MNU.cssFontSize = function( size ) {
+
+		document.body.style.fontSize = size;
+
+	};
+
+
+
+
+
 	let CON = {};
 
 	CON.editor = undefined;
@@ -806,59 +806,66 @@ let basicHTML =
 
 `;
 	var user = {
-		user : 'bpesquet',
-		subText: 'A modern introduction to an essential language.',
-		repo : 'thejsway',
-		branch : 'master',
+		user : 'github',
+		repo : 'open-source-guide',
+		branch : 'gh-pages',
 		path : '',
 		rawgit: true,
-		defaultFile: 'manuscript/intro01.md',
-		title : 'The JavaScript Way'
+
+		tagLine : 'a collection of resources for individuals, communities, and companies who want to learn how to run and contribute to an open source project',
+		subText: 'Your open source exploring happy place',
+		title : 'Open Source Guides'
 	};
 
 
 	MNU.tableOfContents =
-`
-* [Read Me]( #README.md )
-### Introduction
-* [About this book]( #manuscript/intro01.md )
-* [Welcome to programming]( #manuscript/intro02.md )
-* [Introducing JavaScript]( #manuscript/intro03.md )
-* [What you\'ll need]( #manuscript/intro04.md )
-### Learn to code programs
-1. [1. 3, 2, 1... Code!]( #manuscript/chapter01.md )
-2. [Play with variables]( #manuscript/chapter02.md )
-3. [Add conditions]( #manuscript/chapter03.md )
-4. [Repeat statements]( #manuscript/chapter04.md )
-5. [Write functions]( #manuscript/chapter05.md )
-6. [Create your first objects]( #manuscript/chapter06.md )
-7. [Store data in arrays]( #manuscript/chapter07.md )
-8. [Work with strings]( #manuscript/chapter08.md )
-9. [Understand object-oriented programming]( #manuscript/chapter09.md )
-10. [Discover functional programming]( #manuscript/chapter10.md )
-### Part II: Create interactive web pages
-...
-### Part III: Build web apps
-...
-### Conclusion
-* [Acknowledgements]( #manuscript/concl02.md )
-* [Contribution guidelines]( #CONTRIBUTING.md )
-* [License]( #LICENSE)
+`### th
+[About]( #README.md )
+
+### Open Source Guides
+* [How to Contribute to Open Source]( #_articles/how-to-contribute.md )
+* [Starting an Open Source Project]( #_articles/starting-a-project.md )
+* [Finding Users For Your Project]( #_articles/finding-users.md )
+* [Building Welcoming Communities]( #_articles/building-community.md )
+* [Best Practices for Maintainers]( #_articles/best-practices.md )
+* [Leadership and Governance]( #_articles/leadership-and-governance.md )
+* [Getting Paid for Open Source Work]( #_articles/getting-paid.md )
+* [Your Code of Conduct]( #_articles/code-of-conduct.md )
+* [Open Source Metrics]( #_articles/metrics.md )
+* [The Legal Side of Open Source]( #_articles/legal.md )
+
+### More
+* [Contribute ]( #CONTRIBUTING.md )
+* [Contributor Covenant Code of Conduct]( #CODE_OF_CONDUCT.md )
+* [Legal Disclaimer / Licenses]( #notices.md )
+
+### Docs
+* [Content Model]( #docs/content-model.md )
+* [Proposing a new guide]( #docs/new-guides.md )
+* [Personas]( #docs/personas.md )
+* [Roadmap]( #docs/roadmap.md )
+* [Style Guide]( #docs/styleguide.md )
+
 `;
 
 
 
 	CON.massageText = function( response ){
 
-		var text;
+		raw = response.slice( 4 )
 
-		text = TOO.converter.makeHtml( response );
+		raw = raw.slice( raw.indexOf( '---' ) + 3 );
 
-		text = text.replace( /src="images/g, 'src="https://rawgit.com/bpesquet/thejsway/master/manuscript/images' );
+		text = TOO.converter.makeHtml( raw );
+
+		text = text.replace( /image: \/assets/g, '<img src="https://rawgit.com/github/opensource.guide/gh-pages/assets' );
+
+		text = text.replace( /src="\/assets/g, 'src="https://rawgit.com/github/opensource.guide/gh-pages/assets' );
 
 		return text;
 
-	};
+	}
+
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
 	init();
