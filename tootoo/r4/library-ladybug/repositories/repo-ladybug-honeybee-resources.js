@@ -16,10 +16,14 @@
 
 	MNU.tableOfContents =
 `
-## honeybee-resources
 
-* [honeybee-resources Read Me]( #README.md )
+
+* [Honeybee Resources Read Me]( #README.md )
 * [License]( #LICENSE )
+
+### BSDF Glass Materials
+* [Read Me]( #daylight/bsdf/README.md )
+
 `;
 
 

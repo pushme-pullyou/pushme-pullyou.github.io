@@ -21,6 +21,7 @@
 			pathFull1 = user.path.replace( /-/g, '' ).replace( /\w+/g, '..' ) + '/';
 			pathFull = pathFull1 === '/' ? './' : pathFull1;
 			TOO.urlGHPages = pathFull;
+			TOO.urlGHPages = '../dev-ladybug/';
 
 		} else if ( user.rawgit ) {
 

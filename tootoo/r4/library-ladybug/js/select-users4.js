@@ -327,7 +327,7 @@
 
 		 }
 
-		selUser.selectedIndex = 8;
+		selUser.selectedIndex = 5;
 
 		SEL.selectRepo();
 

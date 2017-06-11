@@ -16,10 +16,11 @@
 
 	MNU.tableOfContents =
 `
-## epwmap
 
-* [epwmap Read Me]( #README.md )
+* [Read Me]( #README.md )
 * [License]( #LICENSE )
+
+### &#x1F5D7; [EPW Map]( http://www.ladybug.tools/epwmap/ )
 `;
 
 
