@@ -66,7 +66,7 @@
 				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
 
 				'<p>' +
-					'<select id=selFile onchange=selectFile(); title="Select file" size=15 style=width:100%; ></select>' +
+					'<select id=selFile onchange=selectFileJS(); title="Select file" size=15 style=width:100%; ></select>' +
 				'</p>' +
 
 
@@ -129,26 +129,39 @@
 
 		selFile.selectedIndex = 9;
 
-		selectFile();
+		selectFileJS();
 
 	}
 
 
-	var txt = '';
+
 	var scr;
 
-	function selectFile() {
+	function selectFileJS() {
+console.log( 'selFile.value', selFile.value );
+		MNU = {};
+		CON = {};
 
-		repo = selFile.value.slice( 13, -3 )
+//		if ( !scr ) {
+			scr = document.body.appendChild( document.createElement( 'script' ) );
+			scr.onload = scrOnload;
+//		}
 
-console.log( 'repo', repo  );
+		scr.src = 'repositories/' + selFile.value;
 
-		var fileName = 'https://api.github.com/repos/ladybug-tools/' + repo + '/git/trees/master?recursive=1';
+	}
+
+
+
+	function scrOnload() {
+
+console.log( 'user', user  );
+
+		var fileName = 'https://api.github.com/repos/ladybug-tools/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 
 		requestFile( fileName, callbackTree );
 
 	}
-
 
 	function callbackTree( xhr  ) {
 
@@ -170,7 +183,9 @@ console.log( 'repo', repo  );
 
 					arr = item.path.split( '/' );
 
-					if ( arr.length < 2 ) { continue;  }
+					if ( arr.length < 3 ) {
+console.log( 'arr', arr  );
+						continue; }
 
 					if ( headers.indexOf( arr[ 1 ] ) === -1 ) {
 
@@ -195,7 +210,7 @@ console.log( 'repo', repo  );
 
 				}  else if ( item.path.toLowerCase().endsWith( '.html' ) || item.path.toLowerCase().endsWith( '.md' ) ) {
 
-					txt += '* [' + item.path + ']( #!' + item.path + ' )' + b;
+					txt += '&nbsp; * [' + item.path + ']( #' + item.path + ' )' + b;
 				}
 			}
 
