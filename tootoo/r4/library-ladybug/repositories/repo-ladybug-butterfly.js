@@ -26,7 +26,8 @@
 	CON.massageText = function( response ){
 
 		CON.converter = new showdown.Converter();
-		text = CON.converter.makeHtml( response );
+		text = response.replace( /github.com\/ladybug-tools\/butterfly\/blob/g, 'rawgit.com/ladybug-tools/butterfly' );
+		text = CON.converter.makeHtml( text );
 
 		return text;
 

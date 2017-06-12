@@ -16,10 +16,14 @@
 
 	MNU.tableOfContents =
 `
-## Building Energy Map
 
-* [Building Energy Map]( #README.md )
+
+* [Read Me]( #README.md )
+* [Sources]( #SOURCES.txt )
 * [License]( #LICENSE )
+
+* [Building Energy Map]( https://ladybug-tools.github.io/benmap/ )
+
 `;
 
 

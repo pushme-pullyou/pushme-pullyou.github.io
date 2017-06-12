@@ -43,6 +43,7 @@
 
 		TOO.setMenu = MNU.tableOfContents !== undefined ? TOO.setMenuContents : TOO.setMenuDefault;
 		TOO.setMenu( user.path );
+		selType.selectedIndex = 0;
 
 	}
 
@@ -135,10 +136,11 @@
 
 		TOO.files = [];
 
-		if ( mnuSelect.innerHTML.includes( 'mnuUserTitle' ) ) {
+//		if ( mnuSelectItem.innerHTML.includes( 'mnuUserTitle' ) ) {
 
-			mnuUserTitle.innerHTML = '<h2>' + ( user.title ? user.title : user.user ) + '</h2>';
-		}
+			mnuUserTitle.innerHTML = '<h3>' + ( user.title ? user.title : user.user ) + '</h3>';
+			mnuUserTagline.innerHTML = user.tagLine? user.tagLine : '';
+//		}
 
 		showdown.setFlavor( 'github' );
 
@@ -192,7 +194,6 @@
 	TOO.setDefaultContents = function() {
 
 		let txt, start, path, p;
-
 
 // change to: TOO.files.includes( 'readme.md' )
 

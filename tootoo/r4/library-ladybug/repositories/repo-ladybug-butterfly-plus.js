@@ -20,13 +20,16 @@
 
 * [Butterfly Plugins Read Me]( #README.md )
 * [License]( #LICENSE )
+
+There are many Python files here. Use the 'All Files' menu to view them.
 `;
 
 
 	CON.massageText = function( response ){
 
 		CON.converter = new showdown.Converter();
-		text = CON.converter.makeHtml( response );
+		text = response.replace( /\.\//g, 'https://rawgit.com/ladybug-tools/butterfly-plus/master/' );
+		text = CON.converter.makeHtml( text );
 
 		return text;
 
