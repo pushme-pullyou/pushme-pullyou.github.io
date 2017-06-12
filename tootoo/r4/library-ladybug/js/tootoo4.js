@@ -21,7 +21,7 @@
 			pathFull1 = user.path.replace( /-/g, '' ).replace( /\w+/g, '..' ) + '/';
 			pathFull = pathFull1 === '/' ? './' : pathFull1;
 			TOO.urlGHPages = pathFull;
-			TOO.urlGHPages = '../dev-ladybug/';
+			TOO.urlGHPages = './';
 
 		} else if ( user.rawgit ) {
 
@@ -43,6 +43,7 @@
 
 		TOO.setMenu = MNU.tableOfContents !== undefined ? TOO.setMenuContents : TOO.setMenuDefault;
 		TOO.setMenu( user.path );
+
 		selType.selectedIndex = 0;
 
 	}
@@ -193,6 +194,7 @@
 
 	TOO.setDefaultContents = function() {
 
+
 		let txt, start, path, p;
 
 // change to: TOO.files.includes( 'readme.md' )
@@ -204,7 +206,7 @@
 
 // uppercase README gets selected before lower case index
 
-			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); }
+			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
 			if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
 
 		}
