@@ -11,7 +11,7 @@
 		subText : 'Browse & view stuff on Ladybug Web real fast!',
 		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
 		title : 'Read Me',
-		defaultFile : 'README.md',
+		defaultFile : 'tootoo/r4/library-ladybug/README.md',
 	};
 
 

@@ -194,7 +194,6 @@
 
 	TOO.setDefaultContents = function() {
 
-
 		let txt, start, path, p;
 
 // change to: TOO.files.includes( 'readme.md' )

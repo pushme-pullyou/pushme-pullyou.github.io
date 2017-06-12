@@ -8,17 +8,19 @@
 		help : 'https://github.com/ladybug-tools/ladybug-web',
 		path : '',
 		subText : 'Browse & view stuff on Ladybug Web real fast!',
-		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
+		tagLine : 'Browse & view stuff on Ladybug 3D real fast!',
 		title : 'Ladybug 3D Models',
 	};
 
 
 	MNU.tableOfContents =
 `
-## Ladybug 3D Models
 
+Home Page
 * [Ladybug Web Read Me]( #readme.md )
 * [License]( #LICENSE )
+
+A lot of files here, but most need to be updated to support HTTPS.
 `;
 
 

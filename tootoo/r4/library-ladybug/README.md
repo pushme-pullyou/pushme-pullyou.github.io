@@ -3,7 +3,7 @@
 
 [Ladybug Tools View Read Me]( https://pushme-pullyou.github.io/#tootoo/r4/library/README.md )
 ===
-_Display all the Ladybug files in a folder on GitHub_
+_Display all the Ladybug Tools files in all repos on GitHub_
 
 <!--
 <img src="" style=display:none; width=800 >
@@ -29,7 +29,7 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 -->
 
-When you are testing TooToo, you want to be able to call up and display a good number of TooToo files very quickly. This script helps you spot bugs and errors more quickly.
+When you are testing Ladybug Tools, you want to be able to call up and display a good number of files very quickly. This script helps you spot bugs and errors more quickly.
 
 ### Mission
 <!-- a statement of a rationale, applicable now as well as in the future -->
@@ -44,9 +44,54 @@ When you are testing TooToo, you want to be able to call up and display a good n
 
 ## Features
 
-* Identify all the TooToo files in a folder on GitHub
-* Display file names in menu
-* When user clicks a file name, display its menu items in the menu and its contents in contents panel
+* A [file viewer]( https://en.wikipedia.org/wiki/File_viewer ) for all the Ladybug Tools files hosted on GitHub
+* Display the catalog of file names in menu using a [tree view]( https://en.wikipedia.org/wiki/Tree_view ) and other methods
+* When user clicks a file name, display its menu items in the menu and the file contents in a contents panel
+
+### Coding
+* Entry level, plain-vanilla JavaScript
+* Only dependencies relate to content viewing -
+	* turning Markdown into HTML
+### File Handling
+* Updates file catalog at run time.
+	* Uses GitHub API to gather list of files and folders
+* Location of script is independent of files being catalogued and displayed
+	* Script runs locally or from server
+
+### Menus
+
+
+### Repo listings
+* Every repo displayed in the viewer has its own parameters file
+* The parameters files allows you to
+	* Set the branch, path, default file, tag line and more
+	* Define you own menu
+	* Update broken relative links to absolute links
+
+
+### File Catalogs
+* Multiple available methods for displaying the catalog for files
+* Update catalog display type at run-time
+* Current types include
+	* Table of Contents: human curated menu, written in Markdown
+	* All Files: familiar tree view with folder names up top and file names below
+	* Folders and File: screen dump of the list of all he paths
+	* Folder Groups: Display list of all folder paths with file names displayed below
+	* List by folders: all files in catalog with folder names as separator
+	* Alphabetical: Index of all files, numbered and in 'abc' order
+
+### Content Display
+* Display rendered HTML and Markdown
+* Displays images as images
+* Displays code in Ace editor container
+* Every page has an 'Edit' button that takes you to the GitHub source code for that page
+* Every page has 'Next' and 'Previous' buttons
+
+### Theme
+* Update User Interface at runtime
+* Small selection of updatable elements included
+
+### User Interaction
 * Click three bars( 'hamburger' ) icon to slide menu in or out
 * Direct link to this read me file
 * Click on title to reload
@@ -79,7 +124,7 @@ Intended for xxx
 
 
 ## To Do / Goals / Up Next
-
+* Turn it into a full [file manager]( https://en.wikipedia.org/wiki/File_manager )
 
 ## Issues / Bugs / Things that need Work
 
