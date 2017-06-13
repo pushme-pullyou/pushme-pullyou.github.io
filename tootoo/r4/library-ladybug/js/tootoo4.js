@@ -8,13 +8,6 @@
 
 // if not, then overwrites. Fix this!
 
-		if ( window.self !== window.top ) { container.style.left = '-325px'; }
-
-		window.addEventListener( 'resize', TOO.setContentsWidth, false );
-
-		TOO.setContentsWidth();
-
-		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
 
 		if ( location.protocol === 'vvvfile:' ) { // can help with local testing. Needs work.
 
@@ -37,14 +30,14 @@
 
 		}
 
-		if ( MNU.tableOfContents ) { TOO.getFiles(); }
+//		if ( MNU.tableOfContents ) { TOO.getFiles(); }
 
-		MNU.init();
+//		MNU.init();
 
-		TOO.setMenu = MNU.tableOfContents !== undefined ? TOO.setMenuContents : TOO.setMenuDefault;
-		TOO.setMenu( user.path );
+//		TOO.setMenu = MNU.tableOfContents !== undefined ? TOO.setMenuContents : TOO.setMenuDefault;
+//		TOO.setMenu( user.path );
 
-		selType.selectedIndex = 0;
+
 
 	}
 
@@ -245,18 +238,44 @@
 
 	TOO.onHashChange = function() {
 
+
+/*
 		if ( location.hash.slice( 1,2 ) === '!' ) {
 
 			CON.createPageOfImages( location.hash.slice( 2 ) );
 
 		} else {
 
-			CON.getFileSetContents( location.hash.slice( 1 ) );
+//			CON.getFileSetContents( location.hash.slice( 1 ) );
 
 		}
+*/
 
 		if ( TOO.files ) {
+console.log( '', 23 );
+			file = location.hash;
 
+			links = document.getElementsByTagName( 'a' );
+
+			for ( var i = 0; i < links.length; i++ ) {
+
+				link = links[ i ];
+
+				if ( link.hash === location.hash ) {
+
+					link.style.backgroundColor = 'lightgreen';
+
+				} else {
+
+					link.style.backgroundColor = '';
+
+				}
+
+
+			}
+		}
+
+/*
 			links = document.getElementsByTagName( 'li' );
 
 			for ( let i = 0; i < links.length; i++ ) {
@@ -264,7 +283,7 @@
 				link = links[ i ];
 				text = link.firstChild.hash;
 
-				if ( text === location.hash ) {
+				if ( link.hash === location.hash ) {
 
 					link.style.backgroundColor = 'lightgreen';
 
@@ -277,16 +296,12 @@
 			}
 
 		}
+*/
 
 	}
 
 
 
-	TOO.setContentsWidth = function() {
-
-		contents.style.width = ( window.innerWidth - 325 ) + 'px';
-
-	}
 
 
 	TOO.getFiles = function() {

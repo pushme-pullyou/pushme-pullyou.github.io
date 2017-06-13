@@ -3,10 +3,6 @@
 
 	MNU.init = function() {
 
-//		mnuSelectType.innerHTML = txt;
-
-
-
 		mnuSettings.innerHTML =
 
 			'<details>' +

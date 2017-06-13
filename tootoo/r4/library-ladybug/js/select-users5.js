@@ -35,6 +35,7 @@
 		var types = [ TOO.setMenuContents, TOO.setMenuDefault, SEL.setMenuFoldersFiles, SEL.createGroups, SEL.listContents, SEL.listAlphabetical ]
 		TOO.setMenu = types[ selType.selectedIndex ];
 		TOO.setMenu();
+
 		menuTitle.innerHTML = selType.value;
 
 	}
@@ -198,16 +199,21 @@ files = [];
 
 			txt = '';
 			obj = {};
+			TOO.files = [];
 
 			for ( let i = 0; i < response.tree.length; i++ ) {
 
 				file = response.tree[ i ];
 				if ( file.type === 'tree' ) { continue; }
-				name = file.path;
 
+				name = file.path;
 				name = name.split( '/' ).pop();
-				obj[ name ] = name;
-				obj[ name ]= file.path;
+				obj[ file.path ] = file.path;
+
+				obj[ file.path ] = file.path;
+
+				TOO.files.push( file.path );
+
 			}
 
 			keys = Object.keys( obj );
@@ -217,9 +223,11 @@ files = [];
 
 				txt += '<a id=mnu_' + i + ' href=#' + obj[ keys[ i ] ] + ' >' + ( i + 1 ) + ' ' + keys[ i ] + '</a>' + b;
 
+
 			}
 
-			menuItems.innerHTML = txt
+			menuItems.innerHTML = txt;
+			TOO.onHashChange();
 
 		}
 
@@ -228,7 +236,9 @@ files = [];
 
 
 
-// used by Library type scripts
+///////////////////////// used by Library scripts
+
+
 
 	 SEL.initSelectRepos = function() {
 
@@ -245,14 +255,6 @@ files = [];
 			'</details>' +
 
 		'';
-
-		SEL.getRepoOptions();
-
-	}
-
-
-
-	SEL.getRepoOptions = function() {
 
 		TOO.requestFile( urlAPIFolderRepos, SEL.callbackRepos );
 
@@ -279,7 +281,7 @@ files = [];
 
 		 }
 
-		selRepo.selectedIndex = 10;
+		selRepo.selectedIndex = 11;
 
 		SEL.selectRepo();
 
@@ -289,80 +291,27 @@ files = [];
 	SEL.selectRepo = function(){
 
 //console.clear();
-
 //		location.hash="";
-		history.replaceState( '', document.title, window.location.pathname );
+//		history.replaceState( '', document.title, window.location.pathname );
 
 // add: only create if not already
-		var scr = document.body.appendChild( document.createElement( 'script' ) );
-		scr.onload = SEL.onload;
+		if ( ! SEL.script ) {
 
-		scr.src = folderRepo + selRepo.value;
+			SEL.script = document.body.appendChild( document.createElement( 'script' ) );
+			SEL.script.onload = SEL.onload;
+		}
+
+		SEL.script.src = folderRepo + selRepo.value;
 
 	}
 
 
 	SEL.onload = function() {
 
-		TOO.initUser();
-
-	}
-
-
-///////////////////
-
-	SEL.initSelectUsers = function() {
-
-		mnuSelect.innerHTML =
-
-				'<details open>' +
-
-					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
-
-						'<select id=selUser onchange=SEL.selectUser(); title="Select user" size=15 style=width:100%;  >' +
-
-						'</select>' + b +
-					b +
-
-				'</details>' +
-
-		'';
-
-		SEL.getMenuSelectUserOptions();
-
-	}
-
-
-
-	SEL.getMenuSelectUserOptions = function () {
-
-		users.keys = Object.keys( users );
-
-		for ( let i = 0; i < users.keys.length; i++ ) {
-
-			user = users[ users.keys[ i ] ];
-
-			selUser[ i ] = new Option( user.user + ' ' + user.repo + ' ' + user.path + ' ' + user.branch, users.keys[ i ] );
-
-		}
-
-		selUser.selectedIndex = Math.floor( Math.random() * users.keys.length );
-		selUser.selectedIndex = 10;
-
-		SEL.selectUser();
-
-	}
-
-
-	SEL.selectUser = function(){
-
-//console.clear();
-
-//		location.hash="";
-		history.replaceState( '', document.title, window.location.pathname );
-		user = users[ selUser.value ];
+		selType.selectedIndex = 5
+		SEL.selectMenuType();
 
 		TOO.initUser();
 
-	}
 
+	}

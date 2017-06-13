@@ -31,8 +31,6 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 When you are testing Ladybug Tools, you want to be able to call up and display a good number of files very quickly. This script helps you spot bugs and errors more quickly.
 
-
-
 ### Mission
 <!-- a statement of a rationale, applicable now as well as in the future -->
 
@@ -48,67 +46,24 @@ When you are testing Ladybug Tools, you want to be able to call up and display a
 
 * A [file viewer]( https://en.wikipedia.org/wiki/File_viewer ) for all the Ladybug Tools files hosted on GitHub
 * Display the catalog of file names in menu using a [tree view]( https://en.wikipedia.org/wiki/Tree_view ) and other methods
-* When you clicks a file name in the menu, the file contents are displayed in the contents panel
+* When user clicks a file name, display its menu items in the menu and the file contents in a contents panel
 
 ### Maintaining
-
-More likely to be Always fresh
 * Build your web site pages with either HTML or Markdown
 * Edit pages on the fly using the GitHub editor
 * Edit locally using your favorite IDE/editor with full revision and contribution  control
-* Edit your content any time anywhere
 
-
-Collaboration
-* Multiple contributors
-* Easy for the non-technically minded.
-
-Increase ways to communicate
-* Design changes are simple.
-	* Single style sheet and HTML template for all the repos
-* SEO friendly?
-	* SEO-friendly URLs
-
-Consistent brand management
-* Same style, same tools, same templates across repos
-
-
-Secure and reliable
-* Deal with issues using GitHub issues
-* Unmatched support
-	* Our peeps plus watchers plus Github team
-
-Easy to localize/translate
-* Full Unicode support
-
-Interaction
-* Add iframes, forms, embedded code
 
 ### Coding
 * Entry level, plain-vanilla JavaScript
 * Only dependencies relate to content viewing
 	* Turning Markdown into HTML
-* Roughly just a thousand lines of code
-* Devops, full-stack, computer-science degree: welcome but not needed
-* Node and npm: not needed ( and not yet implemented ;-)
-* Screams 'play with me'
-* Mobile ready
-* Waiting for Material UI
-* Shared resources?
-* Data automation?
-* FOSS
-
-### Testing/Debugging?
 
 ### File Handling
 * Updates file catalog at run time.
 	* Uses GitHub API to gather list of files and folders
 * Location of script is independent of files being catalogued and displayed
 	* Script runs locally or from server
-
-### Performance
-* Small size
-* Files served off Rawgit CDN
 
 ### Menus
 

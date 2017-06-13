@@ -27,9 +27,20 @@
 
 	function init() {
 
+
+
 		container = document.body.appendChild( document.createElement( 'div' ) );
 		container.id = 'container';
 		container.innerHTML = basicHTML;
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		window.addEventListener( 'resize', TOO.setContentsWidth, false );
+
+		TOO.setContentsWidth();
+
+		window.addEventListener ( 'hashchange', TOO.onHashChange, false );
+
 
 		let tagLine;
 
@@ -40,10 +51,18 @@
 		mnuTitle.innerHTML = 'Ladybug Tools View';
 		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
 
+
+		MNU.init();
+
 		SEL.initSelectRepos();
 		SEL.initSelectType();
 
+
+		location.hash = 'README.md';
+
 	}
+
+
 
 </script>
 </body>
