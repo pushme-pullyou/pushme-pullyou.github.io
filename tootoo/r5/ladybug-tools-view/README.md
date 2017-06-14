@@ -3,16 +3,13 @@
 
 [Ladybug Tools View Read Me]( https://pushme-pullyou.github.io/tootoo/r5/ladybug-tools-view/ladybug-tools-view-r1.html#tootoo/r5/ladybug-tools-view/README.md )
 ===
-_Explore and view all the Ladybug Tools files in all repos quickly and easily_
+_Explore and view all the Ladybug Tools files in all repositories quickly and easily_
 
 Use the left menu to select repositories and type of menu. Click any red link to view the file.
 &#x1F5D7; - when you see this icon, click it to open link in new tab.
 
 
 ## Concept
-
-### Issues / Problems that need solving
-
 <!--
 
 The general format is an adaptation of the ideas developed in Alexander's _et al_ [A Pattern Language]( https://books.google.com/books?id=hwAHmktpk5IC&pg=PR10#v=onepage&q&f=false ) - as summarized on page 10.
@@ -23,24 +20,55 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 -->
 
-When you are exploring or testing Ladybug Tools, you want to be able to call up and display numbers of files very quickly - with the fewest clicks possible
+### Issues / Problems that need solving
 
-### Mission
+There's a lot of code out there and it's not always easy to access, view or share.
+
+You have to click and click and click in order just to see the next file.
+	* Click to open file in new tab
+	* Click new tab to view file
+	* Click to close the new tab
+	* Repeat
+
+It's easy to view the source code, but what does the code you are looking at actually do or show?
+
+There's a web site for the project, but it's often out of date.
+
+If you are a developer, your priorities are on building code. Taking the time to make your code accessible is time taken away from your real coding
+
+There are terrific tools out there, but they require skill, time and effort to get going, but you can't afford the devops peeps that are needed.
+
+There are not a lot of free, open source, plain-vanilla entry-level JavaScript tools to help you turn GitHub repos into websites auto-magically
+
+### Solution
+
+As you are exploring or testing Ladybug Tools, you want to be able to call up and display numbers of files very quickly - with the fewest clicks possible.
+
+Whenever content is renderable in the browser - text, html, markdown, images, 3D models - you want to be able to see the rendered version and the source code version.
+
+Whenever there is source code, you want to see it well-formatted and well-styled
+
+
+#### Mission
 <!-- a statement of a rationale, applicable now as well as in the future -->
 
-* Ladybug Tools View helps you find cool features or spot errors more quickly.
+* Ladybug Tools View helps you find cool features or spot errors more quickly, easily and faster
 
-### Vision
+
+#### Vision
 <!--  a descriptive picture of a desired future state -->
 
-* By helping you see more code, more quickly you find new answers and new questions
+* By helping you see more code, more quickly you find new answers and generate new questions
+* Sharing code just happens
 
+
+## General Usage
+
+* A free, open source [file viewer]( https://en.wikipedia.org/wiki/File_viewer ) for all the Ladybug Tools files hosted on GitHub
+* Displays the catalog of file names in menu using [tree views]( https://en.wikipedia.org/wiki/Tree_view ) and other methods
+* Click a file name link to display the file contents in a contents panel
 
 ## Features
-
-* A [file viewer]( https://en.wikipedia.org/wiki/File_viewer ) for all the Ladybug Tools files hosted on GitHub
-* Display the catalog of file names in menu using a [tree view]( https://en.wikipedia.org/wiki/Tree_view ) and other methods
-* When user clicks a file name, display its menu items in the menu and the file contents in a contents panel
 
 ### Maintaining
 * Build your web site pages with either HTML or Markdown
