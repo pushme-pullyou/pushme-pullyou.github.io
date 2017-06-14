@@ -22,6 +22,7 @@
 * [License]( #LICENSE )
 `;
 
+// &#x1F5D7;
 
 	CON.massageText = function( response ){
 

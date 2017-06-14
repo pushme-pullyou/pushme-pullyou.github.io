@@ -5,6 +5,8 @@
 ===
 _Display all the Ladybug Tools files in all repos on GitHub_
 
+&#x1F5D7; - when you see this icon, you can open link in new tab.
+
 <!--
 <img src="" style=display:none; width=800 >
 
@@ -15,7 +17,7 @@ _TooToo Library_
 ## Full Screen: [ TooToo Library ]( https://pushme-pullyou.github.io/tootoo/r4/library/tootoo4-library.html )
 
 ***
-
+-->
 ## Concept
 
 ### Issues / Problems that need solving

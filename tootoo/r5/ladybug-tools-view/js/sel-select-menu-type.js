@@ -88,13 +88,12 @@
 
 		function callback( xhr ) {
 
-			let response, items, item, count;
+			let response, items, item, link;
 
 			response = xhr.target.response;
 			items = JSON.parse( response );
 
 			SEL.files = [];
-			count = 0;
 			menuItems.innerHTML = '';
 
 			for ( let item of items ) {
@@ -102,18 +101,26 @@
 				if ( item.type === 'dir' ) {
 
 					menuItems.innerHTML +=
-						'<div><a href=JavaScript:location.hash="";SEL.getTreeAllFiles("' + item.path  + '");  > 🗀 ' + item.name  + '</a></div>' +
+//						'<div><a href=JavaScript:location.hash="";SEL.getTreeAllFiles("' + item.path  + '");  > 🗀 ' + item.name  + '</a></div>' +
+						'<div><a href=JavaScript:SEL.getTreeAllFiles("' + item.path  + '");  > 🗀 ' + item.name  + '</a></div>' +
+
 					'';
 
 				}
 
 			}
 
+			link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
+
 			for ( let item of items ) {
 
 				if ( item.type === 'file' ) {
 
-					menuItems.innerHTML += '<div><a href=#' + encodeURI( item.path ) + '  > ' + item.name + '</a></div>';
+					menuItems.innerHTML +=
+					'<div>' +
+						'<a href=#' + encodeURI( item.path ) + '  > ' + item.name + '</a> ' +
+						( item.path.endsWith( '.html') ? '<a href="' + encodeURI( link + item.path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
+					'</div>';
 
 					SEL.files.push( item.path );
 
@@ -225,12 +232,12 @@
 
 	SEL.listByFolders = function () {
 
-		var txt, headers, response, file, fName, path, folders;
+		let txt, headers, response, file, fName, path, folders;
+		let tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
+		let link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
 
 		txt =  '';
 		headers = [];
-
-		var tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 
 		SEL.requestFile( tree, callback );
 
@@ -256,7 +263,11 @@
 
 				}
 
-				txt += '<div>' + fName.link( '#' + path ) + '</div>';
+				txt += '<div>' +
+					fName.link( '#' + path ) + ' ' +
+					( path.endsWith( '.html') ? '<a href="' + encodeURI( link + path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
+
+				'</div>';
 
 			}
 
@@ -270,14 +281,15 @@
 
 	SEL.listAlphabetical = function() {
 
-		var tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
+		let tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
+		let link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
+		let response, txt, keys, path, name;
 
 		SEL.requestFile( tree, callback );
 
 		function callback( xhr ) {
 
 			response = JSON.parse( xhr.target.response );
-			var txt, keys, path, name;
 
 			txt = '';
 			keys = [];
@@ -300,7 +312,12 @@
 			for ( let i = 0; i < keys.length; i++ ) {
 
 				key = keys[ i ].split( '#' );
-				txt += '<div><a href=#' + key[ 1 ] + ' title="' + key[ 1 ] + '" >' + ( i + 1 ) + ' ' + key[ 0 ] + '</a></div>';
+				path =  key[ 1 ];
+				txt +=
+				'<div>' +
+					'<a href=#' + path + ' title="' + path + '" >' + ( i + 1 ) + ' ' + key[ 0 ] + '</a> ' +
+					(  path.endsWith( '.html') ? '<a href="' + encodeURI( link + path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
+				'</div>';
 
 			}
 

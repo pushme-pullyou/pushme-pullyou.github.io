@@ -17,10 +17,11 @@
 	MNU.tableOfContents =
 `Home Pages
 * [Ladybug Read Me]( #README.md )
-* [Ladybog.tools]( #index.html )
+* [Ladybug.tools]( #index.html ) [&#x1F5D7;]( http://www.ladybug.tools )
+
 ### Eval Web Site
 
-* [Home]( #eval/index.html )
+* [Home]( #eval/index.html ) [&#x1F5D7;]( http://ladybug-tools.github.io/eval/ )
 * [Services]( #eval/services.html )
 * Tools
 	* [Ladybug]( #eval/ladybug.html )
