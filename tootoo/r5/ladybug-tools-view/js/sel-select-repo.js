@@ -8,6 +8,7 @@
 	SEL.urlAPIFolderRepo = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
 	SEL.folderRepo = '../dev-repo/'
 
+
 	 SEL.initSelectRepo = function() {
 
 		mnuSelectItem.innerHTML =
@@ -77,6 +78,10 @@
 
 		selType.selectedIndex = SEL.typeSelectedIndex;
 		SEL.selectMenuType();
+
+//		mnuSelectType.dispatchEvent( 'menusLoaded' );
+//		container.dispatchEvent( event );
+
 
 	}
 

@@ -27,6 +27,8 @@
 	SEL.urlAPIFolderRepo = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/library-ladybug/repositories/';
 	SEL.folderRepo = 'repositories/';
 
+var event;
+
 	const b = '<br>';
 
 	init();
@@ -58,13 +60,23 @@
 		SEL.initSelectType();
 		SEL.getRepoJS();
 
-//		location.hash = 'README.md';  // set off onHashChange
+	event = new Event( 'build' );
+
+// Listen for the event.
+	document.addEventListener('build', function (e) { console.log( 'event', e ); }, false);
+
+// Dispatch the event.
+//	document.dispatchEvent( event );
+
+		location.hash = 'README.md';  // set off onHashChange
 
 	}
 
 
-	function onHashChange() {
 
+
+
+	function onHashChange() {
 
 		CON.getFileSetContents( location.hash.slice( 1 ) );
 		CON.setButtons( location.hash.slice( 1 ) );
