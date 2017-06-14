@@ -175,7 +175,7 @@
 
 			response = JSON.parse( xhr.target.response );
 
-			menuItems.innerHTML = '<select id=selHeaders size=20 onchange=SEL.onHeaderSelected() ></select>' + b + b +
+			menuItems.innerHTML = '<select id=selHeaders size=20 onchange=SEL.onHeaderSelected() style=width:100%; ></select>' + b + b +
 				'<div id=selFile ></div>';
 
 			SEL.headers = [];

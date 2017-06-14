@@ -1,23 +1,13 @@
-<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/tootoo/r3/dev-choose/#tootoo/r4/library/README.md "View file as a web page." ) </span>
+<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( https://pushme-pullyou.github.io/tootoo/r5/ladybug-tools-view/ladybug-tools-view-r1.html#tootoo/r5/ladybug-tools-view/README.md "View file as a web page." ) </span>
 
 
-[Ladybug Tools View Read Me]( https://pushme-pullyou.github.io/#tootoo/r4/library/README.md )
+[Ladybug Tools View Read Me]( https://pushme-pullyou.github.io/tootoo/r5/ladybug-tools-view/ladybug-tools-view-r1.html#tootoo/r5/ladybug-tools-view/README.md )
 ===
-_Display all the Ladybug Tools files in all repos on GitHub_
+_Explore and view all the Ladybug Tools files in all repos quickly and easily_
 
-&#x1F5D7; - when you see this icon, you can open link in new tab.
+Use the left menu to select repositories and type of menu. Click any red link to view the file.
+&#x1F5D7; - when you see this icon, click it to open link in new tab.
 
-<!--
-<img src="" style=display:none; width=800 >
-
-
-<iframe id=ifr2 src=https://pushme-pullyou.github.io/tootoo/r4/library/tootoo4-library.html onload=ifr2.contentWindow.contents.style.left=0; width=100% height=600 ></iframe>
-_TooToo Library_
-
-## Full Screen: [ TooToo Library ]( https://pushme-pullyou.github.io/tootoo/r4/library/tootoo4-library.html )
-
-***
--->
 
 ## Concept
 
@@ -33,17 +23,17 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 -->
 
-When you are testing Ladybug Tools, you want to be able to call up and display a good number of files very quickly. This script helps you spot bugs and errors more quickly.
+When you are exploring or testing Ladybug Tools, you want to be able to call up and display numbers of files very quickly - with the fewest clicks possible
 
 ### Mission
 <!-- a statement of a rationale, applicable now as well as in the future -->
 
-* TBD
+* Ladybug Tools View helps you find cool features or spot errors more quickly.
 
 ### Vision
 <!--  a descriptive picture of a desired future state -->
 
-* TBD
+* By helping you see more code, more quickly you find new answers and new questions
 
 
 ## Features
