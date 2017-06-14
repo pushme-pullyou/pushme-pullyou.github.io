@@ -81,6 +81,8 @@
 
 		}
 
+		CON.setDefaultContents();
+
 	}
 
 

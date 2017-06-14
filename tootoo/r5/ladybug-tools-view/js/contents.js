@@ -4,6 +4,28 @@
 
 	CON.editor = undefined;
 
+
+	CON.setDefaultContents = function() {
+
+		let txt, start, path, p;
+
+		for ( var i = 0; i < SEL.files.length; i++ ) {
+
+			path = SEL.files[ i ];
+			p = path.toLowerCase();
+
+			if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
+			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
+
+		}
+
+		path = TOO.files[ 0 ];
+		CON.getFileSetContents( path  );
+
+	}
+
+
+
 	CON.getFileSetContents = function( path ) {
 
 		TOO.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
@@ -90,7 +112,6 @@
 				return;
 
 			}
-
 
 
 			text = CON.massageText( response );
@@ -227,6 +248,5 @@
 			butPreviousFile.innerHTML = '<a href="#' + SEL.files[ indexPrevious ] + '" > &lt; </a>';
 
 		}
-
 
 	}
