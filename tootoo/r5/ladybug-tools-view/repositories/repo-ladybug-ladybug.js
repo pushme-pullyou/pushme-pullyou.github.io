@@ -8,8 +8,8 @@
 
 		help : 'https://github.com/ladybug-tools/ladybug',
 		path : '',
-		subText : 'Browse & view stuff on Ladybug Web real fast!',
-		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
+		subText : 'Core functionalities of Ladybug with no geometry library dependencies',
+		tagLine : 'Core functionalities of Ladybug with no geometry library dependencies',
 		title : 'Ladybug',
 	};
 
@@ -21,11 +21,11 @@
 * [License]( #LICENSE )
 
 ### [API Documentation](#doc/ladybug/index.html)
-
-* [ladybug.analysisperiod](#doc/ladybug/analysisperiod.m.html)
-* [ladybug.color](#doc/ladybug/color.m.html)
-* [ladybug.comfort](#doc/ladybug/comfort/index.html)
-* [ladybug.datacollection](#doc/ladybug/datacollection.m.html)
+&#x1F5D7; - open in new tab / unfinished
+* [ladybug.analysisperiod](#doc/ladybug/analysisperiod.m.html) [&#x1F5D7;]( http://www.ladybug.tools/ladybug/doc/analysisperiod.m.html )
+* [ladybug.color](#doc/ladybug/color.m.html) [&#x1F5D7;]( http://www.ladybug.tools/ladybug/doc/color.m.html )
+* [ladybug.comfort](#doc/ladybug/comfort/index.html) [&#x1F5D7;]( http://www.ladybug.tools/ladybug/comfort/index.m.html )
+* [ladybug.datacollection](#doc/ladybug/datacollection.m.html) [&#x1F5D7;]( http://www.ladybug.tools/ladybug/doc/datacollection.m.html )
 * [ladybug.datatype](#doc/ladybug/datatype.m.html)
 * [ladybug.dt](#doc/ladybug/dt.m.html)
 * [ladybug.epw](#doc/ladybug/epw.m.html)

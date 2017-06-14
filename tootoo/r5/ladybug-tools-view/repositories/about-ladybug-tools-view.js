@@ -8,15 +8,16 @@
 
 		help : 'https://github.com/ladybug-tools/ladybug',
 		path : '',
-		subText : 'Browse & view stuff on Ladybug Web real fast!',
-		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
-		title : 'Read Me',
+		subText : 'Browse & view stuff on Ladybug Tools real fast!',
+		tagLine : 'Browse & view stuff on Ladybug Tools real fast!',
+		title : 'Ladybug Tools View',
 
 	};
 
 
 	MNU.tableOfContents =
 `
+
 * [Read Me]( #tootoo/r4/library-ladybug/README.md )
 * [License]( #LICENSE )
 `;
@@ -25,8 +26,7 @@
 	CON.massageText = function( response ){
 
 		CON.converter = new showdown.Converter();
-		text = response;
-		text = CON.converter.makeHtml( text );
+		text = CON.converter.makeHtml( response );
 
 		return text;
 

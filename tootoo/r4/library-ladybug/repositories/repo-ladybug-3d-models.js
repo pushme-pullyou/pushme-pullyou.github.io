@@ -7,8 +7,8 @@
 
 		help : 'https://github.com/ladybug-tools/ladybug-web',
 		path : '',
-		subText : 'Browse & view stuff on Ladybug Web real fast!',
-		tagLine : 'Browse & view stuff on Ladybug 3D real fast!',
+		subText : 'A collection of 3d models of buildings - along with viewers.',
+		tagLine : 'A collection of 3d models of buildings - along with viewers.',
 		title : 'Ladybug 3D Models',
 	};
 
