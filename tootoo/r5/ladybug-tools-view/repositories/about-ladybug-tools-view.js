@@ -18,7 +18,7 @@
 	MNU.tableOfContents =
 `
 
-* [Read Me]( #tootoo/r5/ladybug-tools-View/README.md )
+* [Read Me]( #tootoo/r5/ladybug-tools-view/README.md )
 * [License]( #LICENSE )
 `;
 
