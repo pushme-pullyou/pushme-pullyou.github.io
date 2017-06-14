@@ -14,21 +14,28 @@
 			path = SEL.files[ i ];
 			p = path.toLowerCase();
 
-			if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
-			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
+//			if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
+//			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
+
+			if ( p.endsWith( 'readme.md' ) ) { location.hash = path; onHashChange(); return; }
+			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { location.hash = path; onHashChange(); return; }
 
 		}
 
-		path = TOO.files[ 0 ];
-		CON.getFileSetContents( path  );
+// nothing found, so just display the first file found
+
+		path = SEL.files[ 0 ];
+		location.hash = path;
+		onHashChange();
 
 	}
 
 
 
+
 	CON.getFileSetContents = function( path ) {
 
-		TOO.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
+		CON.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 
 		let url, u;
 
@@ -40,7 +47,7 @@
 
 		}
 
-		url = TOO.urlGHPages + path;
+		url = CON.urlGHPages + path;
 
 		u = url.toLowerCase();
 
@@ -61,6 +68,9 @@
 			CON.getFileCode( url );
 
 		}
+
+		CON.setButtons( path );
+		SEL.highlightMenuItem();
 
 //		menu.scrollTop = 0;
 

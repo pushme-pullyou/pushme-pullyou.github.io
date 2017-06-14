@@ -11,13 +11,12 @@
 		subText : 'Browse & view stuff on Ladybug Web real fast!',
 		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
 		title : 'Read Me',
-		defaultFile : 'tootoo/r4/library-ladybug/README.md',
+
 	};
 
 
 	MNU.tableOfContents =
 `
-
 * [Read Me]( #tootoo/r4/library-ladybug/README.md )
 * [License]( #LICENSE )
 `;

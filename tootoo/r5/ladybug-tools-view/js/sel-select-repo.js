@@ -1,9 +1,8 @@
 	let SEL = {};
 
 	SEL.repoSelectedIndex = 0;
-	SEL.typeSelectedIndex = 0;
-//	let users = {};
-	var TOO = {};
+
+
 
 	SEL.urlAPIFolderRepo = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
 	SEL.folderRepo = '../dev-repo/'
@@ -25,6 +24,21 @@
 
 		'';
 
+		mnuContents.innerHTML =
+
+			'<div id=mnuUserTitle ></div>' +
+			'<div id=mnuUserTagline ></div>' + b +
+
+			'<details open >' +
+
+				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
+
+				'<div id=mnuBreadcrumbs ></div>' +
+				'<div id=menuItems ></div>' +
+
+			'</details>' + b +
+
+		'';
 	}
 
 
@@ -75,6 +89,8 @@
 
 	SEL.onload = function() {
 
+		mnuUserTitle.innerHTML = '<h3>' + user.title + '</h3>';
+		mnuUserTagline.innerHTML = user.tagLine;
 		SEL.selectMenuType();
 
 	}

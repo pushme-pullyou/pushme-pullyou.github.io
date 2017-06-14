@@ -1,6 +1,6 @@
 
 
-	selType.selectedIndex = SEL.typeSelectedIndex;
+	SEL.typeSelectedIndex = 0;
 
 	SEL.initSelectType = function() {
 
@@ -23,21 +23,9 @@
 
 		'';
 
-		mnuContents.innerHTML =
 
-			'<div id=mnuUserTitle ></div>' +
-			'<div id=mnuUserTagline ></div>' + b +
 
-			'<details open >' +
-
-				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
-
-				'<div id=mnuBreadcrumbs ></div>' +
-				'<div id=menuItems ></div>' +
-
-			'</details>' + b +
-
-		'';
+		selType.selectedIndex = SEL.typeSelectedIndex;
 
 	}
 
@@ -332,7 +320,7 @@
 
 		for ( let link of links ) {
 
-			link.parentElement.style.backgroundColor = link.hash === location.hash  ? 'lightgreen' : '';
+			link.parentElement.style.backgroundColor = link.hash && link.hash === location.hash  ? 'lightgreen' : '';
 
 		}
 
