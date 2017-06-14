@@ -82,6 +82,10 @@
 
 		onHashChange();
 
+
+
+/*
+
 // not needed??
 		index = TOO.files.indexOf( 'readme.md');
 		readMe = index > -1 ? TOO.files[ index ] : '';
@@ -90,7 +94,6 @@
 
 
 // move to TOO.setDefaultContents
-/*
 		if ( location.hash.length > 1 ) {
 
 			CON.getFileSetContents( location.hash.slice( 1 )  );
