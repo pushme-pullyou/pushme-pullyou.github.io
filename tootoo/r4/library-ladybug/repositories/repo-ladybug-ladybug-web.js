@@ -11,6 +11,7 @@
 		subText : 'Browse & view stuff on Ladybug Web real fast!',
 		tagLine : 'Browse & view stuff on Ladybug Web real fast!',
 		title : 'Ladybug Web',
+		defaultFile : 'readme.md',
 	};
 
 

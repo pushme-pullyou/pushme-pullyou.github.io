@@ -78,6 +78,16 @@ var event;
 
 	function onHashChange() {
 
+		if ( user.defaultFile !== undefined ) {
+
+			CON.getFileSetContents( user.defaultFile );
+
+		} else {
+
+			CON.getFileSetContents( location.hash.slice( 1 ) );
+
+		}
+
 		CON.getFileSetContents( location.hash.slice( 1 ) );
 		CON.setButtons( location.hash.slice( 1 ) );
 		SEL.highlightMenuItem();
