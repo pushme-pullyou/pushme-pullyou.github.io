@@ -60,9 +60,6 @@ It would also be nice to do these things and have the code still be understandab
 
 #### User / Client-side
 
-
-
-
 * View HTML files as rendered web pages
 * Browse the contents of many files on GitHub really quickly
 	* Move to the next file using only a single click
