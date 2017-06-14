@@ -15,7 +15,7 @@
 
 			'<details open>' +
 
-				'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
+				'<summary><h3>Select User / Repo </h3></summary>' +
 
 					'<select id=selRepo onchange=SEL.selectRepo(); title="Select repo" size=15 style=width:100%;  >' +
 
@@ -68,7 +68,6 @@
 
 		SEL.script = document.body.appendChild( document.createElement( 'script' ) );
 		SEL.script.onload = SEL.onload;
-
 		SEL.script.src = SEL.folderRepo + selRepo.value;
 
 	}
@@ -76,9 +75,7 @@
 
 	SEL.onload = function() {
 
-		selType.selectedIndex = SEL.typeSelectedIndex;
 		SEL.selectMenuType();
-
 
 	}
 

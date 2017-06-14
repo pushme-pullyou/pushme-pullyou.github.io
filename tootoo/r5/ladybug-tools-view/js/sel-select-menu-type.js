@@ -1,5 +1,7 @@
 
 
+	selType.selectedIndex = SEL.typeSelectedIndex;
+
 	SEL.initSelectType = function() {
 
 		mnuSelectType.innerHTML =
@@ -48,7 +50,7 @@
 
 		menuTitle.innerHTML = selType.value;
 		mnuBreadcrumbs.innerHTML = '';
-
+// add about menu items
 
 	}
 
@@ -57,8 +59,7 @@
 
 	SEL.setMenuContents = function() { // we have a table of contents / SEL.tableOfContents somewhere
 
-		var text, fNames, fName;
-		var index, ReadMe;
+		let text, fNames, fName;
 
 		SEL.files = [];
 
@@ -72,7 +73,7 @@
 
 		fNames = MNU.tableOfContents.replace( / /g, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
 
-		for ( var i = 1; i < fNames.length - 1; i++ ) {
+		for ( let i = 1; i < fNames.length - 1; i++ ) {
 
 			fName = fNames[ i ];
 			if ( fName.includes( '##' ) || fName === '' || fName.length < 5 ) { continue; }

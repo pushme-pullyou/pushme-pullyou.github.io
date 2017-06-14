@@ -52,23 +52,13 @@ var event;
 		tagLine = document.head.querySelector( "[name=description]" ).content;
 		mnuTitle.innerHTML = document.title;
 		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
-		mnuHelp.href = 'https://github.com/pushme-pullyou';
+		mnuHelp.href = 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/r5/ladybug-tools-view';
 
 		MNU.init();
 
 		SEL.initSelectRepo();
-		SEL.initSelectType();
+		SEL.initSelectType(); // once loaded, calls CON.setDefaultContents
 		SEL.getRepoJS();
-
-	event = new Event( 'build' );
-
-// Listen for the event.
-	document.addEventListener('build', function (e) { console.log( 'event', e ); }, false);
-
-// Dispatch the event.
-//	document.dispatchEvent( event );
-
-//		location.hash = 'README.md';  // set off onHashChange
 
 	}
 

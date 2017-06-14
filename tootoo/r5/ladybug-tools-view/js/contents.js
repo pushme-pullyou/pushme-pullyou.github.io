@@ -221,7 +221,6 @@
 
 
 
-
 	CON.setButtons = function( path ) {
 
 		var index, folder, indexNext, indexPrevious;
