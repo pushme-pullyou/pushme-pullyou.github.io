@@ -17,7 +17,7 @@
 `
 
 Home Page
-* [Ladybug Web Read Me]( #readme.md )
+* [Ladybug Web Read Me]( #README.md )
 * [License]( #LICENSE )
 
 A lot of files here, but most need to be updated to support HTTPS.

@@ -30,7 +30,7 @@
 
 	SEL.getRepoJS = function() {
 
-		TOO.requestFile( SEL.urlAPIFolderRepo, SEL.callbackRepo );
+		SEL.requestFile( SEL.urlAPIFolderRepo, SEL.callbackRepo );
 
 	}
 
@@ -79,14 +79,11 @@
 		selType.selectedIndex = SEL.typeSelectedIndex;
 		SEL.selectMenuType();
 
-//		mnuSelectType.dispatchEvent( 'menusLoaded' );
-//		container.dispatchEvent( event );
-
 
 	}
 
 
-	TOO.requestFile = function ( fileName, callback ) {
+	SEL.requestFile = function ( fileName, callback ) {
 
 		xhr = new XMLHttpRequest();
 		xhr.crossOrigin = 'anonymous';

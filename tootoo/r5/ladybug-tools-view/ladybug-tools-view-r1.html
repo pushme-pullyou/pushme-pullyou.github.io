@@ -68,13 +68,12 @@ var event;
 // Dispatch the event.
 //	document.dispatchEvent( event );
 
-		location.hash = 'README.md';  // set off onHashChange
+//		location.hash = 'README.md';  // set off onHashChange
 
 	}
 
 
 	function onHashChange() {
-
 
 		CON.getFileSetContents( location.hash.slice( 1 ) );
 		CON.setButtons( location.hash.slice( 1 ) );

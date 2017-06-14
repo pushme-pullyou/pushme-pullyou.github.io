@@ -75,7 +75,7 @@
 
 		showdown.setFlavor('github');
 
-		TOO.requestFile( url, callbackMD );
+		SEL.requestFile( url, callbackMD );
 
 		function callbackMD( xhr ) {
 
@@ -145,7 +145,7 @@
 			editor.$blockScrolling = Infinity;
 			editor.getSession().setMode( 'ace/mode/markdown' );
 
-			TOO.requestFile( url, callback );
+			SEL.requestFile( url, callback );
 
 			function callback( xhr ) {
 
@@ -166,7 +166,7 @@
 
 			url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + path;
 
-			TOO.requestFile( url, callbackGalleryContents );
+			SEL.requestFile( url, callbackGalleryContents );
 
 			function callbackGalleryContents( xhr ){
 
@@ -213,18 +213,18 @@
 
 		}
 
-		index = TOO.files.indexOf( path );
+		index = SEL.files.indexOf( path );
 
 		indexNext = index + 1;
-		if ( indexNext >= TOO.files.length ) { indexNext = 0; }
+		if ( indexNext >= SEL.files.length ) { indexNext = 0; }
 
 		indexPrevious = index - 1;
-		if ( indexPrevious < 0 ) { indexPrevious = TOO.files.length - 1; }
+		if ( indexPrevious < 0 ) { indexPrevious = SEL.files.length - 1; }
 
 		if ( butNextFile || butPreviousFile ) {
 
-			butNextFile.innerHTML = '<a href="#' + TOO.files[ indexNext ] + '" > &gt; </a>';
-			butPreviousFile.innerHTML = '<a href="#' + TOO.files[ indexPrevious ] + '" > &lt; </a>';
+			butNextFile.innerHTML = '<a href="#' + SEL.files[ indexNext ] + '" > &gt; </a>';
+			butPreviousFile.innerHTML = '<a href="#' + SEL.files[ indexPrevious ] + '" > &lt; </a>';
 
 		}
 

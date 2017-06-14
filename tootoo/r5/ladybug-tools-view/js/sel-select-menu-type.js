@@ -43,27 +43,28 @@
 	SEL.selectMenuType = function() {
 
 		var types = [ SEL.setMenuContents, SEL.getTreeAllFiles, SEL.setMenuFoldersFiles, SEL.createGroups, SEL.listByFolders, SEL.listAlphabetical ]
-		TOO.setMenu = types[ selType.selectedIndex ];
-		TOO.setMenu();
+		SEL.setMenu = types[ selType.selectedIndex ];
+		SEL.setMenu();
 
 		menuTitle.innerHTML = selType.value;
 		mnuBreadcrumbs.innerHTML = '';
+
 
 	}
 
 
 
 
-	SEL.setMenuContents = function() { // we have a table of contents / TOO.tableOfContents somewhere
+	SEL.setMenuContents = function() { // we have a table of contents / SEL.tableOfContents somewhere
 
 		var text, fNames, fName;
 		var index, ReadMe;
 
-		TOO.files = [];
+		SEL.files = [];
 
 		showdown.setFlavor( 'github' );
 
-		TOO.converter = new showdown.Converter();
+		SEL.converter = new showdown.Converter();
 
 		text = CON.massageText( MNU.tableOfContents );
 
@@ -74,41 +75,11 @@
 		for ( var i = 1; i < fNames.length - 1; i++ ) {
 
 			fName = fNames[ i ];
-			if ( fName.includes( '###' ) || fName === '' || fName.length < 5 ) { continue; }
+			if ( fName.includes( '##' ) || fName === '' || fName.length < 5 ) { continue; }
 
-			TOO.files.push( fName.slice( 1 ) );
-
-		}
-
-		onHashChange();
-
-
-
-/*
-
-// not needed??
-		index = TOO.files.indexOf( 'readme.md');
-		readMe = index > -1 ? TOO.files[ index ] : '';
-		index = TOO.files.indexOf( 'README.md');
-		readMe = index > -1 ? TOO.files[ index ] : readMe;
-
-
-// move to TOO.setDefaultContents
-		if ( location.hash.length > 1 ) {
-
-			CON.getFileSetContents( location.hash.slice( 1 )  );
-
-//		} else if ( user.defaultFile !== undefined && user.path === TOO.path ) {
-		} else if ( user.defaultFile !== undefined ) {
-
-			CON.getFileSetContents( user.defaultFile );
-
-		} else {
-
-			CON.getFileSetContents( readMe ); ///
+			SEL.files.push( fName.replace( '#', '' ) );
 
 		}
-*/
 
 	}
 
@@ -120,7 +91,7 @@
 
 		url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
 
-		TOO.requestFile( url, callback );
+		SEL.requestFile( url, callback );
 
 		SEL.setBreadcrumbs( path );
 
@@ -131,7 +102,7 @@
 			response = xhr.target.response;
 			items = JSON.parse( response );
 
-			TOO.files = [];
+			SEL.files = [];
 			count = 0;
 			menuItems.innerHTML = '';
 
@@ -153,7 +124,7 @@
 
 					menuItems.innerHTML += '<div><a href=#' + encodeURI( item.path ) + '  > ' + item.name + '</a></div>';
 
-					TOO.files.push( item.path );
+					SEL.files.push( item.path );
 
 				}
 
@@ -169,24 +140,24 @@
 
 		var tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 
-		TOO.requestFile( tree, callback );
+		SEL.requestFile( tree, callback );
 
 		function callback( xhr ) {
 
 			response = JSON.parse( xhr.target.response );
-			TOO.files = [];
+			SEL.files = [];
 
 			for ( let file of response.tree ) {
 
 				if ( file.type === 'tree' ) { continue; }
 
-				TOO.files.push( file.path );
+				SEL.files.push( file.path );
 
 			}
 
 			menuItems.innerHTML =
-				'Files count: ' + TOO.files.length + b +
-				TOO.files.map( function( a ){ return '<small><div>' + a.link( '#' + a ) + '</div></small>'; } ).join( '' );
+				'Files count: ' + SEL.files.length + b +
+				SEL.files.map( function( a ){ return '<small><div>' + a.link( '#' + a ) + '</div></small>'; } ).join( '' );
 
 		}
 
@@ -199,8 +170,8 @@
 		let response, file, fileName;
 
 		let tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
-		TOO.files = [];
-		TOO.requestFile( tree, callback );
+		SEL.files = [];
+		SEL.requestFile( tree, callback );
 
 		function callback( xhr ) {
 
@@ -218,7 +189,7 @@
 				if ( file.type === 'tree' ) { continue; }
 
 				file = file.path;
-				TOO.files.push( file );
+				SEL.files.push( file );
 
 				file = file.split( '/' );
 				fileName = file.pop();
@@ -246,7 +217,7 @@
 
 		header = selHeaders.value;
 
-		for ( let file of TOO.files ) {
+		for ( let file of SEL.files ) {
 
 			if ( file.includes( header ) ) {
 
@@ -256,7 +227,7 @@
 
 		}
 
-		selFile.innerHTML = 'Files count: ' + TOO.files.length + b + txt;
+		selFile.innerHTML = 'Files count: ' + SEL.files.length + b + txt;
 
 	}
 
@@ -270,7 +241,7 @@
 
 		var tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 
-		TOO.requestFile( tree, callback );
+		SEL.requestFile( tree, callback );
 
 		function callback( xhr ) {
 
@@ -281,7 +252,7 @@
 				if ( file.type === 'tree' ) { continue; }
 
 				path = file.path;
-				TOO.files.push( path )
+				SEL.files.push( path )
 				file = path.split( '/' );
 
 				fName = file.pop();
@@ -310,7 +281,7 @@
 
 		var tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 
-		TOO.requestFile( tree, callback );
+		SEL.requestFile( tree, callback );
 
 		function callback( xhr ) {
 
@@ -319,7 +290,7 @@
 
 			txt = '';
 			keys = [];
-			TOO.files = [];
+			SEL.files = [];
 
 			for ( let file of response.tree ) {
 
@@ -328,7 +299,7 @@
 				path = file.path;
 				name = path.split( '/' ).pop();
 
-				TOO.files.push( file.path );
+				SEL.files.push( file.path );
 				keys.push( name + '#' + path );
 
 			}
@@ -342,7 +313,7 @@
 
 			}
 
-			menuItems.innerHTML = 'Files in repo: ' + TOO.files.length + b + txt;
+			menuItems.innerHTML = 'Files in repo: ' + SEL.files.length + b + txt;
 
 		}
 

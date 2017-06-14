@@ -3,6 +3,32 @@
 
 	CON.editor = undefined;
 
+
+	CON.setDefaultContents = function() {
+
+		let txt, start, path, p;
+
+// change to: TOO.files.includes( 'readme.md' )
+
+		for ( var i = 0; i < TOO.files.length; i++ ) {
+
+			path = TOO.files[ i ];
+			p = path.toLowerCase();
+
+// uppercase README gets selected before lower case index
+
+			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
+			if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
+
+		}
+
+		path = TOO.files[ 0 ];
+		CON.getFileSetContents( path  );
+
+	}
+
+
+
 	CON.getFileSetContents = function( path ) {
 
 		let url, u;
