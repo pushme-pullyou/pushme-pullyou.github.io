@@ -38,15 +38,17 @@ If you are a developer, your priorities are on building code. Taking the time to
 
 There are terrific tools out there, but they require skill, time and effort to get going, but you can't afford the devops peeps that are needed.
 
-There are not a lot of free, open source, plain-vanilla entry-level JavaScript tools to help you turn GitHub repos into websites auto-magically
+There are not a lot of free, open source, plain-vanilla entry-level JavaScript tools to help you turn GitHub repos into websites auto-magically.
+
+Software that's easy-peasy readable so you can re-write in your favorite language is rare.
 
 ### Solution
 
-As you are exploring or testing Ladybug Tools, you want to be able to call up and display numbers of files very quickly - with the fewest clicks possible.
+As you are exploring or testing Ladybug Tools, you are able to call up and display numbers of files very quickly - with single clicks.
 
-Whenever content is renderable in the browser - text, html, markdown, images, 3D models - you want to be able to see the rendered version and the source code version.
+Whenever content is renderable in the browser - text, html, markdown, images, 3D models - you can view the rendered version and the source code version.
 
-Whenever there is source code, you want to see it well-formatted and well-styled
+Whenever there is source code, you see it well-formatted and well-styled
 
 
 #### Mission
@@ -70,35 +72,46 @@ Whenever there is source code, you want to see it well-formatted and well-styled
 
 ## Features
 
-### Maintaining
-* Build your web site pages with either HTML or Markdown
+### Genera Operations
+
+#### File Handling
+* Complete separation between code and content
+	* No need to compile to build the site
+* Updates file catalog at run time
+	* Uses GitHub API to gather list of files and folders
+* Location of scripts is independent of files being cataloged and displayed
+	* Script may be run locally or from server
+* Data may be local and/or in any public GitHub repository
+	* Data does not have to be available via GitHub pages
+	* Uses [rawgit.com]( https://rawgit.com ) as a content delivery network (CDN)
+
+
+#### Maintaining
+
+* Build web site pages with either HTML or Markdown
+	* Uses [Showdown.js]( https://github.com/showdownjs/showdown ) to create HTML from Markdown on the fly
 * Edit pages on the fly using the GitHub editor
 * Edit locally using your favorite IDE/editor with full revision and contribution  control
+* Committing files to GitHub generates a new release of the site
 
-
-### Coding
+#### Coding
 * Entry level, plain-vanilla JavaScript
 * Only dependencies relate to content viewing
 	* Turning Markdown into HTML
 
-### File Handling
-* Updates file catalog at run time.
-	* Uses GitHub API to gather list of files and folders
-* Location of script is independent of files being catalogued and displayed
-	* Script runs locally or from server
-
-### Menus
-
-
-### Repo listings
-* Every repo displayed in the viewer has its own parameters file
+#### Repo listings
+* Every repo displayed in the viewer may have its own parameters file
 * The parameters files allows you to
 	* Set the branch, path, default file, tag line and more
 	* Define you own menu
 	* Update broken relative links to absolute links
+* The beginning of an API?
 
 
-### File Catalogs
+
+### User Interaction
+
+#### File Catalogs
 * Multiple available methods for displaying the catalog for files
 * Update catalog display type at run-time
 * Current types include
@@ -120,20 +133,22 @@ Whenever there is source code, you want to see it well-formatted and well-styled
 * Update User Interface at runtime
 * Small selection of updatable elements included
 
-### User Interaction
+### More tweaks
 * Click three bars( 'hamburger' ) icon to slide menu in or out
 * Direct link to this read me file
 * Click on title to reload
 
 
-## Things you can do using this script
+## More Usage
+
+### Things you can do using this script
 
 * Click the three bars( 'hamburger menu icon' ) to slide the menu in and out
 * Press Control-U/Command-Option-U to view the source code
 * Press Control-Shift-J/Command-Option-J to see if the JavaScript console reports any errors
 
 
-## Things you can do by editing the code
+### Things you can do by editing the code
 
 * Open the source code for this file: Click the 'Edit' box in the top right hand corner
 * Click the 'Raw' icon and save the raw file to your computer
@@ -141,13 +156,11 @@ Whenever there is source code, you want to see it well-formatted and well-styled
 * Open the file with a text editor
 
 
-<!--
-## Users
-_where used_
+## Installation
 
-Intended for xxx
--->
-
+* In principle, you should be able to download the source code. click on 'ladybug-tools-view-r1.html' and it should run
+* After that ball is in your court
+*
 
 ## Links of Interest
 
@@ -157,9 +170,13 @@ Intended for xxx
 
 ## Issues / Bugs / Things that need Work
 
-* Next, Previous and Edit buttons have issues
+* Next and Previous buttons have issues
 
 ## Change Log
+
+### 2017-06-14 ~ Theo
+
+* All beginning to look good
 
 ### 2017-05-28
 
