@@ -5,8 +5,9 @@
 ===
 _Explore and view all the Ladybug Tools files in all repositories quickly and easily_
 
-Use the left menu to select repositories and type of menu. Click any red link to view the file.
-&#x1F5D7; - when you see this icon, click it to open link in new tab.
+* Use the left menu to select repositories and type of menu.
+* Click any red link to view the file.
+* &#x1F5D7; - when you see this icon, click it to open link in new tab.
 
 
 ## Concept
@@ -25,10 +26,10 @@ patterns are descriptions of common problems and proposal for the solutions that
 There's a lot of code out there and it's not always easy to access, view or share.
 
 You have to click and click and click in order just to see the next file.
-	* Click to open file in new tab
-	* Click new tab to view file
-	* Click to close the new tab
-	* Repeat
+* Click to open file in new tab
+* Click new tab to view file
+* Click to close the new tab
+* Repeat
 
 It's easy to view the source code, but what does the code you are looking at actually do or show?
 
@@ -64,15 +65,15 @@ Whenever there is source code, you see it well-formatted and well-styled
 * Sharing code just happens
 
 
-## General Usage
+## Features
+
+### General Usage
 
 * A free, open source [file viewer]( https://en.wikipedia.org/wiki/File_viewer ) for all the Ladybug Tools files hosted on GitHub
 * Displays the catalog of file names in menu using [tree views]( https://en.wikipedia.org/wiki/Tree_view ) and other methods
 * Click a file name link to display the file contents in a contents panel
 
-## Features
-
-### Genera Operations
+### User Operations
 
 #### File Handling
 * Complete separation between code and content
@@ -160,7 +161,7 @@ Whenever there is source code, you see it well-formatted and well-styled
 
 * In principle, you should be able to download the source code. click on 'ladybug-tools-view-r1.html' and it should run
 * After that ball is in your court
-*
+* More generic versions are on the way
 
 ## Links of Interest
 
