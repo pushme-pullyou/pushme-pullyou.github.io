@@ -1,9 +1,60 @@
 
 	let CON = {};
 
+
 	CON.editor = undefined;
 
+
+	CON.initContents = function() {
+
+		mnuContents.innerHTML =
+
+			'<div id=mnuUserTitle ></div>' +
+			'<div id=mnuUserTagline ></div>' + b +
+
+			'<details open >' +
+
+				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
+
+				'<div id=mnuBreadcrumbs ></div>' +
+				'<div id=menuItems ></div>' +
+
+			'</details>' + b +
+
+		'';
+	}
+
+	CON.setDefaultContents = function() {
+
+		let txt, start, path, p;
+
+		for ( var i = 0; i < SEL.files.length; i++ ) {
+
+			path = SEL.files[ i ];
+			p = path.toLowerCase();
+
+//			if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
+//			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
+
+			if ( p.endsWith( 'readme.md' ) ) { location.hash = path; onHashChange(); return; }
+			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { location.hash = path; onHashChange(); return; }
+
+		}
+
+// nothing found, so just display the first file found
+
+		path = SEL.files[ 0 ];
+		location.hash = path;
+		onHashChange();
+
+	}
+
+
+
+
 	CON.getFileSetContents = function( path ) {
+
+		CON.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 
 		let url, u;
 
@@ -15,7 +66,7 @@
 
 		}
 
-		url = TOO.urlGHPages + path;
+		url = CON.urlGHPages + path;
 
 		u = url.toLowerCase();
 
@@ -37,9 +88,9 @@
 
 		}
 
-		CON.setHighlightAndButtons( path );
+		CON.setButtons( path );
+		SEL.highlightMenuItem();
 
-		location.hash = path;
 //		menu.scrollTop = 0;
 
 	}
@@ -71,9 +122,11 @@
 
 // https://github.com/showdownjs/showdown
 
+		let text, response;
+
 		showdown.setFlavor('github');
 
-		TOO.requestFile( url, callbackMD );
+		SEL.requestFile( url, callbackMD );
 
 		function callbackMD( xhr ) {
 
@@ -88,7 +141,6 @@
 				return;
 
 			}
-
 
 
 			text = CON.massageText( response );
@@ -143,7 +195,7 @@
 			editor.$blockScrolling = Infinity;
 			editor.getSession().setMode( 'ace/mode/markdown' );
 
-			TOO.requestFile( url, callback );
+			SEL.requestFile( url, callback );
 
 			function callback( xhr ) {
 
@@ -164,7 +216,7 @@
 
 			url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + path;
 
-			TOO.requestFile( url, callbackGalleryContents );
+			SEL.requestFile( url, callbackGalleryContents );
 
 			function callbackGalleryContents( xhr ){
 
@@ -198,69 +250,31 @@
 
 
 
+	CON.setButtons = function( path ) {
 
-	CON.setHighlightAndButtons = function( path, gallery ) {
-
-		var index, el, col, folder, indexNext, indexPrevious;
-
-//highlight
-
-		if ( gallery ) {
-
-			index = TOO.files.indexOf( '!' + path );
-
-		} else {
-
-			index = TOO.files.indexOf( path );
-
-		}
-
-		for ( let i = 0; i < TOO.files.length; i++ ) {
-
-			el = document.getElementById( 'file' + i );
-
-			col = ( i === index ) ? '#ccc' : '';
-
-			if ( el ) {
-
-				el.style.backgroundColor = col;
-				el.scrollIntoView();  // not working
-
-			} // else ...
-
-		}
-
-
-// buttons
+		var index, folder, indexNext, indexPrevious;
 
 		if ( butEditFile ) {
 
-			folder = user.folder ? user.folder + '/' : '';
+			folder = user.path ? user.path + '/' : '';
 
 			butEditFile.innerHTML = '<a href="https://github.com/' + user.user + '/' + user.repo + '/blob/' + user.branch + '/' + folder + path + '" target="_blank"> Edit </a>';
 
 		}
 
+		index = SEL.files.indexOf( path );
 
 		indexNext = index + 1;
-		if ( indexNext >= TOO.files.length ) { indexNext = 0; }
+		if ( indexNext >= SEL.files.length ) { indexNext = 0; }
 
 		indexPrevious = index - 1;
-		if ( indexPrevious < 0 ) { indexPrevious = TOO.files.length - 1; }
+		if ( indexPrevious < 0 ) { indexPrevious = SEL.files.length - 1; }
 
 		if ( butNextFile || butPreviousFile ) {
 
-			if ( gallery ) {
+			butNextFile.innerHTML = '<a href="#' + SEL.files[ indexNext ] + '" > &gt; </a>';
+			butPreviousFile.innerHTML = '<a href="#' + SEL.files[ indexPrevious ] + '" > &lt; </a>';
 
-				butNextFile.innerHTML = '<a href=JavaScript:CON.createPageOfImages("' + TOO.files[ indexNext ].slice( 1 ) + '"); > &gt; </a>';
-				butPreviousFile.innerHTML = '<a href=JavaScript:CON.createPageOfImages("' + TOO.files[ indexPrevious ].slice( 1 ) + '"); > &lt; </a>';
-
-			} else {
-
-				butNextFile.innerHTML = '<a href=JavaScript:CON.getFileSetContents("' + TOO.files[ indexNext ] + '"); > &gt; </a>';
-				butPreviousFile.innerHTML = '<a href=JavaScript:CON.getFileSetContents("' + TOO.files[ indexPrevious ] + '"); > &lt; </a>';
-
-			}
 		}
 
 	}

@@ -1,7 +1,6 @@
 
 let basicHTML =
 
-
 `		<div id=menu >
 
 			<h2>
@@ -16,7 +15,9 @@ let basicHTML =
 
 			<div id=mnuTagline ><small></small></div>
 
-			<div id=mnuSelect ></div>
+			<div id=mnuSelectItem ></div>
+
+			<div id=mnuSelectType ></div>
 
 			<div id=mnuContents ></div>
 

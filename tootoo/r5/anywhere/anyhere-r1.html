@@ -2,29 +2,21 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo5 Basic</title>
+<title>TooToo Anywhere R1</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Default: Browse and view files on GitHub with remarkable ease.' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-
-<meta name=date content='2017-06-09' >
-
-<link rel=stylesheet href=../dev/style.css >
-
+<meta name=date content='2017-06-15' >
+<link rel=stylesheet href=../js-dev/style.css >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-<!--
-<script src=../dev/tootoo.js ></script>
-<script src=../dev/content.js ></script>
+<script src=../js-dev/html.js ></script>
+<script src=../js-dev/menu.js ></script>
+<script src=../js-dev/contents.js ></script>
+<script src=../js-dev/sel-select-menu-type.js ></script>
 
--->
-
-<script src=../dev/menu.js ></script>
-<script src=../dev/html.js ></script>
-
-
-<script >
+<script>
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
@@ -68,18 +60,7 @@
 	}
 
 
-	var user = {
-
-		user: 'ladybug-tools',
-		repo: 'butterfly',
-		branch: 'master',
-		path: '',
-
-	}
-
-	var tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/master?recursive=1';
-//	var urlBase = 'https://rawgit.com/mrdoob/three.js/dev/';
-	var urlBase = 'https://' + user.user + '.github.io/' + user.repo + '/';
+	const b = '<br>';
 
 	init();
 
@@ -91,17 +72,47 @@
 		container.id = 'container';
 		container.innerHTML = basicHTML;
 
-		mnuTitle.innerHTML = user.title ? user.title : user.user;
-		mnuHelp.href = user.help ? user.help : 'https://github.com/pushme-pullyou';
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
-		tagLine = user.tagLine ? user.tagLine : document.head.querySelector( "[name=description]" ).content;
+		window.addEventListener( 'resize', setContentsWidth, false );
+
+		setContentsWidth();
+
+		window.addEventListener ( 'hashchange', onHashChange, false );
+
+		tagLine = document.head.querySelector( "[name=description]" ).content;
+		mnuTitle.innerHTML = document.title;
 		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
+		mnuHelp.href = 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/';
 
 		MNU.init();
 
-//		TOO.initUser();
+		CON.initContents();
+		SEL.initSelectType();
+
+		mnuUserTitle.innerHTML = '<h3>User: ' + user.user + '</h3>';
+		mnuUserTagline.innerHTML = 'Repo: ' + user.repo;
+
+		SEL.selectMenuType();
 
 	}
+
+
+	function onHashChange() {
+
+		CON.getFileSetContents( location.hash.slice( 1 ) );
+		CON.setButtons( location.hash.slice( 1 ) );
+		SEL.highlightMenuItem();
+
+	}
+
+
+	function setContentsWidth() {
+
+		contents.style.width = ( window.innerWidth - 325 ) + 'px';
+
+	}
+
 
 </script>
 </body>

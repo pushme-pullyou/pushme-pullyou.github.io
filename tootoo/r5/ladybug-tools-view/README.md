@@ -176,6 +176,7 @@ Whenever there is source code, you see it well-formatted and well-styled
 ## Issues / Bugs / Things that need Work
 
 * Next and Previous buttons have issues with Alphabetic menu
+* 2017-06-14 ~ Does not return to correct page after going to new page
 
 ## Change Log
 
