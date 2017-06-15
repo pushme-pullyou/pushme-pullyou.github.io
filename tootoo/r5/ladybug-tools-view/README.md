@@ -167,11 +167,15 @@ Whenever there is source code, you see it well-formatted and well-styled
 
 
 ## To Do / Goals / Up Next
+
+* 2017-06-14 ~ Add cursor keys to go to next or previous files
+* 2017-06-14 ~ Add more menu options that link to spefic GitHub operations relevant to each file
+* 2017-06-14 ~ Add PDF viewer
 * Turn it into a full [file manager]( https://en.wikipedia.org/wiki/File_manager )
 
 ## Issues / Bugs / Things that need Work
 
-* Next and Previous buttons have issues
+* Next and Previous buttons have issues with Alphabetic menu
 
 ## Change Log
 
