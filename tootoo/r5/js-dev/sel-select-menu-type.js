@@ -29,6 +29,7 @@
 	}
 
 
+
 	SEL.selectMenuType = function() {
 
 		var types = [ SEL.setMenuContents, SEL.getTreeAllFiles, SEL.setMenuFoldersFiles, SEL.createGroups, SEL.listByFolders, SEL.listAlphabetical ]
@@ -40,7 +41,6 @@
 // add about menu items
 
 	}
-
 
 
 
@@ -131,7 +131,6 @@
 
 		}
 
-
 	}
 
 
@@ -162,6 +161,7 @@
 		}
 
 	}
+
 
 
 	SEL.createGroups = function() {
@@ -208,6 +208,8 @@
 		}
 
 	}
+
+
 
 	SEL.onHeaderSelected = function() {
 
@@ -347,9 +349,6 @@
 
 
 
-
-
-
 	SEL.setBreadcrumbs = function( path ) {
 
 		let name, txt, folders, str;
@@ -375,6 +374,7 @@
 		mnuBreadcrumbs.innerHTML = txt;
 
 	}
+
 
 
 	SEL.requestFile = function ( fileName, callback ) {
