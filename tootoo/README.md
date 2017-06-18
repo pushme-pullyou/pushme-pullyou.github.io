@@ -22,7 +22,7 @@ For a fully-working demo it's better that you open the scripts full screen._
 
 ###
 
-* https://pushme-pullyou.github.io\tootoo\r5\best-websites\best-websites-r1.html
+* https://pushme-pullyou.github.io/tootoo/r5/best-websites/best-websites-r1.html
 
 #### Anywhere
 
