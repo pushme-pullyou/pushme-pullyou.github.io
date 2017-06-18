@@ -55,6 +55,7 @@ summary h3 { display: inline; }
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
 <script>
+
 let basicHTML =
 
 `	<div id=menu >
@@ -299,18 +300,14 @@ SEL.highlightMenuItem();
 
 CON.getFileHTML = function( url ){
 
-contents.innerHTML =
-//	'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) +
-//	'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=100% ' +
-'<iframe id=ifrHTML src=' + url + ' > ' +
-//	' style="border:0 none; " >' +
-'<iframe>';
+contents.innerHTML = '<iframe id=ifrHTML src=' + url + ' > ' + '<iframe>';
 
 }
 
 
 CON.massageText = function( response ){
 
+showdown.setFlavor( 'github' );
 CON.converter = new showdown.Converter();
 text = CON.converter.makeHtml( response );
 
@@ -511,6 +508,7 @@ selType.selectedIndex = SEL.typeSelectedIndex;
 }
 
 
+
 SEL.selectMenuType = function() {
 
 var types = [ SEL.setMenuContents, SEL.getTreeAllFiles, SEL.setMenuFoldersFiles, SEL.createGroups, SEL.listByFolders, SEL.listAlphabetical ]
@@ -522,7 +520,6 @@ mnuBreadcrumbs.innerHTML = '';
 // add about menu items
 
 }
-
 
 
 
@@ -613,7 +610,6 @@ CON.setDefaultContents();
 
 }
 
-
 }
 
 
@@ -644,6 +640,7 @@ SEL.files.map( function( a ){ return '<small><div>' + a.link( '#' + a ) + '</div
 }
 
 }
+
 
 
 SEL.createGroups = function() {
@@ -690,6 +687,8 @@ SEL.headers.push( file );
 }
 
 }
+
+
 
 SEL.onHeaderSelected = function() {
 
@@ -829,9 +828,6 @@ link.parentElement.style.backgroundColor = link.hash && link.hash === location.h
 
 
 
-
-
-
 SEL.setBreadcrumbs = function( path ) {
 
 let name, txt, folders, str;
@@ -857,6 +853,7 @@ txt += '<h3><a href=JavaScript:SEL.getTreeAllFiles("' + str.slice( 0, -1 ) + '")
 mnuBreadcrumbs.innerHTML = txt;
 
 }
+
 
 
 SEL.requestFile = function ( fileName, callback ) {
@@ -901,6 +898,7 @@ path = location.pathname.slice( firstDot + 11, location.pathname.lastIndexOf( '/
 
 firstDot = location.hostname.indexOf( '.github.io' );
 user = location.hostname.slice( 0, firstDot );
+repo = user + '.github.io';
 path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' ) );
 
 }
