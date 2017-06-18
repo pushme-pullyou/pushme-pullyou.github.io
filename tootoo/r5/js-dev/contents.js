@@ -98,18 +98,14 @@
 
 	CON.getFileHTML = function( url ){
 
-		contents.innerHTML =
-//			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=' + ( window.innerHeight - 5 ) +
-//			'<iframe id=ifr src=' + url + ' width=' + ( window.innerWidth - 325 ) + ' height=100% ' +
-			'<iframe id=ifrHTML src=' + url + ' > ' +
-//			' style="border:0 none; " >' +
-		'<iframe>';
+		contents.innerHTML = '<iframe id=ifrHTML src=' + url + ' > ' + '<iframe>';
 
 	}
 
 
 	CON.massageText = function( response ){
 
+		showdown.setFlavor( 'github' );
 		CON.converter = new showdown.Converter();
 		text = CON.converter.makeHtml( response );
 
