@@ -46,6 +46,7 @@
 
 		firstDot = location.hostname.indexOf( '.github.io' );
 		user = location.hostname.slice( 0, firstDot );
+		repo = user + '.github.io';
 		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
 
 	}
