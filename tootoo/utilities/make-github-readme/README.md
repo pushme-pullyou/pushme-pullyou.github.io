@@ -21,6 +21,9 @@ _Create detailed, pre-filled index and Read Me files on the fly_
 ## make-all-in-one
 
 ### Wish List
+
+* 2017-06-19 ~ Better handling of iframe source
+* 2017-06-19 ~ Toggle HTML and Markdown views
 * 2017-05-08 ~ Update and deploy to all users
 * 2017-05-08 ~ Update date of file
 * 2017-05-08 ~ Move scripts to bottom of file // make easier to edit

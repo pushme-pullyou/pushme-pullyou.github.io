@@ -4,9 +4,9 @@
 <meta charset=utf-8 >
 <title></title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Create a read me file.' >
+<meta name=description content='Create index and read me files.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2017-05-21 ~ ' >
+<meta name=date content='2017-06-19' >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
@@ -50,30 +50,34 @@ window.location.href = pathFull;
 <\/html>
 `;
 
-	let protocol, firstDot, user, path, script, scriptTitle;
+	let protocol, firstDot, usr, user, path, script, scriptTitle;
 
 	protocol = location.protocol;
 
 	if ( protocol === 'file:' ) {
 
 		firstDot = location.pathname.indexOf( 'github.io' );
-		user = location.pathname.slice( 0, firstDot - 1 );
-		user = user.slice( user.lastIndexOf( '/' ) + 1 );
+		usr = location.pathname.slice( 0, firstDot - 1 );
+		usr = usr.slice( usr.lastIndexOf( '/' ) + 1 );
 
 		path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
-		repo = path.endsWith( '.gitgub.io' ) ? user + '.github.io' : path;
+
+		firstSlash = location.pathname.indexOf( usr );
+		repo = location.pathname.slice( firstSlash );
+		repo = repo.slice( 0, repo.indexOf( '/' ) );
+		repo = repo.endsWith( '.github.io' ) ? repo: path.slice( 0, path.pathname.indexOf( '/' ) ) ;
 
 	} else if ( protocol.includes( 'http' ) ) {
 
 		firstDot = location.hostname.indexOf( '.github.io' );
-		user = location.hostname.slice( 0, firstDot );
+		usr = location.hostname.slice( 0, firstDot );
 		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
 
-		repo = path.endsWith( '.gitgub.io' ) ? user + '.github.io' : path;
+		repo = path.endsWith( '.github.io' ) ? usr + '.github.io' : path;
 
 	}
 
-console.log( 'u', user, 'p', path, 'r', repo );
+console.log( 'u', usr, 'p', path, 'r', repo );
 
 	script = path.split( '/' ).pop();
 
@@ -88,7 +92,8 @@ console.log( 'u', user, 'p', path, 'r', repo );
 	scriptTitle = scriptTitle.join( ' ' );
 
 	 user = {
-		user : user,
+		user : usr,
+		repo : repo,
 		subText : 'Hello, there',
 		url : user + '.github.io',
 		branch : 'master',
@@ -125,7 +130,7 @@ console.log( 'u', user, 'p', path, 'r', repo );
 			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
 			'#container { left: 0; position: absolute; transition: left 1s; width: 100%;}' +
 
-			'#readme { border: 1px #ccc solid; left: 375px; max-width: 800px; position: absolute; top: 275px; }' +
+			'#readme { border: 1px #ccc solid; height: 500px; left: 375px; width: 800px; position: absolute; top: 275px; }' +
 			'#index { border: 1px #ccc solid; height: 250px; left: 375px; width: 800px; overflow: auto; position: absolute; top: 5px; }' +
 
 			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px; }' +
@@ -183,7 +188,7 @@ console.log( 'u', user, 'p', path, 'r', repo );
 
 			'<textarea id=index ></textarea>' +
 
-			'<div id=readme ></div>' +
+			'<textarea id=readme ></textarea>' +
 
 		'';
 
@@ -194,7 +199,7 @@ console.log( 'u', user, 'p', path, 'r', repo );
 
 		readme.contentEditable = true;
 
-		requestFile( 'https://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/github-readme-template.md', callbackReadMe );
+		requestFile( 'https://pushme-pullyou.github.io/tootoo/utilities/make-github-readme/github-readme-template.md', callbackReadMe );
 
 		requestFile( user.files, callbackFiles );
 
@@ -214,9 +219,10 @@ console.log( 'u', user, 'p', path, 'r', repo );
 		text = text.replace( /thisScript/g, user.scriptTitle);
 		text = text.replace( /thisBreadcrumbs/g, breadcrumbs );
 		readMeText = text.replace( /thisDate/g, today );
+
 		readMeHTML = converter.makeHtml( readMeText );
 
-		readme.innerHTML = readMeHTML;
+		readme.innerHTML = readMeText;
 
 	}
 
