@@ -12,6 +12,21 @@ _Create detailed, pre-filled index and Read Me files on the fly_
 <img src="" style=display:none; width=800 >
 -->
 
+
+## Read Me File
+
+* 2017-05-08 ~ Read Me file maker
+
+
+## make-all-in-one
+
+### Wish List
+* 2017-05-08 ~ Update and deploy to all users
+* 2017-05-08 ~ Update date of file
+* 2017-05-08 ~ Move scripts to bottom of file // make easier to edit
+
+
+
 <iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/index.html width=100% height=600px ></iframe>
 _Make Github Read Me_
 
@@ -99,6 +114,14 @@ Intended for xxx
 
 * First commit
 * Add Read Me
+
+
+#### 2017-05-15 ~ Theo
+
+Looks like it's working well
+
+* Add Select File
+* Code cleanup
 
 
 ***

@@ -13,8 +13,11 @@ html, body { font: 12pt monospace; height: 100%; margin: 0;  overflow: hidden; }
 a { color: crimson; text-decoration: none; }
 a:hover { text-decoration: underline; }
 a:active { background-color: yellow; }
+aside { font-style: oblique; }
 button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }
-
+pre, blockquote { background-color: #eee; padding: 10px; }
+summary { outline: none; }
+summary h3 { display: inline; }
 
 .popUp { background-color: white; border: 1px solid red; left: 180px; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }
 
@@ -38,12 +41,14 @@ button, input[type=button] { background-color: #ccc; border: 2px #fff solid; col
 #hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px;  z-index: 1 }
 #hamburger h2, #menuItems h2, #menuItems h4 { margin: 0; }
 
+
 #menu { background-color: #eee; border: 1px #ccc solid; box-sizing:border-box; height: 100%; overflow-y: auto; padding: 0 10px; position: fixed; width: 325px; }
 #menu ul { margin:0; padding-left:20px; }
 
+/*#menuBreadcrumbs h2, #menuBreadcrumbs h3, #mnuUserTitle h3 { font-size: 14pt; margin: 0; } */
 #menu h1, #menu a img { display: none; }
 
-#best-websites-a-programmer-should-visit { display: block !important; }
+#best-websites-a-programmer-should-visit {display: block !important; }
 
 </style>
 </head>
@@ -120,7 +125,7 @@ button, input[type=button] { background-color: #ccc; border: 2px #fff solid; col
 
 		setContentsWidth();
 
-//		window.addEventListener ( 'hashchange', onHashChange, false );
+		window.addEventListener ( 'hashchange', onHashChange, false );
 
 		tagLine = document.head.querySelector( "[name=description]" ).content;
 		mnuTitle.innerHTML = document.title;
@@ -155,7 +160,6 @@ button, input[type=button] { background-color: #ccc; border: 2px #fff solid; col
 	}
 
 
-
 	function getLinksFromText( text ) {
 
 		let linkReg;
@@ -187,11 +191,12 @@ button, input[type=button] { background-color: #ccc; border: 2px #fff solid; col
 
 		links = doc.getElementsByTagName( 'a' );
 
+
 	}
 
 
 
-	function winOpen( that, scrollIntoView ) {
+	function winOpen( that ) {
 
 		var href, link;
 		href = that.getAttribute('href')
@@ -202,9 +207,10 @@ button, input[type=button] { background-color: #ccc; border: 2px #fff solid; col
 
 		for ( lnk of links ) {
 
-			lnk.name = lnk.parentElement.style.backgroundColor = lnk.getAttribute( 'href' )  === href ? 'yellow' : '';
+			lnk.parentElement.style.backgroundColor = lnk.getAttribute( 'href' )  === href ? 'yellow' : '';
 
 		}
+
 
 		menuItems.innerHTML = doc.body.innerHTML;
 
@@ -217,14 +223,39 @@ button, input[type=button] { background-color: #ccc; border: 2px #fff solid; col
 
 		setButtons( link );
 
-		if ( scrollIntoView === true ) {
+	}
 
-			el = document.getElementsByName( 'yellow' );
-			el[ 0 ].scrollIntoView();
+
+	function onHashChange() {
+/*
+		let link;
+
+		link = location.hash.slice( 1 );
+
+//		if ( win ) { win.close(); }
+//		win = window.open( link, '', 'width=1000, height=950, top=100', true );
+//		win.moveBy( -6000,  0);
+//		win.moveBy( 400, 0 );
+
+//win.focus();
+win.location.href = link;
+
+//		win.blur = function() { self.focus(); }
+
+//		setTimeout(function(){win.focus()},1000);
+
+		for ( let link of links ) {
+
+			link.parentElement.style.backgroundColor = link.getAttribute( 'href' )  === location.hash ? 'yellow' : '';
 
 		}
 
+		menuItems.innerHTML = doc.body.innerHTML;
+
+		setButtons( link );
+*/
 	}
+
 
 
 
@@ -242,8 +273,8 @@ button, input[type=button] { background-color: #ccc; border: 2px #fff solid; col
 		indexPrevious = index - 1;
 		if ( indexPrevious < 0 ) { indexPrevious = linksInText.length - 1; }
 
-		butNextFile.innerHTML = '<a href="#' + linksInText[ indexNext ] + '" onclick=winOpen(this,true); > &gt; </a>';
-		butPreviousFile.innerHTML = '<a href="#' + linksInText[ indexPrevious ] + '" onclick=winOpen(this,true); > &lt; </a>';
+		butNextFile.innerHTML = '<a href="#' + linksInText[ indexNext ] + '" onclick=winOpen(this); > &gt; </a>';
+		butPreviousFile.innerHTML = '<a href="#' + linksInText[ indexPrevious ] + '" onclick=winOpen(this); > &lt; </a>';
 
 	}
 
