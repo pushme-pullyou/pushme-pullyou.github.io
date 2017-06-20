@@ -5,6 +5,7 @@
 
 ## To Do
 
+* 2017-06-19 ~ Scroll to top of menu
 * 2017-06-19 ~ Links to file history, blame
 * 2017-06-17 ~ cursor key for next and previous files
 
