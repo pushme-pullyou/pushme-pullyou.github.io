@@ -166,6 +166,16 @@ It would also be nice to do these things and have the code still be understandab
 ## Change Log
 
 
+### 2017-06-20 ~ Theo
+
+TooToo - and its allies - are coming together quite nicely.
+I need to get several ready to show around.
+
+
+* Add tootoo-pushme-pullyou r1
+* Add tootoo-prediqtiv-r1
+* BS2017 working as desired
+
 ### 2017-05-18 ~ Theo
 
 * Reorganizing folder structure. Hopefully not messing things up too much

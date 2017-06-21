@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>TooToo5 predIQtiv R1</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-06-20' >
+<link rel=stylesheet href=../js-dev/style.css >
+</head>
+<body>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=../js-dev/html.js ></script>
+<script src=../js-dev/menu.js ></script>
+<script src=../js-dev/contents.js ></script>
+<script src=../js-dev/sel-select-menu-type.js ></script>
+
+<script>
+
+// Copyright 2017 Pushme Pullyou authors ~ MIT license
+
+	var images = 'https://prediqtiv.github.io/images/';
+
+	var user = {
+
+		user: 'prediqtiv',
+		repo: 'prediqtiv.github.io',
+		branch: 'master',
+		path: '',
+
+		infoLink : 'https://github.com/prediqtiv/prediqtiv.github.io/',
+		logo: '<img src=' + images + 'five-boxes.png height=32 >',
+		tagLine : 'Invest smarter!',
+		subText : 'Invest smarter!',
+		title : '<img src=' + images + 'predIQtiv.png  height=64 >',
+		defaultFile : 'REAADME.md'
+	}
+
+
+	MNU.tableOfContents =
+
+`
+### predIQtiv
+* [predIQtiv home page]( #README.md )
+* [Copyright and license]( #license.md )
+### eyeCue
+* [eyeCue Read Me]( #eye-cue/README.md )
+    * [eyeCue Replay Read Me](#eye-cue/replay/README.md )
+    * [eyeCue Realtime Read]( #eye-cue/realtime/README.md )
+### Trades
+* [Trades Get Read Me]( #trades-get/README.md )
+### Tweets
+* [Tweets Read Me]( #tweets/README.md )
+### Company URLs
+* [URL Get Read Me]( #url-get/README.md )
+### White Papers
+* [White Papers Read Me]( #white-papers/README.md )
+    * [Markets, Outliers and Data Normalization]( #white-papers/outliers-data-normlization.md )
+    * [Code, Styling and Abstraction]( #white-papers/code-styling-abstraction.md )
+### [Blog Posts]( https://github.com/prediqtiv/prediqtiv.github.io/labels/blog%20post )
+`;
+
+	SEL.typeSelectedIndex = 0;
+	const b = '<br>';
+
+	init();
+
+	function init() {
+
+		let tagLine;
+
+		container = document.body.appendChild( document.createElement( 'div' ) );
+		container.id = 'container';
+		container.innerHTML = basicHTML;
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		window.addEventListener( 'resize', setContentsWidth, false );
+
+		setContentsWidth();
+
+		window.addEventListener ( 'hashchange', onHashChange, false );
+
+		tagLine = user.tagLine ? user.tagLine : document.head.querySelector( "[name=description]" ).content;
+		mnuTitle.innerHTML = user.title ? user.title : document.title;
+		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
+		mnuHelp.href = user.infoLink ? user.infoLink : 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/';
+
+		MNU.init();
+
+		CON.initContents();
+		SEL.initSelectType();
+
+//		mnuUserTitle.innerHTML = '<h3>User: ' + user.user + '</h3>';
+//		mnuUserTagline.innerHTML = 'Repo: ' + user.repo;
+
+		SEL.selectMenuType();
+
+	}
+
+
+	function onHashChange() {
+
+		CON.getFileSetContents( location.hash.slice( 1 ) );
+		CON.setButtons( location.hash.slice( 1 ) );
+		SEL.highlightMenuItem();
+
+	}
+
+
+	function setContentsWidth() {
+
+		contents.style.width = ( window.innerWidth - 325 ) + 'px';
+
+	}
+
+
+</script>
+</body>
+</html>

@@ -113,6 +113,11 @@ Intended for xxx
 
 ## Change Log
 
+### 2017-06-19 ~ Theo
+
+* Fix repo name
+* Display read me as markdown
+
 ### 2017-05-22
 
 * First commit

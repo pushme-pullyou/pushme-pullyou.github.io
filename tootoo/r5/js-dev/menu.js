@@ -33,16 +33,16 @@
 
 				'<summary><h3>About</h3></summary>' +
 
-//				'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
-//				'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
-				'<p>Click the \'i in a circle\' icon for more <a href=index.html#readme.md title="Click here for help and information" >help</a>.</p>' +
+				'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
+				'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
+				'<p>Click the \'i in a circle\' icon for more <a href=#README.md title="Click here for help and information" >help</a>.</p>' +
 
 			'</details>' +
 
 			'<hr>' +
 
-//			'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1>' + ( user.logo ? user.logo : '❦' ) + '</h1></a></center>' +
-//			'<div class=popUp id=pop2 style=display:none;bottom:20px; >' + user.user + ' - ' + user.subText + '.<br>Click here to return to the top of the page</div>' +
+			'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1>' + ( user.logo ? user.logo : '❦' ) + '</h1></a></center>' +
+			'<div class=popUp id=pop2 style=display:none;bottom:20px; >' + user.user + ' - ' + user.subText + '.<br>Click here to return to the top of the page</div>' +
 
 		'';
 
