@@ -149,6 +149,10 @@ It would also be nice to do these things and have the code still be understandab
 * Click three bars( 'hamburger' ) icon to slide menu in or out
 
 
+## Issues
+
+* 2017-06-21 ~ next/previous not working on alphabetical menu
+
 ## To Do
 
 * 2017-05-08 ~ Add recent events
@@ -159,12 +163,17 @@ It would also be nice to do these things and have the code still be understandab
 * 2017-05-08 ~ Scroll menu items into view
 * 2017-05-08 ~ Cursor key movement through menus
 * 2017-05-08 ~ Jazz up menu title in menu bar
-* 2017-05-08 ~ Edit button broken
 * 2017-05-07 ~ handle if sub-repo or or folder
 * Enter the name of a GitHub user you know in the input box
 
 ## Change Log
 
+### 2017-06-21 ~ Theo
+
+* Select which menu type to start with if contents table is/is not available
+* Search by typing in input box working
+
+[] 2017-05-08 ~ Edit button broken
 
 ### 2017-06-20 ~ Theo
 

@@ -1,9 +1,27 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>TooToo5 Skim R1</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-06-21' >
+<link rel=stylesheet href=../js-dev/style.css >
+</head>
+<body>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=../js-dev/html.js ></script>
+<script src=../js-dev/menu.js ></script>
+<script src=../js-dev/contents.js ></script>
+<script src=../js-dev/usr-select-user.js ></script>
+<script src=../js-dev/sel-select-menu-type.js ></script>
 
-	let SEL = {};
+<script>
+
+// Copyright 2017 Pushme Pullyou authors ~ MIT license
+
 	let users = {};
-
-	var urlAPIFolderRepos = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/dev-repo/';
-	var folderRepo = '../dev-repo/'
 
 	users.bPesquet = {
 		user: 'bpesquet',
@@ -112,54 +130,6 @@
 		user : 'ladybug-tools',
 		repo : 'ladybug',
 		branch : 'gh-pages',
-		path : '',
-		rawgit: true
-	};
-
-	users.ladybugToolsButterfly = {
-		user : 'ladybug-tools',
-		repo : 'butterfly',
-		branch : 'master',
-		path : '',
-		rawgit: true
-	};
-
-	users.ladybugToolsButterflyPlus = {
-		user : 'ladybug-tools',
-		repo : 'butterfly-plus',
-		branch : 'master',
-		path : '',
-		rawgit: true
-	};
-
-	users.ladybugDcStudies = {
-		user : 'ladybug-tools',
-		repo : 'dc-studies',
-		branch : 'master',
-		path : '',
-		rawgit: true
-	};
-
-	users.ladybugDynamo = {
-		user : 'ladybug-tools',
-		repo : 'ladybug-dynamo',
-		branch : 'gh-pages',
-		path : '',
-		rawgit: true
-	};
-
-	users.ladybugToolsHoneybee = {
-		user : 'ladybug-tools',
-		repo : 'honeybee',
-		branch : 'master',
-		path : '',
-		rawgit: true
-	};
-
-	users.ladybugToolsHoneybeePlus = {
-		user : 'ladybug-tools',
-		repo : 'honeybee-plus',
-		branch : 'master',
 		path : '',
 		rawgit: true
 	};
@@ -275,154 +245,104 @@
 	};
 */
 
+	let protocol = location.protocol;
 
-	 SEL.initSelectRepos = function() {
+	if ( protocol === 'file:' ) {
 
-		mnuSelect.innerHTML =
+		if ( location.pathname.includes( 'github.io' ) ) {
 
-				'<details open>' +
+			firstDot = location.pathname.indexOf( 'github.io' );
+			user = location.pathname.slice( 0, firstDot - 1 );
+			user = user.slice( user.lastIndexOf( '/' ) + 1 );
+			repo = user + '.github.io';
 
-					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
+			path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
 
-						'<select id=selUser onchange=SEL.selectRepo(); title="Select repo" size=15 style=width:100%;  >' +
+		} else if ( location.pathname.includes( 'github.com' ) ) {
 
-						'</select>' + b +
-					b +
+			firstDot = location.pathname.indexOf( 'github.com' );
+			user = location.pathname.slice( 0, firstDot - 1 );
+			user = user.slice( user.lastIndexOf( '/' ) + 1 );
+			repo = user + '.github.com';
+			path = location.pathname.slice( firstDot + 11, location.pathname.lastIndexOf( '/' )  );
+		}
 
-				'</details>' +
+	} else if ( protocol.includes( 'http' ) ) {
 
-				'<div id=mnuUserTitle ></div>' +
-		'';
-
-		SEL.getRepoOptions();
-
-	}
-
-
-
-	SEL.getRepoOptions = function() {
-
-		TOO.requestFile( urlAPIFolderRepos, SEL.callbackRepos );
-
-	}
-
-
-	SEL.callbackRepos = function( xhr ){
-
-		let files, file;
-
-		files = xhr.target.response;
-
-		files = JSON.parse( files );
-
-		for ( let i = 0; i < files.length; i++) {
-
-			file = files[ i ].name;
-
-			if ( file.endsWith( '.js') ) {
-
-				selUser.innerHTML += '<option>' + file + '</option>';
-
-			}
-
-		 }
-
-		selUser.selectedIndex = 8;
-
-		SEL.selectRepo();
+		firstDot = location.hostname.indexOf( '.github.io' );
+		user = location.hostname.slice( 0, firstDot );
+		repo = user + '.github.io';
+		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
 
 	}
 
+	var user = {
 
-	SEL.selectRepo = function(){
-
-//console.clear();
-
-
-//		location.hash="";
-		history.replaceState( '', document.title, window.location.pathname );
-
-// only create if not already
-		var scr = document.body.appendChild( document.createElement( 'script' ) );
-
-		scr.onload = SEL.onload;
-
-		scr.src = folderRepo + selUser.value;
-//		user = users[ selUser.value ];
-
+		user: user,
+		repo: repo,
+		branch: 'master',
+		path: path,
 
 	}
 
+	user = users.theoArmour;
 
-	SEL.onload = function() {
+	const b = '<br>';
+
+	init();
+
+	function init() {
 
 		let tagLine;
 
-		mnuHelp.href = user.help ? user.help : 'https://github.com/pushme-pullyou';
+		container = document.body.appendChild( document.createElement( 'div' ) );
+		container.id = 'container';
+		container.innerHTML = basicHTML;
 
-		tagLine = user.tagLine ? user.tagLine : document.head.querySelector( "[name=description]" ).content;
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
 
-		mnuTitle.innerHTML = user.title ? user.title : user.user;
+		window.addEventListener( 'resize', setContentsWidth, false );
+
+		setContentsWidth();
+
+		window.addEventListener ( 'hashchange', onHashChange, false );
+
+		tagLine = document.head.querySelector( "[name=description]" ).content;
+		mnuTitle.innerHTML = document.title;
 		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
-		TOO.initUser();
+		mnuHelp.href = 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/';
+
+		MNU.init();
+
+		USR.initSelectUsers();
+
+		CON.initContents();
+		SEL.initSelectType();
+
+		mnuUserTitle.innerHTML = '<h3>User: ' + user.user + '</h3>';
+		mnuUserTagline.innerHTML = 'Repo: ' + user.repo;
+
+		SEL.selectMenuType();
 
 	}
 
 
-///////////////////
+	function onHashChange() {
 
-	SEL.initSelectUsers = function() {
-
-		mnuSelect.innerHTML =
-z
-				'<details open>' +
-
-					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
-
-						'<select id=selUser onchange=SEL.selectUser(); title="Select user" size=15 style=width:100%;  >' +
-
-						'</select>' + b +
-					b +
-
-				'</details>' +
-
-		'';
-
-		SEL.getMenuSelectUserOptions();
+		CON.getFileSetContents( location.hash.slice( 1 ) );
+		CON.setButtons( location.hash.slice( 1 ) );
+		SEL.highlightMenuItem();
 
 	}
 
 
+	function setContentsWidth() {
 
-	SEL.getMenuSelectUserOptions = function () {
-
-		users.keys = Object.keys( users );
-
-		for ( let i = 0; i < users.keys.length; i++ ) {
-
-			user = users[ users.keys[ i ] ];
-
-			selUser[ i ] = new Option( user.user + ' ' + user.repo + ' ' + user.path + ' ' + user.branch, users.keys[ i ] );
-
-		}
-
-		selUser.selectedIndex = Math.floor( Math.random() * users.keys.length );
-		selUser.selectedIndex = 10;
-
-		SEL.selectUser();
+		contents.style.width = ( window.innerWidth - 325 ) + 'px';
 
 	}
 
 
-	SEL.selectUser = function(){
-
-//console.clear();
-
-//		location.hash="";
-		history.replaceState( '', document.title, window.location.pathname );
-		user = users[ selUser.value ];
-
-		TOO.initUser();
-
-	}
-
+</script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 	let SEL = {};
 
-	SEL.typeSelectedIndex = 5;
+
+	SEL.typeSelectedIndex = MNU.tableOfContents ? 0 : 1;
 
 	SEL.initSelectType = function() {
 
@@ -47,6 +48,12 @@
 	SEL.setMenuContents = function() { // we have a table of contents / SEL.tableOfContents somewhere
 
 		let text, fNames, fName;
+
+		if ( !MNU.tableOfContents ){
+
+			menuItems.innerHTML = 'Sadly, no human has created a curated menu for this repository. Do try another type of menu';
+			return;
+		}
 
 		SEL.files = [];
 
@@ -158,6 +165,7 @@
 				'Files count: ' + SEL.files.length + b +
 				SEL.files.map( function( a ){ return '<small><div>' + a.link( '#' + a ) + '</div></small>'; } ).join( '' );
 
+			CON.setDefaultContents();
 		}
 
 	}
@@ -170,7 +178,7 @@
 		let response, file, fileName;
 
 		let tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
-		SEL.files = [];
+		SEL.groups = [];
 		SEL.requestFile( tree, callback );
 
 		function callback( xhr ) {
@@ -189,7 +197,7 @@
 				if ( file.type === 'tree' ) { continue; }
 
 				file = file.path;
-				SEL.files.push( file );
+				SEL.groups.push( file );
 
 				file = file.split( '/' );
 				fileName = file.pop();
@@ -218,18 +226,22 @@
 		txt = '';
 
 		header = selHeaders.value;
-
-		for ( let file of SEL.files ) {
+		SEL.files = [];
+		for ( let file of SEL.groups ) {
 
 			if ( file.includes( header ) ) {
 
 				name = file.replace( ( header + "\/" ), '' );
 				txt += '<div>' + name.link( '#' + file ) + '</div>';
+
+				SEL.files.push( file );
 			}
 
 		}
 
 		selFile.innerHTML = 'Files count: ' + SEL.files.length + b + txt;
+
+		CON.setDefaultContents();
 
 	}
 
@@ -276,6 +288,8 @@
 			}
 
 			menuItems.innerHTML = txt;
+
+			CON.setDefaultContents();
 
 		}
 
@@ -326,10 +340,11 @@
 			}
 
 			menuItems.innerHTML =
-			'<input id=inpText onchange=update(); />' + b +
-			'Files in repo: ' + SEL.files.length + b + txt;
+			'Files in repo: ' + SEL.files.length + b +
+			'Search <input id=inpText oninput=update(); />' + b +
+			'<div id=mnuSelected ></div>';
 
-
+			update();
 
 		}
 
@@ -345,7 +360,7 @@
 			key = keys[ i ].split( '#' );
 			name = key[ 0 ];
 			if ( name.includes( str ) ) {
-console.log( '', name );
+//console.log( '', name );
 			path =  key[ 1 ];
 			txt +=
 			'<div>' +
@@ -356,10 +371,11 @@ console.log( '', name );
 
 		}
 
-		menuItems.innerHTML =
-		'<input id=inpText onchange=update(); />' + b +
-		'Files in repo: ' + SEL.files.length + b + txt;
+		mnuSelected.innerHTML = txt;
+
+		CON.setDefaultContents();
 console.log( '', inpText.value  );
+
 	}
 
 ////////////////// utilities

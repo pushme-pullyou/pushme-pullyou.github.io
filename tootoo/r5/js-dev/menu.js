@@ -49,6 +49,7 @@
 	};
 
 
+
 	MNU.cssColors = function( back, color, mnu ) {
 
 		document.body.style.backgroundColor = back;
@@ -56,6 +57,7 @@
 		menu.style.backgroundColor = mnu;
 
 	};
+
 
 
 	MNU.cssFontOpenSans = function() {
@@ -86,12 +88,14 @@
 	};
 
 
+
 	MNU.cssFontMonospace = function() {
 
 //		document.body.style.fontFamily = '"Lucida Console", Monaco, monospace';
 		document.body.style.fontFamily = 'monospace';
 
 	};
+
 
 
 	MNU.cssFontSize = function( size ) {

@@ -3,8 +3,9 @@
 
 	USR.initSelectUsers = function() {
 
-		mnuSelect.innerHTML =
 
+//		mnuSelect.innerHTML =
+mnuSelectItem.innerHTML =
 				'<details open>' +
 
 					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
@@ -39,7 +40,7 @@
 		selUser.selectedIndex = Math.floor( Math.random() * users.keys.length );
 		selUser.selectedIndex = 10;
 
-		USR.selectUser();
+//		USR.selectUser();
 
 	}
 
@@ -53,6 +54,7 @@
 		user = users[ selUser.value ];
 
 //		TOO.initUser();
+		SEL.selectMenuType();
 
 	}
 
