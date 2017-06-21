@@ -1,6 +1,6 @@
 	let SEL = {};
 
-	SEL.typeSelectedIndex = 1;
+	SEL.typeSelectedIndex = 5;
 
 	SEL.initSelectType = function() {
 
@@ -287,7 +287,7 @@
 
 		let tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 		let link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
-		let response, txt, keys, path, name;
+//		let response, txt, keys, path, name;
 
 		SEL.requestFile( tree, callback );
 
@@ -325,10 +325,41 @@
 
 			}
 
-			menuItems.innerHTML = 'Files in repo: ' + SEL.files.length + b + txt;
+			menuItems.innerHTML =
+			'<input id=inpText onchange=update(); />' + b +
+			'Files in repo: ' + SEL.files.length + b + txt;
+
+
 
 		}
 
+	}
+
+	function update() {
+
+		str = inpText.value;
+		let link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
+		txt = '';
+		for ( let i = 0; i < keys.length; i++ ) {
+
+			key = keys[ i ].split( '#' );
+			name = key[ 0 ];
+			if ( name.includes( str ) ) {
+console.log( '', name );
+			path =  key[ 1 ];
+			txt +=
+			'<div>' +
+				'<a href=#' + path + ' title="' + path + '" >' + ( i + 1 ) + ' ' + key[ 0 ] + '</a> ' +
+				(  path.endsWith( '.html') ? '<a href="' + encodeURI( link + path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
+			'</div>';
+			}
+
+		}
+
+		menuItems.innerHTML =
+		'<input id=inpText onchange=update(); />' + b +
+		'Files in repo: ' + SEL.files.length + b + txt;
+console.log( '', inpText.value  );
 	}
 
 ////////////////// utilities
