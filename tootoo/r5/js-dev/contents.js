@@ -6,7 +6,7 @@
 
 
 	CON.initContents = function() {
-console.log( 'user CON', user );
+
 		mnuContents.innerHTML =
 
 			'<div id=mnuUserTitle ></div>' +
@@ -14,10 +14,10 @@ console.log( 'user CON', user );
 
 			'<details open >' +
 
-				'<summary><h3 id=menuTitle >Contents</h3></summary>' +
+				'<summary><h3 id=mnuContentsTitle >Contents</h3></summary>' +
 
 				'<div id=mnuBreadcrumbs ></div>' +
-				'<div id=menuItems ></div>' +
+				'<div id=mnuItems ></div>' +
 
 			'</details>' + b +
 

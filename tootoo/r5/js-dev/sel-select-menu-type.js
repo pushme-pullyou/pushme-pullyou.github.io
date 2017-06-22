@@ -1,4 +1,4 @@
-	let SEL = {};
+	var SEL = SEL || {};
 
 
 	SEL.typeSelectedIndex = MNU.tableOfContents ? 0 : 1;
@@ -7,7 +7,7 @@
 
 		mnuSelectType.innerHTML =
 
-			'<details open>' +
+			'<details id=mnuTypeDetails open>' +
 
 				'<summary><h3>Select Menu Type</h3></summary>' +
 
@@ -20,7 +20,7 @@
 						'<option >Alphabetical</option>' +
 					'</select>' + b +
 
-			'</details>' + b +
+			'</details>'
 
 		'';
 
@@ -37,9 +37,9 @@
 		SEL.setMenu = types[ selType.selectedIndex ];
 		SEL.setMenu();
 
-		menuTitle.innerHTML = selType.value;
+		mnuContentsTitle.innerHTML = selType.value;
 		mnuBreadcrumbs.innerHTML = '';
-// add about menu items
+
 
 	}
 
@@ -51,7 +51,7 @@
 
 		if ( !MNU.tableOfContents ){
 
-			menuItems.innerHTML = 'Sadly, no human has created a curated menu for this repository. Do try another type of menu';
+			mnuItems.innerHTML = 'Sadly, no human has created a curated menu for this repository. Do try another type of menu';
 			return;
 		}
 
@@ -63,7 +63,7 @@
 
 		text = CON.massageText( MNU.tableOfContents );
 
-		menuItems.innerHTML = text;
+		mnuItems.innerHTML = text;
 
 		fNames = MNU.tableOfContents.replace( / /g, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
 
@@ -100,13 +100,13 @@
 			items = JSON.parse( response );
 
 			SEL.files = [];
-			menuItems.innerHTML = '';
+			mnuItems.innerHTML = '';
 
 			for ( let item of items ) {
 
 				if ( item.type === 'dir' ) {
 
-					menuItems.innerHTML +=
+					mnuItems.innerHTML +=
 //						'<div><a href=JavaScript:location.hash="";SEL.getTreeAllFiles("' + item.path  + '");  > 🗀 ' + item.name  + '</a></div>' +
 						'<div><a href=JavaScript:SEL.getTreeAllFiles("' + item.path  + '");  > 🗀 ' + item.name  + '</a></div>' +
 
@@ -122,7 +122,7 @@
 
 				if ( item.type === 'file' ) {
 
-					menuItems.innerHTML +=
+					mnuItems.innerHTML +=
 					'<div>' +
 						'<a href=#' + encodeURI( item.path ) + '  > ' + item.name + '</a> ' +
 						( item.path.endsWith( '.html') ? '<a href="' + encodeURI( link + item.path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
@@ -161,7 +161,7 @@
 
 			}
 
-			menuItems.innerHTML =
+			mnuItems.innerHTML =
 				'Files count: ' + SEL.files.length + b +
 				SEL.files.map( function( a ){ return '<small><div>' + a.link( '#' + a ) + '</div></small>'; } ).join( '' );
 
@@ -185,7 +185,7 @@
 
 			response = JSON.parse( xhr.target.response );
 
-			menuItems.innerHTML = '<select id=selHeaders size=20 onchange=SEL.onHeaderSelected() style=width:100%; ></select>' + b + b +
+			mnuItems.innerHTML = '<select id=selHeaders size=20 onchange=SEL.onHeaderSelected() style=width:100%; ></select>' + b + b +
 				'<div id=selFile ></div>';
 
 			SEL.headers = [];
@@ -287,7 +287,7 @@
 
 			}
 
-			menuItems.innerHTML = txt;
+			mnuItems.innerHTML = txt;
 
 			CON.setDefaultContents();
 
@@ -339,7 +339,7 @@
 
 			}
 
-			menuItems.innerHTML =
+			mnuItems.innerHTML =
 			'Files in repo: ' + SEL.files.length + b +
 			'Search <input id=inpText oninput=update(); />' + b +
 			'<div id=mnuSelected ></div>';

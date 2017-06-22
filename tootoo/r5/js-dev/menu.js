@@ -27,22 +27,27 @@
 			'</details>' +
 		'';
 
+
 		mnuAbout.innerHTML =
 
 			'<details>' +
 
 				'<summary><h3>About</h3></summary>' +
 
-				'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
-				'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
+//				'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
+				'<div id=mnuCopyright ></div>' +
+//				'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
+				'<div id=mnuLicense ></div>' +
 				'<p>Click the \'i in a circle\' icon for more <a href=#README.md title="Click here for help and information" >help</a>.</p>' +
 
 			'</details>' +
 
 			'<hr>' +
 
-			'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1>' + ( user.logo ? user.logo : '❦' ) + '</h1></a></center>' +
-			'<div class=popUp id=pop2 style=display:none;bottom:20px; >' + user.user + ' - ' + user.subText + '.<br>Click here to return to the top of the page</div>' +
+			'<center><a id=mnuFooterLogo href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; >' +
+				'<h1>❦</h1></a>' +
+			'</center>' +
+			'<div id=mnuFooterText class=popUp id=pop2 style=display:none;bottom:20px; >Click here to return to the top of the page</div>' +
 
 		'';
 

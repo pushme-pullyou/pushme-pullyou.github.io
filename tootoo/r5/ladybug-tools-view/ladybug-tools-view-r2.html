@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>Ladybug Tools View</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Browse and view files on Ladybug Tools with remarkable ease.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-06-14' >
+<link rel=stylesheet href=js/style.css >
+</head>
+<body>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=../js-dev/html.js ></script>
+<script src=../js-dev/menu.js ></script>
+<script src=../js-dev/contents.js ></script>
+<script src=../js-dev/sel-select-repo.js ></script>
+<script src=../js-dev/sel-select-menu-type.js ></script>
+
+<script>
+
+// Copyright 2017 Pushme Pullyou authors ~ MIT license
+
+	SEL.urlAPIFolderRepo = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo/r4/library-ladybug/repositories/';
+	SEL.folderRepo = 'repositories/';
+
+
+	const b = '<br>';
+
+	init();
+
+	function init() {
+
+		let tagLine;
+
+		container = document.body.appendChild( document.createElement( 'div' ) );
+		container.id = 'container';
+		container.innerHTML = basicHTML;
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		window.addEventListener( 'resize', setContentsWidth, false );
+
+		setContentsWidth();
+
+		window.addEventListener ( 'hashchange', onHashChange, false );
+
+		MNU.init();
+		CON.initContents();
+
+		tagLine = document.head.querySelector( "[name=description]" ).content;
+		mnuTitle.innerHTML = document.title;
+		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
+		mnuHelp.href = 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/r5/ladybug-tools-view';
+
+		SEL.initSelectRepo();
+		SEL.initSelectType(); // once loaded, calls CON.setDefaultContents
+
+		SEL.getRepoJS();
+
+
+	}
+
+
+	function onHashChange() {
+
+		CON.getFileSetContents( location.hash.slice( 1 ) );
+		CON.setButtons( location.hash.slice( 1 ) );
+		SEL.highlightMenuItem();
+
+	}
+
+
+	function setContentsWidth() {
+
+		contents.style.width = ( window.innerWidth - 325 ) + 'px';
+
+	}
+
+
+</script>
+</body>
+</html>

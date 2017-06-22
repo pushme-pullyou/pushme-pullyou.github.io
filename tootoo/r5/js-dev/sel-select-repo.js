@@ -1,4 +1,4 @@
-	let SEL = {};
+	var SEL = {};
 
 	SEL.repoSelectedIndex = 0;
 
@@ -73,8 +73,8 @@
 
 	SEL.onload = function() {
 
-		mnuUserTitle.innerHTML = '<h3>' + user.title + '</h3>';
-		mnuUserTagline.innerHTML = user.tagLine;
+	//	mnuUserTitle.innerHTML = '<h3>' + user.title + '</h3>';
+	//	mnuUserTagline.innerHTML = user.tagLine;
 		SEL.selectMenuType();
 
 	}
