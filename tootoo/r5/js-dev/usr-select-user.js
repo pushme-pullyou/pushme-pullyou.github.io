@@ -1,11 +1,13 @@
 
 	let USR = {};
 
+//	USR.selectedIndex = Math.floor( Math.random() * users.keys.length );
+	USR.selectedIndex = 0;
+
 	USR.initSelectUsers = function() {
 
 
-//		mnuSelect.innerHTML =
-mnuSelectItem.innerHTML =
+		mnuSelectItem.innerHTML =
 				'<details open>' +
 
 					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +
@@ -29,18 +31,16 @@ mnuSelectItem.innerHTML =
 
 		users.keys = Object.keys( users );
 
-		for ( let i = 0; i < users.keys.length; i++ ) {
+		for ( let i = 0, usr; i < users.keys.length; i++ ) {
 
-			user = users[ users.keys[ i ] ];
+			usr = users[ users.keys[ i ] ];
 
-			selUser[ i ] = new Option( user.user + ' ' + user.repo + ' ' + user.path + ' ' + user.branch, users.keys[ i ] );
+			selUser[ i ] = new Option( usr.user + ' ' + usr.repo + ' ' + usr.path + ' ' + usr.branch, users.keys[ i ] );
 
 		}
 
-		selUser.selectedIndex = Math.floor( Math.random() * users.keys.length );
-		selUser.selectedIndex = 10;
-
-//		USR.selectUser();
+		selUser.selectedIndex = USR.selectedIndex;
+		user = users[ selUser.value ];
 
 	}
 
@@ -53,7 +53,6 @@ mnuSelectItem.innerHTML =
 		history.replaceState( '', document.title, window.location.pathname );
 		user = users[ selUser.value ];
 
-//		TOO.initUser();
 		SEL.selectMenuType();
 
 	}

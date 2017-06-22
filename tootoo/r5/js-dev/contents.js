@@ -6,7 +6,7 @@
 
 
 	CON.initContents = function() {
-
+console.log( 'user CON', user );
 		mnuContents.innerHTML =
 
 			'<div id=mnuUserTitle ></div>' +
