@@ -186,7 +186,7 @@
 	users.sagemathCell = {
 		user : 'sagemath',
 		repo : 'sagecell',
-		branch : 'gh-pages',
+		branch : 'master',
 		path : '',
 		rawgit: true
 	};
@@ -319,8 +319,6 @@
 		CON.initContents();
 		SEL.initSelectType();
 
-		mnuUserTitle.innerHTML = '<h3>User: ' + user.user + '</h3>';
-		mnuUserTagline.innerHTML = 'Repo: ' + user.repo;
 
 		SEL.selectMenuType();
 
@@ -328,6 +326,9 @@
 
 
 	function onHashChange() {
+
+		mnuUserTitle.innerHTML = '<h3>User: ' + user.user + '</h3>';
+		mnuUserTagline.innerHTML = 'Repo: ' + user.repo;
 
 		CON.getFileSetContents( location.hash.slice( 1 ) );
 		CON.setButtons( location.hash.slice( 1 ) );
