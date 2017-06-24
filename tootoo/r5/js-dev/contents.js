@@ -28,6 +28,14 @@
 
 		let txt, start, path, p;
 
+		if ( user.defaultFile ) {
+
+			location.hash = user.defaultFile;
+			onHashChange();
+			return;
+
+		}
+
 		for ( var i = 0; i < SEL.files.length; i++ ) {
 
 			path = SEL.files[ i ];
@@ -54,7 +62,7 @@
 
 	CON.getFileSetContents = function( path ) {
 
-		CON.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
+		CON.urlGHPages = 'http://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 
 		let url, u;
 

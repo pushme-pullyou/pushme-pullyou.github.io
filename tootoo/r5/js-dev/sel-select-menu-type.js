@@ -34,8 +34,9 @@
 	SEL.selectMenuType = function() {
 
 		var types = [ SEL.setMenuContents, SEL.getTreeAllFiles, SEL.setMenuFoldersFiles, SEL.createGroups, SEL.listByFolders, SEL.listAlphabetical ]
+		var path = user.path ? user.path : undefined;
 		SEL.setMenu = types[ selType.selectedIndex ];
-		SEL.setMenu();
+		SEL.setMenu( path );
 
 		mnuContentsTitle.innerHTML = selType.value;
 		mnuBreadcrumbs.innerHTML = '';
@@ -94,7 +95,7 @@
 
 		function callback( xhr ) {
 
-			let response, items, item, link;
+//			let response, items, item, link;
 
 			response = xhr.target.response;
 			items = JSON.parse( response );
@@ -120,6 +121,8 @@
 
 			for ( let item of items ) {
 
+				if ( !item.path.includes( path ) ) { break; }
+
 				if ( item.type === 'file' ) {
 
 					mnuItems.innerHTML +=
@@ -142,7 +145,7 @@
 
 
 
-	SEL.setMenuFoldersFiles = function() {
+	SEL.setMenuFoldersFiles = function( path ) {
 
 		var tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 
@@ -156,6 +159,7 @@
 			for ( let file of response.tree ) {
 
 				if ( file.type === 'tree' ) { continue; }
+				if ( !file.path.includes( path ) ) { continue; }
 
 				SEL.files.push( file.path );
 
@@ -172,7 +176,7 @@
 
 
 
-	SEL.createGroups = function() {
+	SEL.createGroups = function( path ) {
 
 		let headers;
 		let response, file, fileName;
@@ -195,6 +199,7 @@
 				file = response.tree[ i ];
 
 				if ( file.type === 'tree' ) { continue; }
+				if ( !file.path.includes( path ) ) { continue; }
 
 				file = file.path;
 				SEL.groups.push( file );
@@ -246,9 +251,9 @@
 	}
 
 
-	SEL.listByFolders = function () {
+	SEL.listByFolders = function ( path ) {
 
-		let txt, headers, response, file, fName, path, folders;
+		let txt, headers, response, file, fName, filePath, folders;
 		let tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 		let link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
 
@@ -264,10 +269,11 @@
 			for ( let file of response.tree ) {
 
 				if ( file.type === 'tree' ) { continue; }
+				if ( !file.path.includes( path ) ) { continue; }
 
-				path = file.path;
-				SEL.files.push( path )
-				file = path.split( '/' );
+				filePath = file.path;
+				SEL.files.push( filePath )
+				file = filePath.split( '/' );
 
 				fName = file.pop();
 				folders = file.join( '/' );
@@ -280,8 +286,8 @@
 				}
 
 				txt += '<div>' +
-					fName.link( '#' + path ) + ' ' +
-					( path.endsWith( '.html') ? '<a href="' + encodeURI( link + path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
+					fName.link( '#' + filePath ) + ' ' +
+					( filePath.endsWith( '.html') ? '<a href="' + encodeURI( link + filePath ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
 
 				'</div>';
 
@@ -297,11 +303,11 @@
 
 
 
-	SEL.listAlphabetical = function() {
+	SEL.listAlphabetical = function( path ) {
 
 		let tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 		let link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
-//		let response, txt, keys, path, name;
+//		let response, txt, keys, filePath, name;
 
 		SEL.requestFile( tree, callback );
 
@@ -316,12 +322,13 @@
 			for ( let file of response.tree ) {
 
 				if ( file.type === 'tree' ) { continue; }
+				if ( !file.path.includes( path ) ) { continue; }
 
-				path = file.path;
-				name = path.split( '/' ).pop();
+				filePath = file.path;
+				name = filePath.split( '/' ).pop();
 
 				SEL.files.push( file.path );
-				keys.push( name + '#' + path );
+				keys.push( name + '#' + filePath );
 
 			}
 
@@ -330,11 +337,11 @@
 			for ( let i = 0; i < keys.length; i++ ) {
 
 				key = keys[ i ].split( '#' );
-				path =  key[ 1 ];
+				filePath =  key[ 1 ];
 				txt +=
 				'<div>' +
-					'<a href=#' + path + ' title="' + path + '" >' + ( i + 1 ) + ' ' + key[ 0 ] + '</a> ' +
-					(  path.endsWith( '.html') ? '<a href="' + encodeURI( link + path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
+					'<a href=#' + filePath + ' title="' + filePath + '" >' + ( i + 1 ) + ' ' + key[ 0 ] + '</a> ' +
+					(  filePath.endsWith( '.html') ? '<a href="' + encodeURI( link + filePath ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
 				'</div>';
 
 			}
@@ -361,11 +368,11 @@
 			name = key[ 0 ];
 			if ( name.includes( str ) ) {
 //console.log( '', name );
-			path =  key[ 1 ];
+			filePath =  key[ 1 ];
 			txt +=
 			'<div>' +
-				'<a href=#' + path + ' title="' + path + '" >' + ( i + 1 ) + ' ' + key[ 0 ] + '</a> ' +
-				(  path.endsWith( '.html') ? '<a href="' + encodeURI( link + path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
+				'<a href=#' + filePath + ' title="' + filePath + '" >' + ( i + 1 ) + ' ' + key[ 0 ] + '</a> ' +
+				(  filePath.endsWith( '.html') ? '<a href="' + encodeURI( link + filePath ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
 			'</div>';
 			}
 
@@ -374,7 +381,7 @@
 		mnuSelected.innerHTML = txt;
 
 		CON.setDefaultContents();
-console.log( '', inpText.value  );
+// console.log( '', inpText.value  );
 
 	}
 

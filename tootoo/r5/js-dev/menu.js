@@ -47,7 +47,7 @@
 			'<center><a id=mnuFooterLogo href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; >' +
 				'<h1>❦</h1></a>' +
 			'</center>' +
-			'<div id=mnuFooterText class=popUp id=pop2 style=display:none;bottom:20px; >Click here to return to the top of the page</div>' +
+			'<div class=popUp id=pop2 style=display:none;bottom:20px; >Click here to return to the top of the page</div>' +
 
 		'';
 

@@ -4,15 +4,15 @@
 <meta charset=utf-8 >
 <title></title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Merge all the JavaScript, stle and HTML into a single file' >
+<meta name=description content='Merge all the JavaScript, style and HTML into a single file' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='tootoo-pushme-pullyou-r1' >
+<meta name=date content='2017-06-24' >
 </head>
 <body>
 <script>
 // Copyright 2017 pushMe pullYou authors ~ MIT license
 
-	var fileName = 'tootoo-pushme-pullyou-r1.html'
+	var fileName = 'tootoo-pushme-pullyou-r1.html';
 	var text;
 
 	files = [
@@ -159,7 +159,7 @@
 		blob = new Blob( [ contents.innerText ] );
 		a = document.body.appendChild( document.createElement( 'a' ) );
 		a.href = window.URL.createObjectURL( blob );
-		a.download = 'all-in-one-' + fileName;
+		a.download = fileName.replace( '\.html', '-all-in-one.html' );
 		a.click();
 		a = null;
 
