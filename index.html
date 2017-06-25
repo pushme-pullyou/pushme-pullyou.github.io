@@ -62,7 +62,7 @@ let basicHTML =
 
 <h2>
 <!--
-<a href=http://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
+<a href=https://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
 -->
 <a id=mnuTitle href="" title="Click here to refresh this page" ></a>
 <a id=mnuHelp href=https://github.com/pushme-pullyou onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
@@ -125,26 +125,32 @@ mnuSettings.innerHTML =
 '</details>' +
 '';
 
+
 mnuAbout.innerHTML =
 
 '<details>' +
 
 '<summary><h3>About</h3></summary>' +
 
-'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
-'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
+//	'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
+'<div id=mnuCopyright ></div>' +
+//	'<a href=https://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
+'<div id=mnuLicense ></div>' +
 '<p>Click the \'i in a circle\' icon for more <a href=#README.md title="Click here for help and information" >help</a>.</p>' +
 
 '</details>' +
 
 '<hr>' +
 
-'<center><a href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1>' + ( user.logo ? user.logo : '❦' ) + '</h1></a></center>' +
-'<div class=popUp id=pop2 style=display:none;bottom:20px; >' + user.user + ' - ' + user.subText + '.<br>Click here to return to the top of the page</div>' +
+'<center><a id=mnuFooterLogo href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; >' +
+'<h1>❦</h1></a>' +
+'</center>' +
+'<div class=popUp id=pop2 style=display:none;bottom:20px; >Click here to return to the top of the page</div>' +
 
 '';
 
 };
+
 
 
 MNU.cssColors = function( back, color, mnu ) {
@@ -154,6 +160,7 @@ document.body.style.color = color;
 menu.style.backgroundColor = mnu;
 
 };
+
 
 
 MNU.cssFontOpenSans = function() {
@@ -184,12 +191,14 @@ document.body.style.fontFamily = 'Inconsolata';
 };
 
 
+
 MNU.cssFontMonospace = function() {
 
 //	document.body.style.fontFamily = '"Lucida Console", Monaco, monospace';
 document.body.style.fontFamily = 'monospace';
 
 };
+
 
 
 MNU.cssFontSize = function( size ) {
@@ -216,10 +225,10 @@ mnuContents.innerHTML =
 
 '<details open >' +
 
-'<summary><h3 id=menuTitle >Contents</h3></summary>' +
+'<summary><h3 id=mnuContentsTitle >Contents</h3></summary>' +
 
 '<div id=mnuBreadcrumbs ></div>' +
-'<div id=menuItems ></div>' +
+'<div id=mnuItems ></div>' +
 
 '</details>' + b +
 
@@ -230,6 +239,14 @@ CON.setDefaultContents = function() {
 
 let txt, start, path, p;
 
+if ( user.defaultFile ) {
+
+location.hash = user.defaultFile;
+
+return;
+
+}
+
 for ( var i = 0; i < SEL.files.length; i++ ) {
 
 path = SEL.files[ i ];
@@ -238,8 +255,8 @@ p = path.toLowerCase();
 //	if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
 //	if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
 
-if ( p.endsWith( 'readme.md' ) ) { location.hash = path; onHashChange(); return; }
-if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { location.hash = path; onHashChange(); return; }
+if ( p.endsWith( 'readme.md' ) ) { location.hash = path; return; }
+if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { location.hash = path; return; }
 
 }
 
@@ -247,7 +264,6 @@ if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { location.hash = 
 
 path = SEL.files[ 0 ];
 location.hash = path;
-onHashChange();
 
 }
 
@@ -255,8 +271,6 @@ onHashChange();
 
 
 CON.getFileSetContents = function( path ) {
-
-CON.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 
 let url, u;
 
@@ -268,8 +282,20 @@ return;
 
 }
 
+if ( location.protocol === 'file:' && user.defaultFile ) {
+
+CON.urlGHPages = '';
+
+url = user.defaultFile;
+
+} else {
+
+CON.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
+
 url = CON.urlGHPages + path;
 
+}
+console.log( 'url', url );
 u = url.toLowerCase();
 
 if ( u.endsWith( '.md' ) ){
@@ -477,15 +503,16 @@ butPreviousFile.innerHTML = '<a href="#' + SEL.files[ indexPrevious ] + '" > &lt
 
 }
 
-let SEL = {};
+var SEL = SEL || {};
 
-SEL.typeSelectedIndex = 1;
+
+SEL.typeSelectedIndex = MNU.tableOfContents ? 0 : 1;
 
 SEL.initSelectType = function() {
 
 mnuSelectType.innerHTML =
 
-'<details open>' +
+'<details id=mnuTypeDetails open>' +
 
 '<summary><h3>Select Menu Type</h3></summary>' +
 
@@ -498,7 +525,7 @@ mnuSelectType.innerHTML =
 '<option >Alphabetical</option>' +
 '</select>' + b +
 
-'</details>' + b +
+'</details>'
 
 '';
 
@@ -512,12 +539,12 @@ selType.selectedIndex = SEL.typeSelectedIndex;
 SEL.selectMenuType = function() {
 
 var types = [ SEL.setMenuContents, SEL.getTreeAllFiles, SEL.setMenuFoldersFiles, SEL.createGroups, SEL.listByFolders, SEL.listAlphabetical ]
+var path = user.path ? user.path : undefined;
 SEL.setMenu = types[ selType.selectedIndex ];
-SEL.setMenu();
+SEL.setMenu( path );
 
-menuTitle.innerHTML = selType.value;
+mnuContentsTitle.innerHTML = selType.value;
 mnuBreadcrumbs.innerHTML = '';
-// add about menu items
 
 }
 
@@ -527,6 +554,12 @@ SEL.setMenuContents = function() { // we have a table of contents / SEL.tableOfC
 
 let text, fNames, fName;
 
+if ( !MNU.tableOfContents ){
+
+mnuItems.innerHTML = 'Sadly, no human has created a curated menu for this repository. Do try another type of menu';
+return;
+}
+
 SEL.files = [];
 
 showdown.setFlavor( 'github' );
@@ -535,7 +568,7 @@ SEL.converter = new showdown.Converter();
 
 text = CON.massageText( MNU.tableOfContents );
 
-menuItems.innerHTML = text;
+mnuItems.innerHTML = text;
 
 fNames = MNU.tableOfContents.replace( / /g, '' ).replace( /(.*)\((.*)\)(.*)/gi, '$2' ).split( '\n' );
 
@@ -555,7 +588,6 @@ CON.setDefaultContents();
 
 
 SEL.getTreeAllFiles = function( path ) {
-
 let url;
 
 url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
@@ -566,19 +598,19 @@ SEL.setBreadcrumbs( path );
 
 function callback( xhr ) {
 
-let response, items, item, link;
+//	let response, items, item, link;
 
 response = xhr.target.response;
 items = JSON.parse( response );
 
 SEL.files = [];
-menuItems.innerHTML = '';
+mnuItems.innerHTML = '';
 
 for ( let item of items ) {
 
 if ( item.type === 'dir' ) {
 
-menuItems.innerHTML +=
+mnuItems.innerHTML +=
 //	'<div><a href=JavaScript:location.hash="";SEL.getTreeAllFiles("' + item.path + '"); > 🗀 ' + item.name + '</a></div>' +
 '<div><a href=JavaScript:SEL.getTreeAllFiles("' + item.path + '"); > 🗀 ' + item.name + '</a></div>' +
 
@@ -592,9 +624,11 @@ link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch +
 
 for ( let item of items ) {
 
+if ( !item.path && !item.path.includes( path ) ) { continue; }
+
 if ( item.type === 'file' ) {
 
-menuItems.innerHTML +=
+mnuItems.innerHTML +=
 '<div>' +
 '<a href=#' + encodeURI( item.path ) + ' > ' + item.name + '</a> ' +
 ( item.path.endsWith( '.html') ? '<a href="' + encodeURI( link + item.path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
@@ -614,7 +648,7 @@ CON.setDefaultContents();
 
 
 
-SEL.setMenuFoldersFiles = function() {
+SEL.setMenuFoldersFiles = function( path ) {
 
 var tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 
@@ -628,35 +662,37 @@ SEL.files = [];
 for ( let file of response.tree ) {
 
 if ( file.type === 'tree' ) { continue; }
+if ( !file.path.includes( path ) ) { continue; }
 
 SEL.files.push( file.path );
 
 }
 
-menuItems.innerHTML =
+mnuItems.innerHTML =
 'Files count: ' + SEL.files.length + b +
 SEL.files.map( function( a ){ return '<small><div>' + a.link( '#' + a ) + '</div></small>'; } ).join( '' );
 
+CON.setDefaultContents();
 }
 
 }
 
 
 
-SEL.createGroups = function() {
+SEL.createGroups = function( path ) {
 
 let headers;
 let response, file, fileName;
 
 let tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
-SEL.files = [];
+SEL.groups = [];
 SEL.requestFile( tree, callback );
 
 function callback( xhr ) {
 
 response = JSON.parse( xhr.target.response );
 
-menuItems.innerHTML = '<select id=selHeaders size=20 onchange=SEL.onHeaderSelected() style=width:100%; ></select>' + b + b +
+mnuItems.innerHTML = '<select id=selHeaders size=20 onchange=SEL.onHeaderSelected() style=width:100%; ></select>' + b + b +
 '<div id=selFile ></div>';
 
 SEL.headers = [];
@@ -666,9 +702,10 @@ for ( let i = 0; i < response.tree.length; i++ ) {
 file = response.tree[ i ];
 
 if ( file.type === 'tree' ) { continue; }
+if ( !file.path.includes( path ) ) { continue; }
 
 file = file.path;
-SEL.files.push( file );
+SEL.groups.push( file );
 
 file = file.split( '/' );
 fileName = file.pop();
@@ -697,25 +734,29 @@ let txt, header, name;
 txt = '';
 
 header = selHeaders.value;
-
-for ( let file of SEL.files ) {
+SEL.files = [];
+for ( let file of SEL.groups ) {
 
 if ( file.includes( header ) ) {
 
 name = file.replace( ( header + "\/" ), '' );
 txt += '<div>' + name.link( '#' + file ) + '</div>';
+
+SEL.files.push( file );
 }
 
 }
 
 selFile.innerHTML = 'Files count: ' + SEL.files.length + b + txt;
 
+CON.setDefaultContents();
+
 }
 
 
-SEL.listByFolders = function () {
+SEL.listByFolders = function ( path ) {
 
-let txt, headers, response, file, fName, path, folders;
+let txt, headers, response, file, fName, filePath, folders;
 let tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 let link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
 
@@ -731,10 +772,11 @@ response = JSON.parse( xhr.target.response );
 for ( let file of response.tree ) {
 
 if ( file.type === 'tree' ) { continue; }
+if ( !file.path.includes( path ) ) { continue; }
 
-path = file.path;
-SEL.files.push( path )
-file = path.split( '/' );
+filePath = file.path;
+SEL.files.push( filePath )
+file = filePath.split( '/' );
 
 fName = file.pop();
 folders = file.join( '/' );
@@ -747,14 +789,16 @@ headers.push( folders );
 }
 
 txt += '<div>' +
-fName.link( '#' + path ) + ' ' +
-( path.endsWith( '.html') ? '<a href="' + encodeURI( link + path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
+fName.link( '#' + filePath ) + ' ' +
+( filePath.endsWith( '.html') ? '<a href="' + encodeURI( link + filePath ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
 
 '</div>';
 
 }
 
-menuItems.innerHTML = txt;
+mnuItems.innerHTML = txt;
+
+CON.setDefaultContents();
 
 }
 
@@ -762,11 +806,11 @@ menuItems.innerHTML = txt;
 
 
 
-SEL.listAlphabetical = function() {
+SEL.listAlphabetical = function( path ) {
 
 let tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 let link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
-let response, txt, keys, path, name;
+//	let response, txt, keys, filePath, name;
 
 SEL.requestFile( tree, callback );
 
@@ -781,12 +825,13 @@ SEL.files = [];
 for ( let file of response.tree ) {
 
 if ( file.type === 'tree' ) { continue; }
+if ( !file.path.includes( path ) ) { continue; }
 
-path = file.path;
-name = path.split( '/' ).pop();
+filePath = file.path;
+name = filePath.split( '/' ).pop();
 
 SEL.files.push( file.path );
-keys.push( name + '#' + path );
+keys.push( name + '#' + filePath );
 
 }
 
@@ -795,18 +840,51 @@ keys = keys.sort();
 for ( let i = 0; i < keys.length; i++ ) {
 
 key = keys[ i ].split( '#' );
-path = key[ 1 ];
+filePath = key[ 1 ];
 txt +=
 '<div>' +
-'<a href=#' + path + ' title="' + path + '" >' + ( i + 1 ) + ' ' + key[ 0 ] + '</a> ' +
-( path.endsWith( '.html') ? '<a href="' + encodeURI( link + path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
+'<a href=#' + filePath + ' title="' + filePath + '" >' + ( i + 1 ) + ' ' + key[ 0 ] + '</a> ' +
+( filePath.endsWith( '.html') ? '<a href="' + encodeURI( link + filePath ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
 '</div>';
 
 }
 
-menuItems.innerHTML = 'Files in repo: ' + SEL.files.length + b + txt;
+mnuItems.innerHTML =
+'Files in repo: ' + SEL.files.length + b +
+'Search <input id=inpText oninput=update(); />' + b +
+'<div id=mnuSelected ></div>';
+
+update();
 
 }
+
+}
+
+function update() {
+
+str = inpText.value;
+let link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
+txt = '';
+for ( let i = 0; i < keys.length; i++ ) {
+
+key = keys[ i ].split( '#' );
+name = key[ 0 ];
+if ( name.includes( str ) ) {
+//console.log( '', name );
+filePath = key[ 1 ];
+txt +=
+'<div>' +
+'<a href=#' + filePath + ' title="' + filePath + '" >' + ( i + 1 ) + ' ' + key[ 0 ] + '</a> ' +
+( filePath.endsWith( '.html') ? '<a href="' + encodeURI( link + filePath ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
+'</div>';
+}
+
+}
+
+mnuSelected.innerHTML = txt;
+
+CON.setDefaultContents();
+// console.log( '', inpText.value );
 
 }
 
@@ -883,7 +961,7 @@ infoLink : 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/',
 tagLine : 'Browse & view stuff on PushMe PullYou real fast!',
 subText : 'Browse & view stuff on PushMe PullYou real fast!',
 title : 'PushMe PullYou',
-defaultFile : 'dev-notes.md'
+//	defaultFile : 'dev-notes.md'
 }
 
 
@@ -900,17 +978,24 @@ MNU.tableOfContents =
 * [Dev Read Me]( #tootoo/r3/dev/README.md )
 * [Library Read Me]( #tootoo/r4/library/README.md )
 * [Skim Read Me]( #tootoo/r4/skim/README.md )
+* [get-github-dir-names]( #tootoo/r4/utilities/get-github-dir-names/README.md )
 #### TooToo 5
 * [TooToo Anywhere Read Me]( #tootoo/r5/anywhere/README.md )
 * [Best-websites-a-programmer-should-visit Read Me]( #tootoo/r5/best-websites/README.md )
+* [BS2017 Sponsor Links Read Me]( https://pushme-pullyou.github.io/tootoo/r5/bs2017-sponsor-links/bs2017-sponsor-links-r2.html)
+* &#x1F5D7; [Building Simulation 2017 Sponsors]( https://pushme-pullyou.github.io/tootoo/r5/bs2017-sponsor-links/bs2017-sponsor-links-r2.html )
 * [Ladybug Tools View Read Me ]( #tootoo/r5/ladybug-tools-view/README.md )
 * &#x1F5D7; [Ladybug Tools View]( https://pushme-pullyou.github.io/tootoo/r5/ladybug-tools-view/ladybug-tools-view-r1.html )
+* [Succeed Study Supplement Read Me]( #tootoo/r5/succeed-study-supplement/README.md )
+* [TooToo Parallel Constitution Read Me]( #tootoo/r5/parallel-constitution/README.md )
+* [TooToo pushMe pullYou Read Me]( #tootoo/r5/pushme-pullyou/README.md )
+
 #### TooToo Utilities
 * [Utilities Read Me]( #tootoo/utilities/README.md )
-* [get-github-dir-names]( #tootoo/r4/utilities/get-github-dir-names/README.md )
 * [Make Read Me Read Me]( #tootoo/utilities/make-github-readme/README.md )
 * [Merge Files into one]( #tootoo/utilities/merge-files-into-one/README.md )
 * &#x1F5D7; [Merge Files into one]( https://pushme-pullyou.github.io/tootoo/utilities/merge-files-into-one/merge-files-into-one-r3.html )
+* [Markdown Cheat Sheet]( #tootoo/utilities/make-github-readme/readme-cheat-sheet.md )
 `;
 
 SEL.typeSelectedIndex = 0;
@@ -955,8 +1040,8 @@ SEL.selectMenuType();
 function onHashChange() {
 
 CON.getFileSetContents( location.hash.slice( 1 ) );
-CON.setButtons( location.hash.slice( 1 ) );
-SEL.highlightMenuItem();
+//	CON.setButtons( location.hash.slice( 1 ) );
+//	SEL.highlightMenuItem();
 
 }
 
