@@ -3,8 +3,8 @@
 ( http://jaanga.github.io/cookbook-html/templates/ "View file as a web page." ) </span>
 <input type=button onclick=window.location.href='https://github.com/jaanga/jaanga.github.io/tree/master/cookbook-html/templates/'; value='You are now in GitHub web page view - Click this button to view Read Me file as source code' />
 
-[Jaanga]( http://jaanga.github.io ) » [Cookbook HTML]( http://jaanga.github.io/cookbook-html/  ) »
-[Templates]( http://jaanga.github.io/cookbook-html/templates/  ) »
+[Jaanga]( http://jaanga.github.io ) » [Cookbook HTML]( http://jaanga.github.io/cookbook-html/ ) »
+[Templates]( http://jaanga.github.io/cookbook-html/templates/ ) »
 
 [Read Me Cheat Sheet]( ./index.html#readme-cheat-sheet.md )
 ===
@@ -19,7 +19,7 @@ Interesting things you can do with Markdown.
 
 ### Images
 
-![External Link Icon]( Icon_External_Link.png =100x100 )
+![External Link Icon]( http://lorempixel.com/800/600 =100x100 )
 
 ![ text ]( http://lorempixel.com/800/600 =400x300 )
 

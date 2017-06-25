@@ -4,7 +4,7 @@
 <a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/" >r3</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/utilities/" >utilities</a> &raquo; </h3>
 -->
 
-[Make Github Read Me Read Me]( https://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/index.html#readme.md )
+[Make Github Read Me Read Me]( https://pushme-pullyou.github.io/tootoo/utilities/make-github-readme/index.html#readme.md )
 ===
 _Create detailed, pre-filled index and Read Me files on the fly_
 
@@ -30,10 +30,10 @@ _Create detailed, pre-filled index and Read Me files on the fly_
 
 
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/index.html width=100% height=600px ></iframe>
+<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/utilities/make-github-readme/make-github-readme-r3.html width=100% height=600px ></iframe>
 _Make Github Read Me_
 
-## Full Screen: [ Make Github Read Me ]( https://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/index.html )
+## Full Screen: [ Make Github Read Me ]( https://pushme-pullyou.github.io/tootoo/utilities/make-github-readme/make-github-readme-r3.html )
 
 
 ***
@@ -112,6 +112,12 @@ Intended for xxx
 
 
 ## Change Log
+
+
+### 2017-06-24 ~ Theo
+
+* R3 various fixes
+* Update readme
 
 ### 2017-06-19 ~ Theo
 

@@ -28,14 +28,15 @@
 		repo: 'jaanga.github.io',
 		branch: 'master',
 		path: 'demo/parallel-constitution/',
-//		path: '',
+		path: '',
 
 		infoLink : 'https://github.com/jaanga/jaanga.github.io/tree/master/demo/parallel-constitution',
 //		logo: '<img src=' + images + 'five-boxes.png height=32 >',
 //		tagLine : 'Invest smarter!',
 //		subText : 'Invest smarter!',
 //		title : '<img src=' + images + 'predIQtiv.png  height=64 >',
-		defaultFile : 'egypt-parallel-constitution.md'
+		defaultFile : 'demo/parallel-constitution/egypt-parallel-constitution.md',
+		defaultFile : 'egypt-parallel-constitution.md',
 	}
 
 
@@ -43,8 +44,10 @@
 
 `
 * [Egypt Parallel Constitution]( #demo/parallel-constitution/egypt-parallel-constitution.md )
+* [Read Me]( #demo/parallel-constitution/README.md )
 * [Copyright and license]( #license.md )
-
+* [Preamble and Nine Guiding Principles]( #preamble )
+* [Bill of Rights]( #BillofRights )
 `;
 
 	SEL.typeSelectedIndex = 0;
@@ -79,9 +82,6 @@
 
 		SEL.initSelectType();
 
-//		mnuUserTitle.innerHTML = '<h3>User: ' + user.user + '</h3>';
-//		mnuUserTagline.innerHTML = 'Repo: ' + user.repo;
-
 		SEL.selectMenuType();
 		mnuTypeDetails.removeAttribute('open');
 
@@ -90,8 +90,14 @@
 
 	function onHashChange() {
 
+		file = location.hash.slice( 1 );
+
+		if ( file === user.defaultFile ) {
+
+			contents.className = 'parCon';
+
+		}
 		CON.getFileSetContents( location.hash.slice( 1 ) );
-//		CON.getFileSetContents( user.defaultFile );
 		CON.setButtons( location.hash.slice( 1 ) );
 		SEL.highlightMenuItem();
 

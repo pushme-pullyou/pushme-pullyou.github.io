@@ -70,8 +70,8 @@
 			return;
 
 		}
-console.log( 'path', path );
-		if ( location.protocol === 'cccfile:' && user.defaultFile ) {
+
+		if ( location.protocol === 'file:' && user.defaultFile ) {
 
 			CON.urlGHPages = '';
 
@@ -79,12 +79,12 @@ console.log( 'path', path );
 
 		} else {
 
-			CON.urlGHPages = 'http://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
+			CON.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 
 			url = CON.urlGHPages + path;
 
 		}
-
+console.log( 'url', url );
 		u = url.toLowerCase();
 
 		if ( u.endsWith( '.md' ) ){

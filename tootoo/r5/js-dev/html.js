@@ -6,7 +6,7 @@ let basicHTML =
 
 			<h2>
 <!--
-					<a href=http://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
+					<a href=https://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
 -->
 				<a id=mnuTitle href="" title="Click here to refresh this page" ></a>
 				<a id=mnuHelp href=https://github.com/pushme-pullyou onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>

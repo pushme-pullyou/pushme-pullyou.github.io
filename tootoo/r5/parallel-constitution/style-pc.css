@@ -2,9 +2,8 @@
 html,
 body { font: 12pt monospace; height: 100%; margin: 0;  overflow: hidden; }
 
-html { counter-reset: chapter; }
-body { counter-reset: section;  }
-h1 { counter-reset: paragraph;}
+h1 { counter-reset: chapter; }
+body { counter-reset: paragraph;}
 h2 { counter-reset: section; }
 
 a { color: crimson; text-decoration: none; }
@@ -13,11 +12,10 @@ a:active { background-color: yellow; }
 aside { font-style: oblique; }
 button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }
 
-#contents h2:not(#preamble-and-nine-guiding-principles)::before{ counter-increment: chapter; content: 'Chapter ' counter( chapter ) ': '; }
+div.parCon * h2:not( #preamble-and-nine-guiding-principles )::before { counter-increment: chapter; content: 'Chapter ' counter( chapter ) ': '; }
+div.parCon * h3::before { counter-increment: section; content: 'Section ' counter( chapter ) '.' counter( section ); }
+div.parCon * p::before { counter-increment: paragraph; content: '[' counter( paragraph ) '] '; }
 
-#contents h3:before { counter-increment: section; content: 'Section ' counter( chapter ) '.' counter( section ); }
-
-p::before { counter-increment: paragraph; content: '[' counter( paragraph ) '] '; }
 pre, blockquote { background-color: #eee; padding: 10px; }
 summary { outline: none; }
 summary h3 { display: inline; }
