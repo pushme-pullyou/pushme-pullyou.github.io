@@ -71,20 +71,28 @@
 
 		}
 
-		if ( location.protocol === 'vvvvv file:' && user.defaultFile ) {
+		if ( location.protocol === 'file:' ) {
 
-			CON.urlGHPages = '';
+			CON.urlGHPages = user.path; // + user.anchor;
+//console.log( 'path', path, user.defaultFile, path === user.defaultFile );
+			if ( path === user.defaultFile && user.anchor ) {
 
-			url = user.defaultFile;
+				aa = document.getElementById( user.anchor )
+//console.log( 'aa', aa );
+
+				aa.scrollIntoView();
+				return;
+			}
 
 		} else {
 
 			CON.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
-
-			url = CON.urlGHPages + path;
-
 		}
-console.log( 'url', url );
+
+		url = CON.urlGHPages + path;
+
+
+
 		u = url.toLowerCase();
 
 		if ( u.endsWith( '.md' ) ){
@@ -134,7 +142,7 @@ console.log( 'url', url );
 	CON.getFileMD = function( url ) {
 
 // https://github.com/showdownjs/showdown
-
+//console.log( 'urlmd', url );
 		let text, response;
 
 		showdown.setFlavor('github');
