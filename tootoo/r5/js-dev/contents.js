@@ -31,7 +31,7 @@
 		if ( user.defaultFile ) {
 
 			location.hash = user.defaultFile;
-			onHashChange();
+
 			return;
 
 		}
@@ -44,8 +44,8 @@
 //			if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
 //			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
 
-			if ( p.endsWith( 'readme.md' ) ) { location.hash = path; onHashChange(); return; }
-			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { location.hash = path; onHashChange(); return; }
+			if ( p.endsWith( 'readme.md' ) ) { location.hash = path; return; }
+			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { location.hash = path; return; }
 
 		}
 
@@ -53,7 +53,6 @@
 
 		path = SEL.files[ 0 ];
 		location.hash = path;
-		onHashChange();
 
 	}
 
@@ -61,8 +60,6 @@
 
 
 	CON.getFileSetContents = function( path ) {
-
-		CON.urlGHPages = 'http://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 
 		let url, u;
 
@@ -73,8 +70,20 @@
 			return;
 
 		}
+console.log( 'path', path );
+		if ( location.protocol === 'cccfile:' && user.defaultFile ) {
 
-		url = CON.urlGHPages + path;
+			CON.urlGHPages = '';
+
+			url = user.defaultFile;
+
+		} else {
+
+			CON.urlGHPages = 'http://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
+
+			url = CON.urlGHPages + path;
+
+		}
 
 		u = url.toLowerCase();
 

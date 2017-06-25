@@ -41,7 +41,6 @@
 		mnuContentsTitle.innerHTML = selType.value;
 		mnuBreadcrumbs.innerHTML = '';
 
-
 	}
 
 
@@ -84,7 +83,6 @@
 
 
 	SEL.getTreeAllFiles = function( path ) {
-
 		let url;
 
 		url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
@@ -121,7 +119,7 @@
 
 			for ( let item of items ) {
 
-				if ( !item.path.includes( path ) ) { break; }
+				if ( !item.path && !item.path.includes( path ) ) { continue; }
 
 				if ( item.type === 'file' ) {
 

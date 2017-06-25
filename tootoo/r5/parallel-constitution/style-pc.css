@@ -15,7 +15,7 @@ button, input[type=button] { background-color: #ccc; border: 2px #fff solid; col
 
 #contents h2:not(#preamble-and-nine-guiding-principles)::before{ counter-increment: chapter; content: 'Chapter ' counter( chapter ) ': '; }
 
-#contents h3:before { counter-increment: section; content: "Section " counter( section ) ". "; }
+#contents h3:before { counter-increment: section; content: 'Section ' counter( chapter ) '.' counter( section ); }
 
 p::before { counter-increment: paragraph; content: '[' counter( paragraph ) '] '; }
 pre, blockquote { background-color: #eee; padding: 10px; }

@@ -27,14 +27,15 @@
 		user: 'jaanga',
 		repo: 'jaanga.github.io',
 		branch: 'master',
-		path: 'demo/parallel-constitution',
+		path: 'demo/parallel-constitution/',
+//		path: '',
 
 		infoLink : 'https://github.com/jaanga/jaanga.github.io/tree/master/demo/parallel-constitution',
 //		logo: '<img src=' + images + 'five-boxes.png height=32 >',
 //		tagLine : 'Invest smarter!',
 //		subText : 'Invest smarter!',
 //		title : '<img src=' + images + 'predIQtiv.png  height=64 >',
-//		defaultFile : 'REAADME.md'
+		defaultFile : 'egypt-parallel-constitution.md'
 	}
 
 
@@ -90,6 +91,7 @@
 	function onHashChange() {
 
 		CON.getFileSetContents( location.hash.slice( 1 ) );
+//		CON.getFileSetContents( user.defaultFile );
 		CON.setButtons( location.hash.slice( 1 ) );
 		SEL.highlightMenuItem();
 
