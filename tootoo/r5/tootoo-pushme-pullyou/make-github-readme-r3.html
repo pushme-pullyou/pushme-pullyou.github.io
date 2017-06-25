@@ -36,14 +36,14 @@ var indexHTML =
 
   } else if ( protocol.includes( 'http' ) ) {
 
-  firstDot = location.hostname.indexOf( '.github.io' );
-  user = location.hostname.slice( 0, firstDot );
-  path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
+    firstDot = location.hostname.indexOf( '.github.io' );
+    user = location.hostname.slice( 0, firstDot );
+    path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
 
-}
+	}
 
-pathFull = path.replace( /-/g, '' ).replace( /\\w+/g, '..' ) + '/index.html#' + path + '/README.md';
-window.location.href = pathFull;
+	pathFull = path.replace( /-/g, '' ).replace( /\\w+/g, '..' ) + '/index.html#' + path + '/README.md';
+	window.location.href = pathFull;
 
 <\/script>
 <\/body>

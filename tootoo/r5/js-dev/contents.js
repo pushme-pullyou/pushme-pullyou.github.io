@@ -71,7 +71,7 @@
 
 		}
 
-		if ( location.protocol === 'file:' && user.defaultFile ) {
+		if ( location.protocol === 'vvvvv file:' && user.defaultFile ) {
 
 			CON.urlGHPages = '';
 
