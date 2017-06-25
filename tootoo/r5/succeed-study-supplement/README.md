@@ -7,18 +7,8 @@
 
 [Succeed Study Supplement Read Me]( https://pushme-pullyou.github.io/#tootoo/r5/succeed-study-supplement/README.md )
 ===
-_say something fun here_
+_Not connected with UCSF. Just looking for good-tasting, filling, nutritious food_
 
-<!--
-<img src="" style=display:none; width=800 >
--->
-
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r5/succeed-study-supplement/index.html width=100% height=600px ></iframe>
-_Succeed Study Supplement_
-
-## Full Screen: [ Succeed Study Supplement ]( https://pushme-pullyou.github.io/tootoo/r5/succeed-study-supplement/index.html )
-
-***
 
 ## Concept
 
@@ -33,38 +23,57 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 -->
 
+
+28% of households have just one person.
+
+Most cookbooks help you plan meals for two, four or more people
+
+If you are fully employed, living by yourself and have an active life, then spending an hour a day preparing meals is out of thee question.
+
+Many recipes anticipate that you wil spend ten minutes or more preparing a dish. This time along with washing up and shopping can easily mount up to twenty to thirty minutes per meal. Doing that two or three times a day can severely limit other activities you may be interested in
+
+You would like to eat in a healthy way and therefore you need to know the nutritional content of food. Very few restauants provide any nutritional data let alone complete data. And just because the sign says there 500 mg of salt does not stop the chef from putting 1000 mg ib the dishes that happened to arrive at your table
+
+Eating at home is the only real way of keeping track of what you are eating. And this sure can be lonely and boring.
+
+Any time you grill, boil, broil or bake and any time you spend chopping, dicing or shredding you are increasing prep time and wash-up time.
+
+Feeling hungry is no fun. Finding food that fills you up can be difficult. For example, in the frozen foods sections there my be hundreds of prepared meals available. The great majority have serving sized between six to nine ounces. This portion size may be adequate if you weigh 90 pounds but will leave you feeling famished if you weigh twice that amount. Using two packages almost always mean you will go over the op in terms of salt, fat, sugars and more
+
+
+
 ### Mission
 <!-- a statement of a rationale, applicable now as well as in the future -->
 
-* TBD
+* Identify specific products from supermarkets that are OK to eat.
+* Identify tasty nutritious dishes that can be prepared in three minutes or less
+* Come with cooking methods so that dishes that may prepared in the dishes they will be eaten in.
+* Identify safe eating limits - both minimums and maximums
+* Identify ways of testing and verifying results
+* Identify authoritative source of information and data
+* Short frequent rips to the market - helps with getting more walking
+
 
 ### Vision
 <!--  a descriptive picture of a desired future state -->
 
-* TBD
+* Eating is fun, healthy and easy
+
+
+## Hints
+
+* Look at the expiry dates
+* Look at th infobox
+* Carry a market bag
+* Order online and go to the store
+
 
 
 ## Features
 
-* TBD
-* Click three bars( 'hamburger' ) icon to slide menu in or out
-* Direct link to this read me file
-* Click on title to reload
 
 
-## Things you can do using this script
 
-* Click the three bars( 'hamburger menu icon' ) to slide the menu in and out
-* Press Control-U/Command-Option-U to view the source code
-* Press Control-Shift-J/Command-Option-J to see if the JavaScript console reports any errors
-
-
-## Things you can do by editing the code
-
-* Open the source code for this file: Click the 'Edit' box in the top right hand corner
-* Click the 'Raw' icon and save the raw file to your computer
-* Once you've downloaded the file, you can click it to run it.
-* Open the file with a text editor
 
 
 <!--

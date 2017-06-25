@@ -28,7 +28,7 @@
 
 		let txt, start, path, p;
 
-		if ( user.defaultFile ) {
+		if ( !location.hash && user.defaultFile ) {
 
 			location.hash = user.defaultFile;
 
