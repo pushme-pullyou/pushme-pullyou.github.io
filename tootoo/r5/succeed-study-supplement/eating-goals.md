@@ -2,6 +2,7 @@
 
 Dishes that can be prepared in 3-5 minutes - plus time to microwave. No chopping, stove or oven.
 
+
 Reduce
 * Sugar to a minimum
 	* No sodas, fruit juices
@@ -16,10 +17,16 @@ Reduce
 * Animal amd saturated fats
 
 Increase
-* Protein to: age in yeas plus 40 grams per day
-* Omega 3 oils to three to five 3oz servings per week
+* Protein to: age in yeas plus 40 grams per day << Angela Laffan
+* Omega 3 oils: to three to five 3oz servings per week
+	* Salmon is good
+	* Canned salmon better than canned tuna
 * Fiber
+	* 30 to 59 grams per day?
 * Vitamin D?
+	* 1,000 iu per day?
+
+## Dining out
 
 Control the food I eat at home so I can eat anything at the 3-5 meals per week I eat outside.
 
@@ -27,8 +34,9 @@ When dining out, I just about never eat:
 * Pizza
 * Pasta dishes
 * Fries and fried food
-* Burgers and read meat
+* Burgers and red meat
 * Dairy products except for cheese
+* Desserts, donuts, ice cream or candy
 
 When dining out, I do eat:
 * Eggs, bacon and sausage / Joe’s Specials
@@ -57,4 +65,20 @@ When dining out, I do eat:
 * https://www.nytimes.com/2017/05/08/health/salt-health-effects.html
 * https://www.hsph.harvard.edu/nutritionsource/salt-and-sodium/sodium-health-risks-and-disease/
 * https://chriskresser.com/shaking-up-the-salt-myth-healthy-salt-recommendations/
+
+
+## Protein
+
+* http://www.todaysdietitian.com/newarchives/040715p16.shtml << over 65 1.2 grams per kil wight per day
+
+## Omega 3
+* https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/
+
+## Guides
+
+* https://www.nal.usda.gov/fnic/interactiveDRI/ ***
+* https://ndb.nal.usda.gov/ndb/doc/index
+* https://www.nia.nih.gov/health/publication/healthy-eating-after-50
+* http://www.dsld.nlm.nih.gov/dsld/docs/Dietary_Reference_Intakes_Recommended_Intakes_for_Individuals.pdf
+
 

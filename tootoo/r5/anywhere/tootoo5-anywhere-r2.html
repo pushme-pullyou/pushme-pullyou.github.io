@@ -30,8 +30,9 @@
 			user = location.pathname.slice( 0, firstDot - 1 );
 			user = user.slice( user.lastIndexOf( '/' ) + 1 );
 			repo = user + '.github.io';
-
-			path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
+// control where you start...
+			path = '';
+//			path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
 
 		} else if ( location.pathname.includes( 'github.com' ) ) {
 

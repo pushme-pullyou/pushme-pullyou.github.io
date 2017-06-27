@@ -2,7 +2,7 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo5 Succeed Study Supplement R1</title>
+<title>TooToo5 Diana Chace R1</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
@@ -20,37 +20,45 @@
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
+	var images = 'https://prediqtiv.github.io/images/';
+
 	var user = {
 
-		user: 'pushme-pullyou',
-		repo: 'pushme-pullyou.github.io',
+		user: 'diana-chace',
+		repo: 'diana-chace.github.io',
 		branch: 'master',
-		path: 'tootoo/r5/succeed-study-supplement/',
+		path: '',
 
-		infoLink : 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/',
-		tagLine : 'A patient in the <a href=https:\/\/succeed.ucsf.edu/ >UCSF Succeed study<\/a> shares his thoughts and findings',
+		infoLink : 'https://github.com/dianachace/dianachace.github.io/',
+		logo: '<img src=https://dianachace.github.io/diana.gif height=24 >',
+		tagLine : '.',
 		subText : '',
-		title : 'Succeed Study Supplement',
-//		defaultFile : 'dev-notes.md'
+		title : '<img src=https://dianachace.github.io/diana.gif  height=48 >',
+//		defaultFile : 'README.md'
 	}
 
+	if ( location.protocol === 'file:' ) {
 
-if ( location.protocol === 'file:' ) {
+		user.path = '../../../../dianachace.github.io/';
 
-	user.path = '';
-//	user.path = '../../../../jaanga.github.io/demo/parallel-constitution/';
-//	user.defaultFile = 'egypt-parallel-constitution.md';
 
-}
-
+	}
 	MNU.tableOfContents =
 
 `
-### Succeed Study Supplement
-* [Read Me]( #tootoo/r5/succeed-study-supplement/README.md )
-* [Eating Goals]( #tootoo/r5/succeed-study-supplement/eating-goals.md )
-* [Shopping Goals]( #tootoo/r5/succeed-study-supplement/shopping-goals.md )
-* [Condiments]( #tootoo/r5/succeed-study-supplement/condiments.md )
+<br>
+* [Home Page]( #index.html )
+
+Model-Building Career
+* [Art of Power]( #artofpower/index.html )
+* [Architectual Models] ( #models/models_architecture.htm )
+* [Engineering Models] ( #models/models_engineer.htm )
+
+School
+* [bbn-bulletin-2017-spring]( #bbn-bulletin-2017-spring/index.html )
+
+Family
+* [Burrage Redlands](#burrage-redlands/ )
 `;
 
 	SEL.typeSelectedIndex = 0;
@@ -82,21 +90,21 @@ if ( location.protocol === 'file:' ) {
 		MNU.init();
 
 		CON.initContents();
+
 		SEL.initSelectType();
-
-//		mnuUserTitle.innerHTML = '<h3>User: ' + user.user + '</h3>';
-//		mnuUserTagline.innerHTML = 'Repo: ' + user.repo;
-
 		SEL.selectMenuType();
 
+		mnuTypeDetails.removeAttribute( 'open' );
+		mnuTypeDetails.style.display = 'none';
+		mnuContentsTitle.innerHTML = 'Menu';
 	}
 
 
 	function onHashChange() {
 
 		CON.getFileSetContents( location.hash.slice( 1 ) );
-		CON.setButtons( location.hash.slice( 1 ) );
-		SEL.highlightMenuItem();
+	//	CON.setButtons( location.hash.slice( 1 ) );
+	//	SEL.highlightMenuItem();
 
 	}
 

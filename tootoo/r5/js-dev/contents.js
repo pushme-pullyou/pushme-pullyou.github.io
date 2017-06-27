@@ -12,7 +12,7 @@
 			'<div id=mnuUserTitle ></div>' +
 			'<div id=mnuUserTagline ></div>' + b +
 
-			'<details open >' +
+			'<details mnuContentsDetais open >' +
 
 				'<summary><h3 id=mnuContentsTitle >Contents</h3></summary>' +
 
@@ -73,8 +73,11 @@
 
 		if ( location.protocol === 'file:' ) {
 
-			CON.urlGHPages = user.path; // + user.anchor;
+			CON.urlGHPages = user.path; // user.path; // + user.anchor;
+
+
 //console.log( 'path', path, user.defaultFile, path === user.defaultFile );
+
 			if ( path === user.defaultFile && user.anchor ) {
 
 				aa = document.getElementById( user.anchor )
@@ -90,7 +93,7 @@
 		}
 
 		url = CON.urlGHPages + path;
-
+console.log( 'yyy',  url, path );
 
 
 		u = url.toLowerCase();
@@ -142,7 +145,7 @@
 	CON.getFileMD = function( url ) {
 
 // https://github.com/showdownjs/showdown
-//console.log( 'urlmd', url );
+console.log( 'urlmd', url );
 		let text, response;
 
 		showdown.setFlavor('github');

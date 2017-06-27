@@ -62,7 +62,7 @@ let basicHTML =
 
 <h2>
 <!--
-<a href=http://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
+<a href=https://pushme-pullyou.github.io title="pushMe pullYou - your Github repo happy place" > &#x2766 </a><br>
 -->
 <a id=mnuTitle href="" title="Click here to refresh this page" ></a>
 <a id=mnuHelp href=https://github.com/pushme-pullyou onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>
@@ -134,7 +134,7 @@ mnuAbout.innerHTML =
 
 //	'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
 '<div id=mnuCopyright ></div>' +
-//	'<a href=http://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
+//	'<a href=https://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
 '<div id=mnuLicense ></div>' +
 '<p>Click the \'i in a circle\' icon for more <a href=#README.md title="Click here for help and information" >help</a>.</p>' +
 
@@ -145,7 +145,7 @@ mnuAbout.innerHTML =
 '<center><a id=mnuFooterLogo href=javascript:menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; >' +
 '<h1>❦</h1></a>' +
 '</center>' +
-'<div id=mnuFooterText class=popUp id=pop2 style=display:none;bottom:20px; >Click here to return to the top of the page</div>' +
+'<div class=popUp id=pop2 style=display:none;bottom:20px; >Click here to return to the top of the page</div>' +
 
 '';
 
@@ -239,10 +239,10 @@ CON.setDefaultContents = function() {
 
 let txt, start, path, p;
 
-if ( user.defaultFile ) {
+if ( !location.hash && user.defaultFile ) {
 
 location.hash = user.defaultFile;
-onHashChange();
+
 return;
 
 }
@@ -255,8 +255,8 @@ p = path.toLowerCase();
 //	if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
 //	if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
 
-if ( p.endsWith( 'readme.md' ) ) { location.hash = path; onHashChange(); return; }
-if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { location.hash = path; onHashChange(); return; }
+if ( p.endsWith( 'readme.md' ) ) { location.hash = path; return; }
+if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { location.hash = path; return; }
 
 }
 
@@ -264,7 +264,6 @@ if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { location.hash = 
 
 path = SEL.files[ 0 ];
 location.hash = path;
-onHashChange();
 
 }
 
@@ -272,8 +271,6 @@ onHashChange();
 
 
 CON.getFileSetContents = function( path ) {
-
-CON.urlGHPages = 'http://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 
 let url, u;
 
@@ -285,7 +282,30 @@ return;
 
 }
 
+if ( location.protocol === 'file:' ) {
+
+CON.urlGHPages = ''; // user.path; // + user.anchor;
+path = path.split( '/' ).pop();
+
+//console.log( 'path', path, user.defaultFile, path === user.defaultFile );
+
+if ( path === user.defaultFile && user.anchor ) {
+
+aa = document.getElementById( user.anchor )
+//console.log( 'aa', aa );
+
+aa.scrollIntoView();
+return;
+}
+
+} else {
+
+CON.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
+}
+
 url = CON.urlGHPages + path;
+console.log( 'yyy', url, path );
+
 
 u = url.toLowerCase();
 
@@ -336,7 +356,7 @@ return text;
 CON.getFileMD = function( url ) {
 
 // https://github.com/showdownjs/showdown
-
+console.log( 'urlmd', url );
 let text, response;
 
 showdown.setFlavor('github');
@@ -537,7 +557,6 @@ SEL.setMenu( path );
 mnuContentsTitle.innerHTML = selType.value;
 mnuBreadcrumbs.innerHTML = '';
 
-
 }
 
 
@@ -580,7 +599,6 @@ CON.setDefaultContents();
 
 
 SEL.getTreeAllFiles = function( path ) {
-
 let url;
 
 url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
@@ -617,7 +635,7 @@ link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch +
 
 for ( let item of items ) {
 
-if ( !item.path.includes( path ) ) { break; }
+if ( !item.path && !item.path.includes( path ) ) { continue; }
 
 if ( item.type === 'file' ) {
 
@@ -877,7 +895,7 @@ txt +=
 mnuSelected.innerHTML = txt;
 
 CON.setDefaultContents();
-console.log( '', inpText.value );
+// console.log( '', inpText.value );
 
 }
 
@@ -953,8 +971,9 @@ firstDot = location.pathname.indexOf( 'github.io' );
 user = location.pathname.slice( 0, firstDot - 1 );
 user = user.slice( user.lastIndexOf( '/' ) + 1 );
 repo = user + '.github.io';
-
-path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' ) );
+// control where you start...
+path = '';
+//	path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' ) );
 
 } else if ( location.pathname.includes( 'github.com' ) ) {
 
