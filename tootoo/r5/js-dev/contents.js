@@ -93,7 +93,7 @@
 		}
 
 		url = CON.urlGHPages + path;
-console.log( 'yyy',  url, path );
+//console.log( 'yyy',  url, path );
 
 
 		u = url.toLowerCase();
