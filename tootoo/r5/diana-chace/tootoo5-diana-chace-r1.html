@@ -32,7 +32,7 @@
 		logo: '<img src=https://dianachace.github.io/diana.gif height=24 >',
 		tagLine : '.',
 		subText : '',
-		title : '<img src=https://dianachace.github.io/diana.gif  height=48 >',
+		title : '<img src=https://dianachace.github.io/diana.gif  height=45 >',
 //		defaultFile : 'README.md'
 	}
 
@@ -45,7 +45,6 @@
 	MNU.tableOfContents =
 
 `
-<br>
 * [Home Page]( #index.html )
 
 Model-Building Career
@@ -53,11 +52,11 @@ Model-Building Career
 * [Architectual Models] ( #models/models_architecture.htm )
 * [Engineering Models] ( #models/models_engineer.htm )
 
-School
-* [bbn-bulletin-2017-spring]( #bbn-bulletin-2017-spring/index.html )
+School Reunion
+* [BBN Bulletin Spring 2017]( #bbn-bulletin-2017-spring/index.html )
 
-Family
-* [Burrage Redlands](#burrage-redlands/ )
+Family Houses
+* [Burrage House, Redlands CA](#!burrage-redlands/ )
 `;
 
 	SEL.typeSelectedIndex = 0;
@@ -93,7 +92,8 @@ Family
 		SEL.initSelectType();
 		SEL.selectMenuType();
 
-		mnuTypeDetails.removeAttribute( 'open' );
+		mnuItems.style.marginTop = '20px';
+		mnuTagline.style.display = 'none';
 		mnuTypeDetails.style.display = 'none';
 		mnuContentsTitle.innerHTML = 'Menu';
 	}

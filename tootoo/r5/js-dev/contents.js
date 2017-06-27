@@ -61,7 +61,7 @@
 
 	CON.getFileSetContents = function( path ) {
 
-		let url, u;
+//		let url, u;
 
 		if ( path === undefined ) {
 
@@ -93,8 +93,6 @@
 		}
 
 		url = CON.urlGHPages + path;
-//console.log( 'yyy',  url, path );
-
 
 		u = url.toLowerCase();
 
@@ -109,6 +107,11 @@
 		} else if ( u.endsWith( '.gif' ) || u.endsWith( '.ico' ) || u.endsWith( '.jpg' ) || u.endsWith( '.jpeg' ) || u.endsWith( '.png' ) ||  u.endsWith( '.svg' ) ) {
 
 			CON.getFileImage( url );
+
+		} else if ( u.includes( '!' ) ) {
+
+//console.log( 'getFileSetContents u',  url, 'p', path );
+			CON.createPageOfImages( url );
 
 		} else {
 
@@ -145,7 +148,7 @@
 	CON.getFileMD = function( url ) {
 
 // https://github.com/showdownjs/showdown
-console.log( 'urlmd', url );
+//console.log( 'urlmd', url );
 		let text, response;
 
 		showdown.setFlavor('github');
@@ -238,7 +241,10 @@ console.log( 'urlmd', url );
 
 			page = '';
 
-			url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + path;
+			ppath = path.slice( path.indexOf( '!') + 1 );
+			url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ppath;
+
+console.log( 'url', url, 'p',  path );
 
 			SEL.requestFile( url, callbackGalleryContents );
 

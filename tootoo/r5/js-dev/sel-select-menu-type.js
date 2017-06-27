@@ -393,7 +393,7 @@
 
 		for ( let link of links ) {
 
-			link.parentElement.style.backgroundColor = link.hash && link.hash === location.hash  ? 'lightgreen' : '';
+			link.parentElement.style.backgroundColor = link.hash && link.hash === location.hash  ? 'darkgray' : '';
 
 		}
 
