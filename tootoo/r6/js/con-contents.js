@@ -36,9 +36,9 @@
 
 		}
 
-		for ( var i = 0; i < SEL.files.length; i++ ) {
+		for ( var i = 0; i < TYP.files.length; i++ ) {
 
-			path = SEL.files[ i ];
+			path = TYP.files[ i ];
 			p = path.toLowerCase();
 
 //			if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
@@ -51,7 +51,7 @@
 
 // nothing found, so just display the first file found
 
-		path = SEL.files[ 0 ];
+		path = TYP.files[ 0 ];
 		location.hash = path;
 
 	}
@@ -120,7 +120,7 @@
 		}
 
 		CON.setButtons( path );
-		SEL.highlightMenuItem();
+		TYP.highlightMenuItem();
 
 //		menu.scrollTop = 0;
 
@@ -148,12 +148,12 @@
 	CON.getFileMD = function( url ) {
 
 // https://github.com/showdownjs/showdown
-//console.log( 'urlmd', url );
+console.log( 'urlmd', url );
 		let text, response;
 
 		showdown.setFlavor('github');
 
-		SEL.requestFile( url, callbackMD );
+		TYP.requestFile( url, callbackMD );
 
 		function callbackMD( xhr ) {
 
@@ -222,7 +222,7 @@
 			editor.$blockScrolling = Infinity;
 			editor.getSession().setMode( 'ace/mode/markdown' );
 
-			SEL.requestFile( url, callback );
+			TYP.requestFile( url, callback );
 
 			function callback( xhr ) {
 
@@ -246,7 +246,7 @@
 
 console.log( 'url', url, 'p',  path );
 
-			SEL.requestFile( url, callbackGalleryContents );
+			TYP.requestFile( url, callbackGalleryContents );
 
 			function callbackGalleryContents( xhr ){
 
@@ -292,18 +292,18 @@ console.log( 'url', url, 'p',  path );
 
 		}
 
-		index = SEL.files.indexOf( path );
+		index = TYP.files.indexOf( path );
 
 		indexNext = index + 1;
-		if ( indexNext >= SEL.files.length ) { indexNext = 0; }
+		if ( indexNext >= TYP.files.length ) { indexNext = 0; }
 
 		indexPrevious = index - 1;
-		if ( indexPrevious < 0 ) { indexPrevious = SEL.files.length - 1; }
+		if ( indexPrevious < 0 ) { indexPrevious = TYP.files.length - 1; }
 
 		if ( butNextFile || butPreviousFile ) {
 
-			butNextFile.innerHTML = '<a href="#' + SEL.files[ indexNext ] + '" > &gt; </a>';
-			butPreviousFile.innerHTML = '<a href="#' + SEL.files[ indexPrevious ] + '" > &lt; </a>';
+			butNextFile.innerHTML = '<a href="#' + TYP.files[ indexNext ] + '" > &gt; </a>';
+			butPreviousFile.innerHTML = '<a href="#' + TYP.files[ indexPrevious ] + '" > &lt; </a>';
 
 		}
 

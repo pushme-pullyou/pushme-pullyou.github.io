@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>TooToo6 pushMe pullYou R1</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-06-29' >
+<link rel=stylesheet href=../js/style.css >
+</head>
+<body>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=../js/htm-html.js ></script>
+<script src=../js/mnu-menu.js ></script>
+<script src=../js/con-contents.js ></script>
+<script src=../js/typ-select-menu-type.js ></script>
+<script>
+
+// Copyright 2017 Pushme Pullyou authors ~ MIT license
+
+	var path, user;
+	path = location.protocol === 'file:' ? '../../../' : '';
+
+
+	user = {
+
+		user: 'pushme-pullyou',
+		repo: 'pushme-pullyou.github.io',
+		branch: 'master',
+		path: path,
+
+		infoLink : 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/',
+		tagLine : 'Browse & view stuff on PushMe PullYou real fast!',
+		subText : 'Browse & view stuff on PushMe PullYou real fast!',
+		title : 'TT6 PushMe PullYou',
+//		defaultFile : 'dev-notes.md'
+	}
+
+
+	MNU.tableOfContents =
+
+`### Pushme-Pullyou
+* [Read Me]( #README.md )
+### GubGub
+* [Read Me]( #gubgub/README.md )
+### DabDab
+* [Read Me]( #dabdab/README.md )
+### TooToo
+* [TooToo Read Me]( #tootoo/README.md )
+
+#### TooToo 6
+* [TooToo6 Anywhere Read Me]( #tootoo/r6/anywhere/README.md )
+* &#x1F5D7; [Diana Chace Read Me]( https://pushme-pullyou.github.io/tootoo/r6/diana-chace/tt6-diana-chace-r1.html )
+* [TooToo6 pushMe pullYou Read Me]( #tootoo/r6/tt6-pushme-pullyou/README.md )
+
+#### TooToo 5
+* [TooToo Anywhere Read Me]( #tootoo/r5/anywhere/README.md )
+* [Best-websites-a-programmer-should-visit Read Me]( #tootoo/r5/best-websites/README.md )
+* [BS2017 Sponsor Links Read Me]( http://pushme-pullyou.github.io/tootoo/r5/bs2017-sponsor-links/bs2017-sponsor-links-r2.html)
+* &#x1F5D7; [Building Simulation 2017 Sponsors]( https://pushme-pullyou.github.io/tootoo/r5/bs2017-sponsor-links/bs2017-sponsor-links-r2.html )
+* [Ladybug Tools View Read Me ]( #tootoo/r5/ladybug-tools-view/README.md )
+* &#x1F5D7; [Ladybug Tools View]( https://pushme-pullyou.github.io/tootoo/r5/ladybug-tools-view/ladybug-tools-view-r1.html )
+* [Parallel Constitution Read Me]( #tootoo/r5/parallel-constitution/README.md )
+* [Succeed Study Supplement Read Me]( #tootoo/r5/succeed-study-supplement/README.md )
+
+#### TooToo 4
+* [Dev Read Me]( #tootoo/r3/dev/README.md )
+* [Library Read Me]( #tootoo/r4/library/README.md )
+* [Skim Read Me]( #tootoo/r4/skim/README.md )
+* [get-github-dir-names]( #tootoo/r4/utilities/get-github-dir-names/README.md )
+
+#### TooToo Utilities
+* [Utilities Read Me]( #tootoo/utilities/README.md )
+* [Make Read Me Read Me]( #tootoo/utilities/make-github-readme/README.md )
+* [Merge Files into one]( #tootoo/utilities/merge-files-into-one/README.md )
+* &#x1F5D7; [Merge Files into one]( https://pushme-pullyou.github.io/tootoo/utilities/merge-files-into-one/merge-files-into-one-r3.html )
+* [Markdown Cheat Sheet]( #tootoo/utilities/make-github-readme/readme-cheat-sheet.md )
+`;
+
+	TYP.typeSelectedIndex = 0;
+	const b = '<br>';
+
+	init();
+
+	function init() {
+
+		let tagLine;
+
+		container = document.body.appendChild( document.createElement( 'div' ) );
+		container.id = 'container';
+		container.innerHTML = basicHTML;
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		window.addEventListener( 'resize', setContentsWidth, false );
+
+		setContentsWidth();
+
+		window.addEventListener ( 'hashchange', onHashChange, false );
+
+		tagLine = user.tagLine ? user.tagLine : document.head.querySelector( "[name=description]" ).content;
+		mnuTitle.innerHTML = user.title ? user.title : document.title;
+		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
+		mnuHelp.href = user.infoLink ? user.infoLink : 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/';
+
+		MNU.init();
+
+		CON.initContents();
+		TYP.initSelectType();
+
+		TYP.selectMenuType();
+
+	}
+
+
+	function onHashChange() {
+
+		CON.getFileSetContents( location.hash.slice( 1 ) );
+		CON.setButtons( location.hash.slice( 1 ) );
+		TYP.highlightMenuItem();
+
+	}
+
+
+	function setContentsWidth() {
+
+		contents.style.width = ( window.innerWidth - 325 ) + 'px';
+
+	}
+
+
+</script>
+</body>
+</html>

@@ -11,10 +11,10 @@
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
-<script src=../js-dev/html.js ></script>
-<script src=../js-dev/menu.js ></script>
-<script src=../js-dev/contents.js ></script>
-<script src=../js-dev/sel-select-menu-type.js ></script>
+<script src=../js/htm-html.js ></script>
+<script src=../js/mnu-menu.js ></script>
+<script src=../js/con-contents.js ></script>
+<script src=../js/typ-select-menu-type.js ></script>
 
 <script>
 
@@ -59,7 +59,7 @@ Family Houses
 * [Burrage House, Redlands CA](#!burrage-redlands/ )
 `;
 
-	SEL.typeSelectedIndex = 0;
+	TYP.typeSelectedIndex = 0;
 	const b = '<br>';
 
 	init();
@@ -89,8 +89,8 @@ Family Houses
 
 		CON.initContents();
 
-		SEL.initSelectType();
-		SEL.selectMenuType();
+		TYP.initSelectType();
+		TYP.selectMenuType();
 
 		mnuItems.style.marginTop = '20px';
 		mnuTagline.style.display = 'none';
@@ -108,7 +108,7 @@ Family Houses
 
 		CON.getFileSetContents( location.hash.slice( 1 ) );
 	//	CON.setButtons( location.hash.slice( 1 ) );
-	//	SEL.highlightMenuItem();
+	//	TYP.highlightMenuItem();
 
 	}
 

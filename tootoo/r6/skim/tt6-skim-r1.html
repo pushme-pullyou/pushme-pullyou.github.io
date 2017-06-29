@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>TooToo6 Skim R1</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-06-29' >
+<link rel=stylesheet href=../js/style.css >
+</head>
+<body>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
+<script src=../js/htm-html.js ></script>
+<script src=../js/mnu-menu.js ></script>
+<script src=../js/con-contents.js ></script>
+<script src=../js/typ-select-menu-type.js ></script>
+<script src=../js/usr-select-user.js ></script>
+
+
+<script>
+
+// Copyright 2017 Pushme Pullyou authors ~ MIT license
+
+	let users = {};
+
+	users.abantechInteraction = {
+		user : 'abantech',
+		subText : 'Hello, there',
+		repo : 'interaction-studies',
+		branch : 'gh-pages',
+		path : '',
+		rawgit : true,
+		defaultFile : 'readme.md'
+	};
+
+	users.abantech = {
+		user : 'abantech',
+		subText : 'Hello, there',
+		repo : 'abantech.github.io',
+		branch : 'master',
+		path : '',
+		rawgit : true,
+		defaultFile : 'readme.md'
+	};
+
+	users.bPesquet = {
+		user: 'bpesquet',
+		subText: 'A modern introduction to an essential language.',
+		repo: 'thejsway',
+		branch: 'master',
+		path: '',
+		rawgit: true,
+//		defaultFile : 'LICENSE'
+	};
+	users.d3 = {
+		user : 'd3',
+		logo : '<img src=https://d3js.org/logo.svg height=32 >',
+		repo : 'd3',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+	users.d3GH = {
+		user : 'd3',
+		logo : '<img src=https://d3js.org/logo.svg height=32 >',
+		repo : 'd3.github.com',
+		branch : 'master',
+		path : '',
+		rawgit: true,
+		defaultFile : 'LICENSE'
+	};
+	users.frontEnd = {
+		user : 'FrontendMasters',
+		repo : 'front-end-handbook-2017',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+
+	users.github = {
+		user : 'github',
+		repo : 'open-source-guide',
+		branch : 'gh-pages',
+		path : '',
+		rawgit: true,
+
+		tagLine : 'a collection of resources for individuals, communities, and companies who want to learn how to run and contribute to an open source project',
+		subText: 'Your open source exploring happy place',
+		title : 'Open Source Guides'
+	};
+
+
+	users.jaanga = {
+		user : 'jaanga',
+		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
+		repo : 'jaanga.github.io',
+		branch : 'master',
+		path : '',
+		defaultFile : 'readme.md'
+	};
+	users.jDemo = {
+		user: 'jaanga',
+		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
+		repo: 'jaanga.github.io',
+		branch: 'master',
+		path: 'demo'
+	};
+	users.jDocs = {
+		user: 'jaanga',
+		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
+		repo: 'jaanga.github.io',
+		branch: 'master',
+		path: 'documents'
+	};
+	users.jTerrain = {
+		user: 'jaanga',
+		logo : '<img src=https://jaanga.github.io/j.png height=32 >',
+		repo: 'terrain3',
+		branch: 'gh-pages',
+		path: ''
+	};
+	users.jupyter = {
+		user : 'jupyter',
+		logo : '<img src=https://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png height=32 >',
+		repo : 'jupyter.github.io',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+	users.jupyterNotebook = {
+		user : 'jupyter',
+		logo : '<img src=https://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png height=32 >',
+		repo : 'notebook',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+
+
+	users.ladybugTools = {
+		user : 'ladybug-tools',
+		repo : 'ladybug-tools.github.io',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+
+	users.ladybugTools3dModels = {
+		user : 'ladybug-tools',
+		repo : '3d-models',
+		branch : 'gh-pages',
+		path : '',
+		rawgit: true
+	};
+
+	users.ladybugToolsLadybug = {
+		user : 'ladybug-tools',
+		repo : 'ladybug',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+	users.ladybugToolsLadybug = {
+		user : 'ladybug-tools',
+		repo : 'ladybug',
+		branch : 'gh-pages',
+		path : '',
+		rawgit: true
+	};
+
+	users.ladybugWeb = {
+		user : 'ladybug-tools',
+		repo : 'ladybug-web',
+		branch : 'gh-pages',
+		path : '',
+		rawgit: true
+	};
+	users.leader = {
+		user : 'leaderphotos',
+		repo : 'leaderphotos.github.io',
+		branch : 'master',
+		path :''
+	};
+	users.mrdoob = {
+		user : 'mrdoob',
+		repo : 'three.js',
+		branch : 'dev',
+		path : '',
+		rawgit: true
+	};
+
+
+	users.paulmasson = {
+		user : 'paulmasson',
+		logo : '<img src=http://paulmasson.github.io/apple-touch-icon.png height=32 >',
+		repo : 'paulmasson.github.io',
+		branch : 'master',
+		path : ''
+	};
+	users.pushmePullyou = {
+		user : 'pushme-pullyou',
+		repo : 'pushme-pullyou.github.io',
+		branch : 'master',
+		path : '',
+		noIndex: true,
+		rawgit: null
+	};
+	users.pushmePullyouTooTo = {
+		user : 'pushme-pullyou',
+		repo : 'pushme-pullyou.github.io',
+		branch : 'master',
+		path : 'tootoo',
+		noIndex: true,
+		rawgit: null
+	};
+	users.sagemathGH = {
+		user : 'sagemath',
+		repo : 'sagemath.github.io',
+		branch : 'master',
+		path : ''
+	};
+	users.sagemathCell = {
+		user : 'sagemath',
+		repo : 'sagecell',
+		branch : 'master',
+		path : '',
+		rawgit: true
+	};
+	users.sagemathSageDev = {
+		user : 'sagemath',
+		repo : 'sage',
+		branch : 'develop',
+		path : '',
+		rawgit: true
+	};
+	users.sagemathDocs = {
+		user : 'sagemath',
+		repo : 'documentation',
+		branch : 'gh-pages',
+		path : 'html'
+	};
+	users.sagemathPlanet = {
+		user : 'sagemath',
+		repo : 'planet',
+		branch : 'gh-pages',
+		path : ''
+	};
+	users.theoArmour = {
+		user : 'theo-armour',
+		repo : 'theo-armour.github.io',
+		branch : 'master',
+		path : ''
+	};
+	users.theoDraw = {
+		user : 'theo-armour',
+		repo : 'drawing',
+		branch : 'master',
+		path : ''
+	};
+	users.theoPages2 = {
+		user : 'theo-armour',
+		repo : 'theo-armour.github.io',
+		branch : 'master',
+		path : '', //pages2'
+		subText : 'pet the cat',
+	};
+
+	users.prediqtiv = {
+		user : 'prediqtiv',
+		subText : 'Invest smarter',
+		repo : 'prediqtiv.github.io',
+		branch : 'master',
+		path : ''
+	};
+
+/*
+	users. = {
+		user : '',
+		repo : '',
+		branch : '',
+		path : ''
+	};
+*/
+
+/*
+	let protocol = location.protocol;
+
+	if ( protocol === 'file:' ) {
+
+		if ( location.pathname.includes( 'github.io' ) ) {
+
+			firstDot = location.pathname.indexOf( 'github.io' );
+			user = location.pathname.slice( 0, firstDot - 1 );
+			user = user.slice( user.lastIndexOf( '/' ) + 1 );
+			repo = user + '.github.io';
+
+			path = location.pathname.slice( firstDot + 10, location.pathname.lastIndexOf( '/' )  );
+
+		} else if ( location.pathname.includes( 'github.com' ) ) {
+
+			firstDot = location.pathname.indexOf( 'github.com' );
+			user = location.pathname.slice( 0, firstDot - 1 );
+			user = user.slice( user.lastIndexOf( '/' ) + 1 );
+			repo = user + '.github.com';
+			path = location.pathname.slice( firstDot + 11, location.pathname.lastIndexOf( '/' )  );
+		}
+
+	} else if ( protocol.includes( 'http' ) ) {
+
+		firstDot = location.hostname.indexOf( '.github.io' );
+		user = location.hostname.slice( 0, firstDot );
+		repo = user + '.github.io';
+		path = location.pathname.slice( 1, location.pathname.lastIndexOf( '/' )  );
+
+	}
+
+	var user = {
+
+		user: user,
+		repo: repo,
+		branch: 'master',
+		path: path,
+
+	}
+*/
+
+//	user = users.theoArmour;
+
+	const b = '<br>';
+
+	init();
+
+	function init() {
+
+		let tagLine;
+
+		container = document.body.appendChild( document.createElement( 'div' ) );
+		container.id = 'container';
+		container.innerHTML = basicHTML;
+
+		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		window.addEventListener( 'resize', setContentsWidth, false );
+
+		setContentsWidth();
+
+		window.addEventListener ( 'hashchange', onHashChange, false );
+
+		tagLine = document.head.querySelector( "[name=description]" ).content;
+		mnuTitle.innerHTML = document.title;
+		mnuTagline.innerHTML = '<small><p>' + tagLine + '</p></small>';
+		mnuHelp.href = 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo/';
+
+
+		USR.initSelectUsers();
+
+		MNU.init();
+		CON.initContents();
+		TYP.initSelectType();
+
+		TYP.selectMenuType();
+
+	}
+
+
+	function onHashChange() {
+
+		mnuUserTitle.innerHTML = '<h3>User: ' + user.user + '</h3>';
+		mnuUserTagline.innerHTML = 'Repo: ' + user.repo;
+
+		CON.getFileSetContents( location.hash.slice( 1 ) );
+		CON.setButtons( location.hash.slice( 1 ) );
+		TYP.highlightMenuItem();
+
+	}
+
+
+	function setContentsWidth() {
+
+		contents.style.width = ( window.innerWidth - 325 ) + 'px';
+
+	}
+
+
+</script>
+</body>
+</html>
