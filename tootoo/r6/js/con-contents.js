@@ -148,7 +148,7 @@
 	CON.getFileMD = function( url ) {
 
 // https://github.com/showdownjs/showdown
-console.log( 'urlmd', url );
+//console.log( 'urlmd', url );
 		let text, response;
 
 		showdown.setFlavor('github');

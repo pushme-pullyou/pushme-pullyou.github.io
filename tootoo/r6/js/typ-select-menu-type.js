@@ -83,6 +83,7 @@
 
 
 	TYP.getTreeAllFiles = function( path ) {
+
 		let url;
 
 		url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ( path ? path : '' );
@@ -93,7 +94,7 @@
 
 		function callback( xhr ) {
 
-//			let response, items, item, link;
+			let response, items, item, link;
 
 			response = xhr.target.response;
 			items = JSON.parse( response );

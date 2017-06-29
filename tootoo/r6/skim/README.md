@@ -13,7 +13,7 @@ _Drive GitHub faster files an hour_
 <iframe id=ifr src=tootoo/r6/skim/tt6-skim.html ></iframe>
 _TooToo Skim_
 
-## Full Screen: [ TooToo Skim ]( https://pushme-pullyou.github.io/tootoo/r6/skim/tt6-skim.html )
+## Full Screen: [ TooToo Skim ]( https://pushme-pullyou.github.io/tootoo/r6/skim/tt6-skim-r1.html )
 
 ***
 
