@@ -34,7 +34,7 @@
 	TYP.selectMenuType = function() {
 
 		var types = [ TYP.setMenuContents, TYP.getTreeAllFiles, TYP.setMenuFoldersFiles, TYP.createGroups, TYP.listByFolders, TYP.listAlphabetical ]
-		var path = user.path ? user.path : undefined;
+		var path = user.path ? user.path : '';
 		TYP.setMenu = types[ selType.selectedIndex ];
 		TYP.setMenu( path );
 
@@ -116,7 +116,7 @@
 
 			}
 
-			link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
+//			link = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/';
 
 			for ( let item of items ) {
 
@@ -127,7 +127,7 @@
 					mnuItems.innerHTML +=
 					'<div>' +
 						'<a href=#' + encodeURI( item.path ) + '  > ' + item.name + '</a> ' +
-						( item.path.endsWith( '.html') ? '<a href="' + encodeURI( link + item.path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
+						( item.path.endsWith( '.html') ? '<a href="' + encodeURI( user.server + item.path ) + '" target=_blank >&#x1F5D7;</a>' : '' ) +
 					'</div>';
 
 					TYP.files.push( item.path );
@@ -146,13 +146,16 @@
 
 	TYP.setMenuFoldersFiles = function( path ) {
 
-		var tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
+//		var tree, response
+
+		tree = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/git/trees/' + user.branch + '?recursive=1';
 
 		TYP.requestFile( tree, callback );
 
 		function callback( xhr ) {
 
 			response = JSON.parse( xhr.target.response );
+console.log( 'res', path );
 			TYP.files = [];
 
 			for ( let file of response.tree ) {
@@ -169,6 +172,7 @@
 				TYP.files.map( function( a ){ return '<small><div>' + a.link( '#' + a ) + '</div></small>'; } ).join( '' );
 
 			CON.setDefaultContents();
+
 		}
 
 	}

@@ -92,7 +92,9 @@
 			CON.urlGHPages = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 		}
 
-		url = CON.urlGHPages + path;
+
+//		url = CON.urlGHPages + path;
+		url = user.server + path;
 
 		u = url.toLowerCase();
 

@@ -37,6 +37,9 @@
 //		defaultFile : 'dev-notes.md'
 	}
 
+	user.server = location.protocol === 'file:' ? '../../../' :
+		'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
+
 
 	MNU.tableOfContents =
 
@@ -52,7 +55,8 @@
 #### TooToo 6
 * [TooToo6 Anywhere Read Me]( #tootoo/r6/anywhere/README.md )
 * &#x1F5D7; [Diana Chace Read Me]( https://pushme-pullyou.github.io/tootoo/r6/diana-chace/tt6-diana-chace-r1.html )
-* [TooToo6 pushMe pullYou Read Me]( #tootoo/r6/tt6-pushme-pullyou/README.md )
+* [TooToo6 pushMe pullYou Read Me]( #tootoo/r6/pushme-pullyou/README.md )
+* [TooToo6 Skim Read Me]( #tootoo/r6/skim/README.md )
 
 #### TooToo 5
 * [TooToo Anywhere Read Me]( #tootoo/r5/anywhere/README.md )

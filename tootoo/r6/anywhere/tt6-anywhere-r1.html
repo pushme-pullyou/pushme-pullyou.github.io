@@ -52,6 +52,8 @@
 
 	}
 
+
+
 	var user = {
 
 		user: user,
@@ -60,6 +62,9 @@
 		path: path,
 
 	}
+
+	user.server = location.protocol === 'file:' ? '../../../' :
+		'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 
 
 	const b = '<br>';

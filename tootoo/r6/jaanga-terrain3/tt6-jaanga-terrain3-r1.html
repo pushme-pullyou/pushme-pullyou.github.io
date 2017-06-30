@@ -2,12 +2,12 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo5 Diana Chace R1</title>
+<title>TooToo6 pushMe pullYou R1</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on DianaChace.com with remarkable ease.' >
+<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2017-06-27' >
-<link rel=stylesheet href=style-dc.css >
+<meta name=date content='2017-06-29' >
+<link rel=stylesheet href=../js/style.css >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js ></script>
@@ -15,45 +15,62 @@
 <script src=../js/mnu-menu.js ></script>
 <script src=../js/con-contents.js ></script>
 <script src=../js/typ-select-menu-type.js ></script>
-
 <script>
 
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
+	var path, user;
+	path = ''; // location.protocol === 'file:' ? '../../../' : '';
 
-	var user = {
 
-		user: 'dianachace',
-		repo: 'dianachace.github.io',
-		branch: 'master',
-		path: '',
+	user = {
 
-		infoLink : 'https://github.com/dianachace/dianachace.github.io/',
-		logo: '<img src=https://dianachace.github.io/diana.gif height=24 >',
-		tagLine : '.',
-		subText : '',
-		title : '<img src=https://dianachace.github.io/diana.gif  height=45 >',
-//		defaultFile : 'README.md'
+		user: 'jaanga',
+		repo: 'terrain3',
+		branch: 'gh-pages',
+		path: path,
+
+		infoLink : 'https://github.com/jaanga/terrain3/',
+		tagLine : 'Browse & view stuff on Jaanga Terrain real fast!',
+		subText : 'Browse & view stuff on Jaanga Terrain real fast!',
+		title : 'TT6 Jaanga Terrain3',
+		defaultFile: 'readme.md',
 	}
 
-	user.server = location.protocol === 'file:' ? '../../../../dianachace.github.io/' :
+	user.server = location.protocol === 'file:' ? '../../../../jaanga.github.io/terrain3/' :
 		'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
+
 
 	MNU.tableOfContents =
 
-`
-* [Home Page]( #index.html )
+`### Jaanga Terrain3
+* [Read Me]( #readme.md )
+* [Coding Style]( #coding-style.md )
+#### Core 4
+* [Core4 Read Me]( #core4/readme-body.md )
+* &#x1F5D7; [Elevations View4]( https://jaanga.github.io/terrain3/core4/index.html )
 
-Model-Building Career
-* [Art of Power]( #artofpower/index.html )
-* [Architectual Models] ( #models/models_architecture.htm )
-* [Engineering Models] ( #models/models_engineer.htm )
+#### Core 3
+* [Core3 Read Me]( #elevations-core3/readme.md )
+* [Core3 Read Me Body ]( #elevations-core3/readme-body.md )
+* &#x1F5D7; [Elevations View4]( https://jaanga.github.io/terrain3/elevations-core3/index.html )
 
-School Reunion
-* [BBN Bulletin Spring 2017]( #bbn-bulletin-2017-spring/index.html )
 
-Family Houses
-* [Burrage House, Redlands CA](#!burrage-redlands/ )
+#### Globes
+* [Globes]( #globes/readme.md )
+#### Data Animated Gif
+* [Data Animated Gif]( #data-animated-gif/readme.md )
+#### Elevations Get2
+* [Elevations Get2 Read Me]( #elevations-get2/readme.md )
+
+#### Google API
+* [Google API]( #google-api/readme.md )
+* [Google Maps API Explorer Read Me]( #google-api/google-maps-api-explorer/readme.md )
+
+
+#### Images
+* [Bitmaps Read Me]( #bitmaps/readme.md )
+
 `;
 
 	TYP.typeSelectedIndex = 0;
@@ -85,18 +102,9 @@ Family Houses
 		MNU.init();
 
 		CON.initContents();
-
 		TYP.initSelectType();
+
 		TYP.selectMenuType();
-
-		mnuItems.style.marginTop = '20px';
-		mnuTagline.style.display = 'none';
-		mnuTypeDetails.style.display = 'none';
-		mnuContentsTitle.innerHTML = 'Menu';
-
-		butEditFile.style.display = 'none';
-		butNextFile.style.display = 'none';
-		butPreviousFile.style.display = 'none';
 
 	}
 
@@ -104,8 +112,8 @@ Family Houses
 	function onHashChange() {
 
 		CON.getFileSetContents( location.hash.slice( 1 ) );
-	//	CON.setButtons( location.hash.slice( 1 ) );
-	//	TYP.highlightMenuItem();
+		CON.setButtons( location.hash.slice( 1 ) );
+		TYP.highlightMenuItem();
 
 	}
 

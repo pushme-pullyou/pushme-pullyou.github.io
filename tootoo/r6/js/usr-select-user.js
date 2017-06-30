@@ -41,6 +41,7 @@
 
 		selUser.selectedIndex = USR.selectedIndex;
 		user = users[ selUser.value ];
+		user.server = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 
 	}
 
@@ -52,6 +53,8 @@
 //		location.hash="";
 		history.replaceState( '', document.title, window.location.pathname );
 		user = users[ selUser.value ];
+
+		user.server = 'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 
 		TYP.selectMenuType();
 
