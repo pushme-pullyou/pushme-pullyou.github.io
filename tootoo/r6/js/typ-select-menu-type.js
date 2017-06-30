@@ -396,9 +396,11 @@ console.log( 'res', path );
 
 		links = document.getElementsByTagName( 'a' );
 
-		for ( let link of links ) {
+		for ( link of links ) {
 
-			link.parentElement.style.backgroundColor = link.hash && link.hash === location.hash  ? 'darkgray' : '';
+//			link.parentElement.style.backgroundColor = link.hash && link.hash === location.hash  ? 'darkgray' : '';
+
+			link.parentElement.className = link.hash && link.hash === location.hash  ? 'mnuHighlight' : '';
 
 		}
 

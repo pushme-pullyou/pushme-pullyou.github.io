@@ -26,6 +26,8 @@
 
 	CON.setDefaultContents = function() {
 
+console.log( '', location.hash );
+
 		let txt, start, path, p;
 
 		if ( !location.hash && user.defaultFile ) {
@@ -35,14 +37,27 @@
 			return;
 
 		}
+/*
+		if ( location.hash === '#' + user.defaultFile ) {
+
+			onHashChange();
+
+			return;
+
+		}
+*/
+		if ( location.hash ) {
+
+			onHashChange();
+
+			return;
+
+		}
 
 		for ( var i = 0; i < TYP.files.length; i++ ) {
 
 			path = TYP.files[ i ];
 			p = path.toLowerCase();
-
-//			if ( p.endsWith( 'readme.md' ) ) { CON.getFileSetContents( path ); return; }
-//			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { CON.getFileSetContents( path ); return; }
 
 			if ( p.endsWith( 'readme.md' ) ) { location.hash = path; return; }
 			if ( p.endsWith( 'index.html' ) || p.endsWith( 'index.htm') ) { location.hash = path; return; }
@@ -243,10 +258,10 @@
 
 			page = '';
 
-			ppath = path.slice( path.indexOf( '!') + 1 );
-			url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + ppath;
+			path = path.slice( path.indexOf( '!') + 1 );
+			url = 'https://api.github.com/repos/' + user.user + '/' + user.repo + '/contents/' + path;
 
-console.log( 'url', url, 'p',  path );
+//console.log( 'url', url, 'p',  path );
 
 			TYP.requestFile( url, callbackGalleryContents );
 
@@ -260,9 +275,9 @@ console.log( 'url', url, 'p',  path );
 					item = items[ i ];
 
 					source = item.download_url;
-
-					if ( source.includes( '.thumb' ) || source.includes( '.highlight' ) || source.endsWith( '.dat' )  ||
-						source.endsWith( '.lock' ) ) { continue; }
+					src = source.toLowerCase();
+					if ( src.includes( '.thumb' ) || src.includes( '.highlight' ) || src.endsWith( '.dat' )  ||
+						src.endsWith( '.lock' ) || src.endsWith( '.avi' ) || src.endsWith( '.html' )) { continue; }
 
 					page += '<div style=display:inline-block;margin:10px; >' +
 						'<a href=JavaScript:CON.getFileSetContents("' + item.path +'"); ><img src=' + source + ' height=200; title="' + url.slice( 0, -4 ) + '" ></a>' +
@@ -270,7 +285,9 @@ console.log( 'url', url, 'p',  path );
 
 				}
 
-				contents.innerHTML = page;
+				contents.innerHTML = '<div id=divGallery >' + page + '</div>';
+
+//				contents.style.overflow = 'auto';
 
 //				CON.setButtons( path, true );
 
