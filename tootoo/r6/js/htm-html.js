@@ -22,9 +22,10 @@ let basicHTML =
 
 			<div id=mnuContents ></div>
 
-			<div id=mnuSettings ></div>
 			<div id=mnuCount ></div>
+			<div id=mnuSettings ></div>
 			<div id=mnuAbout ></div>
+			<div id=mnuFooter ></div>
 
 		</div>
 

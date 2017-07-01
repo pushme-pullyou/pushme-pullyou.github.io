@@ -89,8 +89,6 @@ console.log( '', location.hash );
 		if ( location.protocol === 'file:' ) {
 
 			CON.urlGHPages = user.path; // user.path; // + user.anchor;
-
-
 //console.log( 'path', path, user.defaultFile, path === user.defaultFile );
 
 			if ( path === user.defaultFile && user.anchor ) {
@@ -99,6 +97,7 @@ console.log( '', location.hash );
 //console.log( 'aa', aa );
 
 				aa.scrollIntoView();
+
 				return;
 			}
 
@@ -109,7 +108,7 @@ console.log( '', location.hash );
 
 
 //		url = CON.urlGHPages + path;
-		url = user.server + path;
+		url = user.server + user.path + path;
 
 		u = url.toLowerCase();
 

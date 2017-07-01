@@ -37,26 +37,33 @@
 //		defaultFile : 'dev-notes.md'
 	}
 
-	user.server = location.protocol === 'file:' ? '../../../' :
-		'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
-
+// Can we automate when merging into one?????
+	user.server = location.protocol === 'file:' ? '' : // ../../../' :
+//		'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
+		'https://' + user.user + '.github.io/' + user.repo + '/' ;
 
 	MNU.tableOfContents =
 
 `### Pushme-Pullyou
 * [Read Me]( #README.md )
-### GubGub
+### GubGub <small><i>explore GH repos</i></small>
 * [Read Me]( #gubgub/README.md )
-### DabDab
+* &#x1F5D7; [GubGub R2]( http://pushme-pullyou.github.io/gubgub/r2/index.html )
+### DabDab <small><i>monitor user activity</i></small>
 * [Read Me]( #dabdab/README.md )
-### TooToo
+* &#x1F5D7; [DabDab R1]( http://pushme-pullyou.github.io/dabdab/r1/index.html )
+### TooToo <small><i>browse & view files</i></small>
 * [TooToo Read Me]( #tootoo/README.md )
 
 #### TooToo 6
 * [TooToo6 Anywhere Read Me]( #tootoo/r6/anywhere/README.md )
+<!-- * &#x1F5D7; [TooToo6 Anywhere]( https://pushme-pullyou.github.io/tootoo/r6/anywhere/) -->
 * &#x1F5D7; [Diana Chace Read Me]( https://pushme-pullyou.github.io/tootoo/r6/diana-chace/tt6-diana-chace-r1.html )
+* &#x1F5D7; [Ladybug Web Read Me]( ../ladybug-web/tt6-ladybug-web-r1.html )
+* &#x1F5D7; [Jaanga Terrain3]( ../jaanga-terrain3/tt6-jaanga-terrain3-r1.html )
 * [TooToo6 pushMe pullYou Read Me]( #tootoo/r6/pushme-pullyou/README.md )
 * [TooToo6 Skim Read Me]( #tootoo/r6/skim/README.md )
+* &#x1F5D7; [TooToo6 Skim Read Me]( ../skim/tt6-skim-r1.html )
 
 #### TooToo 5
 * [TooToo Anywhere Read Me]( #tootoo/r5/anywhere/README.md )
@@ -71,20 +78,13 @@
 #### TooToo 4
 * [Dev Read Me]( #tootoo/r3/dev/README.md )
 * [Library Read Me]( #tootoo/r4/library/README.md )
-* [Skim Read Me]( #tootoo/r4/skim/README.md )
 * [get-github-dir-names]( #tootoo/r4/utilities/get-github-dir-names/README.md )
-
-#### TooToo Utilities
-* [Utilities Read Me]( #tootoo/utilities/README.md )
-* [Make Read Me Read Me]( #tootoo/utilities/make-github-readme/README.md )
-* [Merge Files into one]( #tootoo/utilities/merge-files-into-one/README.md )
-* &#x1F5D7; [Merge Files into one]( https://pushme-pullyou.github.io/tootoo/utilities/merge-files-into-one/merge-files-into-one-r3.html )
-* [Markdown Cheat Sheet]( #tootoo/utilities/make-github-readme/readme-cheat-sheet.md )
 
 #### Utilities
 * [Utilities Read Me]( #utilities/README.md )
 * [Make Read Me Read Me]( #utilities/make-github-readme2/README.md )
-* [Merge Files into one]( #utilities/merge-files-into-one/README.md
+* [Merge Files into one]( #utilities/merge-files-into-one/README.md )
+* [Markdown Cheat Sheet]( #utilities/readme-cheat-sheet.md )
 `;
 
 	TYP.typeSelectedIndex = 0;
@@ -119,6 +119,8 @@
 		TYP.initSelectType();
 
 		TYP.selectMenuType();
+
+		MNU.setAbout();
 
 	}
 

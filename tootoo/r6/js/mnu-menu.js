@@ -36,11 +36,15 @@
 
 //				'<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' authors. ' +
 				'<div id=mnuCopyright ></div>' +
-//				'<a href=https://github.com/' + user.user + '/' + user.repo + ' >MIT license</a>.</p>' +
 				'<div id=mnuLicense ></div>' +
 				'<p>Click the \'i in a circle\' icon for more <a href=#README.md title="Click here for help and information" >help</a>.</p>' +
 
 			'</details>' +
+
+
+		'';
+
+		mnuFooter.innerHTML =
 
 			'<hr>' +
 
@@ -51,8 +55,17 @@
 
 		'';
 
+
 	};
 
+
+	MNU.setAbout = function(){
+
+		mnuCopyright.innerHTML = '<p>Copyright &copy; ' + ( new Date() ).getFullYear() + ' ' + user.user + ' contributors. ';
+
+		mnuLicense.innerHTML = 'You may use this app under this  <a href=https://github.com/' + user.user + '/' + user.repo + '/blob/' + user.branch + '/LICENSE >license</a>.</p>';
+
+	}
 
 
 	MNU.cssColors = function( back, color, mnu ) {
