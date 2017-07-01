@@ -155,7 +155,7 @@
 
 		function callback( xhr ) {
 
-//			let response, text, parser;
+			let response, txt, parser, xmlDoc, title, id, updated, entries, author, authorName, authorURI, str;
 			const b = '<br>';
 
 			response = xhr.target.response;
@@ -175,7 +175,7 @@
 
 			txt = '';
 
-			for ( entry of entries ) {
+			for ( let entry of entries ) {
 
 				title = entry.getElementsByTagName( 'title' )[0].childNodes[0].nodeValue;
 				link = entry.getElementsByTagName( 'link' )[0].getAttribute( 'href' );
@@ -184,7 +184,6 @@
 				authorURI = author.getElementsByTagName( 'uri' )[0].childNodes[0].nodeValue;
 				content = entry.getElementsByTagName( 'content' )[0];
 				str = parser.parseFromString( content.innerHTML, "text/html");
-//				content = parser.parseFromString( content, 'text/xml' );
 
 				txt += '<h2>' + title.link( link ) + '</h2>' +
 					authorName.link( authorURI ) + b +
@@ -194,7 +193,6 @@
 console.log( '', str.body.innerText );
 
 			}
-
 
 			contents.innerHTML += txt;
 

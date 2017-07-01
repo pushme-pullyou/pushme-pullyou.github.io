@@ -27,6 +27,9 @@ But trying to find an item by UOPC ;-(
 
 Will look into API: https://ndb.nal.usda.gov/ndb/doc/index
 
+All-Bran Buds
+https://ndb.nal.usda.gov/ndb/foods/show/1778
+
 Brown Rice
 021130503186
 
@@ -39,7 +42,8 @@ carrots
 
 Orgain almond milk
 8 79893 40958b0
-https://us.openfoodfacts.org/product/0851770003643/orgain-organic-protein-unsweetened-almond-milk-vanilla-orgain-inc
+https://us.openfoodfacts.
+https://ndb.nal.usda.gov/ndb/foods/show/191518?org/product/0851770003643/orgain-organic-protein-unsweetened-almond-milk-vanilla-orgain-inc
 https://api.nal.usda.gov/ndb/reports/?ndbno=45233843&type=f&format=json&api_key=DEMO_KEY
 
 Salsa
