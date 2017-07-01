@@ -1011,8 +1011,9 @@ title : 'TT6 PushMe PullYou',
 //	defaultFile : 'dev-notes.md'
 }
 
-user.server = location.protocol === 'file:' ? '../../../' :
-'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
+user.server = location.protocol === 'file:' ? '':
+//'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
+'https://' + user.user + '.github.io/' + user.repo + '/' ;
 
 
 MNU.tableOfContents =
