@@ -1,23 +1,18 @@
-<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/tootoo/r3/utilities/merge-files-into-one/#tootoo/r3/utilities/merge-files-into-one/README.md "View file as a web page." ) </span>
+<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/#utilities/merge-files-into-one/README.md "View file as a web page." ) </span>
 
 
-<!--
-<a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/" >r3</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/utilities/" >utilities</a> &raquo; </h3>
--->
-
-[merge files into one Read Me]( https://pushme-pullyou.github.io/#tootoo/r3/utilities/merge-files-into-one/README.md )
+[Merge Files Into One Read Me]( #utilities/merge-files-into-one/README.md )
 ===
 _e pluribus unum_
 
-<!--
-<img src="" style=display:none; width=800 >
--->
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r3/utilities/merge-files-into-one/index.html width=100% height=600px ></iframe>
+<!--
+<iframe id=ifr src=utilities/merge-files-into-one/index.html width=100% height=600px ></iframe>
 
 _merge files into one_
+-->
 
-## Full Screen: [ merge files into one ]( https://pushme-pullyou.github.io/tootoo/r3/utilities/merge-files-into-one/index.html )
+## Full Screen: [ Merge Files Into One ]( utilities/merge-files-into-one/merge-files-into-one-r2.html )
 
 ***
 
@@ -44,11 +39,12 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 * TBD
 
-## Features
+## Features / Usage
 
-* List available file in dev-custom folder
-* Click any file to cause the file, it JavaScript and CSS merged into a single file.
-* Click the save button to save the file to a local disk
+* Fork file to desired folder
+* Edit the file name
+* Click Save button to cause the file, its JavaScript and CSS merged into a single file.
+* Save the file to a local disk
 
 More
 * Click three bars( 'hamburger' ) icon to slide menu in or out
@@ -58,13 +54,12 @@ More
 
 ## Things you can do using this script
 
-
 * Click the three bars( 'hamburger menu icon' ) to slide the menu in and out
 * Press Control-U/Command-Option-U to view the source code
 * Press Control-Shift-J/Command-Option-J to see if the JavaScript console reports any errors
 
 
-
+<!--
 ## Things you can do by editing the code
 
 * Open the source code for this file: Click the 'Edit' box in the top right hand corner
@@ -73,7 +68,6 @@ More
 * Open the file with a text editor
 
 
-<!--
 ## Users
 _where used_
 
@@ -85,11 +79,18 @@ Intended for xxx
 
 ## To Do / Goals / Up Next
 
+2017-06-19 ~ Toggle HTML and Markdown views
+2017-05-08 ~ Update date of file
+2017-05-08 ~ Move scripts to bottom of file // make easier to edit
 
 ## Issues / Bugs / Things that need Work
 
 
 ## Change Log
+
+### 2017-07-01
+
+* Many updates
 
 ### 2017-04-22
 

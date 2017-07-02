@@ -1,23 +1,28 @@
 <span style=display:none; >
 [You are now in GitHub source code view - click this link to view Read Me file as a web page]
-( http://jaanga.github.io/cookbook-html/templates/ "View file as a web page." ) </span>
-<input type=button onclick=window.location.href='https://github.com/jaanga/jaanga.github.io/tree/master/cookbook-html/templates/'; value='You are now in GitHub web page view - Click this button to view Read Me file as source code' />
+( https://pushme-pullyou.github.io/index.html#utilities/markdown-cheat-sheet.md "View file as a web page." ) </span>
+<input type=button onclick=window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/cookbook-html/templates/'; value='You are now in GitHub web page view - Click this button to view Read Me file as source code' />
 
-[Jaanga]( http://jaanga.github.io ) » [Cookbook HTML]( http://jaanga.github.io/cookbook-html/ ) »
-[Templates]( http://jaanga.github.io/cookbook-html/templates/ ) »
 
-[Read Me Cheat Sheet]( ./index.html#readme-cheat-sheet.md )
+[Markdown Cheat Sheet]( #utilities/markdown-cheat-sheet.md )
 ===
 
 Interesting things you can do with Markdown.
 
 
-### Updated 2016-05-25
 
-* http://jaanga.github.io/cookbook-html/templates/index.html#readme-cheat-sheet.md
 
 
 ### Images
+
+* uses [lorempixel]( http://lorempixel.com ) to gather random images
+````
+	![External Link Icon]( http://lorempixel.com/800/600 =100x100 )
+
+	![ text ]( http://lorempixel.com/800/600 =400x300 )
+
+	![ text ]( http://lorempixel.com/800/600 =200x150 )
+```
 
 ![External Link Icon]( http://lorempixel.com/800/600 =100x100 )
 

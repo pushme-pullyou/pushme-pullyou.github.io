@@ -5,22 +5,26 @@
 <a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3>
 -->
 
-[Utilities Read Me]( https://pushme-pullyou.github.io/#tootoo/utilities/README.md )
+[Utilities Read Me]( #utilities/README.md )
 ===
-_say something fun here_
+_trying to be even more useful_
 
 
+This is a placeholder.
 
+Use the menus on the left to navigate.
 
 
 ## Full Screen: [ Utilities ]( https://pushme-pullyou.github.io/tootoo/utilities/index.html )
 
 ***
 
+<!--
+
 ## Concept
 
 ### Issues / Problems that need solving
-<!--
+<--
 
 The general format is an adaptation of the ideas developed in Alexander's _et al_ [A Pattern Language]( https://books.google.com/books?id=hwAHmktpk5IC&pg=PR10#v=onepage&q&f=false ) - as summarized on page 10.
 
@@ -28,18 +32,17 @@ Each pattern describes a problem which occurs over and over again in our environ
 
 patterns are descriptions of common problems and proposal for the solutions that can be used repeatedly every time the problem is encountered and producing an different outcome.
 
--->
+--
 
 ### Mission
-<!-- a statement of a rationale, applicable now as well as in the future -->
+-- a statement of a rationale, applicable now as well as in the future --
 
 * TBD
 
 ### Vision
-<!--  a descriptive picture of a desired future state -->
+<--  a descriptive picture of a desired future state --
 
 * TBD
-
 
 ## Features
 
@@ -63,13 +66,10 @@ patterns are descriptions of common problems and proposal for the solutions that
 * Once you've downloaded the file, you can click it to run it.
 * Open the file with a text editor
 
-
-<!--
 ## Users
 _where used_
 
 Intended for xxx
--->
 
 
 ## Links of Interest
@@ -80,8 +80,15 @@ Intended for xxx
 
 ## Issues / Bugs / Things that need Work
 
+-->
 
 ## Change Log
+
+
+### 2017-07-01 ~ Theo
+
+* Forked up to be one of the main folders
+* Update text
 
 ### 2017-06-19
 
