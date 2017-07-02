@@ -15,15 +15,14 @@
 						'<option title="created by humans" >Table of Contents</option>' +
 						'<option >All Files</option>' +
 						'<option >Folders & Files</option>' +
-						'<option >Folder Groups</option>' +
-						'<option >List by Folders</option>' +
-						'<option >Alphabetical</option>' +
+						'<option title="Pick solder & see contents" >Folder Groups</option>' +
+						'<option title "All the folders and their files: >List by Folders</option>' +
+						'<option title="All the files in order" >Alphabetical</option>' +
 					'</select>' + b +
 
 			'</details>'
 
 		'';
-
 
 		selType.selectedIndex = TYP.typeSelectedIndex;
 
@@ -40,6 +39,8 @@
 
 		mnuContentsTitle.innerHTML = selType.value;
 		mnuBreadcrumbs.innerHTML = '';
+
+		MNU.setAbout();
 
 	}
 

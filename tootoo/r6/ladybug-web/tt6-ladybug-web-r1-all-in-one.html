@@ -2,11 +2,11 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>TooToo6 pushMe pullYou R1</title>
+<title>TooToo6 Ladybug Web R1</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Browse and view files on GitHub with remarkable ease.' >
+<meta name=description content='Ladybug Web provides analemma, solar and weather data visualization and analysis on the web and in your browser' >
 <meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2017-06-29' >
+<meta name=date content='2017-07-01' >
 <style>
 html, body { font: 12pt monospace; height: 100%; margin: 0; overflow: hidden; }
 a { color: crimson; text-decoration: none; }
@@ -1008,71 +1008,84 @@ xhr.send( null );
 // Copyright 2017 Pushme Pullyou authors ~ MIT license
 
 var path, user;
-path = ''; // location.protocol === 'file:' ? '../../../' : '';
+path = location.protocol === 'file:' ? '../../../../ladybug-web/' : '';
 
 
 user = {
 
-user: 'pushme-pullyou',
-repo: 'pushme-pullyou.github.io',
-branch: 'master',
+user: 'ladybug-tools',
+repo: 'ladybug-web',
+branch: 'gh-pages',
 path: path,
 
-infoLink : 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/',
-tagLine : 'Browse & view stuff on PushMe PullYou real fast!',
-subText : 'Browse & view stuff on PushMe PullYou real fast!',
-title : 'TT6 PushMe PullYou',
+infoLink : 'https://github.com/laddybug-tools/ladybug-web/',
+//	tagLine : 'Browse & view stuff on Ladybug Web real fast!',
+subText : 'Browse & view stuff on Ladybug Web real fast!',
+title : 'tt6 Ladybug Web',
 //	defaultFile : 'dev-notes.md'
 }
 
 // Can we automate when merging into one?????
-user.server = location.protocol === 'file:' ? '' : // ../../../' :
+user.server = location.protocol === 'file:' ? '' :
 //	'https://rawgit.com/' + user.user + '/' + user.repo + '/' + user.branch + '/' ;
 'https://' + user.user + '.github.io/' + user.repo + '/' ;
 
 MNU.tableOfContents =
 
-`### <span title="Gazelle-unicorn cross with two heads at opposite ends of its body" >Pushme-Pullyou</span>
-* [Read Me]( #README.md )
-### GubGub <small><i>explore GH repos</i></small>
-* [Read Me]( #gubgub/README.md )
-* &#x1F5D7; [GubGub R2]( http://pushme-pullyou.github.io/gubgub/r2/index.html )
-### DabDab <small><i>monitor user activity</i></small>
-* [Read Me]( #dabdab/README.md )
-* &#x1F5D7; [DabDab R1]( http://pushme-pullyou.github.io/dabdab/r1/index.html )
-### TooToo <small><i>browse & view files</i></small>
-* [TooToo Read Me]( #tootoo/README.md )
+`## Ladybug Web
 
-#### TooToo 6
-* [TooToo6 Anywhere Read Me]( #tootoo/r6/anywhere/README.md )
-<!-- * &#x1F5D7; [TooToo6 Anywhere]( https://pushme-pullyou.github.io/tootoo/r6/anywhere/) -->
-* &#x1F5D7; [Diana Chace Read Me]( https://pushme-pullyou.github.io/tootoo/r6/diana-chace/tt6-diana-chace-r1.html )
-* &#x1F5D7; [Ladybug Web Read Me]( tootoo/r6/ladybug-web/tt6-ladybug-web-r1.html )
-* &#x1F5D7; [Jaanga Terrain3]( tootoo/r6/jaanga-terrain3/tt6-jaanga-terrain3-r1.html )
-* [TooToo6 pushMe pullYou Read Me]( #tootoo/r6/pushme-pullyou/README.md )
-* [TooToo6 Skim Read Me]( #tootoo/r6/skim/README.md )
-* &#x1F5D7; [TooToo6 Skim Read Me]( tootoo/r6/skim/tt6-skim-r1.html )
+* [Ladybug Web Read Me]( #readme.md )
+* [Coding Style]( #coding-style.md )
+* [License]( #license.md )
 
-#### TooToo 5
-* [TooToo Anywhere Read Me]( #tootoo/r5/anywhere/README.md )
-* [Best-websites-a-programmer-should-visit Read Me]( #tootoo/r5/best-websites/README.md )
-* [BS2017 Sponsor Links Read Me]( http://pushme-pullyou.github.io/tootoo/r5/bs2017-sponsor-links/bs2017-sponsor-links-r2.html)
-* &#x1F5D7; [Building Simulation 2017 Sponsors]( https://pushme-pullyou.github.io/tootoo/r5/bs2017-sponsor-links/bs2017-sponsor-links-r2.html )
-* [Ladybug Tools View Read Me ]( #tootoo/r5/ladybug-tools-view/README.md )
-* &#x1F5D7; [Ladybug Tools View]( https://pushme-pullyou.github.io/tootoo/r5/ladybug-tools-view/ladybug-tools-view-r1.html )
-* [Parallel Constitution Read Me]( #tootoo/r5/parallel-constitution/README.md )
-* [Succeed Study Supplement Read Me]( #tootoo/r5/succeed-study-supplement/README.md )
+### Analemma 3D
+* [Analemma 3D Read Me]( #analemma-3d/readme.md )
+* [Analemma 3D]( #analemma-3d/index.html )
+### Ladybug Web Solar Calculator
+#### Ladybug Solar Calculator
+* [Ladybug Solar Calculator Read me]( #solar-calculator-ladybug-web/readme.md)
+* [Ladybug Solar Calculator]( #solar-calculator-ladybug-web/solar-calculator-ladybug-web-viewer-r3.html )
+#### Agafonkin
+* [Agafonkin Solar Calculator Read Me]( #solar-calculator-agafonkin/readme.md )
+* [Agafonkin Solar Calculator]( #solar-calculator-agafonkin/suncalc-sandbox-r7.html )
+#### Bostock
+* [Bostock Solar Calculator Read Me]( #solar-calculator-bostock/readme.md )
+* [Bostock Solar Calculator]( #solar-calculator-bostock/bostock-solar-calculator-viewer-r5.html )
+#### NOAA
+* [NOAA Solar Calculator Read Me]( #solar-calculator-noaa/readme.md )
+* [NOAA Solar Calculator]( #solar-calculator-noaa/ladybug-web-solar-calculator-noaa-viewer-r3.html )
+#### Solar Calculator Compare
+* [Calculators Compare Read me]( #solar-calculator-compare/readme.md )
+* [Calculators Compare]( #solar-calculator-compare/calculations-compare-r5.html )
 
-#### TooToo 4
-* [Dev Read Me]( #tootoo/r3/dev/README.md )
-* [Library Read Me]( #tootoo/r4/library/README.md )
-* [get-github-dir-names]( #tootoo/r4/utilities/get-github-dir-names/README.md )
+### Shadows
+#### Shadow OBJ Core
+* [Shadow OBJ Core Read Me]( #shadow-obj-core/readme.md )
+* [Shadow OBJ Core ]( #shadow-obj-core/ladybug-web-shadow-obj-core-r3.html )
+* &#x1F5D7; [Shadow OBJ Core ]( https://rawgit.com/ladybug-tools/ladybug-web/gh-pages/shadow-obj-core/ladybug-web-shadow-obj-core-r3.html )
+#### Shadow OBJ Gallery
+* [Shadow OBJ Gallery Read Me]( #shadow-obj-gallery/readme.md )
+* [Shadow OBJ Gallery ]( #shadow-obj-gallery/ladybug-web-shadow-obj-gallery-r3.html )
+* &#x1F5D7; [Shadow OBJ Gallery ]( https://rawgit.com/ladybug-tools/ladybug-web/gh-pages/shadow-obj-gallery/ladybug-web-shadow-obj-gallery-r3.html )
+#### Shadow OBJ Opener
+* [Shadow OBJ Opener Read Me]( #shadow-obj-opener/readme.md )
+* [Shadow OBJ Opener ]( #shadow-obj-opener/ladybug-web-shadow-obj-opener-r2.html )
+* &#x1F5D7; [Shadow OBJ Opener ]( https://rawgit.com/ladybug-tools/ladybug-web/gh-pages/shadow-obj-opener/ladybug-web-shadow-obj-opener-r2.html )
 
-#### Utilities
-* [Utilities Read Me]( #utilities/README.md )
-* [Make Read Me Read Me]( #utilities/make-github-readme2/README.md )
-* [Merge Files into one]( #utilities/merge-files-into-one/README.md )
-* [Markdown Cheat Sheet]( #utilities/readme-cheat-sheet.md )
+### Shadow Range
+#### Shadow Range OBJ Core
+* [Shadow Range OBJ Core Read Me]( #shadow-range-obj-core/readme.md )
+* [Shadow Range OBJ Core ]( #shadow-range-obj-core/ladybug-web-shadow-range-obj-core-r4.html )
+* &#x1F5D7; [Shadow Range OBJ Core ]( https://rawgit.com/ladybug-tools/ladybug-web/gh-pages/shadow-range-obj-core/ladybug-web-shadow-range-obj-core-r4.html )
+#### Shadow OBJ Gallery
+* [Shadow Range OBJ Gallery Read Me]( #shadow-range-obj-gallery/readme.md )
+* [Shadow Range OBJ Gallery ]( #shadow-range-obj-gallery/ladybug-web-shadow-range-obj-gallery-r5.html )
+* &#x1F5D7; [Shadow Range OBJ Gallery ]( https://rawgit.com/ladybug-tools/ladybug-web/gh-pages/shadow-range-obj-gallery/ladybug-web-shadow-range-obj-gallery-r5.html )
+#### Shadow OBJ Opener
+* [Shadow Range OBJ Opener Read Me]( #shadow-range-obj-opener/readme.md )
+* [Shadow Range OBJ Opener ]( #shadow-range-obj-opener/ladybug-web-shadow-range-obj-opener-r2.html )
+* &#x1F5D7; [Shadow Range OBJ Opener ]( https://rawgit.com/ladybug-tools/ladybug-web/gh-pages/shadow-range-obj-opener/ladybug-web-shadow-range-obj-opener-r2.html )
+
 `;
 
 TYP.typeSelectedIndex = 0;
