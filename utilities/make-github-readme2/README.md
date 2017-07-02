@@ -1,39 +1,17 @@
-<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/tootoo/r3/utilities/make-github-readme/#README.md "View file as a web page." ) </span>
+<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/#utilities/make-github-readme2/README.md "View file as a web page." ) </span>
 
-<!--
-<a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/" >r3</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r3/utilities/" >utilities</a> &raquo; </h3>
--->
 
-[Make Github Read Me Read Me]( https://pushme-pullyou.github.io/tootoo/utilities/make-github-readme2/index.html#readme.md )
+[Make Github Read Me Read Me]( #utilities/make-github-readme2/index.html#readme.md )
 ===
 _Create detailed, pre-filled index and Read Me files on the fly_
 
+
 <!--
-<img src="" style=display:none; width=800 >
--->
-
-
-## Read Me File
-
-* 2017-05-08 ~ Read Me file maker
-
-
-## make-all-in-one
-
-### Wish List
-
-* 2017-06-19 ~ Better handling of iframe source
-* 2017-06-19 ~ Toggle HTML and Markdown views
-* 2017-05-08 ~ Update and deploy to all users
-* 2017-05-08 ~ Update date of file
-* 2017-05-08 ~ Move scripts to bottom of file // make easier to edit
-
-
-
 <iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/utilities/make-github-readme2/make-github-readme2-r1.html width=100% height=600px ></iframe>
 _Make Github Read Me_
+-->
 
-## Full Screen: [ Make Github Read Me ]( https://pushme-pullyou.github.io/tootoo/utilities/make-github-readme/make-github-readme-r3.html )
+## Full Screen: [ Make Github Read Me ]( https://pushme-pullyou.github.io/utilities/make-github-readme2/make-github-readme2-r2.html )
 
 
 ***
@@ -107,6 +85,7 @@ Intended for xxx
 
 ## To Do / Goals / Up Next
 
+* 2017-06-19 ~ Better handling of iframe source
 
 ## Issues / Bugs / Things that need Work
 
