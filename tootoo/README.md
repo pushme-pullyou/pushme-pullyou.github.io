@@ -151,16 +151,16 @@ It would also be nice to do these things and have the code still be understandab
 
 ## Issues
 
-* 2017-06-21 ~ next/previous not working on alphabetical menu
+* 2017-06-21 ~ next/previous not working on alphabetical menu << 2017-07-01 not anywhere!
+
 
 ## To Do
 
-* 2017-06-22 ~ Rename JavaScript files with three letter start
+* 2017-07-01 ~ Fork Ladybug read me text into main tootoo text
 * 2017-05-08 ~ Add recent events
 * 2017-05-08 ~ tootoo3.js see // move to TOO.setDefaultContents
 	* 2017-05-07 ~ TOO.setDefaultContents: change to: TOO.files.includes( 'readme.md' )
 * 2017-05-08 ~ Add full folder and file stats
-* 2017-05-08 ~ user.folder > user.path
 * 2017-05-08 ~ Scroll menu items into view
 * 2017-05-08 ~ Cursor key movement through menus
 * 2017-05-08 ~ Jazz up menu title in menu bar
@@ -168,6 +168,12 @@ It would also be nice to do these things and have the code still be understandab
 * Enter the name of a GitHub user you know in the input box
 
 ## Change Log
+
+### 2017-07-01 ~ Theo
+
+* R6 many fixes
+* 2017-06-22 ~ Rename JavaScript files with three letter start
+* 2017-05-08 ~ user.folder > user.path
 
 ### 2017-06-21 ~ Theo
 

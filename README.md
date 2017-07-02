@@ -232,6 +232,7 @@ Links of Interest / Background Context
 * https://www.reddit.com/r/github/comments/5a8vzt/jaanga_gubgub_r1_explore_and_monitor_many_github/?ref=share&ref_source=link
 * https://twitter.com/ta/status/792871595001847808
 
+
 ### Web sites that help you explore GitHub
 
 * https://resume.github.io/ ~ added 2016-10-19
@@ -299,6 +300,8 @@ Copyright © 2017 pushMe pullYou authors. [MIT License]( #LICENSE.md ).
 ## To Do
 --------------------------------------------------------------------------------
 
+* 2017-07-01 ~ Bring all explore GitHub links into one place
+
 * Start upgrading to GitHub graphQL
 * Start exploring GitHub Topics
     * And projects?
@@ -307,6 +310,10 @@ Copyright © 2017 pushMe pullYou authors. [MIT License]( #LICENSE.md ).
 --------------------------------------------------------------
 
 _See also individual script read me files in folders for more timely and script-specific updates_
+
+### 2017-07-01 ~ Theo
+
+* Many updates to files, menus and read me files through out
 
 ### 2017-05-24
 
