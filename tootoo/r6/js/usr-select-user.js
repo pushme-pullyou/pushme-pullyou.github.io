@@ -8,6 +8,7 @@
 
 
 		mnuSelectItem.innerHTML =
+
 				'<details open>' +
 
 					'<summary><h3>Select User/ Repo/ Branch/ </h3></summary>' +

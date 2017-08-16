@@ -107,7 +107,7 @@
 
 					mnuItems.innerHTML +=
 //						'<div><a href=JavaScript:location.hash="";SEL.getTreeAllFiles("' + item.path  + '");  > 🗀 ' + item.name  + '</a></div>' +
-						'<div><a href=JavaScript:SEL.getTreeAllFiles("' + item.path  + '");  > 🗀 ' + item.name  + '</a></div>' +
+						'<div><a href=JavaScript:SEL.getTreeAllFiles("' + item.path  + '");  > &#x1f5c0; ' + item.name  + '</a></div>' +
 
 					'';
 

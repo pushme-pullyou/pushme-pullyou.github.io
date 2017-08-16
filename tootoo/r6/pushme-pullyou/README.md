@@ -1,11 +1,7 @@
 <span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://pushme-pullyou.github.io/tootoo/r5/tootoo-pushme-pullyou/#tootoo/r6/pushme-pullyou/README.md "View file as a web page." ) </span>
 
 
-<!--
-<a href="https://pushme-pullyou.github.io/" >pushme-pullyou.github.io</a> &raquo;  <a href="https://pushme-pullyou.github.io/tootoo/" >tootoo</a> &raquo; </h3> <a href="https://pushme-pullyou.github.io/tootoo/r5/" >r5</a> &raquo; </h3>
--->
-
-[Tootoo Pushme Pullyou Read Me]( https://pushme-pullyou.github.io/#tootoo/r6/pushme-pullyou/README.md )
+[Tootoo Pushme Pullyou Read Me]( #tootoo/r6/pushme-pullyou/README.md )
 ===
 _say something fun here_
 
@@ -13,10 +9,10 @@ _say something fun here_
 <img src="" style=display:none; width=800 >
 -->
 
-<iframe id=ifr src=https://pushme-pullyou.github.io/tootoo/r6/pushme-pullyou/index.html width=100% height=600px ></iframe>
+<iframe id=ifr src=tootoo/r6/pushme-pullyou/tt6-pushme-pullyou-r1.html width=100% height=600px ></iframe>
 _Tootoo Pushme Pullyou_
 
-## Full Screen: [ Tootoo6 Pushme Pullyou ]( https://pushme-pullyou.github.io/tootoo/r6/pushme-pullyou/index.html )
+## Full Screen: [ Tootoo6 Pushme Pullyou R1]( tootoo/r6/pushme-pullyou/tt6-pushme-pullyou-r1.html )
 
 ***
 

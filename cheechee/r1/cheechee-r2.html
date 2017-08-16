@@ -15,7 +15,7 @@
 
 	let fileName;
 
-	fileName = 'https://crossorigin.me/http://www.grasshopper3d.com/group/ladybug/forum/topic/list?feed=yes';
+	fileName = 'https://cors-anywhere.herokuapp.com/http://www.grasshopper3d.com/group/ladybug/forum/topic/list?feed=yes';
 //	fileName = 'https://crossorigin.me/https://github.com/theo-armour.atom';
 //	fileName = 'https://crossorigin.me/https://github.com/ladybug-tools.atom';
 //	fileName = 'https://crossorigin.me/https://github.com/mostaphaRoudsari.atom';
@@ -129,11 +129,15 @@
 
 		if ( that.value === 'Ladybug Forum' ) {
 
-			fName =  'https://crossorigin.me/http://www.grasshopper3d.com/group/ladybug/forum/topic/list?feed=yes';
+//			fName = 'https://crossorigin.me/http://www.grasshopper3d.com/group/ladybug/forum/topic/list?feed=yes';
+			fName = 'https://cors-anywhere.herokuapp.com/http://www.grasshopper3d.com/group/ladybug/forum/topic/list?feed=yes';
+
+
 
 		} else {
 
-			fName =  'https://crossorigin.me/https://github.com/' + that.value + '.atom';
+//			fName = 'https://crossorigin.me/https://github.com/' + that.value + '.atom';
+			fName = 'https://cors-anywhere.herokuapp.com/https://github.com/' + that.value + '.atom';
 
 		}
 
