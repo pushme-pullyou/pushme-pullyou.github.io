@@ -32,6 +32,12 @@
 
 ### [View GitHub Contents]( #menu-view-github-contents.md )
 
+
+### [View GitHub Profile]( #menu-view-github-profile.md )
+
+
+### [View GitHub Searcg]( #menu-view-github-search.md )
+
 ***
 
 Utilities

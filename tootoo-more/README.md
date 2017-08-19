@@ -15,15 +15,22 @@ Given that the TooToo8 readme is a template, this readme is where actual updates
 
 ## To-Do
 
-* 2017-08-14 ~ Go to internal link via location.hash
-* 2017-08-04 ~ Add breadcrumbs to menu
-* 2017-08-04 ~ Iframe in menu automatic resize
+
 * 2017-08-04 ~ Audio / podcaster
 
 
 
 ## Change Log
 
+
+### 2017-08-17 ~ Theo
+
+* Add onload
+* Clean up CSS
+
+* 2017-08-14 ~ Go to internal link via location.hash
+* 2017-08-04 ~ Add breadcrumbs to menu
+* 2017-08-04 ~ Iframe in menu automatic resize
 
 ### 2017-08-13 ~ Theo
 
