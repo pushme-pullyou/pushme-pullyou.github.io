@@ -61,7 +61,7 @@ blockquote, pre { background-color: #eee; padding: 10px; }
 
 #ifrMain { border-width: 0; height: 100%; margin: 0; width: 100%; }
 
-#main { height: 100%; margin-left: var( --menu-width ); transition: margin-left .5s; position: absolute; top: 0; width: calc(100% - 250px); }
+#main { height: 100%; margin-left: var( --menu-width ); transition: margin-left .5s; position: absolute; top: 0; width: calc( 100% - var( --menu-width ) ); }
 
 #menu {
 	background-color: lightgray; box-sizing: border-box; height: 100%; left: 0; overflow: auto;
@@ -114,7 +114,7 @@ blockquote, pre { background-color: #eee; padding: 10px; }
 	</div>
 
 
-	<div id = "hamburger" onclick = "slideMenu();" > &#9776; slide</div>
+	<div id = "hamburger" onclick = "onClickSlideMenu();" > &#9776; slide</div>
 
 
 	<div id = "butEditFile" onclick = "onclickEditButton();" title = "Update this file on GitHub" ><img src = "https://status.github.com/images/invertocat.png" > Edit this file</div>
@@ -235,7 +235,8 @@ blockquote, pre { background-color: #eee; padding: 10px; }
 
 			butEditFile.style.display = 'none';
 			hamburger.innerHTML = '&#9776;';
-			hamburger.style.top = '30px';
+			hamburger.style.top = '0';
+			main.style.top = '30px';   // not good for full screen
 
 			for ( var i = 0; i < iframes.length; i++ ) {
 
@@ -252,6 +253,7 @@ blockquote, pre { background-color: #eee; padding: 10px; }
 			butEditFile.style.display = '';
 			hamburger.innerHTML = '&#9776; slide';
 			hamburger.style.top = '80px';
+			main.style.top = '0';
 
 			for ( var i = 0; i < iframes.length; i++ ) {
 
@@ -280,7 +282,7 @@ blockquote, pre { background-color: #eee; padding: 10px; }
 
 
 
-	function slideMenu() {
+	function onClickSlideMenu() {
 
 		if ( !menu.style.width || menu.style.width === '250px' ) {
 
@@ -340,7 +342,7 @@ blockquote, pre { background-color: #eee; padding: 10px; }
 	}
 
 
-// plugins redefine as needed
+// plugins: redefine as needed
 
 	function onload() {}
 

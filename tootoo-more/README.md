@@ -15,13 +15,22 @@ Given that the TooToo8 readme is a template, this readme is where actual updates
 
 ## To-Do
 
-
+* 2017-08-20 ~ work on demo creation automation
+* 2017-08-20 ~ work on edit butting automatic linking
+* 2017-08-20 ~ work on mobile device rotation
+* 2017-08-20 ~ add documentation to more read me
+* 2017-08-20 ~ add notes/link to read me template
 * 2017-08-04 ~ Audio / podcaster
 
 
 
 ## Change Log
 
+
+### 2017-08-20 ~ Theo
+
+* add menu, page & plugin folders
+* edit menu slide CSS
 
 ### 2017-08-17 ~ Theo
 
