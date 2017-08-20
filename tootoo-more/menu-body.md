@@ -36,7 +36,7 @@
 ### [View GitHub Profile]( #menu-view-github-profile.md )
 
 
-### [View GitHub Searcg]( #menu-view-github-search.md )
+### [View GitHub Search]( #menu-view-github-search.md )
 
 ***
 
