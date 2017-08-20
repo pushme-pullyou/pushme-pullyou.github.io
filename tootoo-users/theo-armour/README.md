@@ -49,6 +49,15 @@ https://www.w3schools.com/howto/
 https://glitch.com/edit/#!/theo
 
 
+## To Do
+
+* 2017-08-20 ~ Fix view gists isues
+* 2017-08-20 ~ Add 3D splash
+* 2017-08-20 ~ Remove horizontal scroll bar
+* 2017-08-20 ~ Smaller image icon
+* 2017-08-20 ~ Stuff happening on read me
+
+
 
 ## change Log
 
