@@ -6,20 +6,19 @@
 
 Toys for TooToo to play with
 
-Given that the TooToo8 readme is a template, this readme is where actual updates and dev notes are kept.
+Given that the TooToo8 read me is a template, this read me is where actual updates and dev notes are kept.
+
+
 
 ## Issues
 
-* 2017-08-04 ~ Window resizing
+
 
 
 ## To-Do
 
 * 2017-08-20 ~ work on demo creation automation
-* 2017-08-20 ~ work on edit butting automatic linking
-* 2017-08-20 ~ work on mobile device rotation
-* 2017-08-20 ~ add documentation to more read me
-* 2017-08-20 ~ add notes/link to read me template
+* 2017-08-20 ~ add documentation to tt more read me
 * 2017-08-04 ~ Audio / podcaster
 
 
@@ -29,6 +28,12 @@ Given that the TooToo8 readme is a template, this readme is where actual updates
 
 ### 2017-08-20 ~ Theo
 
+* 2017-08-20 ~ work on edit button automatic linking  << looking good
+* 2017-08-20 ~ work on mobile device rotation
+* 2017-08-20 ~ add notes/link to read me template
+* Add start of Air Doodle 
+* fix window resizing issues - fingers crossed
+	* 2017-08-04 ~ Window resizing
 * add menu, page & plugin folders
 * edit menu slide CSS
 
@@ -36,7 +41,6 @@ Given that the TooToo8 readme is a template, this readme is where actual updates
 
 * Add onload
 * Clean up CSS
-
 * 2017-08-14 ~ Go to internal link via location.hash
 * 2017-08-04 ~ Add breadcrumbs to menu
 * 2017-08-04 ~ Iframe in menu automatic resize

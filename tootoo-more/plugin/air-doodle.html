@@ -9,7 +9,7 @@
 <title></title>
 <style>
 
-	body { font: 11pt monospace; margin: 0; overflow: hidden; }
+	body {  font: 11pt monospace; margin: 0; overflow: hidden; }
 	#menu { position: absolute; text-align: center; width: 100%; }
 
 </style>
@@ -35,11 +35,13 @@
 
 		title.innerHTML = '<h1><a href="" >' + location.href.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) +'</a></h1>';
 
-		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true }  );
-		renderer.setSize( window.innerWidth, window.innerHeight );
-		document.body.appendChild( renderer.domElement );
+		renderer = new THREE.WebGLRenderer( { alpha: true, antialias: true }  );
+		renderer.setClearColor( 0x000000, 0 );
+		renderer.setSize( parent.window.innerWidth, parent.window.innerHeight );
 
-		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+		parent.document.body.appendChild( renderer.domElement );
+
+		camera = new THREE.PerspectiveCamera( 40, parent.window.innerWidth / parent.window.innerHeight, 1, 1000 );
 		camera.position.set( 100, 100, 100 );
 
 		controls = new THREE.OrbitControls( camera, renderer.domElement );
@@ -47,7 +49,6 @@
 		scene = new THREE.Scene();
 
 		window.addEventListener( 'resize', onWindowResize, false );
-
 		window.addEventListener( 'orientationchange', onWindowResize, false );
 
 		let axisHelper = new THREE.AxisHelper( 50 );
@@ -65,15 +66,12 @@
 
 	function onWindowResize() {
 
-		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.aspect = parent.window.innerWidth / parent.window.innerHeight;
 		camera.updateProjectionMatrix();
 
 		renderer.setSize( window.innerWidth, window.innerHeight );
 
-//console.log( 'onWindowResize  window.innerWidth', window.innerWidth );
-
 	}
-
 
 
 	function animate() {

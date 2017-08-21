@@ -6,6 +6,7 @@ h3 { margin: 0 }
 
 menu
 
+
 ### [Geocoder]( #./menu/menu-geocoder.md )
 
 
@@ -23,9 +24,14 @@ menu
 
 ### [View GitHub Search]( #./menu/menu-view-github-search.md )
 
+### [View Air Doodle]( #./menu/menu-air-doodle.md )
+
 plugin
 
 ### [View RSS]( #./plugin/view-rss.html )
+
+
+### [View GitHub Issues]( #./plugin/view-github-issues.html )
 
 
 ### [Slide Show]( #./plugin/slide-show.html )
@@ -33,13 +39,15 @@ plugin
 
 ### [Gallery Remote]( #./plugin/view-gallery-remote.html )
 
+
 ### [View PDF]( #./plugin/view-pdf.html )
 
 
 ### [View Three.js Math Function]( #./plugin/threejs-math-functions.html )
 
 
-### [View GitHub Issues]( #./plugin/view-github-issues.html )
+
+
 
 ***
 
