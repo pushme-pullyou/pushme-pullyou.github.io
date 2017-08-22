@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>CheeChee R2</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='RSS reader for Ladybug Tools users. Captures and displays RSS feed updates fron Grasshoppe3D and GitHub' >
+<meta name=keywords content='CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2017-06-30' >
+</head>
+<body>
+<script>
+// Copyright 2017 pushMe pullYou authors ~ MIT license
+
+
+	let fileName;
+
+	fileName = 'https://cors-anywhere.herokuapp.com/http://www.grasshopper3d.com/group/ladybug/forum/topic/list?feed=yes';
+//	fileName = 'https://crossorigin.me/https://github.com/theo-armour.atom';
+//	fileName = 'https://crossorigin.me/https://github.com/ladybug-tools.atom';
+//	fileName = 'https://crossorigin.me/https://github.com/mostaphaRoudsari.atom';
+//	fileName = 'https://crossorigin.me/https://github.com/paulmasson.atom';
+//	fileName = 'http://crossorigin.me/http://www.economist.com/sections/science-technology/rss.xml';
+
+	init();
+
+	function init() {
+
+		let css, container, hamburger, menu;
+		let txt = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
+		const b = '<br>';
+
+		css = document.body.appendChild( document.createElement('style') );
+		css.innerHTML =
+			'body { font: 12pt monospace; margin: 0; }' +
+			'a { color: crimson; text-decoration: none; }' +
+			'a:hover { text-decoration: underline; }' +
+
+			'button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; }' +
+			'input[type=range] { -webkit-appearance: none; -moz-appearance: none; background-color: #ddd; width: 160px; }' +
+			'input[type=range]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }' +
+			'input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; background-color: #888; height: 20px; width: 10px; }' +
+
+			'select { width: 100%; }' +
+			'summary { outline: none; }' +
+			'summary h3 { display: inline; }' +
+
+			'.popUp { background-color: white; left: 300px; border: 1px solid red; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }' +
+			'#bars { color: crimson; cursor: pointer; font-size: 24pt; text-decoration: none; }' +
+			'#container { left: 0; position: absolute; transition: left 1s; width: 100%;}' +
+
+			'#contents { border: 1px #ccc solid; left: 375px; max-width: 800px; position: absolute; }' +
+
+			'#hamburger { background-color: #eee; left: 325px; position: absolute; top: 20px; }' +
+			'#hamburger h2 { margin: 0; }' +
+			'#menu { background-color: #eee; border: 1px #ccc solid; padding: 0 10px; position: absolute; width: 300px; }' +
+			'#menu h2 { margin: 0; }' +
+		'';
+
+		container = document.body.appendChild( document.createElement( 'div' ) );
+		container.id = 'container';
+		container.innerHTML =
+			'<div id=menu >' +
+
+				'<h2>' +
+					'<a href="https://pushme-pullyou.github.io/" > &#x2766 </a><br>' +
+//					'<a href="" title="Click here to refresh this page" >' + document.title + '</a>' +
+					'<a href="" title="Click here to refresh this page" >' + location.pathname.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) + '</a>' +
+					' ~ <a href=index.html#readme.md onmouseover=popHelp.style.display=""; onmouseout=popHelp.style.display="none"; > &#x24D8; </a>' +
+				'</h2>' +
+
+				'<div class=popUp id=popHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>' +
+
+				'<p><small>' + document.head.querySelector( "[name=description]" ).content  + '</small></p>' +
+
+				'<details open>' +
+
+					'<summary><h3>Menu</h3></summary>' +
+
+					'<p>' +
+						'<select onchange=getUser(this); size=10 >' +
+							'<option selected >Ladybug Forum</option>' +
+							'<optgroup label="Ladybug Tools" >' +
+							'<option>mostaphaRoudsari</option>' +
+							'<option>ayezioro</option>' +
+							'<option>chriswmackey</option>' +
+							'<option>sariths</option>' +
+							'<option>TheodoreGalanos</option>' +
+							'<option>andrewsalveson</option>' +
+							'<option>mm-wang</option>' +
+							'<option>mBostock</option>' +
+							'</optgroup>' +
+//							'<option></option>' +
+
+							'<option>Theo-Armour</option>' +
+						'</select>' +
+					'</p>' +
+
+/*
+					'<p>' +
+						'<button onclick=doIt(); > Button 3 </button>' +
+					'</p>' +
+
+					'<div id=menuInfo ></div>' +
+*/
+				'</details>' +
+
+			'</div>' +
+
+			'<div id=hamburger onclick=container.style.left=container.style.left===""?"-325px":""; >' +
+				'<div id=bars title="Click this hamburger to slide the menu" > &#9776 </div>' +
+			'</div>' +
+
+			'<div id=contents ></div>' +
+
+		'';
+
+//		if ( window.self !== window.top ) { container.style.left = '-325px'; }
+
+		contents.innerHTML += '';
+
+		requestFile( fileName );
+
+	}
+
+	function getUser( that ) {
+
+		let fName;
+
+		if ( that.value === 'Ladybug Forum' ) {
+
+//			fName = 'https://crossorigin.me/http://www.grasshopper3d.com/group/ladybug/forum/topic/list?feed=yes';
+			fName = 'https://cors-anywhere.herokuapp.com/http://www.grasshopper3d.com/group/ladybug/forum/topic/list?feed=yes';
+
+
+
+		} else {
+
+//			fName = 'https://crossorigin.me/https://github.com/' + that.value + '.atom';
+			fName = 'https://cors-anywhere.herokuapp.com/https://github.com/' + that.value + '.atom';
+
+		}
+
+		requestFile( fName );
+
+	}
+
+	function requestFile( fileName ) {
+
+//		let fileName, text, lines;
+
+		xhr = new XMLHttpRequest();
+		xhr.crossOrigin = 'anonymous';
+		xhr.open( 'GET', fileName, true );
+		xhr.onerror = function( xhr ) { console.log( 'error', xhr  ); };
+		xhr.onprogress = function( xhr ) { console.log( 'items', xhr.loaded  ); }; /// or something
+		xhr.onload = callback;
+		xhr.send( null );
+
+		function callback( xhr ) {
+
+			let response, txt, parser, xmlDoc, title, id, updated, entries, author, authorName, authorURI, str;
+			const b = '<br>';
+
+			response = xhr.target.response;
+
+			parser = new DOMParser();
+			xmlDoc = parser.parseFromString( response, 'text/xml' );
+
+			title = xmlDoc.getElementsByTagName( 'title' )[0].childNodes[0].nodeValue;
+			id = xmlDoc.getElementsByTagName( 'id' )[0].childNodes[0].nodeValue;
+			updated = xmlDoc.getElementsByTagName( 'updated' )[0].childNodes[0].nodeValue;
+			entries = xmlDoc.getElementsByTagName( 'entry' );
+
+			contents.innerHTML =
+				'<h1>' + title.link( id.slice( 0, id.indexOf( '?' ) ) ) + '</h1>' +
+				'Update: ' + updated.replace( /T|Z/g, ' ' ) +
+				'';
+
+			txt = '';
+
+			for ( let entry of entries ) {
+
+				title = entry.getElementsByTagName( 'title' )[0].childNodes[0].nodeValue;
+				link = entry.getElementsByTagName( 'link' )[0].getAttribute( 'href' );
+				author = entry.getElementsByTagName( 'author' )[0];
+				authorName = author.getElementsByTagName( 'name' )[0].childNodes[0].nodeValue;
+				authorURI = author.getElementsByTagName( 'uri' )[0].childNodes[0].nodeValue;
+				content = entry.getElementsByTagName( 'content' )[0];
+				str = parser.parseFromString( content.innerHTML, "text/html");
+
+				txt += '<h2>' + title.link( link ) + '</h2>' +
+					authorName.link( authorURI ) + b +
+					str.body.innerText + b +
+				'';
+
+console.log( '', str.body.innerText );
+
+			}
+
+			contents.innerHTML += txt;
+
+		}
+
+	}
+
+</script>
+</body>
+</html>
