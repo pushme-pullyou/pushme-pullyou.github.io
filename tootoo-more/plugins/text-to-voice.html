@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang = "en" >
+<head>
+<meta charset = "utf-8" >
+<meta name = "viewport" content= "width=device-width, initial-scale=1">
+<meta name = "description" content = "Basic HTML template" >
+<meta name = "keywords" content = "JavaScript,GitHub,FOSS,3D,STEM" >
+<meta name = "date" content = "2017-08-04" >
+<title></title>
+<style>
+
+	body { font: 12pt monospace; margin: 0 auto; max-width: 800px; }
+	a { color: crimson; text-decoration: none; }
+
+/*	#menu { margin: 0 20px; max-width: 500px; position: absolute; } */
+
+</style>
+</head>
+<body>
+
+	<div id = "menubbb" >
+		<div id = "header" ><h1><a id = "title" href = "" ></a></h1></div>
+		<p><button onclick='sayThis("test test")'; >Say hello</button></p>
+		<div id = "contents" ></div>
+		<p>
+	</div>
+
+<script>
+// https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+// https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance
+// http://stackoverflow.com/questions/21513706/getting-the-list-of-voices-in-speechsynthesis-of-chrome-web-speech-api
+
+// file:///C:/Users/Theo/Dropbox/Public/git-repos/jaanga.github.io/cookbook-html/examples/text-to-speech/
+// http://jaanga.github.io/cookbook-html/examples/text-to-speech/speech-synth-basic/speech-synth-basic-r2.html
+
+
+	let synth;
+	let voices;
+
+	const b = '<br>';
+
+	init();
+
+	function init() {
+
+		let txt;
+
+		title.innerHTML = location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' );
+
+		txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
+		contents.innerHTML = txt;
+
+
+		if ( 'speechSynthesis' in window ) {
+
+console.log( 'You\'re good to go!' )
+
+		} else {
+
+	console.log( 'Sorry, speech synthesis isn\'t supported.' );
+
+		}
+
+		synth = window.speechSynthesis;
+
+		synth.onvoiceschanged = function() {
+
+console.log( 'cc', 23  );
+			voices = window.speechSynthesis.getVoices();
+			sayThis( 'Hello, world!' );
+
+		}
+
+//		sayThis( '<?xml version="1.0"?><speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/10/synthesis http://www.w3.org/TR/speech-synthesis/synthesis.xsd" xml:lang="en-US" ><mark name="here" > yo  here, to there <mark name="there"/></speak>' );
+
+//		sayThis( 'e' );
+
+// console.log( 'synth', synth );
+console.log( 'parent', parent.parent );
+		pcc = parent.parent.ifrContents.contentWidow;
+		sayThis = pcc.sayThis;
+		parent.divSubMenu.innerHTML = '<p><button onclick=\'sayThis("test test")\'; >Say hello</button></p>'
+
+	}
+
+
+	function sayThis( text ) {
+
+		var utterThis;
+
+		if ( !voices ) { voices = window.speechSynthesis.getVoices(); }
+
+		synth.cancel();
+		utterThis = new SpeechSynthesisUtterance( text );
+
+// console.log( 'voices', voices );
+
+
+		for ( i = 0; i < voices.length ; i++ ) {
+
+			if ( voices[ i ].voiceURI.toLowerCase().includes( 'female' ) ) {
+// console.log( '', voices[ i ].voiceURI.toLowerCase() );
+
+				utterThis.voice = voices[ i ];
+
+				break;
+
+			}
+
+		}
+
+
+
+//		utterThis.pitch = 0.5;
+//		utterThis.rate = 0.5;
+		utterThis.onstart = function(){ console.log( 'start', 11 ); }
+
+// console.log( 'utterThis', utterThis );
+
+		utterThis.onmark = function(){ console.log( 'mark', 22 ); }
+
+
+		utterThis.onend = function(){ console.log( 'end', 88 ); }
+
+
+
+		synth.speak( utterThis );
+
+	}
+
+
+</script>
+</body>
+</html>

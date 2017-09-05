@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang = "en" >
+<head>
+<meta charset = "utf-8" >
+<meta name = "viewport" content= "width=device-width, initial-scale=1">
+<meta name = "description" content = "Basic HTML template" >
+<meta name = "keywords" content = "JavaScript,GitHub,FOSS,3D,STEM" >
+<meta name = "date" content = "2017-08-04" >
+<title></title>
+<style>
+
+	body { font: 12pt monospace; margin: 0 auto; max-width: 800px; }
+	a { color: crimson; text-decoration: none; }
+
+/*	#menu { margin: 0 20px; max-width: 500px; position: absolute; } */
+
+</style>
+</head>
+<body>
+<!--
+	<div id = "menu" >
+		<div id = "header" ><h1><a id = "title" href = "" ></a></h1></div>
+		<div id = "contents" ></div>
+	</div>
+-->
+<script>
+
+	const b = '<br>';
+
+	init();
+
+	function init() {
+
+		let url = location.hash.slice( 1 );
+console.log( 'url', url );
+		parent.requestFile( url, parent.divSubMenu );
+
+	}
+
+</script>
+</body>
+</html>

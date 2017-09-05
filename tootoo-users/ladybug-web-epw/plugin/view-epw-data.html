@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang = "en" >
+<head>
+<meta charset = "utf-8" >
+<meta name = "viewport" content = "width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" >
+<meta name = "description" content = "Basic HTML template" >
+<meta name = "keywords" content = "JavaScript,GitHub,FOSS,3D,STEM" >
+<meta name = "date" content = "2017-08-04" >
+<title></title>
+<style>
+
+	body { font: 12pt monospace; margin: 0 auto; max-width: 800px; }
+	a { color: crimson; text-decoration: none; }
+
+/*	#menu { margin: 0 20px; max-width: 500px; position: absolute; } */
+
+</style>
+</head>
+<body>
+
+	<div id = "menu" >
+		<div id = "header" ><h1><a id = "title" href = "" ></a></h1></div>
+		<div id = "mnuContents" ></div>
+		<div id = "mainData" ></div>
+		<iframe id=ifr ></iframe>
+	</div>
+
+<script>
+
+	const b = '<br>';
+
+	init();
+
+	function init() {
+
+		let txt;
+
+		title.innerHTML = location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' );
+
+		let urlCORS, url;
+
+		url = 'https://cors-anywhere.herokuapp.com/';
+
+		urlGeoJSON = 'https://rawgit.com/NREL/EnergyPlus/develop/weather/master.geojson';
+
+		requestFile( urlGeoJSON, callbackLocations );
+
+	}
+
+
+		function callbackLocations( xhr ) {
+
+			let response, json;
+
+			response = xhr.target.response;
+//console.log( 'response', response );
+
+//			contents.innerHTML = response;
+
+			json = JSON.parse( response );
+//console.log( '', json );
+
+
+			getLocations( json );
+
+		}
+
+
+	function getLocations( json ) {
+
+		features = json.features;
+
+		txt = '';
+
+		for ( var i = 0; i < features.length; i++ ) {
+
+			properties = features[ i ].properties;
+
+			link = properties.epw.replace( /<a href=|>Download Weather File<\/a>/g, '' );
+
+			txt += '<a href=JavaScript:getEPW("' + link + '"); >' + properties.title + '</a>' + b;
+
+		}
+
+		parent.mnuContents.innerHTML = txt;
+
+	}
+
+
+	function getEPW( url ) {
+
+
+		let urlCORS;
+
+		urlCORS = 'https://cors-anywhere.herokuapp.com/';
+
+console.log( 'url', url );
+
+
+// 		requestFile( urlCORS + url + '&callback=callbackData', callbackData );
+		ifr.src = url;
+	}
+
+
+	function callbackData( xhr ) {
+
+
+			let response, json;
+
+			response = xhr.target.response;
+
+console.log( 'response', response );
+
+			mainData.innerHTML = response
+
+	}
+
+
+	function requestFile( url, callback ) {
+
+		let xhr;
+
+		xhr = new XMLHttpRequest();
+		xhr.crossOrigin = 'anonymous';
+		xhr.open( 'GET', url, true );
+		xhr.onerror = function( xhr ) { console.log( 'error:', xhr  ); };
+		xhr.onprogress = function( xhr ) { console.log( 'bytes loaded:', xhr.loaded  ); }; /// or something
+		xhr.onload = callback;
+		xhr.send( null );
+
+	}
+
+
+</script>
+</body>
+</html>

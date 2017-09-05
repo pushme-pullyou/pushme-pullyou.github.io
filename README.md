@@ -1,11 +1,22 @@
 <span style=display:none; >[You are now in a GitHub source code view - click this link to view the read me file as a web page]( https://pushme-pullyou.github.io "View file as a web page." ) </span>
-<div><input type=button onclick=window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io';
-value='You are now in a GitHub web page view - Click this button to view this read me file as source code' ></div>
 
-[Pushme-Pullyou README]( https://pushme-pullyou.github.io/ )
+
+[pushMe-pullYou Read Me]( https://pushme-pullyou.github.io/ )
 ================================================================================
 
-_JavaScript scripts to help you explore and build new tools on GitHub_
+_JavaScript files to help you explore and build new tools on GitHub_
+
+
+## [TooToo]( https://pushme-pullyou.github.io/tootoo/ ) Read Me
+<!--
+* [README]( https://pushme-pullyou.github.io#tootoo/README.md )
+-->
+
+* Browse and view many files on GitHub with remarkable ease
+* Buttons for: Edit this page, ~~Next page~~, ~~Previous page~~
+* Menus with current selection highlighted
+* 2017-08-21 ~ Where the current action is occurring
+
 
 
 ## [GubGub]( https://pushme-pullyou.github.io/gubgub/ ) Script
@@ -22,16 +33,6 @@ _JavaScript scripts to help you explore and build new tools on GitHub_
 * Select users from a list
 * View user's events by repo and by date
 * Links to numerous GitHub user statistics
-
-## [TooToo]( https://pushme-pullyou.github.io/tootoo/ ) Read Me
-<!--
-* [README]( https://pushme-pullyou.github.io#tootoo/README.md )
--->
-
-* Browse and view many files on GitHub with remarkable ease
-* Buttons for: Edit this page, Next page, Previous page
-* Menus with current selection highlighted
-* 2017-03-26 ~ Where the current action is occurring
 
 
 
@@ -91,6 +92,16 @@ Then you have come to the right place.
 
 ### Mission
 
+2017-08-21
+* Access locally/remotely, online/offline
+* Solve problems faster by melding coding and using input/processing/output tools into unified flow of efforts
+* Help you develop skills you can use over and over again most everywhere
+* Built to fork, edit and share - all FOSS in GitHub
+* Build using fastest, shortest and easiest code possible
+* Ready to use, cut and paste vary short cookbook-style scripts
+* Code that's easy to read - so you concentrate on solving the problem more than guessing the intent of the programmer
+
+Older
 * Explore GitHub using the GitHub API
 * Explore the GitHub API using entry-level, plain-vanilla JavaScript
 * Help you build tools that make the GitHub web pages and the data come to you

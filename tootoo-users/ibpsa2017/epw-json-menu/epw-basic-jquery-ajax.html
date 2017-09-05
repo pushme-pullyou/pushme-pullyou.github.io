@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang = "en" >
+<head>
+<meta charset = "utf-8" >
+<meta name = description content = "Basic HTML template" >
+<meta name = keywords content = "JavaScript,GitHub,FOSS,3D,STEM" >
+<meta name = date content = "2017-08-04" >
+<title></title>
+<style>
+
+	body { font: 12pt monospace; margin: 0 auto; max-width: 800px; }
+	a { color: crimson; text-decoration: none; }
+	p { width: 250px;}
+	select { width: 100%; }
+
+</style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://ajax-cross-origin.com/js/jquery.ajax-cross-origin.min.js"></script>
+<script src = "../data/countrydata.js" ></script>
+</head>
+<body>
+
+
+	<div id = "menu" >
+		<div id = "header" ><h1><a id = "title" href = "" ></a></h1></div>
+
+		<p>
+			Country:<br>
+			<select id="inpCountry" size=10 ></select>
+		</p>
+
+		<p>
+			City: <br>
+			<select id="inpCity" size=10 ></select>
+		</p>
+
+		<p>
+			<span id=spnDataFields >Data fields: </span><br>
+			<select id="inpData" size=10 ></select>
+		</p>
+
+		<p id=epwData style=height:100px;overflow:scroll; ></p>
+
+		<p id=epwCalculations ></p>
+
+	</div>
+
+<script>
+
+// https://script.google.com/macros/s/AKfycbwmqG55tt2d2FcT_WQ3WjCSKmtyFpkOcdprSITn45-4UgVJnzp9/exec?url=http://www.eco-envolventes.net/data/json/allEPW/NZL/NZL_CHRISTCHURCH.json&callback=jQuery1111009776278036450137_1502474907565&_=1502474907566
+	let epwJson;
+
+	init();
+
+
+
+	function init() {
+
+		let txt;
+
+		title.innerHTML = location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' );
+
+		countries = countries.sort();
+
+		getCountry();
+
+		inpCity.onchange = function(){ getCity( inpCountry.value ); }
+
+	}
+
+
+
+	function getCountry() {
+
+		
+
+		for ( let i = 0; i < countries.length; i++ ) {
+
+			if ( countries[ i ] ) {
+
+				inpCountry.innerHTML += '<option>' + countries[ i ] + '</option>';
+
+			}
+
+		}
+
+		inpCountry.onchange = function(){ getCity( inpCountry.value ); }
+
+//		inpCountry.selectedIndex = 0;
+		inpCountry.selectedIndex = Math.floor( Math.random() * inpCountry.length );
+
+		getCity( inpCountry.value );
+
+	}
+
+
+
+
+	function getCity( country ) {
+
+		let cities;
+
+		cities = window[ country ] ;
+
+		cities = cities.sort();
+
+		inpCity.innerHTML = '';
+
+		for ( var i = 0; i < cities.length; i++ ) {
+
+			inpCity.innerHTML += '<option>' + cities[ i ] + '</option>';
+
+		}
+
+		inpCity.selectedIndex = Math.floor( Math.random() * inpCity.length );
+
+		getData( country, inpCity.value );
+
+	}
+
+
+
+	function getData( country, city ) {
+
+		let url = encodeURI( 'http://www.eco-envolventes.net/data/json/allEPW/' + country + '/' + country + '_' + city + '.json' );
+
+console.log( 'url', url );
+
+		jQuery.ajax( {
+
+			crossOrigin: true,
+			url: url,
+			success: success
+
+		});
+
+	}
+
+
+
+	function success( data ) {
+
+		epwJson = JSON.parse( data );
+
+//console.log( 'epwJson', epwJson );
+
+		inpData.innerHTML = '';
+
+		for ( let i = 0; i < epwJson.hourlyDataFields.length; i++ ) {
+
+			inpData.innerHTML += '<option>' + epwJson.hourlyDataFields[ i ].name + '</option>';
+
+		}
+		spnDataFields.innerHTML = 'Data fields (' + epwJson.hourlyDataFields.length + '):';
+
+		inpData.onchange = function() { getFieldData( inpData.selectedIndex ) };
+
+		inpData.selectedIndex = 0;
+		inpData.selectedIndex = Math.floor( Math.random() * inpData.length );
+
+		getFieldData( inpData.selectedIndex );
+
+	}
+
+
+
+	function getFieldData( fieldIndex ) {
+
+
+		let data = [];
+
+//console.log( '', epwJson );
+
+		for ( let i = 0; i < epwJson.hourlyData.length; i++ ) {
+
+			hour = epwJson.hourlyData[ i ];
+			data.push( hour[ fieldIndex ] );
+
+		} 
+
+		epwData.innerHTML = data.join( ', ' );
+		getCalculations( data );
+	}
+
+
+	function getCalculations( arr ) {
+
+		const b = '<br>';
+
+// ugh Spread Parameters equals a symbol no normal persons understands
+
+		const average = arrr => arrr.reduce( ( p, c ) => p + c, 0 ) / arrr.length;
+
+		epwCalculations.innerHTML = 
+
+			inpCity.value + b +
+			inpData.value + b +
+			'Min: ' + Math.min( ... arr ) + b +
+			'Max: ' + Math.max( ... arr ) + b +
+			'Average: ' + average( arr ).toFixed( 2 ) + b +
+			'<hr>' +
+			'Latitude: ' + epwJson.location.latitude + b +
+			'Longitude: ' + epwJson.location.longitude + b +
+			'Altitude: ' + epwJson.alt + b +
+		'';
+
+
+
+	}
+</script>
+</body>
+</html>

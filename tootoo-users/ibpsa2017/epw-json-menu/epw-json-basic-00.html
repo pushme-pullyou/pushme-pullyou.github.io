@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang = "en" >
+<head>
+<meta charset = "utf-8" >
+<meta name = description content = "Basic HTML template" >
+<meta name = keywords content = "JavaScript,GitHub,FOSS,3D,STEM" >
+<meta name = date content = "2017-08-04" >
+<title></title>
+<style>
+
+	body { font: 12pt monospace; margin: 0 auto; max-width: 800px; }
+	a { color: crimson; text-decoration: none; }
+	h1 { margin: 10px 0 10px 0; }
+	p { width: 250px;}
+	select { width: 100%; }
+
+	#epwData { height:500px;overflow:scroll; }
+
+</style>
+<script src = "../data/countrydata.js" ></script>
+</head>
+<body>
+
+
+	<div id = "menu" >
+
+		<div id = "header" ><h1><a id = "title" href = "" ></a></h1></div>
+
+		<div id = "info" ></div>
+
+		<p>
+			Country:<br>
+			<select id="inpCountry" size=10 ></select>
+		</p>
+
+		<p>
+			City: <br>
+			<select id="inpCity" size=5 ></select>
+		</p>
+
+		<p>
+			<span id=spnDataFields >Data fields: </span><br>
+			<select id="inpField" size=10 ></select>
+		</p>
+
+		<p id=epwCalculations ></p>
+
+		<p>
+			Data:
+			<div id=epwData ></div>
+		</p>
+
+
+
+	</div>
+
+<script>
+
+	let epwJson;
+
+	init();
+
+
+
+	function init() {
+
+		title.innerHTML = location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' );
+
+		countries = countries.sort();
+
+		inpCountry.onchange = getCities;
+
+		inpCity.onchange = getData;
+
+		inpField.onchange = getField;
+
+		getCountry();
+
+	}
+
+
+
+	function getCountry() {
+
+		for ( let i = 0; i < countries.length; i++ ) {
+
+			if ( countries[ i ] ) {
+
+				inpCountry.innerHTML += '<option>' + countries[ i ] + '</option>';
+
+			}
+
+		}
+
+//		inpCountry.selectedIndex = 0;
+		inpCountry.selectedIndex = Math.floor( Math.random() * inpCountry.length );
+
+		getCities();
+
+	}
+
+
+
+
+	function getCities() {
+
+		let country, cities;
+
+		country = inpCountry.value;
+
+		cities = window[ country ] ;
+
+		cities = cities.sort();
+
+		inpCity.innerHTML = '';
+
+		for ( var i = 0; i < cities.length; i++ ) {
+
+			inpCity.innerHTML += '<option>' + cities[ i ] + '</option>';
+
+		}
+
+		inpCity.selectedIndex = Math.floor( Math.random() * inpCity.length );
+
+		getData();
+
+	}
+
+
+
+	function getData() {
+
+		let country, city, fileName, url;
+
+		country = inpCountry.value;
+
+		city = inpCity.value;
+
+		fileName = encodeURI( 'http://www.eco-envolventes.net/data/json/allEPW/' + country + '/' + country + '_' + city + '.json' );
+
+console.log( 'fileName', fileName );
+
+		url = 'https://cors-anywhere.herokuapp.com/' + fileName;
+
+		requestFile( url );
+
+		info.innerHTML = '.';
+
+	}
+
+
+
+	function requestFile( url ) {
+
+		let xhr;
+
+		xhr = new XMLHttpRequest();
+		xhr.crossOrigin = 'anonymous';
+		xhr.open( 'GET', url, true );
+		xhr.onerror = function( xhr ) { info.innerHTML = 'error: ' + xhr };
+		xhr.onprogress = function( xhr ) { info.innerHTML = 'Bytes loaded: ' + xhr.loaded };
+		xhr.onload = callback;
+		xhr.send( null );
+
+	}
+
+
+
+	function callback( xhr ) {
+
+		epwJson = JSON.parse( xhr.target.response );
+
+//console.log( 'epwJson', epwJson );
+
+		inpField.innerHTML = '';
+
+		for ( let i = 0; i < epwJson.hourlyDataFields.length; i++ ) {
+
+			inpField.innerHTML += '<option>' + epwJson.hourlyDataFields[ i ].name + '</option>';
+
+		}
+
+		spnDataFields.innerHTML = 'Data fields (' + epwJson.hourlyDataFields.length + '):';
+
+
+
+		inpField.selectedIndex = 0;
+		inpField.selectedIndex = Math.floor( Math.random() * inpField.length );
+
+		getField();
+
+	}
+
+
+
+	function getField() {
+
+		let fieldIndex;
+
+		fieldIndex = inpField.selectedIndex;
+
+		let data = [];
+
+//console.log( '', epwJson );
+
+		for ( let i = 0; i < epwJson.hourlyData.length; i++ ) {
+
+			hour = epwJson.hourlyData[ i ];
+			data.push( hour[ fieldIndex ] );
+
+		}
+
+		epwData.innerHTML = data.join( ', ' );
+		getCalculations( data );
+
+	}
+
+
+
+	function getCalculations( arr ) {
+
+		const b = '<br>';
+
+// http://www.jstips.co/en/javascript/array-average-and-median/
+
+		let sum = arr.reduce( ( previous, current ) => current += previous );
+		let avg = sum / arr.length;
+
+		let values = arr.sort( (a, b ) => a - b );
+		let lowMiddle = Math.floor( ( values.length - 1 ) / 2 );
+		let highMiddle = Math.ceil( ( values.length - 1 ) / 2 );
+		let median = ( values[ lowMiddle ] + values[ highMiddle ] ) / 2;
+
+		epwCalculations.innerHTML =
+
+			inpCity.value + b +
+			inpField.value + b +
+
+// ugh Spread Parameters equals a symbol no normal persons understands
+			'Min: ' + Math.min( ... arr ) + b +
+			'Max: ' + Math.max( ... arr ) + b +
+			'Average: ' + avg.toFixed( 2 ) + b +
+			'Median: ' + median.toFixed( 2 ) + b +
+			'<hr>' +
+			'Latitude: ' + epwJson.location.latitude + b +
+			'Longitude: ' + epwJson.location.longitude + b +
+			'Altitude: ' + epwJson.alt + b +
+		'';
+
+	}
+
+
+</script>
+</body>
+</html>
