@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang = "en" >
+<head>
+<meta charset = "utf-8" >
+<meta name = description content = "Basic HTML template" >
+<meta name = keywords content = "JavaScript,GitHub,FOSS,3D,STEM" >
+<meta name = date content = "2017-08-04" >
+<title></title>
+<style>
+
+	body { font: 12pt monospace; margin: 0 auto; max-width: 400px; }
+	a { color: crimson; text-decoration: none; }
+	#divContents { z-index: 10; }
+
+/*	#menu { margin: 0 20px; max-width: 500px; position: absolute; } */
+
+</style>
+</head>
+<body>
+
+	<div id = "menu" >
+		<div id = "header" ><h1><a id = "title" href = "" ></a></h1></div>
+		<div id = "divSubMenu" ></div>
+	</div>
+
+<script>
+
+	init();
+
+	function init() {
+
+		let txt;
+
+		if ( window.top !== window.self ) { 
+
+			parent.divSubMenu.innerHTML = '';
+			parent.ifrMenu.src = '';
+
+		}
+
+		title.innerHTML = location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' );
+
+//		txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
+//		contents.innerHTML = txt;
+
+		getContents();
+
+	}
+
+
+
+	function getContents( user, repo, path ) {
+
+		user = user ? user : 'mrdoob';
+		repo = 'three.js';
+		path = 'examples';
+
+		url = 'https://api.github.com/repos/mrdoob/three.js/git/trees/dev?recursive=1'
+
+		requestFile( url, callbackContents );
+
+	}
+
+
+
+	function callbackContents( xhr ){
+
+		let response, items, source, src;
+		let page = '';
+		const b = '<br>';
+		response = xhr.target.response;
+		files = JSON.parse( response ).tree;
+		
+		level1 = [];
+		level2 = [];
+		lebel3 = []
+
+		txt = '<details><summary>three.js</summary>';
+console.log( '', files );
+
+//		for ( let i = 0; i < files.length; i++ ) {
+		for ( let i = 0; i < 1000; i++ ) {
+
+			file = files[ i ];
+
+
+			if ( file.type === 'tree'  && !file.path.startsWith( '.' ) ){
+
+				file = file.path.split( '/' );
+
+				first = file.shift();
+				txt += file + b;
+				if ( !first.includes( '.' ) && !level1.includes( first ) ){ 
+
+					level1.push( first ); 
+
+					txt += '</details><details><summary>' + first + '</summary>';
+					level2 = []
+
+
+					first = file.shift();
+					if ( first && !first.includes( '.' ) && !level2.includes( first ) ){ 
+						level2.push( first ); txt += '<details><summary>' + first + '</summary></details>'
+					};
+
+				};
+
+
+			} else {
+
+				file = file.path.split( '/' ).pop();
+//				txt += file + b;
+
+			}
+/*
+				first = file.shift();
+				if ( !first.includes( '.' ) && !types.includes( first ) ){ 
+					types.push( first ); txt += '<details><summary>' + first + '</summary></details>'
+				};
+				first = file.shift();
+				if ( first && !first.includes( '.' ) && !types.includes( first ) ){ 
+					types.push( first ); 
+					txt += '<details><summary>' + first + '</details></summary>'};
+				first = file.shift();
+				if ( first && !first.includes( '.' ) && !types.includes( first ) ){ types.push( first ); txt += '<details><summary>' + first + '</summary></details>'};
+				first = file.shift();
+				if ( first && !first.includes( '.' ) && !types.includes( first ) ){ types.push( first ); txt += '<details><summary>' + first + '</summary></details>'};
+				first = file.shift();
+				if ( first && !first.includes( '.' ) && !types.includes( first ) ){ types.push( first ); txt += '<details><summary>' + first + '</summary></details>'};
+				first = file.shift();
+				if ( first && !first.includes( '.' ) && !types.includes( first ) ){ types.push( first ); txt += '<details><summary>' + first + '</summary><,details>'};
+
+
+				txt += file + b;
+*/
+
+console.log( 'file', file );
+
+		}
+
+		divSubMenu.innerHTML =  txt;
+
+	}
+
+
+	function requestFile( url, callback ) {
+
+		let xhr;
+
+		xhr = new XMLHttpRequest();
+		xhr.open( 'get', url, true );
+		xhr.onload = callback;
+		xhr.send( null );
+
+	}
+
+</script>
+</body>
+</html>

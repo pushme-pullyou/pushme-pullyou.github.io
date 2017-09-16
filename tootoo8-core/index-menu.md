@@ -21,9 +21,9 @@
 
 ***
 
-<div id=divSubMenu ></div>
+<div id = "divMenuSub" ></div>
 
-<iframe id=ifrMenu class=xxxiframeMenu width=100% height=0 frameBorder=0 ></iframe>
+<iframe id = "ifrMenuSub" class = "iframeMenu" ></iframe>
 
 
 
@@ -36,8 +36,9 @@
 
 ***
 
-[license         ]( #./pages/license.md )
-[code of conduct ]( #./pages/code-of-conduct.md )
-[contributing    ]( #./pages/contributing.md )
+[credits         ]( #../pages/credits.md "Nice peeps!" )
+[license         ]( #../pages/license.md "Do as you please" )
+[code of conduct ]( #../pages/code-of-conduct.md "Play hard and play fair" )
+[contributing    ]( #../pages/contributing.md "How to get started" )
 
 <h1 style=text-align:center; > &#x2766; </h1>

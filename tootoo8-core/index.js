@@ -5,12 +5,12 @@
 
 //	defaults.menuPrefix = 'menu';
 
-	defaults.menuWidth = 250;
+	defaults.menuWidth = 320;
 
-	defaults.user = 'pushme-pullyou';
+	defaults.user = 'ladybug-tools';
 
-	defaults.repository = "pushme-pullyou2";
+	defaults.repository = "spider";
 
-	defaults.folder = 'pushme-pullyou2/blob/master/tootoo8-core';
+	defaults.folder = 'spider/blob/master/sandbox/chart-epw-data';
 
 	defaults.file = 'README.md';

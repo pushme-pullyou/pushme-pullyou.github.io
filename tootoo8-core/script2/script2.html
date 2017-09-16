@@ -35,6 +35,16 @@
 
 		title.innerHTML = '<h1><a href="" >' + location.href.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) +'</a></h1>';
 
+		if ( window.top === window.self ) {
+
+
+		} else {
+
+			parent.requestFile( "script2/script2.md", parent.divMenuSub );
+
+		}
+
+
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true }  );
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		document.body.appendChild( renderer.domElement );
@@ -57,7 +67,6 @@
 
 		scene.add( mesh );
 
-		parent.requestFile( "script2/script2.md", parent.divSubMenu );
 
 	}
 

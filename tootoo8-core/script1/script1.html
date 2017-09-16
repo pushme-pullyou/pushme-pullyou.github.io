@@ -33,6 +33,20 @@
 
 	function init() {
 
+		if ( window.top === window.self ) {
+
+
+		} else {
+
+			parent.requestFile( "script1/script1.md", parent.divMenuSub );
+
+			parent.ifrMenuSub.src = 'script1/mnu-basic.html';
+
+			parent.ifrMenuSub.style.height = '400px';
+
+
+		}
+
 		title.innerHTML = '<h1><a href="" >' + location.href.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) +'</a></h1>';
 
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true }  );
@@ -56,9 +70,6 @@
 		mesh = new THREE.Mesh( geometry, material );
 
 		scene.add( mesh );
-
-//console.log( 'parent.divMenuContents', parent.ifrMenu );
-		parent.requestFile( "script1/script1.md", parent.divSubMenu );
 
 	}
 
