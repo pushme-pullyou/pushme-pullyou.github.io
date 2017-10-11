@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang = "en" >
+<head>
+<meta charset = "utf-8" >
+<meta name = "viewport" content= "width=device-width, initial-scale=1">
+<meta name = "description" content = "Basic Burning mAnalemma template" >
+<meta name = "keywords" content = "JavaScript,GitHub,FOSS,3D,STEM" >
+<meta name = "date" content = "2017-09-19" >
+<title>GitHub Three.js Examples</title>
+<style>
+/* https://www.w3schools.com/colors/colors_names.asp */
+
+	html { --mnu-color: blue; --mnu-width: 300px; --mnu-back-color: #efd; height: 100%; }
+
+	body { font: 12pt monospace; height: 100%; margin: 0; padding: 0;  overflow: hidden; }
+	a { color: var( --mnu-color ); text-decoration: none; }
+	a:hover, a:focus{ color: #aaaaaa; }
+	h3 { margin: 0; }
+
+	select { width: 100%; }
+	summary { outline: none; font-size: 18pt }
+
+	button, input[type=button] { background-color: #ddd; border: none; color: var( --mnu-color ); cursor: pointer;padding: 3px 20px; }
+	button:hover { background-color: #ccc; color: #fff }
+
+	input[type=range] { -webkit-appearance: none; -moz-appearance: none; background-color: #ddd; width: 100%; }
+	input[type=range]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }
+	input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; background-color: #888; height: 20px; width: 10px; }
+
+	.floatRight { float: right; width: 70px;}
+
+	#divContents { height: 100%; width: 100%; }
+	#ifrContents { border: 1px solid var( --mnu-color ); height: 100%; width: 100%; }
+
+	#divMenu { background-color: #efd; border: 1px solid var( --mnu-color ); height: 100%; max-width: var( --mnu-width ); 
+		overflow: auto; padding: 5px;  }
+
+</style>
+</head>
+<body>
+
+		<div id = "divMenu" >
+
+			<div id = "title" ></div>
+
+			<p><input id=inpGetFiles onkeyup=getFiles(); ></p>
+
+			<p id = "info" ></p>
+			<p id = "divSubMenu" ></p>
+
+		</div>
+
+		<div id = "divContents" ></div>
+
+<script>
+
+	let scope;
+
+
+	init();
+
+	function init() {
+
+		title.innerHTML = '<h3><a href="" >' + document.title +'</a></h3>';
+
+		let txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
+
+		info.innerHTML = txt;
+
+		if ( parent && parent.ifrContents ) {
+
+			scope = parent;
+
+			scope.ifrMenuSub.style.height = ( divMenu.scrollHeight + 10 ) + 'px';
+
+		} else {
+
+			divContents.innerHTML = '<iframe id=ifrContents ></iframe>';
+
+			scope = window;
+
+			divMenu.style.cssText += 'margin: 20px; position: absolute; right: 0;';
+
+		}
+
+		getContents();
+
+		window.addEventListener( 'keyup', onKeyUp, false );
+
+	}
+
+
+
+	function getContents( user, repo, path ) {
+
+		user = user ? user : 'mrdoob';
+		repo = 'three.js';
+		path = 'examples';
+
+		url  = 'https://api.github.com/repos/' + user + '/' + repo + '/contents/' + path;
+
+		requestFile( url, callbackTypes );
+
+	}
+
+
+
+	function callbackTypes( xhr ) {
+
+		var response = JSON.parse( xhr.target.response );
+		var categories = [];
+		var files = [];
+		var text = '';
+
+		for ( var key in response ) {
+
+			var file = response[ key ].name;
+
+			if ( file.indexOf( '.html' ) === -1 || file === 'index.html' ) { continue; }
+
+			var id = file.slice( 0, -5 );
+			files.push( id );
+			var title = id.split( '_' );
+			var category = title.shift();
+			title = title.join().replace( /,/gi, ' ' );
+
+			if ( categories.indexOf( category ) === -1 ) {
+
+				categories.push( category );
+
+				text += '<h2>' + category + '</h2>';
+
+			}
+
+			text += '<div><a href=JavaScript:getExample("' + file + '") >' + title + '<a></div>';
+
+		}
+
+		info.innerHTML = files.length + ' files';
+		divSubMenu.innerHTML = text;
+
+		
+		scope.ifrMenuSub.style.height = ( divMenu.scrollHeight + 10 ) + 'px';
+		parent.document.body.style.overflow = 'hidden';
+
+	}
+
+
+
+
+	function getFiles() {
+
+		txt = inpGetFiles.value;
+
+		page = '';
+
+		for ( let i = 0; i < files.length; i++ ) {
+
+			file = files[ i ];
+//console.log( '', file);
+
+			if ( !file.name.endsWith( '.html' ) ) { continue; } 
+			if ( !file.name.includes( txt ) ) { continue; } 
+
+			page +=
+				'<div>' +
+					'<a href=JavaScript:getExample("' + file.name + '"); title="size: ' + file.size.toLocaleString() + '" >' + file.name + '</a>' +
+				'</div>' +
+			'';
+
+		}
+
+		divSubMenu.innerHTML = page;
+
+	}
+
+
+
+	function onKeyUp ( event ) {
+
+console.log( 'key', event.keyCode );
+
+		switch( event.keyCode ) {
+
+			case 33: /*page up*/     goTo( -1 ); break;
+			case 34: /* page down */ goTo( 1 ); break;
+
+		}
+
+		
+
+	}
+
+	function goTo( delta ) {
+
+		index = files.indexOf( ifrContents.src );
+
+	}
+
+
+	function getExample( fileName ) {
+
+		path = 'http://rawgit.com/mrdoob/three.js/master/examples/';
+		scope.ifrContents.src = path + fileName;
+
+		for ( var i = 0; i < scope.document.links.length; i++ ) {
+
+			link = scope.document.links[ i ];
+			link.parentNode.style.backgroundColor = link.text === fileName ? 'yellow' : '';
+
+		}
+	}
+
+
+	function requestFile( url, callback ) {
+
+		let xhr;
+
+		xhr = new XMLHttpRequest();
+		xhr.open( 'get', url, true );
+		xhr.onload = callback;
+		xhr.send( null );
+
+	}
+
+
+</script>
+</body>
+</html>

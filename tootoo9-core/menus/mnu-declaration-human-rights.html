@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang = "en" >
+<head>
+<meta charset = "utf-8" >
+<meta name = "viewport" content= "width=device-width, initial-scale=1">
+<meta name = "description" content = "Basic Burning mAnalemma template" >
+<meta name = "keywords" content = "JavaScript,GitHub,FOSS,3D,STEM" >
+<meta name = "date" content = "2017-09-19" >
+<title>Menu Template</title>
+<style>
+/* https://www.w3schools.com/colors/colors_names.asp */
+
+	html { --mnu-color: aqua; --mnu-back-color: lightyellow; --mnu-width: 300px;  height: 100%; }
+
+	body { font: 12pt monospace; height: 100%; margin: 0 auto; max-width: 800px; }
+
+	a { color: var( --mnu-color ); text-decoration: none; }
+	a:hover, a:focus{ color: #f1f1f1; }
+	h3 { margin: 0; }
+
+	select { width: 100%; }
+	summary { outline: none; font-size: 18pt }
+
+	button, input[type=button] { background-color: #ddd; border: none; color: var( --mnu-color ); cursor: pointer;padding: 3px 20px; }
+	button:hover { background-color: #ccc; color: #fff }
+
+	input[type=range] { -webkit-appearance: none; -moz-appearance: none; background-color: #ddd; width: 100%; }
+	input[type=range]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }
+	input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; background-color: #888; height: 20px; width: 10px; }
+
+	.floatRight { float: right; width: 70px;}
+
+	#divContents { height: 100%; width: 100%; }
+	#ifrContents { border: 10px solid var( --mnu-color ); height: 100%; width: 100%; }
+
+	#divMenu { position:fixed; width:300px; height:100%; overflow: auto; right:10px; top:20px;
+		background-color: var( --mnu-back-color ); transition: 0.5s; z-index: 1;
+		border: 1px solid var( --mnu-color ); width: var( --mnu-width ); padding: 5px;
+	}
+
+
+body { counter-reset: paragraph; }
+h2 { counter-reset: question; }
+h1 { counter-reset: section; }
+p::before { counter-increment: paragraph; content: "[" counter( paragraph ) "] "; }
+
+
+</style>
+</head>
+<body>
+<script src = "https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js" ></script>
+
+		<div id = "divMenu" >
+
+			<div id = "divTitle" ></div>
+
+			<div id = divMenuSub ></div>
+
+			<div id = "info" ></div>
+
+		</div>
+
+		<div id = "divContents" ></div>
+
+<script>
+
+	const b = '<br>';
+	const ifrSource = '../plugins/threejs-basic.html';
+
+	let scope;
+
+
+	init();
+
+	function init() {
+
+		showdown.setFlavor( 'github' );
+
+		divTitle.innerHTML = '<h3><a href="" >' + document.title +'</a>' +
+			'</h3>';
+
+		let txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
+
+		info.innerHTML = txt + txt;
+
+		if ( parent && parent.divContents ) {
+
+			scope = parent;
+
+		} else {
+
+			scope = window;
+
+		}
+
+		window.addEventListener( 'keyup', onKeyUp, false );
+
+		getContents();
+
+	}
+
+
+	function getContents( path, repo, user,  ) {
+
+		user = user ? user : 'parallel-constitution';
+		repo = repo ? repo : 'parallel-constitution.github.io';
+		path = path ? path : '/documents/universal-declaration-human-rights.md';
+
+		url  = 'https://rawgit.com/' + user + '/' + repo + '/master/' + path;
+
+		requestFile( url, callbackContents );
+
+	}
+
+
+
+	function callbackContents( xhr ){
+
+		let response, html, txt, headers;
+		let menuLinks = '';
+		const converter = new showdown.Converter();
+
+		response = xhr.target.response;
+//console.log( '', response );
+
+		html = converter.makeHtml( xhr.target.responseText );
+
+		scope.divContents.innerHTML = '<h1><a href="" >Declaration of Human Rights</a></h1>' + html;
+
+		txt = url.split( '/' ).pop().replace( /-|.md|.html/g, ' ' );
+
+		scope.window.scrollTo( 0, 0 );
+
+		headers = scope.document.querySelectorAll( 'h2' );
+//console.log( '', headers );
+
+		menuLinks = '<h2>Sections</h2>';
+
+		for ( var i = 1; i < headers.length; i++ ) {
+
+			header = headers[ i ]
+			menuLinks += header.textContent.link( '#' + header.id ) + b;
+
+		}
+
+		scope.divMenuSub.innerHTML = menuLinks;
+
+	}
+
+
+
+	function onKeyUp ( event ) {
+
+console.log( 'key', event.keyCode );
+
+		switch( event.keyCode ) {
+
+			case 33: /*page up*/ goTo(-1); break;
+			case 34: /* page down */ goTo(1); break;
+
+		}
+
+	}
+
+
+	function goTo( delta ) {
+
+		index = files.indexOf( ifrContents.src );
+
+	}
+
+
+	function requestFile( url, callback ) {
+
+		let xhr;
+
+		xhr = new XMLHttpRequest();
+		xhr.open( 'get', url, true );
+		xhr.onload = callback;
+		xhr.send( null );
+
+	}
+
+</script>
+</body>
+</html>

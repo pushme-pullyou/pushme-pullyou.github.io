@@ -296,20 +296,18 @@ Links of Interest / Background Context
 
 ### Users
 
-* [theo-armour.github.io](  https://theo-armour.github.io )
+* [theo-armour.github.io]( https://theo-armour.github.io )
 * [paul-m]( http://jaanga.github.io/demo/paul-m/gubgub-pm/ )
 
 
 
 
 ## Copyright and License
---------------------------------------------------------------------------------
 
 Copyright © 2017 pushMe pullYou authors. [MIT License]( #LICENSE.md ).
 
 
 ## To Do
---------------------------------------------------------------------------------
 
 * 2017-07-01 ~ Bring all explore GitHub links into one place
 
@@ -318,7 +316,6 @@ Copyright © 2017 pushMe pullYou authors. [MIT License]( #LICENSE.md ).
     * And projects?
 
 ## Change Log
---------------------------------------------------------------
 
 _See also individual script read me files in folders for more timely and script-specific updates_
 
