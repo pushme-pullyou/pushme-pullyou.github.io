@@ -19,10 +19,11 @@
 	a { color: var( --mnu-color ); text-decoration: none; }
 	a:hover, a:focus { background-color: yellow; color: #aaa; }
 
+	blockquote, pre { background-color: #eee; padding: 10px; }
 	button, input[type=button] { background-color: #ddd; border: none; color: #322; cursor: pointer; padding: 3px 5px; }
 	button:hover { background: #ccc; color: #fff }
 
-	h2 { margin: 0; }
+	h2, h3 { margin: 0; }
 
 	input[type=range] { -webkit-appearance: none; -moz-appearance: none; background-color: #ddd; box-sizing: border-box; margin: 0 0 5px 0; width: 100% }
 	input[type=range]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }
@@ -32,7 +33,7 @@
 	summary { outline: none; font-size: 14pt }
 
 	.bodyFixed { margin: 0 0 0 var( --mnu-width ); overflow: hidden; }
-	.bodyScrolling { border: 1px solid var( --mnu-color ); margin: 0 0 0 var( --mnu-width ); }
+	.bodyScrolling { border: 0px solid var( --mnu-color ); margin: 0 0 0 var( --mnu-width ); }
 
 	.contentsScrolling { border: 1px solid red; left: var( --mnu-width ); margin: 0 auto; max-width: 800px; right: 0; };
 	.contentsFixed { border: 10px solid lightblue; height: 100%; margin: 0; width: 100%; }
@@ -60,9 +61,9 @@
 		<div id = "divTitle" ></div>
 
 		<p><a href=JavaScript:getContentMarkdown(); >read me / update contents</a></p>
-
+<!--
 		<p><a href=JavaScript:getMenuHTML() >welcome / update menu</a></p>
-
+-->
 		<p><a href=JavaScript:getContentMarkdown('chart-nurbs/README.md',defaultRepo,defaultUser); >Charts NURBS</a></p>
 
 		<p><a href=JavaScript:getContentMarkdown('chart-scatter-3d/README.md',defaultRepo,defaultUser); >Charts Scatter 3D</a></p>
@@ -103,7 +104,8 @@
 
 	function init() {
 
-		divTitle.innerHTML = '<h2><a  href = "" >' + document.title + '</a> &nbsp; ' +
+		divTitle.innerHTML = 
+			'<h2><a  href = "" >' + document.title + '</a> &nbsp; ' +
 			'<a href=' + infoURI + ' target="top" >&#x24D8</a></h3>';
 
 //		document.body.className = 'bodyFixed';
@@ -177,7 +179,8 @@
 
 			divMenuSub.innerHTML = txt;
 
-			url = 'http://webmath.github.io/cookbook/README.md'; // '../README.md';
+//			url = 'http://webmath.github.io/cookbook/README.md'; // 
+			url = 'README.md';
 
 		} else {
 
@@ -215,8 +218,9 @@ console.log( 'url', url );
 
 		divContents.innerHTML = html;
 
-		headers = document.querySelectorAll( 'h2' )
-//console.log( '', headers );
+		headers = document.querySelectorAll( 'h2' );
+
+console.log( 'headers', headers );
 
 		if ( headers.length <= 2 ) { return; }
 

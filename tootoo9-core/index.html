@@ -5,9 +5,12 @@
 <meta name = "viewport" content= "width=device-width, initial-scale=1">
 <meta name = "description" content = "Basic tootoo9 template" >
 <meta name = "keywords" content = "JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2017-09-28" >
+<meta name = "date" content = "2017-10-11" >
 <title>Too Too R9</title>
 <style>
+
+/* Copyright 2017 pushMe pullYou authors. MIT License */
+
 /* https://www.w3schools.com/colors/colors_names.asp // use colors and borders to help identify the scope of particular elements */
 
 	html { --mnu-color: green; --mnu-back-color: bisque; --mnu-width: 350px; height: 100%; }
@@ -16,10 +19,11 @@
 	a { color: var( --mnu-color ); text-decoration: none; }
 	a:hover, a:focus { background-color: yellow; color: #aaa; }
 
+	blockquote, pre { background-color: #eee; padding: 10px; }
 	button, input[type=button] { background-color: #ddd; border: none; color: #322; cursor: pointer; padding: 3px 5px; }
 	button:hover { background: #ccc; color: #fff }
 
-	h2 { margin: 0; }
+	h2, h3 { margin: 0; }
 
 	input[type=range] { -webkit-appearance: none; -moz-appearance: none; background-color: #ddd; box-sizing: border-box; margin: 0 0 5px 0; width: 100% }
 	input[type=range]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }
@@ -54,9 +58,13 @@
 
 	<div id = "divMenu" >
 
-		<div id = "title" ></div>
 
-		<p><a href=JavaScript:getMenuHTML() >Welcome</a></p>
+		<div id = "divTitle" ></div>
+
+		<p><a href=JavaScript:getContentMarkdown(); >read me / update contents</a></p>
+
+		<p><a href=JavaScript:getMenuHTML() >welcome menu</a></p>
+
 		<p>
 			<a href=JavaScript:getMenuHTML("menus/mnu-template-markdown.html"); title ='' >mnu-template-markdown.html</a>
 			&raquo; <a href="menus/mnu-template-markdown.html" target="_blank" title = 'standalone test script' >&#x1F5D7;</a>
@@ -114,12 +122,17 @@
 
 <script>
 
+
+	const defaultUser = 'pushme-pullyou';
+	const defaultRepo = 'pushme-pullyou.github.io';
+	const defaultPath = '';
+
+	const infoURI = 'https://github.com/' + defaultUser + '/' + defaultRepo + '/' + defaultPath;
+
 	const b = '<br>';
 	const lorem = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
 
-	let txt;
-	txt =
-
+	const txt =
 		'<p>Welcome!</p>' +
 		'<p>It get\'s confusing in here some times.</p>' +
 		'<p>' + lorem + '</p><p>' + lorem + '</p>' +
@@ -129,9 +142,9 @@
 
 	function init() {
 
-		title.innerHTML = '<h2><a  href = "" >' + document.title + '</a> &nbsp; ' +
-			'<a href="https://github.com/ladybug-tools/spider/tree/master/sandbox//build-well/" target="top" >&#x24D8</a></h2>';
-
+		divTitle.innerHTML = 
+			'<h2><a  href = "" >' + document.title + '</a> &nbsp; ' +
+			'<a href=' + infoURI + ' target="top" >&#x24D8</a></h3>';
 
 		document.body.className = 'bodyFixed';
 
@@ -141,20 +154,21 @@
 //		divContents.className = 'contentsFixed';
 		divContents.style.cssText = 'border: 10px solid lightblue; box-sizing: border-box; margin: 0; max-width: 100%;';
 
+		getContentMarkdown();
+
 	}
 
 
 	function getMenuHTML( file ) {
 
 		const htm = file ? '<iframe id=ifrMenuSub src=' + file + '></iframe>' : txt;
-		document.body.className = 'bodyScrolling';
-
+//		document.body.className = 'bodyScrolling';
 
 		divMenuSub.innerHTML = htm;
 
-		divContents.innerHTML = '<iframe id=ifrContents ></iframe>';
+//		divContents.innerHTML = '<iframe id=ifrContents ></iframe>';
 //		divContents.className = 'contentsScrolling';
-		divContents.style.cssText = 'border: 1px solid red; left: 325px; margin: 0 auto; max-width: 800px; right: 0;';
+//		divContents.style.cssText = 'border: 1px solid red; left: 325px; margin: 0 auto; max-width: 800px; right: 0;';
 
 	}
 
@@ -188,16 +202,29 @@
 
 	function getContentMarkdown( path, repo, user ) {
 
-		user = user ? user : 'parallel-constitution';
-		repo = 'parallel-constitution.github.io';
-		path = path ? path : '/pages/links.md';
 
-		url  = 'https://rawgit.com/' + user + '/' + repo + '/master/' + path;
+		if ( !path ) {
+
+			divMenuSub.innerHTML = txt;
+
+//			url = 'http://webmath.github.io/cookbook/README.md'; // 
+			url = 'README.md';
+
+		} else {
+
+			user = user ? user : defaultUser;
+			repo = repo ? repo : defaultRepo;
+			path = path ? path : defaultPath;
+
+			url  = 'http://rawgit.com/' + user + '/' + repo + '/master/' + path;
+console.log( 'url', url );
+			divMenuSub.innerHTML = txt;
+
+		}
 
 		document.body.className = 'bodyScrolling';
 
 		divMenuSub.innerHTML = '';
-
 		divContents.innerHTML = '';
 		divContents.style.cssText = 'border: 1px solid red; left: 325px; margin: 0 auto; max-width: 800px; right: 0;';
 
@@ -210,7 +237,6 @@
 	function callbackMarkdown( xhr ){
 
 		let response, html, headers;
-		let page = '';
 		const converter = new showdown.Converter();
 
 		response = xhr.target.response;
@@ -220,9 +246,8 @@
 
 		divContents.innerHTML = html;
 
-// let's see if we can build a sub menu
+		headers = document.querySelectorAll( 'h2' );
 
-		headers = document.querySelectorAll( 'h2' )
 //console.log( '', headers );
 
 		if ( headers.length <= 2 ) { return; }
@@ -246,7 +271,10 @@
 		let xhr;
 
 		xhr = new XMLHttpRequest();
-		xhr.open( 'get', url, true );
+		xhr.crossOrigin = 'anonymous';
+		xhr.open( 'GET', url, true );
+		xhr.onerror = function( xhr ) { console.log( 'error:', xhr  ); };
+		xhr.onprogress = function( xhr ) { console.log( 'bytes loaded: ' + xhr.loaded.toLocaleString() ) }; /// or something
 		xhr.onload = callback;
 		xhr.send( null );
 

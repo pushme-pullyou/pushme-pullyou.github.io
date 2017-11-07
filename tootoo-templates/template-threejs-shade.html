@@ -17,7 +17,7 @@
 	button, input[type=button] { background-color: #ddd; border: none; color: #322; cursor: pointer; padding: 3px 5px; }
 	button:hover { background: #ccc; color: #fff }
 
-	#menu { position: absolute; text-align: center; width: 100%; }
+	#divMenu { position: absolute; text-align: center; width: 100%; }
 
 </style>
 </head>
@@ -25,9 +25,9 @@
 <script src = "https://cdn.rawgit.com/mrdoob/three.js/dev/build/three.min.js" ></script>
 <script src = "https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js" ></script>
 
-	<div id = "menu" >
+	<div id = "divMenu" >
 
-		<div id = "title" ></div>
+		<div id = "divTitle" ></div>
 		<div id = "contents" >
 			<button onclick=controls.autoRotate=!controls.autoRotate; >rotation</button>
 		</div>
@@ -40,14 +40,14 @@
 
 	var renderer, camera, controls, scene;
 
-	var lightAmbient, lightDirectional, cameraHelper, axisHelper;
+	var lightAmbient, lightDirectional, cameraHelper, gridHelper, axesHelper;
 
 	init();
 	animate();
 
 	function init() {
 
-		title.innerHTML = 
+		divTitle.innerHTML = 
 			'<h3><a  href = "" >' + document.title + '</a> &nbsp; ' + 
 			'<a href=' + infoURI + ' target="top" >&#x24D8</a></h3>';
 
@@ -78,20 +78,33 @@
 		lightDirectional.castShadow = true;
 		scene.add( lightDirectional );
 
-		cameraHelper = new THREE.CameraHelper( lightDirectional.shadow.camera ) 
-		scene.add( cameraHelper );
-
-		axisHelper = new THREE.AxisHelper( 50 );
-		scene.add( axisHelper );
 
 		window.addEventListener( 'resize', onWindowResize, false );
 		window.addEventListener( 'orientationchange', onWindowResize, false );
 		window.addEventListener( 'keyup', function() { controls.autoRotate = false; }, false );
 		renderer.domElement.addEventListener( 'click', function() { controls.autoRotate = false; }, false );
 
+		addHelpers();
 		addAssets();
 
 	}
+
+
+	function addHelpers() {
+
+		cameraHelper = new THREE.CameraHelper( lightDirectional.shadow.camera ) 
+		scene.add( cameraHelper );
+
+		axesHelper = new THREE.AxesHelper( 500 );
+		scene.add( axesHelper );
+
+		gridHelper = new THREE.GridHelper( 500 );
+		gridHelper.geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -0.5 * Math.PI ) );
+
+		scene.add( gridHelper );
+
+	}
+
 
 
 	function addAssets() {

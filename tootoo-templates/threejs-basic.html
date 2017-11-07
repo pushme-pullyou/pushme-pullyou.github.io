@@ -5,7 +5,7 @@
 <meta name="viewport" content = "width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" >
 <meta name=description content="3D in your browser" >
 <meta name=keywords content="Three.js,WebGL,JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2017-10-07" >
+<meta name = "date" content = "2017-10-25" >
 <title></title>
 <style>
 
@@ -13,10 +13,10 @@
 	a { color: crimson; text-decoration: none; }
 	a:hover, a:focus { background-color: yellow; color: #aaa; text-decoration: underline }
 
-	button, input[type=button] { background-color: #ddd; border: none; color: #322; cursor: pointer; padding: 3px 5px; }
+	button { background-color: #ddd; border: none; color: #322; cursor: pointer; padding: 3px 5px; }
 	button:hover { background: #ccc; color: #fff }
 
-	#menu { position: absolute; text-align: center; width: 100%; }
+	#divMenu { margin: 0 20px; position: absolute; }
 
 </style>
 </head>
@@ -24,9 +24,10 @@
 <script src = "https://cdn.rawgit.com/mrdoob/three.js/dev/build/three.min.js" ></script>
 <script src = "https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js" ></script>
 
-	<div id = "menu" >
+	<div id = "divMenu" >
 
-		<div id = "title" ></div>
+		<div id = "divTitle" ></div>
+
 		<div id = "contents" >
 			<button onclick=controls.autoRotate=!controls.autoRotate; >rotation</button>
 		</div>
@@ -43,7 +44,7 @@
 
 	function init() {
 
-		title.innerHTML = '<h1><a href="" >' + location.href.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) +'</a></h1>';
+		divTitle.innerHTML = '<h1><a href="" >' + location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' ) +'</a></h1>';
 
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true }  );
 		renderer.setSize( window.innerWidth, window.innerHeight );
@@ -71,7 +72,7 @@
 		window.addEventListener( 'orientationchange', onWindowResize, false );
 
 		const axesHelper = new THREE.AxesHelper( 50 );
-		scene.add( axieHelper );
+		scene.add( axesHelper );
 
 		geometry = new THREE.BoxGeometry( 50, 50, 50 );
 		material = new THREE.MeshNormalMaterial();
