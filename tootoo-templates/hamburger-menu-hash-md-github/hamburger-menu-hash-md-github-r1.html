@@ -6,40 +6,37 @@
 <meta name = "description" content = "View info regarding gbXML files" >
 <meta name = "keywords" content = "gbXML,JavaScript,Markdown,GitHub,FOSS,3D,STEM" >
 <meta name = "date" content = "2017-10-17" >
-<title>Hamburger Menu</title>
+<title>Hamburger Menu Hash MD GH</title>
 
 <style>
 /* Copyright 2017 Ladybug Tools authors. MIT License */
 
 /* https://www.w3schools.com/colors/colors_names.asp // use colors and borders to help identify the scope of particular elements */
 
-	html { --mnu-color: MediumSlateBlue; --mnu-back-color: ivory; --mnu-width: 350px; height: 100%; }
+	html { --mnu-color: MediumSlateBlue; --mnu-back-color: ivory; --mnu-width: 250px; height: 100%; }
 
 	body, html { font: 12pt monospace; height: 100%; margin: 0; }
 
 	a { color: crimson; }
 
 	blockquote, pre { background-color: #eee; padding: 10px; }
-	button, input[type=button] { background-color: #ddd; border: none; color: var( --mnu-color ); cursor: pointer;padding: 3px 20px; }
+	button, input[ type=button ] { background-color: #ddd; border: none; color: var( --mnu-color ); cursor: pointer; padding: 3px 20px; }
 	button:hover { background-color: #ccc; color: #fff }
 
-	.sidenav { background-color: ivory; height: 100%; width: 250px; position: fixed; z-index: 1; top: 0; left: 0; overflow-x: hidden;
-		transition: 0.5s; padding-top: 60px; }
-/*
-	.sidenav a { padding: 8px 8px 8px 32px; text-decoration: none; font-size: 25px; color: #818181; display: block; transition: 0.3s; }
-	.sidenav a:hover  a:focus{ color: #f1f1f1; }
-*/
+	.sidenav { background-color: ivory; box-sizing: border-box; height: 100%; left: 0; overflow: hidden; 
+		position: fixed; top: 0; width: var( --mnu-width ); z-index: 1; transition: 0.5s; }
 
-	#hamburger { background-color: #edd; cursor:pointer; font-size:30px; left: 250px; line-height: 30px; margin: 0; padding: 5px 15px 8px 10px;
+	.sidenav a:hover, .sidenav  a:focus{ color: #f1f1f1; }
+
+
+	#hamburger { background-color: #edd;  box-sizing: border-box; cursor: pointer; font-size:30px; left: 250px; line-height: 30px; margin: 0; padding: 5px 15px 8px 10px;
 		position: absolute; top: 20px; transition: left .5s; z-index: 1; }
 
-	#divContents { left: 0; position: absolute; margin: 0 auto; max-width: 800px; right: 0;}
-
-	#divMenu { padding: 8px; }
-
 	#divContainer { height: 100%; margin-left: 300px; transition: margin-left .5s; padding: 16px; position: relative; }
+	#divContents { left: 0; position: absolute; margin: 0 auto; max-width: 800px; right: 0;}
+	#divMenu { background-color: ivory; box-sizing: border-box; margin: 10px; }
 
-	@media screen and (max-height: 450px) { .sidenav {padding-top: 15px;} .sidenav a {font-size: 18px;} }
+	@media screen and ( max-height: 450px) { .sidenav {padding-top: 15px;} .sidenav a {font-size: 18px;} }
 
 </style>
 </head>
@@ -47,7 +44,7 @@
 <script src = "https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js" ></script>
 
 
-	<div id="divMenu" class="sidenav">
+	<div id="divMenu" class="sidenav" >
 
 		<p id = "divBreadcrumbs" ><a href="../../index.html" title='' target="_top">pushMe pullYou</a> &raquo; <a href="../../index.html" target="_Top" >tooToo</a> &raquo; </p>
 
@@ -65,7 +62,7 @@
 		<hr>
 
 		<div id = "divFooter" ></div>
-
+                    
 	</div>
 
 	<div id = "divContainer" >
@@ -94,19 +91,19 @@
 </div>
 
 <script>
-
-//	const infoURI = 'https://github.com/pushme-pullyou.github.io/tootoo-templates/menu-for-markdown/' + fileName;
+// https://www.w3schools.com/howto/howto_js_off-canvas.asp
 
 //	const urlGitHubMenu = 'https://api.github.com/repos/GreenBuildingXML/Sample-gbXML-Files/contents/';
 //	const urlGitHubMenu = 'https://api.github.com/repositories/101335968/contents/sandbox/gbxml-guide';
 //	const urlGitHubMenu = 'https://api.github.com/repos/ladybug-tools/spider/contents/sandbox/gbxml-guide';
-
 	const urlGitHubMenu = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/tootoo-templates';
+
+	const urlGitHubMenuSource = 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/blob/master/tootoo-templates/';
+
 //	const urlGitHubFooter = 'https://api.github.com/repos/ladybug-tools/spider/contents/pages';
-
-
 	const urlGitHubFooter = 'https://api.github.com/repos/pushme-pullyou/pushme-pullyou.github.io/contents/pages';
 
+	const urlGitHubFooterSource = 'https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/pages/'
 
 	const pathArry  = location.pathname.split( '/' ).slice( -2 );
 	const release = pathArry[ 0 ]
@@ -116,13 +113,12 @@
 	const infoIcon = '<img src="https://status.github.com/images/invertocat.png" height=18 > </a>';
 
 
-// https://www.w3schools.com/howto/howto_js_off-canvas.asp
 
 	init();
 
 	function init() {
 
-		divTitle.innerHTML = 
+		divTitle.innerHTML =
 			'<h3>' +
 				'<a  href = "" >' + document.title + '</a> &nbsp; ' +
 				'<a href=' + infoURI + ' target="_top" >' + infoIcon + '</a>' +
@@ -167,29 +163,23 @@
 
 	function callbackGitHubMenu( xhr ) {
 
-		let response, files, txt;
+		const response = xhr.target.response;
+		const files = JSON.parse( response );
+		let txt = '';
 
-		response = xhr.target.response;
-
-		files = JSON.parse( response );
-console.log( 'files', files );
-
-		txt = '';
-
-		for ( let i = 0; i < files.length; i++ ) {
-
-			file = files[ i ];
-//console.log( 'file', file );
+		for ( let file of files ) {
 
 //			if ( file.name === 'README.md' || !file.name.endsWith( '.md' ) ) { continue; }
 
-			txt += '<div>' +
-				'<a href=#' + file.download_url + 
-				' title="' + file.size.toLocaleString() + ' bytes"  >' + 
-				file.name + '</a> ' +
-				'<a href=https://github.com/ladybug-tools/spider/blob/master/sandbox/gbxml-guide/' + file.name + 
-				' title="Edit me" > &#x1f589;</a>' +
-			'</div>';
+			txt +=
+				'<div>' +
+					'<a href=#' + file.download_url +
+					' title="' + file.size.toLocaleString() + ' bytes"  >' +
+					file.name + '</a> ' +
+					'<a href=' + urlGitHubMenuSource + file.name +
+					' title="Edit me" > &#x1f589;</a>' +
+				'</div>' +
+			'';
 
 		}
 
@@ -201,27 +191,19 @@ console.log( 'files', files );
 
 	function callbackGitHubFooter( xhr ) {
 
-		let response, files, txt;
+		const response = xhr.target.response;
+		const files = JSON.parse( response );
+		let txt = '';
 
-		response = xhr.target.response;
-
-		files = JSON.parse( response );
-//console.log( 'files', files );
-
-		txt = '';
-
-		for ( let i = 0; i < files.length; i++ ) {
-
-			const file = files[ i ];
-//console.log( 'file', file );
+		for ( let file of files ) {
 
 			if ( file.name === 'README.md' || !file.name.endsWith( '.md' ) ) { continue; }
 
 			txt += '<div>' +
-				'<a href=#' + file.download_url + 
-				' title="' + file.size.toLocaleString() + ' bytes"  >' + 
+				'<a href=#' + file.download_url +
+				' title="' + file.size.toLocaleString() + ' bytes"  >' +
 				file.name + '</a>' +
-				'<a href=https://github.com/ladybug-tools/spider/tree/master/pages/' + file.name + 
+				'<a href=' + urlGitHubFooterSource + file.name +
 				' title="Edit me" > &#x1f589;</a>' +
 			'<div>';
 
