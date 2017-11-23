@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>DAT Data2 </title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='GubGub DAT data' >
+<meta name=keywords content='Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-11-06' >
+</head>
+<body>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.4/showdown.min.js ></script>
+
+<script src=../../r2/0-cor-core/cor-core.js ></script>
+<script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
+<script src=../../r2/0-api-authentication/api-authentication.js ></script>
+<script src=../../r2/2-res-results/res-results.js ></script>
+<script src=../../r2/2-res-results/res-results-events.js ></script>
+<script src=../../r2/1-dat-data/dat-data.js ></script>
+
+<script>
+
+	var user = 'torvalds';
+	var user = 'jaanga';
+	var user ='jquery';
+//	var user = 'sagemath';
+//	var user = 'mrdoob';
+//	var user = 'ladybug-analysis-tools';
+//	var user = 'torvalds';
+	var user = 'paulmasson';
+//	var user = 'theo-armour';
+//	var user = 'Theo-Armour';
+
+//	location.hash = '#README.md';
+
+	COR.readMeURL = '#README.md'; // for testing
+	COR.readMeText = 'This is the DAT test version of GubGub.';
+
+	init();
+
+	function init() {
+
+		COR.taglineHeader += '+ a user DAT howdy!' + b;
+
+		COR.readMeText = 'This is the DAT default version of GubGub.';
+
+		MNU.initThreeColumns();
+
+		MNU.menu.innerHTML =
+
+			COR.getMenuDetailsHeader() +
+
+			DAT.getMenuDetailsUserData() +
+
+			COR.getMenuDetailsAbout() +
+
+			COR.getMenuFooter() +
+
+		'';
+
+		window.addEventListener( 'hashchange', onHashChange, false );
+
+		onHashChange();
+
+	}
+
+
+	function onHashChange() {
+
+		var hash, callback, xhr;
+
+		hash = location.hash.slice( 1 );
+
+		if ( hash.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+
+		if ( hash.endsWith( '.md' ) === true ) {
+
+			COR.requestFile( hash, callbackMD );
+
+			function callbackMD( xhr ) {
+
+				if ( xhr.target.status === 404 ) { return; }
+
+				txt = xhr.target.responseText;
+
+				if ( hash.includes( 'README.md' ) === true ){ txt = txt.replace( 'READMEbespokeText', COR.readMeText || '' ); }
+
+				MNU.contents.innerHTML = COR.converter.makeHtml( txt );
+
+			}
+
+			return;
+
+		}
+		
+		DAT.getUserData( user );
+
+	};
+
+</script>
+</body>
+</html>

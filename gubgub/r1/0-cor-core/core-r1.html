@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>GubGub Core R1</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Core stylesheet, menu content and utilities
+' >
+<meta name=keywords content='GubGub,Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-10-26' >
+</head>
+<body>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
+<script src=../0-cor-core/core-r1.js ></script>
+<script>
+
+
+//	location.hash = '../README.md';
+
+
+//	COR.readMeURL = 'core-r1.html#README.md'; // for testing
+//	COR.readMeURL = 'index.html#README.md';
+
+	COR.readMeURL = 'core-r1.html#../README.md'; // for testing
+	COR.readMeText = 'This is the default version of GubGub.';
+
+	init();
+
+	function init() {
+
+		COR.taglineHeader += '+ a hard core howdy!' + b;
+
+		COR.initThreeColumns();
+
+		COR.menu.innerHTML =
+
+			COR.getMenuDetailsHeader() +
+
+			COR.getMenuDetailsTemplate() +
+
+			COR.getMenuDetailsAbout() +
+
+			COR.getMenuFooter() +
+
+		b;
+
+		CORdetailsTemplate.setAttribute( 'open', 'open' );
+
+		window.addEventListener( 'hashchange', COR.onHashChange, false );
+
+		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
+
+	}
+
+</script>
+</body>
+</html>

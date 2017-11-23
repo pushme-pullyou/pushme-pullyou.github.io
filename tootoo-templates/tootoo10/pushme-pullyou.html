@@ -3,10 +3,10 @@
 <head>
 <meta charset = "utf-8" >
 <meta name = "viewport" content= "width=device-width, initial-scale=1">
-<meta name = "description" content = "List and view all the files in all the folders. File wrangler. Default index.html file. Opens HTML or Markdown files. Passes location.hash." >
+<meta name = "description" content = "List and view all the files in all the folders" >
 <meta name = "keywords" content = "JavaScript,Markdown,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2017-11-20" >
-<title>Index Table of Contents</title>
+<meta name = "date" content = "2017-11-22" >
+<title>pushMe pullYou Table of Contents</title>
 
 <style>
 /* Copyright 2017 Ladybug Tools authors. MIT License */
@@ -48,13 +48,14 @@
 
 
 	<div id = "divMenu" >
-
+<!--
 		<p>
-			<a href="http://www.ladybug.tools/" target="_top" >Ladybug Tools</a> &raquo; 
+
+			<a href="http://pushme-pullyou.github.io/" target="_top" >Ladybug Tools</a> &raquo; 
 			<a href="http://www.ladybug.tools/spider/" target="_top" >&#x1f578;</a> &raquo; 
 			<a href="../index.html" target="_"top style=font-size:24px; >&#x2302;</a> &raquo; 
 		</p>
-
+-->
 		<h2>
 			<a id = "urlInfo" target="_top" ><img src="https://status.github.com/images/invertocat.png" height=18 title='Octocat'  ></a>
 			<a href="" ><script> document.write( document.title )</script></a>
@@ -96,29 +97,22 @@
 	<div id = "hamburger" onclick=toggleNav(); > slide &#9776;  </div>
 
 <script>
-/*
-//	const user = 'ladybug-tools'
-//	const repo = '/spider';
-//	const pathRepo = '';
 
-	const user = 'theo-armour'
-	const repo = '/ucsf2';
-	const pathRepo = '';
-*/
-
-	const user = 'webmath'
-	const repo = '/webmath.github.io';
+	const user = 'pushme-pullyou';
+	const repo = '/pushme-pullyou.github.io';
 	const pathRepo = '';
 
 //	const threeDefaultFile = '../gbxml-viewer7-01-basic/gbxml-viewer7-basic.html';
-//	const uriDefaultFile = './README.md';
-	const uriDefaultFile = 'plugins/view-github-issues.html'
+
+	const uriDefaultFile = '../../README.md';
+//	const uriDefaultFile = 'plugins/view-github-issues.html'
 
 	const iconInfo = '<img src="https://status.github.com/images/invertocat.png" height=18 > </a>';
 
 	const urlGitHubApiContents = 'https://api.github.com/repos/' + user + repo + '/contents/' + pathRepo;
 
 	const urlGitHubPage = 'https://rawgit.com/' + user + repo + '/master/';
+
 	const urlGitHubSource = 'https://github.com/' + user + repo + '/blob/master/' + pathRepo;
 
 
@@ -126,7 +120,7 @@
 
 	function init() {
 
-		urlInfo.href = urlGitHubSource; // 'https://github.com/' + user + repo;
+		urlInfo.href = 'https://github.com/' + user + repo;
 
 		window.addEventListener ( 'hashchange', onHashChange, false );
 

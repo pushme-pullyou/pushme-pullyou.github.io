@@ -33,13 +33,6 @@
 
 	function init() {
 
-		if ( window.top !== window.self ) { 
-
-//			parent.divSubMenu.innerHTML = ''; // or iframe in here?
-//			parent.ifrMenu.src = 'plugins/screen-capture.html';
-
-		}
-
 		title.innerHTML = '<h1><a href="" >' + location.href.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) +'</a></h1>';
 
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true }  );
