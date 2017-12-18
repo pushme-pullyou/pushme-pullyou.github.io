@@ -3,7 +3,7 @@
 <head>
 <meta charset = "utf-8" >
 <meta name = "viewport" content= "width=device-width, initial-scale=1">
-<meta name = "description" content = "List and view all the files in all the folders" >
+<meta name = "description" content = "List and view all the files in all the folders. File wrangler. Default index.html file. Opens HTML or Markdown files. Passes location.hash." >
 <meta name = "keywords" content = "JavaScript,Markdown,GitHub,FOSS,3D,STEM" >
 <meta name = "date" content = "2017-11-22" >
 <title>pushMe pullYou Table of Contents</title>
@@ -44,7 +44,7 @@
 </style>
 </head>
 <body>
-<script src = "https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js" ></script>
+<script src = "https://cdn.rawgit.com/showdownjs/showdown/1.8.5/dist/showdown.min.js" ></script>
 
 
 	<div id = "divMenu" >
@@ -113,6 +113,7 @@
 
 	const urlGitHubPage = 'https://rawgit.com/' + user + repo + '/master/';
 
+//	const urlGitHubSource = 'https://github.com/' + user + repo;
 	const urlGitHubSource = 'https://github.com/' + user + repo + '/blob/master/' + pathRepo;
 
 
@@ -120,7 +121,7 @@
 
 	function init() {
 
-		urlInfo.href = 'https://github.com/' + user + repo;
+		urlInfo.href = urlGitHubSource;
 
 		window.addEventListener ( 'hashchange', onHashChange, false );
 
@@ -137,6 +138,8 @@
 		const url = !location.hash ? uriDefaultFile : location.hash.slice( 1 );
 		const ulc = url.toLowerCase();
 
+		setBreadcrumbs( url.slice( 0, url.lastIndexOf( '/' ) ) ); 
+
 		if ( ulc.endsWith( '.md' ) ) {
 
 			requestFile( url, callbackMarkdown );
@@ -148,7 +151,7 @@
 
 		} else if ( ulc.endsWith( '.gif' ) || ulc.endsWith( '.png' ) || ulc.endsWith( '.jpg' ) || ulc.endsWith( '.svg' )) {
 
-			divContents.innerHTML = '<img src=' + urlGitHubPage + url + ' >';
+			divContents.innerHTML = '<img src=' + urlGitHubPage + url + ' style=margin:20px; >';
 
 		} else {
 
@@ -178,7 +181,7 @@
 			'<b>' +
 				'<a href=JavaScript:getFolderContents(); >' + 
 
-					( pathRepo ? pathRepo : '&#x2302' ) + 
+					( pathRepo ? pathRepo : '<span style=font-size:24px >&#x2302</span>' ) + 
 
 				'</a> &raquo; ' +
 			'</b>';
@@ -247,6 +250,7 @@
 
 // choose to access remote or local files
 							'<a href=#' + urlGitHubPage + pathRepo + itemPath + 
+//							'<a href=#' + itemPath + 
 
 							' title="' + item.size.toLocaleString() + ' bytes" > ' + item.name + '</a> ' +
 // choose to access remote or local files

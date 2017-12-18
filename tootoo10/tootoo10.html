@@ -44,7 +44,7 @@
 </style>
 </head>
 <body>
-<script src = "https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js" ></script>
+<script src = "https://cdn.rawgit.com/showdownjs/showdown/1.8.5/dist/showdown.min.js" ></script>
 
 
 	<div id = "divMenu" >
@@ -93,24 +93,26 @@
 
 	</div>
 
+
 	<div id = "hamburger" onclick=toggleNav(); > slide &#9776;  </div>
 
 <script>
-/*
-//	const user = 'ladybug-tools'
-//	const repo = '/spider';
-//	const pathRepo = '';
 
+	const user = 'ladybug-tools'
+	const repo = '/spider';
+	const pathRepo = '';
+
+/*
 	const user = 'theo-armour'
 	const repo = '/ucsf2';
 	const pathRepo = '';
-*/
 
 	const user = 'webmath'
 	const repo = '/webmath.github.io';
 	const pathRepo = '';
+*/
 
-//	const threeDefaultFile = '../gbxml-viewer7-01-basic/gbxml-viewer7-basic.html';
+
 //	const uriDefaultFile = './README.md';
 	const uriDefaultFile = 'plugins/view-github-issues.html'
 
@@ -119,6 +121,8 @@
 	const urlGitHubApiContents = 'https://api.github.com/repos/' + user + repo + '/contents/' + pathRepo;
 
 	const urlGitHubPage = 'https://rawgit.com/' + user + repo + '/master/';
+
+//	const urlGitHubSource = 'https://github.com/' + user + repo;
 	const urlGitHubSource = 'https://github.com/' + user + repo + '/blob/master/' + pathRepo;
 
 
@@ -126,11 +130,11 @@
 
 	function init() {
 
-		urlInfo.href = urlGitHubSource; // 'https://github.com/' + user + repo;
+		urlInfo.href = urlGitHubSource;
 
 		window.addEventListener ( 'hashchange', onHashChange, false );
 
-		requestFile( urlGitHubApiContents, callbackGitHubMenu );
+//		requestFile( urlGitHubApiContents, callbackGitHubMenu );
 
 		onHashChange();
 
@@ -140,8 +144,28 @@
 
 	function onHashChange() {
 
-		const url = !location.hash ? uriDefaultFile : location.hash.slice( 1 );
-		const ulc = url.toLowerCase();
+		let url, ulc;
+
+		if ( !location.hash ) {
+
+			url = uriDefaultFile;
+			ulc = url.toLowerCase();
+
+		} else {
+
+			url = location.hash.slice( 1 );
+			ulc = url.toLowerCase();
+
+			crumbs = url.lastIndexOf( '/' ) > 0 ? url.slice( 0, url.lastIndexOf( '/' ) ) : '';
+//console.log( url.lastIndexOf( '/' ), crumbs );
+
+			setBreadcrumbs( crumbs );
+
+//console.log( '',  urlGitHubApiContents + url.slice( 0, url.lastIndexOf( '/' ) + 1 ) );
+
+			requestFile( urlGitHubApiContents + url.slice( 0, url.lastIndexOf( '/' ) + 1 ), callbackGitHubMenu );
+
+		}
 
 		if ( ulc.endsWith( '.md' ) ) {
 
@@ -154,7 +178,18 @@
 
 		} else if ( ulc.endsWith( '.gif' ) || ulc.endsWith( '.png' ) || ulc.endsWith( '.jpg' ) || ulc.endsWith( '.svg' )) {
 
-			divContents.innerHTML = '<img src=' + urlGitHubPage + url + ' >';
+			divContents.innerHTML = '<img src=' + urlGitHubPage + url + ' style=margin:20px; >';
+
+
+// update menu
+		} else if ( url.endsWith( '/'  ) ) {
+
+			bits = url.split( '#' );
+
+			url2 = 'https://api.github.com/repos/' + bits[ 0 ] + '/' + bits[ 1 ] + '/contents/' + bits[ 2 ];
+//console.log( '', url2 );
+
+			requestFile( url2, callbackGitHubMenu );
 
 		} else {
 
@@ -180,11 +215,11 @@
 
 	function setBreadcrumbs( path ) {
 
-		let txt = 
+		let txt =
 			'<b>' +
-				'<a href=JavaScript:getFolderContents(); >' + 
+				'<a href=JavaScript:getFolderContents(); >' +
 
-					( pathRepo ? pathRepo : '&#x2302' ) + 
+					( pathRepo ? pathRepo : '<span style=font-size:24px >&#x2302</span>' ) +
 
 				'</a> &raquo; ' +
 			'</b>';
@@ -214,7 +249,11 @@
 
 		let txt = '';
 
-		const ignoreFolders = [ 'data' ]; //, 'plugins' 
+// testing
+
+	if ( items.message ) { alert( items.message ); return; }
+
+		const ignoreFolders = [ 'data' ]; //, 'plugins'
 
 		for ( let item of items ) {
 
@@ -238,7 +277,6 @@
 
 		for ( let item of items ) {
 
-
 			if ( item.type === 'file' ) {
 
 				if ( ignoreFiles.includes( item.name ) ) { continue; }
@@ -253,6 +291,7 @@
 
 // choose to access remote or local files
 							'<a href=#' + urlGitHubPage + pathRepo + itemPath + 
+//							'<a href=#' + itemPath + 
 
 							' title="' + item.size.toLocaleString() + ' bytes" > ' + item.name + '</a> ' +
 // choose to access remote or local files
@@ -263,12 +302,11 @@
 
 					'</tr></table>';
 
-
-//console.log( 'item', item, itemPath );
-
-				if ( item.path !== 'README.md' && item.name.toLowerCase() === 'readme.md' ) {
+				if ( ( !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' ) )
+						&& item.path !== 'README.md' && item.name.toLowerCase() === 'readme.md' ) {
 
 					location.hash = urlGitHubPage + pathRepo + itemPath;
+//					location.hash = itemPath;
 
 				}
 
@@ -279,7 +317,6 @@
 		divMenuItems.innerHTML = txt;
 
 	}
-
 
 
 

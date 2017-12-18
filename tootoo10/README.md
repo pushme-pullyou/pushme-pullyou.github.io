@@ -16,36 +16,41 @@ _bbb_
 
 ### Issue / The problem to be solved
 
+* 2017-11-27 ~ If read me file then always open it: prevents viewing other files
 
 ### Mission
 
 typical menu items
 
-Click the pencil icon to edit the file on GitHub
-
-Reads Markdown files
-
-Supports location hash
-
-Obtains filenames and files via GitHub API
-
-Needs hamburger menu
+* Click the pencil icon to edit the file on GitHub
+* Reads Markdown files
+* Supports location hash
+* Obtains filenames and files via GitHub API
+* Mobile-friendly sliding hamburger menu
 
 ### Vision
 
 
 ## To Do
 
-* get github api contents link vie location hash
-	* link to repose via read mr
+* 2017-12-02 ~ Add ability to scroll to internal links
+* 2017-12-02 ~ Add default files for local and cloud runs
 * Better handling of three.js files
-* top margin for images
-* update breadcrumbs with location hash
-* Sort folders in reverse order
+* Sort folders in reverse order?
 
 
 ## Change Log
 
+### 2017-11-25 ~ Theo
+
+* location.hash change updates file, breadcrumb and menu 
+
+### 2017-11-22 ~ Theo
+
+* top margin for images
+* update breadcrumbs with location hash
+* get github api contents link via location hash << can do. creates menu, but then need to reset all the variables. easier just to create a new file.
+* link to any file on GitHub via link in read me or menu
 
 ### 2017-11-20 ~ Theo
 

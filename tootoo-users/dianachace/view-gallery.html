@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang = "en" >
+<head>
+<meta charset = "utf-8" >
+<meta name = "viewport" content = "width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" >
+<title>Burrage House, Redlands CA</title>
+<style>
+
+	body { font: 12pt monospace; text-align:center; width: 100%; }
+
+</style>
+</head>
+<body>
+
+	<h1 id = "title" ><a href = "" >Burrage House, Redlands CA</a></h1>
+	<div id = "contents" ></div>
+
+<script>
+
+
+	init();
+
+	function init() {
+
+		const user = 'dianachace';
+		const repo = 'dianachace.github.io';
+		const path = 'burrage-redlands';
+		const url  = 'https://api.github.com/repos/' + user + '/' + repo + '/contents/' + path;
+
+		requestFile( url, callbackGalleryContents );
+
+	}
+
+
+
+	function callbackGalleryContents( xhr ){
+
+		let page = '<h1></h1>';
+
+		const response = xhr.target.response;
+		const items = JSON.parse( response );
+
+		for ( let i = 0; i < items.length; i++ ) {
+
+			const item = items[ i ];
+
+			const source = item.download_url;
+			const src = source.toLowerCase();
+
+			if ( src.includes( '.thumb' ) || src.includes( '.highlight' ) || src.endsWith( '.dat' )  ||
+				src.endsWith( '.lock' ) || src.endsWith( '.avi' ) || src.endsWith( '.html' )) { continue; }
+
+			page +=
+
+			'<div style=display:inline-block;margin:10px; >' +
+
+				'<a href=JavaScript:getFileImage("' + source +'"); >' +
+					'<img src="' + source + '" height=200; title="' + source + '" >' +
+				'</a>' +
+
+			'</div>';
+
+		}
+
+		contents.innerHTML = '<div id=divGallery >' + page + '</div>';
+
+	}
+
+
+
+	function getFileImage( url ){
+
+		contents.innerHTML = '<img src="' + url + '" style="border: 0px solid gray; margin: 25px 0 0 50px; max-width: 800px; " >';
+
+	}
+
+
+
+	function requestFile( url, callback ) {
+
+		const xhr = new XMLHttpRequest();
+		xhr.open( 'get', url, true );
+		xhr.onload = callback;
+		xhr.send( null );
+
+	}
+
+
+</script>
+</body>
+</html>

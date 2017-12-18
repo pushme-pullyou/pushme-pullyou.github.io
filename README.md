@@ -7,7 +7,7 @@
 _JavaScript files to help you explore and build new tools on GitHub_
 
 
-## [TooToo]( https://pushme-pullyou.github.io/tootoo/ ) Read Me
+## [TooToo]( https://pushme-pullyou.github.io/#tootoo10/README.md ) Read Me
 <!--
 * [README]( https://pushme-pullyou.github.io#tootoo/README.md )
 -->

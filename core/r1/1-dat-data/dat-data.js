@@ -32,7 +32,7 @@
 
 		'';
 
-		MNU.css.innerHTML += '.DATbuttonMiddle { width: 108px; }';
+//		MNU.css.innerHTML += '.DATbuttonMiddle { width: 108px; }';
 
 		return menuDetailsUserData;
 
@@ -46,9 +46,9 @@
 
 		var url, xhr, keys, txt;
 
-		url = 'https://api.github.com/users/' +  user + '?' + ( API.token || '' );
+		url = 'https://api.github.com/users/' +  user; // + '?' + ( API.token || '' );
 
-		COR.requestFile( url, callbackUserData );
+		DAT.requestFile( url, callbackUserData );
 
 		function callbackUserData( xhr ) {
 
@@ -70,6 +70,7 @@
 				txt += '<div>' + ( DAT.get[ DAT.keys[ i ] ]( DAT.userData[ DAT.keys[ i ] ], i ) || '' ) + '</div>';
 
 			}
+console.log( 'DAT.userData', txt);
 
 			DATdivUserData.innerHTML = txt;
 
@@ -460,7 +461,7 @@
 
 		urlToken = url + '?' + ( API.token || '' );
 
-		COR.requestFile( urlToken, callback );
+		DAT.requestFile( urlToken, callback );
 
 		function callback( xhr ) {
 
@@ -481,7 +482,7 @@
 
 		urlToken = url + '?' + ( API.token || '' );
 
-		COR.requestFile( urlToken, callback );
+		DAT.requestFile( urlToken, callback );
 
 		function callback( xhr ) {
 
@@ -507,10 +508,23 @@
 
 			}
 
-			MNU.contents.innerHTML = '<table>' + txt + '</table>' + COR.getMenuFooter();
+			MNU.contents.innerHTML = '<table>' + txt + '</table>'; // + DAT.getMenuFooter();
 
 			window.scrollTo( 0, 0 );
 
 		}
 
 	};
+
+
+	DAT.requestFile = function( url, callback ) {
+
+		var xhr;
+
+		xhr = new XMLHttpRequest();
+		xhr.crossOrigin = 'anonymous';
+		xhr.open( 'GET', url, true );
+		xhr.onload = callback;
+		xhr.send( null );
+
+	}
