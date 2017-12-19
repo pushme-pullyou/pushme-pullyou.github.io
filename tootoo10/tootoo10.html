@@ -5,15 +5,15 @@
 <meta name = "viewport" content= "width=device-width, initial-scale=1">
 <meta name = "description" content = "List and view all the files in all the folders. File wrangler. Default index.html file. Opens HTML or Markdown files. Passes location.hash." >
 <meta name = "keywords" content = "JavaScript,Markdown,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2017-11-20" >
+<meta name = "date" content = "2017-12-18" >
 <title>Index Table of Contents</title>
 
 <style>
-/* Copyright 2017 Ladybug Tools authors. MIT License */
+/* Copyright 2017 pushMe pullYou authors. MIT License */
 
 /* https://www.w3schools.com/colors/colors_names.asp // use colors and borders to help identify the scope of particular elements */
 
-	html { --mnu-color: MediumSlateBlue; --mnu-back-color: ivory; --mnu-width:300px; height: 100%; }
+	html { --mnu-color: MediumSlateBlue; --mnu-back-color: #eee; --mnu-width:300px; height: 100%; }
 
 	body, html { font: 12pt monospace; height: 100%; margin: 0; }
 
@@ -49,11 +49,13 @@
 
 	<div id = "divMenu" >
 
+<!--
 		<p>
 			<a href="http://www.ladybug.tools/" target="_top" >Ladybug Tools</a> &raquo; 
 			<a href="http://www.ladybug.tools/spider/" target="_top" >&#x1f578;</a> &raquo; 
 			<a href="../index.html" target="_"top style=font-size:24px; >&#x2302;</a> &raquo; 
 		</p>
+-->
 
 		<h2>
 			<a id = "urlInfo" target="_top" ><img src="https://status.github.com/images/invertocat.png" height=18 title='Octocat'  ></a>
@@ -72,12 +74,12 @@
 
 			<hr>
 
-			<div title='many thanks!' ><a href=#../../pages/credits.md >Credits</a></div>
-			<div><a href=#../../pages/code-of-conduct.md >Code of Conduct</a></div>
-			<div><a href=#../../pages/contributing.md >Contributing</a></div>
-			<div><a href=#../../pages/license.md >License</a></div>
-			<div><a href=#../../pages/markdown-help.md >Markdown Help</a></div>
-			<div><a href="javascript:(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left corner" >Show frames/second statistics</a></div>
+			<div title='many thanks!' ><a href=#pages/credits.md >Credits</a></div>
+			<div><a href=#pages/code-of-conduct.md >Code of Conduct</a></div>
+			<div><a href=#pages/contributing.md >Contributing</a></div>
+			<div><a href=#pages/license.md >License</a></div>
+			<div><a href=#pages/markdown-help.md >Markdown Help</a></div>
+			<div><a href="javascript:( function(){ var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left corner" >Show frames/second statistics</a></div>
 			<div><a href="https://api.github.com/rate_limit" target="_blank">github rate limits</a></div>
 
 			<p onclick=divMenu.scrollTop=0; style=cursor:pointer;text-align:center; title='go to top and, btw, my web is better than your web' >&#x1f578;</p>
@@ -98,11 +100,16 @@
 
 <script>
 
+	const user = 'pushme-pullyou';
+	const repo = '/pushme-pullyou.github.io';
+	const pathRepo = 'tootoo10/'; // needs trailing slash
+
+/*
 	const user = 'ladybug-tools'
 	const repo = '/spider';
 	const pathRepo = '';
 
-/*
+
 	const user = 'theo-armour'
 	const repo = '/ucsf2';
 	const pathRepo = '';
@@ -113,7 +120,7 @@
 */
 
 
-//	const uriDefaultFile = './README.md';
+//	const uriDefaultFile = 'README.md';
 	const uriDefaultFile = 'plugins/view-github-issues.html'
 
 	const iconInfo = '<img src="https://status.github.com/images/invertocat.png" height=18 > </a>';
@@ -122,8 +129,8 @@
 
 	const urlGitHubPage = 'https://rawgit.com/' + user + repo + '/master/';
 
-//	const urlGitHubSource = 'https://github.com/' + user + repo;
-	const urlGitHubSource = 'https://github.com/' + user + repo + '/blob/master/' + pathRepo;
+	const urlGitHubSource = 'https://github.com/' + user + repo;
+//	const urlGitHubSource = 'https://github.com/' + user + repo + '/blob/master/' + pathRepo;
 
 
 	init();
@@ -134,7 +141,7 @@
 
 		window.addEventListener ( 'hashchange', onHashChange, false );
 
-//		requestFile( urlGitHubApiContents, callbackGitHubMenu );
+		requestFile( urlGitHubApiContents, callbackGitHubMenu );
 
 		onHashChange();
 
@@ -179,7 +186,6 @@
 		} else if ( ulc.endsWith( '.gif' ) || ulc.endsWith( '.png' ) || ulc.endsWith( '.jpg' ) || ulc.endsWith( '.svg' )) {
 
 			divContents.innerHTML = '<img src=' + urlGitHubPage + url + ' style=margin:20px; >';
-
 
 // update menu
 		} else if ( url.endsWith( '/'  ) ) {
@@ -251,7 +257,7 @@
 
 // testing
 
-	if ( items.message ) { alert( items.message ); return; }
+//		if ( items.message ) { alert( items.message ); return; }
 
 		const ignoreFolders = [ 'data' ]; //, 'plugins'
 
@@ -290,13 +296,13 @@
 						'<td>' +
 
 // choose to access remote or local files
-							'<a href=#' + urlGitHubPage + pathRepo + itemPath + 
-//							'<a href=#' + itemPath + 
+//							'<a href=#' + urlGitHubPage + pathRepo + itemPath + 
+							'<a href=#' + itemPath + 
 
 							' title="' + item.size.toLocaleString() + ' bytes" > ' + item.name + '</a> ' +
 // choose to access remote or local files
-							( item.path.endsWith( 'html' ) ? '<a href=' + urlGitHubPage + pathRepo + itemPath + ' >&#x2750;</a>' : '' ) +
-//							( item.path.endsWith( 'html' ) ? '<a href=' + itemPath + ' >&#x2750;</a>' : '' ) +
+//							( item.path.endsWith( 'html' ) ? '<a href=' + urlGitHubPage + pathRepo + itemPath + ' >&#x2750;</a>' : '' ) +
+							( item.path.endsWith( 'html' ) ? '<a href=' + itemPath + ' >&#x2750;</a>' : '' ) +
 
 						'</td>' +
 
@@ -304,9 +310,9 @@
 
 				if ( ( !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' ) )
 						&& item.path !== 'README.md' && item.name.toLowerCase() === 'readme.md' ) {
-
-					location.hash = urlGitHubPage + pathRepo + itemPath;
-//					location.hash = itemPath;
+console.log( 'itemPath', itemPath );
+//					location.hash = urlGitHubPage + pathRepo + itemPath;
+					location.hash = itemPath;
 
 				}
 

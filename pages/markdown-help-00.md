@@ -10,12 +10,49 @@
 Interesting things you can do with Markdown.
 
 
+
+
+### Images
+
+* Use [lorempixel]( http://lorempixel.com ) to gather random images
+````
+	![External Link Icon]( http://lorempixel.com/800/600 =100x100 )
+
+	![ text ]( http://lorempixel.com/800/600 =400x300 )
+
+	![ text ]( http://lorempixel.com/800/600 =200x150 )
+```
+
+![External Link Icon]( http://lorempixel.com/800/600 =100x100 )
+
+![ text ]( http://lorempixel.com/800/600 =400x300 )
+
+![ text ]( http://lorempixel.com/800/600 =200x150 )
+
+
+
+
 ### Links of Interest
 
-* <https://github.com/showdownjs/showdown>
-* <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>
+https://github.com/showdownjs/showdown
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
-### Text
+
+
+## Details
+
+Details work in Showdown
+
+<details>
+
+<summary>Summary</summary>
+
+lorem ipsum, _quia dolor sit, amet, consectetur,_ adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?
+
+</details>
+
+
+### Text Formatting
 
 	_italics_
 
@@ -25,21 +62,66 @@ _italics_
 
 **Bold**
 
+	~~Strike through~~
 
-```
-~~Strike through~~
-```
 ~~Strike through~~
 
 
-### Wiki: [Emoji]( https://github.com/showdownjs/showdown/wiki/emojis )
+### Interesting characters
 
-	:showdown:
-:showdown:
+☎
+©
+🔃
+🔭
+📈
+	i in circle: &#x2139; &#x24D8; &#x1f6c8; &#128712; 🛈 ℹ
 
-    :airplane:
+## 🛈  &#x2139; &#x24D8; &#x1f6c8; &#128712;
 
-:airplane:
+	☰ hamburger / trigram for heaven 
+&#9776;
+
+	&#x1f5c0;
+🗀 
+
+	&#x1f4c1;
+
+&#x1f4c1;
+
+new tab/external link: &#x1F5D7; 🗗
+link &#128279; 🔗 or &#x1f517;
+
+	home: &#x2302;
+&#x2302;
+
+recycle: &#21BB;
+Currency: &pound;  &euro;
+Arrows: &uArr;  &laquo; &raquo;
+Arrows in circle: CCW &#8634; CW &#8635;
+Dingbats &#10070; &#10087; nice: &#x2766;
+❧ ❦
+Hands: black: L &#x261A; R &#x261B; / White L &#x261C; U &#x261D; R &#x261E; D &#x261F; / V=sign &#x270C;
+
+
+### Lists
+
+```
+
+* item
+* item
+* item
+	* item
+	* item
+		* item
+* item
+```
+* item
+* item
+* item
+	* item
+	* item
+		* item
+* item
 
 
 
@@ -49,7 +131,6 @@ _italics_
 	***
 	---
 	___
-
 ```
 
 ***
@@ -59,32 +140,8 @@ _italics_
 ___
 
 
-
-### Lists
-
-```
-* item
-* item
-* item
-	* item
-	* item
-		* item
-* item
-```
-
-* item
-* item
-* item
-	* item
-	* item
-		* item
-* item
-
-
-
-
-
 ### Code
+
 ```
 	line of code with 3 backquote characters
 	line of code
@@ -101,7 +158,6 @@ text text text
 
 
 ### Quotes
-
 ```
 > quote
 > quote
@@ -111,30 +167,10 @@ text text text
 > quote
 > quote
 > quote
-
-
-### Images
-
-* uses [lorempixel]( http://lorempixel.com ) to gather random images
-
-````
-	![External Link Icon]( http://lorempixel.com/800/600 =100x100 )
-
-	![ text ]( http://lorempixel.com/800/600 =400x300 )
-
-	![ text ]( http://lorempixel.com/800/600 =200x150 )
-````
-
-![External Link Icon]( http://lorempixel.com/800/600 =100x100 "Optional title" )
-
-![ text ]( http://lorempixel.com/800/600 =400x300 "Optional title" )
-
-![ text ]( http://lorempixel.com/800/600 =200x150 "Optional title" )
 
 
 
 ### Tables
-
 ```
 | h1    |    h2   |      h3 |
 |:------|:-------:|--------:|
@@ -146,11 +182,12 @@ text text text
 |:------|:-------:|--------:|
 | 100   | [a][1]  | ![b][2] |
 | *foo* | **bar** | ~~baz~~ |
-
 
 
 
 ### Figures
+
+Not very interesting
 
 <figure>
 <a href=http://google.com >
@@ -174,11 +211,9 @@ text text text
 ***
 
 <center title="dingbat" >
-
 # <a href=javascript:window.scrollTo(0,0); style=text-decoration:none; >❦</a>
 </center>
 
-<!--
 <center title="dingbat" >
 # <span onclick=window.scrollTo(0,0); style=cursor:pointer; >❦</span>
 </center>
@@ -190,4 +225,3 @@ text text text
 <center title="dingbat" >
 # <a href=javascript:window.scrollTop=0; style=text-decoration:none; >❦</a>
 </center>
--->

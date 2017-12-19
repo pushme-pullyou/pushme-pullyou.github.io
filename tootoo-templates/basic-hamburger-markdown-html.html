@@ -6,7 +6,7 @@
 <meta name=description content="basic html template with sliding menu, markdown capability and frequently used pages" >
 <meta name=keywords content="JavaScript,GitHub,FOSS,3D,STEM" >
 <meta name = "date" content = "2017-12-18" >
-<title>Theo Armour</title>
+<title>basic-hamburger-markdown-html</title>
 <style>
 /* Copyright 2017 pushMe pullYou authors. MIT License */
 
@@ -48,31 +48,28 @@
 
 	<div id = "divMenu" >
 
-		<a href="https://github.com/theo-armour/theo-armour.github.io" target="_top" ><img src="https://status.github.com/images/invertocat.png" height=18 ></a>
+<!--	<a href="" target="_top" ><img src="https://status.github.com/images/invertocat.png" height=18 ></a> -->
 		<div id = "divTitle" ></div>
 
 		<div id = "divMenuItems" >
 
-			<div><a href=#page/about.md >About</a></div>
-			<div><a href=#page/contact.md >Contact</a></div>
+			<p><a href="#../plugins/iframe-carousel-r1.html" >iframe-carousel-r1.html</a></p>
+			<p><a href="#../plugins/view-github-issues.html" >view-github-issues.html</a></p>
 
-			<div><a href="#../../plugins/view-github-issues-blog-posts.html">Blog Posts</a></div>
+			<p><a href="#../tootoo-more/plugins/view-stl.html" >view-stl.html</a></p>
 
-
-			<div><a href=#../../plugins/view-github-repos.html >My GitHub Repository Events</a></div>
-			<div><a href=#../../plugins/view-github-events.html >All My GitHub Events</a></div>
-			<div><a href=#../../plugins/view-rss.html >My GitHub RSS</a></div>
 		</div>
+
 
 		<div id= "divFooter" >
 
 			<hr>
 
-			<div title='many thanks!' ><a href=#../../pages/credits.md >Credits</a></div>
-			<div><a href=#../../pages/code-of-conduct.md >Code of Conduct</a></div>
-			<div><a href=#../../pages/contributing.md >Contributing</a></div>
-			<div><a href=#../../pages/license.md >License</a></div>
-			<div><a href=#../../pages/markdown-help.md >Markdown Help</a></div>
+			<div title='many thanks!' ><a href=#../pages/credits.md >Credits</a></div>
+			<div><a href=#../pages/code-of-conduct.md >Code of Conduct</a></div>
+			<div><a href=#../pages/contributing.md >Contributing</a></div>
+			<div><a href=#../pages/license.md >License</a></div>
+			<div><a href=#../pages/markdown-help.md >Markdown Help</a></div>
 			<div><a href="javascript:( function(){ var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left corner" >Show frames/second statistics</a></div>
 			<div><a href="https://api.github.com/rate_limit" target=_blank title='If menu stops appearing, it is likely due to too many API calls' >View GitHub API Rate Limits</a></div>
 
@@ -93,9 +90,10 @@
 <script>
 // https://github.com/showdownjs/showdown
 
-	let defaultFile = 'index.html';
-	location.hash = 'README.md';
+//	let defaultFile = 'index.html';
+//	location.hash = '../README.md';
 	let uriDefaultFile = 'README.md';
+
 
 	init();
 
@@ -183,6 +181,7 @@
 		xhr.send( null );
 
 	}
+
 
 
 	function toggleNav() {

@@ -2,12 +2,27 @@
 # Pushme-Pullyou Dev Notes
 
 
+## 2017-12-18
 
+More than two columns becomes difficult to deal with on small devices
+* But maybe add a third column that just not appear on small screens
+
+Prefer sliding menu to above and below
+
+
+want side menu
+
+* obtained by GitHub API
+* from MD file
+* Local HTML
+
+
+## 2017-07-17
 You can use window.idName as an alternative to id = getElementById();
 
 Your app's job to clean up the screen
 
-2016-12-18
+## 2016-12-18
 
 [] Find Paul's user question
 [] Add TooToo to GubGub and DabDab

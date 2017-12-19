@@ -21,8 +21,8 @@
 </style>
 </head>
 <body>
-<script src = "https://cdn.rawgit.com/mrdoob/three.js/dev/build/three.min.js" ></script>
-<script src = "https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js" ></script>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r88/build/three.min.js" ></script>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r88/examples/js/controls/OrbitControls.js" ></script>
 <script src = "http://mrdoob.github.io/three.js/examples/js/loaders/STLLoader.js" ></script>
 
 	<div id = "menu" >
@@ -46,10 +46,10 @@
 
 		if ( window.top !== window.self ) { 
 
-			parent.divSubMenu.innerHTML = '';
-			parent.ifrMenu.src = '';
+//			parent.divSubMenu.innerHTML = '';
+//			parent.ifrMenu.src = '';
 
-			parent.requestFile( "menus/menu-view-stl.md", parent.divSubMenu );
+//			parent.requestFile( "menus/menu-view-stl.md", parent.divSubMenu );
 
 		}
 
@@ -68,7 +68,7 @@
 
 		window.addEventListener( 'resize', onWindowResize, false );
 
-		axisHelper = new THREE.AxisHelper( 1 );
+		axisHelper = new THREE.AxesHelper( 1 );
 		scene.add( axisHelper );
 
 		parseHash();
