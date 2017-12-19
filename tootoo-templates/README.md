@@ -4,8 +4,8 @@
 # [Template Read Me]( #README.md )
 
 
-<iframe src=https://pushme-pullyou.github.io/tootoo-templates/basic-html.html width=100% height=600px ></iframe>
-_txt_
+<iframe src=https://pushme-pullyou.github.io/tootoo-templates/basic-html.html width=100% height=500px ></iframe>
+_basic-html.html_
 <span style="display: none" >Iframes are not viewable in GitHub source code view</span>
 
 ## Full Screen: []( .html )
@@ -23,4 +23,4 @@ _txt_
 ***
 
 
-# <center title="hello!" ><a href=javascript:window.scrollTo(0,0); style=text-decoration:none; > &#x1f578; </a></center>
+# <center title="hello!" ><a href=javascript:window.scrollTo(0,0); style=text-decoration:none; > &#x2766; </a></center>
