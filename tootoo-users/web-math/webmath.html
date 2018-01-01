@@ -9,7 +9,7 @@
 <title>webMath Table of Contents</title>
 
 <style>
-/* Copyright 2017 Ladybug Tools authors. MIT License */
+/* Copyright 2018 Ladybug Tools authors. MIT License */
 
 /* https://www.w3schools.com/colors/colors_names.asp // use colors and borders to help identify the scope of particular elements */
 
@@ -50,11 +50,11 @@
 	<div id = "divMenu" >
 
 		<p>
-			<a href="http://webmath.github.io/" target="_top" >webMath</a> &raquo; 
+			<a href="http://webmath.github.io/" target="_top" >webMath</a> &raquo;
 <!--
-			<a href="http://webmath.github.io/spider/" target="_top" >&#x1f578;</a> &raquo; 
+			<a href="http://webmath.github.io/spider/" target="_top" >&#x1f578;</a> &raquo;
 -->
-			<a href="../index.html" target="_"top style=font-size:24px; >&#x2302;</a> &raquo; 
+			<a href="../index.html" target="_"top style=font-size:24px; >&#x2302;</a> &raquo;
 		</p>
 
 
@@ -192,11 +192,11 @@
 
 	function setBreadcrumbs( path ) {
 
-		let txt = 
+		let txt =
 			'<b>' +
-				'<a href=JavaScript:getFolderContents(); >' + 
+				'<a href=JavaScript:getFolderContents(); >' +
 
-					( pathRepo ? pathRepo : '<span style=font-size:24px >&#x2302</span>' ) + 
+					( pathRepo ? pathRepo : '<span style=font-size:24px >&#x2302</span>' ) +
 
 				'</a> &raquo; ' +
 			'</b>';
@@ -226,7 +226,7 @@
 
 		let txt = '';
 
-		const ignoreFolders = [ 'SVG', 'SVG2', 'SVGs_3DScatterPlot', 'data']; //, 'plugins' 
+		const ignoreFolders = [ 'SVG', 'SVG2', 'SVGs_3DScatterPlot', 'data']; //, 'plugins'
 
 		for ( let item of items ) {
 
@@ -236,8 +236,8 @@
 
 				txt +=
 					'<div style=margin-bottom:8px; >' +
-						'<a href=JavaScript:getFolderContents("' + item.path.slice( len )  + '"); >&#x1f4c1; ' + 
-							item.name  + 
+						'<a href=JavaScript:getFolderContents("' + item.path.slice( len )  + '"); >&#x1f4c1; ' +
+							item.name  +
 						'</a>' +
 					'</div>' +
 				'';
@@ -263,8 +263,8 @@
 						'<td>' +
 
 // choose to access remote or local files
-							'<a href=#' + urlGitHubPage + pathRepo + itemPath + 
-//							'<a href=#' + itemPath + 
+							'<a href=#' + urlGitHubPage + pathRepo + itemPath +
+//							'<a href=#' + itemPath +
 
 							' title="' + item.size.toLocaleString() + ' bytes" > ' + item.name + '</a> ' +
 // choose to access remote or local files
