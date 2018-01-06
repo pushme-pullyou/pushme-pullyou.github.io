@@ -105,6 +105,5 @@ Intended for xxx
 
 ***
 
-<center title='Jaanga ~ your 3D happy place' >
-# <a href=javascript:window.scrollTo(0,0); style=text-decoration:none; > ❦ </a>
-</center>
+# <center title="hello!" ><a href=javascript:window.scrollTo(0,0); style=text-decoration:none; > ❦ </a></center>
+

@@ -3,10 +3,10 @@
 <head>
 <meta charset = "utf-8" >
 <meta name = "viewport" content= "width=device-width, initial-scale=1">
-<meta name = "description" content = "List and view all the files in all the folders. File wrangler. Default index.html file. Opens HTML or Markdown files. Passes location.hash." >
+<meta name = "description" content = "This script allows you to list, open view all the files in all the Spider folders" >
 <meta name = "keywords" content = "JavaScript,Markdown,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2017-11-28" >
-<title>Ladybug Tools / Spider / Table of Contents</title>
+<meta name = "date" content = "2018-01-01" >
+<title>Spider</title>
 
 <style>
 /* Copyright 2018 Ladybug Tools authors. MIT License */
@@ -80,7 +80,7 @@
 			<div><a href=#pages/license.md >License</a></div>
 			<div><a href=#pages/markdown-help.md >Markdown Help</a></div>
 			<div><a href="javascript:(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left corner" >Show frames/second statistics</a></div>
-			<div><a href="https://api.github.com/rate_limit" target="_blank">github rate limits</a></div>
+			<div><a href="https://api.github.com/rate_limit" target="_blank" title="Occasionaly this script breaks if you go over the GitHub API rate limit" >github rate limits</a></div>
 
 			<p onclick=divMenu.scrollTop=0; style=cursor:pointer;text-align:center; title='go to top and, btw, my web is better than your web' >&#x1f578;</p>
 
@@ -105,7 +105,7 @@
 	const pathRepo = '';
 
 //	const uriDefaultFile = './README.md';
-	const uriDefaultFile = 'plugins/view-github-issues.html'
+	const uriDefaultFile = '../../plugins/view-github-issues.html'
 
 	const iconInfo = '<img src="https://status.github.com/images/invertocat.png" height=18 > </a>';
 
@@ -113,8 +113,8 @@
 
 	const urlGitHubPage = 'https://rawgit.com/' + user + repo + '/master/';
 
-	const urlGitHubSource = 'https://github.com/' + user + repo;
-//	const urlGitHubSource = 'https://github.com/' + user + repo + '/blob/master/' + pathRepo;
+//	const urlGitHubSource = 'https://github.com/' + user + repo;
+	const urlGitHubSource = 'https://github.com/' + user + repo + '/blob/master/' + pathRepo;
 
 
 	init();
@@ -148,11 +148,12 @@
 			ulc = url.toLowerCase();
 
 			crumbs = url.lastIndexOf( '/' ) > 0 ? url.slice( 0, url.lastIndexOf( '/' ) ) : '';
+
 //console.log( url.lastIndexOf( '/' ), crumbs );
 
 			setBreadcrumbs( crumbs );
 
-//console.log( '',  urlGitHubApiContents + url.slice( 0, url.lastIndexOf( '/' ) + 1 ) );
+//console.log( 'crumbs',  crumbs );
 
 			requestFile( urlGitHubApiContents + url.slice( 0, url.lastIndexOf( '/' ) + 1 ), callbackGitHubMenu );
 
@@ -163,6 +164,7 @@
 			requestFile( url, callbackMarkdown );
 
 		} else if ( ulc.endsWith( '.html' ) ) {
+// needs revisiting so 'view-github-issues' scrolls more nicely
 
 			document.body.style.overflow = 'hidden';
 			divContents.innerHTML = '<iframe src=' + url + ' style=border:none;height:100%;width100%; ></iframe>';
@@ -228,8 +230,6 @@
 		const len = pathRepo.length;
 
 		let txt = '';
-
-// testing
 
 	if ( items.message ) { alert( items.message ); return; }
 
