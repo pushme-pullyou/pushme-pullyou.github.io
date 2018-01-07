@@ -6,7 +6,9 @@
 
 _aaa bbb ccc_
 
+<!--
 <iframe class=iframeReadMe src=./plugins/threejs-basic.html width=100% height=600px onload=this.contentWindow.controls.enableZoom=false; ></iframe>
+-->
 
 ## Full Screen: [Three.js Basic]( ./plugins/threejs-basic.html )
 
