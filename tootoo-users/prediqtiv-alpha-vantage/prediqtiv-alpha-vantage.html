@@ -6,10 +6,10 @@
 <meta name = "description" content = "This script allows you to list, open view all the files in all the Spider folders" >
 <meta name = "keywords" content = "JavaScript,Showdown,Markdown,GitHub,FOSS" >
 <meta name = "date" content = "2018-01-16" >
-<title>pushMe pullYou</title>
+<title>predIQtiv ~ Alpha Vantage</title>
 
 <style>
-/* Copyright 2018 pushMe pullYou authors. MIT License */
+/* Copyright 2018 predIQtiv authors. MIT License */
 
 /* https://www.w3schools.com/colors/colors_names.asp // use colors and borders to help identify the scope of particular elements */
 
@@ -44,13 +44,13 @@
 </style>
 </head>
 <body>
-<script src = "https://cdn.rawgit.com/showdownjs/showdown/1.8.5/dist/showdown.min.js" ></script>
+<script src = "https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js" ></script>
 
 
 	<div id = "divMenu" >
 
 		<p>
-			<a href="http://pushme-pullyou.github.io/" target="_top" >pushMe pullYou</a> &raquo;
+			<a href="http://predIQtiv.github.io/" target="_top" ><img src=https://prediqtiv.github.io/images/predIQtiv.png height=36 ></a>
 <!--
 			<a href="http://www.ladybug.tools/spider/" target="_top" >&#x1f578;</a> &raquo;
 			<a href="../index.html" target="_"top style=font-size:24px; >&#x2302;</a> &raquo;
@@ -88,7 +88,7 @@
 			<div><a href="javascript:(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left corner" >Show frames/second statistics</a></div>
 			<div><a href="https://api.github.com/rate_limit" target="_blank" title="Occasionaly this script breaks if you go over the GitHub API rate limit" >github rate limits</a></div>
 
-			<p onclick=divMenu.scrollTop=0; style=cursor:pointer;text-align:center; title='go to top and, btw, my web is better than your web' >&#x1f578;</p>
+			<p onclick=divMenu.scrollTop=0; style=cursor:pointer;text-align:center; title='go to top' ><img src=https://prediqtiv.github.io/images/five-boxes.png height=24 ></p>
 
 		</div>
 
@@ -106,11 +106,11 @@
 
 <script>
 
-	const user = 'pushme-pullyou'
-	const repo = '/pushme-pullyou.github.io';
+	const user = 'predIQtiv'
+	const repo = '/alpha-vantage-cookbook';
 	const pathRepo = '';
 
-	const uriDefaultFile = '../README.md';
+	const uriDefaultFile = 'README.md';
 //	const uriDefaultFile = '../../plugins/view-github-issues.html'
 
 	const iconInfo = '<img src="https://status.github.com/images/invertocat.png" height=18 > </a>';
@@ -152,17 +152,18 @@
 
 //https://rawgit.com/ladybug-tools/spider/master
 //https://rawgit.com/pushme-pullyou/pushme-pullyou.github.io/master/
+//https://rawgit.com/predIQtiv/alpha-vantage-cookbook/master
 
 			url = location.hash.slice( 1 );
 			ulc = url.toLowerCase();
 
-console.log( 'url', url );
+//console.log( 'url', url );
 
 //			crumbs = url.lastIndexOf( '/' ) > 0 ? url.slice( 0, url.lastIndexOf( '/' ) ) : '';			start =  url.lastIndexOf( '/' );
-			crumbs = url.startsWith( 'https://' ) ? url.slice( 66 ) : url;
+			crumbs = url.startsWith( 'https://' ) ? url.slice( 59 ) : url;
 			crumbs2 = crumbs.lastIndexOf( '/' ) > 0 ? crumbs.slice( 0, crumbs.lastIndexOf( '/' ) ) : '';
 
-console.log( 'crumbs2',  crumbs2 );
+//console.log( 'crumbs2',  crumbs2 );
 			setBreadcrumbs( crumbs2 );
 
 //			requestFile( urlGitHubApiContents + url.slice( 0, url.lastIndexOf( '/' ) + 1 ), callbackGitHubMenu );
@@ -198,7 +199,6 @@ console.log( 'crumbs2',  crumbs2 );
 	function getFolderContents( path = '' ) {
 
 		const url = urlGitHubApiContents + path;
-//		const url = path;
 
 		requestFile( url, callbackGitHubMenu );
 
@@ -266,7 +266,7 @@ console.log( 'crumbs2',  crumbs2 );
 
 		}
 
-		const ignoreFiles = [ '.gitattributes', '.gitignore', 'ladybug-tools-spider.html' ];
+		const ignoreFiles = [ '.gitattributes', '.gitignore' ];
 
 		for ( let item of items ) {
 
@@ -283,13 +283,13 @@ console.log( 'crumbs2',  crumbs2 );
 						'<td>' +
 
 // choose to access remote or local files
-							'<a href=#' + urlGitHubPage + pathRepo + itemPath +
-//							'<a href=#' + itemPath +
+//							'<a href=#' + urlGitHubPage + pathRepo + itemPath +
+							'<a href=#' + itemPath +
 
 							' title="' + item.size.toLocaleString() + ' bytes" > ' + item.name + '</a> ' +
 // choose to access remote or local files
-							( item.path.endsWith( 'html' ) ? '<a href=' + urlGitHubPage + pathRepo + itemPath + ' >&#x2750;</a>' : '' ) +
-//							( item.path.endsWith( 'html' ) ? '<a href=' + itemPath + ' >&#x2750;</a>' : '' ) +
+//							( item.path.endsWith( 'html' ) ? '<a href=' + urlGitHubPage + pathRepo + itemPath + ' >&#x2750;</a>' : '' ) +
+							( item.path.endsWith( 'html' ) ? '<a href=' + itemPath + ' >&#x2750;</a>' : '' ) +
 
 						'</td>' +
 
@@ -298,8 +298,8 @@ console.log( 'crumbs2',  crumbs2 );
 				if ( ( !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' ) )
 						&& item.path !== 'README.md' && item.name.toLowerCase() === 'readme.md' ) {
 
-					location.hash = urlGitHubPage + pathRepo + itemPath;
-//					location.hash = itemPath;
+//					location.hash = urlGitHubPage + pathRepo + itemPath;
+					location.hash = itemPath;
 
 				}
 
