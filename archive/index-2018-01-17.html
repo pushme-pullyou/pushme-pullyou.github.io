@@ -4,16 +4,16 @@
 <meta charset = "utf-8" >
 <meta name = "viewport" content= "width=device-width, initial-scale=1">
 <meta name = "description" content = "List and view all the files in all the folders. File wrangler. Default index.html file. Opens HTML or Markdown files. Passes location.hash." >
-<meta name = "keywords" content = "JavaScript,Showdown,Markdown,GitHub,FOSS" >
-<meta name = "date" content = "2018-01-17" >
-<title>pushMe pullYou / Table of Contents</title>
+<meta name = "keywords" content = "JavaScript,Markdown,GitHub,FOSS,3D,STEM" >
+<meta name = "date" content = "2017-11-22" >
+<title>pushMe pullYou Table of Contents</title>
 
 <style>
-/* Copyright 2018 pushMe pullYou authors. MIT License */
+/* Copyright 2017 Ladybug Tools authors. MIT License */
 
 /* https://www.w3schools.com/colors/colors_names.asp // use colors and borders to help identify the scope of particular elements */
 
-	html { --mnu-color: MediumSlateBlue; --mnu-back-color: ivory; --mnu-width:300px; height: 100%; }
+	html { --mnu-color: salmon; --mnu-back-color: snow; --mnu-width:300px; height: 100%; }
 
 	body, html { font: 12pt monospace; height: 100%; margin: 0; }
 
@@ -44,19 +44,20 @@
 </style>
 </head>
 <body>
-<script src = "https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js" ></script>
+<script src = "https://cdn.rawgit.com/showdownjs/showdown/1.8.5/dist/showdown.min.js" ></script>
 
 
 	<div id = "divMenu" >
 <!--
 		<p>
-			<a href="http://pushme-pullyou.github.io/" target="_top" >Ladybug Tools</a> &raquo;
-			<a href="http://www.ladybug.tools/spider/" target="_top" >&#x1f578;</a> &raquo;
-			<a href="../index.html" target="_"top style=font-size:24px; >&#x2302;</a> &raquo;
+
+			<a href="http://pushme-pullyou.github.io/" target="_top" >Ladybug Tools</a> &raquo; 
+			<a href="http://www.ladybug.tools/spider/" target="_top" >&#x1f578;</a> &raquo; 
+			<a href="../index.html" target="_"top style=font-size:24px; >&#x2302;</a> &raquo; 
 		</p>
 -->
 		<h2>
-			<a id = "urlInfo" target="_top" ><img src="https://status.github.com/images/invertocat.png" height=18 title='Octocat' ></a>
+			<a id = "urlInfo" target="_top" ><img src="https://status.github.com/images/invertocat.png" height=18 title='Octocat'  ></a>
 			<a href="" ><script> document.write( document.title )</script></a>
 		</h2>
 
@@ -66,13 +67,7 @@
 
 		<div id = "divMenuItems" ></div>
 
-		<hr>
-
-		<p><img src="https://status.github.com/images/invertocat.png" height=18 title='Octocat' > Click icon to view source code on GitHub.
-
-		<p> &#x2750; Click icon to go full screen & get link to individual file.</p>
-
-		<p>Tooltips provide file size.</p>
+		<p>Tooltips provide file size. Click <img src="https://status.github.com/images/invertocat.png" height=18 title='Octocat' > icon to view source code on GitHub. Click &#x2750; icon to obtain a link to the individual file.</p>
 
 		<div id= "divFooter" >
 
@@ -84,9 +79,9 @@
 			<div><a href=#../../pages/license.md >License</a></div>
 			<div><a href=#../../pages/markdown-help.md >Markdown Help</a></div>
 			<div><a href="javascript:(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left corner" >Show frames/second statistics</a></div>
-			<div><a href="https://api.github.com/rate_limit" target="_blank" title="Occasionaly this script breaks if you go over the GitHub API rate limit" >github rate limits</a></div>
+			<div><a href="https://api.github.com/rate_limit" target="_blank">github rate limits</a></div>
 
-			<h1 onclick=divMenu.scrollTop=0; style=cursor:pointer;text-align:center; title='go to top' > &#x2766; </h1>
+			<p onclick=divMenu.scrollTop=0; style=cursor:pointer;text-align:center; title='go to top and, btw, my web is better than your web' >&#x1f578;</p>
 
 		</div>
 
@@ -107,24 +102,24 @@
 	const repo = '/pushme-pullyou.github.io';
 	const pathRepo = '';
 
-	const uriDefaultFile = 'README.md';
+//	const threeDefaultFile = '../gbxml-viewer7-01-basic/gbxml-viewer7-basic.html';
 
-	const iconInfo = '<img src="https://status.github.com/images/invertocat.png" height=18 >';
+	const uriDefaultFile = './README.md';
+//	const uriDefaultFile = 'plugins/view-github-issues.html'
+
+	const iconInfo = '<img src="https://status.github.com/images/invertocat.png" height=18 > </a>';
 
 	const urlGitHubApiContents = 'https://api.github.com/repos/' + user + repo + '/contents/' + pathRepo;
 
-	let urlGitHubPage;
+	const urlGitHubPage = 'https://rawgit.com/' + user + repo + '/master/';
 
-	const urlGitHubSource = 'https://github.com/' + user + repo;
-//	const urlGitHubSource = 'https://github.com/' + user + repo + '/blob/master/' + pathRepo;
+//	const urlGitHubSource = 'https://github.com/' + user + repo;
+	const urlGitHubSource = 'https://github.com/' + user + repo + '/blob/master/' + pathRepo;
 
 
 	init();
 
 	function init() {
-
-		urlGitHubPage = location.host.startsWith( user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + '/master/';
-//console.log( 'urlGitHubPage', urlGitHubPage );
 
 		urlInfo.href = urlGitHubSource;
 
@@ -140,34 +135,10 @@
 
 	function onHashChange() {
 
-		let url, ulc;
+		const url = !location.hash ? uriDefaultFile : location.hash.slice( 1 );
+		const ulc = url.toLowerCase();
 
-		if ( !location.hash ) {
-
-			url = urlGitHubPage + uriDefaultFile;
-			ulc = url.toLowerCase();
-
-		} else {
-
-			url = location.hash.slice( 1 );
-			ulc = url.toLowerCase();
-
-//console.log( 'url', url );
-
-//https://rawgit.com/pushme-pullyou/pushme-pullyou.github.io/master/
-
-			start = ( 'https://rawgit.com/' + user + repo +'/master/' ).length;
-
-			crumbs = location.host.startsWith( 'pushme-pullyou.github.io' ) ? url : url.slice( start );
-			crumbs2 = crumbs.lastIndexOf( '/' ) > 0 ? crumbs.slice( 0, crumbs.lastIndexOf( '/' ) ) : '';
-
-//console.log( 'crumbs2',  crumbs2 );
-
-			setBreadcrumbs( crumbs2 );
-
-			requestFile( urlGitHubApiContents + crumbs2, callbackGitHubMenu );
-
-		}
+		setBreadcrumbs( url.slice( 0, url.lastIndexOf( '/' ) ) ); 
 
 		if ( ulc.endsWith( '.md' ) ) {
 
@@ -175,12 +146,10 @@
 
 		} else if ( ulc.endsWith( '.html' ) ) {
 
-// needs revisiting so 'view-github-issues' scrolls more nicely
-
 			document.body.style.overflow = 'hidden';
 			divContents.innerHTML = '<iframe src=' + url + ' style=border:none;height:100%;width100%; ></iframe>';
 
-		} else if ( ulc.endsWith( '.gif' ) || ulc.endsWith( '.png' ) || ulc.endsWith( '.jpg' ) || ulc.endsWith( '.svg' ) || ulc.endsWith( '.ico' ) ) {
+		} else if ( ulc.endsWith( '.gif' ) || ulc.endsWith( '.png' ) || ulc.endsWith( '.jpg' ) || ulc.endsWith( '.svg' )) {
 
 			divContents.innerHTML = '<img src=' + urlGitHubPage + url + ' style=margin:20px; >';
 
@@ -208,11 +177,11 @@
 
 	function setBreadcrumbs( path ) {
 
-		let txt =
+		let txt = 
 			'<b>' +
-				'<a href=JavaScript:getFolderContents(); >' +
+				'<a href=JavaScript:getFolderContents(); >' + 
 
-					( pathRepo ? pathRepo : '<span style=font-size:24px >&#x2302</span>' ) +
+					( pathRepo ? pathRepo : '<span style=font-size:24px >&#x2302</span>' ) + 
 
 				'</a> &raquo; ' +
 			'</b>';
@@ -242,9 +211,7 @@
 
 		let txt = '';
 
-	if ( items.message ) { alert( items.message ); return; }
-
-		const ignoreFolders = [ 'data' ]; //, 'plugins'
+		const ignoreFolders = [ 'data' ]; //, 'plugins' 
 
 		for ( let item of items ) {
 
@@ -254,8 +221,8 @@
 
 				txt +=
 					'<div style=margin-bottom:8px; >' +
-						'<a href=JavaScript:getFolderContents("' + item.path.slice( len )  + '"); >&#x1f4c1; ' +
-							item.name  +
+						'<a href=JavaScript:getFolderContents("' + item.path.slice( len )  + '"); >&#x1f4c1; ' + 
+							item.name  + 
 						'</a>' +
 					'</div>' +
 				'';
@@ -268,6 +235,7 @@
 
 		for ( let item of items ) {
 
+
 			if ( item.type === 'file' ) {
 
 				if ( ignoreFiles.includes( item.name ) ) { continue; }
@@ -277,12 +245,12 @@
 				txt +=
 					'<table><tr>' +
 
-						'<td><a href="' + urlGitHubSource + '/blob/master/' + itemPath + '" target=_top >' + iconInfo + '</a></td>' +
+						'<td><a href="' + urlGitHubSource + itemPath + '" target=_top >' + iconInfo + '</a></td>' +
 						'<td>' +
 
 // choose to access remote or local files
-							'<a href=#' + urlGitHubPage + pathRepo + itemPath +
-//							'<a href=#' + itemPath +
+							'<a href=#' + urlGitHubPage + pathRepo + itemPath + 
+//							'<a href=#' + itemPath + 
 
 							' title="' + item.size.toLocaleString() + ' bytes" > ' + item.name + '</a> ' +
 // choose to access remote or local files
@@ -293,11 +261,12 @@
 
 					'</tr></table>';
 
-				if ( ( !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' ) )
-						&& item.path !== 'README.md' && item.name.toLowerCase() === 'readme.md' ) {
+
+//console.log( 'item', item, itemPath );
+
+				if ( item.path !== 'README.md' && item.name.toLowerCase() === 'readme.md' ) {
 
 					location.hash = urlGitHubPage + pathRepo + itemPath;
-//					location.hash = itemPath;
 
 				}
 
@@ -308,6 +277,7 @@
 		divMenuItems.innerHTML = txt;
 
 	}
+
 
 
 
