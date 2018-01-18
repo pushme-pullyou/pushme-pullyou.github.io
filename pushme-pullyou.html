@@ -6,10 +6,10 @@
 <meta name = "description" content = "List and view all the files in all the folders. File wrangler. Default index.html file. Opens HTML or Markdown files. Passes location.hash." >
 <meta name = "keywords" content = "JavaScript,Showdown,Markdown,GitHub,FOSS" >
 <meta name = "date" content = "2018-01-17" >
-<title>pushMe pullYou 6 / Table of Contents</title>
+<title>pushMe pullYou / Table of Contents</title>
 
 <style>
-/* Copyright 2017 pushMe pullYou authors. MIT License */
+/* Copyright 2018 pushMe pullYou authors. MIT License */
 
 /* https://www.w3schools.com/colors/colors_names.asp // use colors and borders to help identify the scope of particular elements */
 
@@ -124,7 +124,7 @@
 	function init() {
 
 		urlGitHubPage = location.host.startsWith( user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + '/master/';
-console.log( 'urlGitHubPage', urlGitHubPage );
+//console.log( 'urlGitHubPage', urlGitHubPage );
 
 		urlInfo.href = urlGitHubSource;
 
@@ -156,10 +156,12 @@ console.log( 'urlGitHubPage', urlGitHubPage );
 
 //https://rawgit.com/pushme-pullyou/pushme-pullyou.github.io/master/
 
-			crumbs = location.host.startsWith( 'pushme-pullyou.github.io' ) ? url : url.slice( 66 );
+			start = ( 'https://rawgit.com/' + user + repo +'/master/' ).length;
+
+			crumbs = location.host.startsWith( 'pushme-pullyou.github.io' ) ? url : url.slice( start );
 			crumbs2 = crumbs.lastIndexOf( '/' ) > 0 ? crumbs.slice( 0, crumbs.lastIndexOf( '/' ) ) : '';
 
-console.log( 'crumbs2',  crumbs2 );
+//console.log( 'crumbs2',  crumbs2 );
 
 			setBreadcrumbs( crumbs2 );
 
