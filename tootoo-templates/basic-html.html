@@ -24,7 +24,15 @@
 
 	<div id = "divHeader" >
 
-		<div id = "divTitle" ></div>
+		<h1 id = "divTitle" >
+
+			<a href="" ><script>
+				document.write( location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' ) );
+				//document.write( document.title );
+			</script></a>
+
+		</h1>
+
 		<div id = "divContents" >
 
 			<p><button onclick=thing(); >button</button></p>
