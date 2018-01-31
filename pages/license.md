@@ -1,5 +1,4 @@
-License
-===
+# License
 
 Copyright &copy; 2018 XXXXX contributors
 

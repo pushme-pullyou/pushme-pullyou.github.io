@@ -317,6 +317,7 @@
 
 	function callbackMarkdown( xhr ){
 
+		showdown.setFlavor('github');
 		const converter = new showdown.Converter();
 		const response = xhr.target.response;
 		const html = converter.makeHtml( xhr.target.responseText );
