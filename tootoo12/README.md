@@ -1,40 +1,49 @@
 <span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://rawgit.com/ladybug-tools/spider/master/ "View file as a web page." ) </span>
 
 
-# [index-menu-table-of-contents-r1.html Read Me]( #README.md )
+# [tooToo12 Read Me]( #README.md )
 
-
-_aaa bbb ccc_
-
-<iframe class=iframeReadMe src=threejs-basic.html width=100% height=300 onload=this.contentWindow.controls.enableZoom=false; ></iframe>
-
-## Full Screen: [Three.js Basic]( threejs-basic.html )
-
-## [script-readme.md]( #script-readme.md )
 
 
 ## Concept
 
 ### Issue / The problem to be solved
 
-* 2017-11-27 ~ If read me file then always open it: prevents viewing other files
+The [GitHub Pages]( https://pages.github.com/ ) description reads:
+
+> Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and your changes are live.
+
+GitHub pages is a wonderful way to host static web pages such as HTML, CSS, images and JavaScript files.
+
+If you are a Ruby on Rails/Jekyll user, GitHub provides tools to help you create a blog hosted on Pages. For any other use, you are on your own.
+
+The intent here is to provide a simple [content management system(CMS)]( https://en.wikipedia.org/wiki/Content_management_system ) for GitHub pages
 
 ### Mission
 
-typical menu items
-
-* Click the octocat icon to edit the file on GitHub
-* lick title to view in CMS
-* Click window icon to open in new tab
-* Reads and renders Markdown files
-* Displays all file types
-* Supports location hash
-* Obtains filenames and files via GitHub API
-* Mobile-friendly sliding hamburger menu
-* Working breadscrumbs
 
 ### Vision
 
+
+## Features
+
+* Script works remotely and locally
+* Git push updates the CMS
+* Automatically updates menu - uses GitHubAPI to obtain list of files
+* Obtains files via a content delivery network( CDN) - Uses rawgit.com
+* Renders Markdown as HTML - uses Showdown.js as converter
+* Displays all file types - available plugins to render PDFs, STL and other file types
+* Supports location hash to create SEO-friendly URLs
+* Obtains filenames and files via GitHub API
+* Mobile-friendly sliding hamburger menu
+* Written in plain-vanilla entry-level JavaScript - under 500 lines of code
+
+typical menu items
+
+* Click the Octocat icon to edit the file on GitHub
+* Click title to view in CMS
+* Click window icon to open in new tab
+* Working breadcrumbs
 
 ## To Do
 
@@ -49,7 +58,7 @@ typical menu items
 
 ### 2018-02-01 ~ Theo
 
-Beginnng to settle down
+Beginning to settle down
 
 
 ### 2017-11-25 ~ Theo
