@@ -21,35 +21,53 @@ The intent here is to provide a simple [content management system(CMS)]( https:/
 
 ### Mission
 
+* To provide a beginner friendly CMS
+* Very adaptable and easy to add new features
 
 ### Vision
 
+* Helping programmers create more content
 
 ## Features
 
-* Script works remotely and locally
-* Git push updates the CMS
-* Automatically updates menu - uses GitHubAPI to obtain list of files
+### Content Features
+
 * Obtains files via a content delivery network( CDN) - Uses rawgit.com
 * Renders Markdown as HTML - uses Showdown.js as converter
 * Displays all file types - available plugins to render PDFs, STL and other file types
+	* Read me in Markdown files displayed automatically when a folder is displayed
 * Supports location hash to create SEO-friendly URLs
 * Obtains filenames and files via GitHub API
-* Mobile-friendly sliding hamburger menu
+	* Folders and files that appear in menu may be filtered
+
+### Code features
+
+* Script works remotely and locally
+* Git push updates the CMS
 * Written in plain-vanilla entry-level JavaScript - under 500 lines of code
+* Follows the Mr.doob coding style
+* Follows the Three.js examples - all HTML, CSS and JavaScript in a single file
+* Mobile-friendly sliding hamburger menu
 
-typical menu items
+### Menu features
 
+* Automatically updates menu - uses GitHubAPI to obtain list of files
 * Click the Octocat icon to edit the file on GitHub
 * Click title to view in CMS
-* Click window icon to open in new tab
+* Click window icon to open HTML files in a new tab
+
+### Menu feedback
+* Reads meta tag description and displays as sub-title
+* Tooltips provide file size
 * Working breadcrumbs
+
+### More
+
+* Includes a variety of sample files including license, contributing, code of conduct and more
+
 
 ## To Do
 
-* 2017-12-02 ~ Add ability to scroll to internal links
-* 2017-12-02 ~ Add default files for local and cloud runs
-* Better handling of three.js files
 * Sort folders in reverse order?
 
 
@@ -60,6 +78,7 @@ typical menu items
 
 Beginning to settle down
 
+* Too many changes to list
 
 ### 2017-11-25 ~ Theo
 
