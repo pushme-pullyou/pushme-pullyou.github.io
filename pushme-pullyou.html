@@ -5,7 +5,7 @@
 <meta name = "viewport" content= "width=device-width, initial-scale=1">
 <meta name = "description" content = "This script allows you to list, open view all the files in all the Spider folders" >
 <meta name = "keywords" content = "JavaScript,Markdown,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-01-01" >
+<meta name = "date" content = "2018-02-01" >
 <title>pushme-pullyou 12</title>
 
 <style>
@@ -33,7 +33,7 @@
 	td { vertical-align: top; }
 
 	#divContainer { height: 100%; margin: 0 0 0 var( --mnu-width ); transition: margin-left .5s; position: relative; }
-	#divContents { height: 100%; left: 0; margin: 0 auto; max-width: 800px; right: 0;}
+	#divContents { height: 100%; left: 0; margin: 0 auto; right: 0;}
 
 	#divMenu { background-color: var( --mnu-back-color ); box-sizing: border-box; margin: 0; height: 100%;
 		overflow-x: hidden; padding: 30px 10px 0 10px; position: fixed; top: 0; width: var( --mnu-width ); z-index: 1; transition: 0.5s; }
@@ -172,9 +172,8 @@
 
 		} else if ( ulc.endsWith( '.html' ) ) {
 
-// needs revisiting so 'view-github-issues' scrolls more nicely
-
 			document.body.style.overflow = 'hidden';
+			divContents.style.maxWidth = '';
 			divContents.innerHTML = '<iframe src=' + url + ' style=border:none;height:100%;width100%; ></iframe>';
 
 		} else if ( ulc.endsWith( '.gif' ) || ulc.endsWith( '.png' ) || ulc.endsWith( '.jpg' ) || ulc.endsWith( '.svg' ) || ulc.endsWith( '.ico' ) ) {
@@ -231,6 +230,7 @@
 	}
 
 
+
 	function callbackGitHubMenu( xhr ) {
 
 		const response = xhr.target.response;
@@ -277,24 +277,18 @@
 						'<td><a href="' + urlGitHubSource + '/blob/master/' + itemPath + '" target=_top >' + iconInfo + '</a></td>' +
 						'<td>' +
 
-// choose to access remote or local files
 							'<a href=#' + urlGitHubPage + pathRepo + itemPath +
-//							'<a href=#' + itemPath +
-
 							' title="' + item.size.toLocaleString() + ' bytes" > ' + item.name + '</a> ' +
-// choose to access remote or local files
 							( item.path.endsWith( 'html' ) ? '<a href=' + urlGitHubPage + pathRepo + itemPath + ' >&#x2750;</a>' : '' ) +
-//							( item.path.endsWith( 'html' ) ? '<a href=' + itemPath + ' >&#x2750;</a>' : '' ) +
 
 						'</td>' +
 
 					'</tr></table>';
 
 				if ( ( !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' ) )
-						&& item.path !== 'README.md' && item.name.toLowerCase() === 'readme.md' ) {
+					&& item.path !== 'README.md' && item.name.toLowerCase() === 'readme.md' ) {
 
 					location.hash = urlGitHubPage + pathRepo + itemPath;
-//					location.hash = itemPath;
 
 				}
 
@@ -315,8 +309,8 @@
 		const response = xhr.target.response;
 		const html = converter.makeHtml( xhr.target.responseText );
 
-		divContents.style.maxWidth = '800px';
 		document.body.style.overflow = '';
+		divContents.style.maxWidth = '800px';
 		divContents.innerHTML = html;
 		window.scrollTo( 0, 0 );
 
@@ -357,14 +351,15 @@
 			divMenu.style.left = 'calc( -1 * var( --mnu-width ) - 20px )';
 			hamburger.style.left = '-100px';
 
-		} else {
+			} else {
 
-			divMenu.style.left = 0;
-			hamburger.style.left = left;
+				divMenu.style.left = 0;
+				hamburger.style.left = left;
+
+		}
 
 	}
 
-}
 </script>
 </body>
 </html>
