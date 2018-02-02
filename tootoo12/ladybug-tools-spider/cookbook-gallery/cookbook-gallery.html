@@ -37,11 +37,10 @@
 
 		</h1>
 
-		<div><script> document.write( document.head.querySelector( '[name=description]' ).content )</script></div>
 
 		<div id = "divContents" >
 
-			<h2><a href=http://www.ladybug.tools/spider/cookbook/README.md>Cookbook Read Me</a></h2>
+			<p>Scroll down to view all the examples in this cookbook of sample files</p>
 
 		</div>
 
@@ -52,7 +51,15 @@
 	<div id = "divFooter" >
 
 		<hr>
-		footer
+
+		<h3>About this script</h3>
+		<div><script> document.write( document.head.querySelector( '[name=description]' ).content )</script></div>
+
+		<hr>
+
+		<h2></h2><center title="hello!" ><a href=javascript:window.scrollTo(0,0); style=text-decoration:none; > &#x1f578; </a></center><h2></h2>
+
+
 	</div>
 
 <script>
@@ -68,6 +75,7 @@
 	let iframesActiveLimit = 3;
 
 	var urlSource = '../../../../ladybug-tools.github.io/spider/cookbook/';
+//	var urlSource = '';
 
 	let txt;
 	const b = '<br>';
@@ -77,19 +85,16 @@
 
 	function init() {
 
-		txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
-
-		divContents.innerHTML += b + txt;
 
 		let url = 'https://rawgit.com/ladybug-tools/spider/master/cookbook/';
 
 		const urlGitHubApiContents = 'https://api.github.com/repos/' + user + repo + '/contents/' + pathRepo;
 
-		const urlCORS = 'https://cors-anywhere.herokuapp.com/';
-
 		requestFile( urlGitHubApiContents, callbackFilesOnGitHub );
 
 	}
+
+
 
 	function requestFile( url, callback ) {
 
@@ -111,7 +116,7 @@
 //console.log( 'response', response );
 
 		json = JSON.parse( response );
-console.log( 'json', json );
+//console.log( 'json', json );
 
 		let count = 0;
 		for ( var i = 0; i < json.length; i++ ) {
@@ -152,7 +157,8 @@ console.log( 'json', json );
 				var id = activeContainer.id;
 
 				activeContainer.innerHTML = '<iframe src="' + urlSource + files[ id ] + '/index.html" onload=getFile(this,' + id + '); scrolling="no" ></iframe>';
-console.log( 'files[ id ]', files[ id ], iframes );
+//console.log( 'files[ id ]', files[ id ], iframes );
+
 				iframesActive.push( activeContainer );
 
 			}
@@ -188,24 +194,14 @@ console.log( 'files[ id ]', files[ id ], iframes );
 				'<b>Date</b>' + b + date + b +
 				'<b>Full screen: <a href=index.html#' + folder + 'readme.md >Read Me</a></b>' +
 			'</div>' +
-//			'<div class=readme id=readme' + index + ' ></div>' +
 
 		'';
-
-//		var rm = document.getElementById( 'readme' + index )
-//		getMarkdown( urlSource + folder + '/readme.md', rm );
-
 
 		if ( that.contentWindow.controls ) {
 
 			that.contentWindow.controls.enableZoom = false;
 
 		} else if ( that.contentWindow.ifr && that.contentWindow.ifr.contentWindow.controls ) {
-
-		console.log( 'cccc', that.contentWindow.ifr );
-		// console.log( 'ddd', that.contentWindow.ifr.contentWindow );
-
-		///that.contentWindow.ifr.contentWindow.controls   );
 
 			that.contentWindow.ifr.contentWindow.controls.enableZoom = false;
 
@@ -225,25 +221,7 @@ console.log( 'files[ id ]', files[ id ], iframes );
 
 	}
 
-	function getMarkdown( fileName, target ) {
 
-		var xhr = new XMLHttpRequest();
-		xhr.open( 'GET', fileName, true );
-		xhr.onload = callback;
-		xhr.send( null );
-
-		function callback() {
-
-
-			showdown.setFlavor('github');
-
-			const converter = new showdown.Converter();
-
-			target.innerHTML = converter.makeHtml( xhr.responseText );
-
-		}
-
-	}
 
 	function animate() {
 
