@@ -23,11 +23,15 @@ _aaa bbb ccc_
 
 typical menu items
 
-* Click the pencil icon to edit the file on GitHub
-* Reads Markdown files
+* Click the octocat icon to edit the file on GitHub
+* lick title to view in CMS
+* Click window icon to open in new tab
+* Reads and renders Markdown files
+* Displays all file types
 * Supports location hash
 * Obtains filenames and files via GitHub API
 * Mobile-friendly sliding hamburger menu
+* Working breadscrumbs
 
 ### Vision
 
@@ -42,9 +46,15 @@ typical menu items
 
 ## Change Log
 
+
+### 2018-02-01 ~ Theo
+
+Beginnng to settle down
+
+
 ### 2017-11-25 ~ Theo
 
-* location.hash change updates file, breadcrumb and menu 
+* location.hash change updates file, breadcrumb and menu
 
 ### 2017-11-22 ~ Theo
 
