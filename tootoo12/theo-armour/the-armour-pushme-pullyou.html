@@ -3,10 +3,10 @@
 <head>
 <meta charset = "utf-8" >
 <meta name = "viewport" content= "width=device-width, initial-scale=1">
-<meta name = "description" content = "This script allows you to list, open view all the files in all the Spider folders" >
+<meta name = "description" content = "This script allows you to list, open view all the files in all the Theo Armour folders" >
 <meta name = "keywords" content = "JavaScript,Markdown,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-02-01" >
-<title>Spider</title>
+<meta name = "date" content = "2018-02-11" >
+<title>Theo Armour pushme-pullyou</title>
 
 <style>
 /* Copyright 2018 Ladybug Tools authors. MIT License */
@@ -50,8 +50,8 @@
 	<div id = "divMenu" >
 
 		<p>
-			<a href="http://www.ladybug.tools/" target="_top" >Ladybug Tools</a> &raquo;
 <!--
+			<a href="http://www.ladybug.tools/" target="_top" >Ladybug Tools</a> &raquo;
 			<a href="http://www.ladybug.tools/spider/" target="_top" >&#x1f578;</a> &raquo;
 			<a href="../index.html" target="_"top style=font-size:24px; >&#x2302;</a> &raquo;
 -->
@@ -105,8 +105,8 @@
 
 <script>
 
-	const user = 'ladybug-tools';
-	const repo = '/spider';
+	const user = 'theo-armour';
+	const repo = '/theo-armour.github.io';
 	const pathRepo = '';
 	const branch = '/master/'
 
@@ -242,7 +242,7 @@
 
 		if ( items.message ) { alert( items.message ); return; }
 
-		const ignoreFolders = [ 'archive', 'data', 'pages', 'plugins', 'read-gbxml' ]; //, 'plugins'
+		const ignoreFolders = [ 'data' ]; //, 'plugins'
 
 		for ( let item of items ) {
 
@@ -262,7 +262,7 @@
 
 		}
 
-		const ignoreFiles = [ '.gitattributes', '.gitignore', '404.html', 'ladybug-tools-spider.html' ];
+		const ignoreFiles = [ '.gitattributes', '.gitignore', '404', 'ladybug-tools-spider.html' ];
 
 		for ( let item of items ) {
 
