@@ -3,7 +3,7 @@
 <head>
 <meta charset = "utf-8" >
 <meta name = "viewport" content= "width=device-width, initial-scale=1">
-<meta name = "description" content = "This script allows you to list, open view all the files in all the Spider folders" >
+<meta name = "description" content = "This script allows you to list, open view all the files in all the pushme-pullyou folders" >
 <meta name = "keywords" content = "JavaScript,Markdown,GitHub,FOSS,3D,STEM" >
 <meta name = "date" content = "2018-02-01" >
 <title>pushme-pullyou 12</title>
@@ -108,6 +108,7 @@
 	const user = 'pushme-pullyou';
 	const repo = '/pushme-pullyou.github.io';
 	const pathRepo = '';
+	const branch = '/master/'
 
 	const uriDefaultFile = 'README.md';
 //	const uriDefaultFile = '../../plugins/view-github-issues.html'
@@ -125,7 +126,7 @@
 
 	function init() {
 
-		urlGitHubPage = location.pathname.includes( user + '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + '/master/';
+		urlGitHubPage = location.pathname.includes( user + '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + branch;
 //console.log( 'urlGitHubPage', urlGitHubPage );
 
 		urlInfo.href = urlGitHubSource;
@@ -274,7 +275,7 @@
 				txt +=
 					'<table><tr>' +
 
-						'<td><a href="' + urlGitHubSource + '/blob/master/' + itemPath + '" target=_top >' + iconInfo + '</a></td>' +
+						'<td><a href="' + urlGitHubSource + '/blob' + branch + itemPath + '" target=_top >' + iconInfo + '</a></td>' +
 						'<td>' +
 
 							'<a href=#' + urlGitHubPage + pathRepo + itemPath +
@@ -350,11 +351,13 @@
 
 			divMenu.style.left = 'calc( -1 * var( --mnu-width ) - 20px )';
 			hamburger.style.left = '-100px';
+			divContainer.style.marginLeft = '0';
 
-			} else {
+		} else {
 
-				divMenu.style.left = 0;
-				hamburger.style.left = left;
+			divMenu.style.left = 0;
+			hamburger.style.left = left;
+			divContainer.style.marginLeft = 'var( --mnu-width )';
 
 		}
 
