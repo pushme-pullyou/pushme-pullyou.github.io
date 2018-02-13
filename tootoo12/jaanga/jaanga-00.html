@@ -3,17 +3,17 @@
 <head>
 <meta charset = "utf-8" >
 <meta name = "viewport" content= "width=device-width, initial-scale=1">
-<meta name = "description" content = "This script allows you to list, open view all the files in all the Spider folders" >
+<meta name = "description" content = "This script allows you to list, open view all the files in all the Jaanga folders" >
 <meta name = "keywords" content = "JavaScript,Markdown,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-02-01" >
-<title>Spider</title>
+<meta name = "date" content = "2018-02-12" >
+<title>Jaanga</title>
 
 <style>
-/* Copyright 2018 Ladybug Tools authors. MIT License */
+/* Copyright 2018 Jaanga authors. MIT License */
 
 /* https://www.w3schools.com/colors/colors_names.asp // use colors and borders to help identify the scope of particular elements */
 
-	html { --mnu-color: MediumSlateBlue; --mnu-back-color: ivory; --mnu-width:300px; height: 100%; }
+	html { --mnu-color: crimson; --mnu-back-color: LemonChiffon ; --mnu-width:300px; height: 100%; }
 
 	body, html { font: 12pt monospace; height: 100%; margin: 0; }
 
@@ -50,8 +50,8 @@
 	<div id = "divMenu" >
 
 		<p>
-			<a href="http://www.ladybug.tools/" target="_top" >Ladybug Tools</a> &raquo;
 <!--
+			<a href="http://www.ladybug.tools/" target="_top" >Ladybug Tools</a> &raquo;
 			<a href="http://www.ladybug.tools/spider/" target="_top" >&#x1f578;</a> &raquo;
 			<a href="../index.html" target="_"top style=font-size:24px; >&#x2302;</a> &raquo;
 -->
@@ -105,12 +105,12 @@
 
 <script>
 
-	const user = 'ladybug-tools';
-	const repo = '/spider';
+	const user = 'jaanga';
+	const repo = '/jaanga.github.io';
 	const pathRepo = '';
 	const branch = '/master/'
 
-	const uriDefaultFile = 'README.md';
+	const uriDefaultFile = 'home/r4/readme.md';
 //	const uriDefaultFile = '../../plugins/view-github-issues.html'
 
 	const iconInfo = '<img src="https://status.github.com/images/invertocat.png" height=18 >';
@@ -126,8 +126,8 @@
 
 	function init() {
 
-		urlGitHubPage = location.pathname.includes( user + '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + branch;
-//console.log( 'urlGitHubPage', urlGitHubPage );
+		urlGitHubPage = location.pathname.includes( '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + branch;
+//		console.log( 'urlGitHubPage', urlGitHubPage );
 
 		urlInfo.href = urlGitHubSource;
 		urlInfo.innerHTML = iconInfo;
@@ -144,28 +144,14 @@
 
 		let url, ulc, pathCurrent;
 
-		if ( !location.hash ) {
+		url = location.hash.slice( 1 );
+		ulc = url.toLowerCase();
+		//console.log( 'url', url );
 
-			url = urlGitHubPage + uriDefaultFile;
-			ulc = url.toLowerCase();
-			pathCurrent = '';
+		const crumbs = url.slice( urlGitHubPage.length );
+		pathCurrent = crumbs.lastIndexOf( '/' ) > 0 ? crumbs.slice( 0, crumbs.lastIndexOf( '/' ) ) : '';
 
-		} else {
-
-			url = location.hash.slice( 1 );
-			ulc = url.toLowerCase();
-//console.log( 'url', url );
-
-			const crumbs = url.slice( urlGitHubPage.length );
-			pathCurrent = crumbs.lastIndexOf( '/' ) > 0 ? crumbs.slice( 0, crumbs.lastIndexOf( '/' ) ) : '';
-
-//console.log( 'pathCurrent',  pathCurrent );
-
-		}
-
-
-
-		getFolderContents( pathCurrent );
+		getGitHubFolderContents( pathCurrent );
 
 		if ( ulc.endsWith( '.md' ) ) {
 
@@ -191,7 +177,7 @@
 
 
 
-	function getFolderContents( path = '' ) {
+	function getGitHubFolderContents( path = '' ) {
 
 		const url = urlGitHubApiContents + path;
 
@@ -207,7 +193,7 @@
 
 		let txt =
 			'<b>' +
-				'<a href=JavaScript:getFolderContents(); >' +
+				'<a href=JavaScript:getGitHubFolderContents(); >' +
 
 					( pathRepo ? pathRepo : '<span style=font-size:24px >&#x2302</span>' ) +
 
@@ -215,14 +201,13 @@
 			'</b>';
 
 		let folders = path ? path.split( '/' ) : [] ;
-
 		let str = '';
 
 		for ( let folder of folders ) {
 
 			str += folder + '/';
 
-			txt += '<b><a href=JavaScript:getFolderContents("' + str.slice( 0, -1 ) + '"); >' + folder + '</a> &raquo; </b>';
+			txt += '<b><a href=JavaScript:getGitHubFolderContents("' + str.slice( 0, -1 ) + '"); >' + folder + '</a> &raquo; </b>';
 
 		}
 
@@ -236,13 +221,15 @@
 
 		const response = xhr.target.response;
 		const items = JSON.parse( response );
-		const len = pathRepo.length;
+		console.log( 'items', items );
 
+		const len = pathRepo.length;
 		let txt = '';
+		fileDefault = '';
 
 		if ( items.message ) { alert( items.message ); return; }
 
-		const ignoreFolders = [ 'archive', 'data', 'pages', 'plugins', 'read-gbxml' ]; //, 'plugins'
+		const ignoreFolders = [ 'data' ]; //, 'plugins'
 
 		for ( let item of items ) {
 
@@ -252,7 +239,7 @@
 
 				txt +=
 					'<div style=margin-bottom:8px; >' +
-						'<a href=JavaScript:getFolderContents("' + item.path.slice( len )  + '"); >&#x1f4c1; ' +
+						'<a href=JavaScript:getGitHubFolderContents("' + item.path.slice( len )  + '"); >&#x1f4c1; ' +
 							item.name  +
 						'</a>' +
 					'</div>' +
@@ -286,18 +273,28 @@
 
 					'</tr></table>';
 
-				if ( ( !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' ) )
-					&& item.path !== 'README.md' && item.name.toLowerCase() === 'readme.md' ) {
-
-					location.hash = urlGitHubPage + pathRepo + itemPath;
-
-				}
+					const file = item.path.toLowerCase().endsWith( 'readme.md') ? item.path : '';
+					fileDefault = file !== '' ? file : fileDefault;
 
 			}
 
 		}
 
 		divMenuItems.innerHTML = txt;
+
+		if ( !location.hash && fileDefault !==  '' ) {
+
+			location.hash = urlGitHubPage + pathRepo + fileDefault;
+
+		}
+
+//		if ( !location.hash ) {
+
+//			url = urlGitHubPage + pathRepo + uriDefaultFile;
+
+//			requestFile( url, callbackMarkdown );
+
+//		}
 
 	}
 
