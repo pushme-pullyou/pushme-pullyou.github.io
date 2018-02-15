@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang = "en" >
+<head>
+<meta charset = "utf-8" >
+<meta name = "viewport" content= "width=device-width, initial-scale=1" >
+<meta name = "description" content = "Real-time 3D in your browser with menu sliding" >
+<meta name = "keywords" content = "Three.js,WebGL,JavaScript,Markdown,GitHub,FOSS,3D,STEM" >
+<meta name = "date" content = "2018-02-13" >
+<title>Three.js Slide Basic</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r89/build/three.min.js" ></script>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r89/examples/js/controls/OrbitControls.js" ></script>
+<script src=https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js ></script>
+
+	<div id=divMenu >
+
+		<details open >
+
+			<summary>Header</summary>
+
+			<div>
+				<a href="http://pushme-pullyou.github.io/" target="_top" >pushMe-pullYou</a> &raquo;
+				<!-- <a href="http://pushme-pullyou.github.io/tootoo-templates/" target="_top" > &#x2302; </a> &raquo; -->
+				<a href="http://pushme-pullyou.github.io/tootoo-templates/" target="_top" style=font-size:24px; >&#x2302;</a> &raquo;
+			</div>
+
+			<h2>
+				<a href="https://github.com/ladybug-tools/spider/tree/master/gbxml-viewer" target="_top" ><img src="https://status.github.com/images/invertocat.png" height=18 title='Octocat'  ></a>
+				<a href="" ><script> document.write( document.title ); </script></a>
+			</h2>
+
+			<p><script> document.write( document.head.querySelector( '[name=description]' ).content )</script></p>
+
+			<p id=dragArea class=dragDropArea >
+				Drag and drop Three.js files into this box or <br>
+				<input type = "file" id = "inpFile" onchange="openFile(this);" >
+			<p>
+
+		</details>
+
+
+		<hr>
+
+		<div id = "divMenuItems" >menu items here<br>
+			<a href="#https://rawgit.com/ladybug-tools/spider/master/gbxml-viewer/gbxml-sample-files/london-office.xml" >london office</a>
+		</div>
+
+		<hr>
+
+		<details open >
+
+			<summary>Footer</summary>
+
+			<div title='many thanks!' ><a href=#../../pages/credits.md >Credits</a></div>
+			<div><a href=#../../pages/code-of-conduct.md >Code of Conduct</a></div>
+			<div><a href=#../../pages/contributing.md >Contributing</a></div>
+			<div><a href=#../../pages/license.md >License</a></div>
+			<div><a href=#../../pages/markdown-help.md >Markdown Help</a></div>
+			<div><a href="JavaScript:( function(){ var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left corner" >Show frames/second statistics</a></div>
+			<div><a href="https://api.github.com/rate_limit" target="_blank">github rate limits</a></div>
+
+			<h1 onclick=divMenu.scrollTop=0; style=cursor:pointer;text-align:center; title='go to top' > &#x2766; </h1>
+
+		</details>
+
+	</div>
+
+	<div id=divLog ></div>
+
+	<div id=divContainerThree ></div>
+
+	<div id = "divHamburger" onclick=toggleNav(); > slide &#9776; </div>
+
+	<div id = "divContainer" >
+		<div id = "divContentsHeader" >
+			<small>Click here to move</small>
+			<button ontouchstart=divContainer.style.display="none"; onclick=divContainer.style.display="none"; style=float:right;z-index:200; >&#x2716;</button>
+		</div>
+		<div id = "divContents" ></div>
+	</div>
+
+<script src = core.js ></script>
+<script src = three-gbxml.js ></script>
+
+</body>
+</html>
