@@ -1,17 +1,15 @@
+
+
 	var renderer, camera, controls, scene;
 	var geometry, material, mesh, axesHelper;
 
-	initThree();
-	animate();
 
-	function initThree() {
-
-		divContainerThree.innerHTML = '';
+	function initThreeCore() {
 
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true } );
 		renderer.setSize( window.innerWidth, window.innerHeight );
 
-		divContainerThree.appendChild( renderer.domElement );
+		document.body.appendChild( renderer.domElement );
 
 		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
 		camera.position.set( 100, 100, 100 );
@@ -45,7 +43,7 @@
 
 		renderer.setSize( window.innerWidth, window.innerHeight );
 
-//console.log( 'onWindowResize  window.innerWidth', window.innerWidth );
+		//console.log( 'onWindowResize  window.innerWidth', window.innerWidth );
 
 	}
 

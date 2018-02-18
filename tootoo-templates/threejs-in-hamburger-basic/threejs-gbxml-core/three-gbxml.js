@@ -3,7 +3,7 @@
 	//		'https://rawgit.com/ladybug-tools/spider/master/gbxml-viewer/gbxml-sample-files/open-studio-seb.xml'
 	//		'https://rawgit.com/GreenBuildingXML/Sample-gbXML-Files/master/ARCH_ASHRAE%20Headquarters%20r16_detached.xml'
 	//'../../../read-gbxml/data-files/sam-live2.xml'
-	'golden-co-open-studio-seb.xml'
+	'../golden-co-open-studio-seb.xml'
 	:
 	'../../gbxml-sample-files/bristol-clifton-down-road.xml';
 
@@ -44,13 +44,7 @@
 	var lightAmbient, lightDirectional, lightPoint;
 	var cameraHelper, axesHelper, gridHelper, groundHelper;
 
-	initGbxml();
-	animate();
-
-	function initGbxml() {
-
-		divContainerThree.innerHTML = '';
-		if( renderer ) { renderer.dispose(); }
+	function initThreeGbxml() {
 
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true }  );
 		renderer.setSize( window.innerWidth, window.innerHeight );
@@ -58,7 +52,7 @@
 		renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 		renderer.shadowMap.renderReverseSided = false;
 		renderer.shadowMap.renderSingleSided = false;
-		divContainerThree.appendChild( renderer.domElement );
+		document.body.appendChild( renderer.domElement );
 
 		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 0.1, 10000 );
 		camera.up.set( 0, 0, 1 );
@@ -353,8 +347,6 @@
 
 		for ( let CartesianPoint of polyloop.CartesianPoint ) {
 
-//			const p = CartesianPoint.Coordinate;
-//			const point = new THREE.Vector3( parseFloat( p[ 0 ] ), parseFloat( p[ 1 ] ), parseFloat( p[ 2 ] ) );
 			const point = new THREE.Vector3().fromArray( CartesianPoint.Coordinate );
 
 			points.push( point );
