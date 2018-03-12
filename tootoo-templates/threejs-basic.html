@@ -29,14 +29,18 @@
 		<div id = "divTitle" ></div>
 
 		<div id = "divContents" >
-			<button onclick=controls.autoRotate=!controls.autoRotate; >rotation</button>
+
+			<p>
+				<button onclick=controls.autoRotate=!controls.autoRotate; >rotation</button>
+			</p>
+
 		</div>
 
 	</div>
 
 <script>
 
-	var renderer, camera, controls, scene;
+	var renderer, camera, controls, scene, axesHelper;
 	var geometry, material, mesh;
 
 	init();
@@ -44,7 +48,10 @@
 
 	function init() {
 
-		divTitle.innerHTML = '<h1><a href="" >' + location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' ) +'</a></h1>';
+		divTitle.innerHTML =
+		`<h1>
+			<a href="" >` + location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' ) +`</a>
+		</h1>`;
 
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true }  );
 		renderer.setSize( window.innerWidth, window.innerHeight );
@@ -52,7 +59,7 @@
 		document.body.appendChild( renderer.domElement );
 
 		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
-		camera.position.set( 100, 100, 100 );
+		camera.position.set( -100, -100, 100 );
 		camera.up.set( 0, 0, 1 );
 
 		controls = new THREE.OrbitControls( camera, renderer.domElement );
@@ -63,7 +70,7 @@
 
 		window.addEventListener( 'orientationchange', onWindowResize, false );
 
-		const axesHelper = new THREE.AxesHelper( 50 );
+		axesHelper = new THREE.AxesHelper( 100 );
 		scene.add( axesHelper );
 
 		geometry = new THREE.BoxGeometry( 50, 50, 50 );
