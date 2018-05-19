@@ -29,12 +29,11 @@
 
 	} else if ( protocol.includes( 'http' ) ) {
 
-		pathname = location.pathname;
-		len = location.origin.length + 1;
-		path = pathname.slice(1, pathname.lastIndexOf( '/' ) );
-		path2 = path.replace( /-/g, '' ).replace( /\w+/g, '..' );
+		hash = pathname.slice(1, pathname.lastIndexOf( '/' ) );
+		console.log( 'hash', hash );
+		path = hash.replace( /-/g, '' ).replace( /\w+/g, '..' );
 
-		pathFull = path2 + '/index.html#' + path + '/README.md';
+		pathFull = path + '/index.html#' + hash + '/README.md';
 
 	}
 
