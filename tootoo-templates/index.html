@@ -32,7 +32,7 @@
 		//str = 'https://pushme-pullyou.github.io/tootoo-templates/index.html'
 		//pathname = location.pathname;
 		len = location.origin.length + 1;
-		path = str.slice(len, pathname.lastIndexOf( '/' ) );
+		path = pathname.slice(len, pathname.lastIndexOf( '/' ) );
 		path2 = path.replace( /-/g, '' ).replace( /\w+/g, '..' );
 
 		pathFull = path2 + '/index.html#' + path + '/README.md';
