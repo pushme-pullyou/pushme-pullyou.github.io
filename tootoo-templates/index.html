@@ -29,7 +29,7 @@
 
 	} else if ( protocol.includes( 'http' ) ) {
 
-		path = pathname.slice( 8, pathname.lastIndexOf( '/' )  ).replace( /-/g, '' ).replace( /\w+/g, '..' )
+		path = pathname.slice( 20, pathname.lastIndexOf( '/' )  ).replace( /-/g, '' ).replace( /\w+/g, '..' )
 		console.log( 'path', path );
 		path2 = pathname.slice( 4, pathname.lastIndexOf( '/' )  );
 		console.log( 'path2', path2 );
