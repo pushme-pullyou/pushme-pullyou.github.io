@@ -13,9 +13,9 @@ _say something fun_
 
 <img src="" style=display:none; width=800 >
 
-
+<!--
 <div style="border: 1px solid red; display:none;" ><iframe src=https://jaanga.github.io/documents/xxxxxx/index.html width=100% height=600px onload=this.contentWindow.controls.enableZoom=false; ></iframe></div>
-
+-->
 _XXXXXX_
 
 ***
@@ -69,9 +69,10 @@ patterns are descriptions of common problems and proposal for the solutions that
 
 ## Things you can do by editing the code
 
+<!--
 <iframe src='https://jaanga.github.io/cookbook-html/examples/libraries/ace-editor/ace-view-r1.html#
 	http://jaanga.github.io/documents/xxxxxx/xxxxxx-r1.html' width=100% height=600 ></iframe>
-
+-->
 <input type=button onclick=window.location.href='https://github.com/jaanga/jaanga.github.io/tree/master/documents/xxxxxx/xxxxxx-r1.html';
 value='Source code listing' >
 

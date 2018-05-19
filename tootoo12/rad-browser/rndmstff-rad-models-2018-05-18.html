@@ -212,6 +212,7 @@
 
 //		}
 
+
 		getFolderContents( pathCurrent );
 
 		if ( ulc.endsWith( '.md' ) ) {
@@ -220,9 +221,9 @@
 
 		} else if ( ulc.endsWith( '.rad' ) ) {
 
-		scene.remove( rad.meshes, rad.edges );
-		rad.meshes = new THREE.Object3D();
-		rad.edges = new THREE.Object3D();
+			scene.remove( rad.meshes, rad.edges );
+			rad.meshes = new THREE.Object3D();
+			rad.edges = new THREE.Object3D();
 			requestFile( url, callbackRad );
 
 		} else if ( ulc.endsWith( '.html' ) ) {
@@ -447,13 +448,14 @@
 
 
 
-		function animate() {
+	function animate() {
 
 		requestAnimationFrame( animate );
 		renderer.render( scene, camera );
 		controls.update();
 
-		}
+	}
+
 </script>
 </body>
 </html>
