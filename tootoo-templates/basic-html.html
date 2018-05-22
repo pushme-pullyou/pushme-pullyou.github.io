@@ -24,19 +24,24 @@
 
 	<div id = "divHeader" >
 
-		<h1 id = "divTitle" >
-
-			<a href="" ><script>
-				document.write( location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' ) );
-				//document.write( document.title );
-			</script></a>
-
-		</h1>
-
-		<div><script> document.write( document.head.querySelector( '[name=description]' ).content )</script></div>
+		<div id = "divTitle" ></div>
 
 		<div id = "divContents" >
 
+			<p>
+
+				<select size= 8 >
+
+					<option>aaa bbb ccc</option>
+					<option>bbb ccc ddd</option>
+					<option>ccc ddd eee</option>
+					<optgroup>111 222 333</optgroup>
+					<option>ddd eee fff</option>
+					<option>eee fff ggg</option>
+
+				</select>
+
+			</p>
 			<p><button onclick=thing(); >button</button></p>
 
 		</div>
@@ -48,15 +53,24 @@
 <script>
 
 	let txt;
-	const b = '<br>';
+
 
 	init();
 
 	function init() {
 
+		const title = location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' );
+		//const title = document.title;
+
+		divTitle.innerHTML =
+		`
+			<h1><a href="" >${title}</a></h1>
+			<p>${document.head.querySelector( '[name=description]' ).content }</p>
+		`;
+
 		txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
 
-		divContents.innerHTML += b + txt;
+		divContents.innerHTML += txt;
 
 	}
 

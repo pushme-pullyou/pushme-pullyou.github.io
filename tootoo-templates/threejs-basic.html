@@ -48,9 +48,12 @@
 
 	function init() {
 
+		const title = location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' );
+		//const title = document.title;
+
 		divTitle.innerHTML =
 		`<h1>
-			<a href="" >` + location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' ) +`</a>
+			<a href="" >${title}</a>
 		</h1>`;
 
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true }  );
