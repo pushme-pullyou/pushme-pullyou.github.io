@@ -126,14 +126,10 @@
 
 	function init() {
 
-<<<<<<< HEAD
-		if ( protocol === 'file:' ) {
-=======
 		//urlGitHubPage = location.pathname.includes( user + '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + branch;
 		//console.log( 'urlGitHubPage', urlGitHubPage );
-		
+
 		if ( location.protocol === 'file:' ) {
->>>>>>> 34db20b89c566d12bc44bf7af097c1a322760c6c
 
 			urlGitHubPage = location.pathname.includes( user + '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + branch;
 
@@ -142,10 +138,6 @@
 			urlGitHubPage = '';
 
 		}
-<<<<<<< HEAD
-		//console.log( 'urlGitHubPage', urlGitHubPage );
-=======
->>>>>>> 34db20b89c566d12bc44bf7af097c1a322760c6c
 
 		urlInfo.href = urlGitHubSource;
 		urlInfo.innerHTML = iconInfo;
@@ -172,12 +164,12 @@
 
 			url = location.hash.slice( 1 );
 			ulc = url.toLowerCase();
-//console.log( 'url', url );
+			//console.log( 'url', url );
 
 			const crumbs = url.slice( urlGitHubPage.length );
 			pathCurrent = crumbs.lastIndexOf( '/' ) > 0 ? crumbs.slice( 0, crumbs.lastIndexOf( '/' ) ) : '';
 
-//console.log( 'pathCurrent',  pathCurrent );
+			//console.log( 'pathCurrent',  pathCurrent );
 
 		}
 
