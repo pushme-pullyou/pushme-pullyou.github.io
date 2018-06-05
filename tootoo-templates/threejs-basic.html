@@ -21,8 +21,8 @@
 </style>
 </head>
 <body>
-<script src = "https://cdn.rawgit.com/mrdoob/three.js/r92/build/three.min.js" ></script>
-<script src = "https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/controls/OrbitControls.js" ></script>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r93/build/three.min.js" ></script>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r93/examples/js/controls/OrbitControls.js" ></script>
 
 	<div id = "divMenu" >
 
@@ -32,7 +32,7 @@
 			<button onclick=controls.autoRotate=!controls.autoRotate; >rotation</button>
 		</p>
 
-		<div id = "divContents" ></div>
+		<div id = "divLog" ></div>
 
 	</div>
 
@@ -54,9 +54,9 @@
 			<a href="" >${title}</a>
 		</h1>`;
 
-		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true }  );
+		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true } );
+		renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.setSize( window.innerWidth, window.innerHeight );
-
 		document.body.appendChild( renderer.domElement );
 
 		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
