@@ -298,6 +298,17 @@
 	};
 
 
+	DAT.get.node_id = function( item, index ) {
+
+		if ( item ) {
+
+			return 'node id: ' + item;
+
+		}
+
+	};
+
+
 	DAT.get.organizations_url = function( item, index ) {
 
 		if ( DAT.userData.type === "Organization" ) { return; }
