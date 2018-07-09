@@ -275,7 +275,7 @@ function requestFile( url, callback ) {
 	xhr.crossOrigin = 'anonymous';
 	xhr.open( 'GET', url, true );
 	xhr.onerror = function( xhr ) { console.log( 'error:', xhr  ); };
-	//		xhr.onprogress = function( xhr ) { console.log(  'bytes loaded: ' + xhr.loaded.toLocaleString() ) }; /// or something
+	//xhr.onprogress = function( xhr ) { console.log(  'bytes loaded: ' + xhr.loaded.toLocaleString() ) }; /// or something
 	xhr.onload = callback;
 	xhr.send( null );
 
@@ -347,7 +347,7 @@ function onTouchMove(event) {
 
 function toggleNav() {
 
-	const width = getComputedStyle(document.documentElement).getPropertyValue( '--mnu-width' );
+	width = getComputedStyle(document.documentElement).getPropertyValue( '--mnu-width' ).trim();
 
 	if ( !divMenu.style.width || divMenu.style.width === width ) {
 
