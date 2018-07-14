@@ -89,9 +89,11 @@ ___
 
 ### Code
 ```
+	```
 	line of code with 3 backquote characters
 	line of code
 	line of code
+	```
 ```
 
 	line of code
@@ -118,34 +120,34 @@ text text text
 
 ### Images
 
-* uses [lorempixel]( http://lorempixel.com ) to gather random images
+* uses [picsum.photos]( https://picsum.photos ) to gather random images
 
 ````
-	![External Link Icon]( http://lorempixel.com/800/600 =100x100 )
+	![External Link Icon]( https://picsum.photos/800/600/?random =100x100 )
 
-	![ text ]( http://lorempixel.com/800/600 =400x300 )
+	![ text ]( http://picsum.photos/800/600/?random  =400x300 )
 
-	![ text ]( http://lorempixel.com/800/600 =200x150 )
+	![ text ]( http://picsum.photos/800/600/?random  =200x150 )
 ````
 
-![External Link Icon]( http://lorempixel.com/800/600 =100x100 )
+![External Link Icon]( https://picsum.photos/800/600/?random =100x100 )
 
-![ text ]( http://lorempixel.com/800/600 =400x300 )
+![ text ]( https://picsum.photos/800/600/?random =400x300 )
 
-![ text ]( http://lorempixel.com/800/600 =200x150 )
+![ text ]( https://picsum.photos/800/600/?random =200x150 )
 
 
 ### Figures
 
-<figure>
+<figure style=display:inline-block; >
 <a href=http://google.com >
-<img src="http://lorempixel.com/200/200/" >
+<img src="http:///picsum.photos/200/200/" >
 <figcaption>Fig1. - A view of image 1</figcaption>
 <a>
 </figure>
 
-<figure >
-<a href=http://google.com ><img src="http://lorempixel.com/200/200/" >
+<figure style=display:inline-block; >
+<a href=http://google.com ><img src="http://picsum.photos/200/200/" >
 <figcaption>Fig2. - A view of the caption</figcaption>
 </a>
 </figure>

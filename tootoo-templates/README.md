@@ -19,6 +19,11 @@ _basic-html.html_
 
 ## Change Log
 
+https://NREL.github.io/OpenStudio/openstudiocore/src/openstudio_lib/library/embeddable_gbxml_editor.html
+
+https://rawgit.com/nrel/OpenStudio/170a434f06f8bfe8aa9c718c67128e4204648abc/openstudiocore/src/openstudio_lib/library/embeddable_gbxml_editor.html
+
+requestGbxmlFile( 'https://www.ladybug.tools/spider/gbxml-sample-files/boston-ma-urban-house-mep.xml' )
 
 ***
 

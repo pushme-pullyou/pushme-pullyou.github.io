@@ -10,23 +10,26 @@
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
 
-	:root { --mnu-width: 20rem; font-size: 1em; }
+	:root {
+		--mnu-width: 18rem;
+	}
 
 	html { height: 100%; margin: 0; }
 
 	body { height: 100%; margin: 0; }
 
-	a:hover, a:focus { background-color: yellow; color: #888; }
-	blockquote, pre { background-color:rgba(240, 240, 240, 0.25 ); padding: 1em }
+	a:hover, a:focus, #hamburger:hover { background-color: yellow; color: #888; }
+
 	button:hover, input[ type=button ]:hover { background-color: #ccc; color: white }
 
 	#divContainer { height: 100%; margin: 0 0 0 var( --mnu-width ); transition: margin-left .5s; position: relative; }
-	#divContents { height: 100%; left: 0; margin: 0 auto; max-width: 50rem; right: 0;}
+	#divContents { height: 100%; left: 0; margin: 0 auto; max-width: 800px; right: 0;}
 
-	#divMenu { max-height: 100%; overflow-x: hidden; padding: 1rem; position: fixed; resize: both; top: 0;
+	#divMenu { max-height: 100%; margin: 20px;
+		overflow-x: hidden; padding: 25px 10px 30px 10px; position: fixed; top: 0;
 		width: var( --mnu-width ); z-index: 1; transition: left 0.5s; }
-	#hamburger { cursor: pointer; font-size: 2rem; left: calc( var( --mnu-width ) - 4rem );
-		line-height: 2rem; position: fixed; top: 0; transition: left 0.5s; z-index: 10; }
+	#hamburger { cursor: pointer; font-size: 30px; left: calc( var( --mnu-width ) - 100px );
+		line-height: 30px; margin: 0; padding: 5px 15px 8px 10px; position: fixed; top: 0; transition: left 0.5s; z-index: 10; }
 
 	.default { background-color: white; color: #007bff; }
 	.cerulean { background-color: white; color: #2FA4E7; }
@@ -54,10 +57,16 @@
 
 
 /*
+	html { --mnu-color: crimson; --mnu-back-color: Linen; --mnu-width:250px; height: 100%; }
 
 	body, html { font: 12pt "Trebuchet MS", helvetica, sans-serif; height: 100%; margin: 0; }
 
+	a { color: var( --mnu-color ); text-decoration: none; }
+	a:hover, a:focus, #hamburger:hover { background-color: yellow; color: #888; }
+
+	blockquote, pre { background-color: #eee; padding: 10px; }
 	button, input[ type=button ] { background-color: #ddd; border: none; color: var( --mnu-color ); cursor: pointer; padding: 3px 20px; }
+	button:hover, input:hover { background-color: #ccc; color: white }
 
 	iframe { /*border: none; * width: 100%; }
 
@@ -75,7 +84,7 @@
 <script src=https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js ></script>
 
 
-	<div id = "divMenu" class="jumbotron" >
+	<div id = "divMenu" >
 
 		<div id = "divTitle" ></div>
 
@@ -109,9 +118,6 @@
 		</div>
 
 		<div id = "divMenuItems" >
-
-			<p><a href="#../../pages/markdown-help.md" >markdown-help.md</a></p>
-
 			<p><a href="#../../plugins/iframe-carousel-r1.html" >iframe-carousel-r1.html</a></p>
 
 			<p><a href="#../../plugins/view-github-issues.html" >view-github-issues.html</a></p>
@@ -119,9 +125,6 @@
 			<p><a href="#../../tootoo-more/plugins/view-stl.html" >view-stl.html</a></p>
 
 			<p><a href="#../../utilities/invertocat.png" >invertocat.png</a></p>
-
-			<p><a href="https://bootswatch.com" target=_blank >bootswatch.com 🗗</a></p>
-
 		</div>
 
 
@@ -149,7 +152,7 @@
 
 	</div>
 
-	<button id = "hamburger" class = "btn btn-primary" onclick=toggleNav(); > slide &#9776;  </button>
+	<button id = "hamburger" class = "btn" onclick=toggleNav(); > slide &#9776;  </button>
 
 <script>
 // https://github.com/showdownjs/showdown << check for latest rev from time to time 1.8.6 2018-07-02
@@ -178,9 +181,9 @@ function init() {
 
 	divTitle.innerHTML =
 	`
-		<div class="">
-			<a class="breadcrumb-item" href = "../index.html" target="_top" >repo</a>
-			<a class="breadcrumb-item" href= "./index.html" target="_top" style=font-size:24px; >&#x2302;</a>
+		<div>
+			<a href = "../index.html" target="_top" >repo</a> &raquo;
+			<a href= "./index.html" target="_top" style=font-size:24px; >&#x2302;</a> &raquo;
 		</div>
 
 		<h2>
@@ -191,7 +194,7 @@ function init() {
 		<p>${ document.head.querySelector( '[name=description]' ).content }</p>
 	`;
 
-	divMenuItems.innerHTML += '<details>' + txt + '</details><details>' + txt + '</detaila>';
+	divMenuItems.innerHTML += txt + txt;
 
 	document.addEventListener( 'touchstart', onTouchStart, false );
 	document.addEventListener( 'touchmove', onTouchMove, false );
@@ -350,9 +353,8 @@ function toggleNav() {
 	} else {
 
 		divMenu.style.width = width;
-		//divMenu.style.padding = '30px 10px 0 10px';
-		divMenu.style.padding = '1rem';
-		hamburger.style.left = 'calc( var( --mnu-width ) - 4rem )';
+		divMenu.style.padding = '30px 10px 0 10px';
+		hamburger.style.left = 'calc( var( --mnu-width ) - 100px )';
 		divContainer.style.marginLeft = width;
 
 	}
