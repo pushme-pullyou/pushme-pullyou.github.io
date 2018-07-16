@@ -8,7 +8,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 # [TooToo Template Read Me]( #README.md )
 
 
-<button><iframe style="display: none" src="https://pushme-pullyou.github.io/tootoo-templates/basic-html.html" width="100%" height="500px" ></iframe></button>
+<button><iframe style="display: none" width="100%" height="500px" ></iframe></button>
 
 
 _basic-html.html_
