@@ -6,6 +6,7 @@
 
 <iframe src=https://pushme-pullyou.github.io/tootoo-templates/basic-html.html width=100% height=500px ></iframe>
 _basic-html.html_
+
 <span style="display: none" >Iframes are not viewable in GitHub source code view</span>
 
 ## Full Screen: []( .html )
@@ -19,11 +20,7 @@ _basic-html.html_
 
 ## Change Log
 
-https://NREL.github.io/OpenStudio/openstudiocore/src/openstudio_lib/library/embeddable_gbxml_editor.html
 
-https://rawgit.com/nrel/OpenStudio/170a434f06f8bfe8aa9c718c67128e4204648abc/openstudiocore/src/openstudio_lib/library/embeddable_gbxml_editor.html
-
-requestGbxmlFile( 'https://www.ladybug.tools/spider/gbxml-sample-files/boston-ma-urban-house-mep.xml' )
 
 ***
 
