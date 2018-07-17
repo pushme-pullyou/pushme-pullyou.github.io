@@ -6,7 +6,7 @@
 <meta name=description content="basic html template with sliding menu, markdown capability and frequently used pages" >
 <meta name=keywords content="JavaScript,GitHub,FOSS,3D,STEM" >
 <meta name = "date" content = "2018-07-16" >
-<title>hamburger bootswatch r1.0</title>
+<title>hamburger bootswatch cms r1.0</title>
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
 
@@ -78,6 +78,8 @@
 	<div id = "divMenu" class="jumbotron" >
 
 		<div id = "divTitle" ></div>
+
+		<div id = "divMenuItemsTop" ></div>
 
 		<div id = "divMenuItems" >
 
@@ -191,12 +193,15 @@ function init() {
 		<p>${ document.head.querySelector( '[name=description]' ).content }</p>
 	`;
 
-	divMenuItems.innerHTML += '<details>' + txt + '</details><details>' + txt + '</detaila>';
+	//divMenuItems.innerHTML += '<details>' + txt + '</details><details>' + txt + '</detaila>';
 
 	document.addEventListener( 'touchstart', onTouchStart, false );
 	document.addEventListener( 'touchmove', onTouchMove, false );
 
 	window.addEventListener ( 'hashchange', onHashChange, false );
+
+
+	fetchGitHubFolderContents( divMenuItemsTop );
 
 	onHashChange();
 
@@ -262,7 +267,7 @@ function onHashChange() {
 
 	} else {
 
-		requestFile( urlGitHubPage + url, callbackToTextarea );
+		requestFile( url, callbackToTextarea );
 
 	}
 
@@ -371,6 +376,93 @@ function onTouchMove(event) {
 }
 
 
+
+//////////
+
+
+function fetchGitHubFolderContents( target ) {
+
+	//const url = 'https://api.github.com/repos/ladybug-tools/spider/contents/gbxml-sample-files';
+	const url = 'https://api.github.com/repos/ladybug-tools/spider/contents/';
+	//console.log(url );
+
+	target.innerHTML =
+
+	`<details id = detGallery  open >
+
+		<summary>Contents</summary>
+
+		<div id=divItems ></div>
+
+		<details>
+			<summary>GitHub API Key</summary>
+
+			<p><i>Occasionally this script breaks if you go over the GitHub API rate limit.
+				You may increase your limits if you have a <a href="https://github.com/settings/tokens" target="_blank">GitHub API Key</a> and enter it here. The key is saved in between sessions in your local hard drive.</i></p>
+			GitHub personal access token <input id=inpGitHubPersonalAccessToken onchange=setGPATStorage(); size=50 ></p>
+
+		</details>
+
+
+		<hr>
+
+	</details>`;
+
+	const GitHubPersonalAccessToken = localStorage.getItem( 'GitHubPersonalAccessToken' ) || '';
+	inpGitHubPersonalAccessToken.value = GitHubPersonalAccessToken;
+
+	const key = GitHubPersonalAccessToken ? '?access_token=' + GitHubPersonalAccessToken : '';
+
+	const request = new Request( url + key );
+
+	fetch( request )
+		.then( response => response.json() )
+		.then( json => callbackGitHubMenu( json ) );
+
+}
+
+
+
+function callbackGitHubMenu ( files ) {
+
+	const urlGitHubSource = 'https://github.com/ladybug-tools/spider/blob/master/gbxml-sample-files/';
+	const urlGitHubPage = 'https://rawgit.com/ladybug-tools/spider/master/gbxml-sample-files/';
+	const iconGitHubMark = '<img src="https://rawgit.com/ladybug-tools/spider/master/images/github-mark.png" height=14 style=vertical-align:middle>';
+
+
+	let txt = '';
+
+	for ( let file of files) {
+
+		if ( !file.name.endsWith( '.html' ) ) { continue; }
+
+		const fileName = encodeURI( file.name );
+
+		txt +=
+
+		`<div style=margin:10px; >
+
+			<a href=${ urlGitHubSource + fileName } title="Edit me" >${ iconGitHubMark }</a>
+
+			<a href=#${ urlGitHubPage + fileName } title="${ file.size.toLocaleString() } bytes" >${ file.name }</a>
+
+			<a href=${ urlGitHubPage + fileName } title="Link to just this file" >&#x2750;</a>
+
+		</div>`;
+
+	}
+
+	divItems.innerHTML = txt;
+
+}
+
+
+function setGPATStorage() {
+
+	const GitHubPersonalAccessToken = inpGitHubPersonalAccessToken.value;
+	localStorage.setItem('GitHubPersonalAccessToken', GitHubPersonalAccessToken );
+
+}
 
 </script>
 </body>

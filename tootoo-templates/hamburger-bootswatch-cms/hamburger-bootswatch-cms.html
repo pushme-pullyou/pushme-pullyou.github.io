@@ -6,7 +6,7 @@
 <meta name=description content="basic html template with sliding menu, markdown capability and frequently used pages" >
 <meta name=keywords content="JavaScript,GitHub,FOSS,3D,STEM" >
 <meta name = "date" content = "2018-07-16" >
-<title>hamburger bootswatch r1.0</title>
+<title>hamburger bootswatch cms r1.0</title>
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
 
@@ -58,7 +58,7 @@
 
 	button, input[ type=button ] { background-color: #ddd; border: none; color: var( --mnu-color ); cursor: pointer; padding: 3px 20px; }
 
-	iframe { /*border: none; * width: 100%; }
+	iframe { border: none; width: 100%; }
 
 	input[ type = range ] { -webkit-appearance: none; -moz-appearance: none; background-color: #ddd; width: 100%; }
 	input[ type = range ]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }
@@ -78,6 +78,8 @@
 	<div id = "divMenu" class="jumbotron" >
 
 		<div id = "divTitle" ></div>
+
+		<div id = "divBreadcrumbs" ></div>
 
 		<div id = "divMenuItems" >
 
@@ -155,6 +157,23 @@
 // https://github.com/showdownjs/showdown << check for latest rev from time to time 1.8.6 2018-07-02
 // jshint esversion: 6
 
+
+	const user = 'pushme-pullyou';
+	const repo = '/pushme-pullyou.github.io';
+	const pathRepo = '';
+	const branch = '/master/'
+
+	const uriDefaultFile = 'README.md';
+
+	const iconInfo = '<img src="https://status.github.com/images/invertocat.png" height=18 >';
+	const urlGitHubSource = 'https://github.com/' + user + repo;
+	const urlGitHubApiContents = 'https://api.github.com/repos/' + user + repo + '/contents/' + pathRepo;
+
+	//const urlGitHubPage = location.href.includes( '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + branch;
+	const urlGitHubPage  = 'https://rawgit.com/' + user + repo + branch;
+		//console.log( 'urlGitHubPage', urlGitHubPage );
+
+
 const themeName = localStorage.getItem( 'themeName' );
 selTheme.value = themeName ? themeName : 'Cerulean' ;
 
@@ -163,7 +182,7 @@ let yDown = null;
 
 //	let defaultFile = 'index.html';
 //	location.hash = '../README.md';
-let uriDefaultFile = 'README.md';
+//let uriDefaultFile = 'README.md';
 
 const txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
 
@@ -244,6 +263,13 @@ function onHashChange() {
 
 	const url = !location.hash ? uriDefaultFile : location.hash.slice( 1 );
 	const ulc = url.toLowerCase();
+
+	const crumbs = url.slice( urlGitHubPage.length );
+	const pathCurrent = crumbs.lastIndexOf( '/' ) > 0 ? crumbs.slice( 0, crumbs.lastIndexOf( '/' ) ) : '';
+		//console.log( 'pathCurrent',  pathCurrent );
+
+	setMenuGitHubPathFileNames( pathCurrent );
+
 
 	if ( ulc.endsWith( '.md' ) ) {
 
@@ -370,6 +396,123 @@ function onTouchMove(event) {
 
 }
 
+
+
+//////////
+
+
+
+function setMenuGitHubPathFileNames( path = '' ) {
+
+	const url = urlGitHubApiContents + path;
+
+	requestFile( url, callbackGitHubPathFileNames );
+
+	setBreadcrumbs( path );
+
+}
+
+
+
+function setBreadcrumbs( path ) {
+
+	let txt =
+		'<b>' +
+			'<a href=JavaScript:setMenuGitHubPathFilNames(); >' +
+
+				( pathRepo ? pathRepo : '<span style=font-size:24px >&#x2302</span>' ) +
+
+			'</a> &raquo; ' +
+		'</b>';
+
+	const folders = path ? path.split( '/' ) : [] ;
+
+	let str = '';
+
+	for ( let folder of folders ) {
+
+		str += folder + '/';
+
+		txt += '<b><a href=JavaScript:setMenuGitHubPathFilNames("' + str.slice( 0, -1 ) + '"); >' + folder + '</a> &raquo; </b>';
+
+	}
+
+	divBreadcrumbs.innerHTML = txt;
+
+}
+
+
+
+function callbackGitHubPathFileNames( xhr ) {
+
+	const response = xhr.target.response;
+	const items = JSON.parse( response );
+	const len = pathRepo.length;
+
+	let txt = '';
+
+	if ( items.message ) { console.log( items.message ); return; }
+
+	const ignoreFolders = [ 'data' ]; //, 'plugins'
+
+	for ( let item of items ) {
+
+		if ( item.type === 'dir' ) {
+
+			if ( ignoreFolders.includes( item.name ) ) { continue; }
+
+			txt +=
+				'<div style=margin-bottom:8px; >' +
+					'<a href=JavaScript:setMenuGitHubPathFilNames("' + item.path.slice( len )  + '"); >&#x1f4c1; ' +
+						item.name  +
+					'</a>' +
+				'</div>' +
+			'';
+
+		}
+
+	}
+
+	const ignoreFiles = [ '.gitattributes', '.gitignore', '404.html' ];
+
+	for ( let item of items ) {
+
+		if ( item.type === 'file' ) {
+
+			if ( ignoreFiles.includes( item.name ) ) { continue; }
+
+			itemPath = encodeURI( item.path.slice( len ) );
+
+			txt += // try grid or flexbox??
+				'<table><tr>' +
+
+					'<td><a href="' + urlGitHubSource + '/blob' + branch + itemPath + '" target=_top >' + iconInfo + '</a></td>' +
+					'<td>' +
+
+						'<a href=#' + urlGitHubPage + pathRepo + itemPath +
+						' title="' + item.size.toLocaleString() + ' bytes" > ' + item.name + '</a> ' +
+						( item.path.endsWith( 'html' ) ? '<a href=' + urlGitHubPage + pathRepo + itemPath + ' >&#x2750;</a>' : '' ) +
+
+					'</td>' +
+
+				'</tr></table>';
+
+			// simplify
+			if ( ( !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' ) )
+				//&& item.path !== 'README.md'
+				&& item.name.toLowerCase() === 'readme.md' ) {
+
+				location.hash = urlGitHubPage + pathRepo + itemPath;
+
+			}
+
+		}
+
+	}
+
+	divMenuItems.innerHTML = txt;
+
+}
 
 
 </script>
