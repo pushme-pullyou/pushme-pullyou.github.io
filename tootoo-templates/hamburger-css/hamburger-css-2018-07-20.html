@@ -95,10 +95,10 @@
 
 		</div>
 
+		<hr>
 
 		<div id= "divFooter" >
 
-			<hr>
 
 			<div>
 				<p>
@@ -178,7 +178,7 @@ function init() {
 
 	divTitle.innerHTML =
 	`
-		<div class="">
+		<div class="" >
 			<a class="breadcrumb-item" href = "../index.html" target="_top" >repo</a>
 			<a class="breadcrumb-item" href= "./index.html" target="_top" style=font-size:24px; >&#x2302;</a>
 		</div>
@@ -193,6 +193,7 @@ function init() {
 
 	divMenuItems.innerHTML += '<details>' + txt + '</details><details>' + txt + '</detaila>';
 
+	// Swipe events
 	document.addEventListener( 'touchstart', onTouchStart, false );
 	document.addEventListener( 'touchmove', onTouchMove, false );
 

@@ -1,5 +1,6 @@
 <span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( http://jaanga.github.io/xxxxxx/#README.md "View file as a web page." ) </span>
-<div><input type=button onclick=window.location.href='https://github.com/jaanga/000000/tree/master/documents/xxxxxx/';
+
+<div><input type=button class = 'btn btn-secondary btn-sm' onclick=window.location.href='https://github.com/jaanga/000000/tree/master/documents/xxxxxx/';
 value='You are now in a GitHub web page view - Click this button to view this read me file as source code' ></div>
 
 [Jaanga]( https://jaanga.github.io ) &raquo; [ oooooo ]( http://jaanga.github.io/documents/  ) &raquo;
@@ -14,7 +15,7 @@ _say something fun_
 <img src="" style=display:none; width=800 >
 
 
-<div style="border: 1px solid red; display:none;" ><iframe src=https://jaanga.github.io/documents/xxxxxx/index.html width=100% height=600px onload=this.contentWindow.controls.enableZoom=false; ></iframe></div>
+<div style="border: 1px solid red; display:none;" ><iframe src=https://jaanga.github.io/documents/xxxxxx/index.html width=100% height=600px onload=this.contentWindow.controls.enableZoom=false; >Iframes are not viewable in GitHub source code views</iframe></div>
 
 _XXXXXX_
 
