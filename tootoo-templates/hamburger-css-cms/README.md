@@ -32,6 +32,11 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 ## Change Log
 
+
+### 2018-07-22 ~ Theo
+
+* Many updates
+
 #### 2018-07-11 ~ Theo
 
 * Add details tags to menu - to see menu with and without scroll bars

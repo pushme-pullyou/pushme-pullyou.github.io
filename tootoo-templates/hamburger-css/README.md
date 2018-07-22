@@ -25,6 +25,11 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 ## Change Log
 
+### 2018-07-22 ~ Theo
+
+* Add fixes from launchandlearn updates
+* Fix source code link
+
 ### 2018-07-20 ~ Theo
 
 * First commit
