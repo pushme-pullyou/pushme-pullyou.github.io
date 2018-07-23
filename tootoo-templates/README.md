@@ -5,15 +5,15 @@ value='You are now in a GitHub web page view - Click this button to view this re
 <span style=display:none; > [You are now in a GitHub source code view - click this link to view Read Me file as a web page]( https://pushme-pullyou.github.io/#tootoo-templates/README.md "View file as a web page." ) </span>
 
 
-# [TooToo Template Read Me]( #README.md )
+# [TooToo Templates Read Me]( #README.md )
 
 <!--
 <iframe src="https://pushme-pullyou.github.io/tootoo-templates/basic-html" width="100%" height="500px" >Iframes are not viewable in GitHub.com</iframe>
 
 _basic-html.html_
-
-## Full Screen: []( .html )
 -->
+
+## Full Screen: [TooToo / Hamburger CSS CMS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-css-cms/hamburger-css-cms.html )
 
 ## Concept
 
@@ -22,7 +22,7 @@ _basic-html.html_
 
 * Basic html templates with sliding menu, css selection, markdown capability and frequently used pages
 * No dependencies apart from CSS files
-	* Bootswatch: Free themes for Bootstrap
+	* Uses Bootswatch and other sources for free themes for Bootstrap
 	* Using the themes is as easy as downloading a CSS file and replacing the one that comes with Bootstrap.
 	* You can also hotlink the themes via CDN at BootstrapCDN
 
@@ -33,7 +33,21 @@ _basic-html.html_
 * Simple code
 * Drop in, make one ot two edits and you are good to go
 
-## Links of Interest
+## To do / Wish list
+
+* 2018-07-22 ~ Theo ~ Try putting theme selection into buttons in a details element
+* 2018-07-22 ~ Theo ~ Add how to use notes
+* 2018-07-22 ~ Theo ~ split menu into details groups
+* 2018-07-22 ~ Theo ~ Use better new tab icon
+* 2018-07-22 ~ Theo ~ Fix links to extras items
+* 2018-07-22 ~ Theo ~ Tidy and complete file reader code
+
+Theme Selection
+* Themes into light and dark groups
+* Multiple ways of grouping themes including by color, size, font.
+* Themes grouped and based on aspects such as time of day, emotional state, current activity and so on
+
+## Links of interest
 
 ## CSS
 
@@ -71,6 +85,10 @@ _basic-html.html_
 
 
 ## Change Log
+
+### 2018-07-22 ~ Theo
+
+* Add wish list and items
 
 ### 2018-07-20 ~ Theo
 
