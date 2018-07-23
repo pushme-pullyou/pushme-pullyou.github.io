@@ -13,7 +13,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 ## Full Screen: [Hamburger CSS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-css/hamburger-css.html )
 
-
+## Full Screen: [Hamburger CSS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-css/hamburger-theme.html )
 
 ## Concept
 
@@ -24,6 +24,11 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 
 ## Change Log
+
+### 2018-07-23 ~ Theo
+
+* hamburger-them: first commit
+* Select with buttons
 
 ### 2018-07-22 ~ Theo
 
