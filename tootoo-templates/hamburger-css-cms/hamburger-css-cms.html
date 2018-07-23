@@ -30,6 +30,8 @@
 		line-height: 2rem; position: fixed; top: 0; transition: left 0.5s; z-index: 10; }
 
 
+	.dragDropArea { border: 1px dashed gray; box-sizing: border-box; padding: 10px; }
+
 	.default { background-color: white; color: #007bff; }
 	.cerulean { background-color: white; color: #2FA4E7; }
 	.cosmo { background-color: white; color: #2780E3; }
@@ -146,6 +148,12 @@
 				</select>
 			</p>
 
+			<div id=dragDropArea class=dragDropArea >
+
+				Drag & drop files or URLs into this box
+				or <input type = "file" id = "inpFile" class="form-control-file" onchange="openFile(this);" >
+
+			</div>
 
 			<div title='Me want too!' ><a href=#../../pages/about-this-cms.md >About this CMS</a></div>
 			<div title='What is this stuff?' ><a href=#../../pages/coding-style.md >Coding style</a></div>
@@ -231,6 +239,9 @@ function init() {
 	divMenuItems.innerHTML += `<details><summary>text 1</summary>${ txt }</details>
 		<details><summary>text 2</summary>${ txt }</details><hr>`;
 
+	dragDropArea.addEventListener( "dragover", function( event ){ event.preventDefault(); }, true );
+	dragDropArea.addEventListener( 'drop', onDrop, false );
+
 	// Swipe events
 	document.addEventListener( 'touchstart', onTouchStart, false );
 	document.addEventListener( 'touchmove', onTouchMove, false );
@@ -310,7 +321,7 @@ function callbackMarkdown( xhr ){
 	const response = xhr.target.response;
 	const html = converter.makeHtml( response );
 
-	//divContents.style.maxWidth = '800px';
+	divContents.style.maxWidth = '800px';
 	document.body.overflow = '';
 	divContents.innerHTML = html;
 	window.scrollTo( 0, 0 );
@@ -328,6 +339,69 @@ function callbackToTextarea( xhr ){
 }
 
 
+
+function onDrop( event ) {
+
+	console.log( 'event', event );
+
+	const iframeUrl = event.dataTransfer.getData( 'URL' );
+
+	if ( iframeUrl ) {
+
+		location.hash = iframeUrl;
+
+	} else {
+
+		var file = event.dataTransfer.files[0];
+			// can get the name of the file with file.name
+		console.log(file.name);
+		openFile( event.dataTransfer );
+
+		//console.log( 'ed', event.dataTransfer );
+
+	}
+
+	event.preventDefault();
+
+};
+
+
+	function openFile( files ) {
+
+		fileAttributes = files.files[ 0 ];
+		//console.log( 'file', files.files[ 0 ] );
+
+		const reader = new FileReader();
+		//reader.onprogress = onRequestFileProgress;
+		reader.onload = function( event ) {
+
+			//console.log( 'reader', reader );
+
+			showdown.setFlavor('github');
+			const converter = new showdown.Converter();
+			const html = converter.makeHtml( reader.result );
+
+			divContents.style.maxWidth = '800px';
+			document.body.overflow = '';
+			divContents.innerHTML = html;
+			window.scrollTo( 0, 0 );
+
+		};
+
+		reader.readAsText( files.files[ 0 ] );
+
+		function onRequestFileProgress( event ) {
+
+			divLog.innerHTML =
+				fileAttributes.name + ' bytes loaded: ' + event.loaded.toLocaleString() +
+				//( event.lengthComputable ? ' of ' + event.total.toLocaleString() : '' ) +
+			'';
+
+		}
+
+		};
+
+//////////
 
 function onTouchStart( event ) {
 
