@@ -5,8 +5,8 @@
 <meta name="viewport" content = "width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" >
 <meta name=description content="basic html template with sliding menu, css selection, Markdown capability and frequently used pages" >
 <meta name=keywords content="JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-07-22" >
-<title>hamburger css r1.1</title>
+<meta name = "date" content = "2018-07-23" >
+<title>hamburger theme r1.0</title>
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
 
@@ -63,23 +63,7 @@
 
 		<div id = "divMenuItems" ></div>
 
-		<div id = "divExtras" >
-
-			<p><a href="#https://pushme-pullyou.github.io/pages/markdown-help.md" >markdown-help.md</a></p>
-
-			<p><a href="#https://pushme-pullyou.github.io/plugins/iframe-carousel-r1.html" >iframe-carousel-r1.html</a></p>
-
-			<p><a href="#https://pushme-pullyou.github.io//plugins/view-github-issues.html" >view-github-issues.html</a></p>
-
-			<p><a href="#https://pushme-pullyou.github.io/tootoo-more/plugins/view-stl.html" >view-stl.html</a></p>
-
-			<p><a href="#https://pushme-pullyou.github.io//utilities/invertocat.png" >invertocat.png</a></p>
-
-			<p><a href="https://bootswatch.com" target=_blank >🗗 bootswatch.com</a></p>
-
-		</div>
-
-		<hr>
+		<div id = "divExtras" ></div>
 
 		<div id= "divFooter" >
 
@@ -134,9 +118,6 @@ let themeName = localStorage.getItem( 'themeName' ) || 'https://bootswatch.com/_
 let xDown = null;
 let yDown = null;
 
-const txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
-
-
 
 init();
 
@@ -160,8 +141,7 @@ function init() {
 		<p>${ document.head.querySelector( '[name=description]' ).content }</p>
 	`;
 
-	divMenuItems.innerHTML += `<details><summary>text 1</summary>${ txt }</details>
-		<details><summary>text 2</summary>${ txt }</details><hr>`;
+	setTestingExtras( divExtras );
 
 	setTheme( divSettings );
 
@@ -175,6 +155,36 @@ function init() {
 	window.addEventListener ( 'hashchange', onHashChange, false );
 
 	onHashChange();
+
+}
+
+
+
+function setTestingExtras( target ) {
+
+	const txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
+
+	target.innerHTML =
+
+	`<details><summary>Extras</summary>
+
+		<p><a href="#https://pushme-pullyou.github.io/pages/markdown-help.md" >markdown-help.md</a></p>
+
+		<p><a href="#https://pushme-pullyou.github.io/plugins/iframe-carousel-r1.html" >iframe-carousel-r1.html</a></p>
+
+		<p><a href="#https://pushme-pullyou.github.io//plugins/view-github-issues.html" >view-github-issues.html</a></p>
+
+		<p><a href="#https://pushme-pullyou.github.io/tootoo-more/plugins/view-stl.html" >view-stl.html</a></p>
+
+		<p><a href="#https://pushme-pullyou.github.io//utilities/invertocat.png" >invertocat.png</a></p>
+
+		<p><a href="https://bootswatch.com" target=_blank >🗗 bootswatch.com</a></p>
+
+	</details>
+
+	<details><summary>Text</summary>${ txt }</details>
+
+	<hr>`;
 
 }
 
@@ -218,7 +228,7 @@ function setTheme( target ) {
 	];
 
 	target.innerHTML =
-	`<details open>
+	`<details>
 
 		<summary>Settings</summary>
 
@@ -241,14 +251,14 @@ function setTheme( target ) {
 
 	let txt = '<p>Themes from other sources</p>';
 
-	for ( theme of themesOthers ) {
+	for ( let theme of themesOthers ) {
 
 		//name = Object.keys( theme )[ 0 ];
 		//console.log( 'name', name );
 		//console.log( 'link', theme.link );
 		txt += `<button class="theme btn btn-secondary" onclick=updateCss("${ theme.link }"); style="${ theme.name }" >${ theme.name }</button> `;
 
-		divCssOthers.innerHTML = txt;
+		divCssOthers.innerHTML = txt + '<p><small>these buttons are work-in-progress WIP</small></p>';
 
 	}
 
@@ -260,7 +270,7 @@ function updateCss( link ) {
 
 	themeName = css.href = link;
 	localStorage.setItem( 'themeName', link );
-	setTheme(divSettings );
+	setTheme( divSettings );
 
 }
 

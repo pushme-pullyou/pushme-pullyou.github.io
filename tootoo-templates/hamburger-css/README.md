@@ -13,7 +13,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 ## Full Screen: [Hamburger CSS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-css/hamburger-css.html )
 
-## Full Screen: [Hamburger CSS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-css/hamburger-theme.html )
+## Full Screen: [Hamburger Theme]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-css/hamburger-theme.html )
 
 ## Concept
 
