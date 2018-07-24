@@ -10,7 +10,7 @@
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
 
-	:root { --mnu-width: 20rem; font-size: 1em; }
+	:root { --mnu-width: 25rem; font-size: 1em; }
 
 	html { height: 100%; margin: 0; }
 
@@ -537,7 +537,8 @@ function toggleNav() {
 function fetchGitHubFolderContents( target ) {
 
 	//const url = 'https://api.github.com/repos/ladybug-tools/spider/contents/gbxml-sample-files';
-	const url = 'https://api.github.com/repos/ladybug-tools/spider/contents/';
+	//const url = 'https://api.github.com/repos/ladybug-tools/spider/contents/';
+	url = 'https://api.github.com/repos/mrdoob/three.js/contents/examples/';
 	//console.log(url );
 
 	target.innerHTML =
@@ -552,12 +553,13 @@ function fetchGitHubFolderContents( target ) {
 
 			<summary>GitHub API Key</summary>
 
-			<p><i>Occasionally this script breaks if you go over the GitHub API rate limit.
+			<p>
+				<i>Occasionally this script breaks if you go over the GitHub API rate limit.
 				You may increase your limits if you have a <a href="https://github.com/settings/tokens" target="_blank">GitHub API Key</a> and enter it here. The key is saved in between sessions in your local hard drive.</i></p>
-			GitHub personal access token <input id=inpGitHubPersonalAccessToken onchange=setGPATStorage(); size=50 ></p>
+				GitHub personal access token <input id=inpGitHubPersonalAccessToken onchange=setGPATStorage(); size=50 >
+			</p>
 
 		</details>
-
 
 		<hr>
 
@@ -580,8 +582,14 @@ function fetchGitHubFolderContents( target ) {
 
 function callbackGitHubMenu ( files ) {
 
+	/*
 	const urlGitHubSource = 'https://github.com/ladybug-tools/spider/blob/master/gbxml-sample-files/';
 	const urlGitHubPage = 'https://rawgit.com/ladybug-tools/spider/master/gbxml-sample-files/';
+	const iconGitHubMark = '<img src="https://rawgit.com/ladybug-tools/spider/master/images/github-mark.png" height=14 style=vertical-align:middle>';
+	*/
+
+	const urlGitHubSource = 'https://github.com/mrdoob/three.js/blob/master/examples/';
+	const urlGitHubPage = 'https://rawgit.com/mrdoob/three.js/master/examples/';
 	const iconGitHubMark = '<img src="https://rawgit.com/ladybug-tools/spider/master/images/github-mark.png" height=14 style=vertical-align:middle>';
 
 
