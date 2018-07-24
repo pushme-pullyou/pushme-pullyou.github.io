@@ -1,44 +1,59 @@
 <span style=display:none; >[You are now in a GitHub source code view - click this link to view the read me file as a web page]( https://pushme-pullyou.github.io "View file as a web page." ) </span>
 
 
-[pushMe-pullYou Read Me]( https://pushme-pullyou.github.io/ )
-================================================================================
+<div><input type=button class = 'btn btn-secondary btn-sm' onclick="window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io'";
+value='You are now in a GitHub web page view - Click this button to view this read me file as source code' ></div>
 
-_JavaScript files to help you explore and build new tools on GitHub_
+<br>
+
+# [pushMe-pullYou Read Me]( https://pushme-pullyou.github.io/ )
 
 
-## [TooToo]( https://pushme-pullyou.github.io/#tootoo10/README.md ) Read Me
+_Very simple JavaScript files to help you explore and build new tools on GitHub. Code names are a riff on [Dr Dolittle]( https://en.wikipedia.org/wiki/Doctor_Dolittle ) naming style_
+
+
+## [TooToo]( https://pushme-pullyou.github.io/#tootoo-templates/README.md ) Read Me
 <!--
 * [README]( https://pushme-pullyou.github.io#tootoo/README.md )
 -->
 
+* Templates for GitHub and Three.js users
+	* 'Hamburger Theme CMS' - as used here - is one of several templates
 * Browse and view many files on GitHub with remarkable ease
 * Buttons for: Edit this page, ~~Next page~~, ~~Previous page~~
-* Menus with current selection highlighted
-* 2017-08-21 ~ Where the current action is occurring
+* ~~Menus with current selection highlighted~~
+* 2018-07-24 ~ Where the current action is occurring
 
 
 
-## [GubGub]( https://pushme-pullyou.github.io/gubgub/ ) Script
-
-* [README]( https://pushme-pullyou.github.io/#gubgub/README.md )
+## [GubGug Read Me]( https://pushme-pullyou.github.io/#gubgub/README.md )
+#### Full screen [GubGub]( https://pushme-pullyou.github.io/gubgub/ ) Script
 * Explore the activity of many GitHub users
 * View the Read Me files of their repositories
 	* Helped by the GitHub API and client-side cookbook JavaScript.
 
-## [DabDab]( https://pushme-pullyou.github.io/dabdab/ ) Script
+## [DabDab Read Me ]( https://pushme-pullyou.github.io#dabdab/README.md )
+#### Full screen [DabDab]( dabdab/index.html ) Script
 
-* [README]( https://pushme-pullyou.github.io#dabdab/README.md )
 * Got friends? Monitor updates for selected GitHub users
 * Select users from a list
 * View user's events by repo and by date
 * Links to numerous GitHub user statistics
 
+## [CheeChee]( https://pushme-pullyou.github.io#cheechee/README.md )
+
+* RSS reader for Ladybug Tools users. Captures and displays RSS feed updates fron Grasshoppe3D and GitHub
+* May be adapted for any GiHub user or organization
 
 
+## [JibJib]( https://pushme-pullyou.github.io/jibjib1/jibjib1.html )
 
-Concept Attempt #1
---------------------------------------------------------------------------------
+* A simple online text editor
+* Built on the Mozilla editor
+
+
+# Concept Attempt #1
+
 _The issues and problems we are trying to solve_
 
 GitHub has [millions of projects]( https://github.com/about ).
@@ -123,8 +138,8 @@ To help you
 * Transfer all of these abilities into your own set of tools
 
 
-Features
---------------------------------------------------------------------------------
+# Features
+
 
 _See also individual script read me files in folders for more timely and script-specific features_
 
@@ -134,8 +149,7 @@ _See also individual script read me files in folders for more timely and script-
 * Coded throughout with entry-level JavaScript
 
 
-Coding Style
---------------------------------------------------------------------------------
+# Coding Style
 
 
 ### Entry Level Code / Cookbook Style
@@ -201,14 +215,13 @@ But some idiosyncrasies:
 	* It all starts as alphanumeric characters and ends up as pixels
 	* Remix, re-appropriate, re-hash as needed
 	* Uses JavaScript to do this mash-up
-    * It's <s>[turtles](https://en.wikipedia.org/wiki/Turtles_all_the_way_down )</s> JavaScript all the way down
+	* It's <s>[turtles](https://en.wikipedia.org/wiki/Turtles_all_the_way_down )</s> JavaScript all the way down
 
 There are hundreds of computer programming languages.
 And so, there can be many styles of coding in each language. And each can have its own beauty.
 
 
-Script Naming Conventions
---------------------------------------------------------------------------------
+# Script Naming Conventions
 
 The names of the scripts here are derived the the names of characters in Hugh Lofting's [Dr Dolittle]( https://en.wikipedia.org/wiki/Doctor_Dolittle ) series of children's books.
 
@@ -304,20 +317,26 @@ Links of Interest / Background Context
 
 ## Copyright and License
 
-Copyright © 2017 pushMe pullYou authors. [MIT License]( #LICENSE.md ).
+Copyright © 2018 pushMe pullYou authors. [MIT License]( #LICENSE.md ).
 
 
 ## To Do
 
 * 2017-07-01 ~ Bring all explore GitHub links into one place
-
 * Start upgrading to GitHub graphQL
 * Start exploring GitHub Topics
     * And projects?
 
+
+
 ## Change Log
 
 _See also individual script read me files in folders for more timely and script-specific updates_
+
+### 2018-07-24 ~ Theo
+
+* Update to TooToo / Hamburger Theme CMS
+* Update readme
 
 ### 2017-07-01 ~ Theo
 
@@ -348,3 +367,8 @@ _See also individual script read me files in folders for more timely and script-
 
 * Create organization & first commit
 * Copy over GubGub & TooToo
+
+***
+
+
+# <center title="hello!" ><a href=javascript:window.scrollTo(0,0); style=text-decoration:none; > ❦ </a></center>

@@ -6,33 +6,28 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 <br>
 
-# [Hamburger Theme CMS Read Me]( #/tootoo-templates/hamburger-them-cms/README.md )
+# [Hamburger Theme CMS Read Me]( #/tootoo-templates/hamburger-theme-cms/README.md )
 
 <iframe src=https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/hamburger-theme-cms.html width=100% height=500px >Iframes are not viewable in GitHub source code views</iframe>
 
-## Full Screen: [Hamburger CSS CMS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/hamburger-theme-cms.html )
+## Full Screen: [Hamburger Theme CMS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/hamburger-theme-cms.html )
 
 
 
 ## Concept
 
-* Basic html template with sliding menu, markdown capability and frequently used pages
-* No dependencies apart from CSS files
-* Bootswatch: Free themes for Bootstrap
-* Using the themes is as easy as downloading a CSS file and replacing the one that comes with Bootstrap.
-* You can also hotlink the themes via CDN at BootstrapCDN
+* Basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop fule reading capability, access to frequently used pages and more
 
-## Links of Interest
+## To Do / Wish list
 
-* https://bootswatch.com/
-* CDN: https://www.bootstrapcdn.com/bootswatch/
-* https://stackoverflow.com/questions/tagged/bootswatch
+* 2018-07-24 ~ Theo ~ Complete changeover to template literals
+* 2018-07-24 ~ Theo Move away from tables for building menu items
 
 
 ## Change Log
 
 
-2018-07-24 ~ Theo
+### 2018-07-24 ~ Theo
 
 * Add all Hamburger Theme updates
 

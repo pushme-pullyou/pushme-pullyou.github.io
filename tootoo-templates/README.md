@@ -1,4 +1,4 @@
-<div><input type=button onclick="window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/blob/master/tootoo-templates/README.md'";
+<div><input type=button  class = 'btn btn-secondary btn-sm' onclick="window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/blob/master/tootoo-templates/README.md'";
 value='You are now in a GitHub web page view - Click this button to view this read me file as source code' ></div>
 
 
