@@ -13,7 +13,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 _basic-html.html_
 -->
 
-## Full Screen: [TooToo / Hamburger CSS CMS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-css-cms/hamburger-css-cms.html )
+## Full Screen: [TooToo / Hamburger CSS CMS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/hamburger-theme-cms.html )
 
 ## Concept
 
@@ -22,7 +22,7 @@ _basic-html.html_
 
 * Basic html templates with sliding menu, css selection, markdown capability and frequently used pages
 * No dependencies apart from CSS files
-	* Uses Bootswatch and other sources for free themes for Bootstrap
+	* Uses Bootswatch and other CSS sources for free themes for Bootstrap
 	* Using the themes is as easy as downloading a CSS file and replacing the one that comes with Bootstrap.
 	* You can also hotlink the themes via CDN at BootstrapCDN
 
@@ -35,12 +35,8 @@ _basic-html.html_
 
 ## To do / Wish list
 
-* 2018-07-22 ~ Theo ~ Try putting theme selection into buttons in a details element
-* 2018-07-22 ~ Theo ~ Add how to use notes
-* 2018-07-22 ~ Theo ~ split menu into details groups
-* 2018-07-22 ~ Theo ~ Use better new tab icon
 * 2018-07-22 ~ Theo ~ Fix links to extras items
-* 2018-07-22 ~ Theo ~ Tidy and complete file reader code
+
 
 Theme Selection
 * Themes into light and dark groups
@@ -78,13 +74,24 @@ Theme Selection
 
 ### Update class
 
-* https://stackoverflow.com/questions/195951/change-an-elements-class-with-javascript
-
+* deprecate: https://stackoverflow.com/questions/195951/change-an-elements-class-with-javascript
+* https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
 
 
 
 
 ## Change Log
+
+### 2018-07-24 ~ Theo
+
+* Many Hamburger Theme updates
+
+Done
+* 2018-07-22 ~ Theo ~ Try putting theme selection into buttons in a details element
+* 2018-07-22 ~ Theo ~ Add how to use notes
+* 2018-07-22 ~ Theo ~ split menu into details groups
+* 2018-07-22 ~ Theo ~ Use better new tab icon
+* 2018-07-22 ~ Theo ~ Tidy and complete file reader code
 
 ### 2018-07-22 ~ Theo
 
