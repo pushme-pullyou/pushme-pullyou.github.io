@@ -5,7 +5,7 @@
 <meta name="viewport" content = "width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" >
 <meta name=description content="basic html template with sliding menu, css selection, Markdown capability and frequently used pages" >
 <meta name=keywords content="JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-07-23" >
+<meta name = "date" content = "2018-07-24" >
 <title>hamburger theme r1.0</title>
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
@@ -17,9 +17,8 @@
 	body { height: 100%; margin: 0; }
 
 	a:hover, a:focus { background-color: yellow; color: #888; }
-	blockquote, pre { background-color:rgba(240, 240, 240, 0.25 ); padding: 1em }
-
-	button.theme { margin: 0.3rem !important; border-width: 1px; }
+	blockquote, pre { background-color:rgba(240, 240, 240, 0.25 ); padding: 1rem }
+	button.theme { border-width: 1px; margin: 0.3rem !important; min-width:3rem; }
 	button:hover, input[ type=button ]:hover { background-color: #ccc; color: white }
 	summary { font-weight: bold; }
 
@@ -31,7 +30,7 @@
 	#hamburger { cursor: pointer; font-size: 2rem; left: calc( var( --mnu-width ) - 4rem );
 		line-height: 2rem; position: fixed; top: 0; transition: left 0.5s; z-index: 10; }
 
-	.dragDropArea { border: 1px dashed gray; box-sizing: border-box; padding: 10px; }
+	#dragDropArea { border: 1px dashed gray; box-sizing: border-box; padding: 10px; }
 
 
 /*
@@ -67,27 +66,39 @@
 
 		<div id= "divFooter" >
 
-			<div id=divSettings ></div>
-
-			<hr>
-
-			<div id=dragDropArea class=dragDropArea >
+			<p id=dragDropArea class=dragDropArea >
 
 				Drag & drop files or URLs into this box
 				or <input type = "file" id = "inpFile" class="form-control-file" onchange="openFile(this);" >
 
-			</div>
+			</p>
 
-			<div title='Me want too!' ><a href=#../../pages/about-this-cms.md >About this CMS</a></div>
-			<div title='What is this stuff?' ><a href=#../../pages/coding-style.md >Coding style</a></div>
-			<div title='many thanks!' ><a href=#../../pages/credits.md >Credits</a></div>
-			<div><a href=#../../pages/code-of-conduct.md >Code of conduct</a></div>
-			<div><a href=#../../pages/contributing.md >Contributing</a></div>
-			<div><a href=#../../pages/license.md >License</a></div>
-			<div><a href=#../../pages/markdown-help.md >Markdown help</a></div>
-			<div><a title='Need help' href=https://github.com/pushme-pullyou/pushme-pullyou.github.io/issues target=_blank >🗗 GitHub Issues</a></div>
-			<div><a href="javascript:( function(){ var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left corner" >Show frames/second statistics</a></div>
-			<div><a href="https://api.github.com/rate_limit" title='If menu stops appearing, it is likely due to too many API calls' target=_blank >View GitHub API rate limits</a></div>
+			<details>
+
+					<summary>Settings</summary>
+
+					<div id=divBootswatch ></div>
+
+					<div id=divCssOthers ></div>
+
+			</details>
+
+			<details>
+
+				<summary>Footer</summary>
+
+				<div title='Me want too!' ><a href=#../../pages/about-this-cms.md >About this CMS</a></div>
+				<div title='What is this stuff?' ><a href=#../../pages/coding-style.md >Coding style</a></div>
+				<div title='many thanks!' ><a href=#../../pages/credits.md >Credits</a></div>
+				<div><a href=#../../pages/code-of-conduct.md >Code of conduct</a></div>
+				<div><a href=#../../pages/contributing.md >Contributing</a></div>
+				<div><a href=#../../pages/license.md >License</a></div>
+				<div><a href=#../../pages/markdown-help.md >Markdown help</a></div>
+				<div><a title='Need help' href=https://github.com/pushme-pullyou/pushme-pullyou.github.io/issues target=_blank >🗗 GitHub Issues</a></div>
+				<div><a href="javascript:( function(){ var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left corner" >Show frames/second statistics</a></div>
+				<div><a href="https://api.github.com/rate_limit" title='If menu stops appearing, it is likely due to too many API calls' target=_blank >View GitHub API rate limits</a></div>
+
+			</details>
 
 			<h1 onclick=divMenu.scrollTop=0; style=cursor:pointer;text-align:center; title='go to top of page' > &#x2766; </h1>
 
@@ -143,7 +154,7 @@ function init() {
 
 	setTestingExtras( divExtras );
 
-	setTheme( divSettings );
+	setTheme();
 
 	dragDropArea.addEventListener( "dragover", function( event ){ event.preventDefault(); }, true );
 	dragDropArea.addEventListener( 'drop', onDrop, false );
@@ -182,9 +193,15 @@ function setTestingExtras( target ) {
 
 	</details>
 
-	<details><summary>Text</summary>${ txt }</details>
+	<details>
 
-	<hr>`;
+		<summary>Text</summary>
+
+		${ txt }
+
+		<hr>
+
+	</details>`;
 
 }
 
@@ -195,7 +212,7 @@ function setTheme( target ) {
 	const themesBootswatch = [
 		{ 'Default': 'background-color: white; color: #007bff' },
 		{ "Cerulean": 'background-color: white; color: #2FA4E7;' },
-		{'Cosmo': 'background-color: white; color: #2780E3;' },
+		{ 'Cosmo': 'background-color: white; color: #2780E3;' },
 		{ 'Cyborg': 'background-color: #060606; color: #2A9FD6; font-style: italic;' },
 		{ 'Darkly': 'background-color: #222; color: #00bc8c; font-style: italic;' },
 		{ 'Flatly': 'background-color: white; color: #18BC9C;' },
@@ -227,23 +244,14 @@ function setTheme( target ) {
 		{ link: "https://www.gettemplate.com/demo/magister/assets/css/magister.css", name: 'Magister' },
 	];
 
-	target.innerHTML =
-	`<details>
-
-		<summary>Settings</summary>
-
-		<div id=divBootswatch ></div>
-
-		<div id=divCssOthers ></div>
-
-	</details>`;
 
 	const txt1 = themesBootswatch.map( theme => {
 		const name = Object.keys( theme )[ 0 ];
-		link = name === 'Default' ? 'https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.css' :
+		link = name === 'Default' ?
+			'https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.css' :
 			`https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/${ name.toLowerCase() }/bootstrap.min.css`;
-		bingo =  link === themeName ? '>>> ' : ''
-		return `<button class=theme onclick=updateCss("${ link }"); style="${ theme[name] }" >${ bingo } ${ name }</button> `;
+		bingo =  link === themeName ? '*' : ''
+		return `<button class=theme onclick=updateCss("${ link }"); style="${ theme[name] }" >${ bingo }${ name }${ bingo }</button> `;
 
 	});
 
@@ -270,7 +278,7 @@ function updateCss( link ) {
 
 	themeName = css.href = link;
 	localStorage.setItem( 'themeName', link );
-	setTheme( divSettings );
+	setTheme();
 
 }
 
@@ -292,7 +300,8 @@ function onHashChange() {
 
 		divContents.innerHTML = `<iframe src=${ url } height=100% width=100% ></iframe>`;
 
-	} else if ( ulc.endsWith( '.gif' ) || ulc.endsWith( '.png' ) || ulc.endsWith( '.jpg' ) || ulc.endsWith( '.ico' ) || ulc.endsWith( '.svg' ) ) {
+	} else if ( /\.(jpe?g|png|ico|svg|gif)$/i.test( file.name)  ) {
+	//} else if ( ulc.endsWith( '.gif' ) || ulc.endsWith( '.png' ) || ulc.endsWith( '.jpg' ) || ulc.endsWith( '.ico' ) || ulc.endsWith( '.svg' ) ) {
 
 		divContents.innerHTML = `<img src=${ url } >`;
 
@@ -358,11 +367,10 @@ function onDrop( event ) {
 
 	} else {
 
-		var file = event.dataTransfer.files[0];
-			// can get the name of the file with file.name
-		console.log(file.name);
-		openFile( event.dataTransfer );
+		//var file = event.dataTransfer.files[0];
+		//console.log(file.name);
 
+		openFile( event.dataTransfer );
 		//console.log( 'ed', event.dataTransfer );
 
 	}
@@ -375,14 +383,16 @@ function onDrop( event ) {
 
 function openFile( files ) {
 
-		fileAttributes = files.files[ 0 ];
-		//console.log( 'file', files.files[ 0 ] );
+	file = files.files[ 0 ];
 
-		const reader = new FileReader();
-		//reader.onprogress = onRequestFileProgress;
-		reader.onload = function( event ) {
+	//reader.onprogress = onRequestFileProgress;
+	const reader = new FileReader();
 
-			//console.log( 'reader', reader );
+	reader.onload = function( event ) {
+
+		//console.log( 'reader', reader );
+
+		if ( file.name.endsWith('.md' ) ) {
 
 			showdown.setFlavor('github');
 			const converter = new showdown.Converter();
@@ -393,9 +403,29 @@ function openFile( files ) {
 			divContents.innerHTML = html;
 			window.scrollTo( 0, 0 );
 
-		};
+		} else if ( /\.(jpe?g|png|ico|svg|gif)$/i.test( file.name)  ) {
 
-		reader.readAsText( files.files[ 0 ] );
+			divContents.innerHTML = `<img src=${ reader.result } >`;
+
+		} else {
+
+			divContents.innerHTML = `<textarea style=height:100%;width:100%; >${ reader.result }</textarea>`;
+
+		}
+
+
+	};
+
+	if ( /\.(jpe?g|png|ico|svg|gif)$/i.test(file.name) ) {
+
+		reader.readAsDataURL(file);
+
+	} else {
+
+		reader.readAsText( file );
+
+	}
+
 
 		function onRequestFileProgress( event ) {
 
@@ -406,7 +436,7 @@ function openFile( files ) {
 
 		}
 
-		};
+};
 
 
 
