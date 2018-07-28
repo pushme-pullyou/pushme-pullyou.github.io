@@ -5,7 +5,7 @@
 <meta name = "viewport" content= "width=device-width, initial-scale=1">
 <meta name = "description" content = "slide show" >
 <meta name = "keywords" content = "JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2017-10-11" >
+<meta name = "date" content = "2018-07-24" >
 <title></title>
 <style>
 
@@ -24,11 +24,11 @@ iframe {
 	-o-transition:      all 1.9s;
 	transition:         all 1.9s;
 	opacity: 1;
-
 }
+
 iframe.fade-out {
 	opacity: 0;
-
+}
 
 iframe.fade-in {
 	opacity: 1;
@@ -49,12 +49,12 @@ iframe.fade-in {
 
 	const sites = [
 
-		{ fileName: 'http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r2.html',
+		{ fileName: 'https://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r2.html',
 			title: 'wikihouse' },
-		{ fileName: 'http://opendesk.github.io/design-playground/opendesk-half-sheet-table/opendesk-half-sheet-table-app-r3.html',
+		{ fileName: 'https://opendesk.github.io/design-playground/opendesk-half-sheet-table/opendesk-half-sheet-table-app-r3.html',
 			title: 'opendesk' },
-		{ fileName: 'http://jaanga.github.io/cookbook/rubiks-cube/rubiks-cube-r2-theo.html', title: 'rubiks' },
-		{ fileName: 'http://fgx.github.io/fgx-aircraft-overview/latest/', title: 'fgx' },
+		{ fileName: 'https://jaanga.github.io/cookbook/rubiks-cube/rubiks-cube-r2-theo.html', title: 'rubiks' },
+		{ fileName: 'https://fgx.github.io/fgx-aircraft-overview/latest/', title: 'fgx' },
 
 	];
 
@@ -65,13 +65,7 @@ iframe.fade-in {
 
 	function init() {
 
-		let txt;
-
 //		title.innerHTML = '<h2><a  href = "" >' + location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' ) + '</a></h2>';
-
-		txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
-
-//		contents.innerHTML = txt;
 
 		clearInterval( timer );
 
@@ -87,7 +81,6 @@ iframe.fade-in {
 		index = index >= sites.length ? 0 : index;
 
 		if ( ! sites[ index ].fileName ) { return; }
-
 
 		ifr.onload = function() { ifr.className = 'fade-in'; }
 

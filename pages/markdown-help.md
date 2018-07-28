@@ -1,14 +1,15 @@
 
 
-[Markdown Cheat Sheet]( #utilities/markdown-cheat-sheet.md )
-===
+# [Markdown Cheat Sheet]( #utilities/markdown-cheat-sheet.md )
+
 
 Interesting things you can do with Markdown.
 
 
 ### Links of Interest
 
-* <https://github.com/showdownjs/showdown>
+* <https://github.com/showdownjs/showdown> - Markdown to HTML converter
+* https://guides.github.com/features/mastering-markdown/
 * <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>
 
 ### Text
@@ -85,8 +86,6 @@ ___
 
 
 
-
-
 ### Code
 ```
 	```
@@ -117,6 +116,23 @@ text text text
 > quote
 > quote
 
+### Details
+
+	<details>
+
+		<summary>Details Summay</summary>
+
+		lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?
+
+	</details>
+
+
+<details>
+<summary>Details Summay</summary>
+
+lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?
+
+</details>
 
 ### Images
 

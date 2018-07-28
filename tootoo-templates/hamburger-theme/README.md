@@ -16,6 +16,11 @@ value='You are now in a GitHub web page view - Click this button to view this re
 ## Concept
 
 
+<button class="btn btn-primary" >button</button> <button id=active2 class="btn btn-primary active" >active</button>
+<button class="btn btn-primary" onclick=active2.classList.remove("active"); >remove active</button>
+<button class="btn btn-primary" onclick=active2.classList.add("active"); >add active</button>
+<button class="btn btn-primary" onclick=active2.classList.toggle("active"); >toggle active</button>
+
 
 
 ## Links of Interest

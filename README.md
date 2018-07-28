@@ -26,7 +26,7 @@ _Very simple JavaScript files to help you explore and build new tools on GitHub.
 
 
 
-## [GubGug Read Me]( https://pushme-pullyou.github.io/#gubgub/README.md )
+## [GubGub Read Me]( https://pushme-pullyou.github.io/#gubgub/README.md )
 #### Full screen [GubGub]( https://pushme-pullyou.github.io/gubgub/ ) Script
 * Explore the activity of many GitHub users
 * View the Read Me files of their repositories

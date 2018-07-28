@@ -37,6 +37,8 @@ _basic-html.html_
 
 * 2018-07-22 ~ Theo ~ Fix links to extras items
 
+Theme Features
+* Add ability to add and remove 'active' class
 
 Theme Selection
 * Themes into light and dark groups
