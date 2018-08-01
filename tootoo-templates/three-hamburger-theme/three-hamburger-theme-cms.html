@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" >
 <meta name="viewport" content = "width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" >
-<meta name=description content="View all the files on Ladybug Tools / Spider with this basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop fule reading capability, access to frequently used pages and more." >
-<meta name=keywords content="JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-07-24" >
-<title>Spider</title>
+<meta name=description content="basic Three.js html template with sliding menu, css selection, Markdown capability and frequently used pages" >
+<meta name=keywords content="Three.js,WebGL,JavaScript,GitHub,FOSS,3D,STEM" >
+<meta name = "date" content = "2018-07-30" >
+<title>Three Hamburger Theme r1.0</title>
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
 
@@ -14,7 +14,7 @@
 
 	html { height: 100%; margin: 0; }
 
-	body { height: 100%; margin: 0; }
+	body { height: 100%; margin: 0; overflow: hidden; }
 
 	a:hover, a:focus { background-color: yellow; color: #888; }
 	blockquote, pre { background-color:rgba(240, 240, 240, 0.25 ); padding: 1rem }
@@ -22,10 +22,10 @@
 	button:hover, input[ type=button ]:hover { background-color: #ccc; color: white }
 	summary { font-weight: bold; }
 
-	#divContainer { height: 100%; margin: 0 0 0 var( --mnu-width ); transition: margin-left .5s; position: relative; }
+	#divContainer { height: 100%; margin: 0 0 0 var( --mnu-width ); /* transition: margin-left .5s; */ position: relative; }
 	#divContents { height: 100%; left: 0; margin: 0 auto; max-width: 50rem; padding: 1rem; right: 0; }
 
-	#divMenu { max-height: 100%; overflow-x: hidden; padding: 1rem; position: fixed; resize: both; top: 0;
+	#divMenu { height: 100%; overflow-x: hidden; padding: 1rem; position: fixed; resize: both; top: 0;
 		width: var( --mnu-width ); z-index: 1; transition: left 0.5s; }
 	#hamburger { cursor: pointer; font-size: 2rem; left: calc( var( --mnu-width ) - 4rem );
 		line-height: 2rem; position: fixed; top: 0; transition: left 0.5s; z-index: 10; }
@@ -33,11 +33,47 @@
 	#dragDropArea { border: 1px dashed gray; box-sizing: border-box; padding: 10px; }
 
 
+	#CORdivMenuRight { height: 80%; left: calc( 100% - 40rem );
+		margin: 0;  opacity: 0.97; overflow: auto; padding: 0px; position: fixed; resize: both; right: 50px; top: 60px;  width: 30rem;
+	}
+	#CORdivMenuRight { border: 1px solid #aaa; border-radius: 2px;
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	}
+
+	/* #CORdivHeaderRight { cursor: move; padding: 10px; z-index: 10;} */
+	#CORdivItemsRight { margin: 10px; }
+	#CORdivItemsRight iframe { display: none; }
+
+
+	#COdivHamburgerRight {
+		font-size: 2rem; right: 0; line-height: 2rem;
+		position: fixed; top: 50px; transition: left .5s; z-index: 10; }
+
+	#COdivHamburgerRight { border-radius: 2px;
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	}
+
+
+	@media screen and ( max-width: 900px) {
+
+		#CORdivMenuLeft { left: calc( 0rem - var( --mnu-width ) ); max-width: 80%; }
+		#CORdivHamburgerLeft { left:-5rem; }
+		#CORdivMenuRight { left: 20%; width: 50%; }
+
+	}
+
+	@media screen and ( max-width: 600px) {
+
+		#CORdivMenuLeft { left: -100rem  }
+		#CORdivMenuRight { left: 50%; width: 48%; }
+
+	}
 /*
 
 	body, html { font: 12pt "Trebuchet MS", helvetica, sans-serif; height: 100%; margin: 0; }
 
-	button, input[ type=button ] { background-color: #ddd; border: none;
+	button, input[ type=button ] { background-color: #ddd; border: none; color: var( --mnu-color ); cursor: pointer; padding: 3px 20px; }
+
 	iframe { border: none; width: 100%; }
 
 	input[ type = range ] { -webkit-appearance: none; -moz-appearance: none; background-color: #ddd; width: 100%; }
@@ -49,33 +85,24 @@
 */
 
 </style>
-<link id=css rel="stylesheet" href="" type="text/css" >
+<link id=css rel="stylesheet" href="" >
 </head>
 <body>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r93/build/three.min.js" ></script>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r93/examples/js/controls/OrbitControls.js" ></script>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js ></script>
 
 
 	<div id = "divMenu" class="jumbotron" >
 
 		<div>
-			<a class="breadcrumb-item" href = "../index.html" target="_top" >Ladybug Tools</a>
+			<a class="breadcrumb-item" href = "../index.html" target="_top" >repo</a>
+			<a class="breadcrumb-item" href= "./index.html" target="_top" style=font-size:24px; >&#x2302;</a>
 		</div>
 
 		<div id = "divTitle" ></div>
 
-		<div id = "divBreadcrumbs" ></div>
-
 		<div id = "divMenuItems" ></div>
-
-		<hr>
-
-		<p>Click any <a href="" >
-			<img src="https://rawgit.com/ladybug-tools/spider/master/images/github-mark.png" height=14 style=vertical-align:middle>
-		</a> icon to view source code on GitHub.
-
-		<p>Click any &#x2750; icon to go full screen & get link to individual file.</p>
-
-		<p>Tooltips provide file size.</p>
 
 		<div id = "divExtras" ></div>
 
@@ -123,11 +150,28 @@
 
 	<div id = "divContainer" >
 
-		<div id = "divContents" ></div>
+		<!--
+
+			<div id = "divContents" ></div>
+		-->
 
 	</div>
 
-	<button id = "hamburger" class = "btn btn-primary" onclick=toggleNav(); > slide &#9776; </button>
+	<button id = "hamburger" class = "btn btn-primary" onclick=toggleNav(); > slide &#9776;  </button>
+
+
+	<div id = "CORdivMenuRight" class = "jumbotron" > <!-- See CTX -->
+
+		<div id=CORdivItemsRight ></div>
+
+		<div id=divContents ></div>
+
+	</div>
+
+	<button id = "COdivHamburgerRight" class="btn btn-primary" onclick=COR.toggleNavRight(); >
+		 &#9776;
+	</button>
+
 
 <script>
 
@@ -135,24 +179,9 @@
 // jshint esversion: 6
 
 
-const user = 'ladybug-tools';
-const repo = '/spider';
-const pathRepo = '';
-const branch = '/master/'
-
-const iconInfo = '<img src="https://status.github.com/images/invertocat.png" height=18 >';
-const urlGitHubSource = 'https://github.com/' + user + repo;
-const urlGitHubApiContents = 'https://api.github.com/repos/' + user + repo + '/contents/' + pathRepo;
-
-//const urlGitHubPage = location.href.includes( '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + branch;
-//const urlGitHubPage  = 'https://rawgit.com/' + user + repo + branch;
-const urlGitHubPage = '';
-//console.log( 'urlGitHubPage', urlGitHubPage );
-
-
 //	location.hash = '../README.md';
 const uriDefaultFile = 'README.md';
-const urlSourceCode = "https://github.com/ladybug-tools/spider/";
+const urlSourceCode = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo-templates/hamburger-css";
 
 let themeName = localStorage.getItem( 'themeName' ) || 'https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.css';
 
@@ -161,6 +190,8 @@ let yDown = null;
 
 
 init();
+initThree();
+animate();
 
 
 
@@ -181,7 +212,8 @@ function init() {
 
 	window.addEventListener ( 'hashchange', onHashChange, false );
 
-	onHashChange();
+	//onHashChange();
+	CORdivMenuRight.style.display = 'none';
 
 }
 
@@ -325,11 +357,7 @@ function onHashChange() {
 	const url = !location.hash ? uriDefaultFile : location.hash.slice( 1 );
 	const ulc = url.toLowerCase();
 
-	const crumbs = url.slice( urlGitHubPage.length );
-	const pathCurrent = crumbs.lastIndexOf( '/' ) > 0 ? crumbs.slice( 0, crumbs.lastIndexOf( '/' ) ) : '';
-	//console.log( 'pathCurrent',  pathCurrent );
-
-	setMenuGitHubPathFileNames( pathCurrent );
+	CORdivMenuRight.style.display = '';
 
 	if ( ulc.endsWith( '.md' ) ) {
 
@@ -378,9 +406,10 @@ function callbackMarkdown( xhr ){
 	const response = xhr.target.response;
 	const html = converter.makeHtml( response );
 
+	divContents.innerHTML = html;
 	divContents.style.maxWidth = '800px';
 	document.body.overflow = '';
-	divContents.innerHTML = html;
+
 	window.scrollTo( 0, 0 );
 
 }
@@ -567,130 +596,70 @@ function toggleNav() {
 
 	}
 
-}
+	console.log( 'divContainer.clientWidth', divContainer.clientWidth );
 
+	//divContainer.style.width = divContainer.clientWidth + 'px';
+	onWindowResize();
+
+}
 
 
 //////////
 
-function setMenuGitHubPathFileNames( path = '' ) {
+function initThree() {
 
-	const url = urlGitHubApiContents + path;
+renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true } );
+renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setSize( divContainer.clientWidth, divContainer.clientHeight );
+divContainer.appendChild( renderer.domElement );
 
-	requestFile( url, callbackGitHubPathFileNames );
+camera = new THREE.PerspectiveCamera( 40, divContainer.clientWidth/divContainer.clientHeight, 1, 1000 );
+camera.up.set( 0, 0, 1 );
+camera.position.set( 100, 100, 100 );
 
-	setBreadcrumbs( path );
+controls = new THREE.OrbitControls( camera, renderer.domElement );
+controls.autoRotate = true;
+controls.maxDistance = 800;
+
+scene = new THREE.Scene();
+
+window.addEventListener( 'resize', onWindowResize, false );
+window.addEventListener( 'orientationchange', onWindowResize, false );
+window.addEventListener( 'keyup', () => controls.autoRotate = false, false );
+renderer.domElement.addEventListener( 'click', () => controls.autoRotate = false, false );
+
+const axesHelper = new THREE.AxesHelper( 50 );
+scene.add( axesHelper );
+
+const geometry = new THREE.BoxGeometry( 50, 50, 50 );
+const material = new THREE.MeshNormalMaterial();
+const mesh = new THREE.Mesh( geometry, material );
+scene.add( mesh );
+
+
 
 }
 
 
 
-function callbackGitHubPathFileNames( xhr ) {
+function onWindowResize() {
 
-	const response = xhr.target.response;
-	const items = JSON.parse( response );
-	const len = pathRepo.length;
+	camera.aspect = divContainer.clientWidth / divContainer.clientHeight;
+	camera.updateProjectionMatrix();
 
-	let txt = '';
+	renderer.setSize( divContainer.clientWidth, divContainer.clientHeight );
 
-	if ( items.message ) { console.log( items.message ); return; }
-
-	const ignoreFolders = [ 'data' ]; //, 'plugins'
-
-	for ( let item of items ) {
-
-		if ( item.type === 'dir' ) {
-
-			if ( ignoreFolders.includes( item.name ) ) { continue; }
-
-			txt +=
-				'<div style=margin-bottom:8px; >' +
-					'<a href=JavaScript:setMenuGitHubPathFileNames("' + item.path.slice( len )  + '"); >&#x1f4c1; ' +
-						item.name  +
-					'</a>' +
-				'</div>' +
-			'';
-
-		}
-
-	}
-
-	const ignoreFiles = [ '.gitattributes', '.gitignore', '404.html' ];
-
-	for ( let item of items ) {
-
-		if ( item.type === 'file' ) {
-
-			if ( ignoreFiles.includes( item.name ) ) { continue; }
-
-			itemPath = encodeURI( item.path.slice( len ) );
-
-			txt += // try grid or flexbox??
-				'<table><tr>' +
-
-					'<td><a href="' + urlGitHubSource + '/blob' + branch + itemPath + '" target=_top >' + iconInfo + '</a></td>' +
-					'<td>' +
-
-						'<a href=#' + urlGitHubPage + pathRepo + itemPath +
-						' title="' + item.size.toLocaleString() + ' bytes" > ' + item.name + '</a> ' +
-						( item.path.endsWith( 'html' ) ? '<a href=' + urlGitHubPage + pathRepo + itemPath + ' >&#x2750;</a>' : '' ) +
-
-					'</td>' +
-
-				'</tr></table>';
-
-			// simplify
-			if ( ( !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' ) )
-				//&& item.path !== 'README.md'
-				&& item.name.toLowerCase() === 'readme.md' ) {
-
-				location.hash = urlGitHubPage + pathRepo + itemPath;
-
-			}
-
-		}
-
-	}
-
-	divMenuItems.innerHTML = txt;
+	//console.log( 'onWindowResize  window.innerWidth', window.innerWidth );
 
 }
 
 
 
-function setBreadcrumbs( path ) {
+function animate() {
 
-	let txt =
-		'<b>' +
-			'<a href=JavaScript:setMenuGitHubPathFileNames(); >' +
-
-				( pathRepo ? pathRepo : '<span style=font-size:24px >&#x2302</span>' ) +
-
-			'</a> &raquo; ' +
-		'</b>';
-
-	const folders = path ? path.split( '/' ) : [] ;
-
-	let str = '';
-
-	for ( let folder of folders ) {
-
-		str += folder + '/';
-
-		txt += '<b><a href=JavaScript:setMenuGitHubPathFileNames("' + str.slice( 0, -1 ) + '"); >' + folder + '</a> &raquo; </b>';
-
-	}
-
-	divBreadcrumbs.innerHTML = txt;
-
-}
-
-
-
-function setGPATStorage() {
-
-	const GitHubPersonalAccessToken = inpGitHubPersonalAccessToken.value;
-	localStorage.setItem('GitHubPersonalAccessToken', GitHubPersonalAccessToken );
+requestAnimationFrame( animate );
+renderer.render( scene, camera );
+controls.update();
 
 }
 

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" >
 <meta name="viewport" content = "width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" >
-<meta name=description content="View all the files on Ladybug Tools / Spider with this basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop fule reading capability, access to frequently used pages and more." >
+<meta name=description content="This is a basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop fule reading capability, access to frequently used pages and more" >
 <meta name=keywords content="JavaScript,GitHub,FOSS,3D,STEM" >
 <meta name = "date" content = "2018-07-24" >
-<title>Spider</title>
+<title>hamburger theme cms r1.1</title>
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
 
@@ -37,7 +37,8 @@
 
 	body, html { font: 12pt "Trebuchet MS", helvetica, sans-serif; height: 100%; margin: 0; }
 
-	button, input[ type=button ] { background-color: #ddd; border: none;
+	button, input[ type=button ] { background-color: #ddd; border: none; color: var( --mnu-color ); cursor: pointer; padding: 3px 20px; }
+
 	iframe { border: none; width: 100%; }
 
 	input[ type = range ] { -webkit-appearance: none; -moz-appearance: none; background-color: #ddd; width: 100%; }
@@ -57,11 +58,9 @@
 
 	<div id = "divMenu" class="jumbotron" >
 
-		<div>
-			<a class="breadcrumb-item" href = "../index.html" target="_top" >Ladybug Tools</a>
-		</div>
-
 		<div id = "divTitle" ></div>
+
+		<p>'Hamburger Theme CMS' is sample of what you will find here. It's a TooToo template.</p>
 
 		<div id = "divBreadcrumbs" ></div>
 
@@ -90,7 +89,7 @@
 
 			<details>
 
-				<summary>Themes</summary>
+				<summary>Settings</summary>
 
 				<div id=divBootswatch ></div>
 
@@ -115,7 +114,7 @@
 
 			</details>
 
-			<h3 onclick="divMenu.scrollTop=0;" style="cursor:pointer;text-align:center;" title="go to top of page" > &#x2766; </h3>
+			<h3 onclick=divMenu.scrollTop=0; style=cursor:pointer;text-align:center; title='go to top of page' > &#x2766; </h3>
 
 		</div>
 
@@ -127,7 +126,7 @@
 
 	</div>
 
-	<button id = "hamburger" class = "btn btn-primary" onclick=toggleNav(); > slide &#9776; </button>
+	<button id = "hamburger" class = "btn btn-primary" onclick=toggleNav(); > slide &#9776;  </button>
 
 <script>
 
@@ -135,8 +134,8 @@
 // jshint esversion: 6
 
 
-const user = 'ladybug-tools';
-const repo = '/spider';
+const user = 'pushme-pullyou';
+const repo = '/pushme-pullyou.github.io';
 const pathRepo = '';
 const branch = '/master/'
 
@@ -144,15 +143,14 @@ const iconInfo = '<img src="https://status.github.com/images/invertocat.png" hei
 const urlGitHubSource = 'https://github.com/' + user + repo;
 const urlGitHubApiContents = 'https://api.github.com/repos/' + user + repo + '/contents/' + pathRepo;
 
-//const urlGitHubPage = location.href.includes( '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + branch;
+const urlGitHubPage = location.href.includes( '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + branch;
 //const urlGitHubPage  = 'https://rawgit.com/' + user + repo + branch;
-const urlGitHubPage = '';
 //console.log( 'urlGitHubPage', urlGitHubPage );
 
 
 //	location.hash = '../README.md';
 const uriDefaultFile = 'README.md';
-const urlSourceCode = "https://github.com/ladybug-tools/spider/";
+const urlSourceCode = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/";
 
 let themeName = localStorage.getItem( 'themeName' ) || 'https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.css';
 
@@ -168,9 +166,23 @@ function init() {
 
 	updateCss( themeName );
 
-	setTitle( divTitle );
+		//<a class="breadcrumb-item" href = "../index.html" target="_top" >repo</a>
+		//<div class="" >
 
-	setTestingExtras( divExtras );
+		//	<a class="breadcrumb-item" href= "./index.html" target="_top" style=font-size:24px; >&#x2302;</a>
+		//</div>
+
+	divTitle.innerHTML =
+	`<h2>
+			<a href=${ urlSourceCode } target="_top" ><img src="https://status.github.com/images/invertocat.png" height=18 ></a>
+			<a href = "" title = "Click to reload this page" >${document.title}</a>
+	</h2>
+
+	<p>${ document.head.querySelector( '[name=description]' ).content }</p>`;
+
+	//setTestingExtras( divExtras );
+
+	setTheme();
 
 	dragDropArea.addEventListener( "dragover", function( event ){ event.preventDefault(); }, true );
 	dragDropArea.addEventListener( 'drop', onDrop, false );
@@ -187,11 +199,37 @@ function init() {
 
 
 
-function updateCss( link ) {
+function setTestingExtras( target ) {
 
-	themeName = css.href = link;
-	localStorage.setItem( 'themeName', link );
-	setTheme();
+	const txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
+
+	target.innerHTML =
+
+	`<details><summary>Extras</summary>
+
+		<p><a href="#https://pushme-pullyou.github.io/pages/markdown-help.md" >markdown-help.md</a></p>
+
+		<p><a href="#https://pushme-pullyou.github.io/plugins/iframe-carousel-r1.html" >iframe-carousel-r1.html</a></p>
+
+		<p><a href="#https://pushme-pullyou.github.io//plugins/view-github-issues.html" >view-github-issues.html</a></p>
+
+		<p><a href="#https://pushme-pullyou.github.io/tootoo-more/plugins/view-stl.html" >view-stl.html</a></p>
+
+		<p><a href="#https://pushme-pullyou.github.io//utilities/invertocat.png" >invertocat.png</a></p>
+
+		<p><a href="https://bootswatch.com" target=_blank >&#x2750; bootswatch.com</a></p>
+
+	</details>
+
+	<details>
+
+		<summary>Text</summary>
+
+		${ txt }
+
+		<hr>
+
+	</details>`;
 
 }
 
@@ -264,57 +302,11 @@ function setTheme( target ) {
 
 
 
-function setTitle( target ) {
+function updateCss( link ) {
 
-	target.innerHTML =
-
-	`<h2>
-		<a href=${ urlSourceCode } target="_top" ><img src="https://status.github.com/images/invertocat.png" height=18 ></a>
-		<a href = "" title = "Click to reload this page" >${document.title}</a>
-	</h2>
-
-	<p>
-		${ document.head.querySelector( '[name=description]' ).content }
-	</p>`;
-
-}
-
-
-
-function setTestingExtras( target ) {
-
-	const txt = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?<p>';
-
-	target.innerHTML =
-
-	`<details open >
-
-		<summary>Extras</summary>
-
-		<p><a href="#https://pushme-pullyou.github.io/pages/markdown-help.md" >markdown-help.md</a></p>
-
-		<p><a href="#https://pushme-pullyou.github.io/plugins/iframe-carousel-r1.html" >iframe-carousel-r1.html</a></p>
-
-		<p><a href="#https://pushme-pullyou.github.io/plugins/view-github-issues.html" >view-github-issues.html</a></p>
-
-		<p><a href="#https://pushme-pullyou.github.io/plugins/view-stl.html" >view-stl.html</a></p>
-
-		<p><a href="#https://pushme-pullyou.github.io//utilities/invertocat.png" >invertocat.png</a></p>
-
-		<p><a href="https://bootswatch.com" target=_blank >&#x2750; bootswatch.com</a></p>
-
-	</details>
-
-	<details>
-
-		<summary>Text</summary>
-
-		${ txt }
-
-		<hr>
-
-	</details>
-	<br>`;
+	themeName = css.href = link;
+	localStorage.setItem( 'themeName', link );
+	setTheme();
 
 }
 
@@ -644,7 +636,8 @@ function callbackGitHubPathFileNames( xhr ) {
 				//&& item.path !== 'README.md'
 				&& item.name.toLowerCase() === 'readme.md' ) {
 
-				location.hash = urlGitHubPage + pathRepo + itemPath;
+				//location.hash = urlGitHubPage + pathRepo + itemPath;
+				location.hash = pathRepo + itemPath;
 
 			}
 
