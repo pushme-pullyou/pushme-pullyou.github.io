@@ -5,7 +5,7 @@
 <meta name="viewport" content = "width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" >
 <meta name=description content="basic Three.js html template with sliding menu, css selection, Markdown capability and frequently used pages" >
 <meta name=keywords content="Three.js,WebGL,JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-07-30" >
+<meta name = "date" content = "2018-07-31" >
 <title>Three Hamburger Theme r1.0</title>
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
@@ -37,7 +37,7 @@
 
 	body, html { font: 12pt "Trebuchet MS", helvetica, sans-serif; height: 100%; margin: 0; }
 
-	button, input[ type=button ] { background-color: #ddd; border: none; color: var( --mnu-color ); cursor: pointer; padding: 3px 20px; }
+	button, input[ type=button ] { background-color: #ddd; border: none; padding: 3px 20px; }
 
 	iframe { border: none; width: 100%; }
 
@@ -45,7 +45,6 @@
 	input[ type = range ]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }
 	input[ type = range ]::-webkit-slider-thumb { -webkit-appearance: none; background-color: #888; height: 20px; width: 10px; }
 
-	td { vertical-align: top; }
 
 */
 
@@ -73,20 +72,22 @@
 
 		<div id= "divFooter" >
 
+			<!--
 			<p id=dragDropArea class=dragDropArea >
 
 				Drag & drop files or URLs into this box
 				or <input type = "file" id = "inpFile" class="form-control-file" onchange="openFile(this);" >
 
 			</p>
+			-->
 
 			<details>
 
-					<summary>Settings</summary>
+				<summary>Themes</summary>
 
-					<div id=divBootswatch ></div>
+				<div id=divBootswatch ></div>
 
-					<div id=divCssOthers ></div>
+				<div id=divCssOthers ></div>
 
 			</details>
 

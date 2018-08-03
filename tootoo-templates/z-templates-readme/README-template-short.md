@@ -21,6 +21,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 ## To Do / Wish List
 
 
+## Issues
 ## Links of Interest
 
 
@@ -29,6 +30,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 ###
 
 * First commit
+
 
 ***
 
