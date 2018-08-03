@@ -17,18 +17,26 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 ## Concept
 
+* The files in this folder are templates or demos or 'boilerplate' files that may be used to build gbXML viewer modules.
 
-## To Do / Wish List
+## [Read Me Template]( http://www.ladybug.tools/spider/index.html#gbxml-viewer/r14/gv-tmp-template/README-template.md )
+
+* A template for starting your own read me files
+
+
+
+## To do / Wish list
 
 
 ## Issues
 
 
+## Links of interest
 
-## Links of Interest
+* https://github.com/readmeTips/readmeTips.github.io
 
 
-## Change Log
+## Change log
 
 ###
 
