@@ -8,6 +8,7 @@
 <meta name = "date" content = "2018-06-24" >
 <title></title>
 <style>
+	/* Copyright 2018 pushMe pullYou authors. MIT License */
 
 	body { font: 11pt monospace; margin: 0; overflow: hidden; }
 	a { color: crimson; text-decoration: none; }
@@ -15,6 +16,10 @@
 
 	button { background-color: #ddd; border: none; color: #322; cursor: pointer; padding: 3px 5px; }
 	button:hover { background: #ccc; color: #fff }
+
+	input[ type = range ] { -webkit-appearance: none; -moz-appearance: none; background-color: #ddd; width: 100%; }
+	input[ type = range ]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }
+	input[ type = range ]::-webkit-slider-thumb { -webkit-appearance: none; background-color: #888; height: 20px; width: 10px; }
 
 	#divMenu { margin: 0 20px; position: absolute; }
 
@@ -30,6 +35,7 @@
 
 		<p>
 			<button onclick="sceneRotation = sceneRotation === 1 ? 0 : 1;" >rotation</button>
+			<input type="range" id="inpSpeed" onclick="speed=0.00001*this.value;" />
 		</p>
 
 		<div id = "divLog" ></div>

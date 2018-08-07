@@ -75,10 +75,11 @@
 
 		lightDirectional = new THREE.DirectionalLight( 0xffeedd );
 		lightDirectional.position.set( -size, size, size );
-		lightDirectional.shadow.camera.scale.set( 0.1 * size, 0.1 * size, 0.5 );
+		lightDirectional.shadow.camera.scale.set( 0.1 * size, 0.1 * size, size * 0.5 );
 		lightDirectional.castShadow = true;
 		scene.add( lightDirectional );
 
+		scene.add( new THREE.CameraHelper( lightDirectional.shadow.camera ) );
 
 		window.addEventListener( 'resize', onWindowResize, false );
 		window.addEventListener( 'orientationchange', onWindowResize, false );

@@ -11,7 +11,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 <!--
 <iframe src=https://pushme-pullyou.github.io/tootoo-templates/basic-html.html width=100% height=500px >Iframes are not viewable in GitHub source code views</iframe>
 
-## Full Screen: []( https://pushme-pullyou.github.io/index.html )
+## Full Screen: [ZZZZZ]( https://pushme-pullyou.github.io/index.html )
 -->
 
 
@@ -19,14 +19,19 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 * The files in this folder are templates or demos or 'boilerplate' files that may be used to build gbXML viewer modules.
 
-## [Read Me Template]( http://www.ladybug.tools/spider/index.html#gbxml-viewer/r14/gv-tmp-template/README-template.md )
+### [README-template.md]( #tootoo-templates/z-templates-readme/README-template.md )
 
 * A template for starting your own read me files
 
+### [index.html]( #tootoo-templates/z-templates-readme/index.html )
 
+* Goal: drop this anywhere in any folder it will call the top level index.html and add the local read me file path as location hash
+* Works locally and in GitHub Pages
 
 ## To do / Wish list
 
+* 2018-08-03 ~ Theo ~ update html files to tamplate literals
+* 2018-08-03 ~ Theo ! create a default file name as a const at top of file
 
 ## Issues
 
