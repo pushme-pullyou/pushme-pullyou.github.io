@@ -5,7 +5,7 @@
 <meta name="viewport" content = "width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" >
 <meta name=description content="Real-time 3D in your browser using the Three.js JavaScript library" >
 <meta name=keywords content="Three.js,WebGL,JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-06-24" >
+<meta name = "date" content = "2018-08-11" >
 <title></title>
 <style>
 	/* Copyright 2018 pushMe pullYou authors. MIT License */
@@ -21,7 +21,7 @@
 	input[ type = range ]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }
 	input[ type = range ]::-webkit-slider-thumb { -webkit-appearance: none; background-color: #888; height: 20px; width: 10px; }
 
-	#divMenu { margin: 0 20px; position: absolute; }
+	#divMenu { margin: 0 20px; max-width: 15rem; position: absolute; }
 
 </style>
 </head>
@@ -35,7 +35,7 @@
 
 		<p>
 			<button onclick="sceneRotation = sceneRotation === 1 ? 0 : 1;" >rotation</button>
-			<input type="range" id="inpSpeed" onclick="speed=0.00001*this.value;" />
+			<input type="range" id="inpSpeed" onclick="sceneRotation=0.03 * this.value;" />
 		</p>
 
 		<div id = "divLog" ></div>
@@ -47,6 +47,7 @@
 /* globals THREE, divTitle, divMenu, hamburger  */
 // jshint esversion: 6
 
+const urlSourceCode = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo-templates/threejs-basic.html";
 
 let sceneRotation = 1;
 let renderer, camera, controls, scene;
@@ -56,13 +57,7 @@ animate();
 
 function init() {
 
-	const title = location.href.split( '/' ).pop().slice( 0, - 5 ).replace( /-/g, ' ' );
-	//const title = document.title;
-
-	divTitle.innerHTML =
-	`<h1>
-		<a href="" >${title}</a>
-	</h1>`;
+	setTitle( divTitle );
 
 	renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true } );
 	renderer.setPixelRatio( window.devicePixelRatio );
@@ -89,6 +84,27 @@ function init() {
 	const material = new THREE.MeshNormalMaterial();
 	const mesh = new THREE.Mesh( geometry, material );
 	scene.add( mesh );
+
+}
+
+
+
+function setTitle( target ) {
+
+	document.title = document.title ? document.title : location.href.split( '/' ).pop().slice( 0, - 5 ).replace( /-/g, ' ' );
+
+	target.innerHTML =
+
+	`<h2>
+		<a href=${ urlSourceCode } target="_top" title = "Source code on GitHub" >
+			<img src="https://status.github.com/images/invertocat.png" height=18 >
+		</a>
+		<a href = "" title = "Click to reload this page" >${ document.title }</a>
+	</h2>
+
+	<p>
+		${ document.head.querySelector( '[name=description]' ).content }
+	</p>`;
 
 }
 

@@ -49,6 +49,12 @@ ___
 ~~Strike through~~
 
 
+```
+==Marked text / StackEdit only ==
+```
+
+==Marked text.==
+
 
 ### Tables
 ```
@@ -84,6 +90,47 @@ ___
 		* item
 * item
 
+```
+- [ ] Incomplete item
+- [x] Complete item
+```
+
+- [ ] Incomplete item
+- [x] Complete item
+
+
+### Definition lists
+
+ StackEdit only.
+
+```
+Markdown
+:  Text-to-HTML conversion tool
+
+Authors
+:  John
+:  Luke
+```
+
+Markdown
+:  Text-to-HTML conversion tool
+
+Authors
+:  John
+:  Luke
+
+
+
+### Abbreviations
+
+
+Markdown converts text to HTML. StackEdit only.
+
+```
+*[HTML]: HyperText Markup Language
+```
+
+*[HTML]: HyperText Markup Language
 
 
 ### Code
@@ -151,6 +198,8 @@ lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non num
 ![ text ]( https://picsum.photos/800/600/?random =400x300 )
 
 ![ text ]( https://picsum.photos/800/600/?random =200x150 )
+
+![ text ]( https://picsum.photos/800/600/?random =900x150 )
 
 
 ### Figures

@@ -10,7 +10,7 @@
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
 
-	:root { --mnu-width: 20rem; font-size: 1em; }
+	:root { --mnu-width: 20rem; font-size: 0.9em; }
 
 	html { height: 100%; margin: 0; }
 
@@ -37,7 +37,7 @@
 
 	body, html { font: 12pt "Trebuchet MS", helvetica, sans-serif; height: 100%; margin: 0; }
 
-	button, input[ type=button ] { background-color: #ddd; border: none; padding: 3px 20px; }
+	button, input[ type=button ] { background-color: #ddd; border: none; cursor: pointer; padding: 3px 20px; }
 
 	iframe { border: none; width: 100%; }
 
@@ -95,13 +95,13 @@
 
 				<summary>Footer</summary>
 
-				<div title='Me want too!' ><a href=#../../pages/about-this-cms.md >About this CMS</a></div>
-				<div title='What is this stuff?' ><a href=#../../pages/coding-style.md >Coding style</a></div>
-				<div title='many thanks!' ><a href=#../../pages/credits.md >Credits</a></div>
-				<div><a href=#../../pages/code-of-conduct.md >Code of conduct</a></div>
-				<div><a href=#../../pages/contributing.md >Contributing</a></div>
-				<div><a href=#../../pages/license.md >License</a></div>
-				<div><a href=#../../pages/markdown-help.md >Markdown help</a></div>
+				<div title='Me want too!' ><a href=#https://pushme-pullyou.github.io/pages/about-this-cms.md >About this CMS</a></div>
+				<div title='What is this stuff?' ><a href=#https://pushme-pullyou.github.io/pages/coding-style.md >Coding style</a></div>
+				<div title='many thanks!' ><a href=#https://pushme-pullyou.github.io/pages/credits.md >Credits</a></div>
+				<div><a href=#https://pushme-pullyou.github.io/pages/code-of-conduct.md >Code of conduct</a></div>
+				<div><a href=#https://pushme-pullyou.github.io//pages/contributing.md >Contributing</a></div>
+				<div><a href=#https://pushme-pullyou.github.io//pages/license.md >License</a></div>
+				<div><a href=#https://pushme-pullyou.github.io//pages/markdown-help.md >Markdown help</a></div>
 				<div><a title='Need help' href=https://github.com/pushme-pullyou/pushme-pullyou.github.io/issues target=_blank >🗗 GitHub Issues</a></div>
 				<div><a href="javascript:( function(){ var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left corner" >Show frames/second statistics</a></div>
 				<div><a href="https://api.github.com/rate_limit" title='If menu stops appearing, it is likely due to too many API calls' target=_blank >View GitHub API rate limits</a></div>
@@ -219,6 +219,7 @@ function setTheme( target ) {
 
 
 	const txt1 = themesBootswatch.map( theme => {
+
 		const name = Object.keys( theme )[ 0 ];
 		link = name === 'Default' ?
 			'https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.css' :
@@ -274,7 +275,17 @@ function setTestingExtras( target ) {
 
 		<summary>Extras</summary>
 
-		<p><a href="#https://pushme-pullyou.github.io/pages/markdown-help.md" >markdown-help.md</a></p>
+	<p>
+		<button class="btn btn-primary" >button</button>
+		<button id=active class="btn btn-primary active" >active</button>
+		<button class="btn btn-primary" onclick=active.classList.remove("active"); >remove active</button>
+		<button class="btn btn-primary" onclick=active.classList.add("active"); >add active</button>
+		<button class="btn btn-primary" onclick=active.classList.toggle("active"); >toggle active</button>
+
+
+
+	</p>
+	<p><a href="#https://pushme-pullyou.github.io/pages/markdown-help.md" >markdown-help.md</a></p>
 
 		<p><a href="#https://pushme-pullyou.github.io/plugins/iframe-carousel-r1.html" >iframe-carousel-r1.html</a></p>
 
@@ -397,7 +408,7 @@ function onDrop( event ) {
 
 	event.preventDefault();
 
-};
+}
 
 
 
@@ -456,7 +467,7 @@ function openFile( files ) {
 
 		}
 
-};
+}
 
 */
 
