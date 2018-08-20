@@ -35,12 +35,12 @@
 
 		title.innerHTML = '<h1><a href="" >' + location.href.split( '/' ).pop().slice( 0, -5).replace( /-/g, ' ' ) +'</a></h1>';
 
-		if ( window.top !== window.self ) { 
+		if ( window.top !== window.self ) {
 
 			parent.divSubMenu.innerHTML = '';
 			parent.ifrMenu.src = '';
 
-		}'
+		}
 		renderer = new THREE.WebGLRenderer( { alpha: true, antialias: true }  );
 		renderer.setClearColor( 0x000000, 0 );
 		renderer.setSize( parent.window.innerWidth, parent.window.innerHeight );
@@ -57,7 +57,7 @@
 		window.addEventListener( 'resize', onWindowResize, false );
 		window.addEventListener( 'orientationchange', onWindowResize, false );
 
-		let axisHelper = new THREE.AxisHelper( 50 );
+		let axisHelper = new THREE.AxesHelper( 50 );
 		scene.add( axisHelper );
 
 		geometry = new THREE.BoxGeometry( 50, 50, 50 );
