@@ -5,7 +5,7 @@
 <meta name = "viewport" content= "width=device-width, initial-scale=1" >
 <meta name = "description" content = "Basic HTML template" >
 <meta name = "keywords" content = "JavaScript,GitHub,FOSS" >
-<meta name = "date" content = "2018-01-19" >
+<meta name = "date" content = "2018-08-29" >
 <title></title>
 <style>
 
@@ -26,11 +26,12 @@
 
 		<div id = "divTitle" ></div>
 
-		<p><button onclick=setIt(); >howdybutton</button></p>
+		<p><button onclick=setIt(); >howdy button</button></p>
 
 	</div>
 
 	<div id = "divContents" ></div>
+scr
 
 <script>
 
@@ -40,11 +41,7 @@ init();
 
 function init() {
 
-	//const title = location.href.split( '/' ).pop().slice( 0, -5 ).replace( /-/g, ' ' );
-
 	document.title = document.title ? document.title : location.href.split( '/' ).pop().slice( 0, - 5 ).replace( /-/g, ' ' );
-
-	//const title = document.title;
 
 	divTitle.innerHTML =
 	`
@@ -58,13 +55,14 @@ function init() {
 		<p>${document.head.querySelector( '[name=description]' ).content }</p>
 	`;
 
-	divContents.innerHTML += 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
+	divContents.innerHTML += '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
 
 }
 
 
 
 function setIt() {
+
 
 	divContents.innerHTML += `<p>Howdy!</p>`;
 
