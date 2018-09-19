@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" >
 <meta name="viewport" content = "width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" >
-<meta name=description content="This menu is a component of a basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop fule reading capability, access to frequently used pages and more" >
+<meta name=description content="This is a basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop fule reading capability, access to frequently used pages and more" >
 <meta name=keywords content="JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-09-10" >
-<title>hamburger theme cms r1.2</title>
+<meta name = "date" content = "2018-07-24" >
+<title>hamburger theme cms r1.1</title>
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
 
@@ -136,8 +136,8 @@
 // jshint esversion: 6
 
 
-const user = 'pushme-pullyou';
-const repo = '/pushme-pullyou.github.io';
+const user = 'jaanga';
+const repo = '/jaanga.github.io';
 const pathRepo = '';
 const branch = '/master/'
 
@@ -274,9 +274,7 @@ function setTitle( target ) {
 	</h2>
 
 	<p>
-		${ document.head.querySelector( '[name=description]' ).content } &mdash;
-		<a href = "https://pushme-pullyou.github.io/#tootoo-templates/README.md">?</a>
-
+		${ document.head.querySelector( '[name=description]' ).content }
 	</p>`;
 
 }
@@ -403,11 +401,11 @@ function onDrop( event ) {
 
 	//console.log( 'event', event );
 
-	const dropUrl = event.dataTransfer.getData( 'URL' );
+	const iframeUrl = event.dataTransfer.getData( 'URL' );
 
-	if ( dropUrl ) {
+	if ( iframeUrl ) {
 
-		location.hash = dropUrl;
+		location.hash = iframeUrl;
 
 	} else {
 
