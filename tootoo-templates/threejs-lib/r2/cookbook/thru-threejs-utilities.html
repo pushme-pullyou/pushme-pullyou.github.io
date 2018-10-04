@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<script src = "https://cdn.rawgit.com/mrdoob/three.js/r96/build/three.min.js" ></script>
-<script src = "https://cdn.rawgit.com/mrdoob/three.js/r96/examples/js/controls/OrbitControls.js" ></script>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r97/build/three.min.js" ></script>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r97/examples/js/controls/OrbitControls.js" ></script>
 <script src = "../thr-threejs.js" ></script>
 <script src = "../thru-threejs-utilities.js"></script>
 
@@ -21,7 +21,7 @@
 
 		<header id="navHeader" >howdy world</header>
 
-		<p><button onclick=THR.scene.remove(THRU.cubes);THRU.cubes=THRU.getSomeBoxes();THR.scene.add(THRU.cubes); >update cubes</button></p>
+		<p><button onclick=THRU.setSceneDispose();THRU.cubes=THRU.getSomeBoxes();THR.scene.add(THRU.cubes); >update cubes</button></p>
 
 		<details open >
 
@@ -35,7 +35,7 @@
 
 			<summary>Renderer Info</summary>
 
-			<div id = "divInfo" ></div>
+			<div id = "divRendererInfo" ></div>
 
 		</details>
 
@@ -73,7 +73,7 @@ function init() {
 
 	THR.animate();
 
-	divInfo.innerHTML = THRU.getRenderInfo();
+	divRendererInfo.innerHTML = THRU.getRendererInfo();
 
 }
 
