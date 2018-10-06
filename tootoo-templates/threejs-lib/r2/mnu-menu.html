@@ -5,27 +5,27 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" >
 <meta name=description content="A lightweight core module to help view real-time interactive 3D graphics in your browser using WebGL and the Three.js JavaScript library" >
 <meta name=keywords content="Three.js,WebGL,JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-09-28" >
+<meta name = "date" content = "2018-10-04" >
 <title>Three.js lib / MNU</title>
 <style>
 
 /* Copyright 2018 Ladybug Tools authors. MIT License */
 
 </style>
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="./lib/style.css">
 </head>
 <body>
 <script src = "https://cdn.rawgit.com/mrdoob/three.js/r96/build/three.min.js" ></script>
 <script src = "https://cdn.rawgit.com/mrdoob/three.js/r96/examples/js/controls/OrbitControls.js" ></script>
-<script src = "../mnu-menu.js" ></script>
-<script src = "../thr-threejs.js" ></script>
+<script src = "./lib/mnu-menu.js" ></script>
+<script src = "./lib/thr-threejs.js" ></script>
 
 
 	<main id="container" ></main>
 
 	<nav id = "navMenu" >
 
-		<header id="navHeader" >
+		<header>
 
 			<div id=divHeader ></div>
 
@@ -77,7 +77,6 @@ function init() {
 	divFooter.innerHTML = MNU.getNavFooter();
 
 
-
 	THR.getThreejs();
 
 	THR.animate();
@@ -86,7 +85,11 @@ function init() {
 
 	THR.scene.add( new THREE.AxesHelper( 100 ) );
 
-	//THR.controls.autoRotate = true;
+	if ( window.self === window.top ) { // don't rotate if in an iframe
+
+		THR.controls.autoRotate = true;
+
+	}
 
 }
 
