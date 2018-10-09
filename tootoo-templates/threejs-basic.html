@@ -5,7 +5,7 @@
 <meta name="viewport" content = "width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" >
 <meta name=description content="Real-time interactive 3D graphics in your browser using the WebGL and the Three.js JavaScript library" >
 <meta name=keywords content="Three.js,WebGL,JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-09-06" >
+<meta name = "date" content = "2018-10-07" >
 <title></title>
 <style>
 	/* Copyright 2018 pushMe pullYou authors. MIT License */
@@ -21,29 +21,29 @@
 	input[ type = range ]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }
 	input[ type = range ]::-webkit-slider-thumb { -webkit-appearance: none; background-color: #888; height: 20px; width: 10px; }
 
-	#divMenu { margin: 0 20px; max-width: 15rem; position: absolute; }
+	#navMenu { margin: 0 20px; max-width: 15rem; position: absolute; }
 
 </style>
 </head>
 <body>
-<script src = "https://cdn.rawgit.com/mrdoob/three.js/r96/build/three.min.js" ></script>
-<script src = "https://cdn.rawgit.com/mrdoob/three.js/r96/examples/js/controls/TrackballControls.js" ></script>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r97/build/three.min.js" ></script>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/r97/examples/js/controls/TrackballControls.js" ></script>
 
-	<div id = "divMenu" >
+	<nav id = "navMenu" >
 
 		<div id = "divTitle" ></div>
 
 		<p>
 			<button onclick="sceneRotation = sceneRotation === 1 ? 0 : 1;" >rotation</button>
 		</p>
-		
+
 		<p>
 			<input type="range" id="inpSpeed" onclick="sceneRotation=0.03 * this.value;" />
 		</p>
 
 		<div id = "divLog" ></div>
 
-	</div>
+	</nav>
 
 <script>
 

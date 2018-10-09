@@ -115,7 +115,7 @@ CUT.toggleSectionViewX = function() {
 
 	if ( butSectionViewX.style.fontStyle !== 'italic' ) {
 
-		THRU.cubes.traverse( function ( child ) {
+		THR.scene.traverse( function ( child ) {
 
 			if ( child instanceof THREE.Mesh ) {
 
