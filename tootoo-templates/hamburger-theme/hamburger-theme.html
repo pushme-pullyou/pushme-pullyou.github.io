@@ -10,17 +10,19 @@
 <style>
 /* Copyright 2018 pushMe pullYou authors. MIT License */
 
-	:root { --mnu-width: 20rem; font-size: 0.9em; }
+	:root { --mnu-width: 20rem; font-size: 0.9em !important; }
 
 	html { height: 100%; margin: 0; }
 
 	body { height: 100%; margin: 0; }
 
+	a { text-decoration: underline !important; }
 	a:hover, a:focus { background-color: yellow; color: #888; }
 
 	blockquote, pre { background-color:rgba(240, 240, 240, 0.25 ); box-sizing: border-box; padding: 1rem }
 	button:hover, input[ type=button ]:hover { background-color: #ccc; color: white }
 	button.theme { border-width: 1px; margin: 0.3rem !important; min-width:3rem; }
+
 	summary { font-weight: bold; }
 
 	#divContainer { height: 100%; margin: 0 0 0 var( --mnu-width ); transition: margin-left .5s; position: relative; }
