@@ -16,7 +16,8 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 ## Concept
 
-* Basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop fule reading capability, access to frequently used pages and more
+* Basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop file reading capability, access to frequently used pages and more
+
 
 ## To Do / Wish list
 

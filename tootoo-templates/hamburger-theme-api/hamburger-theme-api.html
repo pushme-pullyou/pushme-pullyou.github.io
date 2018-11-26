@@ -16,16 +16,21 @@
 
 	body { height: 100%; margin: 0; }
 
+	a:hover { text-decoration: underline !important; }
 	a:hover, a:focus { background-color: yellow; color: #888; }
-	blockquote, pre { background-color:rgba(240, 240, 240, 0.25 ); padding: 1rem }
+
+	blockquote, pre { background-color:rgba(240, 240, 240, 0.25 ); box-sizing: border-box; padding: 1rem }
 	button.theme { border-width: 1px; margin: 0.3rem !important; min-width:3rem; }
 	button:hover, input[ type=button ]:hover { background-color: #ccc; color: white }
+
 	summary { font-weight: bold; }
+
+	.highlight {background-color: lightgreen }
 
 	#divContainer { height: 100%; margin: 0 0 0 var( --mnu-width ); transition: margin-left .5s; position: relative; }
 	#divContents { height: 100%; left: 0; margin: 0 auto; max-width: 50rem; padding: 1rem; right: 0; }
 
-	#divMenu { max-height: 100%; overflow-x: hidden; padding: 1rem; position: fixed; resize: both; top: 0;
+	#navMenu { max-height: 100%; overflow-x: hidden; padding: 1rem; position: fixed; resize: both; top: 0;
 		width: var( --mnu-width ); z-index: 1; transition: left 0.5s; }
 	#hamburger { cursor: pointer; font-size: 2rem; left: calc( var( --mnu-width ) - 4rem );
 		line-height: 2rem; position: fixed; top: 0; transition: left 0.5s; z-index: 10; }
@@ -37,7 +42,7 @@
 
 	body, html { font: 12pt "Trebuchet MS", helvetica, sans-serif; height: 100%; margin: 0; }
 
-	button, input[ type=button ] { background-color: #ddd; border: none; color: var( --mnu-color ); cursor: pointer; padding: 3px 20px; }
+	button, input[ type=button ] { background-color: #ddd; border: none; cursor: pointer; padding: 0px 20px; }
 
 	iframe { border: none; width: 100%; }
 
@@ -45,18 +50,16 @@
 	input[ type = range ]::-moz-range-thumb { background-color: #888; border-radius: 0; width: 10px; }
 	input[ type = range ]::-webkit-slider-thumb { -webkit-appearance: none; background-color: #888; height: 20px; width: 10px; }
 
-	td { vertical-align: top; }
-
 */
 
 </style>
-<link id=css rel="stylesheet" href="" type="text/css" >
+<link id=css rel="stylesheet" href="" >
 </head>
 <body>
 <script src=https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js ></script>
 
 
-	<div id = "divMenu" class="jumbotron" >
+	<nav id = "navMenu" class="jumbotron" >
 
 		<div>
 			<a class="breadcrumb-item" href = "../index.html" target="_top" >repo</a>
@@ -88,11 +91,11 @@
 
 			<details>
 
-					<summary>Settings</summary>
+				<summary>Themes</summary>
 
-					<div id=divBootswatch ></div>
+				<div id=divBootswatch ></div>
 
-					<div id=divCssOthers ></div>
+				<div id=divCssOthers ></div>
 
 			</details>
 
@@ -113,11 +116,11 @@
 
 			</details>
 
-			<h3 onclick="divMenu.scrollTop=0;" style="cursor:pointer;text-align:center;" title="go to top of page" > &#x2766; </h3>
+			<h4 onclick="navMenu.scrollTop=0;" style="cursor:pointer;text-align:center;" title="go to top of page" > &#x1f578; </h4>
 
 		</div>
 
-	</div>
+	</nav>
 
 	<div id = "divContainer" >
 
@@ -129,7 +132,7 @@
 
 <script>
 
-// https://github.com/showdownjs/showdown << check for latest rev from time to time 1.8.6 2018-07-02
+// https://github.com/showdownjs/showdown << check for latest rev from time to time 1.8.6 2018-08-28
 // jshint esversion: 6
 
 
@@ -219,7 +222,7 @@ function setTheme( target ) {
 	];
 
 
-	const txt1 = themesBootswatch.map( theme => {
+		const txt1 = themesBootswatch.map( theme => {
 		const name = Object.keys( theme )[ 0 ];
 		link = name === 'Default' ?
 			'https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.css' :
@@ -229,9 +232,9 @@ function setTheme( target ) {
 
 	});
 
-	divBootswatch.innerHTML = '<p>Themes from <a href="https://bootswatch.com/" target=_blank>Bootswatch</a><br>' + txt1.join( '' );
+	divBootswatch.innerHTML = '<p>Themes for menus from <a href="https://bootswatch.com/" target=_blank>Bootswatch</a><br>' + txt1.join( '' );
 
-	let txt = '<p>Themes from other sources</p>';
+	let txt = '<p>Themes for menus from other sources</p>';
 
 	for ( let theme of themesOthers ) {
 
@@ -312,6 +315,8 @@ function onHashChange() {
 	if ( ulc.endsWith( '.md' ) ) {
 
 		requestFile( url, callbackMarkdown );
+
+		document.body.style.overflow = '';
 
 	} else if ( ulc.endsWith( '.html' ) ) {
 
@@ -397,7 +402,7 @@ function onDrop( event ) {
 
 	event.preventDefault();
 
-};
+}
 
 
 
@@ -412,7 +417,7 @@ function openFile( files ) {
 
 		//console.log( 'reader', reader );
 
-		if ( file.name.endsWith('.md' ) ) {
+		if ( file.name.toLowerCase().endsWith('.md' ) ) {
 
 			showdown.setFlavor('github');
 			const converter = new showdown.Converter();
@@ -423,7 +428,7 @@ function openFile( files ) {
 			divContents.innerHTML = html;
 			window.scrollTo( 0, 0 );
 
-		} else if ( /\.(jpe?g|png|ico|svg|gif)$/i.test( file.name)  ) {
+		} else if ( /\.(jpe?g|png|ico|svg|gif)$/i.test( file.name ) ) {
 
 			divContents.innerHTML = `<img src=${ reader.result } >`;
 
@@ -456,7 +461,7 @@ function openFile( files ) {
 
 		}
 
-};
+}
 
 
 
@@ -528,18 +533,18 @@ function toggleNav() {
 
 	const width = getComputedStyle(document.documentElement).getPropertyValue( '--mnu-width' ).trim();
 
-	if ( !divMenu.style.width || divMenu.style.width === width ) {
+	if ( !navMenu.style.width || navMenu.style.width === width ) {
 
-		divMenu.style.width = '0';
-		divMenu.style.padding = '0';
+		navMenu.style.width = '0';
+		navMenu.style.padding = '0';
 		hamburger.style.left = '-75px';
 		divContainer.style.marginLeft = '0';
 
 	} else {
 
-		divMenu.style.width = width;
-		//divMenu.style.padding = '30px 10px 0 10px';
-		divMenu.style.padding = '1rem';
+		navMenu.style.width = width;
+		//navMenu.style.padding = '30px 10px 0 10px';
+		navMenu.style.padding = '1rem';
 		hamburger.style.left = 'calc( var( --mnu-width ) - 4rem )';
 		divContainer.style.marginLeft = width;
 
