@@ -17,7 +17,7 @@ THM.description = THM.description || document.head.querySelector( "[ name=descri
 THM.stylesheet = "style.css";
 
 
-THM.themeName = localStorage.getItem( 'themeName' ) || 'THMcssBasic';
+THM.thmName = localStorage.getItem( 'thmName' ) || 'THMcssBasic';
 
 // 'https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.css';
 
@@ -28,13 +28,13 @@ THM.themeBootswatch = 'https://bootswatch.com/_vendor/bootstrap/dist/css/bootstr
 
 THM.init = function() {
 
-	console.log( 'THM.themeName', THM.themeName );
+	console.log( 'THM.thmName', THM.thmName );
 
-	 if ( THM.themeName.includes( 'w3schools' ) ) {
+	 if ( THM.thmName.includes( 'w3schools' ) ) {
 
 		THM.loadCssW3schools();
 
-	} else if ( THM.themeName.includes( 'bootstrap' ) ) {
+	} else if ( THM.thmName.includes( 'bootstrap' ) ) {
 
 		THM.loadCssBootswatch();
 
@@ -117,7 +117,7 @@ THM.loadCssBasic = function() {
 
 	THM.toggleTagsClassListBootswatch( 'remove' );
 
-	localStorage.setItem( 'themeName', 'THMcssBasic' );
+	localStorage.setItem( 'thmName', 'THMcssBasic' );
 
 };
 
@@ -133,20 +133,20 @@ THM.loadCssW3schools = function() {
 	cssW3.rel = "stylesheet";
 	cssW3.href = "https://www.w3schools.com/w3css/4/w3.css";
 
-	THM.themeName = THM.themeName.includes( 'w3schools' ) ? THM.themeName : "https://www.w3schools.com/lib/w3-theme-red.css";
+	THM.thmName = THM.thmName.includes( 'w3schools' ) ? THM.thmName : "https://www.w3schools.com/lib/w3-theme-red.css";
 
 	if ( !THM.cssW3Theme ) {
 
 		THM.cssW3Theme = document.head.appendChild( document.createElement( 'link' ) );
 		THM.cssW3Theme.rel = "stylesheet";
 		THM.cssW3Theme.id = "THMcssW3schools";
-		THM.cssW3Theme.href = THM.themeName;
+		THM.cssW3Theme.href = THM.thmName;
 
 	}
 
 	THM.toggleTagsClassListW3schools( 'add' );
 
-	localStorage.setItem( 'themeName', THM.cssW3Theme.href );
+	localStorage.setItem( 'thmName', THM.cssW3Theme.href );
 
 };
 
@@ -214,7 +214,7 @@ THM.setCssW3schools = function( color ) {
 
 	THMcssW3schools.href = "https://www.w3schools.com/lib/w3-theme-" + color + ".css";
 
-	localStorage.setItem( 'themeName', THM.cssW3Theme.href );
+	localStorage.setItem( 'thmName', THM.cssW3Theme.href );
 
 };
 
@@ -226,14 +226,14 @@ THM.loadCssBootswatch = function() {
 
 	THM.toggleTagsClassListW3schools( 'remove' );
 
-	THM.themeName = THM.themeName.includes( 'bootstrap' ) ? THM.themeName : THM.themeBootswatch;
+	THM.thmName = THM.thmName.includes( 'bootstrap' ) ? THM.thmName : THM.themeBootswatch;
 
 	//if ( !THM.cssBootswatch ) {
 
 		THM.cssBootswatch = document.head.appendChild( document.createElement('link') );
 		THM.cssBootswatch.rel = "stylesheet";
 		THM.cssBootswatch.id = 'THMcssBootswatch';
-		THM.cssBootswatch.href = THM.themeName;
+		THM.cssBootswatch.href = THM.thmName;
 		//console.log( 'THM.cssBootswatch', THM.cssBootswatch );
 
 	//}
@@ -304,7 +304,7 @@ THM.toggleDivBootswatch = function( action = 'add' ) {
 				'https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.css' :
 				`https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/${ name.toLowerCase() }/bootstrap.min.css`;
 
-			const bingo = link === THM.themeName ? '*' : '';
+			const bingo = link === THM.thmName ? '*' : '';
 
 			return `<button class=theme onclick=THM.setCssBootswatch("${ link }"); style="${ theme[name] }" >${ bingo }${ name }${ bingo }</button> `;
 
@@ -325,8 +325,8 @@ THM.toggleDivBootswatch = function( action = 'add' ) {
 
 THM.setCssBootswatch = function( link ) {
 
-	THM.themeName = THMcssBootswatch.href = link;
+	THM.thmName = THMcssBootswatch.href = link;
 
-	localStorage.setItem( 'themeName', link );
+	localStorage.setItem( 'thmName', link );
 
 };
