@@ -25,11 +25,15 @@ _<small>Spider gbXML Viewer Cookbook</small>_
 * This demo script displays files from Ladybug Tools / Spider gbXML Tools Cookbook
 
 
-### Cookbook events [view-github-events.html]( #tootoo-templates/cookbook/view-github-events/view-github-events.html )
+### Cookbook events: [view-github-events.html]( #tootoo-templates/cookbook/view-github-events/view-github-events.html )
 
 * View 100 most recent GitHub events for a user or organization
 
-### Cookbook carousel: []
+### Cookbook carousel: [View Files in Iframe Carousel Read Me]( #tootoo-templates/cookbook/view-files-in-iframe-carousel/README.md )
+
+
+
+### Cookbook theme changer: [Select Stylesheet Theme Read Me]( #tootoo-templates/cookbook/select-stylesheet-theme/README.md )
 
 
 
