@@ -1,14 +1,15 @@
 
 
-[Markdown Cheat Sheet]( #utilities/markdown-cheat-sheet.md )
-===
+# [Markdown Cheat Sheet]( #utilities/markdown-cheat-sheet.md )
+
 
 Interesting things you can do with Markdown.
 
 
 ### Links of Interest
 
-* <https://github.com/showdownjs/showdown>
+* <https://github.com/showdownjs/showdown> - Markdown to HTML converter
+* https://guides.github.com/features/mastering-markdown/
 * <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>
 
 ### Text
@@ -48,6 +49,12 @@ ___
 ~~Strike through~~
 
 
+```
+==Marked text / StackEdit only ==
+```
+
+==Marked text.==
+
 
 ### Tables
 ```
@@ -83,8 +90,47 @@ ___
 		* item
 * item
 
+```
+- [ ] Incomplete item
+- [x] Complete item
+```
+
+- [ ] Incomplete item
+- [x] Complete item
 
 
+### Definition lists
+
+ StackEdit only.
+
+```
+Markdown
+:  Text-to-HTML conversion tool
+
+Authors
+:  John
+:  Luke
+```
+
+Markdown
+:  Text-to-HTML conversion tool
+
+Authors
+:  John
+:  Luke
+
+
+
+### Abbreviations
+
+
+Markdown converts text to HTML. StackEdit only.
+
+```
+*[HTML]: HyperText Markup Language
+```
+
+*[HTML]: HyperText Markup Language
 
 
 ### Code
@@ -117,6 +163,23 @@ text text text
 > quote
 > quote
 
+### Details
+
+	<details>
+
+		<summary>Details Summay</summary>
+
+		lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit,
+
+	</details>
+
+
+<details>
+<summary>Details Summay</summary>
+
+lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?
+
+</details>
 
 ### Images
 
@@ -135,6 +198,8 @@ text text text
 ![ text ]( https://picsum.photos/800/600/?random =400x300 )
 
 ![ text ]( https://picsum.photos/800/600/?random =200x150 )
+
+![ text ]( https://picsum.photos/800/600/?random =100%x200 )
 
 
 ### Figures

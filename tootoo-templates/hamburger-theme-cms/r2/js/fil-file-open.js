@@ -40,7 +40,7 @@ FIL.currentStatus =
 FIL.getMenuFileOpen = function( target = divContents ) {  // called from main HTML file
 
 	FIL.target = target;
-	
+
 	FIL.timeStart = performance.now();
 
 	//window.addEventListener ( 'hashchange', FIL.onHashChange, false );

@@ -8,7 +8,9 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 # [TooToo CMS Read Me]( #tootoo-templates/hamburger-theme-cms/r2/README.md )
 
+<!--
 <iframe src=https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/r2/tootoo-cms.html width=100% height=500px >Iframes are not viewable in GitHub source code views</iframe>
+-->
 
 ## Full Screen: [TooToo CMS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/r2/tootoo-cms.html )
 
@@ -28,14 +30,11 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 ## To Do
 
+* 2019-01-02 ~ Issues with phone/tablet CSS
 * 2019-01-01 ~ HTML iframes and textareas have incorrect heights
-* 2019-01-01 ~ Footer links needs homogenizing with tootoo
-* 2019-01-01 ~ Bootstrap menu backgrounds need better classes
-* 2019-01-01 ~ W3Schools fonts need better text sizes
-* 2018-07-24 ~ Theo Move away from tables for building menu items
+* 2019-01-01 ~ Footer links needs homogenizing with tootoo/spider
+* 2018-07-24 ~ Theo ~ Move away from tables for building menu items
 * 2018-07-24 ~ Theo ~ Complete changeover to template literals
-
-
 
 
 ## Change Log
@@ -46,6 +45,13 @@ value='You are now in a GitHub web page view - Click this button to view this re
 TooToo CMS
 * Various updates forked from spider
 * Fix and update readme
+
+Style.css
+* navMenu: position fixed
+
+Fixes underway
+* 2019-01-01 ~ Bootstrap menu backgrounds need better classes
+* 2019-01-01 ~ W3Schools fonts need better text sizes
 
 ### 2019-01-01 ~ Theo
 

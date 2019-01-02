@@ -44,8 +44,9 @@ MNU.currentStatus =
 //MNU.urlSourceCode = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo-templates/hamburger-theme-cms";
 
 
-let xDown = null;
-let yDown = null;
+MNU.xDown = null;
+MNU.yDown = null;
+
 //////////
 
 
@@ -150,8 +151,8 @@ MNU.setPopupShowHide = function( id, text ) {
 
 function onTouchStart( event ) {
 
-	xDown = event.touches[ 0 ].clientX;
-	yDown = event.touches[ 0 ].clientY;
+	MNU.xDown = event.touches[ 0 ].clientX;
+	MNU.yDown = event.touches[ 0 ].clientY;
 
 }
 
@@ -159,7 +160,7 @@ function onTouchStart( event ) {
 
 function onTouchMove(event) {
 
-	if ( ! xDown || ! yDown ) {
+	if ( ! MNU.xDown || ! MNU.yDown ) {
 
 		return;
 
@@ -168,20 +169,20 @@ function onTouchMove(event) {
 	const xUp = event.touches[ 0 ].clientX;
 	const yUp = event.touches[ 0 ].clientY;
 
-	const xDiff = xDown - xUp;
-	const yDiff = yDown - yUp;
+	const xDiff = MNU.xDown - xUp;
+	const yDiff = MNU.yDown - yUp;
 
 	if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {// most significant
 
 		if ( xDiff > 0 ) {
 
-			toggleNav();
+			MNU.toggleNavLeft();
 			// left swipe
 			console.log( 'left swipe' );
 
 		} else {
 
-			toggleNav();
+			MNU.toggleNavLeft();
 			// right swipe
 			console.log( 'right swipe' );
 
@@ -203,33 +204,13 @@ function onTouchMove(event) {
 
 	}
 
-	xDown = null;
-	yDown = null;
+	MNU.xDown = null;
+	MNU.yDown = null;
 
 }
 
 
-MNU.xxxxtoggleNavLeft = function() {
 
-	const width = navMenu.getBoundingClientRect().width;
-
-	if ( navMenu.style.left === '' || navMenu.style.left === '0px' ) {
-
-		navMenu.style.left = '-' + width + 'px';
-		butHamburger.style.left = '10px';
-
-	} else {
-
-		navMenu.style.left = '0px';
-		butHamburger.style.left = width + 'px';
-
-	}
-
-};
-
-
-
-//function toggleNav() {
 MNU.toggleNavLeft = function() {
 
 	const width = getComputedStyle(document.documentElement).getPropertyValue( '--mnu-width' ).trim();

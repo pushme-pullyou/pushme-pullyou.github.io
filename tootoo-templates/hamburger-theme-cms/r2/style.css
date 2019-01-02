@@ -1,6 +1,6 @@
 /* Copyright 2018 Ladybug Tools authors. MIT License */
 
-:root { --mnu-width: 25rem; font-size: 0.8em; }
+:root { --mnu-width: 30rem; font-size: 0.7em; }
 
 /* body, html { font: 11pt monospace; height: 100%; margin: 0; overflow: hidden; } */
 
@@ -35,8 +35,8 @@ summary { cursor: pointer; font-weight: bold; }
 
 /* #divContents { margin: 0 auto; max-width: 600px; } */
 
-#navMenu { background-color: #eee; max-height: 95%; left: 0; margin: 1rem; overflow: auto;
-	position: absolute; resize: both; top: 0; transition: left 0.5s; width: var( --mnu-width ); z-index: 10; }
+#navMenu { /* background-color: #eee; */ border: 1px solid #888; max-height: 95%; left: 0; margin: 1rem; overflow: auto;
+	position: fixed; resize: both; top: 0; transition: left 0.5s; width: var( --mnu-width ); z-index: 10; }
 
 #navMenu button, #navMenu input[type=button] { background-color: #ddd; border: 2px solid white; color: white; cursor: pointer;
 	padding: 2px 5px; min-width: 13.5rem; }
@@ -57,9 +57,11 @@ summary { cursor: pointer; font-weight: bold; }
 
 
 
-@media screen and (max-width: 900px; ) {
+@media screen and (max-width: 900px) {
 
 	#navMenu, #butHamburger { left: -23rem; }
+	#divContainer { margin: 0; }
+	#divContents { left: 0; margin: 0; max-width: 100%; }
 
 }
 

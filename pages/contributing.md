@@ -6,11 +6,11 @@ This file is a work-in-progress. It will be based on
 
 * [Open source Guides]( https://opensource.guide ): [Writing contributing guidelines]( https://opensource.guide/starting-a-project/#writing-your-contributing-guidelines )
 	* This file is based on:
-	* @nayafia's [contributing guide template](https://github.com/nayafia/contributing-template/blob/master/CONTRIBUTING-template.md) or 
+	* @nayafia's [contributing guide template](https://github.com/nayafia/contributing-template/blob/master/CONTRIBUTING-template.md) or
 	* @mozilla's ["How to Build a CONTRIBUTING.md"](http://mozillascience.github.io/working-open-workshop/contributing/).
 	* [Contributing to Open Source Guides]( https://github.com/github/opensource.guide/blob/gh-pages/CONTRIBUTING.md )
 
-  
+
 ***
 
 Thank you for considering contributing to Parallel Constitution. We look forward to your participation. We hope that sharing your experiences will benefit others who read and use our efforts.
@@ -31,7 +31,7 @@ In the top right hand corner of this page: github-top-right-screen-capture.png
 
 You will see the 'Watch' and 'Star' buttons
 
-![github-top-right-screen-capture.png]( https://cdn.glitch.com/8f4ee7c6-c279-4f9f-8598-a145f33d2ea6%2Fgithub-top-right-screen-capture.png?1499556746028 =600x100 ) 
+![github-top-right-screen-capture.png]( https://cdn.glitch.com/8f4ee7c6-c279-4f9f-8598-a145f33d2ea6%2Fgithub-top-right-screen-capture.png?1499556746028 =600x100 )
 _note the [freeCodeCamp]( https://freecodecamp.com/ ) 'Watch' and 'Star' buttons at top right_
 
 Please click both of these buttons for [XXXXX on GitHub]( https://github.com/xxxxx/xxxxx.github.io ). 
@@ -53,7 +53,7 @@ Another very nice thing you may do is set your membership to 'public'.
 
 Got to [XXXXX People]( https://github.com/orgs/xxxxx/people )
 
-![github-people-screen-capture.png]( https://cdn.glitch.com/8f4ee7c6-c279-4f9f-8598-a145f33d2ea6%2Fgithub-people-screen-capture.png?1499556745948 =600x100 ) 
+![github-people-screen-capture.png]( https://cdn.glitch.com/8f4ee7c6-c279-4f9f-8598-a145f33d2ea6%2Fgithub-people-screen-capture.png?1499556745948 =600x100 )
 _Member options for GitHub organizations_
 
 Setting your membership to public helps new users see that they are joining a team and not just helping a particular individual. It also helps with your user name popping up as a suggested contact in GitHub issues and other useful places.
