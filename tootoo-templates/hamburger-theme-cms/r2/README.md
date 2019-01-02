@@ -1,36 +1,61 @@
 
-<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( https://pushme-pullyou.github.io/#tootoo-templates/hamburger-theme-cms/README.md "View file as a web page." ) </span>
+<span style=display:none; >[You are now in a GitHub source code view - click this link to view Read Me file as a web page]( https://pushme-pullyou.github.io/#tootoo-templates/hamburger-theme-cms/r2/README.md "View file as a web page." ) </span>
 
-<div><input type=button class = 'btn btn-secondary btn-sm' onclick="window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo-templates/hamburger-theme-cms'";
+<div><input type=button class = 'btn btn-secondary btn-sm' onclick=window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo-templates/hamburger-theme-cms/r2/';
 value='You are now in a GitHub web page view - Click this button to view this read me file as source code' ></div>
 
 <br>
 
-# [Hamburger Theme CMS Read Me]( #/tootoo-templates/hamburger-theme-cms/README.md )
+# [TooToo CMS Read Me]( #tootoo-templates/hamburger-theme-cms/r2/README.md )
 
-<iframe src=https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/hamburger-theme-cms.html width=100% height=500px >Iframes are not viewable in GitHub source code views</iframe>
+<iframe src=https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/r2/tootoo-cms.html width=100% height=500px >Iframes are not viewable in GitHub source code views</iframe>
 
-## Full Screen: [Hamburger Theme CMS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/hamburger-theme-cms.html )
+## Full Screen: [TooToo CMS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/r2/tootoo-cms.html )
 
 
 
 ## Concept
 
-* Basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop file reading capability, access to frequently used pages and more
+* Basic HTML content management script with
+	* Sliding menu for mobile operation
+	* CSS theme selection,
+	* Markdown to HTML
+	* Drag and drop file reading capability
+	* Access to frequently used pages and more
 
 
 ## To Do / Wish list
 
-* 2018-07-24 ~ Theo ~ Complete changeover to template literals
+## To Do
+
+* 2019-01-01 ~ HTML iframes and textareas have incorrect heights
+* 2019-01-01 ~ Footer links needs homogenizing with tootoo
+* 2019-01-01 ~ Bootstrap menu backgrounds need better classes
+* 2019-01-01 ~ W3Schools fonts need better text sizes
 * 2018-07-24 ~ Theo Move away from tables for building menu items
+* 2018-07-24 ~ Theo ~ Complete changeover to template literals
+
+
 
 
 ## Change Log
 
 
+### 2019-01-02 ~ Theo
+
+TooToo CMS
+* Various updates forked from spider
+* Fix and update readme
+
+### 2019-01-01 ~ Theo
+
+TooToo CMS
+* First commit
+
+
 ### 2018-07-24 ~ Theo
 
-* Add all Hamburger Theme updates
+* Add all TooToo updates
 
 ### 2018-07-22 ~ Theo
 

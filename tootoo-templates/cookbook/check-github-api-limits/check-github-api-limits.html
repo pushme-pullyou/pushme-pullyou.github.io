@@ -28,13 +28,17 @@
 
 		<div id="divTitle" ></div>
 
+		<p><input id=inpAccessToken  style=width:100%;></p>
 		<p>
-			<button id=but onclick=setIt(); accessKey= 'z' title='access key: z '>button button</button>
+			<button id=but onclick=inpAccessToken.value=getAccessToken(); >get github api access token </button>
 		</p>
 
 	</nav>
 
-	<div id="divContents" ></div>
+	<div id="divContents" >
+
+
+	</div>
 
 
 <script>
@@ -54,12 +58,28 @@ function init() {
 
 
 
-function setIt() {
+function getAccessToken() {
 
-	divContents.innerHTML += `<p>${ ( performance.now() ) } - Howdy! </p>`;
+	return localStorage.getItem('GitHubPersonalAccessToken' )
 
 }
 
+// // localStorage.getItem('GitHubPersonalAccessToken' )
+
+function setGPATStorage() {
+
+	const GitHubPersonalAccessToken = inpGitHubPersonalAccessToken.value;
+	localStorage.setItem('GitHubPersonalAccessToken', GitHubPersonalAccessToken );
+
+}
+
+
+function setGPATStorage() {
+
+const GitHubPersonalAccessToken = inpGitHubPersonalAccessToken.value;
+localStorage.setItem('GitHubPersonalAccessToken', GitHubPersonalAccessToken );
+
+}
 
 
 function getTitle() {

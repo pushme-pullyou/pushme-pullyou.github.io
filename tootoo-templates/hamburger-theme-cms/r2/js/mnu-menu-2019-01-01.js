@@ -1,11 +1,13 @@
-// Copyright 2019 pushMe-pullYou authors. MIT License
 /* global THREE * /
 /* jshint esversion: 6 */
 
+// Copyright 2019 pushMe-pullYou authors. MIT License
 
-const MNU = { "release": "R1.1", "date": "2019-01-02" };
 
-MNU.description = COR.description || document.head.querySelector( "[ name=description ]" ).content;
+const MNU = { "release": "R1.0", "date": "2018-12-31" };
+
+
+MNU.description = MNU.description || document.head.querySelector( "[ name=description ]" ).content;
 
 MNU.currentStatus =
 	`
@@ -26,7 +28,7 @@ MNU.currentStatus =
 
 		<p>This module is ready for light testing.</p>
 
-		<p><a href="#/README.md" target="_blank">MNU Read Me</a></p>
+		<p><a href="#sandbox/spider-gbxml-text-parser/r10/cookbook/spider-core-menu/README.md" target="_blank">MNU Read Me</a></p>
 
 		<p>
 			Change log
@@ -41,11 +43,9 @@ MNU.currentStatus =
 		</p>
 	`;
 
-//MNU.urlSourceCode = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo-templates/hamburger-theme-cms";
+MNU.urlSourceCode = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo-templates/hamburger-theme-cms";
 
 
-let xDown = null;
-let yDown = null;
 //////////
 
 
@@ -60,27 +60,26 @@ MNU.getNavHeader = function() {
 	const htm  =
 	`
 		<h3>
-		<a href="${ COR.homeUrl }" title="${ COR.homeTitle }" target="_top">
-		${ COR.homeText }
+		<a href="${ path }" title="" target="_top">
+		pushMe-pullYou
 		</a>
 		&raquo;
-		<a href="${ COR.repoUrl }" title="${ COR.repoTitle }" target="_top">
-		${ COR.repoText }
+		<a href="${ path }#tootoo-templates/README.md" title="" target="_top">
+		TooToo
 		</a>
 		&raquo;
-		<a href="${ COR.appUrl }" title="${ COR.appTitle }" >
-		${ COR.appText }
-		</a>
-		${ COR.appUrl ? '&raquo;' : '' }
+		<a href="https://pushme-pullyou.github.io/#tootoo-templates/hamburger-theme-cms/README.md" title="" >
+		cms</a>
+		&raquo;
 		</h3>
 		<h2>
-			<a href=${ COR.urlSourceCodeUrl } target="_blank" title="Source code on GitHub" >
-			${ COR.urlSourceCodeIcon }
+			<a href=${ MNU.urlSourceCode } target="_top" title="Source code on GitHub" >
+				<img src="https://status.github.com/images/invertocat.png" height=18 >
 			</a>
 			<a href="" title="Click to reload this page" >${ document.title }</a>
 
-			<a id=mnuHead class=helpItem href="JavaScript:MNU.setPopupShowHide(mnuHead,COR.currentStatus);"
-			title="Current status: core module" >&nbsp; ? &nbsp;</a>
+			<a id=mnuHead class=helpItem href="JavaScript:MNU.setPopupShowHide(mnuHead,MNUcoreCurrentStatus);"
+			title="Current status: menu MNU module" >&nbsp; ? &nbsp;</a>
 		</h3>
 
 		<p> ${ MNU.description }
@@ -103,9 +102,13 @@ MNU.getNavHeader = function() {
 
 
 
+
+
 MNU.getNavFooter = function() {
 
-	const path = "https://www.ladybug.tools/spider/#";
+	// &#x1f578; :: 🕸 / &#x2766; :: ❦
+
+	path = `../../..`;
 	const htm  =
 	`
 		<details>
@@ -114,13 +117,13 @@ MNU.getNavFooter = function() {
 				<a id=mnuFoot class=helpItem href="JavaScript:MNU.setPopupShowHide(mnuFoot,MNU.currentStatus);" >&nbsp; ? &nbsp;</a>
 			</summary>
 
-			<div style=margin-top:1rem; title='What is this stuff?' ><a href=${ path }pages/about-spider-code-style.md target="_blank" >Coding style</a></div>
-			<div title='many thanks!' ><a href=${ path }/pages/credits.md target="_blank" >Credits</a></div>
-			<div><a href=${ path }/pages/code-of-conduct.md target="_blank" >Code of conduct</a></div>
-			<div><a href=${ path }/pages/contributing.md target="_blank" >Contributing via GitHub</a></div>
-			<div><a href=${ path }/pages/license.md target="_blank" >MIT License</a></div>
-			<div><a href=${ path }/pages/markdown-help.md target="_blank" >Markdown help</a></div>
-			<div><a href=${ path }/pages/themes.md target="_blank" >Themes help</a></div>
+			<div style=margin-top:1rem; title='What is this stuff?' ><a href=#${ path }/pages/coding-style.md target="_blank" >Coding style</a></div>
+			<div title='many thanks!' ><a href=#${ path }/pages/credits.md target="_blank" >Credits</a></div>
+			<div><a href=#${ path }/pages/code-of-conduct.md target="_blank" >Code of conduct</a></div>
+			<div><a href=#${ path }/pages/contributing.md target="_blank" >Contributing via GitHub</a></div>
+			<div><a href=#${ path }/pages/license.md target="_blank" >MIT License</a></div>
+			<div><a href=#${ path }/pages/markdown-help.md target="_blank" >Markdown help</a></div>
+			<div><a href=#${ path }/pages/themes.md target="_blank" >Themes help</a></div>
 			<div><a title='Need help' href=https://github.com/ladybug-tools/spider-gbxml-tools/issues target=_blank >GitHub Issues</a></div>
 			<div><a href="javascript:( function(){ var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left MNUner" >Show frames/second statistics</a></div>
 			<div><a href="https://api.github.com/rate_limit" title='If menu stops appearing, it is likely due to too many API calls' target=_blank >View GitHub API rate limits</a></div>
