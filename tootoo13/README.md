@@ -6,13 +6,13 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 <br>
 
-# [TooToo CMS Read Me]( #tootoo-templates/hamburger-theme-cms/r2/README.md )
+# [TooToo13 Read Me]( #tootoo-templates/hamburger-theme-cms/r2/README.md )
 
 <!--
 <iframe src=https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/r2/tootoo-cms.html width=100% height=500px >Iframes are not viewable in GitHub source code views</iframe>
 -->
 
-## Full Screen: [TooToo CMS]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/r2/tootoo-cms.html )
+## Full Screen: [TooToo13]( https://pushme-pullyou.github.io/tootoo-templates/hamburger-theme-cms/r2/tootoo-cms.html )
 
 
 
@@ -38,6 +38,11 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 
 ## Change Log
+
+### 2019-01-03 ~ Theo
+
+TooToo13
+* Rename and move folder
 
 
 ### 2019-01-02 ~ Theo
