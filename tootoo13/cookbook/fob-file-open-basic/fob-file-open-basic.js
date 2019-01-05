@@ -1,8 +1,8 @@
 // Copyright 2019 pushMe pullYou authors. MIT License
 // jshint esversion: 6
-/* globals navMenu */
+/* globals navMenu, showdown, divContents, FOBsecFileOpenBasic */
 
-const FOB = { "release": "R13.0", "date": "2019-01-03" };
+const FOB = { "release": "R13.1", "date": "2019-01-04" };
 
 FOB.currentStatus =
 	`
@@ -93,7 +93,7 @@ FOB.openFile = function( files ) {
 
 		if ( name.endsWith('.md' ) ) {
 
-			FOB.callbackMarkdown( FOB.reader.result )
+			FOB.callbackMarkdown( FOB.reader.result );
 
 		} else if ( FOB.regexImages.test( file.name )  ) {
 
@@ -163,11 +163,11 @@ FOB.callbackDecider = function ( xhr ) {
 
 	if ( ulc.endsWith( '.md' ) ) {
 
-		FOB.callbackMarkdown( xhr.target.response )
+		FOB.callbackMarkdown( xhr.target.response );
 
 	} else {
 
-		FOB.callbackOtherToTextarea( xhr.target.response )
+		FOB.callbackOtherToTextarea( xhr.target.response );
 
 	}
 

@@ -5,7 +5,7 @@
 
 const MNU = { "release": "R1.1", "date": "2019-01-02" };
 
-MNU.description = TOO.description || document.head.querySelector( "[ name=description ]" ).content;
+MNU.description = MNU.description || document.head.querySelector( "[ name=description ]" ).content;
 
 MNU.currentStatus =
 	`
@@ -61,26 +61,26 @@ MNU.getNavHeader = function() {
 	const htm  =
 	`
 		<h3>
-		<a href="${ TOO.homeUrl }" title="${ TOO.homeTitle }" target="_top">
-		${ TOO.homeText }
+		<a href="${ MNU.homeUrl }" title="${ MNU.homeTitle }" target="_top">
+		${ MNU.homeText }
 		</a>
 		&raquo;
-		<a href="${ TOO.repoUrl }" title="${ TOO.repoTitle }" target="_top">
-		${ TOO.repoText }
+		<a href="${ MNU.repoUrl }" title="${ MNU.repoTitle }" target="_top">
+		${ MNU.repoText }
 		</a>
 		&raquo;
-		<a href="${ TOO.appUrl }" title="${ TOO.appTitle }" >
-		${ TOO.appText }
+		<a href="${ MNU.appUrl }" title="${ MNU.appTitle }" >
+		${ MNU.appText }
 		</a>
-		${ TOO.appUrl ? '&raquo;' : '' }
+		${ MNU.appUrl ? '&raquo;' : '' }
 		</h3>
 		<h2>
-			<a href=${ TOO.urlSourceCodeUrl } target="_blank" title="Source code on GitHub" >
-			${ TOO.urlSourceCodeIcon }
+			<a href=${ MNU.urlSourceCodeUrl } target="_blank" title="Source code on GitHub" >
+			${ MNU.urlSourceCodeIcon }
 			</a>
 			<a href="" title="Click to reload this page" >${ document.title }</a>
 
-			<a id=mnuHead class=helpItem href="JavaScript:MNU.setPopupShowHide(mnuHead,TOO.currentStatus);"
+			<a id=mnuHead class=helpItem href="JavaScript:MNU.setPopupShowHide(mnuHead,MNU.currentStatus);"
 			title="Current status: core module" >&nbsp; ? &nbsp;</a>
 		</h3>
 

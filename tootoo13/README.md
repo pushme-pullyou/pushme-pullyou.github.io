@@ -20,7 +20,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 * Basic HTML content management script with
 	* Sliding menu for mobile operation
-	* CSS theme selection,
+	* CSS theme selection
 	* Markdown to HTML
 	* Drag and drop file reading capability
 	* Access to frequently used pages and more
@@ -30,15 +30,27 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 ## To Do
 
+* 2019-01-04 ~ Theo ~ make GitHub API request only once and triage the JSON thereafter
 * 2019-01-03 ~ Theo ~ popup toggle closes previous opens current with single click
 * 2019-01-02 ~ Issues with phone/tablet CSS
-* 2019-01-01 ~ HTML iframes and textareas have incorrect heights
 * 2019-01-01 ~ Footer links needs homogenizing with tootoo/spider
 * 2018-07-24 ~ Theo ~ Move away from tables for building menu items
-* 2018-07-24 ~ Theo ~ Complete changeover to template literals
+
 
 
 ## Change Log
+
+
+### 2019-01-04 ~ Theo
+
+TooToo13
+
+Cookbook
+* Add hsh-on-hash-change
+
+Progress
+* 2019-01-01 ~ HTML iframes and textareas have incorrect heights
+* 2018-07-24 ~ Theo ~ Complete changeover to template literals
 
 ### 2019-01-03 ~ Theo
 
@@ -48,6 +60,10 @@ TooToo13
 style.css
 * Popup position to fixed
 
+Cookbook started
+
+* Add fob-file-open
+* Add fob-file-open-basic
 
 ### 2019-01-02 ~ Theo
 

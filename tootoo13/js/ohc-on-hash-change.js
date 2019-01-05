@@ -1,6 +1,8 @@
 // Copyright 2019 pushMe pullYou authors. MIT License
 // jshint esversion: 6
-/* globals navMenu */
+/* globals showdown, navMenu, divContents, uriDefaultFile, urlGitHubPage, OHCdivMenuItems, OHCdivBreadcrumbs
+
+*/
 
 const OHC = { "release": "R13.0", "date": "2019-01-04" };
 
@@ -26,6 +28,14 @@ OHC.getMenuRepoFilesFolders = function() {
 	window.addEventListener ( 'hashchange', OHC.onHashChange, false );
 
 	OHC.divContents = divContents;
+
+	//const urlGitHubPage = location.href.includes( '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + branch;
+	//const urlGitHubPage = location.href.includes( repo ) ? '' : 'https://rawgit.com/' + user + repo + branch;
+	OHC.urlGitHubPage  = 'https://rawgit.com/' + OHC.user + OHC.repo + OHC.branch;
+	//console.log( 'urlGitHubPage', urlGitHubPage );
+
+	OHC.urlGitHubSource = 'https://github.com/' + OHC.user + OHC.repo;
+	OHC.urlGitHubApiContents = 'https://api.github.com/repos/' + OHC.user + OHC.repo + '/contents/' + OHC.pathRepo;
 
 	const htm =
 	`
@@ -54,7 +64,7 @@ OHC.onHashChange = function() {
 	const url = !location.hash ? uriDefaultFile : location.hash.slice( 1 );
 	const ulc = url.toLowerCase();
 
-	const crumbs = url.slice( urlGitHubPage.length );
+	const crumbs = url.slice( OHC.urlGitHubPage.length );
 	const pathCurrent = crumbs.lastIndexOf( '/' ) > 0 ? crumbs.slice( 0, crumbs.lastIndexOf( '/' ) ) : '';
 	//console.log( 'pathCurrent',  pathCurrent );
 
@@ -66,7 +76,7 @@ OHC.onHashChange = function() {
 
 	} else if ( OHC.regexHtml.test( ulc ) ) {
 
-		divContents.innerHTML = `<iframe src=${ url } height=900px width=100% ></iframe>`;
+		divContents.innerHTML = `<iframe src=${ url } style="${ OHC.contentsCss }" ></iframe>`;
 
 	} else if ( OHC.regexImages.test( ulc )  ) {
 
@@ -123,9 +133,9 @@ OHC.callbackOtherToTextarea = function( xhr ){
 
 OHC.setMenuGitHubPathFileNames = function( path = '' ) {
 
-	const url = urlGitHubApiContents + path;
+	const url = OHC.urlGitHubApiContents + path;
 
-	OHC.requestFile( url, OHC.callbackGitHubPathFileNames );
+	OHC.requestFile( url, OHC.callbackGitHubPathFileNames ); // to do: make request only once and triage thereafter
 
 	OHC.setBreadcrumbs( path );
 
@@ -137,7 +147,7 @@ OHC.callbackGitHubPathFileNames = function( xhr ) {
 
 	const response = xhr.target.response;
 	const items = JSON.parse( response );
-	const len = pathRepo.length;
+	const len = OHC.pathRepo.length;
 
 	let txt = "";
 
@@ -162,7 +172,7 @@ OHC.callbackGitHubPathFileNames = function( xhr ) {
 
 		}
 
-	};
+	}
 
 	const ignoreFiles = [ ".gitattributes", ".gitignore", "404.html" ];
 
@@ -172,25 +182,31 @@ OHC.callbackGitHubPathFileNames = function( xhr ) {
 
 			if ( ignoreFiles.includes( item.name ) ) { continue; }
 
-			itemPath = encodeURI( item.path.slice( len ) );
+			const itemPath = encodeURI( item.path.slice( len ) );
 
 			txt += // try grid or flexbox??
 			`
 				<table><tr>
-					<td><a href="${ urlGitHubSource }/blob${ branch}${ itemPath }" target=_top >${ iconInfo }</a></td>
 					<td>
-						<a href=#${ urlGitHubPage }${ pathRepo }${ itemPath } title="${ item.size.toLocaleString() } bytes" >
+						<a href="${ OHC.urlGitHubSource }/blob${ OHC.branch }${ itemPath }" target=_top >
+							${ OHC.iconInfo }
+						</a>
+					</td>
+					<td>
+						<a href=#${ OHC.urlGitHubPage }${ OHC.pathRepo }${ itemPath } title="${ item.size.toLocaleString() } bytes" >
 							${ item.name }
 							</a>
-						${ ( item.path.endsWith( "html" ) ? "<a href=${ urlGitHubPage }${pathRepo }${itemPath } >&#x2750;</a>" : "" ) }
+						${ ( item.path.endsWith( "html" ) ? "<a href=${ OHC.urlGitHubPage }${ OHC.pathRepo }${ itemPath } >&#x2750;</a>" : "" ) }
 					</td>
 				</tr></table>
 			`;
 
 			// simplify
-			if ( ( item.name.toLowerCase() === 'readme.md' ) && !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' ) ) {
+			if (  !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' )
 
-				location.hash = urlGitHubPage + pathRepo + itemPath;
+				&& ( item.name.toLowerCase() === 'readme.md' ) ) {
+
+				location.hash = OHC.urlGitHubPage + OHC.pathRepo + itemPath;
 
 			}
 
@@ -210,7 +226,7 @@ OHC.setBreadcrumbs = function( path ) {
 	`
 		<b>
 			<a href=JavaScript:OHC.setMenuGitHubPathFileNames(); title="home folder" >
-				${ ( pathRepo ? pathRepo : "<span style=font-size:28px >&#x2302</span>" ) }
+				${ ( OHC.pathRepo ? OHC.pathRepo : "<span style=font-size:28px >&#x2302</span>" ) }
 			</a> &raquo;
 		</b>
 	`;
