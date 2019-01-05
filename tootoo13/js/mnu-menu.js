@@ -53,8 +53,8 @@ MNU.yDown = null;
 MNU.getNavHeader = function() {
 
 	// Swipe events
-	document.addEventListener( 'touchstart', onTouchStart, false );
-	document.addEventListener( 'touchmove', onTouchMove, false );
+	document.addEventListener( 'touchstart', MNU.onTouchStart, false );
+	document.addEventListener( 'touchmove', MNU.onTouchMove, false );
 
 	const path = "../../../index.html";
 
@@ -106,7 +106,7 @@ MNU.getNavHeader = function() {
 
 MNU.getNavFooter = function() {
 
-	const path = "https://www.ladybug.tools/spider/#";
+	const path = "#../";
 	const htm  =
 	`
 		<details>
@@ -149,22 +149,21 @@ MNU.setPopupShowHide = function( id, text ) {
 };
 
 
-function onTouchStart( event ) {
+
+//////////
+
+MNU.onTouchStart = function( event ) {
 
 	MNU.xDown = event.touches[ 0 ].clientX;
 	MNU.yDown = event.touches[ 0 ].clientY;
 
-}
+};
 
 
 
-function onTouchMove(event) {
+MNU.onTouchMove = function(event) {
 
-	if ( ! MNU.xDown || ! MNU.yDown ) {
-
-		return;
-
-	}
+	// if ( ! MNU.xDown || ! MNU.yDown ) { return; }
 
 	const xUp = event.touches[ 0 ].clientX;
 	const yUp = event.touches[ 0 ].clientY;
@@ -177,13 +176,11 @@ function onTouchMove(event) {
 		if ( xDiff > 0 ) {
 
 			MNU.toggleNavLeft();
-			// left swipe
-			console.log( 'left swipe' );
+			//console.log( 'left swipe' );
 
 		} else {
 
 			MNU.toggleNavLeft();
-			// right swipe
 			console.log( 'right swipe' );
 
 		}
@@ -192,12 +189,10 @@ function onTouchMove(event) {
 
 		if ( yDiff > 0 ) {
 
-			//up swipe
 			console.log( 'up swipe' );
 
 		} else {
 
-			// down swipe
 			console.log( 'down swipe' );
 
 		}
@@ -207,7 +202,7 @@ function onTouchMove(event) {
 	MNU.xDown = null;
 	MNU.yDown = null;
 
-}
+};
 
 
 
@@ -215,11 +210,11 @@ MNU.toggleNavLeft = function() {
 
 	const width = getComputedStyle(document.documentElement).getPropertyValue( '--mnu-width' ).trim();
 
-	if ( !navMenu.style.width || navMenu.style.width === width ) {
+	if ( !navMenu.style.width || navMenu.style.width === width ) { // visible
 
 		navMenu.style.width = '0';
 		navMenu.style.padding = '0';
-		butHamburger.style.left = '-75px';
+		butHamburger.style.left = '-3rem';
 		divContainer.style.marginLeft = '0';
 
 	} else {
@@ -227,7 +222,7 @@ MNU.toggleNavLeft = function() {
 		navMenu.style.width = width;
 		//navMenu.style.padding = '30px 10px 0 10px';
 		navMenu.style.padding = '1rem';
-		butHamburger.style.left = 'calc( var( --mnu-width ) - 4rem )';
+		butHamburger.style.left = 'var( --mnu-width )';
 		divContainer.style.marginLeft = width;
 
 	}

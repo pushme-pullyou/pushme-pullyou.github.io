@@ -30,6 +30,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 ## To Do
 
+* 2019-01-03 ~ Theo ~ popup toggle closes previous opens current with single click
 * 2019-01-02 ~ Issues with phone/tablet CSS
 * 2019-01-01 ~ HTML iframes and textareas have incorrect heights
 * 2019-01-01 ~ Footer links needs homogenizing with tootoo/spider
@@ -43,6 +44,9 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 TooToo13
 * Rename and move folder
+
+style.css
+* Popup position to fixed
 
 
 ### 2019-01-02 ~ Theo

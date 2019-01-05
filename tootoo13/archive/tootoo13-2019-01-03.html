@@ -74,9 +74,9 @@ This menu is a component of a basic html content management script with sliding 
 </script>
 
 <script src="js/mnu-menu.js" ></script>
-<script src="js/fob-file-open-basic.js" ></script>
+<script src="js/fil-file-open.js" ></script>
 <script src="js/thm-theme-select.js" ></script>
-<script src="js/ohc-on-hash-change.js" ></script>
+<script src="js/hsh-on-hash-change.js" ></script>
 <script src="js/tmp-template.js" ></script>
 
 	<nav id="navMenu" >
@@ -89,30 +89,30 @@ This menu is a component of a basic html content management script with sliding 
 
 		<details open >
 
-			<summary class=divMenuTitle >File Menu</summary>
+				<summary class=divMenuTitle >File Menu</summary>
 
-			<section id="OHCsecMenuRepoFilesFolders" ></section>
+				<section id="HSHsecMenuRepoFilesFolders" ></section>
 
-			<div id=FOBdivFileOpenBasic ></div>
+				<div id=FILdivFileOpen ></div>
 
-			<div id=FILdivFileSave ></div>
+				<div id=FILdivFileSave ></div>
 
-		</details>
+			</details>
 
 
-		<details id=detMenuHelp open >
+			<details id=detMenuHelp open >
 
-				<summary class=divMenuTitle >Help Menu </summary>
+					<summary class=divMenuTitle >Help Menu </summary>
 
-				<section id=THMsecMenuThemeSelect ></section>
+					<section id=THMsecMenuThemeSelect ></section>
 
-				<section id=TMPsecMenuTemplate ></section>
+					<section id=TMPsecMenuTemplate ></section>
 
-				<footer>
+					<footer>
 
-					<section id = "MNUdivFooter" ></section>
+						<section id = "MNUdivFooter" ></section>
 
-				</footer>
+					</footer>
 
 		</details>
 
@@ -154,9 +154,9 @@ function init() {
 
 	MNUdivHeader.innerHTML = MNU.getNavHeader();
 
-	OHCsecMenuRepoFilesFolders.innerHTML = OHC.getMenuRepoFilesFolders();
+	HSHsecMenuRepoFilesFolders.innerHTML = HSH.getMenuRepoFilesFolders();
 
-	FOBdivFileOpenBasic.innerHTML = FOB.getMenuFileOpenBasic( divContents, divPopUpData );
+	FILdivFileOpen.innerHTML = FIL.getMenuFileOpen( divPopUpData );
 
 	THMsecMenuThemeSelect.innerHTML = THM.getMenuThemeSelect();
 
@@ -166,7 +166,7 @@ function init() {
 
 	THM.init();
 
-	OHC.onHashChange();
+	HSH.onHashChange();
 
 }
 

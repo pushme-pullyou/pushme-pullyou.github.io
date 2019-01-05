@@ -55,7 +55,6 @@ FIL.getMenuFileOpen = function( target = divContents ) {  // called from main HT
 
 	const htm =
 	`
-
 		<details id=FILdetFileOpen open >
 
 			<summary>Open file
@@ -103,8 +102,7 @@ FIL.callbackMarkdown = function( xhr ){
 	const response = xhr.target.response;
 	const html = converter.makeHtml( response );
 
-	FIL.target.style.maxWidth = '800px';
-	document.body.overflow = '';
+	FIL.target.style.maxWidth = '50rem;';
 	FIL.target.innerHTML = html;
 	window.scrollTo( 0, 0 );
 
@@ -131,6 +129,7 @@ FIL.onDrop = function( event ) {
 	if ( dropUrl ) {
 
 		location.hash = dropUrl;
+		FIL.requestFile( dropUrl, callback )
 
 	} else {
 
@@ -165,8 +164,8 @@ FIL.openFile = function( files ) {
 			const converter = new showdown.Converter();
 			const html = converter.makeHtml( FIL.reader.result );
 
-			FIL.target.style.maxWidth = '800px';
-			document.body.overflow = '';
+			FIL.target.style.maxWidth = '50rem;';
+			//FIL.target.style.overflow = '';
 			FIL.target.innerHTML = html;
 			window.scrollTo( 0, 0 );
 

@@ -5,7 +5,7 @@
 /* body, html { font: 11pt monospace; height: 100%; margin: 0; overflow: hidden; } */
 
 
-body { font: 12pt monospace; }
+body { box-sizing: border-box; font: 12pt monospace; }
 
 a { color: maroon; font-weight: bold; text-decoration: none; }
 a:hover, a:focus { background-color: yellow; color: #aaa; text-decoration: underline }
@@ -35,7 +35,8 @@ summary { cursor: pointer; font-weight: bold; }
 
 /* #divContents { margin: 0 auto; max-width: 600px; } */
 
-#navMenu { /* background-color: #eee; */ border: 1px solid #888; max-height: 95%; left: 0; margin: 1rem; overflow: auto;
+#navMenu { /* background-color: #eee; */ border: 1px solid #888; box-sizing: border-box;
+	left: 0; margin: 1rem; max-height: 95%; overflow: auto;
 	position: fixed; resize: both; top: 0; transition: left 0.5s; width: var( --mnu-width ); z-index: 10; }
 
 #navMenu button, #navMenu input[type=button] { background-color: #ddd; border: 2px solid white; color: white; cursor: pointer;
@@ -46,18 +47,19 @@ summary { cursor: pointer; font-weight: bold; }
 #navMenu button.active { border-color: black; font-style: italic; font-weight: bold; margin-left: 1rem;
 	box-shadow: 2px 2px re#888; }
 
-#butHamburger {
-	font-size: 2rem; left: calc( var( --mnu-width ) + 3rem ); position: fixed; top: 5px; transition: left 0.5s; z-index: 20;
+
+#butHamburger {  box-sizing: border-box;
+	font-size: 2rem; left: calc( var( --mnu-width ) + 0rem ); position: fixed; top: 5px; transition: left 0.5s; z-index: 20;
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); }
 
 
 #navPopUp, #divPopUp { background-color: #eee; border-radius: 8px; display: block; max-width: 25%; padding: 0 5px 10px 5px;
 	max-height: 95%; overflow: auto; resize: both;
-	opacity: 0.95; right: 1rem; position: absolute; top: 1rem; z-index: 10; };
+	opacity: 0.95; right: 1rem; position: fixed; top: 1rem; z-index: 10; };
 
 
-
-@media screen and (max-width: 900px) {
+/*
+@media screen and ( max-width: 900px ) {
 
 	#navMenu, #butHamburger { left: -23rem; }
 	#divContainer { margin: 0; }
@@ -65,12 +67,13 @@ summary { cursor: pointer; font-weight: bold; }
 
 }
 
-
+*/
 
 @media screen and ( max-width: 600px ) {
 
 	#navMenu { left: calc( -2rem - var( --mnu-width ) ); }
-	#butHamburger { left: 10px; }
+	#butHamburger { left: 1rem }
+	#divContents { left: 0; margin: 0; max-width: 100%; }
 
 }
 
