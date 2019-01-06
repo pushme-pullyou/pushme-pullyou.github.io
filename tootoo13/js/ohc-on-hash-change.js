@@ -49,6 +49,11 @@ OHC.getMenuRepoFilesFolders = function() {
 
 			<div id = "OHCdivMenuItems" ></div>
 
+			<p>
+				GitHub API Access Token
+				<input id=OHCinpGitHubApiKey onblur=console.log('',23); title="Obtain API Access Token" >
+			</p>
+
 		</details>
 
 	`;

@@ -10,7 +10,7 @@ OHC.xhr = new XMLHttpRequest(); // declare now to load event listeners in other 
 OHC.regexImages = /\.(jpe?g|png|gif|webp|ico|svg|bmp)$/i;
 OHC.regexHtml = /\.(htm?l)$/i;
 OHC.contentsCss = `box-sizing: border-box; border: 1px solid #888; height: ${ window.innerHeight - 4 }px; margin: 0; padding:0; width:100%;`;
-
+OHC.accessToken = '';
 
 OHC.currentStatus =
 	`
@@ -37,6 +37,9 @@ OHC.getMenuRepoFilesFolders = function() {
 	OHC.urlGitHubSource = 'https://github.com/' + OHC.user + OHC.repo;
 	OHC.urlGitHubApiContents = 'https://api.github.com/repos/' + OHC.user + OHC.repo + '/contents/' + OHC.pathRepo;
 
+	OHC.accessToken = localStorage.getItem( 'githubAccessToken' ) || '';
+	//inpApiKey.value = apiKey ? apiKey : '' ;
+
 	const htm =
 	`
 		<details open >
@@ -49,11 +52,28 @@ OHC.getMenuRepoFilesFolders = function() {
 
 			<div id = "OHCdivMenuItems" ></div>
 
+			<p>
+				GitHub API Access Token
+				<input value="${ OHC.accessToken }" id=OHCinpGitHubApiKey  onclick=this.select(); onblur=OHC.setGitHubAccessToken(this.value); title="Obtain API Access Token" >
+			</p>
+
 		</details>
 
 	`;
 
 	return htm;
+
+};
+
+
+
+OHC.setGitHubAccessToken = function( accessToken ) {
+
+	console.log( 'accessToken', accessToken );
+
+	localStorage.setItem( "githubAccessToken", accessToken );
+
+	OHC.accessToken = accessToken;
 
 };
 
@@ -102,8 +122,9 @@ OHC.requestFile = function( url, callback ) {
 	xhr.onload = callback;
 	xhr.send( null );
 
-};
 
+};
+// https://api.github.com/rate_limit?access_token=961bef97028b53ed4265f22bccb4dca06a220b7e
 
 ////////// same as OHC
 
@@ -133,7 +154,9 @@ OHC.callbackOtherToTextarea = function( xhr ){
 
 OHC.setMenuGitHubPathFileNames = function( path = '' ) {
 
-	const url = OHC.urlGitHubApiContents + path;
+	const url = OHC.urlGitHubApiContents + path + "?access_token=" + OHC.accessToken;
+
+	console.log( 'url', url );
 
 	OHC.requestFile( url, OHC.callbackGitHubPathFileNames ); // to do: make request only once and triage thereafter
 
@@ -147,13 +170,14 @@ OHC.callbackGitHubPathFileNames = function( xhr ) {
 
 	const response = xhr.target.response;
 	const items = JSON.parse( response );
+	OHC.menuItems = items;
 	const len = OHC.pathRepo.length;
 
 	let txt = "";
 
-	if ( items.message ) { console.log( items.message ); return; }
+	if ( items.message ) { alert( items.message ); return; }
 
-	const ignoreFolders = [ "data" ]; //, "plugins"
+	const ignoreFolders = [ "data" ]; //, "plugins"?
 
 	for ( let item of items ) {
 
@@ -202,7 +226,9 @@ OHC.callbackGitHubPathFileNames = function( xhr ) {
 			`;
 
 			// simplify
-			if ( ( item.name.toLowerCase() === 'readme.md' ) && !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' ) ) {
+			if (  !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' )
+
+				&& ( item.name.toLowerCase() === 'readme.md' ) ) {
 
 				location.hash = OHC.urlGitHubPage + OHC.pathRepo + itemPath;
 

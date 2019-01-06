@@ -3,7 +3,7 @@
 
 	MNU.initThreeColumns = function() {
 
-		MNU.getCSSThreeColomns();
+		MNU.getCSSThreeColumns();
 
 		MNU.menu = document.body.appendChild( document.createElement( 'div' ) );
 		MNU.menu.id = 'MNUmenu';
@@ -41,7 +41,7 @@
 	};
 
 
-	MNU.getCSSThreeColomns = function() {
+	MNU.getCSSThreeColumns = function() {
 
 		MNU.css = document.body.appendChild( document.createElement( 'style' ) );
 		MNU.css.innerHTML =

@@ -3,11 +3,11 @@
 /* jshint esversion: 6 */
 
 
-const MNU = { "release": "R1.1", "date": "2019-01-02" };
+const MNU = { "release": "R13.0", "date": "2019-01-05" };
 
-MNU.description = MNU.description || document.head.querySelector( "[ name=description ]" ).content;
+MNU.description = MNU.descriptionCore || document.head.querySelector( "[ name=description ]" ).content;
 
-MNU.currentStatus =
+MNU.currentStatusMenu =
 	`
 		<h3>MNU ${ MNU.release} status ${ MNU.date }</h3>
 
@@ -80,11 +80,16 @@ MNU.getNavHeader = function() {
 			</a>
 			<a href="" title="Click to reload this page" >${ document.title }</a>
 
-			<a id=mnuHead class=helpItem href="JavaScript:MNU.setPopupShowHide(mnuHead,MNU.currentStatus);"
-			title="Current status: core module" >&nbsp; ? &nbsp;</a>
+			<a id=mnuCore class=helpItem href="JavaScript:MNU.setPopupShowHide(mnuCore,MNU.currentStatusCore);"
+				title="Current status: core module" >&nbsp; ? &nbsp;
+			</a>
 		</h3>
 
-		<p> ${ MNU.description }
+		<p>
+			${ MNU.description }
+			<a id=mnuHead class=helpItem href="JavaScript:MNU.setPopupShowHide(mnuHead,MNU.currentStatusMenu);"
+				title="Current status: core module" >&nbsp; ? &nbsp;
+			</a>
 
 		<!--
 			 ${ document.head.querySelector( '[ name=description ]' ).content }
