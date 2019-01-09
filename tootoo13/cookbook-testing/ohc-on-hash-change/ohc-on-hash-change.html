@@ -5,8 +5,8 @@
 <meta name = "viewport" content= "width=device-width, initial-scale=1" >
 <meta name = "description" content = "Basic TooToo HTML template" >
 <meta name = "keywords" content = "JavaScript,GitHub,FOSS" >
-<meta name = "date" content = "2019-01-04" >
-<title></title>
+<meta name = "date" content = "2019-01-06" >
+<title>ohc-on-hash-change</title>
 <style>
 
 	body { font: 12pt monospace; margin: 0 auto; max-width: 800px; }
@@ -60,19 +60,22 @@
 			<button id=but onclick=location.hash="https://raw.githubusercontent.com/ladybug-tools/spider/master/gbxml-sample-files/golden-co-open-studio-seb.xml"; accessKey= 'z' title='access key: z ' >golden-co-open-studio-seb.xml</button>
 		</p>
 
+		<div id=divPopUpData ></div>
 	</nav>
 
 	<div id="divContents" ></div>
+
+
 
 
 <script>
 
 
 // for parsing
-const uriDefaultFile = '../../README.md';
+const uriDefaultFile = "../../../README.md";
 
 OHC.user = 'pushme-pullyou';
-OHC.repo = '/pushme-pullyou.github.io';
+OHC.repo = 'pushme-pullyou.github.io';
 OHC.pathRepo = '';
 OHC.branch = '/master/';
 
@@ -81,6 +84,15 @@ OHC.urlSourceCodeIcon = "https://status.github.com/images/invertocat.png";
 OHC.iconInfo = `<img src="${ OHC.urlSourceCodeIcon }" height=18 >`;
 
 
+const MNU = {}; // for testing
+
+MNU.setPopupShowHide = function( id, text ) {
+
+	id.classList.toggle( "active" );
+
+	divPopUpData.innerHTML = id.classList.contains( 'active' ) ? text : '';
+
+};
 
 init();
 
@@ -110,7 +122,9 @@ function setIt() {
 
 function getTitle() {
 
+
 	document.title = document.title ? document.title : location.href.split( '/' ).pop().slice( 0, - 5 ).replace( /-/g, ' ' );
+	//console.log( 'document.title', document.title );
 
 	const htm =
 	`

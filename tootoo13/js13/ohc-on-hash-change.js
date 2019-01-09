@@ -271,12 +271,11 @@ OHC.callbackGitHubPathFileNames = function( xhr ) {
 			`;
 
 			// simplify
-			if ( !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' )
+			if ( ( !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' ) )
+
 				&& ( item.name.toLowerCase() === 'readme.md' ) ) {
 
-				console.log( 'item', item );
-
-				location.hash = OHC.urlGitHubPage + OHC.pathRepo + item.name;
+				location.hash = OHC.urlGitHubPage + OHC.pathRepo + itemPath;
 
 			}
 

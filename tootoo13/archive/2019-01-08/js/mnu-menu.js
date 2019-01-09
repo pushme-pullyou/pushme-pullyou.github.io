@@ -236,9 +236,11 @@ MNU.onTouchMove = function(event) {
 MNU.toggleNavLeft = function() {
 
 	width = getComputedStyle(document.documentElement).getPropertyValue( '--mnu-width' ).trim();
+
+	//console.log( 'width', width );
 	//console.log( 'navMenu.style.width', navMenu.style.width );
 
-	if ( !navMenu.style.width || navMenu.style.width === '0px' || navMenu.style.width === '' ) { // visible
+	if ( navMenu.style.width === "0px" ) { // invisible
 
 		navMenu.style.width = width;
 		navMenu.style.padding = '1rem';
@@ -247,10 +249,10 @@ MNU.toggleNavLeft = function() {
 
 	} else {
 
-		navMenu.style.width = '0';
+		navMenu.style.width = "0px";
 		navMenu.style.padding = '0';
 		butHamburger.style.left = '-3rem';
-		divContainer.style.marginLeft = '0';
+		divContainer.style.marginLeft = "0px";
 
 	}
 

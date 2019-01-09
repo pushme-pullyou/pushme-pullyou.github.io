@@ -1,6 +1,6 @@
-/* Copyright 2018 Ladybug Tools authors. MIT License */
+/* Copyright 2019 Ladybug Tools authors. MIT License */
 
-:root { --mnu-width: 30rem; font-size: 0.7em; }
+:root { --mnu-width: 30rem; font-size: 0.7em; --screen-width: calc( 100vw ); }
 
 /* body, html { font: 11pt monospace; height: 100%; margin: 0; overflow: hidden; } */
 body { box-sizing: border-box; font: 12pt monospace; }
@@ -29,7 +29,7 @@ summary { cursor: pointer; font-weight: bold; }
 .highlight {background-color: lightgreen }
 
 #divContainer { height: 100%; margin: 0 0 0 var( --mnu-width ); transition: margin-left .5s; position: relative; }
-#divContents { height: 100%; left: 0; margin: 0 auto; max-width: 50rem; padding: 1rem; right: 0; }
+#divContents { height: 100%; left: 0; margin: 0 auto; max-width: 60rem; padding: 1rem; right: 0; }
 
 /* #divContents { margin: 0 auto; max-width: 600px; } */
 
@@ -58,20 +58,23 @@ summary { cursor: pointer; font-weight: bold; }
 
 
 
-	@media only screen and (max-width: 600px) {
-
-	  }
-
-
 @media only screen and (max-width: 600px) {
 
-	#navMenu { width: 0; }
-	#butHamburger { left: 1rem; }
-	#divContainer  { left-margin: 0; margin: 0; max-width: 100%; }
-	#divContents { left: 0; margin: 0; max-width: 100%; }
+/* needs two to work !?! */
 
 }
 
 
+@media only screen and (max-width: 600px) {
 
+	#navMenu { width: 0px; }
+	#butHamburger { left: 1rem; }
+	#divContainer { width: 80rem; }
+	#divContainer { margin: 0; padding: 0;}
+
+	#divContents { max-width: 100%; width: 100%; }
+	#divContents { margin: 0; padding: 0;}
+
+
+  }
 

@@ -12,9 +12,9 @@ OHC.regexHtml = /\.(htm?l)$/i;
 OHC.contentsCss = `box-sizing: border-box; border: 1px solid #888; height: ${ window.innerHeight - 4 }px; margin: 0; padding:0; width:100%;`;
 OHC.accessToken = '';
 
-OHC.urlSourceCodeImage = "https://status.github.com/images/invertocat.png";
+const urlSourceCodeImage = "https://status.github.com/images/invertocat.png";
 
-OHC.iconInfo = `<img src="${ OHC.urlSourceCodeImage }" height=18 >`;
+OHC.iconInfo = `<img src="${ urlSourceCodeImage }" height=18 >`;
 
 OHC.currentStatus =
 	`
@@ -57,11 +57,11 @@ OHC.getMenuRepoFilesFolders = function() {
 
 	//const urlGitHubPage = location.href.includes( '/' + user + '.github.io' ) ? '' : 'https://rawgit.com/' + user + repo + branch;
 
-	//OHC.urlGitHubPage = location.href.includes( OHC.repo ) ? '../../' : 'https://' + OHC.repo + "/";
+	OHC.urlGitHubPage = location.href.includes( OHC.repo ) ? '../../../' : 'https://' + OHC.repo + "/";
 
 	//OHC.urlGitHubPage = location.href.includes( OHC.repo ) ? '../../../' : 'https://rawgit.com/' + user + repo + branch;
 	//OHC.urlGitHubPage  = 'https://rawgit.com/' + OHC.user + OHC.repo + OHC.branch;
-	//OHC.urlGitHubPage  = 'https://'+ OHC.user + "/" + OHC.repo + "/";
+	//OHC.urlGitHubPage  = 'https://' + OHC.repo + "/";
 	//console.log( 'OHC.urlGitHubPage', OHC.urlGitHubPage );
 
 	OHC.urlGitHubSource = "https://github.com/" + OHC.user + "/" + OHC.repo;
@@ -271,12 +271,11 @@ OHC.callbackGitHubPathFileNames = function( xhr ) {
 			`;
 
 			// simplify
-			if ( !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' )
+			if (  !location.hash || location.hash.toLowerCase().endsWith( 'readme.md' )
+
 				&& ( item.name.toLowerCase() === 'readme.md' ) ) {
 
-				console.log( 'item', item );
-
-				location.hash = OHC.urlGitHubPage + OHC.pathRepo + item.name;
+				location.hash = OHC.urlGitHubPage + OHC.pathRepo + itemPath;
 
 			}
 

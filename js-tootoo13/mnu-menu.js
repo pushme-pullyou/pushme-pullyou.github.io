@@ -3,9 +3,9 @@
 /* jshint esversion: 6 */
 
 
-const MNU = { "release": "R13.1", "date": "2019-01-06" };
+const MNU = { "release": "R13.2", "date": "2019-01-09" };
 
-MNU.description = MNU.descriptionCore || document.head.querySelector( "[ name=description ]" ).content;
+MNU.description = document.head.querySelector( "[ name=description ]" ).content;
 
 MNU.currentStatusCore =
 	`
@@ -87,11 +87,11 @@ MNU.getNavHeader = function() {
 		<a href="${ MNU.homeUrl }" title="${ MNU.homeTitle }" target="_top">
 		${ MNU.homeText }
 		</a>
-		&raquo;
+		${ MNU.homeUrl ? '&raquo;' : '' }
 		<a href="${ MNU.repoUrl }" title="${ MNU.repoTitle }" target="_top">
 		${ MNU.repoText }
 		</a>
-		&raquo;
+		${ MNU.repoUrl ? '&raquo;' : '' }
 		<a href="${ MNU.appUrl }" title="${ MNU.appTitle }" >
 		${ MNU.appText }
 		</a>
@@ -108,22 +108,11 @@ MNU.getNavHeader = function() {
 			</a>
 		</h3>
 
-		<p>
-			${ MNU.description }
-			<a id=mnuHead class=helpItem href="JavaScript:MNU.setPopupShowHide(mnuHead,MNU.currentStatusMenu);"
-				title="Current status: core module" >&nbsp; ? &nbsp;
+		<div>
+			${ MNU.description } <a id=mnuHead class=helpItem href="JavaScript:MNU.setPopupShowHide(mnuHead,MNU.currentStatusMenu);"
+				title="Current status" >&nbsp; ? &nbsp;
 			</a>
-
-		<!--
-			 ${ document.head.querySelector( '[ name=description ]' ).content }
-			 Open, examine and edit very large <a href="http://gbxml.org" target="_blank"  title="Thank you, Stephen">gbXML</a> files in 3D in your browser with free, open source
-			 <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank"  title="Thank you, Brendan">JavaScript</a>,
-			 <a href="https://en.wikipedia.org/wiki/WebGL" target="_blank" title="Thank you, Ken" >WebGL</a> &
-			 <a href="https://en.wikipedia.org/wiki/Three.js" target="_blank" title="Thank you, Ricardo" >Three.js</a>
-			 <a class=helpItem href="JavaScript:MNU.setPopupShowHide(this,MNU.currentStatus);"
-			 title="Current status: menu MNU module" >&nbsp; ? &nbsp;</a>
-		-->
-		</p>
+		</div>
 	`;
 
 	return htm;
@@ -236,9 +225,11 @@ MNU.onTouchMove = function(event) {
 MNU.toggleNavLeft = function() {
 
 	width = getComputedStyle(document.documentElement).getPropertyValue( '--mnu-width' ).trim();
+
+	//console.log( 'width', width );
 	//console.log( 'navMenu.style.width', navMenu.style.width );
 
-	if ( !navMenu.style.width || navMenu.style.width === '0px' || navMenu.style.width === '' ) { // visible
+	if ( navMenu.style.width === "0px" ) { // invisible
 
 		navMenu.style.width = width;
 		navMenu.style.padding = '1rem';
@@ -247,10 +238,10 @@ MNU.toggleNavLeft = function() {
 
 	} else {
 
-		navMenu.style.width = '0';
+		navMenu.style.width = "0px";
 		navMenu.style.padding = '0';
 		butHamburger.style.left = '-3rem';
-		divContainer.style.marginLeft = '0';
+		divContainer.style.marginLeft = "0px";
 
 	}
 

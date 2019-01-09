@@ -41,6 +41,12 @@ value='You are now in a GitHub web page view - Click this button to view this re
 ## Change Log
 
 
+### 2019-01-06 ~ Theo
+
+ohc-on-hash-change
+* Add support for GitHub API Access Token
+
+
 ### 2019-01-04 ~ Theo
 
 TooToo13

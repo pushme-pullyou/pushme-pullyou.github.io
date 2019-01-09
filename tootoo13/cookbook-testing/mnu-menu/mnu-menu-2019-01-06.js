@@ -3,14 +3,9 @@
 /* jshint esversion: 6 */
 
 
-const MNU = { "release": "R13.1", "date": "2019-01-06" };
+const MNU = { "release": "R13.0", "date": "2019-01-05" };
 
 MNU.description = MNU.descriptionCore || document.head.querySelector( "[ name=description ]" ).content;
-
-MNU.currentStatusCore =
-	`
-		<h3>MNU.currentStatusCore</h3>
-	`;
 
 MNU.currentStatusMenu =
 	`
@@ -47,24 +42,6 @@ MNU.currentStatusMenu =
 	`;
 
 //MNU.urlSourceCode = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo-templates/hamburger-theme-cms";
-
-
-// For main menu header
-MNU.homeText = "homeText";
-MNU.homeTitle = "homeTitle";
-MNU.homeUrl = "";
-
-MNU.repoText = "repoRext";
-MNU.repoTitle = "repoTitle";
-MNU.repoUrl = "";
-
-MNU.appText = "appText";
-MNU.appTitle = "appTitle";
-MNU.appUrl = "";
-
-MNU.urlSourceCodeImage = "https://status.github.com/images/invertocat.png";
-MNU.urlSourceCodeIcon = `<img src="${ MNU.urlSourceCodeImage }" height=18 >`;
-MNU.urlSourceCodeUrl = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo-templates/hamburger-theme-cms";
 
 
 MNU.xDown = null;
@@ -134,7 +111,7 @@ MNU.getNavHeader = function() {
 
 MNU.getNavFooter = function() {
 
-	const path = "../../../index.html#";
+	const path = "#../";
 	const htm  =
 	`
 		<details>
@@ -144,12 +121,12 @@ MNU.getNavFooter = function() {
 			</summary>
 
 			<div style=margin-top:1rem; title='What is this stuff?' ><a href=${ path }pages/about-spider-code-style.md target="_blank" >Coding style</a></div>
-			<div title='many thanks!' ><a href=${ path }pages/credits.md target="_blank" >Credits</a></div>
-			<div><a href=${ path }pages/code-of-conduct.md target="_blank" >Code of conduct</a></div>
-			<div><a href=${ path }pages/contributing.md target="_blank" >Contributing via GitHub</a></div>
-			<div><a href=${ path }pages/license.md target="_blank" >MIT License</a></div>
-			<div><a href=${ path }pages/markdown-help.md target="_blank" >Markdown help</a></div>
-			<div><a href=${ path }pages/themes.md target="_blank" >Themes help</a></div>
+			<div title='many thanks!' ><a href=${ path }/pages/credits.md target="_blank" >Credits</a></div>
+			<div><a href=${ path }/pages/code-of-conduct.md target="_blank" >Code of conduct</a></div>
+			<div><a href=${ path }/pages/contributing.md target="_blank" >Contributing via GitHub</a></div>
+			<div><a href=${ path }/pages/license.md target="_blank" >MIT License</a></div>
+			<div><a href=${ path }/pages/markdown-help.md target="_blank" >Markdown help</a></div>
+			<div><a href=${ path }/pages/themes.md target="_blank" >Themes help</a></div>
 			<div><a title='Need help' href=https://github.com/ladybug-tools/spider-gbxml-tools/issues target=_blank >GitHub Issues</a></div>
 			<div><a href="javascript:( function(){ var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()" title="Mr.doob's Stats.js appear in top left MNUner" >Show frames/second statistics</a></div>
 			<div><a href="https://api.github.com/rate_limit" title='If menu stops appearing, it is likely due to too many API calls' target=_blank >View GitHub API rate limits</a></div>
@@ -233,25 +210,27 @@ MNU.onTouchMove = function(event) {
 };
 
 
+
 MNU.toggleNavLeft = function() {
 
-	width = getComputedStyle(document.documentElement).getPropertyValue( '--mnu-width' ).trim();
-	//console.log( 'navMenu.style.width', navMenu.style.width );
+	const width = getComputedStyle(document.documentElement).getPropertyValue( '--mnu-width' ).trim();
 
-	if ( !navMenu.style.width || navMenu.style.width === '0px' || navMenu.style.width === '' ) { // visible
-
-		navMenu.style.width = width;
-		navMenu.style.padding = '1rem';
-		butHamburger.style.left = 'var( --mnu-width )';
-		divContainer.style.marginLeft = width;
-
-	} else {
+	if ( !navMenu.style.width || navMenu.style.width === width ) { // visible
 
 		navMenu.style.width = '0';
 		navMenu.style.padding = '0';
 		butHamburger.style.left = '-3rem';
 		divContainer.style.marginLeft = '0';
 
+	} else {
+
+		navMenu.style.width = width;
+		//navMenu.style.padding = '30px 10px 0 10px';
+		navMenu.style.padding = '1rem';
+		butHamburger.style.left = 'var( --mnu-width )';
+		divContainer.style.marginLeft = width;
+
 	}
 
 }
+
