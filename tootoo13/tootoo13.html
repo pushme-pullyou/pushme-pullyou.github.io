@@ -6,7 +6,7 @@
 <meta name = "description" content = "This menu is a component of a basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop file reading capability, access to frequently used pages and more" >
 <meta name = "keywords" content = "JavaScript,GitHub,FOSS" >
 <meta name = "date" content = "2019-01-09" >
-<meta name = "release" content = "13.2.1" >
+<meta name = "release" content = "13.2.2" >
 <title>TooToo13</title>
 <link rel="stylesheet" href="js-tootoo13/style.css">
 </head>
@@ -31,14 +31,14 @@ MNU.currentStatusCore =
 			${ document.head.querySelector( '[ name=date ]' ).content }
 		</h3>
 
-		<p>TooToo Status</p>
-
 		<p>
 			Change log
 			<ul>
-				<li>2018-12-29 ~ Add helpItem class</li>
+				<li>2019-01-09 ~ R13 beginning to look OK.</li>
 			</ul>
 		</p>
+
+		${ MNU.descriptionTooToo }
 	`;
 
 MNU.description =
@@ -127,11 +127,11 @@ OHC.urlGitHubPage = "../"
 	</nav>
 
 
-	<nav>
+	<div>
 
 		<button id="butHamburger" onclick=MNU.toggleNavLeft(); title="click here to hide this menu"> slide &#9776; </button>
 
-	</nav>
+	</div>
 
 
 	<nav id="divPopUp" >

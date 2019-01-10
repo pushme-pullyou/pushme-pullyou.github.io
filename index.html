@@ -25,20 +25,25 @@
 MNU.currentStatusCore =
 	`
 		<h3>
-			pushMe-pullYou
-			R${ document.head.querySelector( '[ name=release ]' ).content }
-			~
-			${ document.head.querySelector( '[ name=date ]' ).content }
+			pushMe-pullYou ~ ${ document.head.querySelector( '[ name=date ]' ).content }
 		</h3>
 
-		<p>New home page script built with <a href="#tootoo13/README.md" target="_blank">TooToo13</a>.</p>
+		<p>
+
+		</p>
 		<p>
 			Change log
 			<ul>
-				<li>2018-12-29 ~ Add helpItem class</li>
+				<li>2019-01-09 ~ We use the tools we make: new home page script built with <a href="#tootoo13/README.md" target="_blank">
+				TooToo R${ document.head.querySelector( '[ name=release ]' ).content }</a>.
+				</li>
 			</ul>
 		</p>
+
+		${ MNU.descriptionTooToo }
 	`;
+
+;
 
 MNU.description =
 	`
@@ -129,11 +134,11 @@ OHC.urlGitHubPage = '';
 	</nav>
 
 
-	<nav>
+	<div>
 
 		<button id="butHamburger" onclick=MNU.toggleNavLeft(); title="click here to hide this menu"> slide &#9776; </button>
 
-	</nav>
+	</div>
 
 
 	<nav id="divPopUp" >
