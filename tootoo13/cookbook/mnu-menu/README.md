@@ -59,7 +59,7 @@ MNU.toggleNavLeft
 ## To Do / Wish List
 
 * 2019-01-10 ~ Theo ~ Better updates when switching between portrait and landscape mode
-* 2019-01-10 ~ Theo ~ Click anywhere to close pop-up
+
 
 ## Issues
 
@@ -84,6 +84,9 @@ MNU.toggleNavLeft
 
 * Add text to read me
 * Add index.html to folder
+
+Getter better
+* 2019-01-10 ~ Theo ~ Click anywhere to close pop-up
 
 ### 2019-01-06 ~ Theo
 

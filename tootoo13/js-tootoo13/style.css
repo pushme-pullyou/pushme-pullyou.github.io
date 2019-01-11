@@ -1,4 +1,5 @@
 /* Copyright 2019 Ladybug Tools authors. MIT License */
+/* 2019-01-10 ! 13.1 */
 
 * {box-sizing: border-box; }
 
@@ -74,9 +75,8 @@ summary { cursor: pointer; font-weight: bold; }
 	#divContainer { width: 80rem; }
 	#divContainer { margin: 0; padding: 0;}
 
-	#divContents { max-width: 100%; width: 100%; }
-	#divContents { margin: 0; padding: 0;}
-
+	#divContents { max-width: cal( 100vw ); width: calc( 100vw ); }
+	#divContents { margin: 0; padding: 0 1rem; }
 
   }
 

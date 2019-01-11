@@ -3,35 +3,14 @@
 /* jshint esversion: 6 */
 
 
-const MNU = { "release": "R13.3", "date": "2019-01-09" };
+const MNU = { "release": "R13.4", "date": "2019-01-10" };
 
 MNU.description = document.head.querySelector( "[ name=description ]" ).content;
 
-MNU.currentStatusCore =
-	`
-		<h3>MNU.currentStatusCore</h3>
-	`;
+////////// currentStatus items are fir th question marks in the main HTML document
 
-MNU.descriptionTooToo =
-	`
-		<h3><a href="https://pushme-pullyou.github.io#tootoo13/README.md" target="_blank">TooToo13</a></h3>
 
-		<p>
-			<ul>
-				<li>Browse and view the contents of many files on GitHub with remarkable ease</li>
-				<li>View HTML, Markdown format files - and many other file types - as rendered web pages or as source code</li>
-				<li>Traverse, select and display folder and file names with single clicks in a tree menu</li>
-				<li>Open local files with OS file dialog or by drag and drop</li>
-				<li>Access files quickly and then edit and commit changes to source using the GitHub interface</li>
-				<li>Web app with sliding menu that works on computer, tablet or phone</li>
-				<li>Written in plain-vanilla JavaScript/ Uses the GitHub Developer API / Hosted with GitHub pages / Simple CSS them selection</li>
-			</ul>
-		</p>
-
-		<p>TooToo is is one of several apps in the <a href="https://pushme-pullyou.github.io" target="_blank">pushMe-pullYou</a> GitHub organization</p>
-	`;
-
-MNU.currentStatusMenu =
+	MNU.currentStatusMenu =
 	`
 		<h3>TooToo Menu ${ MNU.release} ~ ${ MNU.date }</h3>
 
@@ -50,7 +29,7 @@ MNU.currentStatusMenu =
 
 		<p>This module is ready for light testing.</p>
 
-		<p><a href="https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo13/cookbook-testing/mnu-menu" target="_blank" >TooToo Menu Read Me</a></p>
+		<p><a href="https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo13/cookbook/mnu-menu/" target="_blank" >TooToo Menu Read Me</a></p>
 
 		<p>
 			Change log
@@ -67,6 +46,39 @@ MNU.currentStatusMenu =
 		</p>
 	`;
 
+
+////////// boilerplate for downstrean users
+
+MNU.descriptionTooToo =
+	`
+		<h3><a href="https://pushme-pullyou.github.io#tootoo13/README.md" target="_blank">TooToo13</a></h3>
+
+		<p>
+			<ul>
+				<li>Scripts to help you browse and view the contents of many files on GitHub with remarkable ease</li>
+				<li>View HTML, Markdown format- and many other file types - as rendered web pages or as source code</li>
+				<li>Traverse, select and display folder and file names with single clicks in a tree menu</li>
+				<li>Open local files with OS file dialog or by drag and drop</li>
+				<li>Access files quickly and then edit and commit changes to source using the GitHub interface</li>
+				<li>Web app with sliding menu that works on computer, tablet or phone</li>
+				<li>Written in plain-vanilla JavaScript/ Uses the GitHub Developer API / Hosted with GitHub pages / Simple CSS them selection</li>
+			</ul>
+		</p>
+
+		<p>TooToo is is one of several apps in the <a href="https://pushme-pullyou.github.io" target="_blank">pushMe-pullYou</a> GitHub organization</p>
+	`;
+
+
+	MNU.currentStatusCore =
+	`
+		<h3>MNU.currentStatusCore</h3>
+
+		<p>This web page is built with:</p>
+
+		${ MNU.descriptionTooToo }
+	`;
+
+
 //MNU.urlSourceCode = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo-templates/hamburger-theme-cms";
 
 
@@ -75,7 +87,7 @@ MNU.homeText = "homeText";
 MNU.homeTitle = "homeTitle";
 MNU.homeUrl = "";
 
-MNU.repoText = "repoRext";
+MNU.repoText = "repoText";
 MNU.repoTitle = "repoTitle";
 MNU.repoUrl = "";
 
@@ -85,7 +97,7 @@ MNU.appUrl = "";
 
 MNU.urlSourceCodeImage = "https://status.github.com/images/invertocat.png";
 MNU.urlSourceCodeIcon = `<img src="${ MNU.urlSourceCodeImage }" height=18 >`;
-MNU.urlSourceCodeUrl = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo13/cookbook-testing/mnu-menu";
+MNU.urlSourceCodeUrl = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo13/cookbook/mnu-menu";
 
 MNU.footerUrl = "#";
 MNU.footerTarget = ""; //"target=_blank";
