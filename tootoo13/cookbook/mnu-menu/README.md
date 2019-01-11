@@ -17,13 +17,49 @@ _<small>MNU Menu Test</small>_
 
 ## Concept
 
-### Main Menu
-* Creates default menu header and footer content and code
+mnu-menu.js
+
+### Mission
+* To setup standard menu components with a minimum of fuss
+* To provide a user interface that feels normal and natural
+* To provide a UI that works well on any device
+
+### Vision
+
+* You open the app and you immediately know what to do
+
+### Main Menu Functions and their Features
+
+MNU.description
+* Provides boilerplate text
+
+MNU.getNavHeader
+* Creates default menu header menu
+* Breadcrumbs provide links to parent folders or repos,
+* Title is also link to reload the app
+* App description
+
+MNU.getNavFooter
+* Creates footer menu content and code
+* Links update location hash only
+	* Requires a location hash event monitor to operate
+
+MNU.setPopupShowHide
+* Provides code for pop-up window display visibility toggle
+
+
+MNU.onTouchStart
+MNU.onTouchMove
+MNU.toggleNavLeft
 * Provides code for hamburger sliding menu
-* Provides code for pop-up window
+	* Enables operation on computer, tablet or phone
+	* Supports both pointing device and touch support
+	* Resizes both menu and content panels
 
 ## To Do / Wish List
 
+* 2019-01-10 ~ Theo ~ Better updates when switching between portrait and landscape mode
+* 2019-01-10 ~ Theo ~ Click anywhere to close pop-up
 
 ## Issues
 
@@ -42,6 +78,12 @@ _<small>MNU Menu Test</small>_
 
 
 ## Change Log
+
+
+### 2019-01-10 ~ Theo
+
+* Add text to read me
+* Add index.html to folder
 
 ### 2019-01-06 ~ Theo
 
