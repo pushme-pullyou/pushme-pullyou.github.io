@@ -5,10 +5,10 @@
 <meta name="viewport" content = "width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" >
 <meta name=description content="Real-time interactive 3D graphics in your browser using the WebGL and the Three.js JavaScript library" >
 <meta name=keywords content="Three.js,WebGL,JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2018-10-07" >
+<meta name = "date" content = "2019-02-03" >
 <title></title>
 <style>
-	/* Copyright 2018 pushMe pullYou authors. MIT License */
+	/* Copyright 2019 pushMe pullYou authors. MIT License */
 
 	body { font: 11pt monospace; margin: 0; overflow: hidden; }
 	a { color: crimson; text-decoration: none; }
@@ -26,8 +26,8 @@
 </style>
 </head>
 <body>
-<script src = "https://cdn.rawgit.com/mrdoob/three.js/r97/build/three.min.js" ></script>
-<script src = "https://cdn.rawgit.com/mrdoob/three.js/r97/examples/js/controls/TrackballControls.js" ></script>
+<script src = "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r100/build/three.min.js" ></script>
+<script src = "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r100/examples/js/controls/TrackballControls.js" ></script>
 
 	<nav id = "navMenu" >
 
@@ -95,7 +95,6 @@ function getTitle() {
 	document.title = document.title ? document.title : location.href.split( '/' ).pop().slice( 0, - 5 ).replace( /-/g, ' ' );
 
 	const htm =
-
 	`
 		<h2>
 			<a href=${ urlSourceCode } target=_top title="Source code on GitHub" >
