@@ -5,7 +5,7 @@
 <meta name = "viewport" content= "width=device-width, initial-scale=1" >
 <meta name = "description" content = "Basic TooToo HTML template" >
 <meta name = "keywords" content = "JavaScript,GitHub,FOSS" >
-<meta name = "date" content = "2018-12-15" >
+<meta name = "date" content = "2019-03-02" >
 <title></title>
 <style>
 
@@ -34,13 +34,17 @@
 
 	</nav>
 
-	<div id="divContents" ></div>
+	<main>
+
+		<div id="divContents" ></div>
+
+	</main>
 
 
 <script>
 
 const urlSourceCode = "https://github.com/zzzzz/xxxxx.html";
-const urlSourceCodeIcon = "https://status.github.com/images/invertocat.png";
+const urlSourceCodeIcon = "https://pushme-pullyou.github.io/github-mark-64.png";
 
 init();
 
@@ -70,7 +74,7 @@ function getTitle() {
 	`
 		<h2>
 			<a href=${ urlSourceCode } target=_top title="Source code on GitHub" >
-				<img src=${ urlSourceCodeIcon } height=18 >
+				<img src=${ urlSourceCodeIcon } height=18 style=opacity:0.5; >
 			</a>
 			<a href="" title="Click to reload this page" >${ document.title }</a>
 		</h2>
