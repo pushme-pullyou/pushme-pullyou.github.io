@@ -5,7 +5,7 @@
 <meta name="viewport" content = "width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" >
 <meta name=description content="Real-time interactive 3D graphics in your browser using the WebGL and the Three.js JavaScript library" >
 <meta name=keywords content="Three.js,WebGL,JavaScript,GitHub,FOSS,3D,STEM" >
-<meta name = "date" content = "2019-02-03" >
+<meta name = "date" content = "2019-05-27" >
 <title></title>
 <style>
 	/* Copyright 2019 pushMe pullYou authors. MIT License */
@@ -26,8 +26,8 @@
 </style>
 </head>
 <body>
-<script src = "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r100/build/three.min.js" ></script>
-<script src = "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r100/examples/js/controls/TrackballControls.js" ></script>
+<script src = "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r104/build/three.min.js" ></script>
+<script src = "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r104/examples/js/controls/TrackballControls.js" ></script>
 
 	<nav id = "navMenu" >
 
@@ -70,6 +70,7 @@ function init() {
 	camera.up.set( 0, 0, 1 );
 
 	controls = new THREE.TrackballControls( camera, renderer.domElement );
+	controls.rotateSpeed = 4;
 
 	scene = new THREE.Scene();
 
