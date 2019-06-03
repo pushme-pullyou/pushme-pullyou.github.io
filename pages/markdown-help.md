@@ -125,9 +125,9 @@ text text text
 ````
 	![External Link Icon]( https://picsum.photos/800/600/?random =100x100 )
 
-	![ text ]( http://picsum.photos/800/600/?random  =400x300 )
+	![ text ]( https://picsum.photos/800/600/?random  =400x300 )
 
-	![ text ]( http://picsum.photos/800/600/?random  =200x150 )
+	![ text ]( https://picsum.photos/800/600/?random  =200x150 )
 ````
 
 ![External Link Icon]( https://picsum.photos/800/600/?random =100x100 )
@@ -140,14 +140,14 @@ text text text
 ### Figures
 
 <figure style=display:inline-block; >
-<a href=http://google.com >
-<img src="http:///picsum.photos/200/200/" >
+<a href=https://google.com >
+<img src="https:///picsum.photos/200/200/" >
 <figcaption>Fig1. - A view of image 1</figcaption>
 <a>
 </figure>
 
 <figure style=display:inline-block; >
-<a href=http://google.com ><img src="http://picsum.photos/200/200/" >
+<a href=https://google.com ><img src="https://picsum.photos/200/200/" >
 <figcaption>Fig2. - A view of the caption</figcaption>
 </a>
 </figure>
