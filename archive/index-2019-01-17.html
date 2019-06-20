@@ -3,21 +3,21 @@
 <head>
 <meta charset = "utf-8" >
 <meta name = "viewport" content= "width=device-width, initial-scale=1" >
-<meta name = "description" content = "Very simple JavaScript files to help you explore and build new tools on GitHub." >
+<meta name = "description" content = "This menu is a component of a basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop file reading capability, access to frequently used pages and more" >
 <meta name = "keywords" content = "JavaScript,GitHub,FOSS" >
-<meta name = "date" content = "2019-01-09" >
-<meta name = "release" content = "13.2.1" >
+<meta name = "date" content = "2019-01-17" >
+<meta name = "release" content = "13.1" >
 <title>pushMe-pullYou</title>
-<link rel="stylesheet" href="js-tootoo13/style.css">
+
 </head>
 <body>
-<script src="https://rawgit.com/showdownjs/showdown/1.9.0/dist/showdown.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js" ></script>
 
-<script src="js-tootoo13/mnu-menu.js" ></script>
-<script src="js-tootoo13/fob-file-open-basic.js" ></script>
-<script src="js-tootoo13/thm-theme-select.js" ></script>
-<script src="js-tootoo13/ohc-on-hash-change.js" ></script>
-<script src="js-tootoo13/tmp-template.js" ></script>
+<script src="https://pushme-pullyou.github.io/tootoo13/js-tootoo13/mnu-menu.js" ></script>
+<script src="https://pushme-pullyou.github.io/tootoo13/js-tootoo13/fob-file-open-basic.js" ></script>
+<script src="https://pushme-pullyou.github.io/tootoo13/js-tootoo13/thm-theme-select.js" ></script>
+<script src="https://pushme-pullyou.github.io/tootoo13/js-tootoo13/ohc-on-hash-change.js" ></script>
+<script src="https://pushme-pullyou.github.io/tootoo13/js-tootoo13/tmp-template.js" ></script>
 <script>
 
 //Copyright 2019 pushMe-pullYou authors. MIT License
@@ -25,49 +25,49 @@
 MNU.currentStatusCore =
 	`
 		<h3>
-			pushMe-pullYou ~ ${ document.head.querySelector( '[ name=date ]' ).content }
+			pushMe-pullYou
+			<!--R${ document.head.querySelector( '[ name=release ]' ).content } -->
+			~
+			${ document.head.querySelector( '[ name=date ]' ).content }
 		</h3>
 
-		<p>
 
-		</p>
 		<p>
 			Change log
 			<ul>
-				<li>2019-01-09 ~ We use the tools we make: new home page script built with <a href="#tootoo13/README.md" target="_blank">
-				TooToo R${ document.head.querySelector( '[ name=release ]' ).content }</a>.
-				</li>
+				<li>2019-01-17 ~ Add many TooToo fixes</li>
+				<li>2019-01-09 ~ Index/html now based on TooToo R13 - beginning to look OK</li>
 			</ul>
 		</p>
 
+		This web page is built with:
 		${ MNU.descriptionTooToo }
 	`;
 
-;
 
 MNU.description =
 	`
-			Very simple JavaScript files to help you explore and build new tools on <a href="https://github.com" target="_blank">GitHub</a>.
+		Very simple JavaScript files to help you explore and build new tools on <a href="https://github.com" target="_blank">GitHub</a>.
 			<!--
 			Code names are a riff on the <a href="https://en.wikipedia.org/wiki/Doctor_Dolittle" target="_blank">Dr Dolittle</a> naming style
 			-->
 	`;
 
 
-const uriDefaultFile = 'README.md';
+const uriDefaultFile = '#README.md';
 
-THM.cssBasic = "js-tootoo13/style.css";
+THM.cssBasic = "https://pushme-pullyou.github.io/tootoo13/js-tootoo13/style.css";
 
 // For main menu header
-MNU.urlSourceCode = "https://github.com/pushme-pullyou/pushme-pullyou.github.io";
+MNU.urlSourceCode = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master/tootoo-templates/hamburger-css";
 
 MNU.homeText = ""; // "pushMe-pullYou";
-MNU.homeTitle = ""; // "Very simple JavaScript files to help you explore and build new tools on GitHub.";
-MNU.homeUrl = ""; // "https://pushme-pullyou.github.io";
+MNU.homeTitle = ""; "Very simple JavaScript files to help you explore and build new tools on GitHub.";
+MNU.homeUrl = ""; "https://pushme-pullyou.github.io";
 
-MNU.repoText = ""; // "TooToo13";
-MNU.repoTitle = ""; // "Basic html templates with sliding menu, css selection, markdown capability and frequently used pages";
-MNU.repoUrl = ""; //"https://pushme-pullyou.github.io/tootoo13";
+MNU.repoText = ""; "TooToo13";
+MNU.repoTitle = ""; //"Basic html templates with sliding menu, css selection, markdown capability and frequently used pages";
+MNU.repoUrl = ""; // "https://pushme-pullyou.github.io/tootoo13";
 
 MNU.appText = "";// "CMS";
 MNU.appTitle = ""; //"Basic html content management script with sliding menu, css theme selection, Markdown to HTML, drag and drop file reading capability, access to frequently used pages and more";
@@ -78,7 +78,7 @@ MNU.urlSourceCodeIcon=`<img src="${ MNU.urlSourceCodeImage }" height=18 >`;
 
 MNU.footerUrl = "#";
 MNU.footerTarget = ""; //"target=_blank";
-MNU.footerIssues = "https://github.com/pushme-pullyou/pushme-pullyou.github.io/issues";
+MNU.footerIssues = "https://github.com/pushme-pullyou/tootoo13/issues";
 
 // for parsing
 OHC.user = 'pushme-pullyou';
@@ -86,8 +86,11 @@ OHC.repo = 'pushme-pullyou.github.io';
 OHC.pathRepo = '';
 OHC.branch = '/master/';
 
-//OHC.urlGitHubPage = location.href.includes( OHC.repo ) ? '../' : 'https://' + OHC.repo + "/";
-OHC.urlGitHubPage = '';
+// When running in dev folder
+// = location.href.includes( OHC.repo ) ? '../' : 'https://' + OHC.repo + "/";
+//OHC.urlGitHubPage = `https://${ OHC.repo }/`;
+// When running in build repo
+OHC.urlGitHubPage = "";
 
 </script>
 
@@ -119,7 +122,11 @@ OHC.urlGitHubPage = '';
 
 				<section id=THMsecMenuThemeSelect ></section>
 
-				<section id=TMPsecMenuTemplate ></section>
+				<!--
+
+					<section id=TMPsecMenuTemplate ></section>
+
+				-->
 
 				<footer>
 
@@ -141,7 +148,7 @@ OHC.urlGitHubPage = '';
 	</div>
 
 
-	<nav id="divPopUp" >
+	<nav id="navPopUp" >
 
 		<div id="divPopUpData" ></div>
 
@@ -173,7 +180,7 @@ function init() {
 
 	THMsecMenuThemeSelect.innerHTML = THM.getMenuThemeSelect();
 
-	TMPsecMenuTemplate.innerHTML = TMP.getMenuTemplate();
+	//TMPsecMenuTemplate.innerHTML = TMP.getMenuTemplate();
 
 	MNUdivFooter.innerHTML = MNU.getNavFooter(); // not essential
 
