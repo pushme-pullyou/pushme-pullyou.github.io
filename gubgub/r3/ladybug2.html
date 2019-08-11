@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>GubGub Ladybug R2</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Explore and monitor the many GitHub projects helped by the GitHub API and client-side cookbook JavaScript' >
+<meta name=keywords content='Jaanga,Theo Armour,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-11-06' >
+</head>
+<body>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.4/showdown.min.js ></script>
+
+<script src=https://jaanga.github.io/gubgub/r2/0-cor-core/cor-core.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/0-mn3-menu-three/mn3-menu-three.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/0-api-authentication/api-authentication.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/1-sel-select/sel-select.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/0-usr-users/usr-users.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/1-dat-data/dat-data.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/2-res-results/res-results.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/2-res-results/res-results-events.js  ></script>
+<script src=https://jaanga.github.io/gubgub/r2/2-eus-events-user/eus-events-user.js ></script>
+
+<script>
+
+COR.readMeURL = 'ladybug2.html#https://jaanga.github.io/gubgub/README.md';
+COR.readMeText =
+
+	'Bespoke edition of <a href="https://jaanga.github.io/gubgub/" target="_blank">GubGub</a>' +
+	' especially crafted for <a href="https://ladybug-analysis-tools.github.io/" target="_blank"> Ladybug Analysis Tools </a> - ' +
+	' and yet created <i>post priori</i> in an easy and simple manner. ' +
+//	' See also <a href=ladybug2.html#README.md > GubGub Ladybug Analysis Tools README </a>' +
+
+'';
+
+//var USR = USR || {};
+
+
+USR.peepsFavorites =
+
+/*
+	'<optgroup label="" >' +
+		'<option></option>' +
+		'<option></option>' +
+		'<option></option>' +
+		'<option></option>' +
+		'<option></option>' +
+		'<option></option>' +
+	'</optgroup>' +
+*/
+
+	'<optgroup label="Ladybug" >' +
+		'<option selected > MostaphaRoudsari </option>' +
+		'<option> chriswmackey </option>' +
+		'<option> sariths </option>' +
+		'<option> yiyuan1840 </option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Butterfly Contributors & Members" >' +
+		'<option> mostaphaRoudsari </option>' +
+		'<option> stefan-buildSCI </option>' +
+		'<option> TheodoreGalanos </option>' +
+
+		'<option> antonszilasi </option>' +
+		'<option> czrwinner </option>' +
+		'<option> iononhoproblemi </option>' +
+		'<option> ManuelMuehlbauer </option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Honeybee" >' +
+		'<option> MostaphaRoudsari </option>' +
+		'<option> sariths </option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Ladybug Dynamo" >' +
+		'<option> MostaphaRoudsari </option>' +
+		'<option> birdland007s </option>' +
+		'<option> samuto </option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Ladybug Web" >' +
+		'<option> MostaphaRoudsari </option>' +
+		'<option> theo-armour </option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Sun Calculations" >' +
+		'<option>mourner</option>' +
+		'<option>mbostock</option>' +
+	'</optgroup>' +
+
+
+'';
+
+var oneWeekAgo = new Date();
+oneWeekAgo.setDate( oneWeekAgo.getDate() - 7 );
+var oneWeekAgo$ = oneWeekAgo.toJSON().slice( 0, 10 );
+
+USR.groupOptions =
+
+// at least one item must be selected
+
+/*
+	'<optgroup label="" >' +
+		'<option value="+stars:>0" >User w/ repo w/ word "" & stars > 0</option>' +
+		'<option value="+stars:>0" >User w/ repo w/ word "" & stars > 0</option>' +
+		'<option value="+stars:>0" >User w/ repo w/ word "" & stars > 0</option>' +
+		'<option value="+stars:>0" >User w/ repo w/ word "" & stars > 0</option>' +
+	'</optgroup>' +
+*/
+
+	'<option value="listFavorites" >Ladybug list of favs</option>' +
+
+	'<optgroup label="Ladybug" >' +
+		'<option value="ladybug+stars:>0" >User w/ repo w/ word "ladybug" & stars > 0</option>' +
+		'<option value="honeybee+stars:>0" >User w/ repo w/ word "honeybee" & stars > 0</option>' +
+		'<option value="dynamo+stars:>0" >User w/ repo w/ word "dynamo" & stars > 0</option>' +
+		'<option value="butterfly+stars:>0" >User w/ repo w/ word "butterfly" & stars > 0</option>' +
+		'<option value="radiance+stars:>0" >User w/ repo w/ word "radiance" & stars > 0</option>' +
+		'<option value="openfoam:>0" >User w/ repo w/ word "OpenFoam" & stars > 0</option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Grasshopper3D" >' +
+		'<option value="grasshopper+stars:>0" >User w/ repo w/ word "grasshopper" & stars > 0</option>' +
+		'<option value="mcneel" >User w/ repo w/ word "mcneel" & stars > 0</option>' +
+		'<option value="rhino+stars:>1" >User w/ repo w/ word "rhino" & stars > 1</option>' +
+		'<option value="openstudio+stars:>0" >User w/ repo w/ word "OpenStudio" & stars > 0</option>' +
+	'</optgroup>' +
+
+
+	'<optgroup label="Popular" >' +
+		'<option selected value="stars:>20000" >Users/repos & stars > 20,000</option>' +
+		'<option value="JavaScript+stars:>3000" >Users/repos with word \'JavaScript\' & stars > 3000</option>' +
+		'<option value="Python+stars:>3000" >Users/repos with word \'Python\' & stars > 3000</option>' +
+		'<option value="created:>' + oneWeekAgo$ + '" >Users/repos newer than ' + oneWeekAgo$ + '</option>' +
+	'</optgroup>' +
+
+	'<optgroup label="Pertaining to Three.js & 3D" >' +
+		'<option value="three+stars:>300" >Users with word \'three\' & stars > 300</option>' +
+		'<option value="3D+stars:>1000" >Users with word \'3D\' & stars > 1000</option>' +
+		'<option value="stl+stars:>50" >Users with word \'stl\' & stars > 50</option>' +
+	'</optgroup>' +
+
+'';
+
+
+
+	init();
+
+	function init() {
+
+//		COR.taglineHeader += '+ a home page howdy!' + b;
+
+		MNU.initThreeColumns();
+
+		MNU.css.innerHTML += '.DATbuttonLeft { display: none; }'; // uncomment to hide left column User Data buttons
+
+		MNU.menu.innerHTML =
+
+			COR.getMenuDetailsHeader() +
+
+			API.getMenuDetailsAPIAccessToken() +
+
+			SEL.getMenuDetailsSelectQuery() +
+
+			SEL.getMenuDetailsSelectUser() +
+
+			DAT.getMenuDetailsUserData() +
+
+			COR.getMenuDetailsAbout() +
+
+			COR.getMenuFooter() +
+
+		b;
+
+		window.addEventListener( 'hashchange', onHashChange, false );
+
+		SELselQuery.selectedIndex = 0;
+
+		SEL.setUserDetails();
+
+		onHashChange();
+
+	}
+
+
+	function onHashChange() {
+
+		var hash, callback, xhr, txt;
+
+		hash = location.hash.slice( 1 );
+
+		if ( hash.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+
+		if ( hash.endsWith( '.md' ) === true ) {
+
+			COR.requestFile( hash, callbackMD );
+
+			function callbackMD( xhr ) {
+
+				if ( xhr.target.status === 404 ) { return; }
+
+				txt = xhr.target.responseText;
+
+				if ( hash.includes( 'README.md' ) === true ){ txt = txt.replace( 'READMEbespokeText', COR.readMeText || '' ); }
+
+				MNU.contents.innerHTML = COR.converter.makeHtml( txt );
+
+			}
+
+			return;
+
+		}
+
+		if ( hash && hash !== SEL.user ) {
+
+			SEL.user = hash;
+
+			SEL.getUserDetails();
+
+		}
+
+	};
+
+</script>
+</body>
+</html>

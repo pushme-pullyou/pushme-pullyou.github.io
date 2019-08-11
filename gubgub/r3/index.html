@@ -2,7 +2,7 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>GubGub R2</title>
+<title>GubGub R3</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Explore and monitor the many GitHub projects helped by the GitHub API and client-side cookbook JavaScript' >
 <meta name=keywords content='Jaanga,Theo Armour,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
@@ -11,18 +11,18 @@
 <body>
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.4/showdown.min.js ></script>
-<script src=../r2/0-cor-core/cor-core.js ></script>
-<script src=../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
-<script src=../r2/0-api-authentication/api-authentication.js ></script>
+<script src=../r3/0-cor-core/cor-core.js ></script>
+<script src=../r3/0-mn3-menu-three/mn3-menu-three.js ></script>
+<script src=../r3/gat-github-access-token/gat-github-access-token.js ></script>
 
-<script src=../r2/1-sel-select/sel-select.js ></script>
-<script src=../r2/0-usr-users/usr-users.js ></script>
+<script src=../r3/1-sel-select/sel-select.js ></script>
+<script src=../r3/0-usr-users/usr-users.js ></script>
 
-<script src=../r2/1-dat-data/dat-data.js ></script>
+<script src=../r3/1-dat-data/dat-data.js ></script>
 
-<script src=../r2/2-res-results/res-results.js ></script>
-<script src=../r2/2-res-results/res-results-events.js ></script>
-<script src=../r2/2-eus-events-user/eus-events-user.js ></script>
+<script src=../r3/2-res-results/res-results.js ></script>
+<script src=../r3/2-res-results/res-results-events.js ></script>
+<script src=../r3/2-eus-events-user/eus-events-user.js ></script>
 
 <!--
 <script src=https://jaanga.github.io/gubgub/r2/0-cor-core/cor-core.js ></script>
@@ -57,7 +57,7 @@
 
 			COR.getMenuDetailsHeader() +
 
-			API.getMenuDetailsAPIAccessToken() +
+			GAT.getMenuGitHubAccessToken() +
 
 			SEL.getMenuDetailsSelectQuery() +
 

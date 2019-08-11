@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 >
+<title>Select2</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
+<meta name=description content='Select or enter a query for the GitHub User API.
+Select a user from the list of results or enter a user name.
+Preview many aspects of their GitHub corpus. Monitor recent activity
+' >
+<meta name=keywords content='Jaanga,Theo Armour,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-11-01' >
+</head>
+<body>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
+<!--
+<script src=../../r2/0-cor-core/cor-core.js ></script>
+<script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
+<script src=../../r2/0-api-authentication/api-authentication.js ></script>
+-->
+
+<script src=../../r2/0-cor-core/cor-core.js ></script>
+<script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
+<script src=../../r2/0-api-authentication/api-authentication.js ></script>
+
+<script src=../../r2/1-sel-select/sel-select.js ></script>
+<script src=../../r2/0-usr-users/usr-users.js ></script>
+<script>
+
+
+	SEL.getUserDetails = function( user ) {
+
+//		location.hash = user;
+
+//		DAT.getUserData( user );
+
+//		EUS.requestGitHubAPIUserEvents( user );
+
+		window.scrollTo( 0, 0 );
+
+		MNU.updates.scrollTop = 0;
+
+console.log( 'user', user );
+
+		MNUdivUpdates.innerHTML = 'User: ' + user + ' events will appear here';
+		MNUdivContents.innerHTML = 'User: ' + user + ' data will appear here';
+
+	}
+
+
+	SEL.setUserDetails = function() {
+
+		if ( SELselQuery.value === 'listFavorites' ) {
+
+			SELselUser.innerHTML = USR.peepsFavorites;
+
+			SEL.getUserDetails( SELselUser.value );  // currently selected option
+
+//		} else if ( location.hash.length ) {
+
+//			SEL.getQueryItems( SELselQuery.value );
+
+//			SEL.getUserDetails( location.hash.slice( 1 ) );
+
+		} else {
+
+			SEL.getQueryItems( SELselQuery.value );
+
+		}
+
+//		SELinpQuery.value = SELselQuery.value;
+
+	};
+
+
+	init();
+
+	function init() {
+
+		COR.taglineHeader += '+ a select howdy!' + b;
+
+		COR.readMeText = 'This is the SEL default version of GubGub.';
+
+		MNU.initThreeColumns();
+
+		MNU.menu.innerHTML =
+
+			COR.getMenuDetailsHeader() +
+
+			API.getMenuDetailsAPIAccessToken() +
+
+			SEL.getMenuDetailsSelectQuery() +
+
+			SEL.getMenuDetailsSelectUser() +
+
+			COR.getMenuDetailsAbout() +
+
+			COR.getMenuFooter() +
+
+		b;
+
+//		SELselQuery.value = 'listTheo';
+
+//		SEL.setUserDetails();
+
+		window.addEventListener( 'hashchange', onHashChange, false );
+
+		onHashChange();
+
+	}
+
+// gets called by SEL.setUserDetails...
+
+
+
+	function onHashChange() {
+
+		var url, callback, xhr;
+
+		url = location.hash.slice( 1 );
+
+		if ( url.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+
+		if ( url.endsWith( '.md' ) === true ) {
+
+// console.log( 'url', url );
+
+			COR.requestFile( url, callbackMD );
+
+			function callbackMD( xhr ) {
+
+				if ( xhr.target.status === 404 ) { return; }
+
+				MNU.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
+
+				if ( url.match( 'README.md' ) === true ){ READMEbespokeText.innerHTML = 'things'; }
+
+			}
+
+			return;
+
+		}
+
+
+//		DAT.getUserData( user );
+
+		SEL.setUserDetails();
+
+	};
+
+
+</script>
+</body>
+</html>

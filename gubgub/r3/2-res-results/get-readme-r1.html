@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title></title>
+<meta charset=utf-8 />
+</head>
+<body>
+<script>
+
+	init();
+
+	function init() {
+
+		document.body.style.cssText = ' font: bold 12pt monospace; ';
+
+		var info = document.body.appendChild( document.createElement( 'div' ) );
+		info.innerHTML = '<a href="" ><h1>' + location.pathname.split( '/' ).pop() + '</h1></a>' +
+		'<div id=log ></div>' +
+
+		'';
+		var fileName;
+
+		fileName = 'https://api.github.com/repos/jaanga/jaanga.github.io/readme';
+
+	//	user = { name: 'jaanga', repo: 'jaanga.github.io'}
+		user = { name: 'd3', repo: 'd3'}
+		user = { name: 'jupyter', repo: 'jupyter'}
+		user = { name: 'sagemath', repo: 'sagemath.github.io'} // no readme
+		user = { name: 'sagemath', repo: 'sage'} // no readme
+
+		fileName = 'https://api.github.com/repos/' +  user.name + '/' + user.repo + '/readme';
+
+		requestFile( fileName, callbackGetReadmeUrl );
+
+	}
+
+
+	function callbackGetReadmeUrl(  xhr ) {
+
+		var text;
+
+		text = xhr.target.response;
+		text = JSON.parse( text );
+
+console.log( 'ff',  text );
+
+		branch = text.url.slice( text.url.lastIndexOf( '=' ) + 1 );
+console.log( 'bb', branch );
+		user.branch = branch
+
+		fileName = 'https://rawgit.com/' + user.name + '/' + user.repo + '/' + user.branch + '/' + text.name;
+
+		requestFile( fileName, callbackGetReadmeFile );
+
+	}
+
+
+	function callbackGetReadmeFile(  xhr ) {
+
+		text = xhr.target.response;
+//		text = JSON.parse( text );
+
+		log.innerText = text;
+
+	}
+
+	function requestFile( fname, callback ) {
+
+		var xhr;
+
+		xhr = new XMLHttpRequest();
+		xhr.crossOrigin = 'anonymous';
+		xhr.open( 'GET', fname, true );
+		xhr.onerror = function( xhr ) { console.log( 'error', xhr  ); };
+		xhr.onload = callback;
+		xhr.send( null );
+
+	}
+
+</script>
+</body>
+</html>
