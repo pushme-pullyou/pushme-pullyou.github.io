@@ -46,7 +46,7 @@
 
 		var url, xhr, keys, txt;
 
-		url = 'https://api.github.com/users/' +  user + '?' + ( GAT.accessToken || '' );
+		url = 'https://api.github.com/users/' +  user + '?' + GAT.accessToken;
 
 		COR.requestFile( url, callbackUserData );
 

@@ -126,7 +126,7 @@
 
 		SELinpQuery.value = SELselQuery.value;
 
-		url = 'https://api.github.com/search/repositories?q=' + query + '&sort=stars&order=desc&per_page=100&' + ( GAT.accessToken || '' );
+		url = 'https://api.github.com/search/repositories?q=' + query + '&sort=stars&order=desc&per_page=100&' + GAT.accessToken;
 
 		COR.requestFile( url, callbackQuery );
 

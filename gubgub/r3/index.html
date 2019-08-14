@@ -47,6 +47,8 @@
 
 	function init() {
 
+		//GAT.getGitHubAccessToken();
+
 //		COR.taglineHeader += '+ a home page howdy!' + b;
 
 		MNU.initThreeColumns();
@@ -71,6 +73,8 @@
 
 		b;
 
+
+
 		window.addEventListener( 'hashchange', onHashChange, false );
 
 //		SELselQuery.selectedIndex = 0;
@@ -88,7 +92,7 @@
 
 		hash = location.hash.slice( 1 );
 
-		if ( hash.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+		//if ( hash.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
 
 		if ( hash.endsWith( '.md' ) === true ) {
 

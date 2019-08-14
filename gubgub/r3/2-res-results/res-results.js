@@ -11,7 +11,7 @@
 
 		url = 'https://api.github.com/users/' + user + '/followers';
 
-		urlToken = url + '?' + ( API.token || '' );
+		urlToken = url + '?' + GAT.accessToken;
 
 		COR.requestFile( url, callback );
 

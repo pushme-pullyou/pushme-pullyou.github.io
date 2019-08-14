@@ -14,7 +14,7 @@
 
 		url = 'https://api.github.com/users/' + user + '/events?sort=comments&order=desc&per_page=100' ;
 
-		urlToken = url + '&' + ( API.token || '' );
+		urlToken = url + '&' + GAT.accessToken;
 
 		pageHeader =
 

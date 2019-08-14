@@ -19,7 +19,9 @@ GAT.getMenuGitHubAccessToken = function() {
 	//GAT.divContents = divContents;
 	//GAT.urlGitHubSource = "https://github.com/" + GAT.user + "/" + GAT.repo;
 	//GAT.urlGitHubApiContents = 'https://api.github.com/repos/' + GAT.user + "/" + GAT.repo + '/contents/' + GAT.pathRepo;
-	GAT.accessToken = localStorage.getItem( 'githubAccessToken' ) || '';
+	const token = localStorage.getItem( "githubAccessToken" );
+
+	GAT.accessToken = token ? `access_token=${ token }`: "";
 
 	const htm =
 	`
@@ -31,7 +33,7 @@ GAT.getMenuGitHubAccessToken = function() {
 
 			<p>
 				<div>Access token</div>
-				<input value="${ GAT.accessToken }" id=GATinpGitHubApiKey  onclick=this.select(); onblur=GAT.setGitHubAccessToken(this.value); title="Obtain API Access Token" style=width:100%; >
+				<input value="${ GAT.accessToken.replace(/access_token=/,"") }" id=GATinpGitHubApiKey  onclick=this.select(); onblur=GAT.setGitHubAccessToken(this.value); title="Obtain API Access Token" style=width:100%; >
 			</p>
 
 			<p>
@@ -50,14 +52,31 @@ GAT.getMenuGitHubAccessToken = function() {
 
 GAT.setGitHubAccessToken = function( accessToken ) {
 
-	console.log( 'accessToken', accessToken );
-
 	localStorage.setItem( "githubAccessToken", accessToken );
 
-	GAT.accessToken = accessToken;
+
+	//GAT.accessToken = accessToken ? `access_token= ${ GAT.accessToken }`: "";
+
+
+	console.log( 'GAT.accessToken', GAT.accessToken );
 
 };
 
+
+
+
+GAT.getGitHubAccessToken = function() {
+
+	console.log( '', 23 );
+
+	const token = localStorage.getItem( "githubAccessToken" );
+
+	GAT.accessToken = token ? `access_token= ${ token }`: "";
+
+
+	console.log( 'GAT.accessToken', GAT.accessToken );
+
+};
 
 
 

@@ -47,7 +47,7 @@
 
 		var urlEvents;
 
-		urlEvents = 'https://api.github.com/users/' + user + '/events?per_page=100&' + ( GAT.accessToken || '' );
+		urlEvents = 'https://api.github.com/users/' + user + '/events?per_page=100&' + ( GAT.accessToken );
 
 		COR.requestFile( urlEvents, callback )
 
@@ -256,7 +256,7 @@
 
 		var urlReadMe, xhr, text, item;
 
-		urlReadMe = 'https://rawgit.com/' + repo + branch + EUS.readmeTypes[ count ];
+		//urlReadMe = 'https://rawgit.com/' + repo + branch + EUS.readmeTypes[ count ];
 
 		urlReadMe = "https://cdn.jsdelivr.net/gh/" + repo + branch + EUS.readmeTypes[ count ];
 
