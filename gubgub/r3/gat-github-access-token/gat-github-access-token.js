@@ -12,6 +12,8 @@ const GAT = {
 	"version": "0.14.06-0gat",
 };
 
+API = {}
+
 
 
 GAT.getMenuGitHubAccessToken = function() {
@@ -73,7 +75,8 @@ GAT.getGitHubAccessToken = function() {
 
 	GAT.accessToken = token ? `access_token= ${ token }`: "";
 
-
+	API.accessToken = GAT.accessToken;
+	
 	console.log( 'GAT.accessToken', GAT.accessToken );
 
 };

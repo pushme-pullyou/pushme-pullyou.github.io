@@ -2,6 +2,7 @@
 
 	var API = API || {};
 
+API.token = "";
 
 // https://developer.github.com/v3/#authentication
 
