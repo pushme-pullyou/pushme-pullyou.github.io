@@ -183,14 +183,19 @@ text `text` text
 ### Details Tag
 
 
-<details>
+<details style=display:none; >
 
 <summary>Details and Summary</summary>
 
 Work inside Markdown
+
+<iframe src=https://example.com  ></iframe>
+
 </details>
 
 ### Columns tag
+
+_Not working on GitHub_
 
 <p style ="border: 0px solid #aaa; columns: 3 auto; column-rule-width: 1px;column-rule-style: solid;">
   This is a bunch of text split into three columns
