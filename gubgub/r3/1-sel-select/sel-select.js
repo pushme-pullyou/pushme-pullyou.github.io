@@ -118,7 +118,9 @@
 
 		}
 
-	};
+};
+
+
 
 	SEL.getQueryItems = function( query ) {
 
@@ -129,6 +131,8 @@
 		url = 'https://api.github.com/search/repositories?q=' + query + '&sort=stars&order=desc&per_page=100&' + GAT.accessToken;
 
 		COR.requestFile( url, callbackQuery );
+
+
 
 		function callbackQuery( xhr ) {
 
@@ -154,6 +158,8 @@ console.log( 'error response.message', response );
 
 			SEL.getUserItems( response );
 
+			SELselQuery.selectedIndex = -1;
+
 		}
 
 	}
@@ -173,7 +179,8 @@ console.log( 'error response.message', response );
 
 		if ( !location.hash ) {
 
-//console.log( 'no hash ', 23 );
+		//console.log( 'no hash ', 23 );
+
 
 			SELselUser.selectedIndex = Math.floor( SELselUser.length * Math.random() );
 
@@ -188,5 +195,7 @@ console.log( 'error response.message', response );
 			SEL.getUserDetails();
 
 		}
+
+		SELselQuery.selectedIndex = -1;
 
 	};

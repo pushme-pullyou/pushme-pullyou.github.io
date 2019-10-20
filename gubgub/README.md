@@ -330,6 +330,12 @@ Copyright © 2016 Jaanga authors. [MIT License]( #LICENSE.md )
 Change Log
 --------------------------------------------------------------------------------
 
+### 2019-10-20 ~ Theo
+
+* F: Add bitcoin queries
+* B: Allow user to update query
+
+
 ### 2017-05-27 ~Theo
 
 * Update Read Me

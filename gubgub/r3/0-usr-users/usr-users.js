@@ -104,6 +104,8 @@
 			'<option  selected   value="stars:>20000" >Users with repos & stars > 20,000</option>' +
 			'<option value="JavaScript+stars:>3000" >Users with word \'JavaScript\' & stars > 3000</option>' +
 			'<option value="Python+stars:>3000" >Users with word \'Python\' & stars > 3000</option>' +
+			'<option value="Bitcoin+stars:>0" >Users with word \'Bitcoin\' & stars > 0</option>' +
+			'<option value="Bitcoin+stars:0" >Users with word \'Bitcoinn\' & stars = 0</option>' +
 			'<option value="created:>' + oneWeekAgo$ + '" >Users/repos newer than ' + oneWeekAgo$ + '</option>' +
 		'</optgroup>' +
 
