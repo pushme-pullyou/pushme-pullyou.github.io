@@ -205,6 +205,13 @@ Work inside Markdown
 <dialog id=dia onclick="this.open=!this.open" open>Hi there! Click me.<br><iframe src=https://example.com ></iframe></dialog>
 
 
+### iframe try
+
+<button><iframe src=https://example.com></iframe></button>
+
+
+
+
 ### Footers
 
 ***
