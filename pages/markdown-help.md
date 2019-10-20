@@ -200,14 +200,14 @@ Work inside Markdown
 
 ### Dialog tag
 
-<input type=button onclick=dia.open=!dia.open; value="Show dialog" >
+<div><input type=button onclick=dia.open=!dia.open; value="Show dialog" ></div>
 
-<dialog id=dia onclick="this.open=!this.open" open>Hi there! Click me.<br><iframe src=https://example.com ></iframe></dialog>
+<div><dialog id=dia onclick="this.open=!this.open" open>Hi there! Click me.<br><iframe src=https://example.com ></iframe></dialog></div>
 
 
 ### iframe try
 
-<button><iframe src=https://example.com></iframe></button>
+<div><button><iframe src=https://example.com></iframe></button></div>
 
 
 
