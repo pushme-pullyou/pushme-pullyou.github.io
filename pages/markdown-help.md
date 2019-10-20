@@ -211,7 +211,7 @@ _Not working on GitHub_
 
 _Not working on GitHub_
 
-<div><iframe src=https://example.com hidden ></iframe></div>
+<div style=display:none; ><iframe src=https://example.com  ></iframe></div>
 
 
 
