@@ -182,6 +182,7 @@ text `text` text
 
 ### Details Tag
 
+
 <details>
 
 <summary>Details and Summary</summary>
@@ -199,7 +200,9 @@ Work inside Markdown
 
 ### Dialog tag
 
-<dialog onclick="this.open=!this.open" open>Hi there! Click me.</dialog>
+<input type=button onclick=dia.open=!dia.open; value="Show dialog" >
+
+<dialog id=dia onclick="this.open=!this.open" open>Hi there! Click me.<br><iframe src=https://example.com ></iframe></dialog>
 
 
 ### Footers
