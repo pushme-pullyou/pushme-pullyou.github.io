@@ -200,14 +200,18 @@ Work inside Markdown
 
 ### Dialog tag
 
-<div><input type=button onclick=dia.open=!dia.open; value="Show dialog" ></div>
+_Not working on GitHub_
+
+<div><input type=button onclick=dia.open=!dia.open; value="toggle dialog" ></div>
 
 <div><dialog id=dia onclick="this.open=!this.open" open>Hi there! Click me.<br><iframe src=https://example.com ></iframe></dialog></div>
 
 
 ### iframe try
 
-<div><button><iframe src=https://example.com></iframe></button></div>
+_Not working on GitHub_
+
+<div><iframe src=https://example.com hidden ></iframe></div>
 
 
 
