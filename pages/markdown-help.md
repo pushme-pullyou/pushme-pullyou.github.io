@@ -183,7 +183,7 @@ text `text` text
 ### Details Tag
 
 
-<details style=display:none; >
+<details style=display:none; hidden>
 
 <summary>Details and Summary</summary>
 
