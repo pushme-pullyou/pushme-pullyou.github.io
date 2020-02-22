@@ -32,7 +32,7 @@ For a fully-working demo it's better that you open the scripts full screen._
 ## Full screen: [Pushme-Pullyou GubGub R2]( https://pushme-pullyou.github.io/gubgub/r2/ )
 
 
-## Full screen: [Pushme-Pullyou GubGub R1]( https://pushme-pullyou.github.io/gubgub/r1/)
+## Full screen: [Pushme-Pullyou GubGub R1]( https://pushme-pullyou.github.io/gubgub/r1/r1.html)
 
 
 ## Concept
