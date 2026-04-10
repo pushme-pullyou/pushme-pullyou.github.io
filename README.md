@@ -1,6 +1,5 @@
 <span style=display:none; >[You are now in a GitHub source code view - click this link to view the read me file as a web page]( https://pushme-pullyou.github.io "View file as a web page." ) </span>
 
-
 <div><input type=button class = 'btn btn-secondary btn-sm' onclick="window.location.href='https://github.com/pushme-pullyou/pushme-pullyou.github.io'";
 value='You are now in a GitHub web page view - Click this button to view this read me file as source code' ></div>
 
@@ -10,7 +9,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 ![]( https://pushme-pullyou.github.io/pushmi-pullyu.jpg )
 
-_Very simple JavaScript files to help you explore and build new tools on GitHub. Code names are a riff on [Dr Dolittle]( https://en.wikipedia.org/wiki/Doctor_Dolittle ) naming style, See [ScriptNate Naming Conventions ](https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master?tab=readme-ov-file#script-naming-conventions)_
+_Very simple JavaScript files to help you explore and build new tools on GitHub. Code names are a riff on [Dr Dolittle]( https://en.wikipedia.org/wiki/Doctor_Dolittle ) naming style, See [Script Naming Conventions ](https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master?tab=readme-ov-file#script-naming-conventions)._
 
 
 ## [TooToo]( https://pushme-pullyou.github.io/tootoo14/ ) Read Me
