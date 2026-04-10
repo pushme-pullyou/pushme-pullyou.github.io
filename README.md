@@ -8,6 +8,7 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 # [pushMe-pullYou Read Me]( https://pushme-pullyou.github.io/ )
 
+![]( pushmi-pullyu.jpg )
 
 _Very simple JavaScript files to help you explore and build new tools on GitHub. Code names are a riff on [Dr Dolittle]( https://en.wikipedia.org/wiki/Doctor_Dolittle ) naming style_
 
