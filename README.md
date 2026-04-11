@@ -9,7 +9,11 @@ value='You are now in a GitHub web page view - Click this button to view this re
 
 ![]( https://pushme-pullyou.github.io/pushmi-pullyu.jpg )
 
-_Very simple JavaScript files to help you explore and build new tools on GitHub. Code names are a riff on [Dr Dolittle]( https://en.wikipedia.org/wiki/Doctor_Dolittle ) naming style, See [Script Naming Conventions ](https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master?tab=readme-ov-file#script-naming-conventions)._
+_
+The first commit to this organization was pushed on December 1, 2016. The organization was created to host a variety of tools for exploring GitHub and the GitHub API. The tools are built using entry-level JavaScript and are designed to be easy to read and modify. The tools are also designed to be hosted on GitHub Pages, so they can be used without needing a server.
+
+The code is named after characters from the Dr Dolittle series of books, with the main tool being called pushMe pullYou, which is a reference to the pushmi-pullyu character from the books.
+Very simple JavaScript files to help you explore and build new tools on GitHub. Code names are a riff on [Dr Dolittle]( https://en.wikipedia.org/wiki/Doctor_Dolittle ) naming style, See [Script Naming Conventions ](https://github.com/pushme-pullyou/pushme-pullyou.github.io/tree/master?tab=readme-ov-file#script-naming-conventions)._
 
 
 ## [TooToo]( https://pushme-pullyou.github.io/tootoo14/ ) Read Me
