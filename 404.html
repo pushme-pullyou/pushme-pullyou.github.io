@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Forwards old Pushme-Pullyou deep links to the 2016-2019 archive at /2019/">
+<meta name="revised" content="2026-10-27 21:40">
+<title>Pushme-Pullyou ~ not found</title>
+<link rel="icon" href="favicon.ico">
+<style>
+	:root {
+		--color-background: #fffefc;
+		--color-text: #322;
+		--color-link: #06c;
+		--spacing: 1rem;
+	}
+	@media ( prefers-color-scheme: dark ) {
+		:root {
+			--color-background: #1e1e1e;
+			--color-text: #ddd;
+			--color-link: #8cf;
+		}
+	}
+	body {
+		background: var( --color-background );
+		color: var( --color-text );
+		font-family: monospace;
+		margin: 0 auto;
+		max-width: 40rem;
+		padding: var( --spacing );
+	}
+	a { color: var( --color-link ); }
+</style>
+</head>
+<body>
+
+<main>
+
+	<h1>🦙 Pushme-Pullyou</h1>
+
+	<p id="message">Looking for that page in the <a href="/2019/">2016&ndash;2019 archive</a>&hellip;</p>
+
+	<p><a href="/">Home</a></p>
+
+</main>
+
+<script>
+
+// Links from the old site (2016-2019) point at paths that now live under /2019/.
+// If the missing path is not already in the archive, forward it there.
+
+const path = location.pathname;
+
+if ( !path.startsWith( "/2019/" ) ) {
+
+	location.replace( "/2019" + path + location.search + location.hash );
+
+} else {
+
+	document.getElementById( "message" ).textContent = "Page not found - it is not in the archive either.";
+
+}
+
+</script>
+
+<noscript>
+	<p>JavaScript is off, so no automatic forwarding. Try the <a href="/2019/">2016&ndash;2019 archive</a>.</p>
+</noscript>
+
+</body>
+</html>
