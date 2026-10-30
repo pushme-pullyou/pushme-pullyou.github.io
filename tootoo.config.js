@@ -11,5 +11,6 @@ window.TOOTOO_CONFIG = {
   faviconFile: 'favicon.ico',
   headingFontUrl: 'https://fonts.googleapis.com/css2?family=Patua+One&display=swap',
   headingFont: '"Patua One", serif',
-  hiddenFiles: [ 'tootoo.config.js', '404.html' ],
+  // Developer-facing site: show everything, including this config and 404.html
+  hiddenFiles: [],
 };
