@@ -19,7 +19,7 @@ Each tool looks at GitHub through a wider lens than the one before.
 | GubGub | All of GitHub — whiz around and see what anyone is up to | Gub-Gub the pig, curious and always rooting about | In progress |
 | JipJip | Right now — issues, pull requests, actions in flight | Jip the dog, whose nose finds where the action is | Planned |
 
-And every animal is born in the same place: the **Pushme-Pullyou** workshop — the shared source and assembly pipeline. Like its namesake it has two heads working at once: one pulls improvements in from the animals, the other pushes finished builds out to each animal's repo. So the name means three things: the organization is the family, this site is the front door, and the workshop is where the work happens. For now the workshop lives inside the [tootoo]( https://github.com/pushme-pullyou/tootoo ) repo as `tootoo-dev`; it moves to its own repo once it assembles its second animal.
+And every animal is born in the same place: **[Dolittle]( https://github.com/pushme-pullyou/dolittle )**, the Doctor's workshop — the shared source and assembly pipeline, named for the one character who isn't an animal and whose house they all live in. One animal lives there permanently: **Pushme-Pullyou** itself, the two-headed beast, is the release pipeline — one head pulls improvements in from the animals, the other pushes finished builds out to each animal's repo. It can talk to and hear from GitHub, and it may well develop more special powers as we learn what it can do. So the family name stays simple: the organization is the family, this site is the front door, Dolittle is where the work happens, and Pushme-Pullyou does the pushing and pulling.
 
 ## The Archive
 
@@ -35,6 +35,11 @@ Old deep links to this domain are forwarded there automatically by [404.html]( 4
 * Theo Armour: <https://theo-armour.github.io/>
 
 ## Changelog
+
+### 2026-10-31
+
+* The workshop got its name and its own repo: [Dolittle]( https://github.com/pushme-pullyou/dolittle ), carved out of the tootoo repo (whose 2026 combined history is archived as [tootoo-2026-10]( https://github.com/pushme-pullyou/tootoo-2026-10 ))
+* Pushme-Pullyou recognized as an animal in its own right: the two-headed release pipeline that talks both ways with GitHub
 
 ### 2026-10-27
 
