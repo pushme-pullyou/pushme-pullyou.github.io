@@ -6,8 +6,6 @@ window.TOOTOO_CONFIG = {
   sourceRepoUrl: 'https://github.com/pushme-pullyou/pushme-pullyou.github.io',
   themeColor: '#7b68ee',
   subtitle: 'tools for exploring GitHub',
-  faviconLetters: 'PP',
-  faviconColor: '#7b68ee',
   faviconFile: 'favicon.ico',
   headingFontUrl: 'https://fonts.googleapis.com/css2?family=Patua+One&display=swap',
   headingFont: '"Patua One", serif',
