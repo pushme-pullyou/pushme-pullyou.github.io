@@ -39,7 +39,7 @@ Old deep links to this domain are forwarded there automatically by [404.html]( 4
 
 ### 2026-11-23
 
-* TooToo's rebuild is now [pushme-pullyou/tootoo]( https://github.com/pushme-pullyou/tootoo ): its source and releases in one repo. The previous tootoo repo is [tootoo-2026]( https://github.com/pushme-pullyou/tootoo-2026 ), still active
+* TooToo's rebuild is now [pushme-pullyou/tootoo]( https://github.com/pushme-pullyou/tootoo ): its source and releases in one repo. The previous tootoo repo is [tootoo-2026-11]( https://github.com/pushme-pullyou/tootoo-2026-11 ), still active
 * Dolittle stays the family's core; shared code moves in when GubGub begins
 * Pushme-Pullyou now works by pull: installs take numbered releases when their owners choose, and nothing is pushed out
 
