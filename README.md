@@ -18,9 +18,9 @@ Each animal has one job, and together they cover GitHub from a single repo on up
 | GubGub | One user's whole domain, higher up — repos, gists, organizations, wikis, projects, actions, issues | Gub-Gub the pig, curious and always rooting about | In progress |
 | DabDab | All of GitHub — search out interesting users, organizations and repositories by tags and topics | Dab-Dab the duck, the housekeeper: knows where everything is kept | In progress |
 | JipJip | Notes — read and write Markdown notes kept in a repo, straight from the browser (the new [notesy]( https://github.com/theo-armour/sandbox/blob/main/0-apps/notesy/notesy.html )) | Jip the dog, the Doctor's faithful companion: fetches and carries | Prototype |
-| Pushme-Pullyou | Between the repos — the two-headed release pipeline: one head pulls improvements in, the other pushes builds out | The pushmi-pullyu itself, who talks to and hears from GitHub both ways | At work in [Dolittle]( https://github.com/pushme-pullyou/dolittle ) |
+| Pushme-Pullyou | Between the repos — the two-headed release flow: one head publishes each animal's numbered releases, the other lets every install pull the next one when its owner chooses | The pushmi-pullyu itself, who talks to and hears from GitHub both ways | At work in [TooToo's releases]( https://github.com/pushme-pullyou/tootoo/releases ), by the rules kept in [Dolittle]( https://github.com/pushme-pullyou/dolittle ) |
 
-And every animal is born in the same place: **[Dolittle]( https://github.com/pushme-pullyou/dolittle )**, the Doctor's workshop — the shared source and assembly pipeline, named for the one character who isn't an animal and whose house they all live in. One animal lives there permanently: **Pushme-Pullyou** itself, the two-headed beast, is the release pipeline — one head pulls improvements in from the animals, the other pushes finished builds out to each animal's repo. It can talk to and hear from GitHub, and it may well develop more special powers as we learn what it can do. So the family name stays simple: the organization is the family, this site is the front door, Dolittle is where the work happens, and Pushme-Pullyou does the pushing and pulling.
+And every animal is born in the same place: **[Dolittle]( https://github.com/pushme-pullyou/dolittle )**, the Doctor's workshop — the family's core: the shared rules and plans, and, as the second animal arrives, the shared code, named for the one character who isn't an animal and whose house they all live in. Each animal then grows in its own repo, which holds its source and its releases. **Pushme-Pullyou** itself, the two-headed beast, is how releases travel — one head publishes each animal's numbered releases, the other lets every install pull the next one when its owner chooses; nothing is pushed out. It can talk to and hear from GitHub, and it may well develop more special powers as we learn what it can do. So the family name stays simple: the organization is the family, this site is the front door, Dolittle is the core, and Pushme-Pullyou does the pushing and pulling.
 
 ## The Archive
 
@@ -36,6 +36,12 @@ Old deep links to this domain are forwarded there automatically by [404.html]( 4
 * Theo Armour: <https://theo-armour.github.io/>
 
 ## Changelog
+
+### 2026-11-23
+
+* TooToo's rebuild is now [pushme-pullyou/tootoo]( https://github.com/pushme-pullyou/tootoo ): its source and releases in one repo. The previous tootoo repo is [tootoo-2026]( https://github.com/pushme-pullyou/tootoo-2026 ), still active
+* Dolittle stays the family's core; shared code moves in when GubGub begins
+* Pushme-Pullyou now works by pull: installs take numbered releases when their owners choose, and nothing is pushed out
 
 ### 2026-10-31
 
